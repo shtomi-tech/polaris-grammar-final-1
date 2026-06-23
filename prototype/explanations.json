@@ -1,0 +1,5501 @@
+{
+ "chokyu_super-001": {
+  "why_correct": "主語が I のときの be動詞は am。これは決まり文句として丸ごと覚えてしまうのが近道で、ふだんは I am → I'm と短くなります。",
+  "why_wrong": {
+   "is": "is は he / she / it や This など「3人称単数」のときの形。I には使えません。",
+   "are": "are は you や we / they など「複数（と you）」のときの形。主語 I には合いません。",
+   "be": "be は変化する前の「原形」。am / is / are のどれかに形を変えてから使うので、このままでは置けません。"
+  },
+  "point": "be動詞は主語で形が決まる：I → am、you・複数 → are、3人称単数 → is。まずこの3つの組を覚えましょう。",
+  "example": "I am from Japan.",
+  "example_ja": "私は日本の出身です。"
+ },
+ "chokyu_super-002": {
+  "why_correct": "She は「3人称単数（彼女＝1人）」なので be動詞は is。He is / She is / It is がワンセットです。",
+  "why_wrong": {
+   "am": "am は主語が I のときだけ使う特別な形です。",
+   "are": "are は you や複数（we / they）用。単数の She には合いません。",
+   "be": "be は原形。is などに形を変えてから使います。"
+  },
+  "point": "3人称単数（he / she / it / 人名1人 / this など）は is。",
+  "example": "She is a tennis player.",
+  "example_ja": "彼女はテニス選手です。"
+ },
+ "chokyu_super-003": {
+  "why_correct": "They は「彼ら／それら（複数）」なので are。文は now にあたる現在の状態を表しています。",
+  "why_wrong": {
+   "am": "am は I 専用です。",
+   "is": "is は単数（1つ・1人）用。複数の They には合いません。",
+   "was": "was は過去形。ここは「今 教室にいる」という現在の話なので過去形は不要です。"
+  },
+  "point": "複数の主語（they / we / 〜 and 〜）は現在なら are。",
+  "example": "They are in the library now.",
+  "example_ja": "彼らは今、図書館にいます。"
+ },
+ "chokyu_super-004": {
+  "why_correct": "You は1人でも複数でも be動詞は are になります（you に am / is は使いません）。",
+  "why_wrong": {
+   "am": "am は I のときだけ。",
+   "is": "is は3人称単数用。you には合いません。",
+   "be": "be は原形なので、このままでは使えません。"
+  },
+  "point": "you は単数・複数どちらでも are。これは例外として覚えておくと安心です。",
+  "example": "You are a good friend.",
+  "example_ja": "あなたはよい友達です。"
+ },
+ "chokyu_super-005": {
+  "why_correct": "This（これは）は1つを指す単数なので is。",
+  "why_wrong": {
+   "am": "am は I 専用です。",
+   "are": "are は複数や you 用。単数の This には合いません。",
+   "be": "be は原形。is に変えてから使います。"
+  },
+  "point": "this / that は is、these / those（複数）は are。指すものの数で決まります。",
+  "example": "This is my umbrella.",
+  "example_ja": "これは私の傘です。"
+ },
+ "chokyu_super-006": {
+  "why_correct": "We は「私たち（複数）」なので are。",
+  "why_wrong": {
+   "am": "am は I だけ。we には使いません。",
+   "is": "is は単数用。複数の We には合いません。",
+   "be": "be は原形なのでこのままでは置けません。"
+  },
+  "point": "we / they / 複数名詞は現在なら are。",
+  "example": "We are in the same class.",
+  "example_ja": "私たちは同じクラスです。"
+ },
+ "chokyu_super-007": {
+  "why_correct": "Tom and I は「トムと私＝2人」で複数（= we と同じ）なので are。I が入っていても2人以上なら are です。",
+  "why_wrong": {
+   "am": "am は主語が I 1人のときだけ。and で2人になっているので使えません。",
+   "is": "is は単数用。2人なので合いません。",
+   "be": "be は原形なので使えません。"
+  },
+  "point": "「A and B」は2つ以上＝複数 → are。I が含まれていても惑わされないこと。",
+  "example": "My brother and I are soccer fans.",
+  "example_ja": "兄と私はサッカーファンです。"
+ },
+ "chokyu_super-008": {
+  "why_correct": "be動詞の疑問文は、be動詞を主語の前に出します。You are → Are you …? となるので Are が正解。",
+  "why_wrong": {
+   "Am": "Am は主語が I のとき（Am I …?）。you には合いません。",
+   "Is": "Is は3人称単数のとき（Is she …?）。you には合いません。",
+   "Do": "Do は一般動詞の疑問文（Do you play …?）で使うもの。be動詞の文には使いません。"
+  },
+  "point": "be動詞の疑問文＝「be動詞＋主語…?」。Do は使わないのが重要ポイントです。",
+  "example": "Are you a junior high school student?",
+  "example_ja": "あなたは中学生ですか。"
+ },
+ "chokyu_super-009": {
+  "why_correct": "yesterday（昨日）があるので過去の文。主語 I の be動詞の過去形は was です。",
+  "why_wrong": {
+   "am": "am は現在の I の形。yesterday があるので過去形が必要です。",
+   "is": "is は現在の3人称単数の形。時制も主語も合いません。",
+   "were": "were は過去でも you や複数のときの形。I には was を使います。"
+  },
+  "point": "be動詞の過去形は I・3人称単数 → was、you・複数 → were。yesterday / ago / last 〜 は過去の合図。",
+  "example": "I was very busy yesterday.",
+  "example_ja": "私は昨日とても忙しかったです。"
+ },
+ "chokyu_super-010": {
+  "why_correct": "last night（昨夜）で過去の文。They は複数なので過去形は were。",
+  "why_wrong": {
+   "was": "was は単数（I / he / she など）の過去形。複数の They には合いません。",
+   "is": "is は現在形。last night があるので過去にします。",
+   "are": "are は現在形。時制が合いません。"
+  },
+  "point": "複数主語の過去は were。「last 〜」は過去のサインです。",
+  "example": "They were at the station last night.",
+  "example_ja": "彼らは昨夜、駅にいました。"
+ },
+ "chokyu_super-011": {
+  "why_correct": "ten years ago（10年前）で過去の文。She は単数なので was。",
+  "why_wrong": {
+   "were": "were は you・複数の過去形。単数の She には was を使います。",
+   "is": "is は現在形。ago があるので過去にします。",
+   "am": "am は現在の I 専用の形です。"
+  },
+  "point": "単数主語の過去は was。「〜 ago」は過去の合図。",
+  "example": "He was a little boy ten years ago.",
+  "example_ja": "彼は10年前は小さな男の子でした。"
+ },
+ "chokyu_super-012": {
+  "why_correct": "last week（先週）で過去の文。We は複数なので were。",
+  "why_wrong": {
+   "was": "was は単数の過去形。複数の We には合いません。",
+   "is": "is は現在形。last week があるので過去にします。",
+   "am": "am は現在の I 専用の形です。"
+  },
+  "point": "we / they / 複数名詞の過去は were。",
+  "example": "We were in Osaka last week.",
+  "example_ja": "私たちは先週、大阪にいました。"
+ },
+ "chokyu_super-013": {
+  "why_correct": "主語 I は3人称単数ではないので、一般動詞はそのままの形（原形）play を使います。",
+  "why_wrong": {
+   "plays": "plays は he / she / it（3人称単数）のときの形。I には付けません。",
+   "playing": "playing（-ing形）は be動詞とセット（am playing）で使う形。単独では動詞になれません。",
+   "played": "played は過去形。every day（毎日）は今の習慣なので現在形にします。"
+  },
+  "point": "主語が he / she / it（3人称単数）のときだけ動詞に -s/-es。それ以外は原形のまま。",
+  "example": "I play the guitar every day.",
+  "example_ja": "私は毎日ギターを弾きます。"
+ },
+ "chokyu_super-014": {
+  "why_correct": "主語 He は3人称単数なので、一般動詞に -s を付けて plays。",
+  "why_wrong": {
+   "play": "play は I / you / 複数のときの原形。He には -s が必要です。",
+   "playing": "-ing形は be動詞が必要（is playing）。単独では使えません。",
+   "played": "played は過去形。on Sunday（毎週日曜）は習慣なので現在形に。"
+  },
+  "point": "3人称単数（he / she / it）には動詞に -s/-es を付ける（3単現）。",
+  "example": "He plays soccer after school.",
+  "example_ja": "彼は放課後サッカーをします。"
+ },
+ "chokyu_super-015": {
+  "why_correct": "She は3人称単数。go は o で終わるので -es を付けて goes。",
+  "why_wrong": {
+   "go": "go は I / you / 複数のときの原形です。",
+   "going": "-ing形は be動詞が必要（is going）。",
+   "went": "went は過去形。今の習慣を表すので現在形にします。"
+  },
+  "point": "o / s / x / ch / sh で終わる動詞は -es（go→goes, do→does, watch→watches）。",
+  "example": "She goes to bed early.",
+  "example_ja": "彼女は早く寝ます。"
+ },
+ "chokyu_super-016": {
+  "why_correct": "They は複数なので、一般動詞は原形のまま live。",
+  "why_wrong": {
+   "lives": "lives は3人称単数（he / she / it）の形。複数の They には付けません。",
+   "living": "-ing形は be動詞が必要（are living）。",
+   "to live": "to+原形（不定詞）は文の述語（動詞）になれません。"
+  },
+  "point": "複数主語は原形。-s が付くのは3人称単数のときだけ。",
+  "example": "They live near the station.",
+  "example_ja": "彼らは駅の近くに住んでいます。"
+ },
+ "chokyu_super-017": {
+  "why_correct": "My father は「彼＝3人称単数」なので、drink に -s を付けて drinks。",
+  "why_wrong": {
+   "drink": "drink は I / you / 複数のときの原形です。",
+   "drinking": "-ing形は be動詞が必要（is drinking）。",
+   "drank": "drank は過去形。every morning（毎朝）は習慣なので現在形に。"
+  },
+  "point": "「父・母・名前1人」などは3人称単数 → 動詞に -s。",
+  "example": "My mother drinks tea every morning.",
+  "example_ja": "母は毎朝お茶を飲みます。"
+ },
+ "chokyu_super-018": {
+  "why_correct": "like は一般動詞。主語 you の一般動詞の疑問文は Do you …? なので Do。",
+  "why_wrong": {
+   "Does": "Does は he / she / it（3人称単数）が主語のとき。you には Do を使います。",
+   "Is": "Is は be動詞の疑問文用。like は一般動詞なので be動詞は使いません。",
+   "Are": "Are も be動詞の疑問文用。一般動詞の文では使いません。"
+  },
+  "point": "一般動詞の疑問文＝Do / Does ＋主語＋原形。3単現の主語なら Does。",
+  "example": "Do you like music?",
+  "example_ja": "あなたは音楽が好きですか。"
+ },
+ "chokyu_super-019": {
+  "why_correct": "主語 she は3人称単数。一般動詞の疑問文なので Does she have …?（have は原形のまま）。",
+  "why_wrong": {
+   "Do": "Do は I / you / 複数が主語のとき。3単現の she には Does。",
+   "Is": "Is は be動詞用。have は一般動詞なので be動詞は使いません。",
+   "Are": "Are も be動詞用です。"
+  },
+  "point": "3人称単数主語の疑問文は Does＋原形。動詞に -s は付けない（have に -s 不要）。",
+  "example": "Does he like soccer?",
+  "example_ja": "彼はサッカーが好きですか。"
+ },
+ "chokyu_super-020": {
+  "why_correct": "eat は一般動詞。主語 I の否定は do not（don't）＋原形なので do。",
+  "why_wrong": {
+   "does": "does は3人称単数の否定（doesn't）に使う形。I には do を使います。",
+   "am": "am は be動詞。eat は一般動詞なので be動詞では否定できません。",
+   "is": "is も be動詞。一般動詞の否定には使いません。"
+  },
+  "point": "一般動詞の否定＝do / does not ＋原形。3単現主語なら does not。",
+  "example": "I do not like coffee.",
+  "example_ja": "私はコーヒーが好きではありません。"
+ },
+ "chokyu_super-021": {
+  "why_correct": "two（2つ）があるので複数。ふつうの名詞は -s を付けて dogs。",
+  "why_wrong": {
+   "dog": "dog は単数（1匹）。two があるので複数形にします。",
+   "doges": "そのような形はありません。dog の複数は -s だけ付けます。",
+   "dog's": "アポストロフィ＋s は「犬の（所有格）」で、複数の意味ではありません。"
+  },
+  "point": "ふつうの名詞の複数形は語尾に -s。",
+  "example": "I have two cats.",
+  "example_ja": "私は猫を2匹飼っています。"
+ },
+ "chokyu_super-022": {
+  "why_correct": "box は -x で終わるので、複数形は -es を付けて boxes。",
+  "why_wrong": {
+   "box": "box は単数。three があるので複数形に。",
+   "boxs": "-x で終わる語は -s だけでなく -es を付けます。",
+   "boxies": "そのような形はありません。"
+  },
+  "point": "s / x / ch / sh で終わる名詞は -es（box→boxes, bus→buses, dish→dishes）。",
+  "example": "There are two buses.",
+  "example_ja": "バスが2台あります。"
+ },
+ "chokyu_super-023": {
+  "why_correct": "child（子ども）の複数形は不規則で children。",
+  "why_wrong": {
+   "child": "child は単数（1人）。many があるので複数形に。",
+   "childs": "child は不規則なので -s は付けません。",
+   "childrens": "children でもう複数の意味。さらに -s は付けません。"
+  },
+  "point": "不規則複数：child→children, man→men, woman→women。",
+  "example": "There are many children in the park.",
+  "example_ja": "公園にはたくさんの子どもがいます。"
+ },
+ "chokyu_super-024": {
+  "why_correct": "five（5冊）があるので複数。book に -s を付けて books。",
+  "why_wrong": {
+   "book": "book は単数（1冊）です。",
+   "bookes": "k で終わる語は -s だけ。-es は付けません。",
+   "book's": "アポストロフィ＋s は所有格「本の」で複数ではありません。"
+  },
+  "point": "ふつうの名詞の複数は -s。",
+  "example": "She has five books.",
+  "example_ja": "彼女は本を5冊持っています。"
+ },
+ "chokyu_super-025": {
+  "why_correct": "foot（足）の複数形は不規則で feet。",
+  "why_wrong": {
+   "foot": "foot は単数（片足）。two があるので複数形に。",
+   "foots": "foot は不規則なので -s は付けません。",
+   "feets": "複数形は feet。さらに -s は付けません。"
+  },
+  "point": "不規則複数：foot→feet, tooth→teeth, mouse→mice。",
+  "example": "We have two feet.",
+  "example_ja": "私たちには足が2本あります。"
+ },
+ "chokyu_super-026": {
+  "why_correct": "knife は -fe で終わるので、複数形は -ves に変えて knives。",
+  "why_wrong": {
+   "knife": "knife は単数（1本）です。",
+   "knifes": "-f / -fe で終わる語は -ves に変えます。",
+   "knifies": "そのような形はありません。"
+  },
+  "point": "-f / -fe → -ves（knife→knives, leaf→leaves, life→lives）。",
+  "example": "There are many leaves on the ground.",
+  "example_ja": "地面にたくさんの葉があります。"
+ },
+ "chokyu_super-027": {
+  "why_correct": "apple は母音（ア）の音で始まるので an。",
+  "why_wrong": {
+   "a": "a は子音の音で始まる語の前で使います。",
+   "the": "the は「その（特定の1つ）」を指すとき。ここでは初めて出るリンゴなので a / an。",
+   "×（不要）": "数えられる単数名詞には冠詞（a / an / the）が必要です。"
+  },
+  "point": "母音の音（a・i・u・e・o）の前は an、子音の音の前は a。",
+  "example": "I want an orange.",
+  "example_ja": "私はオレンジが1つほしい。"
+ },
+ "chokyu_super-028": {
+  "why_correct": "teacher は子音（t）で始まるので a。",
+  "why_wrong": {
+   "an": "an は母音の音の前で使います。",
+   "the": "the は特定の人を指すとき。ここでは「（ある）先生」なので a。",
+   "×（不要）": "数えられる単数名詞には冠詞が必要です。"
+  },
+  "point": "子音の前は a、母音の前は an。",
+  "example": "She is a doctor.",
+  "example_ja": "彼女は医者です。"
+ },
+ "chokyu_super-029": {
+  "why_correct": "egg は母音（エ）で始まるので an。",
+  "why_wrong": {
+   "a": "a は子音の前で使います。",
+   "the": "the は特定の1つを指すとき。",
+   "×（不要）": "単数の可算名詞には冠詞が必要です。"
+  },
+  "point": "母音の音の前は an。",
+  "example": "There is an egg on the plate.",
+  "example_ja": "皿の上に卵が1つあります。"
+ },
+ "chokyu_super-030": {
+  "why_correct": "太陽は世界に1つしかないものなので the sun。",
+  "why_wrong": {
+   "a": "a は「（いくつもあるうちの）ひとつの」の意味で、1つしかないものには合いません。",
+   "an": "an も「ひとつの」の意味。太陽は1つだけなので the。",
+   "×（不要）": "the が必要です。"
+  },
+  "point": "1つしかないもの（the sun, the moon, the earth）や、すでに話に出たものには the。",
+  "example": "Look at the moon.",
+  "example_ja": "月を見て。"
+ },
+ "chokyu_super-031": {
+  "why_correct": "「楽器を演奏する」は play the ＋楽器 という決まった言い方なので the。",
+  "why_wrong": {
+   "a": "この言い方では a ではなく the を使います。",
+   "an": "an も使いません。",
+   "×（不要）": "the が必要です（play the piano）。"
+  },
+  "point": "楽器を演奏する：play the piano / the guitar / the violin（the を付ける）。",
+  "example": "She plays the violin.",
+  "example_ja": "彼女はバイオリンを弾きます。"
+ },
+ "chokyu_super-032": {
+  "why_correct": "orange は母音（オ）で始まるので an。",
+  "why_wrong": {
+   "a": "a は子音の前で使います。",
+   "the": "the は特定の1つを指すとき。",
+   "×（不要）": "単数の可算名詞には冠詞が必要です。"
+  },
+  "point": "母音の音の前は an。",
+  "example": "I ate an apple.",
+  "example_ja": "私はリンゴを1つ食べました。"
+ },
+ "chokyu_super-033": {
+  "why_correct": "「私は」と主語になるのは主格の I。",
+  "why_wrong": {
+   "My": "My は「私の（所有格）」で、後ろに名詞が必要です。",
+   "Me": "Me は「私を（目的格）」で、主語にはなりません。",
+   "Mine": "Mine は「私のもの」で、主語の「私は」とは違います。"
+  },
+  "point": "I（私は）/ my（私の）/ me（私を）/ mine（私のもの）を使い分ける。",
+  "example": "I am a student.",
+  "example_ja": "私は生徒です。"
+ },
+ "chokyu_super-034": {
+  "why_correct": "名詞 pen の前で「私の」を表すのは所有格の my。",
+  "why_wrong": {
+   "I": "I は「私は（主格）」で主語に使います。",
+   "me": "me は「私を（目的格）」です。",
+   "mine": "mine は「私のもの」で、後ろに名詞は置きません。"
+  },
+  "point": "所有格（my / your / his …）は必ず名詞の前に置く。",
+  "example": "This is my bag.",
+  "example_ja": "これは私のかばんです。"
+ },
+ "chokyu_super-035": {
+  "why_correct": "help の目的語（〜を）になるのは目的格の me。",
+  "why_wrong": {
+   "I": "I は主語に使う「私は」です。",
+   "my": "my は「私の」で後ろに名詞が必要です。",
+   "mine": "mine は「私のもの」です。"
+  },
+  "point": "動詞や前置詞の後ろ（〜を・〜に）は目的格（me / you / him / her …）。",
+  "example": "Please help me.",
+  "example_ja": "私を助けてください。"
+ },
+ "chokyu_super-036": {
+  "why_correct": "「私のもの」を1語で表すのは mine（my＋名詞の代わり）。",
+  "why_wrong": {
+   "I": "I は「私は（主格）」です。",
+   "my": "my は「私の」で、後ろに名詞が要ります（my book など）。",
+   "me": "me は「私を（目的格）」です。"
+  },
+  "point": "mine = my ＋ 名詞 をまとめた形。後ろに名詞は置かない。",
+  "example": "This book is mine.",
+  "example_ja": "この本は私のものです。"
+ },
+ "chokyu_super-037": {
+  "why_correct": "主語「彼女は」になるのは主格の She。",
+  "why_wrong": {
+   "Her": "Her は「彼女を（目的格）」「彼女の（所有格）」で主語にはなりません。",
+   "Hers": "Hers は「彼女のもの」です。",
+   "Herself": "Herself は「彼女自身」です。"
+  },
+  "point": "she（彼女は）/ her（彼女の・彼女を）/ hers（彼女のもの）。",
+  "example": "She is kind.",
+  "example_ja": "彼女は親切です。"
+ },
+ "chokyu_super-038": {
+  "why_correct": "know の目的語「彼を」になるのは目的格の him。",
+  "why_wrong": {
+   "he": "he は「彼は（主格）」で主語に使います。",
+   "his": "his は「彼の・彼のもの」です。",
+   "himself": "himself は「彼自身」です。"
+  },
+  "point": "動詞の後ろ（〜を）は目的格 him。",
+  "example": "I know him very well.",
+  "example_ja": "私は彼をよく知っています。"
+ },
+ "chokyu_super-039": {
+  "why_correct": "名詞 name の前で「彼の」を表すのは所有格の His。",
+  "why_wrong": {
+   "He": "He は「彼は（主格）」です。",
+   "Him": "Him は「彼を（目的格）」です。",
+   "Himself": "Himself は「彼自身」です。"
+  },
+  "point": "所有格 his は名詞の前に置いて「彼の〜」。",
+  "example": "His bag is new.",
+  "example_ja": "彼のかばんは新しい。"
+ },
+ "chokyu_super-040": {
+  "why_correct": "「私たちのもの」を1語で表すのは ours。",
+  "why_wrong": {
+   "we": "we は「私たちは（主格）」です。",
+   "our": "our は「私たちの」で、後ろに名詞が要ります。",
+   "us": "us は「私たちを（目的格）」です。"
+  },
+  "point": "ours = our ＋ 名詞 をまとめた形。",
+  "example": "This car is ours.",
+  "example_ja": "この車は私たちのものです。"
+ },
+ "chokyu_super-041": {
+  "why_correct": "名詞 bag の前で「あなたの」を表すのは所有格の your。",
+  "why_wrong": {
+   "you": "you は「あなたは・あなたを」で、後ろの名詞を修飾できません。",
+   "yours": "yours は「あなたのもの」で、後ろに名詞は置きません。",
+   "you're": "you're は you are の短縮形で、まったく別の意味です。"
+  },
+  "point": "your（あなたの）と you're（＝you are）は混同に注意。",
+  "example": "Is this your pen?",
+  "example_ja": "これはあなたのペンですか。"
+ },
+ "chokyu_super-042": {
+  "why_correct": "主語「私たちは」になるのは主格の We。",
+  "why_wrong": {
+   "Our": "Our は「私たちの」で後ろに名詞が要ります。",
+   "Us": "Us は「私たちを（目的格）」です。",
+   "Ours": "Ours は「私たちのもの」です。"
+  },
+  "point": "we（私たちは）/ our（私たちの）/ us（私たちを）/ ours（私たちのもの）。",
+  "example": "We are good friends.",
+  "example_ja": "私たちは仲のよい友達です。"
+ },
+ "chokyu_super-043": {
+  "why_correct": "単数（1匹の dog）を近くから指すので This。",
+  "why_wrong": {
+   "These": "These は「これら」で複数を指します。",
+   "Those": "Those は「あれら」で複数を指します。",
+   "Them": "Them は「彼らを（目的格）」で主語に置けません。"
+  },
+  "point": "this / that は単数、these / those は複数を指す。",
+  "example": "This is my pen.",
+  "example_ja": "これは私のペンです。"
+ },
+ "chokyu_super-044": {
+  "why_correct": "複数の books を指すので These（これらの）。",
+  "why_wrong": {
+   "This": "This は単数を指します（books は複数）。",
+   "That": "That も単数を指します。",
+   "It": "It は1つを指す代名詞で、名詞の前に置けません。"
+  },
+  "point": "複数名詞の前は these / those。",
+  "example": "These books are mine.",
+  "example_ja": "これらの本は私のものです。"
+ },
+ "chokyu_super-045": {
+  "why_correct": "単数（1本の flower）を指すので This。",
+  "why_wrong": {
+   "These": "These は複数を指します。",
+   "Those": "Those も複数を指します。",
+   "Them": "Them は「彼らを（目的格）」で主語に置けません。"
+  },
+  "point": "単数 → this / that、複数 → these / those。",
+  "example": "This is a beautiful flower.",
+  "example_ja": "これは美しい花です。"
+ },
+ "chokyu_super-046": {
+  "why_correct": "複数の pencils を指すので these。",
+  "why_wrong": {
+   "this": "this は単数を指します（pencils は複数）。",
+   "that": "that も単数を指します。",
+   "it": "it は1つを指すので複数の pencils には合いません。"
+  },
+  "point": "複数名詞には these / those。",
+  "example": "Are these your books?",
+  "example_ja": "これらはあなたの本ですか。"
+ },
+ "chokyu_super-047": {
+  "why_correct": "「これは何？」とモノをたずねるので What。答えが a pen（モノ）です。",
+  "why_wrong": {
+   "Who": "Who は「だれ」と人をたずねます。",
+   "Where": "Where は「どこ」と場所をたずねます。",
+   "When": "When は「いつ」と時をたずねます。"
+  },
+  "point": "What（何）・Who（だれ）・Where（どこ）・When（いつ）を答えで見分ける。",
+  "example": "What is this? — It's a book.",
+  "example_ja": "これは何？ — 本です。"
+ },
+ "chokyu_super-048": {
+  "why_correct": "「あの男性はだれ？」と人をたずねるので Who。答えが my teacher（人）です。",
+  "why_wrong": {
+   "What": "What は「何」とモノをたずねます。",
+   "Where": "Where は「どこ」と場所をたずねます。",
+   "When": "When は「いつ」と時をたずねます。"
+  },
+  "point": "人をたずねるときは Who。",
+  "example": "Who is that woman? — She's my aunt.",
+  "example_ja": "あの女性はだれ？ — 私のおばです。"
+ },
+ "chokyu_super-049": {
+  "why_correct": "「どこに住んでいる？」と場所をたずねるので Where。答えが In Kyoto（場所）です。",
+  "why_wrong": {
+   "What": "What は「何」とモノをたずねます。",
+   "Who": "Who は「だれ」と人をたずねます。",
+   "When": "When は「いつ」と時をたずねます。"
+  },
+  "point": "場所をたずねるときは Where。",
+  "example": "Where do you live? — In Osaka.",
+  "example_ja": "どこに住んでいますか。 — 大阪です。"
+ },
+ "chokyu_super-050": {
+  "why_correct": "「誕生日はいつ？」と時をたずねるので When。答えが May 5th（日付）です。",
+  "why_wrong": {
+   "What": "What は「何」とモノをたずねます。",
+   "Who": "Who は「だれ」と人をたずねます。",
+   "Where": "Where は「どこ」と場所をたずねます。"
+  },
+  "point": "時・日付をたずねるときは When。",
+  "example": "When is the party? — Next Sunday.",
+  "example_ja": "パーティーはいつ？ — 次の日曜です。"
+ },
+ "chokyu_super-051": {
+  "why_correct": "「だれのかばん？」と持ち主をたずねるので Whose。答えが Tom's（〜のもの）です。",
+  "why_wrong": {
+   "Who": "Who は「だれが」と人そのものをたずねます（持ち主ではない）。",
+   "Which": "Which は「どちら・どれ」と選ばせるときに使います。",
+   "What": "What は「何」とモノをたずねます。"
+  },
+  "point": "持ち主（だれの〜）をたずねるときは Whose ＋ 名詞。",
+  "example": "Whose pen is this? — It's mine.",
+  "example_ja": "これはだれのペン？ — 私のです。"
+ },
+ "chokyu_super-052": {
+  "why_correct": "「どうやって学校へ行く？」と手段・方法をたずねるので How。答えが By bus です。",
+  "why_wrong": {
+   "What": "What は「何」とモノをたずねます。",
+   "When": "When は「いつ」と時をたずねます。",
+   "Who": "Who は「だれ」と人をたずねます。"
+  },
+  "point": "手段・方法・程度をたずねるときは How。",
+  "example": "How do you come here? — By train.",
+  "example_ja": "どうやってここに来ますか。 — 電車です。"
+ },
+ "chokyu_super-053": {
+  "why_correct": "名詞 color の前で「何の色」と種類をたずねるので What ＋ 名詞。",
+  "why_wrong": {
+   "Who": "Who は「だれ」と人をたずねます。",
+   "When": "When は「いつ」と時をたずねます。",
+   "Whose": "Whose は「だれの」と持ち主をたずねます。"
+  },
+  "point": "What ＋ 名詞で「何の〜」（What color / What sport）。",
+  "example": "What sport do you like?",
+  "example_ja": "あなたは何のスポーツが好きですか。"
+ },
+ "chokyu_super-054": {
+  "why_correct": "「なぜ悲しいの？」と理由をたずねるので Why。答えが Because …（理由）です。",
+  "why_wrong": {
+   "What": "What は「何」とモノをたずねます。",
+   "Who": "Who は「だれ」と人をたずねます。",
+   "When": "When は「いつ」と時をたずねます。"
+  },
+  "point": "理由をたずねるときは Why、答えは Because …。",
+  "example": "Why are you happy? — Because I passed the test.",
+  "example_ja": "なぜうれしいの？ — テストに合格したからです。"
+ },
+ "chokyu_super-055": {
+  "why_correct": "now（今〜している最中）なので現在進行形。主語 I なので am ＋ -ing で am reading。",
+  "why_wrong": {
+   "read": "read（現在形）は習慣を表し、「今〜している最中」は表せません。",
+   "reads": "reads は3人称単数の形で、主語 I には合いません。"
+  },
+  "point": "現在進行形＝be動詞（am / is / are）＋ 動詞の -ing。「今〜している」。",
+  "example": "I am reading a book now.",
+  "example_ja": "私は今、本を読んでいます。"
+ },
+ "chokyu_super-056": {
+  "why_correct": "「今 料理している」現在進行形。主語 She なので is cooking。",
+  "why_wrong": {
+   "cook": "cook は原形（I / 複数用）で、現在進行形になっていません。",
+   "cooks": "cooks は3単現（習慣の現在形）で「今〜中」を表しません。",
+   "cooked": "cooked は過去形です。"
+  },
+  "point": "is ＋ -ing で「（今）〜している」。",
+  "example": "She is cooking dinner now.",
+  "example_ja": "彼女は今、夕食を作っています。"
+ },
+ "chokyu_super-057": {
+  "why_correct": "now があるので現在進行形。They は複数なので are playing。",
+  "why_wrong": {
+   "play": "play は原形（現在形）で「今〜中」を表しません。",
+   "plays": "plays は3単現で複数の They に合いません。",
+   "played": "played は過去形です。"
+  },
+  "point": "複数主語の現在進行形は are ＋ -ing。",
+  "example": "They are playing soccer now.",
+  "example_ja": "彼らは今サッカーをしています。"
+ },
+ "chokyu_super-058": {
+  "why_correct": "doing（-ing）があるので進行形。主語 you なので are。What are you doing?",
+  "why_wrong": {
+   "do": "do は一般動詞の疑問文用で、doing（進行形）とは一緒に使いません。",
+   "does": "does も一般動詞の疑問文用で、ここでは使いません。",
+   "is": "is は主語 you には合いません（you は are）。"
+  },
+  "point": "進行形の疑問文＝be動詞＋主語＋ -ing。",
+  "example": "What are you doing now?",
+  "example_ja": "あなたは今何をしていますか。"
+ },
+ "chokyu_super-059": {
+  "why_correct": "is の後ろは -ing の形にするので watching（現在進行形）。",
+  "why_wrong": {
+   "watch": "原形 watch は is の後ろに置けません。",
+   "watches": "3単現 watches も is の後ろには続きません。",
+   "watched": "watched を is の後ろに置くと別の意味（受け身など）になります。"
+  },
+  "point": "be動詞＋ -ing。is の直後は必ず -ing。",
+  "example": "He is watching TV.",
+  "example_ja": "彼はテレビを見ています。"
+ },
+ "chokyu_super-060": {
+  "why_correct": "now があるので現在進行形。単数の the baby なので is sleeping。",
+  "why_wrong": {
+   "sleep": "原形 sleep では「今〜中」を表せません。",
+   "sleeps": "3単現 sleeps は習慣の現在形です。",
+   "slept": "slept は過去形です。"
+  },
+  "point": "単数主語の現在進行形は is ＋ -ing。",
+  "example": "The baby is sleeping now.",
+  "example_ja": "赤ちゃんは今眠っています。"
+ },
+ "chokyu_super-061": {
+  "why_correct": "yesterday があるので過去の文。go の過去形は不規則で went。",
+  "why_wrong": {
+   "go": "go は原形（現在）です。yesterday があるので過去形に。",
+   "goes": "goes は3単現（現在）です。",
+   "gone": "gone は過去分詞で、have gone のように使う形です。"
+  },
+  "point": "go→went→gone（不規則）。yesterday / ago / last 〜 は過去の合図。",
+  "example": "I went home early yesterday.",
+  "example_ja": "私は昨日早く帰りました。"
+ },
+ "chokyu_super-062": {
+  "why_correct": "last night があるので過去。write の過去形は不規則で wrote。",
+  "why_wrong": {
+   "write": "write は原形（現在）です。",
+   "writes": "writes は3単現（現在）です。",
+   "written": "written は過去分詞で、have written のように使います。"
+  },
+  "point": "write→wrote→written（不規則）。",
+  "example": "She wrote a letter last night.",
+  "example_ja": "彼女は昨夜手紙を書きました。"
+ },
+ "chokyu_super-063": {
+  "why_correct": "last night があるので過去。watch は規則動詞なので -ed を付けて watched。",
+  "why_wrong": {
+   "watch": "watch は原形（現在）です。",
+   "watches": "watches は3単現（現在）です。",
+   "watching": "-ing形は be動詞が必要です。"
+  },
+  "point": "規則動詞の過去形は -ed（watch→watched, play→played）。",
+  "example": "We watched a movie last night.",
+  "example_ja": "私たちは昨夜映画を見ました。"
+ },
+ "chokyu_super-064": {
+  "why_correct": "this morning（過去の出来事）なので過去形。eat の過去形は不規則で ate。",
+  "why_wrong": {
+   "eat": "eat は原形（現在）です。",
+   "eats": "eats は3単現（現在）です。",
+   "eaten": "eaten は過去分詞で、have eaten のように使います。"
+  },
+  "point": "eat→ate→eaten（不規則）。",
+  "example": "He ate breakfast at seven.",
+  "example_ja": "彼は7時に朝食を食べました。"
+ },
+ "chokyu_super-065": {
+  "why_correct": "yesterday があるので過去。play は規則動詞なので played。",
+  "why_wrong": {
+   "play": "play は原形（現在）です。",
+   "plays": "plays は3単現（現在）です。",
+   "playing": "-ing形は be動詞が必要です。"
+  },
+  "point": "規則動詞は -ed で過去形。",
+  "example": "They played tennis yesterday.",
+  "example_ja": "彼らは昨日テニスをしました。"
+ },
+ "chokyu_super-066": {
+  "why_correct": "last week があるので過去。buy の過去形は不規則で bought。",
+  "why_wrong": {
+   "buy": "buy は原形（現在）です。",
+   "buys": "buys は3単現（現在）です。",
+   "buying": "-ing形は be動詞が必要です。"
+  },
+  "point": "buy→bought（不規則）。",
+  "example": "I bought a new bag last week.",
+  "example_ja": "私は先週新しいかばんを買いました。"
+ },
+ "chokyu_super-067": {
+  "why_correct": "Did を使う疑問文では、動詞は原形にするので see。",
+  "why_wrong": {
+   "saw": "saw は過去形。Did と過去形を重ねては使いません。",
+   "seen": "seen は過去分詞で、Did の文では使いません。",
+   "sees": "sees は3単現（現在）です。"
+  },
+  "point": "Did ＋ 主語 ＋ 原形。過去は Did が受け持つので動詞は原形のまま。",
+  "example": "Did you see the movie?",
+  "example_ja": "あなたはその映画を見ましたか。"
+ },
+ "chokyu_super-068": {
+  "why_correct": "yesterday があり一般動詞 go の過去の否定なので did not（didn't）＋原形。",
+  "why_wrong": {
+   "do": "do not は現在の否定。yesterday があるので過去の did not に。",
+   "was": "was は be動詞。go は一般動詞なので be動詞では否定しません。",
+   "am": "am も be動詞で、一般動詞の否定には使いません。"
+  },
+  "point": "一般動詞の過去の否定＝did not ＋ 原形。",
+  "example": "I did not go to school yesterday.",
+  "example_ja": "私は昨日学校へ行きませんでした。"
+ },
+ "chokyu_super-069": {
+  "why_correct": "「来たとき読んでいた」＝過去のある時点で進行中なので過去進行形。主語 I なので was reading。",
+  "why_wrong": {
+   "read": "read だけでは「その時〜していた」を表せません。",
+   "reading": "-ing形は be動詞（was / were）が必要です。",
+   "reads": "reads は3単現（現在）です。"
+  },
+  "point": "過去進行形＝was / were ＋ -ing。「（その時）〜していた」。",
+  "example": "I was reading when you called.",
+  "example_ja": "あなたが電話したとき、私は読書していました。"
+ },
+ "chokyu_super-070": {
+  "why_correct": "at seven（その時点で進行中）の過去進行形。They は複数なので were having。",
+  "why_wrong": {
+   "have": "have は原形（現在）です。",
+   "are having": "are having は現在進行形です。",
+   "has": "has は3単現（現在）です。"
+  },
+  "point": "複数主語の過去進行形は were ＋ -ing。",
+  "example": "They were having dinner at seven.",
+  "example_ja": "彼らは7時に夕食をとっていました。"
+ },
+ "chokyu_super-071": {
+  "why_correct": "tomorrow があるので未来。will ＋ 原形で will study。",
+  "why_wrong": {
+   "am": "am（be動詞）だけでは一般動詞 study を未来にできません。",
+   "do": "do は疑問文・否定文を作る助動詞です。",
+   "was": "was は過去です。tomorrow は未来。"
+  },
+  "point": "未来は will ＋ 原形。tomorrow / next 〜 は未来の合図。",
+  "example": "I will call you tomorrow.",
+  "example_ja": "明日あなたに電話します。"
+ },
+ "chokyu_super-072": {
+  "why_correct": "tomorrow の予測なので未来。will be で will。",
+  "why_wrong": {
+   "is": "is は現在形です。tomorrow なので未来に。",
+   "are": "are も現在形で、主語 It にも合いません。",
+   "does": "does は一般動詞の疑問・否定用です。"
+  },
+  "point": "未来の予測も will ＋ 原形（will be）。",
+  "example": "It will be rainy tomorrow.",
+  "example_ja": "明日は雨でしょう。"
+ },
+ "chokyu_super-073": {
+  "why_correct": "be going to ＋ 原形「〜する予定」。is going to なので going。",
+  "why_wrong": {
+   "go": "is go とは言いません。going の形にします。",
+   "goes": "goes は3単現で、be going to の形になりません。",
+   "went": "went は過去形です。"
+  },
+  "point": "be going to do「〜するつもり／予定」。",
+  "example": "I am going to visit my uncle.",
+  "example_ja": "私はおじを訪ねるつもりです。"
+ },
+ "chokyu_super-074": {
+  "why_correct": "be going to の後ろは原形なので to see。",
+  "why_wrong": {
+   "see": "going の後は to ＋ 原形（to see）にします。",
+   "seeing": "going to seeing とは言いません。",
+   "saw": "saw は過去形です。"
+  },
+  "point": "be going to ＋ 原形（going to see / go / eat …）。",
+  "example": "We are going to see a movie.",
+  "example_ja": "私たちは映画を見るつもりです。"
+ },
+ "chokyu_super-075": {
+  "why_correct": "「〜してくれますか」と依頼するときは Will you …?",
+  "why_wrong": {
+   "Do": "Do you …? は今の習慣をたずねる言い方です。",
+   "Are": "Are は be動詞の疑問文用です。",
+   "Is": "Is も be動詞の疑問文用です。"
+  },
+  "point": "依頼（〜してくれますか）は Will you …? / Can you …?",
+  "example": "Will you open the door?",
+  "example_ja": "ドアを開けてくれますか。"
+ },
+ "chokyu_super-076": {
+  "why_correct": "主語 I の be動詞は am なので am going to。",
+  "why_wrong": {
+   "is": "is は3人称単数用です。",
+   "are": "are は you / 複数用です。",
+   "do": "do は一般動詞の助動詞で、going to の前には置きません。"
+  },
+  "point": "be going to の be は主語に合わせる（I am / he is / they are）。",
+  "example": "I am going to play tennis.",
+  "example_ja": "私はテニスをするつもりです。"
+ },
+ "chokyu_super-077": {
+  "why_correct": "「〜できる」という能力は can ＋ 原形で can swim。",
+  "why_wrong": {
+   "am": "am（be動詞）は一般動詞 swim の前に置けません。",
+   "do": "do は疑問文・否定文を作る助動詞です。",
+   "is": "is も be動詞で、ここでは使いません。"
+  },
+  "point": "can ＋ 原形「〜できる」。",
+  "example": "I can swim fast.",
+  "example_ja": "私は速く泳げます。"
+ },
+ "chokyu_super-078": {
+  "why_correct": "「〜してもいいですか」と許可を求めるときは May I …?",
+  "why_wrong": {
+   "Do": "Do I …? は許可のニュアンスになりません。",
+   "Are": "Are は be動詞の疑問文用です。",
+   "Will": "Will は未来・依頼で、許可を求める言い方とは違います。"
+  },
+  "point": "許可を求める丁寧な言い方は May I …?",
+  "example": "May I come in?",
+  "example_ja": "入ってもいいですか。"
+ },
+ "chokyu_super-079": {
+  "why_correct": "「〜しなければならない」という義務は must ＋ 原形。",
+  "why_wrong": {
+   "are": "are（be動詞）は一般動詞 do の前に置けません。",
+   "do": "do は助動詞ですが、ここでは意味が通りません。",
+   "be": "be は原形で、このままでは使えません。"
+  },
+  "point": "must ＋ 原形「〜しなければならない」。",
+  "example": "You must finish your homework.",
+  "example_ja": "あなたは宿題を終えなければなりません。"
+ },
+ "chokyu_super-080": {
+  "why_correct": "「〜できますか」と can でたずねるので Can ＋ 主語 ＋ 原形。",
+  "why_wrong": {
+   "Are": "Are は be動詞の疑問文用です。",
+   "Is": "Is も be動詞の疑問文用です。",
+   "Be": "Be は原形で、疑問文の文頭には使いません。"
+  },
+  "point": "can の疑問文は Can ＋ 主語 ＋ 原形。",
+  "example": "Can you play the guitar?",
+  "example_ja": "あなたはギターを弾けますか。"
+ },
+ "chokyu_super-081": {
+  "why_correct": "「静かにしなければならない」義務は must。must be quiet。",
+  "why_wrong": {
+   "are": "are の後ろに be を続けるのは不自然です。",
+   "do": "do は意味が通りません。",
+   "can": "can は「〜できる」で、義務（〜ねばならない）とは違います。"
+  },
+  "point": "must ＋ 原形（must be / must go …）。",
+  "example": "We must be quiet in the library.",
+  "example_ja": "図書館では静かにしなければなりません。"
+ },
+ "chokyu_super-082": {
+  "why_correct": "「英語を話せる」能力は can ＋ 原形で can speak。",
+  "why_wrong": {
+   "is": "is は be動詞で、一般動詞 speak の前に置けません。",
+   "do": "do は疑問・否定用の助動詞です。",
+   "has": "has は「持っている」で、ここでは意味が通りません。"
+  },
+  "point": "can ＋ 原形「〜できる」。",
+  "example": "She can speak English well.",
+  "example_ja": "彼女は英語を上手に話せます。"
+ },
+ "chokyu_super-083": {
+  "why_correct": "be動詞の命令文は原形 Be で始めます。Be quiet.",
+  "why_wrong": {
+   "Are": "Are は主語のある文で使います。命令文は原形 Be。",
+   "Do": "Do は一般動詞の命令の否定などで使います。",
+   "Is": "Is も主語のある文で使う形です。"
+  },
+  "point": "命令文は動詞の原形で始める。be動詞なら Be。",
+  "example": "Be careful.",
+  "example_ja": "気をつけて。"
+ },
+ "chokyu_super-084": {
+  "why_correct": "「〜するな」という否定命令は Don't ＋ 原形。",
+  "why_wrong": {
+   "Not": "Not だけでは命令文を作れません。",
+   "No": "No だけでも命令文になりません。",
+   "Doesn't": "Doesn't は3単現用で、命令文には使いません。"
+  },
+  "point": "否定命令は Don't ＋ 原形「〜してはいけない」。",
+  "example": "Don't run in the hallway.",
+  "example_ja": "廊下を走ってはいけません。"
+ },
+ "chokyu_super-085": {
+  "why_correct": "命令文は動詞の原形で始めるので Wash。",
+  "why_wrong": {
+   "Washes": "Washes は3単現の形で、命令文には使いません。",
+   "Washing": "-ing形は命令文の先頭には使いません。",
+   "Washed": "Washed は過去形です。"
+  },
+  "point": "命令文は主語を省いて動詞の原形から始める。",
+  "example": "Wash your hands before lunch.",
+  "example_ja": "昼食の前に手を洗いなさい。"
+ },
+ "chokyu_super-086": {
+  "why_correct": "Let's ＋ 原形「〜しよう」なので go。",
+  "why_wrong": {
+   "goes": "Let's の後ろは原形。goes は使いません。",
+   "going": "-ing形は使いません。",
+   "went": "went は過去形です。"
+  },
+  "point": "Let's ＋ 原形「（いっしょに）〜しよう」。",
+  "example": "Let's go to the park.",
+  "example_ja": "公園へ行こう。"
+ },
+ "chokyu_super-087": {
+  "why_correct": "a cat（単数）が「いる」ので There is。",
+  "why_wrong": {
+   "are": "are は複数のときに使います（a cat は単数）。",
+   "am": "am は I am のときの形です。",
+   "be": "be は原形で、このままでは使えません。"
+  },
+  "point": "There is ＋ 単数、There are ＋ 複数。「〜がある／いる」。",
+  "example": "There is a book on the desk.",
+  "example_ja": "机の上に本が1冊あります。"
+ },
+ "chokyu_super-088": {
+  "why_correct": "many books（複数）が「ある」ので There are。",
+  "why_wrong": {
+   "is": "is は単数のときに使います（books は複数）。",
+   "am": "am は I am のときの形です。",
+   "was": "was は過去形です。"
+  },
+  "point": "複数名詞には There are。",
+  "example": "There are many students in the room.",
+  "example_ja": "部屋にはたくさんの生徒がいます。"
+ },
+ "chokyu_super-089": {
+  "why_correct": "water は数えられない名詞（単数扱い）なので There is。",
+  "why_wrong": {
+   "are": "are は複数のとき。water は数えられないので単数扱いです。",
+   "am": "am は I am のときの形です。",
+   "were": "were は過去形です。"
+  },
+  "point": "数えられない名詞（water / milk / money）は単数扱いで is。",
+  "example": "There is some milk in the glass.",
+  "example_ja": "コップに牛乳が少し入っています。"
+ },
+ "chokyu_super-090": {
+  "why_correct": "There is の疑問文は is を前に出して Is there …? 単数 a park なので Is。",
+  "why_wrong": {
+   "Are": "Are は複数のとき（a park は単数）。",
+   "Am": "Am は I am のときの形です。",
+   "Do": "Do は一般動詞用で、be動詞には使いません。"
+  },
+  "point": "Is there ＋ 単数 …? / Are there ＋ 複数 …?",
+  "example": "Is there a station near here?",
+  "example_ja": "この近くに駅はありますか。"
+ },
+ "chokyu_super-091": {
+  "why_correct": "肯定文で「いくつかの」を表すのは some。",
+  "why_wrong": {
+   "any": "any はふつう否定文・疑問文で使います。",
+   "much": "much は数えられない名詞用（apples は数えられる）。",
+   "a little": "a little は数えられない名詞の「少し」です。"
+  },
+  "point": "some（肯定文）／any（否定文・疑問文）。",
+  "example": "I have some pens.",
+  "example_ja": "私はペンを何本か持っています。"
+ },
+ "chokyu_super-092": {
+  "why_correct": "否定文で「少しも〜ない」を表すのは any。don't have any money。",
+  "why_wrong": {
+   "some": "some はふつう肯定文で使います。",
+   "many": "many は数えられる名詞用（money は数えられない）。",
+   "a few": "a few も数えられる名詞用です。"
+  },
+  "point": "否定文では any。「not 〜 any」で「少しも〜ない」。",
+  "example": "I don't have any time.",
+  "example_ja": "私には少しも時間がありません。"
+ },
+ "chokyu_super-093": {
+  "why_correct": "books は数えられる名詞。数をたずねるので How many。",
+  "why_wrong": {
+   "much": "much は量（数えられない名詞）をたずねるときに使います。",
+   "long": "long は長さ・期間をたずねます（How long）。",
+   "old": "old は年齢・古さをたずねます（How old）。"
+  },
+  "point": "How many ＋ 数えられる複数名詞／How much ＋ 数えられない名詞。",
+  "example": "How many pens do you have?",
+  "example_ja": "ペンを何本持っていますか。"
+ },
+ "chokyu_super-094": {
+  "why_correct": "water は数えられない名詞。量をたずねるので How much。",
+  "why_wrong": {
+   "many": "many は数えられる名詞用です（water は数えられない）。",
+   "long": "long は長さ・期間をたずねます。",
+   "old": "old は年齢・古さをたずねます。"
+  },
+  "point": "数えられない名詞の量は How much。",
+  "example": "How much money do you have?",
+  "example_ja": "お金をいくら持っていますか。"
+ },
+ "chokyu_super-095": {
+  "why_correct": "時刻（seven）の前に置く前置詞は at。",
+  "why_wrong": {
+   "in": "in は月・年・季節など長い期間に使います。",
+   "on": "on は曜日・日付に使います。",
+   "to": "to は「〜へ」と方向を表します。"
+  },
+  "point": "時刻は at、曜日・日付は on、月・年・季節は in。",
+  "example": "I get up at six.",
+  "example_ja": "私は6時に起きます。"
+ },
+ "chokyu_super-096": {
+  "why_correct": "月（April）の前に置く前置詞は in。",
+  "why_wrong": {
+   "on": "on は曜日・日付に使います。",
+   "at": "at は時刻に使います。",
+   "to": "to は「〜へ」と方向を表します。"
+  },
+  "point": "月・年・季節は in（in April / in 2025 / in summer）。",
+  "example": "My birthday is in May.",
+  "example_ja": "私の誕生日は5月です。"
+ },
+ "chokyu_super-097": {
+  "why_correct": "曜日（Sunday）の前に置く前置詞は on。",
+  "why_wrong": {
+   "in": "in は月・年・季節に使います。",
+   "at": "at は時刻に使います。",
+   "to": "to は「〜へ」と方向を表します。"
+  },
+  "point": "曜日・日付は on（on Sunday / on May 5th）。",
+  "example": "We have a test on Monday.",
+  "example_ja": "月曜日にテストがあります。"
+ },
+ "chokyu_super-098": {
+  "why_correct": "「〜の上に（接して）」を表す前置詞は on。",
+  "why_wrong": {
+   "in": "in は「〜の中に」です。",
+   "at": "at は「〜の地点に」です。",
+   "of": "of は「〜の」で、位置を表しません。"
+  },
+  "point": "on（接している上）／in（中）／under（下）。",
+  "example": "The book is on the desk.",
+  "example_ja": "本は机の上にあります。"
+ },
+ "chokyu_super-099": {
+  "why_correct": "「猫と犬」と並べてつなぐので and。",
+  "why_wrong": {
+   "but": "but は「しかし」と逆の内容をつなぎます。",
+   "or": "or は「または」と選択肢をつなぎます。",
+   "so": "so は「だから」と結果をつなぎます。"
+  },
+  "point": "and（そして・並列）／but（しかし）／or（または）／so（だから）。",
+  "example": "I like apples and oranges.",
+  "example_ja": "私はリンゴとオレンジが好きです。"
+ },
+ "chokyu_super-100": {
+  "why_correct": "「疲れていた、だから寝た」と原因→結果をつなぐので so。",
+  "why_wrong": {
+   "but": "but は「しかし」と逆接でつなぎます。",
+   "or": "or は「または」と選択肢をつなぎます。",
+   "because": "because は「〜なので」と後ろに理由を続けます（前後が逆）。"
+  },
+  "point": "so は「だから（結果）」、because は「なぜなら（理由）」。向きが逆。",
+  "example": "It rained, so I stayed home.",
+  "example_ja": "雨が降った、だから家にいました。"
+ },
+ "shokyu-001": {
+  "why_correct": "every Sunday（毎週日曜）は習慣を表すので現在形。主語 I は原形のまま go。",
+  "why_wrong": {
+   "goes": "goes は3人称単数（he / she / it）のときの形です。",
+   "went": "went は過去形。every Sunday は今の習慣なので現在形に。",
+   "gone": "gone は過去分詞で、have gone のように使う形です。"
+  },
+  "point": "every ＋ 時（習慣）は現在形。主語が I / you / 複数なら原形。",
+  "example": "I go to the gym every Sunday.",
+  "example_ja": "私は毎週日曜にジムへ行きます。"
+ },
+ "shokyu-002": {
+  "why_correct": "「電話したとき（ちょうど）見ていた最中」なので過去進行形 was watching。",
+  "why_wrong": {
+   "watch": "watch は原形（現在）で、過去の進行を表せません。",
+   "watched": "watched は過去形で「（ただ）見た」。進行中の意味が出ません。",
+   "watches": "watches は3単現（現在）です。"
+  },
+  "point": "「〜したとき…していた」は過去進行形（was / were ＋ -ing）。",
+  "example": "She was cooking when I arrived.",
+  "example_ja": "私が着いたとき、彼女は料理をしていました。"
+ },
+ "shokyu-003": {
+  "why_correct": "now があるので現在進行形。They は複数なので are playing。",
+  "why_wrong": {
+   "play": "play は原形（習慣の現在形）で「今〜中」を表しません。",
+   "plays": "plays は3単現で複数の They に合いません。",
+   "played": "played は過去形です。"
+  },
+  "point": "複数主語の現在進行形は are ＋ -ing。",
+  "example": "They are studying now.",
+  "example_ja": "彼らは今勉強しています。"
+ },
+ "shokyu-004": {
+  "why_correct": "yesterday があるので過去。see の過去形は不規則で saw。",
+  "why_wrong": {
+   "see": "see は原形（現在）です。",
+   "seen": "seen は過去分詞で、have seen のように使います。",
+   "seeing": "-ing形は be動詞が必要です。"
+  },
+  "point": "see→saw→seen（不規則）。yesterday は過去の合図。",
+  "example": "I saw her at the park yesterday.",
+  "example_ja": "私は昨日公園で彼女を見ました。"
+ },
+ "shokyu-005": {
+  "why_correct": "next week があるので未来。will ＋ 原形で will visit。",
+  "why_wrong": {
+   "are": "are（be動詞）だけでは一般動詞 visit を未来にできません。",
+   "do": "do は疑問文・否定文を作る助動詞です。",
+   "were": "were は過去です。next week は未来。"
+  },
+  "point": "未来は will ＋ 原形。next 〜 / tomorrow は未来の合図。",
+  "example": "We will visit Nara next month.",
+  "example_ja": "私たちは来月奈良を訪れます。"
+ },
+ "shokyu-006": {
+  "why_correct": "Look!（ほら、今まさに）なので現在進行形 is raining。",
+  "why_wrong": {
+   "rain": "rain は原形（習慣の現在形）です。",
+   "rains": "rains は3単現で「ふだん雨が降る」の意味になります。",
+   "rained": "rained は過去形です。"
+  },
+  "point": "Look! / Listen! は「今〜している」現在進行形の合図。",
+  "example": "Listen! The baby is crying.",
+  "example_ja": "聞いて！赤ちゃんが泣いています。"
+ },
+ "shokyu-007": {
+  "why_correct": "every day（習慣）なので現在形。主語 He は3単現なので goes。",
+  "why_wrong": {
+   "go": "go は原形（I / 複数用）です。",
+   "went": "went は過去形です。",
+   "going": "-ing形は be動詞が必要です。"
+  },
+  "point": "習慣は現在形。3人称単数なら -s/-es（go→goes）。",
+  "example": "He goes to work by train every day.",
+  "example_ja": "彼は毎日電車で通勤します。"
+ },
+ "shokyu-008": {
+  "why_correct": "two hours ago（〜前）があるので過去。finish は規則動詞で finished。",
+  "why_wrong": {
+   "finish": "finish は原形（現在）です。",
+   "finishing": "-ing形は be動詞が必要です。",
+   "finishes": "finishes は3単現（現在）です。"
+  },
+  "point": "ago は過去の合図。規則動詞の過去は -ed。",
+  "example": "I finished my report an hour ago.",
+  "example_ja": "私は1時間前にレポートを終えました。"
+ },
+ "shokyu-009": {
+  "why_correct": "have been to で「〜へ行ったことがある（経験）」。once（一度）がヒント。",
+  "why_wrong": {
+   "gone": "have gone to は「行ってしまって今ここにいない」で意味が違います。",
+   "go": "go は原形。現在完了は have ＋ 過去分詞。",
+   "went": "went は過去形で、have の後ろには過去分詞 been が必要です。"
+  },
+  "point": "have been to（行ったことがある／行ってきた）↔ have gone to（行ったきり）。",
+  "example": "I have been to Okinawa twice.",
+  "example_ja": "私は沖縄へ2回行ったことがあります。"
+ },
+ "shokyu-010": {
+  "why_correct": "ten years は「期間の長さ」なので for。",
+  "why_wrong": {
+   "since": "since は起点（since 2015 など）に使います。",
+   "at": "at は時刻に使い、期間の長さは表しません。",
+   "in": "in は月・年などで、期間の長さには使いません。"
+  },
+  "point": "for ＋ 期間（for ten years）／since ＋ 起点（since 2015）。",
+  "example": "I have known her for five years.",
+  "example_ja": "私は彼女と5年来の知り合いです。"
+ },
+ "shokyu-011": {
+  "why_correct": "he was ten は「起点（〜のときから）」なので since。",
+  "why_wrong": {
+   "for": "for は期間の長さ。後ろに〈主語＋動詞〉が来るときは since。",
+   "when": "when は接続詞ですが、現在完了の継続の起点には since を使います。",
+   "that": "that はここでは意味をなしません。"
+  },
+  "point": "since ＋ 起点。後ろに〈主語＋動詞〉も置ける（since he was ten）。",
+  "example": "He has played soccer since he was a child.",
+  "example_ja": "彼は子どものころからサッカーをしています。"
+ },
+ "shokyu-012": {
+  "why_correct": "疑問文で「今までに〜したことがある？」と経験をたずねるので ever。",
+  "why_wrong": {
+   "yet": "yet は疑問文では「もう（〜した？）」の意味で文末に置きます。",
+   "already": "already は肯定文で「もう（〜した）」。",
+   "just": "just は「ちょうど（今）」の意味です。"
+  },
+  "point": "経験の疑問文は have you ever ＋ 過去分詞。",
+  "example": "Have you ever eaten sushi?",
+  "example_ja": "あなたは寿司を食べたことがありますか。"
+ },
+ "shokyu-013": {
+  "why_correct": "「一度も〜したことがない」と経験を否定するので never。",
+  "why_wrong": {
+   "ever": "ever は主に疑問文で「今までに」。否定には never。",
+   "just": "just は「ちょうど今」の意味です。",
+   "yet": "yet は「まだ（〜していない）」で文末に置きます。"
+  },
+  "point": "経験の否定は have never ＋ 過去分詞。",
+  "example": "I have never seen snow.",
+  "example_ja": "私は雪を見たことがありません。"
+ },
+ "shokyu-014": {
+  "why_correct": "肯定文で「もう（出発してしまった）」と完了を表すので already。",
+  "why_wrong": {
+   "yet": "yet は否定文・疑問文で「まだ／もう」。肯定文では already。",
+   "ever": "ever は「今までに」で経験の疑問文に使います。",
+   "since": "since は起点を表します。"
+  },
+  "point": "完了の肯定は already、否定・疑問は yet。",
+  "example": "The movie has already started.",
+  "example_ja": "映画はもう始まってしまいました。"
+ },
+ "shokyu-015": {
+  "why_correct": "疑問文の文末で「もう〜した？」と完了をたずねるので yet。",
+  "why_wrong": {
+   "already": "already は肯定文で「もう（〜した）」です。",
+   "ever": "ever は「今までに」で経験の疑問文に使います。",
+   "since": "since は起点を表します。"
+  },
+  "point": "完了の疑問文の文末は yet（…done yet?）。",
+  "example": "Have you finished your homework yet?",
+  "example_ja": "もう宿題を終えましたか。"
+ },
+ "shokyu-016": {
+  "why_correct": "How long（どのくらいの間）＋現在完了の継続。have ＋ 過去分詞 lived なので have。",
+  "why_wrong": {
+   "do": "do は現在の疑問文用。lived（過去分詞）と合いません。",
+   "did": "did は過去の疑問文用で、現在完了には使いません。",
+   "are": "are は be動詞で、ここでは現在完了を作れません。"
+  },
+  "point": "継続の疑問は How long have ＋ 主語 ＋ 過去分詞 …?",
+  "example": "How long have you studied Japanese?",
+  "example_ja": "どのくらいの間 日本語を勉強していますか。"
+ },
+ "shokyu-017": {
+  "why_correct": "have just ＋ 過去分詞「ちょうど〜したところ」。finish の過去分詞は finished。",
+  "why_wrong": {
+   "finish": "finish は原形。have の後ろは過去分詞です。",
+   "finishing": "-ing形は現在完了には使いません。",
+   "finishes": "finishes は3単現（現在）です。"
+  },
+  "point": "have just ＋ 過去分詞「ちょうど〜したところだ」。",
+  "example": "I have just arrived at the station.",
+  "example_ja": "私はちょうど駅に着いたところです。"
+ },
+ "shokyu-018": {
+  "why_correct": "「なくしてしまって今も入れない（結果）」現在完了。lose の過去分詞は lost。",
+  "why_wrong": {
+   "lose": "lose は原形。have の後ろは過去分詞です。",
+   "losing": "-ing形は現在完了には使いません。",
+   "loses": "loses は3単現（現在）です。"
+  },
+  "point": "現在完了の結果用法：have ＋ 過去分詞（lose→lost）。",
+  "example": "He has lost his wallet.",
+  "example_ja": "彼は財布をなくしてしまいました。"
+ },
+ "shokyu-019": {
+  "why_correct": "受動態「〜される」は be動詞 ＋ 過去分詞。主語 temple は単数・現在なので is visited。by 〜 が受け身の合図。",
+  "why_wrong": {
+   "are": "are は複数用。単数の This temple には is。",
+   "do": "do は受動態には使いません。",
+   "has": "has visited は能動の完了形で、意味が違います。"
+  },
+  "point": "受動態＝be動詞 ＋ 過去分詞「〜される」。by 〜（〜によって）。",
+  "example": "This bridge is used by many people.",
+  "example_ja": "この橋は多くの人に使われています。"
+ },
+ "shokyu-020": {
+  "why_correct": "複数 These pictures ＋ 過去（by my father）なので were taken。",
+  "why_wrong": {
+   "was": "was は単数の過去。複数の These pictures には were。",
+   "is": "is は現在・単数で時制も数も合いません。",
+   "does": "does は受動態には使いません。"
+  },
+  "point": "複数主語の過去の受動態は were ＋ 過去分詞。",
+  "example": "These songs were written by her.",
+  "example_ja": "これらの歌は彼女によって書かれました。"
+ },
+ "shokyu-021": {
+  "why_correct": "English（単数・現在）の受動態なので is spoken。",
+  "why_wrong": {
+   "are": "are は複数用です（English は単数扱い）。",
+   "do": "do は受動態には使いません。",
+   "has": "has spoken は能動の完了形です。"
+  },
+  "point": "単数・現在の受動態は is ＋ 過去分詞。",
+  "example": "French is spoken in many countries.",
+  "example_ja": "フランス語は多くの国で話されています。"
+ },
+ "shokyu-022": {
+  "why_correct": "yesterday があり単数なので過去の受動態 was broken。",
+  "why_wrong": {
+   "is": "is は現在。yesterday があるので過去に。",
+   "are": "are は現在・複数で合いません。",
+   "does": "does は受動態には使いません。"
+  },
+  "point": "単数・過去の受動態は was ＋ 過去分詞。",
+  "example": "The cup was broken by the cat.",
+  "example_ja": "そのカップは猫に割られました。"
+ },
+ "shokyu-023": {
+  "why_correct": "is ＋ 過去分詞の受動態。read の過去分詞は形が同じ read（発音は「レッド」）。",
+  "why_wrong": {
+   "reads": "reads は3単現（能動）です。",
+   "reading": "-ing形は受動態には使いません。",
+   "to read": "to ＋ 原形は受動態の形ではありません。"
+  },
+  "point": "read の過去・過去分詞は綴りは read のまま（発音だけ変わる）。",
+  "example": "This book is read all over the world.",
+  "example_ja": "この本は世界中で読まれています。"
+ },
+ "shokyu-024": {
+  "why_correct": "every day（習慣）の受動態。単数・現在なので is cleaned。",
+  "why_wrong": {
+   "are": "are は複数用です。",
+   "do": "do は受動態には使いません。",
+   "has": "has cleaned は能動の完了形です。"
+  },
+  "point": "受動態でも主語の数・時制に合わせて be動詞を選ぶ。",
+  "example": "The classroom is cleaned every morning.",
+  "example_ja": "教室は毎朝そうじされます。"
+ },
+ "shokyu-025": {
+  "why_correct": "Soccer（単数・現在）の受動態なので is played。",
+  "why_wrong": {
+   "are": "are は複数用です。",
+   "do": "do は受動態には使いません。",
+   "has": "has played は能動の完了形です。"
+  },
+  "point": "単数・現在の受動態は is ＋ 過去分詞。",
+  "example": "Baseball is played in Japan.",
+  "example_ja": "野球は日本で行われています。"
+ },
+ "shokyu-026": {
+  "why_correct": "was ＋ 過去分詞の受動態。write の過去分詞は written。",
+  "why_wrong": {
+   "write": "write は原形です。",
+   "wrote": "wrote は過去形。be動詞の後ろは過去分詞 written。",
+   "writing": "-ing形は受動態には使いません。"
+  },
+  "point": "write→wrote→written。受動態は be ＋ written。",
+  "example": "The letter was written in French.",
+  "example_ja": "その手紙はフランス語で書かれていました。"
+ },
+ "shokyu-027": {
+  "why_correct": "「〜しなければならない」義務は must ＋ 原形。",
+  "why_wrong": {
+   "are": "are（be動詞）は一般動詞 finish の前に置けません。",
+   "do": "do は疑問・否定用の助動詞です。",
+   "be": "be は原形で、このままでは使えません。"
+  },
+  "point": "must ＋ 原形「〜しなければならない」。",
+  "example": "You must wear a seatbelt.",
+  "example_ja": "シートベルトを締めなければなりません。"
+ },
+ "shokyu-028": {
+  "why_correct": "「〜してもいいですか」と許可を求めるので May I …?",
+  "why_wrong": {
+   "Do": "Do I …? は許可のニュアンスになりません。",
+   "Are": "Are は be動詞の疑問文用です。",
+   "Will": "Will は未来・依頼です。"
+  },
+  "point": "許可を求める丁寧な言い方は May I …? / Can I …?",
+  "example": "May I sit here?",
+  "example_ja": "ここに座ってもいいですか。"
+ },
+ "shokyu-029": {
+  "why_correct": "must not で「〜してはいけない」という強い禁止を表します。",
+  "why_wrong": {
+   "are": "are（be動詞）は一般動詞の前で否定を作れません。",
+   "do": "do not late とは言いません（late は形容詞）。",
+   "be": "be だけでは助動詞になりません。"
+  },
+  "point": "must not ＝「〜してはいけない（禁止）」。",
+  "example": "You must not touch the paintings.",
+  "example_ja": "絵に触れてはいけません。"
+ },
+ "shokyu-030": {
+  "why_correct": "「〜かもしれない」という推量は may ＋ 原形。",
+  "why_wrong": {
+   "are": "are は be動詞で、推量の助動詞ではありません。",
+   "do": "do は推量を表しません。",
+   "is": "is も推量の意味になりません。"
+  },
+  "point": "may ＋ 原形「〜かもしれない／〜してよい」。",
+  "example": "It may snow tonight.",
+  "example_ja": "今夜は雪が降るかもしれません。"
+ },
+ "shokyu-031": {
+  "why_correct": "「〜したほうがよい」という助言は should ＋ 原形。",
+  "why_wrong": {
+   "are": "are は be動詞で助言を表しません。",
+   "do": "do は助言の意味になりません。",
+   "be": "be だけでは助動詞になりません。"
+  },
+  "point": "should ＋ 原形「〜すべき／したほうがよい」。",
+  "example": "You should take a rest.",
+  "example_ja": "休んだほうがいいですよ。"
+ },
+ "shokyu-032": {
+  "why_correct": "have to ＋ 原形「〜しなければならない」。主語 I なので have。",
+  "why_wrong": {
+   "has": "has to は3人称単数（he / she）のとき。I には have to。",
+   "must": "must は to を付けません（must clean）。空所の後に to があるので have。",
+   "can": "can は「〜できる」で義務とは違います。"
+  },
+  "point": "have / has to ＋ 原形「〜しなければならない」。3単現は has to。",
+  "example": "I have to get up early tomorrow.",
+  "example_ja": "私は明日早く起きなければなりません。"
+ },
+ "shokyu-033": {
+  "why_correct": "Would you like 〜?「〜はいかがですか」と丁寧に勧める言い方。",
+  "why_wrong": {
+   "Will": "Will you like …? とは言いません。勧めは Would you like。",
+   "Do": "Do you like 〜? は「好きですか」と好みをたずねる別の意味です。",
+   "Are": "Are は be動詞の疑問文用です。"
+  },
+  "point": "Would you like 〜?＝「〜はいかがですか」（丁寧な勧め）。",
+  "example": "Would you like some coffee?",
+  "example_ja": "コーヒーはいかがですか。"
+ },
+ "shokyu-034": {
+  "why_correct": "Could you 〜?「〜していただけますか」と丁寧に依頼する言い方。",
+  "why_wrong": {
+   "Do": "Do you …? は習慣をたずねる言い方です。",
+   "Are": "Are は be動詞の疑問文用です。",
+   "Is": "Is も be動詞の疑問文用です。"
+  },
+  "point": "Could you 〜? / Would you 〜? は丁寧な依頼。",
+  "example": "Could you open the window?",
+  "example_ja": "窓を開けていただけますか。"
+ },
+ "shokyu-035": {
+  "why_correct": "have to ＋ 原形。主語 We なので have。",
+  "why_wrong": {
+   "has": "has to は3人称単数のとき。We には have to。",
+   "must": "must は to を取りません。空所の後に to があるので have。",
+   "are": "are は be動詞で、to leave の前で義務を作れません。"
+  },
+  "point": "We / I / you / 複数は have to、3単現は has to。",
+  "example": "We have to finish this by noon.",
+  "example_ja": "私たちは正午までにこれを終えなければなりません。"
+ },
+ "shokyu-036": {
+  "why_correct": "「3か国語を話せる」能力は can ＋ 原形。",
+  "why_wrong": {
+   "is": "is は be動詞で、一般動詞 speak の前に置けません。",
+   "do": "do は疑問・否定用の助動詞です。",
+   "has": "has は「持っている」で意味が通りません。"
+  },
+  "point": "can ＋ 原形「〜できる」。",
+  "example": "She can speak three languages.",
+  "example_ja": "彼女は3か国語を話せます。"
+ },
+ "shokyu-037": {
+  "why_correct": "want to ＋ 原形「〜したい」。to be で「〜になりたい」。",
+  "why_wrong": {
+   "be": "原形だけでは want の後ろに続きません（to が必要）。",
+   "being": "動名詞 being は want の目的語に取れません。",
+   "been": "been は過去分詞です。"
+  },
+  "point": "want to do「〜したい」。to ＋ 原形（to不定詞）。",
+  "example": "I want to be a teacher.",
+  "example_ja": "私は先生になりたいです。"
+ },
+ "shokyu-038": {
+  "why_correct": "「〜するために」という目的を表す to不定詞（副詞用法）なので to buy。",
+  "why_wrong": {
+   "buy": "原形だけでは「〜するために」の意味になりません。",
+   "buying": "-ing形は目的を表しません。",
+   "bought": "bought は過去形です。"
+  },
+  "point": "目的「〜するために」は to ＋ 原形（副詞用法）。",
+  "example": "He went out to buy a newspaper.",
+  "example_ja": "彼は新聞を買うために出かけました。"
+ },
+ "shokyu-039": {
+  "why_correct": "名詞 work を後ろから修飾する「すべき仕事」（形容詞用法）なので to do。",
+  "why_wrong": {
+   "do": "原形だけでは名詞を修飾できません。",
+   "doing": "-ing形はここでは合いません。",
+   "does": "does は3単現（現在）です。"
+  },
+  "point": "〈名詞 ＋ to ＋ 原形〉で「〜すべき／〜するための名詞」（形容詞用法）。",
+  "example": "I have something to tell you.",
+  "example_ja": "あなたに言うべきことがあります。"
+ },
+ "shokyu-040": {
+  "why_correct": "It is ... to do「〜することは…だ」の形なので to play。It は仮の主語。",
+  "why_wrong": {
+   "play": "原形だけではこの形になりません。",
+   "playing": "ここでは to不定詞を使うのが基本です。",
+   "plays": "plays は3単現（現在）です。"
+  },
+  "point": "It is ＋ 形容詞 ＋ to do「〜するのは…だ」。",
+  "example": "It is important to study every day.",
+  "example_ja": "毎日勉強することは大切です。"
+ },
+ "shokyu-041": {
+  "why_correct": "感情の原因「〜して（うれしい）」を表す to不定詞（副詞用法）なので to hear。",
+  "why_wrong": {
+   "hear": "原形だけでは「〜して」の意味を作れません。",
+   "hearing": "-ing形はここでは合いません。",
+   "heard": "heard は過去形・過去分詞です。"
+  },
+  "point": "感情の形容詞 ＋ to do「〜して（うれしい・悲しい）」。",
+  "example": "I was sad to hear the news.",
+  "example_ja": "その知らせを聞いて私は悲しかった。"
+ },
+ "shokyu-042": {
+  "why_correct": "how to do「〜のしかた」。how to swim で「泳ぎ方」。",
+  "why_wrong": {
+   "what": "what to do は「何をすべきか」で意味が変わります。",
+   "which": "which to … は「どちらを〜すべきか」です。",
+   "who": "who は人をたずねる疑問詞で、ここでは合いません。"
+  },
+  "point": "〈疑問詞 ＋ to ＋ 原形〉：how to（しかた）/ what to（何を）/ where to（どこで）。",
+  "example": "I know how to ride a bike.",
+  "example_ja": "私は自転車の乗り方を知っています。"
+ },
+ "shokyu-043": {
+  "why_correct": "be動詞の後ろで「〜すること」を表す名詞用法の to不定詞なので to study。",
+  "why_wrong": {
+   "study": "原形だけでは主語を説明する補語になりません。",
+   "studying": "ここでは to不定詞が基本です。",
+   "studied": "studied は過去形・過去分詞です。"
+  },
+  "point": "be動詞 ＋ to do「〜することだ」（名詞用法）。",
+  "example": "My goal is to pass the exam.",
+  "example_ja": "私の目標は試験に合格することです。"
+ },
+ "shokyu-044": {
+  "why_correct": "want to ＋ 原形。to be で「〜になりたい」。",
+  "why_wrong": {
+   "be": "原形だけでは want の後ろに続きません（to が必要）。",
+   "being": "動名詞は want の目的語に取れません。",
+   "been": "been は過去分詞です。"
+  },
+  "point": "want to be「〜になりたい」。",
+  "example": "She wants to be a nurse.",
+  "example_ja": "彼女は看護師になりたいと思っています。"
+ },
+ "shokyu-045": {
+  "why_correct": "nothing を後ろから修飾する「食べるもの」（形容詞用法）なので to eat。",
+  "why_wrong": {
+   "eat": "原形だけでは nothing を修飾できません。",
+   "eating": "-ing形はここでは合いません。",
+   "ate": "ate は過去形です。"
+  },
+  "point": "something / nothing ＋ to do「〜する（ための）もの」。",
+  "example": "I have nothing to do today.",
+  "example_ja": "今日はすることが何もありません。"
+ },
+ "shokyu-046": {
+  "why_correct": "感情の原因「また会えて（うれしい）」を表す to不定詞なので to meet。",
+  "why_wrong": {
+   "meet": "原形だけでは「〜して」の意味を作れません。",
+   "meeting": "-ing形はここでは合いません。",
+   "met": "met は過去形・過去分詞です。"
+  },
+  "point": "happy / glad ＋ to do「〜してうれしい」。",
+  "example": "I'm happy to see you again.",
+  "example_ja": "またあなたに会えてうれしいです。"
+ },
+ "shokyu-047": {
+  "why_correct": "enjoy は目的語に動名詞（-ing）を取るので reading。enjoy to do は不可。",
+  "why_wrong": {
+   "read": "read は原形で、enjoy の目的語になりません。",
+   "reads": "reads は3単現（現在）です。",
+   "to read": "enjoy は to不定詞を目的語に取りません。"
+  },
+  "point": "enjoy / finish / stop / mind などは目的語に動名詞（-ing）。",
+  "example": "I enjoy listening to music.",
+  "example_ja": "私は音楽を聴くのを楽しみます。"
+ },
+ "shokyu-048": {
+  "why_correct": "前置詞 at の後ろは動名詞（-ing）なので playing。be good at -ing「〜が得意」。",
+  "why_wrong": {
+   "play": "前置詞の後ろは原形ではなく -ing。",
+   "plays": "plays は3単現（現在）です。",
+   "to play": "前置詞の後に to不定詞は置けません。"
+  },
+  "point": "前置詞（at / in / for …）の後ろは動名詞（-ing）。",
+  "example": "She is good at singing.",
+  "example_ja": "彼女は歌うのが得意です。"
+ },
+ "shokyu-049": {
+  "why_correct": "主語として「〜すること」を表す動名詞なので Learning。",
+  "why_wrong": {
+   "Learn": "原形は主語になりません。",
+   "Learns": "Learns は3単現（動詞）で主語になりません。",
+   "To learning": "to の後ろは原形。to learning という形はありません。"
+  },
+  "point": "動名詞（-ing）は「〜すること」として主語になれる。",
+  "example": "Reading books is fun.",
+  "example_ja": "本を読むことは楽しい。"
+ },
+ "shokyu-050": {
+  "why_correct": "前置詞 for の後ろは動名詞（-ing）なので inviting。Thank you for -ing。",
+  "why_wrong": {
+   "invite": "前置詞の後ろは原形ではなく -ing。",
+   "invites": "invites は3単現（現在）です。",
+   "to invite": "前置詞の後に to不定詞は置けません。"
+  },
+  "point": "Thank you for ＋ -ing「〜してくれてありがとう」。",
+  "example": "Thank you for helping me.",
+  "example_ja": "手伝ってくれてありがとう。"
+ },
+ "shokyu-051": {
+  "why_correct": "stop ＋ -ing「〜するのをやめる」なので raining。",
+  "why_wrong": {
+   "rain": "stop の後ろは -ing が基本です。",
+   "to rain": "stop to do は「〜するために立ち止まる」で意味が変わります。",
+   "rained": "rained は過去形です。"
+  },
+  "point": "stop ＋ -ing（〜をやめる）↔ stop to do（〜するために止まる）。",
+  "example": "The baby stopped crying.",
+  "example_ja": "赤ちゃんは泣きやみました。"
+ },
+ "shokyu-052": {
+  "why_correct": "How about ＋ -ing「〜するのはどう？」と提案する言い方なので going。",
+  "why_wrong": {
+   "go": "How about の後ろは -ing です。",
+   "to go": "How about の後に to不定詞は置けません。",
+   "went": "went は過去形です。"
+  },
+  "point": "How about ＋ -ing?「〜しませんか／〜はどう？」。",
+  "example": "How about going to the movies?",
+  "example_ja": "映画に行くのはどうですか。"
+ },
+ "shokyu-053": {
+  "why_correct": "than があるので比較級。cheap は短い語なので -er を付けて cheaper。",
+  "why_wrong": {
+   "cheap": "cheap は原級。than があるので比較級に。",
+   "cheapest": "cheapest は最上級です。",
+   "more cheap": "短い語に more は付けません（-er を使う）。"
+  },
+  "point": "than ＋ 比較級。短い語は -er、長い語は more ＋ 原級。",
+  "example": "This pen is cheaper than that one.",
+  "example_ja": "このペンはあれより安い。"
+ },
+ "shokyu-054": {
+  "why_correct": "the ＋ 最上級「いちばん〜」。tall は短い語なので tallest。",
+  "why_wrong": {
+   "tall": "tall は原級です。the があるので最上級に。",
+   "taller": "taller は比較級（2つを比べる）です。",
+   "more tall": "短い語に more は付けません。"
+  },
+  "point": "the ＋ 最上級「いちばん〜」。短い語は -est。",
+  "example": "He is the tallest in the team.",
+  "example_ja": "彼はチームでいちばん背が高い。"
+ },
+ "shokyu-055": {
+  "why_correct": "difficult は長い語なので、比較級は more ＋ 原級。than があるので more。",
+  "why_wrong": {
+   "much": "much は比較級を強めますが、ここは比較級そのものが必要です。",
+   "most": "most は最上級用です（than があるので比較級）。",
+   "very": "very は比較級には付けません。"
+  },
+  "point": "長い語（difficult / important …）の比較級は more ＋ 原級。",
+  "example": "This book is more difficult than that one.",
+  "example_ja": "この本はあれより難しい。"
+ },
+ "shokyu-056": {
+  "why_correct": "of the three・the があるので最上級。interesting は長い語なので most interesting。",
+  "why_wrong": {
+   "interesting": "原級です。the / of the three があるので最上級に。",
+   "more interesting": "more は比較級（2つの比較）です。",
+   "much interesting": "much はこの形では使いません。"
+  },
+  "point": "長い語の最上級は the most ＋ 原級。",
+  "example": "This is the most interesting movie of the year.",
+  "example_ja": "これは今年いちばんおもしろい映画です。"
+ },
+ "shokyu-057": {
+  "why_correct": "as ... as「同じくらい〜」の間は原級なので fast。",
+  "why_wrong": {
+   "faster": "as の間は比較級ではなく原級です。",
+   "fastest": "最上級も as 〜 as の間には入れません。",
+   "more fast": "fast は短い語で more も付けません。"
+  },
+  "point": "as ＋ 原級 ＋ as「…と同じくらい〜」。",
+  "example": "He is as tall as his father.",
+  "example_ja": "彼は父親と同じくらい背が高い。"
+ },
+ "shokyu-058": {
+  "why_correct": "the ＋ 最上級。hot は〈短母音＋子音〉で終わるので t を重ねて hottest。",
+  "why_wrong": {
+   "hot": "hot は原級です。the があるので最上級に。",
+   "hotter": "hotter は比較級です。",
+   "more hot": "短い語に more は付けません。"
+  },
+  "point": "hot→hotter→hottest（最後の子音を重ねる）。",
+  "example": "August is the hottest month here.",
+  "example_ja": "ここでは8月がいちばん暑い月です。"
+ },
+ "shokyu-059": {
+  "why_correct": "important は長い語なので比較級は more ＋ 原級。than があるので more。",
+  "why_wrong": {
+   "much": "much だけでは比較級になりません。",
+   "most": "most は最上級用です。",
+   "very": "very は比較級には付けません。"
+  },
+  "point": "長い語の比較級は more ＋ 原級。",
+  "example": "Time is more important than money.",
+  "example_ja": "時間はお金よりも大切だ。"
+ },
+ "shokyu-060": {
+  "why_correct": "than があるので比較級。easy は〈子音＋y〉なので y を i に変えて easier。",
+  "why_wrong": {
+   "easy": "easy は原級です。",
+   "easiest": "easiest は最上級です。",
+   "more easy": "easy は y を i にして -er（more は付けない）。"
+  },
+  "point": "〈子音＋y〉は y→i ＋ -er（easy→easier, happy→happier）。",
+  "example": "This question is easier than that one.",
+  "example_ja": "この問題はあれより簡単だ。"
+ },
+ "shokyu-061": {
+  "why_correct": "one of the ＋ 最上級 ＋ 複数名詞「最も〜なうちの一人」。popular は長い語なので most popular。",
+  "why_wrong": {
+   "popular": "原級です。the があるので最上級に。",
+   "more popular": "more は比較級です。",
+   "much popular": "この形では使いません。"
+  },
+  "point": "one of the ＋ 最上級 ＋ 複数名詞「最も〜な〜の一つ／一人」。",
+  "example": "She is one of the best singers.",
+  "example_ja": "彼女は最高の歌手の一人です。"
+ },
+ "shokyu-062": {
+  "why_correct": "not as ... as「…ほど〜ない」の間は原級なので big。",
+  "why_wrong": {
+   "bigger": "as 〜 as の間は原級です。",
+   "biggest": "最上級も as 〜 as には入れません。",
+   "more big": "big は短い語で more は付けません。"
+  },
+  "point": "not as ＋ 原級 ＋ as「…ほど〜ない」。",
+  "example": "My room is not as big as yours.",
+  "example_ja": "私の部屋はあなたのほど大きくない。"
+ },
+ "shokyu-063": {
+  "why_correct": "先行詞が人（friend）で、後ろが動詞（can speak）＝主格なので who。",
+  "why_wrong": {
+   "which": "which はモノ・動物が先行詞のときに使います。",
+   "whose": "whose は「〜の」と所有を表します。",
+   "where": "where は場所を表す関係副詞です。"
+  },
+  "point": "先行詞が人で後ろが動詞 → who（主格）。",
+  "example": "I have a friend who lives in London.",
+  "example_ja": "私にはロンドンに住む友達がいます。"
+ },
+ "shokyu-064": {
+  "why_correct": "先行詞がモノ（cake）で、後ろに目的語が欠けている（I made ___）ので which。",
+  "why_wrong": {
+   "who": "who は人が先行詞のときに使います。",
+   "whose": "whose は所有を表します。",
+   "where": "where は場所を表します。"
+  },
+  "point": "先行詞がモノ → which。後ろに目的語が欠けるのは目的格。",
+  "example": "This is the book which I read last week.",
+  "example_ja": "これは私が先週読んだ本です。"
+ },
+ "shokyu-065": {
+  "why_correct": "先行詞が人（man）で後ろが動詞（is standing）なので who。",
+  "why_wrong": {
+   "which": "which はモノ・動物用です。",
+   "whose": "whose は所有を表します。",
+   "where": "where は場所を表します。"
+  },
+  "point": "人 ＋ 動詞 → who（主格）。",
+  "example": "The man who is talking is my uncle.",
+  "example_ja": "話している男性は私のおじです。"
+ },
+ "shokyu-066": {
+  "why_correct": "先行詞が動物（bird）で後ろが動詞（is flying）なので which。",
+  "why_wrong": {
+   "who": "who は人が先行詞のときです。",
+   "whose": "whose は所有を表します。",
+   "where": "where は場所を表します。"
+  },
+  "point": "動物・モノ ＋ 動詞 → which。",
+  "example": "Look at the dog which is running.",
+  "example_ja": "走っている犬を見て。"
+ },
+ "shokyu-067": {
+  "why_correct": "先行詞がモノ（book）で後ろに目的語が欠ける（I bought ___）ので which。",
+  "why_wrong": {
+   "who": "who は人用です。",
+   "whose": "whose は所有を表します。",
+   "where": "where は場所を表します。"
+  },
+  "point": "モノ ＋〈主語＋動詞〉で目的語が欠ける → which（目的格）。",
+  "example": "The watch which he bought is expensive.",
+  "example_ja": "彼が買った時計は高価です。"
+ },
+ "shokyu-068": {
+  "why_correct": "「その子の母」と所有を表すので whose（whose mother＝彼女の母）。",
+  "why_wrong": {
+   "who": "who は主格・目的格で、所有は表しません。",
+   "which": "which はモノ・動物用です。",
+   "where": "where は場所を表します。"
+  },
+  "point": "whose ＋ 名詞「〜の…」（所有格）。",
+  "example": "I know a boy whose father is a pilot.",
+  "example_ja": "私は父親がパイロットの男の子を知っています。"
+ },
+ "shokyu-069": {
+  "why_correct": "先行詞がモノ（bus）で後ろが動詞（goes）なので which。",
+  "why_wrong": {
+   "who": "who は人用です。",
+   "whose": "whose は所有を表します。",
+   "where": "where は場所を表します。"
+  },
+  "point": "モノ ＋ 動詞 → which（主格）。",
+  "example": "This is the train which goes to Tokyo.",
+  "example_ja": "これは東京へ行く電車です。"
+ },
+ "shokyu-070": {
+  "why_correct": "先行詞が人（woman）で後ろに目的語が欠ける（I met ___）ので who。",
+  "why_wrong": {
+   "which": "which はモノ・動物用です。",
+   "whose": "whose は所有を表します。",
+   "where": "where は場所を表します。"
+  },
+  "point": "人 ＋〈主語＋動詞〉で目的語が欠ける → who（目的格、whom も可）。",
+  "example": "She is the teacher who I respect.",
+  "example_ja": "彼女は私が尊敬する先生です。"
+ },
+ "shokyu-071": {
+  "why_correct": "間接疑問は〈疑問詞＋主語＋動詞〉の語順。where she lives なので where。",
+  "why_wrong": {
+   "where does": "間接疑問では does を主語の前に出しません。",
+   "does where": "語順が誤っています。",
+   "that": "場所をたずねるので疑問詞 where が必要です。"
+  },
+  "point": "間接疑問は〈疑問詞 ＋ 主語 ＋ 動詞〉。do / does / is を主語の前に出さない。",
+  "example": "Do you know where he works?",
+  "example_ja": "彼がどこで働いているか知っていますか。"
+ },
+ "shokyu-072": {
+  "why_correct": "間接疑問の語順〈疑問詞＋主語＋動詞〉。what this is なので what。",
+  "why_wrong": {
+   "what is": "間接疑問では is を主語の前に出しません（what this is）。",
+   "is what": "語順が誤っています。",
+   "that": "「何か」をたずねるので what が必要です。"
+  },
+  "point": "間接疑問は平叙文の語順（what this is）。",
+  "example": "I don't know what this means.",
+  "example_ja": "これがどういう意味か分かりません。"
+ },
+ "shokyu-073": {
+  "why_correct": "間接疑問の語順。who that man is なので who。",
+  "why_wrong": {
+   "who is": "間接疑問では is を主語の前に出しません（who that man is）。",
+   "is who": "語順が誤っています。",
+   "that": "「だれ」をたずねるので who が必要です。"
+  },
+  "point": "間接疑問は〈疑問詞 ＋ 主語 ＋ 動詞〉。",
+  "example": "Tell me who she is.",
+  "example_ja": "彼女がだれか教えて。"
+ },
+ "shokyu-074": {
+  "why_correct": "間接疑問の語順。what he likes なので what。",
+  "why_wrong": {
+   "what does": "間接疑問では does を主語の前に出しません（what he likes）。",
+   "does what": "語順が誤っています。",
+   "that": "「何を」をたずねるので what が必要です。"
+  },
+  "point": "間接疑問は〈疑問詞 ＋ 主語 ＋ 動詞〉。do/does は使わず動詞に直接 -s。",
+  "example": "Do you know what he wants?",
+  "example_ja": "彼が何をほしがっているか知っていますか。"
+ },
+ "shokyu-075": {
+  "why_correct": "「〜かどうか」という意味のときは if（または whether）。",
+  "why_wrong": {
+   "that": "that は「〜ということ」で、不確かな「〜かどうか」は表しません。",
+   "what": "what は「何が／何を」で、ここでは意味が合いません。",
+   "which": "which は「どちら」で、ここでは合いません。"
+  },
+  "point": "「〜かどうか」は if / whether。",
+  "example": "I wonder if it will rain tomorrow.",
+  "example_ja": "明日雨が降るかどうか気になります。"
+ },
+ "shokyu-076": {
+  "why_correct": "「試験に合格したので」と理由を表すので because。",
+  "why_wrong": {
+   "but": "but は「しかし」と逆の内容をつなぎます。",
+   "or": "or は「または」と選択肢をつなぎます。",
+   "so": "so は「だから」で、前後の因果が逆になります。"
+  },
+  "point": "because は「〜なので（理由）」、後ろに理由が来る。",
+  "example": "I stayed home because I was sick.",
+  "example_ja": "私は具合が悪かったので家にいました。"
+ },
+ "shokyu-077": {
+  "why_correct": "「もし明日雨なら」という条件を表すので If。",
+  "why_wrong": {
+   "But": "But は「しかし」で条件を表しません。",
+   "Or": "Or は「または」です。",
+   "So": "So は「だから」で結果を表します。"
+  },
+  "point": "If 〜「もし〜なら」（条件）。条件の文では未来も現在形で表す。",
+  "example": "If you are free, let's go out.",
+  "example_ja": "もしひまなら、出かけましょう。"
+ },
+ "shokyu-078": {
+  "why_correct": "think that 〜「〜だと思う」。that は「〜ということ」をまとめる接続詞。",
+  "why_wrong": {
+   "if": "if は「〜かどうか／もし〜なら」で、ここでは合いません。",
+   "because": "because は理由を表します。",
+   "so": "so は「だから」で結果を表します。"
+  },
+  "point": "think / know / hope ＋ that ＋〈主語＋動詞〉。that は省略も可。",
+  "example": "I think that this movie is great.",
+  "example_ja": "この映画はすばらしいと思います。"
+ },
+ "shokyu-079": {
+  "why_correct": "「食べる前に手を洗う」と〈主語＋動詞〉が続くので接続詞 before。",
+  "why_wrong": {
+   "during": "during は前置詞で、後ろに名詞が来ます（during lunch）。",
+   "that": "that はここでは意味をなしません。",
+   "so": "so は「だから」で結果を表します。"
+  },
+  "point": "before / after は接続詞として〈主語＋動詞〉を続けられる。",
+  "example": "Brush your teeth before you go to bed.",
+  "example_ja": "寝る前に歯をみがきなさい。"
+ },
+ "shokyu-080": {
+  "why_correct": "「疲れていた、だから早く寝た」と結果を表すので so。",
+  "why_wrong": {
+   "but": "but は「しかし」と逆接でつなぎます。",
+   "or": "or は「または」と選択肢をつなぎます。",
+   "because": "because は後ろに理由が来ます（前後が逆）。"
+  },
+  "point": "so は「だから（結果）」。前が原因・後が結果。",
+  "example": "It was cold, so I wore a coat.",
+  "example_ja": "寒かったので、私はコートを着ました。"
+ },
+ "shokyu-081": {
+  "why_correct": "「若かったとき大阪に住んでいた」と時を表すので When。",
+  "why_wrong": {
+   "Because": "Because は理由「〜なので」を表します。",
+   "So": "So は「だから」で結果を表します。",
+   "But": "But は「しかし」で逆接です。"
+  },
+  "point": "When 〜「〜するとき／したとき」（時）。",
+  "example": "When I was a child, I lived in Kobe.",
+  "example_ja": "子どものころ、私は神戸に住んでいました。"
+ },
+ "shokyu-082": {
+  "why_correct": "「お茶とコーヒー」を並べてつなぐので and。",
+  "why_wrong": {
+   "but": "but は「しかし」で逆の内容をつなぎます。",
+   "so": "so は「だから」で結果を表します。",
+   "because": "because は理由を表します。"
+  },
+  "point": "and は語句を並べてつなぐ「〜と…」。",
+  "example": "I like coffee and tea.",
+  "example_ja": "私はコーヒーとお茶が好きです。"
+ },
+ "shokyu-083": {
+  "why_correct": "〈命令文, or …〉で「〜しなさい、さもないと…」。or が正解。",
+  "why_wrong": {
+   "and": "〈命令文, and …〉は「〜しなさい、そうすれば…」で逆の意味です。",
+   "so": "so は文と文を「だから」でつなぎますが、この型では or。",
+   "but": "but は「しかし」で、この決まり文句には合いません。"
+  },
+  "point": "命令文, and …（そうすれば）／命令文, or …（さもないと）。",
+  "example": "Hurry up, or you'll be late.",
+  "example_ja": "急ぎなさい、さもないと遅れますよ。"
+ },
+ "shokyu-084": {
+  "why_correct": "「家に着いたら電話する」と時を表すので when。",
+  "why_wrong": {
+   "that": "that はここでは意味をなしません。",
+   "so": "so は「だから」で結果を表します。",
+   "but": "but は「しかし」で逆接です。"
+  },
+  "point": "when「〜したら／するとき」。時を表す文では未来も現在形で表す。",
+  "example": "I'll tell him when he comes.",
+  "example_ja": "彼が来たら伝えます。"
+ },
+ "shokyu-085": {
+  "why_correct": "名詞 baby の前で「眠っている赤ちゃん」を表す現在分詞（能動・進行）なので sleeping。",
+  "why_wrong": {
+   "sleep": "sleep は原形で名詞を修飾できません。",
+   "sleeps": "sleeps は3単現（動詞）です。",
+   "slept": "slept は過去形です。"
+  },
+  "point": "現在分詞（-ing）が名詞を修飾「〜している…」。",
+  "example": "Look at the crying baby.",
+  "example_ja": "泣いている赤ちゃんを見て。"
+ },
+ "shokyu-086": {
+  "why_correct": "「なくされた財布（＝落とし物）」と受動の意味なので過去分詞 lost。",
+  "why_wrong": {
+   "lose": "lose は原形で名詞を修飾できません。",
+   "losing": "-ing形だと「なくしつつある」で意味が合いません。",
+   "loses": "loses は3単現（動詞）です。"
+  },
+  "point": "過去分詞が名詞を修飾「〜された…」（受動）。",
+  "example": "He bought a used car.",
+  "example_ja": "彼は中古車（使われた車）を買いました。"
+ },
+ "shokyu-087": {
+  "why_correct": "「向こうに立っている女の子」と後ろから修飾する現在分詞なので standing。",
+  "why_wrong": {
+   "stand": "stand は原形で修飾語になりません。",
+   "stands": "stands は3単現（動詞）です。",
+   "stood": "stood は過去形です。"
+  },
+  "point": "〈名詞 ＋ -ing …〉で「〜している…」と後ろから修飾。",
+  "example": "The man sitting there is my father.",
+  "example_ja": "そこに座っている男性は私の父です。"
+ },
+ "shokyu-088": {
+  "why_correct": "「スイスで作られた時計」と受動の意味なので過去分詞 made。",
+  "why_wrong": {
+   "make": "make は原形で修飾語になりません。",
+   "making": "-ing形だと能動「作っている」で意味が合いません。",
+   "makes": "makes は3単現（動詞）です。"
+  },
+  "point": "〈名詞 ＋ 過去分詞 …〉で「〜された…」と後ろから修飾。",
+  "example": "This is a phone made in Japan.",
+  "example_ja": "これは日本で作られた電話です。"
+ },
+ "shokyu-089": {
+  "why_correct": "「サッカーをしている少年」と能動の意味で後ろから修飾する現在分詞なので playing。",
+  "why_wrong": {
+   "play": "play は原形で修飾語になりません。",
+   "plays": "plays は3単現（動詞）です。",
+   "played": "played だと受動「〜される」で、少年には合いません。"
+  },
+  "point": "「〜している」は現在分詞（-ing）で後ろから修飾。",
+  "example": "The girl dancing on the stage is my sister.",
+  "example_ja": "ステージで踊っている女の子は私の妹です。"
+ },
+ "shokyu-090": {
+  "why_correct": "「その歌手によって歌われた歌」と受動の意味なので過去分詞 sung。",
+  "why_wrong": {
+   "sing": "sing は原形で修飾語になりません。",
+   "sang": "sang は過去形で、名詞を修飾する分詞ではありません。",
+   "singing": "-ing形だと能動「歌っている」で意味が合いません。"
+  },
+  "point": "sing→sang→sung。受動「歌われた」は過去分詞 sung。",
+  "example": "I like the picture painted by him.",
+  "example_ja": "私は彼によって描かれた絵が好きです。"
+ },
+ "shokyu-091": {
+  "why_correct": "be interested in 〜「〜に興味がある」という連語なので in。",
+  "why_wrong": {
+   "on": "interested on とは言いません。",
+   "at": "interested at とは言いません。",
+   "to": "interested to は別の使い方で、ここでは in。"
+  },
+  "point": "be interested in 〜「〜に興味がある」。",
+  "example": "I'm interested in history.",
+  "example_ja": "私は歴史に興味があります。"
+ },
+ "shokyu-092": {
+  "why_correct": "be good at 〜「〜が得意」という連語なので at。",
+  "why_wrong": {
+   "in": "good in とは言いません。",
+   "on": "good on とは言いません。",
+   "to": "good to は別の意味（〜に親切）になります。"
+  },
+  "point": "be good at 〜「〜が得意・上手」。",
+  "example": "She is good at cooking.",
+  "example_ja": "彼女は料理が得意です。"
+ },
+ "shokyu-093": {
+  "why_correct": "look for 〜「〜を探す」という連語なので for。",
+  "why_wrong": {
+   "at": "look at は「〜を見る」で、探す意味ではありません。",
+   "in": "look in は「中をのぞく」です。",
+   "on": "look on は別の意味です。"
+  },
+  "point": "look for（探す）／look at（見る）／look after（世話する）を区別。",
+  "example": "I'm looking for my glasses.",
+  "example_ja": "私はめがねを探しています。"
+ },
+ "shokyu-094": {
+  "why_correct": "be afraid of 〜「〜を恐れる・怖がる」という連語なので of。",
+  "why_wrong": {
+   "in": "afraid in とは言いません。",
+   "at": "afraid at とは言いません。",
+   "to": "afraid to do は「怖くて〜できない」で形が違います。"
+  },
+  "point": "be afraid of 〜「〜を怖がる」。",
+  "example": "He is afraid of high places.",
+  "example_ja": "彼は高い所が怖いです。"
+ },
+ "shokyu-095": {
+  "why_correct": "arrive at 〜（比較的せまい場所）「〜に着く」なので at。",
+  "why_wrong": {
+   "on": "arrive on とは言いません。",
+   "to": "arrive to とは言いません（go to との混同に注意）。",
+   "for": "arrive for とは言いません。"
+  },
+  "point": "arrive at（駅・店などせまい場所）／arrive in（都市・国など広い場所）。",
+  "example": "We arrived at the airport early.",
+  "example_ja": "私たちは早めに空港に着きました。"
+ },
+ "shokyu-096": {
+  "why_correct": "Thank you for 〜「〜をありがとう」という連語なので for。",
+  "why_wrong": {
+   "of": "Thank you of とは言いません。",
+   "to": "Thank you to とは言いません。",
+   "with": "Thank you with とは言いません。"
+  },
+  "point": "Thank you for ＋ 名詞 / -ing「〜をありがとう」。",
+  "example": "Thank you for your kindness.",
+  "example_ja": "ご親切にありがとうございます。"
+ },
+ "shokyu-097": {
+  "why_correct": "be proud of 〜「〜を誇りに思う」という連語なので of。",
+  "why_wrong": {
+   "in": "proud in とは言いません。",
+   "at": "proud at とは言いません。",
+   "to": "proud to do は「〜して誇らしい」で形が違います。"
+  },
+  "point": "be proud of 〜「〜を誇りに思う」。",
+  "example": "I'm proud of my family.",
+  "example_ja": "私は自分の家族を誇りに思います。"
+ },
+ "shokyu-098": {
+  "why_correct": "be famous for 〜「〜で有名」という連語なので for。",
+  "why_wrong": {
+   "of": "famous of とは言いません。",
+   "at": "famous at とは言いません。",
+   "to": "famous to は「〜に知られている」で形が違います。"
+  },
+  "point": "be famous for 〜「〜で有名」。",
+  "example": "Kyoto is famous for its temples.",
+  "example_ja": "京都は寺で有名です。"
+ },
+ "shokyu-099": {
+  "why_correct": "wait for 〜「〜を待つ」という連語なので for。",
+  "why_wrong": {
+   "at": "wait at は「〜（場所）で待つ」で、目的語「〜を」は for。",
+   "to": "wait to do は「〜するのを待つ」で形が違います。",
+   "with": "wait with は「〜と一緒に待つ」です。"
+  },
+  "point": "wait for ＋ 人・モノ「〜を待つ」。",
+  "example": "I'm waiting for the bus.",
+  "example_ja": "私はバスを待っています。"
+ },
+ "shokyu-100": {
+  "why_correct": "be different from 〜「〜と違う」という連語なので from。",
+  "why_wrong": {
+   "of": "different of とは言いません。",
+   "at": "different at とは言いません。",
+   "to": "イギリス英語では different to も使いますが、標準は from。"
+  },
+  "point": "be different from 〜「〜と異なる」。",
+  "example": "My opinion is different from yours.",
+  "example_ja": "私の意見はあなたのとは違います。"
+ },
+ "chukyu-001": {
+  "why_correct": "過去完了 had ＋ 過去分詞。leave の過去分詞は left。「着いたときには、もう出発してしまっていた」と、過去のある時点より前の完了を表します。",
+  "why_wrong": {
+   "leave": "had の後ろは過去分詞。原形 leave は置けません。",
+   "leaves": "leaves は3単現（現在）です。",
+   "leaving": "-ing形は had の後ろには続きません。"
+  },
+  "point": "過去完了＝had ＋ 過去分詞。過去のある時点より「さらに前」を表す（大過去）。",
+  "example": "The bus had already gone when I got there.",
+  "example_ja": "私が着いたとき、バスはもう行ってしまっていた。"
+ },
+ "chukyu-002": {
+  "why_correct": "before dinner より前に終えていたので過去完了 had finished。",
+  "why_wrong": {
+   "finish": "had の後ろは過去分詞です。",
+   "finishing": "-ing形は had の後ろに続きません。",
+   "finishes": "finishes は3単現（現在）です。"
+  },
+  "point": "過去完了は「過去のある時点までに〜してしまっていた」。",
+  "example": "She had eaten before we came.",
+  "example_ja": "私たちが来る前に彼女は食べ終えていた。"
+ },
+ "chukyu-003": {
+  "why_correct": "過去完了 had ＋ 過去分詞。see→seen。「それまで見たことがなかった」（経験の過去完了）。",
+  "why_wrong": {
+   "see": "had の後ろは過去分詞です。",
+   "saw": "saw は過去形。had の後ろは過去分詞 seen。",
+   "seeing": "-ing形は had の後ろに続きません。"
+  },
+  "point": "had never ＋ 過去分詞「（その時まで）一度も〜したことがなかった」。",
+  "example": "I had never met him before that day.",
+  "example_ja": "その日まで彼に会ったことがなかった。"
+ },
+ "chukyu-004": {
+  "why_correct": "現在完了進行形 has been ＋ -ing「ずっと〜し続けている」。空所は been。",
+  "why_wrong": {
+   "be": "has の後ろは過去分詞 been です。",
+   "being": "has being という形はありません。",
+   "was": "has と was は一緒に使いません。"
+  },
+  "point": "現在完了進行形＝have / has been ＋ -ing。「（ずっと）〜している」。",
+  "example": "He has been working since morning.",
+  "example_ja": "彼は朝からずっと働いています。"
+ },
+ "chukyu-005": {
+  "why_correct": "「引っ越す前に5年間住んでいた」ので過去完了 had lived。",
+  "why_wrong": {
+   "live": "had の後ろは過去分詞です。",
+   "living": "-ing形は had の後ろに続きません。",
+   "lives": "lives は3単現（現在）です。"
+  },
+  "point": "過去完了で、過去のある時点までの継続も表せる。",
+  "example": "They had lived there for ten years before moving.",
+  "example_ja": "彼らは引っ越す前に10年間そこに住んでいた。"
+ },
+ "chukyu-006": {
+  "why_correct": "since this morning ＋ 完了進行形。It ___ been raining なので has。",
+  "why_wrong": {
+   "is": "been raining の前は has（完了進行形）です。",
+   "does": "does は完了形を作れません。",
+   "did": "did も完了形を作れません。"
+  },
+  "point": "have / has been ＋ -ing。主語 It は has。",
+  "example": "It has been snowing all day.",
+  "example_ja": "一日中ずっと雪が降っています。"
+ },
+ "chukyu-007": {
+  "why_correct": "we were kids は「子どものころから」という起点なので since。",
+  "why_wrong": {
+   "for": "for は期間の長さ。後ろに〈主語＋動詞〉が来るときは since。",
+   "when": "継続の起点には since を使います。",
+   "that": "that はここでは意味をなしません。"
+  },
+  "point": "since ＋ 起点（since 2010 / since we were kids）。",
+  "example": "I have known her since we were children.",
+  "example_ja": "私は子どものころから彼女を知っています。"
+ },
+ "chukyu-008": {
+  "why_correct": "「パリに行ってしまって今ここにいない（結果）」なので have gone to。",
+  "why_wrong": {
+   "been": "have been to は「行ったことがある／行ってきた」で、今ここにいない状況と矛盾します。",
+   "go": "go は原形。have の後ろは過去分詞です。",
+   "went": "went は過去形で、have の後ろには置けません。"
+  },
+  "point": "have gone to（行ったきり）↔ have been to（経験・往復）。",
+  "example": "He has gone to America.",
+  "example_ja": "彼はアメリカへ行ってしまいました（今いない）。"
+ },
+ "chukyu-009": {
+  "why_correct": "How long have you been ＋ -ing（現在完了進行形の疑問）なので have。",
+  "why_wrong": {
+   "do": "do は現在完了を作れません。",
+   "did": "did は過去の疑問用で、been waiting と合いません。",
+   "are": "are では完了進行形になりません。"
+  },
+  "point": "継続の疑問は How long have ＋ 主語 ＋ been ＋ -ing?",
+  "example": "How long have you been studying?",
+  "example_ja": "どのくらいの間 勉強し続けていますか。"
+ },
+ "chukyu-010": {
+  "why_correct": "「ちょうど終えたところ」という完了なので just。",
+  "why_wrong": {
+   "yet": "yet は否定文・疑問文で使います。",
+   "ever": "ever は経験の疑問文で「今までに」。",
+   "since": "since は起点を表します。"
+  },
+  "point": "have just ＋ 過去分詞「ちょうど〜したところ」。",
+  "example": "I have just had lunch.",
+  "example_ja": "私はちょうど昼食を食べたところです。"
+ },
+ "chukyu-011": {
+  "why_correct": "疑問文で「今までに食べたことがある？」と経験をたずねるので ever。",
+  "why_wrong": {
+   "yet": "yet は完了の否定・疑問で文末に置きます。",
+   "just": "just は「ちょうど今」の意味です。",
+   "since": "since は起点を表します。"
+  },
+  "point": "経験の疑問は Have you ever ＋ 過去分詞?",
+  "example": "Have you ever visited Kyoto?",
+  "example_ja": "京都を訪れたことがありますか。"
+ },
+ "chukyu-012": {
+  "why_correct": "助動詞 will の後ろは原形。受動態は be ＋ 過去分詞なので will be loved。",
+  "why_wrong": {
+   "is": "will の後ろは原形 be。is は置けません。",
+   "being": "will being という形はありません。",
+   "been": "will been という形もありません。"
+  },
+  "point": "助動詞 ＋ be ＋ 過去分詞（助動詞の受動態）。",
+  "example": "This rule will be changed soon.",
+  "example_ja": "この規則はまもなく変えられるでしょう。"
+ },
+ "chukyu-013": {
+  "why_correct": "助動詞 must ＋ be ＋ 過去分詞。「明日までに終えられねばならない」→ must be done。",
+  "why_wrong": {
+   "is": "must の後ろは原形 be です。",
+   "being": "must being という形はありません。",
+   "to be": "must の後ろに to は付けません。"
+  },
+  "point": "助動詞の後ろは原形。受動態なら助動詞 ＋ be ＋ 過去分詞。",
+  "example": "This letter must be sent today.",
+  "example_ja": "この手紙は今日送られなければならない。"
+ },
+ "chukyu-014": {
+  "why_correct": "two years ago（過去）・単数の受動態なので was built。",
+  "why_wrong": {
+   "is": "is は現在。ago があるので過去に。",
+   "has": "has built は能動の完了形で、意味が違います。",
+   "does": "does は受動態を作れません。"
+  },
+  "point": "単数・過去の受動態は was ＋ 過去分詞。",
+  "example": "The school was built in 1990.",
+  "example_ja": "その学校は1990年に建てられた。"
+ },
+ "chukyu-015": {
+  "why_correct": "現在完了の受動態 has been ＋ 過去分詞。send→sent。",
+  "why_wrong": {
+   "send": "been の後ろは過去分詞 sent です。",
+   "sending": "-ing形は受動態には使いません。",
+   "sends": "sends は3単現（能動）です。"
+  },
+  "point": "現在完了の受動態＝have / has been ＋ 過去分詞。",
+  "example": "The email has been sent.",
+  "example_ja": "そのメールは送信されました。"
+ },
+ "chukyu-016": {
+  "why_correct": "進行形の受動態 is being ＋ 過去分詞「（今）〜されている最中」なので being。",
+  "why_wrong": {
+   "be": "is be という形はありません。",
+   "been": "is been という形もありません。",
+   "to be": "is to be は別の意味（予定など）になります。"
+  },
+  "point": "進行形の受動態＝be動詞 ＋ being ＋ 過去分詞。",
+  "example": "The road is being repaired now.",
+  "example_ja": "その道は今修理されているところです。"
+ },
+ "chukyu-017": {
+  "why_correct": "受動態で行為者「〜によって」を表すので by。",
+  "why_wrong": {
+   "with": "with は道具・手段（書く道具など）に使います。",
+   "of": "of は行為者を表しません。",
+   "to": "to は行為者を表しません。"
+  },
+  "point": "受動態の行為者は by 〜（〜によって）。",
+  "example": "This song was sung by a famous singer.",
+  "example_ja": "この歌は有名な歌手によって歌われた。"
+ },
+ "chukyu-018": {
+  "why_correct": "too ＋ 形容詞 ＋ to do「〜すぎて…できない」。too hot to drink。",
+  "why_wrong": {
+   "for": "ここは to ＋ 原形の形（to drink）が必要です。",
+   "of": "of では不定詞になりません。",
+   "at": "at では不定詞になりません。"
+  },
+  "point": "too ＋ 形容詞 ＋ to do「…するには〜すぎる」。",
+  "example": "This box is too heavy to carry.",
+  "example_ja": "この箱は重すぎて運べない。"
+ },
+ "chukyu-019": {
+  "why_correct": "形容詞 ＋ enough ＋ to do「…するのに十分〜」。kind enough to help。",
+  "why_wrong": {
+   "too": "too kind to help は「親切すぎて助けられない」と逆の意味になります。",
+   "very": "very … to の形はありません。",
+   "much": "much はここでは使えません。"
+  },
+  "point": "形容詞 ＋ enough ＋ to do（enough は形容詞の後ろ）。",
+  "example": "He is old enough to drive.",
+  "example_ja": "彼は運転できる年齢だ。"
+ },
+ "chukyu-020": {
+  "why_correct": "want ＋ 人 ＋ to do「（人）に〜してほしい」。want me to study。",
+  "why_wrong": {
+   "study": "want me study とは言いません（to が必要）。",
+   "studying": "want me studying とは言いません。",
+   "studied": "studied は過去形です。"
+  },
+  "point": "want / tell / ask ＋ 目的語 ＋ to do。",
+  "example": "I want you to come with me.",
+  "example_ja": "私はあなたに一緒に来てほしい。"
+ },
+ "chukyu-021": {
+  "why_correct": "It is ＋ 形容詞 ＋ for 人 ＋ to do。意味上の主語は for ＋ 人なので for。",
+  "why_wrong": {
+   "to": "to us to sleep とは言いません。",
+   "of": "of は kind / nice など人の性質を表す形容詞のとき。important は for。",
+   "at": "at は意味上の主語を作れません。"
+  },
+  "point": "It is ＋ 形容詞 ＋ for 人 ＋ to do。性質の形容詞（kind / nice）なら of 人。",
+  "example": "It is hard for me to wake up early.",
+  "example_ja": "早起きするのは私には大変だ。"
+ },
+ "chukyu-022": {
+  "why_correct": "how to do「どうやって〜するか／〜のしかた」なので to get。",
+  "why_wrong": {
+   "get": "how get とは言いません（to が必要）。",
+   "getting": "how getting とは言いません。",
+   "got": "got は過去形です。"
+  },
+  "point": "〈疑問詞 ＋ to ＋ 原形〉：how to / what to / where to。",
+  "example": "Could you tell me how to use this?",
+  "example_ja": "これの使い方を教えていただけますか。"
+ },
+ "chukyu-023": {
+  "why_correct": "to不定詞の否定は not を to の前に置く。tell 人 not to do「〜しないように言う」。",
+  "why_wrong": {
+   "not": "not だけでは to不定詞の否定になりません。",
+   "to not": "to not talk（分離不定詞）は避け、not to talk が標準です。",
+   "don't": "don't は命令文の形で、ここでは使えません。"
+  },
+  "point": "to不定詞の否定は not ＋ to ＋ 原形（not to do）。",
+  "example": "She told me not to worry.",
+  "example_ja": "彼女は私に心配しないように言った。"
+ },
+ "chukyu-024": {
+  "why_correct": "ask ＋ 人 ＋ to do「（人）に〜するよう頼む」。asked her to close。",
+  "why_wrong": {
+   "close": "ask her close とは言いません（to が必要）。",
+   "closing": "ask her closing とは言いません。",
+   "closed": "closed は過去形・過去分詞です。"
+  },
+  "point": "ask ＋ 目的語 ＋ to do。",
+  "example": "I asked him to wait.",
+  "example_ja": "私は彼に待つように頼んだ。"
+ },
+ "chukyu-025": {
+  "why_correct": "look forward to の to は前置詞なので後ろは -ing。look forward to seeing。",
+  "why_wrong": {
+   "see": "to の後ろは -ing（この to は前置詞）。",
+   "saw": "saw は過去形です。",
+   "seen": "seen は過去分詞です。"
+  },
+  "point": "look forward to ＋ -ing「〜を楽しみにする」（to は前置詞）。",
+  "example": "I'm looking forward to meeting you.",
+  "example_ja": "あなたに会えるのを楽しみにしています。"
+ },
+ "chukyu-026": {
+  "why_correct": "give up ＋ -ing「〜するのをやめる／あきらめる」。gave up trying。",
+  "why_wrong": {
+   "try": "give up の後ろは -ing です。",
+   "to try": "give up to do とは言いません。",
+   "tried": "tried は過去形です。"
+  },
+  "point": "give up ＋ -ing。",
+  "example": "He gave up smoking.",
+  "example_ja": "彼はたばこをやめた。"
+ },
+ "chukyu-027": {
+  "why_correct": "be used to の to は前置詞なので後ろは -ing。be used to getting up「起きるのに慣れている」。",
+  "why_wrong": {
+   "get": "to の後ろは -ing（この to は前置詞）。",
+   "to get": "be used to to get とは言いません。",
+   "got": "got は過去形です。"
+  },
+  "point": "be used to ＋ -ing（慣れている）↔ used to ＋ 原形（昔は〜した）。",
+  "example": "I'm used to working late.",
+  "example_ja": "私は遅くまで働くのに慣れています。"
+ },
+ "chukyu-028": {
+  "why_correct": "mind ＋ -ing「〜を気にする」。Would you mind closing …?「閉めていただけますか」。",
+  "why_wrong": {
+   "close": "mind の後ろは -ing です。",
+   "to close": "mind to do とは言いません。",
+   "closed": "closed は過去形・過去分詞です。"
+  },
+  "point": "mind ＋ -ing。Would you mind ＋ -ing? は丁寧な依頼。",
+  "example": "Would you mind opening the window?",
+  "example_ja": "窓を開けていただけますか。"
+ },
+ "chukyu-029": {
+  "why_correct": "前置詞 in の後ろは -ing。be interested in studying。",
+  "why_wrong": {
+   "study": "前置詞の後ろは -ing です。",
+   "to study": "前置詞の後に to不定詞は置けません。",
+   "studied": "studied は過去形です。"
+  },
+  "point": "前置詞（in / at / for …）の後ろは動名詞（-ing）。",
+  "example": "She is interested in learning French.",
+  "example_ja": "彼女はフランス語を学ぶことに興味があります。"
+ },
+ "chukyu-030": {
+  "why_correct": "remember to do「（これから）忘れずに〜する」。to turn off。",
+  "why_wrong": {
+   "turn off": "remember の後ろは to ＋ 原形 か -ing。原形のままは不可。",
+   "turning off": "remember -ing は「〜したのを覚えている」（過去）で、ここは「これから消す」なので to。",
+   "turned off": "turned off は過去形です。"
+  },
+  "point": "remember to do（これからすること）↔ remember -ing（したこと）。",
+  "example": "Remember to lock the door.",
+  "example_ja": "忘れずにドアにカギをかけてね。"
+ },
+ "chukyu-031": {
+  "why_correct": "分詞構文。「疲れていたので」と理由を表す現在分詞 Feeling で始めます。",
+  "why_wrong": {
+   "Feel": "原形では分詞構文になりません。",
+   "Felt": "Felt は過去形です。",
+   "Feels": "Feels は3単現です。"
+  },
+  "point": "分詞構文は -ing で始め「〜して／〜なので／〜しながら」。",
+  "example": "Being tired, he went home early.",
+  "example_ja": "疲れていたので、彼は早く帰った。"
+ },
+ "chukyu-032": {
+  "why_correct": "「テレビを見ながら」と付帯状況を表す分詞構文なので Watching。",
+  "why_wrong": {
+   "Watch": "原形では分詞構文になりません。",
+   "Watched": "ここは能動なので過去分詞では合いません。",
+   "To watch": "to不定詞では分詞構文になりません。"
+  },
+  "point": "「〜しながら」は現在分詞（-ing）の分詞構文。",
+  "example": "Smiling, she opened the gift.",
+  "example_ja": "ほほえみながら、彼女は贈り物を開けた。"
+ },
+ "chukyu-033": {
+  "why_correct": "「やさしい英語で書かれているので」と受動の意味なので過去分詞 Written で始めます。",
+  "why_wrong": {
+   "Write": "原形では分詞構文になりません。",
+   "Writing": "能動の -ing だと「（本が）書いている」となり意味が合いません。",
+   "Wrote": "Wrote は過去形です。"
+  },
+  "point": "受動の意味の分詞構文は過去分詞で始める（Written …）。",
+  "example": "Made of glass, the cup is fragile.",
+  "example_ja": "ガラス製なので、そのカップは壊れやすい。"
+ },
+ "chukyu-034": {
+  "why_correct": "「角を左に曲がれば」と条件を表す分詞構文なので Turning。",
+  "why_wrong": {
+   "Turn": "原形では分詞構文になりません。",
+   "Turned": "ここは能動なので過去分詞では合いません。",
+   "To turn": "to不定詞では分詞構文になりません。"
+  },
+  "point": "分詞構文は文脈で「〜すれば／〜すると」とも訳せる。",
+  "example": "Turning right, you will see the bank.",
+  "example_ja": "右に曲がれば、銀行が見えます。"
+ },
+ "chukyu-035": {
+  "why_correct": "「何も言わずに」と付帯状況を表す分詞構文なので saying。",
+  "why_wrong": {
+   "say": "原形では分詞構文になりません。",
+   "said": "ここは能動なので過去分詞では合いません。",
+   "says": "says は3単現です。"
+  },
+  "point": "〈主節, -ing …〉で「〜しながら／〜して」と付け足す。",
+  "example": "He left the room, saying goodbye.",
+  "example_ja": "彼はさよならを言いながら部屋を出た。"
+ },
+ "chukyu-036": {
+  "why_correct": "「その子の父」と所有を表すので whose。whose father。",
+  "why_wrong": {
+   "who": "who は主格・目的格で、所有は表しません。",
+   "which": "which はモノ・動物用です。",
+   "where": "where は場所を表します。"
+  },
+  "point": "whose ＋ 名詞「〜の…」（所有格）。",
+  "example": "I met a man whose name was Ken.",
+  "example_ja": "私は名前がケンという男性に会った。"
+ },
+ "chukyu-037": {
+  "why_correct": "場所の先行詞（town）＋後ろが完全な文なので関係副詞 where。",
+  "why_wrong": {
+   "which": "which の後ろは目的語などが欠けた文。ここは完全文なので where。",
+   "when": "when は時の先行詞に使います。",
+   "who": "who は人に使います。"
+  },
+  "point": "場所 ＋ 完全な文 → where、時 ＋ 完全な文 → when。",
+  "example": "This is the city where I grew up.",
+  "example_ja": "ここは私が育った町です。"
+ },
+ "chukyu-038": {
+  "why_correct": "時の先行詞（day）＋完全な文なので関係副詞 when。",
+  "why_wrong": {
+   "which": "ここは完全文なので関係副詞 when。",
+   "where": "where は場所に使います。",
+   "who": "who は人に使います。"
+  },
+  "point": "時（day / time / year）＋ 完全な文 → when。",
+  "example": "I'll never forget the day when we met.",
+  "example_ja": "私たちが出会った日を決して忘れません。"
+ },
+ "chukyu-039": {
+  "why_correct": "live in の目的語が欠けている（live in ___）ので関係代名詞 which。",
+  "why_wrong": {
+   "who": "先行詞 house はモノなので who は使いません。",
+   "where": "前置詞 in の目的語が必要なので where ではなく which。",
+   "whose": "whose は所有を表します。"
+  },
+  "point": "前置詞の目的語が欠けるなら which / who（where は使わない）。",
+  "example": "This is the house which I was born in.",
+  "example_ja": "これは私が生まれた家です。"
+ },
+ "chukyu-040": {
+  "why_correct": "人（man）＋目的語が欠ける（I respect ___）ので who。",
+  "why_wrong": {
+   "which": "which はモノ・動物用です。",
+   "whose": "whose は所有を表します。",
+   "where": "where は場所を表します。"
+  },
+  "point": "人 ＋〈主語＋動詞〉で目的語が欠ける → who（目的格）。",
+  "example": "He is the teacher who everyone likes.",
+  "example_ja": "彼はみんなが好きな先生です。"
+ },
+ "chukyu-041": {
+  "why_correct": "reason（理由）＋完全な文なので関係副詞 why。the reason why。",
+  "why_wrong": {
+   "which": "ここは完全文なので関係副詞 why。",
+   "where": "where は場所に使います。",
+   "who": "who は人に使います。"
+  },
+  "point": "reason ＋ why（理由の関係副詞）。",
+  "example": "Tell me the reason why you were late.",
+  "example_ja": "遅れた理由を教えて。"
+ },
+ "chukyu-042": {
+  "why_correct": "場所の先行詞（restaurant）＋完全な文なので where。",
+  "why_wrong": {
+   "which": "ここは完全文なので関係副詞 where。",
+   "when": "when は時に使います。",
+   "who": "who は人に使います。"
+  },
+  "point": "場所 ＋ 完全な文 → where。",
+  "example": "That's the park where we played.",
+  "example_ja": "あれが私たちが遊んだ公園です。"
+ },
+ "chukyu-043": {
+  "why_correct": "人（friend）＋後ろが動詞（lives）なので who（主格）。",
+  "why_wrong": {
+   "which": "which はモノ・動物用です。",
+   "whose": "whose は所有を表します。",
+   "where": "where は場所を表します。"
+  },
+  "point": "人 ＋ 動詞 → who（主格）。",
+  "example": "I have a cousin who lives in Canada.",
+  "example_ja": "私にはカナダに住むいとこがいます。"
+ },
+ "chukyu-044": {
+  "why_correct": "比較級（more expensive）を強めて「ずっと」と言うので much。",
+  "why_wrong": {
+   "very": "very は原級を強めます。比較級は強められません。",
+   "more": "more more とは言いません。",
+   "most": "most は最上級用です。"
+  },
+  "point": "比較級の強調は much / far / a lot（very は不可）。",
+  "example": "This is much bigger than that.",
+  "example_ja": "これはあれよりずっと大きい。"
+ },
+ "chukyu-045": {
+  "why_correct": "one of the ＋ 最上級 ＋ 複数。good の最上級は best。",
+  "why_wrong": {
+   "good": "good は原級です。the があるので最上級に。",
+   "better": "better は比較級（2つの比較）です。",
+   "well": "well は副詞で、名詞 players を説明できません。"
+  },
+  "point": "good - better - best（不規則変化）。",
+  "example": "She is one of the best dancers here.",
+  "example_ja": "彼女はここで最高のダンサーの一人です。"
+ },
+ "chukyu-046": {
+  "why_correct": "The 比較級 …, the 比較級 …「〜すればするほど…」。The more you practice, the better。",
+  "why_wrong": {
+   "much": "much はこの構文の比較級の位置に合いません。",
+   "most": "most は最上級用です。",
+   "many": "many は可算名詞用で、ここでは比較級 more。"
+  },
+  "point": "The 比較級 〜, the 比較級 …「ますます…」。",
+  "example": "The harder you work, the more you earn.",
+  "example_ja": "働けば働くほど、多く稼げる。"
+ },
+ "chukyu-047": {
+  "why_correct": "比較級 ＋ than any other ＋ 単数名詞「ほかのどの〜より」で最上級の意味なので any。",
+  "why_wrong": {
+   "some": "than some other とは言いません。",
+   "all": "than all other cities なら複数ですが、定型は any other ＋ 単数。",
+   "many": "than many other とは言いません。"
+  },
+  "point": "比較級 ＋ than any other ＋ 単数名詞 ＝ 最上級の意味。",
+  "example": "He is taller than any other boy in his class.",
+  "example_ja": "彼はクラスのほかのどの男子よりも背が高い。"
+ },
+ "chukyu-048": {
+  "why_correct": "比較級 and 比較級「ますます〜」。warm は短い語なので warmer and warmer。",
+  "why_wrong": {
+   "warm": "原級ではこの構文になりません。",
+   "warmest": "最上級はこの構文に入りません。",
+   "more warm": "短い語は -er（more は付けない）。"
+  },
+  "point": "比較級 and 比較級「だんだん〜」。",
+  "example": "It is getting darker and darker.",
+  "example_ja": "だんだん暗くなってきている。"
+ },
+ "chukyu-049": {
+  "why_correct": "No other ＋ 単数 … 比較級 than「ほかのどれも〜より高くない」で最上級の意味なので higher。",
+  "why_wrong": {
+   "high": "than があるので比較級が必要です。",
+   "highest": "than の前は比較級です（最上級ではない）。",
+   "more high": "high は短い語なので higher。"
+  },
+  "point": "No other 〜 ＋ 比較級 ＋ than … ＝ 最上級の意味。",
+  "example": "No other student is busier than him.",
+  "example_ja": "彼ほど忙しい生徒はほかにいない。"
+ },
+ "chukyu-050": {
+  "why_correct": "not so ＋ 原級 ＋ as「…ほど〜ない」（not as … as と同義）なので so。",
+  "why_wrong": {
+   "very": "very … as という形はありません。",
+   "too": "too … as という形はありません。",
+   "more": "more … as という形はありません。"
+  },
+  "point": "not so / as ＋ 原級 ＋ as「…ほど〜ない」。",
+  "example": "This book is not so long as that one.",
+  "example_ja": "この本はあの本ほど長くない。"
+ },
+ "chukyu-051": {
+  "why_correct": "「寒かったけれど泳いだ」と逆接（譲歩）なので Though。",
+  "why_wrong": {
+   "Because": "Because は理由「〜なので」を表します。",
+   "So": "So は「だから」で結果を表します。",
+   "If": "If は条件「もし〜なら」を表します。"
+  },
+  "point": "though / although「〜だけれど」（譲歩）。",
+  "example": "Though he is rich, he is not happy.",
+  "example_ja": "彼は金持ちだが、幸せではない。"
+ },
+ "chukyu-052": {
+  "why_correct": "「急がないとバスを逃す」＝「もし急がなければ」なので Unless（＝if … not）。",
+  "why_wrong": {
+   "If": "If you hurry なら「急げば逃す」と逆の意味になります。",
+   "Though": "Though は「〜だけれど」で意味が合いません。",
+   "Because": "Because は理由を表します。"
+  },
+  "point": "unless ＝ if … not「〜しない限り／〜しなければ」。",
+  "example": "Unless you study, you will fail.",
+  "example_ja": "勉強しなければ、不合格になりますよ。"
+ },
+ "chukyu-053": {
+  "why_correct": "so ＋ 形容詞 ＋ that …「とても〜なので…」。so tired that。",
+  "why_wrong": {
+   "such": "such は名詞句の前（such a … that）。形容詞 tired の前は so。",
+   "very": "very … that の構文はありません。",
+   "too": "too … that の構文はありません。"
+  },
+  "point": "so ＋ 形容詞 / 副詞 ＋ that … / such ＋ (a) 名詞 ＋ that …。",
+  "example": "He was so happy that he cried.",
+  "example_ja": "彼はとてもうれしくて泣いた。"
+ },
+ "chukyu-054": {
+  "why_correct": "such ＋ a ＋ 形容詞 ＋ 名詞 ＋ that …。such a hot day that。",
+  "why_wrong": {
+   "so": "so の後ろは形容詞・副詞。名詞句（a hot day）の前は such。",
+   "very": "very … that の構文はありません。",
+   "too": "too … that の構文はありません。"
+  },
+  "point": "such ＋ (a/an) ＋ 形容詞 ＋ 名詞 ＋ that …。",
+  "example": "It was such a long movie that I fell asleep.",
+  "example_ja": "とても長い映画だったので、私は眠ってしまった。"
+ },
+ "chukyu-055": {
+  "why_correct": "both A and B「AもBも両方」。動詞は can で複数扱い。",
+  "why_wrong": {
+   "Either": "either A or B「AかBのどちらか」で意味が変わります。",
+   "Neither": "neither A nor B「AもBも〜ない」で意味が変わります。",
+   "Not": "Not だけでは A and B を結べません。"
+  },
+  "point": "both A and B（両方）／either A or B（どちらか）／neither A nor B（どちらも〜ない）。",
+  "example": "Both my brother and I like soccer.",
+  "example_ja": "兄も私もサッカーが好きです。"
+ },
+ "chukyu-056": {
+  "why_correct": "not only A but also B「AだけでなくBも」なので but also。",
+  "why_wrong": {
+   "and": "not only A and B とは言いません。",
+   "or": "not only A or B とは言いません。",
+   "so": "so はここでは結びになりません。"
+  },
+  "point": "not only A but also B「AだけでなくBも」。",
+  "example": "She is not only kind but also smart.",
+  "example_ja": "彼女は親切なだけでなく賢くもある。"
+ },
+ "chukyu-057": {
+  "why_correct": "「戻ってくるまで（ずっと）待つ」と継続の終点を表すので until。",
+  "why_wrong": {
+   "since": "since は起点を表します。",
+   "though": "though は「〜だけれど」です。",
+   "so": "so は「だから」で結果を表します。"
+  },
+  "point": "until「〜するまで（ずっと）」（継続の終わり）。",
+  "example": "Wait here until I call you.",
+  "example_ja": "呼ぶまでここで待っていて。"
+ },
+ "chukyu-058": {
+  "why_correct": "「道に迷うといけないので（備えて）地図を持って」なので in case。",
+  "why_wrong": {
+   "even if": "even if は「たとえ〜でも」です。",
+   "as if": "as if は「まるで〜のように」です。",
+   "so that": "so that は「〜するために」（目的）です。"
+  },
+  "point": "in case「〜する場合に備えて」。",
+  "example": "Take an umbrella in case it rains.",
+  "example_ja": "雨が降るといけないので傘を持って行きなさい。"
+ },
+ "chukyu-059": {
+  "why_correct": "仮定法過去。be動詞は主語に関係なく were を使うので were。",
+  "why_wrong": {
+   "am": "現実とは違う仮定なので現在形 am は使いません。",
+   "was": "仮定法では主語が I でも were が基本です。",
+   "will be": "if 節に will は入れません。"
+  },
+  "point": "仮定法過去：If ＋ 主語 ＋ 過去形（be は were）, 主語 ＋ would ＋ 原形。",
+  "example": "If I were you, I would say sorry.",
+  "example_ja": "もし私があなたなら、謝るでしょう。"
+ },
+ "chukyu-060": {
+  "why_correct": "I wish ＋ 仮定法過去。「弾けたらなあ」なので could。",
+  "why_wrong": {
+   "can": "現実と違う願望なので、現在形 can ではなく could。",
+   "will": "wish の後ろに will は使いません。",
+   "am": "ここでは can / could の意味（〜できたら）が必要です。"
+  },
+  "point": "I wish ＋ 仮定法過去（could / 過去形）「〜ならいいのに」。",
+  "example": "I wish I had more time.",
+  "example_ja": "もっと時間があればなあ。"
+ },
+ "chukyu-061": {
+  "why_correct": "仮定法過去。If 節は過去形なので had。",
+  "why_wrong": {
+   "have": "現実と違う仮定なので過去形 had を使います。",
+   "has": "has は現在形です。",
+   "having": "having では仮定法になりません。"
+  },
+  "point": "仮定法過去の if 節は過去形（had）。",
+  "example": "If I had a car, I would drive to work.",
+  "example_ja": "もし車があれば、車で通勤するのに。"
+ },
+ "chukyu-062": {
+  "why_correct": "「明日もし雨なら（ありうる条件）」。条件の if 節は未来でも現在形なので rains。主節は will。",
+  "why_wrong": {
+   "rained": "rained は仮定法（現実と違う）で、ここはありうる条件なので現在形。",
+   "will rain": "条件の if 節には will を入れません。",
+   "rain": "主語 it は3単現なので rains。"
+  },
+  "point": "ありうる条件は if ＋ 現在形, 主節 will。仮定法（過去形）と区別。",
+  "example": "If it is sunny, we will go hiking.",
+  "example_ja": "晴れたら、ハイキングに行きます。"
+ },
+ "chukyu-063": {
+  "why_correct": "as if ＋ 仮定法過去「まるで〜かのように」。knew。",
+  "why_wrong": {
+   "know": "現実と違う様子なので過去形 knew を使います。",
+   "knows": "knows は現在形です。",
+   "known": "known は過去分詞です。"
+  },
+  "point": "as if ＋ 仮定法過去「まるで（実際は違うが）〜のように」。",
+  "example": "She acts as if she were a queen.",
+  "example_ja": "彼女はまるで女王のようにふるまう。"
+ },
+ "chukyu-064": {
+  "why_correct": "had better ＋ 原形「〜したほうがよい（強い忠告）」なので had。",
+  "why_wrong": {
+   "have": "have better という言い方はありません。",
+   "has": "has better という言い方もありません。",
+   "would": "would better という言い方はありません（正しくは had better）。"
+  },
+  "point": "had better ＋ 原形「〜したほうがよい」。",
+  "example": "You had better see a doctor.",
+  "example_ja": "医者にみてもらったほうがいい。"
+ },
+ "chukyu-065": {
+  "why_correct": "used to ＋ 原形「以前は〜した（今は違う）」なので used。",
+  "why_wrong": {
+   "use": "used to の形にします。",
+   "am used": "be used to ＋ -ing は「慣れている」で別の意味です。",
+   "using": "using では助動詞表現になりません。"
+  },
+  "point": "used to ＋ 原形（昔の習慣）↔ be used to ＋ -ing（慣れている）。",
+  "example": "I used to live in Nagoya.",
+  "example_ja": "私は以前、名古屋に住んでいました。"
+ },
+ "chukyu-066": {
+  "why_correct": "don't have to「〜しなくてよい」。主語 You なので do。",
+  "why_wrong": {
+   "does": "主語 You には do を使います（does は3単現）。",
+   "did": "did は過去用です。",
+   "must": "must not は「してはいけない」で意味が逆です。"
+  },
+  "point": "don't have to ＝「〜する必要はない」（≠ must not「してはいけない」）。",
+  "example": "You don't have to wait for me.",
+  "example_ja": "私を待たなくていいですよ。"
+ },
+ "chukyu-067": {
+  "why_correct": "「一日中働いた→疲れているにちがいない」と強い推量なので must。",
+  "why_wrong": {
+   "can": "can は「ありうる」ですが、確信の推量は must。",
+   "may not": "may not は「〜でないかもしれない」で逆向きです。",
+   "should not": "should not は「〜すべきでない」で意味が違います。"
+  },
+  "point": "must「〜にちがいない」（確信の推量）。",
+  "example": "She must be very smart.",
+  "example_ja": "彼女はとても賢いにちがいない。"
+ },
+ "chukyu-068": {
+  "why_correct": "Would you like 〜?「〜はいかがですか」と丁寧に勧めるので Would。",
+  "why_wrong": {
+   "Will": "Will you like という勧めの言い方はしません。",
+   "Do": "Do you like 〜? は「好きですか」と好みをたずねる別の意味です。",
+   "Are": "Are は be動詞の疑問文用です。"
+  },
+  "point": "Would you like 〜?「〜はいかがですか」。",
+  "example": "Would you like something to drink?",
+  "example_ja": "何かお飲み物はいかがですか。"
+ },
+ "chukyu-069": {
+  "why_correct": "使役動詞 make ＋ 人 ＋ 原形「（人）に〜させる」。made me clean。",
+  "why_wrong": {
+   "to clean": "使役の make は原形を取ります（to は不要）。",
+   "cleaning": "make ＋ 人 ＋ -ing とは言いません。",
+   "cleaned": "cleaned は過去分詞・過去形です。"
+  },
+  "point": "make / let / have ＋ 人 ＋ 原形（使役は原形不定詞）。",
+  "example": "The teacher made us stay after school.",
+  "example_ja": "先生は私たちを放課後残らせた。"
+ },
+ "chukyu-070": {
+  "why_correct": "使役動詞 let ＋ 人 ＋ 原形「〜させてやる」。let her children play。",
+  "why_wrong": {
+   "to play": "let は原形を取ります（to は不要）。",
+   "playing": "let ＋ 人 ＋ -ing とは言いません。",
+   "played": "played は過去分詞・過去形です。"
+  },
+  "point": "let ＋ 人 ＋ 原形「（望みどおり）〜させる」。",
+  "example": "My parents let me stay up late.",
+  "example_ja": "両親は私が夜ふかしするのを許してくれた。"
+ },
+ "chukyu-071": {
+  "why_correct": "知覚動詞 hear ＋ 人 ＋ 原形「〜するのを聞く」。heard him play。",
+  "why_wrong": {
+   "to play": "知覚動詞は原形を取ります（to は不要）。",
+   "plays": "plays は3単現です。",
+   "played": "played は過去形です。"
+  },
+  "point": "see / hear / feel ＋ 目的語 ＋ 原形（または -ing）。",
+  "example": "I heard someone call my name.",
+  "example_ja": "だれかが私の名前を呼ぶのが聞こえた。"
+ },
+ "chukyu-072": {
+  "why_correct": "知覚動詞 see ＋ 目的語 ＋ 原形「〜するのを見る」。saw a cat run。",
+  "why_wrong": {
+   "to run": "知覚動詞は原形を取ります（to は不要）。",
+   "runs": "runs は3単現です。",
+   "to running": "そのような形はありません。"
+  },
+  "point": "see ＋ 目的語 ＋ 原形（動作全体）／ -ing（動作の途中）。",
+  "example": "I saw him cross the street.",
+  "example_ja": "私は彼が通りを渡るのを見た。"
+ },
+ "chukyu-073": {
+  "why_correct": "help ＋ 人 ＋ (to) 原形「〜するのを手伝う」。原形 move。",
+  "why_wrong": {
+   "to moving": "そのような形はありません。help の後は (to) 原形。",
+   "moves": "moves は3単現です。",
+   "moved": "moved は過去形・過去分詞です。"
+  },
+  "point": "help ＋ 人 ＋ (to) 原形。to は省略可、-ing は不可。",
+  "example": "Can you help me carry this?",
+  "example_ja": "これを運ぶのを手伝ってくれますか。"
+ },
+ "chukyu-074": {
+  "why_correct": "肯定文 You are … には否定の付加疑問 aren't you? を付けます。",
+  "why_wrong": {
+   "are you": "肯定文には否定形の付加疑問を付けます。",
+   "don't you": "be動詞の文には be動詞で返します（do は使わない）。",
+   "isn't it": "主語 you には you で返します。"
+  },
+  "point": "付加疑問：肯定文→否定、否定文→肯定。be動詞には be動詞で返す。",
+  "example": "You are a student, aren't you?",
+  "example_ja": "あなたは学生ですよね。"
+ },
+ "chukyu-075": {
+  "why_correct": "否定文 He doesn't like … には肯定の付加疑問 does he? を付けます。",
+  "why_wrong": {
+   "doesn't he": "否定文には肯定形の付加疑問を付けます。",
+   "is he": "一般動詞の文には do / does で返します。",
+   "do he": "主語 he には does を使います。"
+  },
+  "point": "否定文 → 肯定の付加疑問。一般動詞には do / does。",
+  "example": "She doesn't eat meat, does she?",
+  "example_ja": "彼女は肉を食べないですよね。"
+ },
+ "chukyu-076": {
+  "why_correct": "Let's … の付加疑問は shall we? です。",
+  "why_wrong": {
+   "will you": "will you? は命令文の付加疑問です。",
+   "don't we": "Let's には shall we? を使います。",
+   "aren't we": "Let's には shall we? を使います。"
+  },
+  "point": "Let's 〜, shall we?／命令文 〜, will you?",
+  "example": "Let's go out, shall we?",
+  "example_ja": "出かけましょうよ。"
+ },
+ "chukyu-077": {
+  "why_correct": "命令文の付加疑問は will you? です。",
+  "why_wrong": {
+   "shall we": "shall we? は Let's の付加疑問です。",
+   "don't you": "命令文には will you? を使います。",
+   "are you": "命令文には will you? を使います。"
+  },
+  "point": "命令文 〜, will you?（依頼の念押し）。",
+  "example": "Close the door, will you?",
+  "example_ja": "ドアを閉めてくれますか。"
+ },
+ "chukyu-078": {
+  "why_correct": "形式主語 It。本当の主語は to 以下（to learn …）。It is difficult to learn …。",
+  "why_wrong": {
+   "That": "ここでは仮の主語 It を使う形が基本です。",
+   "This": "This is … to do の形は使いません。",
+   "There": "There is 構文とは別です。"
+  },
+  "point": "It is ＋ 形容詞 ＋ to do（It は仮の主語）。",
+  "example": "It is fun to travel.",
+  "example_ja": "旅行をするのは楽しい。"
+ },
+ "chukyu-079": {
+  "why_correct": "使役の make ＋ 人 ＋ 原形「（人）を〜させる」。made me cry。",
+  "why_wrong": {
+   "cried": "make の後ろは原形です。",
+   "crying": "make ＋ 人 ＋ -ing とは言いません。",
+   "to cry": "使役の make に to は不要です。"
+  },
+  "point": "make ＋ 目的語 ＋ 原形（SVOC、C が原形）。",
+  "example": "The story made everyone laugh.",
+  "example_ja": "その話はみんなを笑わせた。"
+ },
+ "chukyu-080": {
+  "why_correct": "find ＋ O ＋ C「OがCだとわかる」。C には形容詞 easy。",
+  "why_wrong": {
+   "easily": "easily は副詞で、C（補語）にはなれません。",
+   "easiness": "easiness は名詞で、ここでは合いません。",
+   "to easy": "そのような形はありません。"
+  },
+  "point": "SVOC の C には形容詞（find it easy / keep it clean）。",
+  "example": "I found the test difficult.",
+  "example_ja": "私はそのテストが難しいと思った。"
+ },
+ "chukyu-081": {
+  "why_correct": "or not が続くので「〜かどうか」は whether（or not の直前は whether が自然）。",
+  "why_wrong": {
+   "that": "that は「〜ということ」で、不確かさを表しません。",
+   "if": "if … or not も可ですが、or not の直前は whether が標準です。",
+   "what": "what は「何が／何を」で意味が合いません。"
+  },
+  "point": "whether 〜 or not「〜かどうか」。",
+  "example": "I'm not sure whether he is right or not.",
+  "example_ja": "彼が正しいかどうか分かりません。"
+ },
+ "chukyu-082": {
+  "why_correct": "「彼が正直だということ」と主語になる名詞節を作るので That（That ＋ 完全文）。",
+  "why_wrong": {
+   "What": "what 節は後ろが不完全になります（ここは完全文）。",
+   "If": "if 節は通常、主語にはなりません。",
+   "Which": "which では名詞節の主語になりません。"
+  },
+  "point": "That ＋〈完全文〉で「〜ということ」（名詞節）。主語にもなる。",
+  "example": "That she passed the exam is wonderful.",
+  "example_ja": "彼女が試験に合格したことはすばらしい。"
+ },
+ "chukyu-083": {
+  "why_correct": "主節が said（過去）なので、時制の一致で従属節も過去 was。",
+  "why_wrong": {
+   "is": "主節が過去なので、従属節も過去にそろえます。",
+   "has": "ここでは be動詞の過去 was が必要です。",
+   "will": "will では時制の一致になりません（would なら可）。"
+  },
+  "point": "主節が過去 → 従属節も過去にそろえる（時制の一致）。",
+  "example": "He said that he was tired.",
+  "example_ja": "彼は疲れていると言った。"
+ },
+ "chukyu-084": {
+  "why_correct": "most of the ＋ 複数名詞「〜のほとんど」。動詞は like で複数扱い。",
+  "why_wrong": {
+   "Almost": "almost は副詞で of を直接取れません（almost all of …）。",
+   "Each": "each は単数扱いで、動詞は has など単数になります。",
+   "Every": "every は名詞に直接つき、of は取りません。"
+  },
+  "point": "most of the ＋ 名詞。almost は副詞（almost all）。",
+  "example": "Most of my friends play sports.",
+  "example_ja": "私の友達のほとんどはスポーツをします。"
+ },
+ "chukyu-085": {
+  "why_correct": "every ＋ 単数名詞 ＋ 単数動詞。Every student has。",
+  "why_wrong": {
+   "All": "all は複数名詞を取ります（All students have）。",
+   "Both": "both は「2つ」を指します。",
+   "Most": "most は of が必要（most of the students）。"
+  },
+  "point": "every / each ＋ 単数名詞 ＋ 単数動詞。",
+  "example": "Every room has a window.",
+  "example_ja": "どの部屋にも窓があります。"
+ },
+ "chukyu-086": {
+  "why_correct": "time は数えられない名詞。「ほとんどない」と否定的に言うので little。",
+  "why_wrong": {
+   "many": "many は数えられる名詞用です（time は不可算）。",
+   "a few": "a few は数えられる名詞用です。",
+   "few": "few も数えられる名詞用です。"
+  },
+  "point": "little / a little ＋ 不可算、few / a few ＋ 可算。",
+  "example": "I have little money now.",
+  "example_ja": "今、お金がほとんどありません。"
+ },
+ "chukyu-087": {
+  "why_correct": "friends は数えられる名詞。「ほとんどいない（さびしい）」と否定的なので few。",
+  "why_wrong": {
+   "much": "much は不可算名詞用です。",
+   "a little": "a little は不可算名詞用です。",
+   "a lot": "a lot of の形なら可ですが、ここは of がなく few。"
+  },
+  "point": "few（ほとんどない・否定的）／a few（少しはある・肯定的）＋ 可算複数。",
+  "example": "He has few friends, so he is lonely.",
+  "example_ja": "彼は友達がほとんどいないので、さびしい。"
+ },
+ "chukyu-088": {
+  "why_correct": "people は数えられる複数名詞なので many。",
+  "why_wrong": {
+   "much": "much は不可算名詞用です。",
+   "little": "little は不可算名詞用です。",
+   "a little": "a little も不可算名詞用です。"
+  },
+  "point": "数えられる複数名詞は many。",
+  "example": "There were many cars on the road.",
+  "example_ja": "道路にはたくさんの車がいた。"
+ },
+ "chukyu-089": {
+  "why_correct": "each of ＋ 複数名詞は単数扱いなので has。",
+  "why_wrong": {
+   "have": "each は単数扱いなので has。",
+   "are": "are は複数の be動詞で、each には合いません。",
+   "were": "were は複数・過去で合いません。"
+  },
+  "point": "each / every は単数扱い → 動詞も単数。",
+  "example": "Each of the rooms has a TV.",
+  "example_ja": "どの部屋にもテレビがあります。"
+ },
+ "chukyu-090": {
+  "why_correct": "現在完了の経験 Have you ever ＋ 過去分詞。Have you ever been …?",
+  "why_wrong": {
+   "Did": "Did は過去の疑問用で、been とは合いません。",
+   "Do": "Do では現在完了になりません。",
+   "Are": "Are では現在完了になりません。"
+  },
+  "point": "経験の疑問は Have you ever ＋ 過去分詞?",
+  "example": "Have you ever been abroad?",
+  "example_ja": "海外へ行ったことがありますか。"
+ },
+ "chukyu-091": {
+  "why_correct": "stop ＋ -ing「〜するのをやめる」。電話に出るために話すのをやめたので talking。",
+  "why_wrong": {
+   "talk": "stop の後ろは -ing が基本です。",
+   "to talk": "stop to do は「〜するために立ち止まる」で意味が変わります。",
+   "talked": "talked は過去形です。"
+  },
+  "point": "stop -ing（やめる）↔ stop to do（〜するために止まる）。",
+  "example": "He stopped working and looked up.",
+  "example_ja": "彼は仕事をやめて顔を上げた。"
+ },
+ "chukyu-092": {
+  "why_correct": "forget to do「（これから）〜するのを忘れる」。明日のことなので to bring。",
+  "why_wrong": {
+   "bring": "forget の後ろは to ＋ 原形か -ing。原形のままは不可。",
+   "bringing": "forget -ing は「〜したのを忘れる」（過去）で、ここは未来なので to。",
+   "brought": "brought は過去形です。"
+  },
+  "point": "forget / remember to do（これから）↔ -ing（過去）。",
+  "example": "Don't forget to call me.",
+  "example_ja": "忘れずに電話してね。"
+ },
+ "chukyu-093": {
+  "why_correct": "finish ＋ -ing「〜し終える」。finished reading。",
+  "why_wrong": {
+   "read": "finish の後ろは -ing です。",
+   "to read": "finish to do とは言いません。",
+   "readed": "read の過去形は read（readed という形はありません）。"
+  },
+  "point": "finish ＋ -ing。",
+  "example": "I finished writing the email.",
+  "example_ja": "私はメールを書き終えた。"
+ },
+ "chukyu-094": {
+  "why_correct": "decide to do「〜することに決める」。decided to study。",
+  "why_wrong": {
+   "study": "decide の後ろは to ＋ 原形です。",
+   "studying": "decide -ing とは言いません。",
+   "studied": "studied は過去形です。"
+  },
+  "point": "decide / hope / want / plan ＋ to do。",
+  "example": "She decided to become a doctor.",
+  "example_ja": "彼女は医者になることに決めた。"
+ },
+ "chukyu-095": {
+  "why_correct": "hope to do「〜したいと思う」。hope to see。",
+  "why_wrong": {
+   "see": "hope の後ろは to ＋ 原形です。",
+   "seeing": "hope -ing とは言いません。",
+   "saw": "saw は過去形です。"
+  },
+  "point": "hope to do「〜することを望む」。",
+  "example": "I hope to visit you next year.",
+  "example_ja": "来年あなたを訪ねたいと思います。"
+ },
+ "chukyu-096": {
+  "why_correct": "ten years は期間の長さなので for。",
+  "why_wrong": {
+   "since": "since は起点（since 2015）に使います。",
+   "during": "during は後ろに名詞（期間を表す語）が来ます。",
+   "while": "while は接続詞で〈主語＋動詞〉が続きます。"
+  },
+  "point": "for ＋ 期間の長さ（数字）。",
+  "example": "I have worked here for three years.",
+  "example_ja": "私はここで3年間働いています。"
+ },
+ "chukyu-097": {
+  "why_correct": "three hours は期間の長さなので for。",
+  "why_wrong": {
+   "since": "since は起点に使います。",
+   "during": "during ＋ 名詞（the holidays など）。数字の長さは for。",
+   "while": "while は接続詞です。"
+  },
+  "point": "for ＋ 期間の長さ。",
+  "example": "He waited for two hours.",
+  "example_ja": "彼は2時間待った。"
+ },
+ "chukyu-098": {
+  "why_correct": "during ＋ 名詞「〜の間」。during my stay。",
+  "why_wrong": {
+   "while": "while の後ろは〈主語＋動詞〉です（while I stayed）。",
+   "for": "for は数字の期間の長さに使います。",
+   "since": "since は起点に使います。"
+  },
+  "point": "during ＋ 名詞 ／ while ＋〈主語＋動詞〉。",
+  "example": "I read three books during the vacation.",
+  "example_ja": "私は休暇の間に3冊本を読んだ。"
+ },
+ "chukyu-099": {
+  "why_correct": "while ＋〈主語＋動詞〉「〜している間」。While I was in London。",
+  "why_wrong": {
+   "During": "during の後ろは名詞です（〈主語＋動詞〉なら while）。",
+   "For": "for は期間の長さに使います。",
+   "Since": "since は起点に使います。"
+  },
+  "point": "while ＋〈主語＋動詞〉。during ＋ 名詞。",
+  "example": "While she was cooking, I set the table.",
+  "example_ja": "彼女が料理している間、私は食卓の準備をした。"
+ },
+ "chukyu-100": {
+  "why_correct": "「5時まで（ずっと）待つ」と継続の終わりを表すので until。",
+  "why_wrong": {
+   "by": "by は「〜までに（その時点までに完了）」で、継続の意味ではありません。",
+   "for": "for は期間の長さに使います。",
+   "since": "since は起点に使います。"
+  },
+  "point": "until「〜までずっと」（継続）／by「〜までに」（期限）。",
+  "example": "I will stay here until noon.",
+  "example_ja": "私は正午までここにいます。"
+ },
+ "jokyu-001": {
+  "why_correct": "仮定法過去完了。過去の事実と反対の仮定なので If 節は had ＋ 過去分詞。had studied。",
+  "why_wrong": {
+   "studied": "過去形は仮定法過去（現在の仮定）で、過去の仮定には had studied。",
+   "study": "原形では仮定法になりません。",
+   "have studied": "現在完了ではなく、仮定法には had ＋ 過去分詞。"
+  },
+  "point": "仮定法過去完了＝If ＋ had ＋ 過去分詞, 主節 would have ＋ 過去分詞「（あのとき）〜だったら…だったのに」。",
+  "example": "If I had left earlier, I would have caught the train.",
+  "example_ja": "もっと早く出ていれば、電車に間に合ったのに。"
+ },
+ "jokyu-002": {
+  "why_correct": "仮定法過去完了の主節は would have ＋ 過去分詞。would have attended。",
+  "why_wrong": {
+   "attended": "単なる過去形では仮定法の主節になりません。",
+   "would attend": "would ＋ 原形は仮定法過去（現在の仮定）の主節です。",
+   "attends": "attends は現在形です。"
+  },
+  "point": "主節 would / could / might have ＋ 過去分詞。",
+  "example": "If he had studied, he would have passed.",
+  "example_ja": "勉強していれば、彼は合格していただろう。"
+ },
+ "jokyu-003": {
+  "why_correct": "仮定法過去完了の if 節の否定は had not ＋ 過去分詞。hadn't (rained)。",
+  "why_wrong": {
+   "not": "not だけでは動詞を否定できません。",
+   "didn't": "didn't は普通の過去の否定で、仮定法ではありません。",
+   "wasn't": "be動詞の否定で、ここは had not rained。"
+  },
+  "point": "仮定法過去完了の否定は had not ＋ 過去分詞。",
+  "example": "If she hadn't helped me, I would have failed.",
+  "example_ja": "彼女が助けてくれなかったら、失敗していただろう。"
+ },
+ "jokyu-004": {
+  "why_correct": "仮定法過去完了の if 節なので had told。",
+  "why_wrong": {
+   "told": "過去形は仮定法過去。過去の仮定には had told。",
+   "tell": "原形では仮定法になりません。",
+   "have told": "現在完了ではなく had ＋ 過去分詞。"
+  },
+  "point": "if 節（過去の仮定）は had ＋ 過去分詞。語順が入れ替わっても形は同じ。",
+  "example": "I would have come if you had called me.",
+  "example_ja": "電話してくれていたら来たのに。"
+ },
+ "jokyu-005": {
+  "why_correct": "仮定法過去完了の主節 would have ＋ 過去分詞。would have attracted。",
+  "why_wrong": {
+   "attract": "原形では主節になりません。",
+   "attracted": "単なる過去形では仮定法の主節になりません。",
+   "would attract": "would ＋ 原形は現在の仮定の主節です。"
+  },
+  "point": "主節 would have ＋ 過去分詞（過去の結果の仮定）。",
+  "example": "If they had advertised more, they would have sold more.",
+  "example_ja": "もっと宣伝していれば、もっと売れただろう。"
+ },
+ "jokyu-006": {
+  "why_correct": "Without 〜（〜がなければ）は仮定法過去完了相当。主節は could not have ＋ 過去分詞。couldn't。",
+  "why_wrong": {
+   "can't": "現在の否定で、過去の仮定の結果には couldn't have。",
+   "won't": "未来の否定で、仮定法の結果にはなりません。",
+   "don't": "現在の否定で合いません。"
+  },
+  "point": "Without 〜＝If it had not been for 〜。主節は助動詞 ＋ have ＋ 過去分詞。",
+  "example": "Without your help, I couldn't have finished it.",
+  "example_ja": "あなたの助けがなければ、終えられなかっただろう。"
+ },
+ "jokyu-007": {
+  "why_correct": "If の省略による倒置。If I had known → Had I known。Had。",
+  "why_wrong": {
+   "If": "If があれば倒置しません（If I had known の形）。",
+   "Have": "Have では仮定法の倒置になりません。",
+   "Did": "Did では仮定法過去完了になりません。"
+  },
+  "point": "If 省略の倒置：Had ＋ 主語 ＋ 過去分詞（＝if 主語 had ＋ 過去分詞）。",
+  "example": "Had I known the truth, I would have acted differently.",
+  "example_ja": "真実を知っていたら、違う行動をとっただろう。"
+ },
+ "jokyu-008": {
+  "why_correct": "If の省略倒置。If I were → Were I。Were。",
+  "why_wrong": {
+   "If": "If があれば倒置しません（If I were …）。",
+   "Was": "仮定法では was でなく were を使います。",
+   "Had": "Had ＋ 過去分詞は過去の仮定。ここは現在の仮定 Were I。"
+  },
+  "point": "Were ＋ 主語（＝if 主語 were）「もし〜なら」。",
+  "example": "Were I rich, I would travel the world.",
+  "example_ja": "もし金持ちなら、世界中を旅するのに。"
+ },
+ "jokyu-009": {
+  "why_correct": "as if ＋ 仮定法「まるで〜であるかのように」。as if he were an expert。",
+  "why_wrong": {
+   "even if": "even if は「たとえ〜でも」です。",
+   "only if": "only if は「〜の場合に限り」です。",
+   "if only": "if only は「〜でさえあればなあ」です。"
+  },
+  "point": "as if ＋ 仮定法「まるで（実際は違うが）〜のように」。",
+  "example": "He talks as if he knew everything.",
+  "example_ja": "彼はまるで何でも知っているかのように話す。"
+ },
+ "jokyu-010": {
+  "why_correct": "I wish ＋ 仮定法過去完了「（あのとき）〜していたらなあ」。had accepted。",
+  "why_wrong": {
+   "have": "現在完了ではなく、過去の後悔は had ＋ 過去分詞。",
+   "has": "has では仮定法になりません。",
+   "having": "having では仮定法になりません。"
+  },
+  "point": "I wish ＋ had ＋ 過去分詞「（過去に）〜だったらなあ」（過去の後悔）。",
+  "example": "I wish I had studied harder.",
+  "example_ja": "もっと勉強しておけばよかった。"
+ },
+ "jokyu-011": {
+  "why_correct": "It's time ＋ 主語 ＋ 過去形（仮定法過去）「もう〜してよいころだ」。took。",
+  "why_wrong": {
+   "take": "原形ではこの構文になりません。",
+   "has taken": "現在完了ではなく仮定法過去（過去形）です。",
+   "taking": "-ing形では合いません。"
+  },
+  "point": "It's time ＋ 主語 ＋ 過去形「（とっくに）〜する時間だ」。",
+  "example": "It's time you went to bed.",
+  "example_ja": "もう寝る時間ですよ。"
+ },
+ "jokyu-012": {
+  "why_correct": "If it were not for 〜「〜がなければ」の倒置。Were it not for。Were。",
+  "why_wrong": {
+   "Had": "Had it not been for 〜は過去の仮定。ここは現在なので Were it not for。",
+   "Was": "仮定法では was でなく were。",
+   "If": "If があれば倒置しません。"
+  },
+  "point": "Were it not for 〜（現在）／Had it not been for 〜（過去）「〜がなければ」。",
+  "example": "Were it not for water, nothing could live.",
+  "example_ja": "水がなければ、何も生きられないだろう。"
+ },
+ "jokyu-013": {
+  "why_correct": "If only ＋ 仮定法過去「〜でさえあればなあ」（現在の願望）。had。",
+  "why_wrong": {
+   "have": "現在形では仮定法になりません。",
+   "having": "having では仮定法になりません。",
+   "has": "has では仮定法になりません。"
+  },
+  "point": "If only ＋ 仮定法（過去形）「〜さえあればなあ」（強い願望）。",
+  "example": "If only I had more time!",
+  "example_ja": "もっと時間さえあればなあ！"
+ },
+ "jokyu-014": {
+  "why_correct": "分詞構文。「状況を理解して」と能動なので現在分詞 Understanding。",
+  "why_wrong": {
+   "Understand": "原形では分詞構文になりません。",
+   "Understood": "受動・過去では意味が合いません（マネージャーが理解する側）。",
+   "To understand": "to不定詞では分詞構文になりません。"
+  },
+  "point": "能動の分詞構文は現在分詞（-ing）。",
+  "example": "Knowing the risk, she still tried.",
+  "example_ja": "リスクを知りながらも、彼女は挑戦した。"
+ },
+ "jokyu-015": {
+  "why_correct": "受動の分詞構文「宇宙から見られると」なので過去分詞 Seen。",
+  "why_wrong": {
+   "See": "原形では分詞構文になりません。",
+   "Saw": "Saw は過去形です。",
+   "Seeing": "能動だと「地球が見る」となり意味が合いません。"
+  },
+  "point": "受動の意味の分詞構文は過去分詞（Seen from …）。",
+  "example": "Written in simple words, the book is easy to read.",
+  "example_ja": "簡単な言葉で書かれているので、その本は読みやすい。"
+ },
+ "jokyu-016": {
+  "why_correct": "分詞構文の否定は分詞の前に not。Not knowing「どう反応すべきか分からず」。",
+  "why_wrong": {
+   "Don't know": "命令文の形で、分詞構文になりません。",
+   "Not known": "受動の過去分詞では意味が合いません。",
+   "Knowing not": "語順が誤っています（not が先）。"
+  },
+  "point": "分詞構文の否定は Not ＋ -ing。",
+  "example": "Not feeling well, he stayed home.",
+  "example_ja": "気分がよくなかったので、彼は家にいた。"
+ },
+ "jokyu-017": {
+  "why_correct": "主節より前に完了した動作は完了分詞構文 Having ＋ 過去分詞。Having completed。",
+  "why_wrong": {
+   "Complete": "原形では分詞構文になりません。",
+   "Completed": "時の前後を明確にするなら Having completed が適切です。",
+   "To complete": "to不定詞では分詞構文になりません。"
+  },
+  "point": "Having ＋ 過去分詞＝主節より前の動作を表す分詞構文。",
+  "example": "Having finished his work, he went home.",
+  "example_ja": "仕事を終えて、彼は帰宅した。"
+ },
+ "jokyu-018": {
+  "why_correct": "「〜を引き起こして」と結果を付け足す分詞構文なので causing。",
+  "why_wrong": {
+   "cause": "原形では分詞構文になりません。",
+   "caused": "能動の意味なので過去分詞では合いません。",
+   "to cause": "to不定詞では結果の付帯状況になりません。"
+  },
+  "point": "〈主節, -ing …〉で結果・付帯状況「〜して」。",
+  "example": "The typhoon hit the area, destroying many houses.",
+  "example_ja": "台風がその地域を襲い、多くの家を壊した。"
+ },
+ "jokyu-019": {
+  "why_correct": "慣用的な独立分詞構文 Speaking honestly「正直に言うと」なので Speaking。",
+  "why_wrong": {
+   "Speak": "原形では分詞構文になりません。",
+   "Spoke": "Spoke は過去形です。",
+   "Spoken": "受動では意味が合いません。"
+  },
+  "point": "慣用分詞構文：frankly / generally / honestly speaking。",
+  "example": "Generally speaking, prices are rising.",
+  "example_ja": "一般的に言えば、物価は上がっている。"
+ },
+ "jokyu-020": {
+  "why_correct": "受動・状態の分詞構文 Being ＋ 過去分詞「駅の近くにあるので」。Being located。",
+  "why_wrong": {
+   "Be": "原形では分詞構文になりません。",
+   "Been": "Been で文を始めることはできません。",
+   "To be": "to不定詞では分詞構文になりません。"
+  },
+  "point": "Being ＋ 過去分詞（受動の分詞構文）。",
+  "example": "Being made of paper, it is light.",
+  "example_ja": "紙でできているので、それは軽い。"
+ },
+ "jokyu-021": {
+  "why_correct": "with ＋ O ＋ 分詞（付帯状況）。腕は「組まれる」側なので過去分詞 folded。",
+  "why_wrong": {
+   "fold": "原形では付帯状況になりません。",
+   "folding": "能動の -ing だと「腕が（自分で）組む」となり不自然です。",
+   "to fold": "to不定詞ではこの付帯状況になりません。"
+  },
+  "point": "with ＋ O ＋ 分詞（能動なら -ing、受動なら過去分詞）。",
+  "example": "She sat with her eyes closed.",
+  "example_ja": "彼女は目を閉じて座っていた。"
+ },
+ "jokyu-022": {
+  "why_correct": "「その教授の研究」と所有を表すので whose。",
+  "why_wrong": {
+   "who": "who は主格で、所有は表しません。",
+   "which": "which はモノ・動物用です。",
+   "whom": "whom は目的格で、所有は表しません。"
+  },
+  "point": "whose ＋ 名詞「〜の…」（所有格、非制限用法でも使える）。",
+  "example": "The writer, whose books are popular, visited us.",
+  "example_ja": "本が人気のその作家が、私たちを訪ねた。"
+ },
+ "jokyu-023": {
+  "why_correct": "前の文全体（利益を増やしたこと）を受ける非制限用法の which。",
+  "why_wrong": {
+   "who": "who は人を受けます。",
+   "that": "that は非制限用法（コンマの後）では使えません。",
+   "what": "what は先行詞を含み、ここでは合いません。"
+  },
+  "point": "〈, which〉は前の節全体を先行詞にできる（that は不可）。",
+  "example": "He passed the exam, which made his parents happy.",
+  "example_ja": "彼は試験に合格し、それが両親を喜ばせた。"
+ },
+ "jokyu-024": {
+  "why_correct": "先行詞を含む関係代名詞 what「〜すること／もの」。what we need。",
+  "why_wrong": {
+   "that": "that には先行詞が必要です。",
+   "which": "which にも先行詞が必要です。",
+   "who": "who は人を受けます。"
+  },
+  "point": "what ＝ the thing(s) which。先行詞を含む。",
+  "example": "This is what I wanted to say.",
+  "example_ja": "これが私の言いたかったことです。"
+ },
+ "jokyu-025": {
+  "why_correct": "複合関係代名詞 Whoever「〜する人はだれでも」（主格）。Whoever wins。",
+  "why_wrong": {
+   "Who": "Who では「〜する人はだれでも」の意味になりません。",
+   "Whomever": "目的格なので、後ろが動詞 wins（主語が必要）のここでは Whoever。",
+   "Which": "Which は選択肢から選ぶ意味です。"
+  },
+  "point": "whoever（〜する人はだれでも）。後ろが動詞なら主格 whoever。",
+  "example": "Whoever comes first will get a prize.",
+  "example_ja": "最初に来た人がだれでも賞をもらえる。"
+ },
+ "jokyu-026": {
+  "why_correct": "whatever ＋ 名詞「どんな〜でも」。whatever option。",
+  "why_wrong": {
+   "however": "however は「どんなに〜でも」で後ろに形容詞・副詞が来ます。",
+   "whoever": "whoever は人を表し、名詞 option は修飾しません。",
+   "wherever": "wherever は場所を表します。"
+  },
+  "point": "whatever ＋ 名詞「どんな〜でも」。",
+  "example": "Take whatever seat you like.",
+  "example_ja": "好きな席をどれでも取ってください。"
+ },
+ "jokyu-027": {
+  "why_correct": "However ＋ 形容詞 ＋ 主語 ＋ 動詞「どんなに〜でも」（譲歩）。However difficult …。",
+  "why_wrong": {
+   "Whatever": "Whatever は名詞を伴います（形容詞 difficult の前は However）。",
+   "Whoever": "Whoever は人を表します。",
+   "Whenever": "Whenever は「〜するときはいつでも」です。"
+  },
+  "point": "However ＋ 形容詞/副詞 ＋ S ＋ V「どんなに〜でも」。",
+  "example": "However hard it is, keep trying.",
+  "example_ja": "どんなに大変でも、挑戦し続けなさい。"
+ },
+ "jokyu-028": {
+  "why_correct": "前置詞 by ＋ 関係代名詞 which（先行詞 method はモノ）。by which。",
+  "why_wrong": {
+   "that": "前置詞の直後に that は置けません。",
+   "where": "where は前置詞の目的語にはなりません。",
+   "who": "who は人を受けます。"
+  },
+  "point": "前置詞 ＋ which / whom（前置詞 ＋ that は不可）。",
+  "example": "This is the tool with which he fixed it.",
+  "example_ja": "これは彼がそれを直した道具です。"
+ },
+ "jokyu-029": {
+  "why_correct": "前置詞 with ＋ whom（人・目的格）。with whom I share。",
+  "why_wrong": {
+   "who": "前置詞の直後は who でなく whom。",
+   "which": "which はモノ・動物用です。",
+   "that": "前置詞の直後に that は置けません。"
+  },
+  "point": "前置詞の直後は whom（前置詞 ＋ whom）。",
+  "example": "She is the person to whom I spoke.",
+  "example_ja": "彼女は私が話した相手です。"
+ },
+ "jokyu-030": {
+  "why_correct": "the moment at which＝when。時点を表すので前置詞は at。",
+  "why_wrong": {
+   "in": "in the moment という結びつきにはなりません。",
+   "on": "on the moment とは言いません。",
+   "for": "for the moment は別の意味（さしあたり）です。"
+  },
+  "point": "〈前置詞＋which〉の前置詞は先行詞との結びつきで決まる（at the moment）。",
+  "example": "That was the day on which we met.",
+  "example_ja": "それが私たちの出会った日でした。"
+ },
+ "jokyu-031": {
+  "why_correct": "Whatever ＋ 名詞「どんな〜であろうと」。Whatever the cost may be。",
+  "why_wrong": {
+   "However": "However は形容詞・副詞を伴います（名詞 cost の前は Whatever）。",
+   "Whoever": "Whoever は人を表します。",
+   "Wherever": "Wherever は場所を表します。"
+  },
+  "point": "Whatever ＋ 名詞 ＋ may be「どんな〜であろうと」。",
+  "example": "Whatever the reason may be, you must apologize.",
+  "example_ja": "理由が何であれ、謝らなければならない。"
+ },
+ "jokyu-032": {
+  "why_correct": "非制限用法・目的格（I respect ___）で先行詞が人なので whom。",
+  "why_wrong": {
+   "who": "目的格なので whom（厳密な書き言葉）。",
+   "which": "which はモノ・動物用です。",
+   "what": "what は先行詞を含みます。"
+  },
+  "point": "非制限・目的格で人 → whom（コンマの後で that は不可）。",
+  "example": "Mr. Tanaka, whom I met yesterday, is a doctor.",
+  "example_ja": "昨日会った田中さんは医者です。"
+ },
+ "jokyu-033": {
+  "why_correct": "強調構文 It is ... that 〜。強調される the manager が人で主語なので who（that も可）。",
+  "why_wrong": {
+   "which": "人を強調するときは which を使いません。",
+   "what": "強調構文では what は使いません。",
+   "whom": "ここは主語の強調なので目的格 whom は不可。"
+  },
+  "point": "強調構文 It is A that 〜。A が人なら who も使える。",
+  "example": "It was Tom who broke the window.",
+  "example_ja": "窓を割ったのはトムだった。"
+ },
+ "jokyu-034": {
+  "why_correct": "強調構文。副詞句（last week）を強調するときは that。",
+  "why_wrong": {
+   "who": "強調されるのが人ではないので who は不可。",
+   "which": "強調構文では which は使いません。",
+   "what": "強調構文では what は使いません。"
+  },
+  "point": "時・場所の副詞を強調するときも that（when / where は不可）。",
+  "example": "It was at the station that I saw her.",
+  "example_ja": "私が彼女を見たのは駅でだった。"
+ },
+ "jokyu-035": {
+  "why_correct": "否定の副詞 Never が文頭→倒置。過去完了の倒置で had。Never had I imagined。",
+  "why_wrong": {
+   "have": "ここは過去完了の倒置なので had。",
+   "has": "主語 I に has は合いません。",
+   "do": "一般動詞ではなく完了形なので had。"
+  },
+  "point": "否定語句が文頭 → 倒置（疑問文の語順）。",
+  "example": "Never have I seen such a view.",
+  "example_ja": "こんな景色は見たことがない。"
+ },
+ "jokyu-036": {
+  "why_correct": "Hardly ... when「〜するやいなや」。過去完了の倒置で had。Hardly had the meeting started …。",
+  "why_wrong": {
+   "have": "ここは過去完了の倒置なので had。",
+   "has": "過去の文脈・倒置なので had。",
+   "did": "完了形なので did ではなく had。"
+  },
+  "point": "Hardly had ＋ 主語 ＋ 過去分詞 … when 〜「〜するとすぐに…」。",
+  "example": "Hardly had I arrived when it began to rain.",
+  "example_ja": "着いたとたんに雨が降り始めた。"
+ },
+ "jokyu-037": {
+  "why_correct": "Not only が文頭→倒置。be動詞 was を主語の前に。Not only was the plan effective。",
+  "why_wrong": {
+   "does": "be動詞の文なので do 系は使いません。",
+   "has": "ここは be動詞 was の倒置です。",
+   "is": "but also cheap と過去の文脈に合わせ was。"
+  },
+  "point": "Not only ＋ 倒置（be動詞／助動詞 ＋ 主語）。",
+  "example": "Not only was he late, but he also forgot the file.",
+  "example_ja": "彼は遅刻しただけでなく、ファイルも忘れた。"
+ },
+ "jokyu-038": {
+  "why_correct": "Only ＋ 副詞句が文頭→倒置。一般動詞は did ＋ 原形。Only after … did they understand。",
+  "why_wrong": {
+   "do": "過去の文脈なので did。",
+   "does": "過去・複数主語に does は合いません。",
+   "has": "完了ではないのでここは did。"
+  },
+  "point": "Only ＋ 副詞句が文頭 → 倒置（did ＋ 主語 ＋ 原形）。",
+  "example": "Only then did I realize my mistake.",
+  "example_ja": "そのときになって初めて自分の誤りに気づいた。"
+ },
+ "jokyu-039": {
+  "why_correct": "So ＋ 形容詞 が文頭→補語の倒置。So serious was the situation that …。was。",
+  "why_wrong": {
+   "is": "過去の文脈なので was。",
+   "has": "be動詞の倒置なので has は不可。",
+   "did": "補語（形容詞）の倒置なので be動詞 was。"
+  },
+  "point": "So ＋ 形容詞 ＋ be動詞 ＋ 主語 ＋ that …。",
+  "example": "So tired was he that he fell asleep.",
+  "example_ja": "彼はとても疲れていて眠ってしまった。"
+ },
+ "jokyu-040": {
+  "why_correct": "否定的な Little が文頭→倒置。一般動詞は did。Little did we know …。",
+  "why_wrong": {
+   "do": "過去の文脈なので did。",
+   "have": "完了ではないので did。",
+   "am": "主語 we に am は合いません。"
+  },
+  "point": "Little ＋ 倒置「ほとんど〜なかった／思いもしなかった」。",
+  "example": "Little did she know the truth.",
+  "example_ja": "彼女は真実をほとんど知らなかった。"
+ },
+ "jokyu-041": {
+  "why_correct": "「完璧だった→よく準備したにちがいない」過去への確信は must have ＋ 過去分詞。",
+  "why_wrong": {
+   "can't": "can't have は「〜したはずがない」で逆の意味です。",
+   "should": "should have は「〜すべきだったのに」です。",
+   "need": "need は文意に合いません。"
+  },
+  "point": "must have ＋ 過去分詞「〜したにちがいない」（過去への確信）。",
+  "example": "She must have forgotten the meeting.",
+  "example_ja": "彼女は会議を忘れたにちがいない。"
+ },
+ "jokyu-042": {
+  "why_correct": "「知らせるべきだったのに（しなかった）」は should have ＋ 過去分詞。",
+  "why_wrong": {
+   "must": "must have は「〜したにちがいない」です。",
+   "can": "can have はこの意味では使いません。",
+   "will": "will have は未来完了で意味が違います。"
+  },
+  "point": "should have ＋ 過去分詞「〜すべきだったのに（しなかった）」（後悔・非難）。",
+  "example": "You should have told me earlier.",
+  "example_ja": "もっと早く言ってくれればよかったのに。"
+ },
+ "jokyu-043": {
+  "why_correct": "「別の場所で見た→出席したはずがない」は can't have ＋ 過去分詞。",
+  "why_wrong": {
+   "must": "must have は「〜したにちがいない」で逆です。",
+   "should": "should have は「〜すべきだった」です。",
+   "need": "need は文意に合いません。"
+  },
+  "point": "can't / couldn't have ＋ 過去分詞「〜したはずがない」（否定の確信）。",
+  "example": "He can't have said such a thing.",
+  "example_ja": "彼がそんなことを言ったはずがない。"
+ },
+ "jokyu-044": {
+  "why_correct": "「人為ミスで起きたのかもしれない」推量は may have ＋ 過去分詞。",
+  "why_wrong": {
+   "must": "must have は強い確信「〜にちがいない」です。",
+   "can't": "can't have は「〜したはずがない」です。",
+   "should": "should have は「〜すべきだった」です。"
+  },
+  "point": "may / might have ＋ 過去分詞「〜したかもしれない」（過去の推量）。",
+  "example": "They may have missed the train.",
+  "example_ja": "彼らは電車に乗り遅れたのかもしれない。"
+ },
+ "jokyu-045": {
+  "why_correct": "「すでに解決していた→心配する必要はなかった（のにした）」は needn't have ＋ 過去分詞。",
+  "why_wrong": {
+   "must": "must have は「〜したにちがいない」です。",
+   "should": "should have は「〜すべきだった」で逆の方向です。",
+   "can't": "can't have は「〜したはずがない」です。"
+  },
+  "point": "needn't have ＋ 過去分詞「〜する必要はなかった（のにしてしまった）」。",
+  "example": "You needn't have hurried.",
+  "example_ja": "急ぐ必要はなかったのに。"
+ },
+ "jokyu-046": {
+  "why_correct": "「書類を会社に置き忘れたにちがいない」は must have ＋ 過去分詞。",
+  "why_wrong": {
+   "can": "can have はこの意味では使いません。",
+   "will": "will have は未来完了です。",
+   "do": "do have では推量になりません。"
+  },
+  "point": "must have ＋ 過去分詞「〜してしまったにちがいない」。",
+  "example": "I must have left my phone at home.",
+  "example_ja": "携帯を家に置いてきたにちがいない。"
+ },
+ "jokyu-047": {
+  "why_correct": "By the end of this year（未来の期限）＋未来完了 will have ＋ 過去分詞。will。",
+  "why_wrong": {
+   "is": "is では未来完了になりません。",
+   "have": "主語に合わせても have では未来完了の助動詞になりません（will が必要）。",
+   "had": "had ＋ been は過去完了で、未来の期限と合いません。"
+  },
+  "point": "未来完了＝will have ＋ 過去分詞「（未来のある時までに）〜してしまっているだろう」。",
+  "example": "By next year, he will have graduated.",
+  "example_ja": "来年までに彼は卒業しているだろう。"
+ },
+ "jokyu-048": {
+  "why_correct": "複数主語の現在完了進行形 have been ＋ -ing。have。",
+  "why_wrong": {
+   "is": "複数主語 The researchers には have。",
+   "does": "完了進行形は have / has。",
+   "did": "did では完了進行形になりません。"
+  },
+  "point": "現在完了進行形＝have / has been ＋ -ing。",
+  "example": "They have been waiting for an hour.",
+  "example_ja": "彼らは1時間待ち続けている。"
+ },
+ "jokyu-049": {
+  "why_correct": "has ＋ been ＋ -ing（現在完了進行形）の been。has been improving。",
+  "why_wrong": {
+   "be": "has be という形はありません。",
+   "being": "has being という形はありません。",
+   "was": "has と was は一緒に使いません。"
+  },
+  "point": "have / has been ＋ -ing。",
+  "example": "The weather has been getting warmer.",
+  "example_ja": "天気がだんだん暖かくなってきている。"
+ },
+ "jokyu-050": {
+  "why_correct": "By the time ＋ 現在形, 主節は未来完了 will have ＋ 過去分詞。will。",
+  "why_wrong": {
+   "is": "未来完了の助動詞は will。",
+   "has": "現在完了ではなく、未来の期限なので未来完了 will have。",
+   "had": "過去完了は文意に合いません。"
+  },
+  "point": "By the time 〜（現在形）, 主節は未来完了 will have ＋ 過去分詞。",
+  "example": "By the time he arrives, we will have left.",
+  "example_ja": "彼が着くころには、私たちは出発しているだろう。"
+ },
+ "jokyu-051": {
+  "why_correct": "「ずっと残業していたので疲れていた」過去のある時点までの継続は過去完了進行形 had been ＋ -ing。had。",
+  "why_wrong": {
+   "has": "過去の文脈なので had。",
+   "is": "is では完了進行形になりません。",
+   "was": "was been という形はありません（had been）。"
+  },
+  "point": "過去完了進行形＝had been ＋ -ing。",
+  "example": "She was tired because she had been studying all night.",
+  "example_ja": "彼女は一晩中勉強していたので疲れていた。"
+ },
+ "jokyu-052": {
+  "why_correct": "by next month（未来の期限）＋未来完了の受動 will have been ＋ 過去分詞。will。",
+  "why_wrong": {
+   "are": "未来完了の助動詞は will。",
+   "have": "未来の期限には未来完了 will have been。",
+   "had": "過去完了では未来の期限と合いません。"
+  },
+  "point": "未来完了の受動態＝will have been ＋ 過去分詞。",
+  "example": "The work will have been done by Friday.",
+  "example_ja": "その仕事は金曜までに終わっているだろう。"
+ },
+ "jokyu-053": {
+  "why_correct": "more A than B「BというよりむしろA」。more a scientist than an engineer。",
+  "why_wrong": {
+   "less": "less … than は「〜ほど…でない」で文意が変わります。",
+   "much": "much だけでは「むしろ」の意味になりません。",
+   "most": "most は最上級で than と合いません。"
+  },
+  "point": "more A than B「BというよりむしろA」（同一対象の性質比較）。",
+  "example": "She is more an artist than a teacher.",
+  "example_ja": "彼女は教師というよりむしろ芸術家だ。"
+ },
+ "jokyu-054": {
+  "why_correct": "effective は長い語なので比較級は more ＋ 原級。than があるので more。",
+  "why_wrong": {
+   "much": "much だけでは比較級になりません。",
+   "most": "most は最上級用です。",
+   "very": "very は比較級には付けません。"
+  },
+  "point": "長い語の比較級は more ＋ 原級。",
+  "example": "This plan is more practical than that one.",
+  "example_ja": "この計画はあれより実用的だ。"
+ },
+ "jokyu-055": {
+  "why_correct": "no more than ＋ 数「たった〜（しかない）」。no more than fifty。",
+  "why_wrong": {
+   "most": "most はこの慣用にありません。",
+   "much": "much は不可算用で、ここは more。",
+   "many": "many ではこの慣用になりません。"
+  },
+  "point": "no more than「たった〜（しかない）」／no less than「〜も（多い）」。",
+  "example": "He has no more than ten dollars.",
+  "example_ja": "彼はたった10ドルしか持っていない。"
+ },
+ "jokyu-056": {
+  "why_correct": "participants は可算名詞。no fewer than「〜も」は可算には fewer。",
+  "why_wrong": {
+   "few": "no few than という形はありません。",
+   "less": "less は不可算名詞用です（可算は fewer）。",
+   "least": "least は最上級で、ここでは使いません。"
+  },
+  "point": "可算は fewer、不可算は less。no fewer than「〜も（多い）」。",
+  "example": "There were no fewer than 100 guests.",
+  "example_ja": "招待客は100人もいた。"
+ },
+ "jokyu-057": {
+  "why_correct": "The 比較級 …, the 比較級 …。The more we invest, the greater …。more。",
+  "why_wrong": {
+   "much": "この構文の比較級の位置に much は合いません。",
+   "most": "most は最上級用です。",
+   "many": "many は可算用で、ここは比較級 more。"
+  },
+  "point": "The 比較級 〜, the 比較級 …「〜すればするほど…」。",
+  "example": "The more you read, the more you learn.",
+  "example_ja": "読めば読むほど、多く学べる。"
+ },
+ "jokyu-058": {
+  "why_correct": "not so much A as B「AというよりむしろB」。not so much on talent as on effort。so。",
+  "why_wrong": {
+   "as": "not as much A as B も似ますが、定型は not so much A as B。",
+   "very": "very ではこの構文になりません。",
+   "too": "too ではこの構文になりません。"
+  },
+  "point": "not so much A as B「AよりむしろB」。",
+  "example": "It is not so much luck as effort.",
+  "example_ja": "それは運というよりむしろ努力だ。"
+ },
+ "jokyu-059": {
+  "why_correct": "by far ＋ the ＋ 最上級（最上級の強調）。good の最上級 best。",
+  "why_wrong": {
+   "good": "the があるので最上級 best。",
+   "better": "better は比較級です。",
+   "well": "well は副詞で、名詞 solution を説明できません。"
+  },
+  "point": "by far / much ＋ the ＋ 最上級（最上級の強調）。good - better - best。",
+  "example": "This is by far the best plan.",
+  "example_ja": "これは断然いちばんよい計画だ。"
+ },
+ "jokyu-060": {
+  "why_correct": "Not all 〜「すべてが〜とは限らない」（部分否定）。Not all scientists agree。",
+  "why_wrong": {
+   "no": "No scientists agree は全否定で「だれも賛成しない」と意味が変わります。",
+   "none": "none of の形が必要で、ここは not all。",
+   "every": "not every も可ですが、複数 scientists には not all が自然です。"
+  },
+  "point": "not all / not every / not always ＝ 部分否定「すべて／いつも〜とは限らない」。",
+  "example": "Not all birds can fly.",
+  "example_ja": "すべての鳥が飛べるわけではない。"
+ },
+ "jokyu-061": {
+  "why_correct": "not always「必ずしも〜でない」（部分否定）。not always better。",
+  "why_wrong": {
+   "ever": "not ever は「決して〜ない」（全否定）です。",
+   "never": "not never は二重否定で不自然です。",
+   "none": "none は代名詞で、ここでは合いません。"
+  },
+  "point": "not always「必ずしも〜でない」（部分否定）。",
+  "example": "The rich are not always happy.",
+  "example_ja": "金持ちが必ずしも幸せとは限らない。"
+ },
+ "jokyu-062": {
+  "why_correct": "never 〜 without -ing「〜せずには決して…しない＝必ず…する」（二重否定）。without。",
+  "why_wrong": {
+   "with": "with では二重否定の意味になりません。",
+   "by": "by ではこの慣用になりません。",
+   "for": "for ではこの慣用になりません。"
+  },
+  "point": "never 〜 without …「…せずには〜しない」（二重否定＝強い肯定）。",
+  "example": "He never sees her without crying.",
+  "example_ja": "彼は彼女に会うと必ず泣く。"
+ },
+ "jokyu-063": {
+  "why_correct": "2つのうち「どちらも〜ない」は Neither of the two。動詞は単数。",
+  "why_wrong": {
+   "Either": "Either は「どちらか一方」です。",
+   "None": "None は3つ以上のときに使います。",
+   "Both": "Both は「両方とも」で肯定です。"
+  },
+  "point": "2つ → neither（どちらも〜ない）、3つ以上 → none。",
+  "example": "Neither of the answers is correct.",
+  "example_ja": "その2つの答えはどちらも正しくない。"
+ },
+ "jokyu-064": {
+  "why_correct": "the last ＋ 名詞 ＋ to do「最も〜しそうにない／決して〜しない」。the last person to break。to。",
+  "why_wrong": {
+   "who": "この慣用は to不定詞（to break）を使います。",
+   "that": "ここは to不定詞が標準です。",
+   "which": "which は人には使いません。"
+  },
+  "point": "the last 〜 to do「決して〜しない（最も〜しそうにない）」。",
+  "example": "He is the last man to tell a lie.",
+  "example_ja": "彼は決してうそをつかない人だ。"
+ },
+ "jokyu-065": {
+  "why_correct": "Not everyone「だれもが〜とは限らない」。everyone は単数扱いなので has。",
+  "why_wrong": {
+   "have": "everyone は単数扱いで has。",
+   "are": "everyone は単数扱いで is/has。",
+   "do": "ここは has access が必要です。"
+  },
+  "point": "everyone / everybody は単数扱い。not everyone は部分否定。",
+  "example": "Not everyone agrees with the plan.",
+  "example_ja": "だれもがその計画に賛成するわけではない。"
+ },
+ "jokyu-066": {
+  "why_correct": "No matter how ＋ 形容詞「どんなに〜でも」（＝however）。No matter how complex …。",
+  "why_wrong": {
+   "Even if": "even if は「たとえ〜でも」で、how とは結びつきません。",
+   "Whatever": "how が続くので No matter how。",
+   "As if": "as if は「まるで〜のように」です。"
+  },
+  "point": "no matter how ＝ however「どんなに〜でも」。",
+  "example": "No matter how hard it is, don't give up.",
+  "example_ja": "どんなに大変でも、あきらめないで。"
+ },
+ "jokyu-067": {
+  "why_correct": "「技術は進んでいるけれど（事実）限界がある」譲歩は Although。",
+  "why_wrong": {
+   "Even if": "even if は仮定「たとえ〜でも」で、事実の譲歩には although。",
+   "As if": "as if は「まるで〜のように」です。",
+   "In case": "in case は「〜に備えて」です。"
+  },
+  "point": "although（事実の譲歩）／even if（仮定の譲歩）。",
+  "example": "Although it was raining, we went out.",
+  "example_ja": "雨が降っていたが、私たちは出かけた。"
+ },
+ "jokyu-068": {
+  "why_correct": "「非常時に備えて貯金する」は in case。",
+  "why_wrong": {
+   "even if": "even if は「たとえ〜でも」です。",
+   "as if": "as if は「まるで〜のように」です。",
+   "so that": "so that は「〜するために」（目的）です。"
+  },
+  "point": "in case「〜する場合に備えて」。",
+  "example": "Bring a coat in case it gets cold.",
+  "example_ja": "寒くなるといけないのでコートを持って行きなさい。"
+ },
+ "jokyu-069": {
+  "why_correct": "「借金を減らせるように」と目的を表すので so that ＋ 主語 ＋ could。",
+  "why_wrong": {
+   "in case": "in case は「〜に備えて」です。",
+   "even if": "even if は「たとえ〜でも」です。",
+   "as if": "as if は「まるで〜のように」です。"
+  },
+  "point": "so that ＋ 主語 ＋ can / could / will「〜するために」（目的）。",
+  "example": "He studied hard so that he could pass.",
+  "example_ja": "彼は合格できるように一生懸命勉強した。"
+ },
+ "jokyu-070": {
+  "why_correct": "the fact ＋ that ＋ 完全文「〜という事実」（同格の that）。",
+  "why_wrong": {
+   "which": "which の後ろは不完全な文。同格は完全文 ＋ that。",
+   "what": "what は先行詞を含み、ここでは合いません。",
+   "of": "the fact of 〜 は名詞が続く形で、文を続けるなら that。"
+  },
+  "point": "同格の that：the fact / idea / news ＋ that ＋ 完全文「〜という…」。",
+  "example": "I know the fact that he lied.",
+  "example_ja": "私は彼がうそをついたという事実を知っている。"
+ },
+ "jokyu-071": {
+  "why_correct": "〈形容詞 ＋ as ＋ 主語 ＋ 動詞〉で「〜だけれど」（譲歩の倒置）。Difficult as the challenge is。",
+  "why_wrong": {
+   "More difficult": "この譲歩構文は原級の形容詞で始めます。",
+   "Most difficult": "最上級ではこの構文になりません。",
+   "Difficulty": "名詞 difficulty ではこの構文になりません。"
+  },
+  "point": "形容詞 ＋ as ＋ S ＋ V「〜だけれども」（譲歩）。",
+  "example": "Young as he is, he is very wise.",
+  "example_ja": "彼は若いけれど、とても賢い。"
+ },
+ "jokyu-072": {
+  "why_correct": "Before ＋ -ing「〜する前に」（前置詞＋動名詞）。Before entering。",
+  "why_wrong": {
+   "During": "during ＋ 名詞で、-ing の前には before が自然です。",
+   "While": "while は通常〈主語＋動詞〉を伴います。",
+   "Among": "among は「〜の中で」で意味が合いません。"
+  },
+  "point": "before / after ＋ -ing「〜する前に／後に」。",
+  "example": "Wash your hands before eating.",
+  "example_ja": "食べる前に手を洗いなさい。"
+ },
+ "jokyu-073": {
+  "why_correct": "主節が said（過去）なので時制の一致で was。",
+  "why_wrong": {
+   "is": "主節が過去なので従属節も過去にそろえます。",
+   "has been": "ここは be動詞の過去 was が適切です。",
+   "will be": "時制の一致では would be などになり、will be は不可。"
+  },
+  "point": "主節が過去 → 従属節も過去（時制の一致）。",
+  "example": "He said that he was busy.",
+  "example_ja": "彼は忙しいと言った。"
+ },
+ "jokyu-074": {
+  "why_correct": "ask ＋ if「〜かどうか尋ねる」。asked me if I had finished。",
+  "why_wrong": {
+   "that": "that では「〜かどうか」になりません。",
+   "what": "what は「何を」で、ここでは合いません。",
+   "which": "which は「どちら」で合いません。"
+  },
+  "point": "間接疑問の「〜かどうか」は if / whether。",
+  "example": "She asked if I was free.",
+  "example_ja": "彼女は私がひまかどうか尋ねた。"
+ },
+ "jokyu-075": {
+  "why_correct": "indicate that 〜「〜だと示す」（名詞節の that）。",
+  "why_wrong": {
+   "if": "if は「〜かどうか」で、断定の内容には that。",
+   "what": "what は先行詞を含み、ここでは合いません。",
+   "whether": "whether は「〜かどうか」で意味が変わります。"
+  },
+  "point": "say / think / indicate / show ＋ that ＋ 完全文。",
+  "example": "The data shows that prices rose.",
+  "example_ja": "そのデータは物価が上がったことを示している。"
+ },
+ "jokyu-076": {
+  "why_correct": "whether ＋ to do「〜すべきかどうか」。or not とも相性がよい。whether to expand … or not。",
+  "why_wrong": {
+   "that": "that to do という形はありません。",
+   "if": "if ＋ to do は不可（if は to不定詞を取らない）。",
+   "what": "what to do は「何をすべきか」で意味が変わります。"
+  },
+  "point": "whether ＋ to do（if ＋ to do は不可）。",
+  "example": "I can't decide whether to go or stay.",
+  "example_ja": "行くべきか残るべきか決められない。"
+ },
+ "jokyu-077": {
+  "why_correct": "主語になる「〜かどうか」は Whether（if は主語にできない）。Whether … succeeds depends …。",
+  "why_wrong": {
+   "That": "That は「〜ということ」で断定になり、ここでは「〜かどうか」。",
+   "What": "what 節は後ろが不完全になります。",
+   "Which": "which では名詞節の主語になりません。"
+  },
+  "point": "文頭・主語の「〜かどうか」は whether（if は不可）。",
+  "example": "Whether we win depends on teamwork.",
+  "example_ja": "勝てるかどうかはチームワーク次第だ。"
+ },
+ "jokyu-078": {
+  "why_correct": "強調の do ＋ 原形「本当に〜する」。We do understand。",
+  "why_wrong": {
+   "understands": "do の後ろは原形 understand。",
+   "understanding": "-ing形は強調の do の後ろに続きません。",
+   "understood": "過去分詞は do の後ろに続きません。"
+  },
+  "point": "do / does / did ＋ 原形＝強調「本当に〜する」。",
+  "example": "I do believe you.",
+  "example_ja": "私は本当にあなたを信じています。"
+ },
+ "jokyu-079": {
+  "why_correct": "強調構文（時を表す副詞句を強調）。It was in 1990 that …。that。",
+  "why_wrong": {
+   "when": "強調構文では時でも that を使います（when は不可）。",
+   "which": "強調構文では which は使いません。",
+   "where": "強調構文では where は使いません。"
+  },
+  "point": "It is/was ... that 〜（強調構文）。副詞句の強調も that。",
+  "example": "It was here that we first met.",
+  "example_ja": "私たちが初めて会ったのはここでだった。"
+ },
+ "jokyu-080": {
+  "why_correct": "主語になる名詞節 What「〜すること／もの」。What impressed the audience was …。",
+  "why_wrong": {
+   "That": "That ＋ 完全文ですが、ここは後ろが不完全（impressed の主語が欠ける）なので What。",
+   "Which": "which では先行詞を含む名詞節になりません。",
+   "It": "It では名詞節の主語になりません。"
+  },
+  "point": "what ＝ 〜するもの／こと（先行詞を含む）。主語にもなる。",
+  "example": "What matters is your effort.",
+  "example_ja": "大切なのはあなたの努力だ。"
+ },
+ "jokyu-081": {
+  "why_correct": "make ＋ O ＋ C（形容詞）「OをCにする」。make the process more efficient。",
+  "why_wrong": {
+   "let": "let は〈O ＋ 原形〉で、形容詞を補語に取りません。",
+   "get": "get は〈O ＋ to do〉などで、ここでは make。",
+   "have": "have ＋ O ＋ 形容詞の形は通常とりません。"
+  },
+  "point": "make ＋ O ＋ 形容詞「Oを〜にする」。",
+  "example": "The news made everyone happy.",
+  "example_ja": "その知らせはみんなを幸せにした。"
+ },
+ "jokyu-082": {
+  "why_correct": "形式目的語 it。本当の目的語は to 以下。found it necessary to change。",
+  "why_wrong": {
+   "that": "find that 〜 は節を取りますが、ここは to do なので形式目的語 it。",
+   "this": "形式目的語は it を使います。",
+   "them": "them では形式目的語になりません。"
+  },
+  "point": "find / make / think ＋ it ＋ 形容詞 ＋ to do（it は形式目的語）。",
+  "example": "I find it hard to wake up early.",
+  "example_ja": "早起きするのは難しいと思う。"
+ },
+ "jokyu-083": {
+  "why_correct": "prevent ＋ O ＋ from「〜が…するのを妨げる」（無生物主語）。prevented many people from arriving。",
+  "why_wrong": {
+   "made": "make は〈O ＋ 原形〉で、from とは結びつきません。",
+   "let": "let は〈O ＋ 原形〉です。",
+   "had": "have は〈O ＋ 原形／過去分詞〉で、from とは合いません。"
+  },
+  "point": "prevent / stop / keep ＋ O ＋ from ＋ -ing「Oが〜するのを妨げる」。",
+  "example": "The rain kept us from going out.",
+  "example_ja": "雨のせいで私たちは外出できなかった。"
+ },
+ "jokyu-084": {
+  "why_correct": "無生物主語 ＋ make ＋ O ＋ 原形「（物事が）Oに〜させる」。What made you study …「なぜ留学したのか」。",
+  "why_wrong": {
+   "let": "let は「〜させてやる（許可）」で文意に合いません。",
+   "got": "get は〈O ＋ to do〉で、原形 study とは合いません。",
+   "had": "have ＋ O ＋ 原形は「〜してもらう」で文意に合いません。"
+  },
+  "point": "無生物主語 ＋ make ＋ O ＋ 原形「〜のおかげで／せいで…する」。",
+  "example": "What made you change your mind?",
+  "example_ja": "何があなたの考えを変えさせたのですか。"
+ },
+ "jokyu-085": {
+  "why_correct": "make ＋ O ＋ C（形容詞）。made the employees nervous。",
+  "why_wrong": {
+   "nervously": "nervously は副詞で、補語にはなれません。",
+   "nervousness": "nervousness は名詞で、ここでは合いません。",
+   "to nervous": "そのような形はありません。"
+  },
+  "point": "make ＋ O ＋ 形容詞「Oを〜（の状態）にする」。",
+  "example": "The noise made me angry.",
+  "example_ja": "その騒音は私を怒らせた。"
+ },
+ "jokyu-086": {
+  "why_correct": "have ＋ O ＋ 過去分詞「Oを〜してもらう／〜される」。報告書は「終えられる」側なので finished。",
+  "why_wrong": {
+   "finish": "have ＋ O ＋ 原形は人に〜させる形。物が相手なので過去分詞。",
+   "finishing": "have ＋ O ＋ -ing とは言いません。",
+   "to finish": "have ＋ O ＋ to do という形はありません。"
+  },
+  "point": "have ＋ 物 ＋ 過去分詞「（物）を〜してもらう／される」。",
+  "example": "I had my car repaired.",
+  "example_ja": "私は車を修理してもらった。"
+ },
+ "jokyu-087": {
+  "why_correct": "条件の if 節は未来でも現在形。If you have any problems。have。",
+  "why_wrong": {
+   "will have": "条件の if 節には will を入れません。",
+   "had": "had は仮定法（現実と違う仮定）になります。",
+   "having": "having では動詞になりません。"
+  },
+  "point": "条件の if 節は現在形で未来を表す。",
+  "example": "If it rains, we will stay home.",
+  "example_ja": "雨なら家にいます。"
+ },
+ "jokyu-088": {
+  "why_correct": "Should ＋ 主語 ＋ 原形＝If you should「万一〜なら」（if 省略倒置）。Should you require …。",
+  "why_wrong": {
+   "Would": "Would ＋ 主語のこの倒置はしません。",
+   "Could": "Could ＋ 主語のこの倒置はしません。",
+   "Might": "Might ＋ 主語のこの倒置はしません。"
+  },
+  "point": "Should ＋ 主語 ＋ 原形（if 省略倒置）「万一〜すれば」。",
+  "example": "Should you need help, call me.",
+  "example_ja": "万一手助けが必要なら、電話してください。"
+ },
+ "jokyu-089": {
+  "why_correct": "would rather ＋ 原形「（どちらかといえば）〜したい」。would rather postpone。",
+  "why_wrong": {
+   "to postpone": "would rather の後ろは原形（to は不要）。",
+   "postponing": "-ing形は続きません。",
+   "postponed": "過去形は続きません。"
+  },
+  "point": "would rather ＋ 原形「むしろ〜したい」。",
+  "example": "I would rather stay home tonight.",
+  "example_ja": "今夜はむしろ家にいたい。"
+ },
+ "jokyu-090": {
+  "why_correct": "had better ＋ 原形「〜したほうがよい」。had better keep。",
+  "why_wrong": {
+   "to keep": "had better の後ろは原形（to は不要）。",
+   "keeping": "-ing形は続きません。",
+   "kept": "過去形は続きません。"
+  },
+  "point": "had better ＋ 原形。",
+  "example": "You had better take an umbrella.",
+  "example_ja": "傘を持って行ったほうがいい。"
+ },
+ "jokyu-091": {
+  "why_correct": "提案・要求の動詞 recommend の that 節は (should) ＋ 原形。be changed。",
+  "why_wrong": {
+   "is": "仮定法現在なので、原形 be を使います。",
+   "was": "過去形ではなく原形 be です。",
+   "being": "being では動詞になりません。"
+  },
+  "point": "suggest / recommend / insist / demand ＋ that ＋ 主語 ＋ (should) 原形（仮定法現在）。",
+  "example": "I suggest that he be more careful.",
+  "example_ja": "彼はもっと注意すべきだと提案します。"
+ },
+ "jokyu-092": {
+  "why_correct": "insist that ＋ 主語 ＋ (should) 原形。insisted that he stay。",
+  "why_wrong": {
+   "stays": "仮定法現在では原形 stay を使います。",
+   "stayed": "過去形ではなく原形です。",
+   "staying": "-ing形では動詞になりません。"
+  },
+  "point": "insist / demand / require ＋ that ＋ S ＋ 原形。",
+  "example": "The boss demanded that she come on time.",
+  "example_ja": "上司は彼女が時間どおりに来るよう要求した。"
+ },
+ "jokyu-093": {
+  "why_correct": "The number of 〜「〜の数」は単数扱いなので is。",
+  "why_wrong": {
+   "are": "The number of は単数扱いです。",
+   "were": "単数・現在なので is。",
+   "have": "ここは be動詞 is が必要です。"
+  },
+  "point": "The number of 〜（単数）↔ A number of 〜（複数）。",
+  "example": "The number of students is decreasing.",
+  "example_ja": "生徒の数は減っている。"
+ },
+ "jokyu-094": {
+  "why_correct": "A number of 〜「多くの〜」は複数扱いなので are。",
+  "why_wrong": {
+   "is": "A number of は複数扱いです。",
+   "was": "複数・現在なので are。",
+   "has": "ここは be動詞 are が必要です。"
+  },
+  "point": "A number of 〜 ＝ many（複数扱い）。",
+  "example": "A number of people are waiting outside.",
+  "example_ja": "多くの人が外で待っている。"
+ },
+ "jokyu-095": {
+  "why_correct": "Each of 〜 は単数扱いなので has。",
+  "why_wrong": {
+   "have": "each は単数扱いで has。",
+   "are": "each は単数扱いで is/has。",
+   "were": "単数・現在なので has。"
+  },
+  "point": "each / every / either / neither は単数扱い。",
+  "example": "Each of the rooms has a number.",
+  "example_ja": "どの部屋にも番号がある。"
+ },
+ "jokyu-096": {
+  "why_correct": "Neither A nor B は動詞を B（the workers＝複数）に一致させるので were。",
+  "why_wrong": {
+   "was": "近い方 the workers が複数なので were。",
+   "is": "過去の文脈・複数なので were。",
+   "be": "be では時制が定まりません。"
+  },
+  "point": "neither A nor B / either A or B / not only A but also B は B（近い方）に一致。",
+  "example": "Neither he nor they were ready.",
+  "example_ja": "彼も彼らも準備ができていなかった。"
+ },
+ "jokyu-097": {
+  "why_correct": "-ics で終わる学問名（economics）は単数扱いなので is。",
+  "why_wrong": {
+   "are": "学問名は単数扱いです。",
+   "were": "単数・現在なので is。",
+   "have": "ここは be動詞 is が必要です。"
+  },
+  "point": "economics / mathematics / physics などの学問名は単数扱い。",
+  "example": "Mathematics is my favorite subject.",
+  "example_ja": "数学は私の好きな科目だ。"
+ },
+ "jokyu-098": {
+  "why_correct": "時間・距離・金額などのまとまりは単数扱い。Twenty years is …。is。",
+  "why_wrong": {
+   "are": "ひとまとまりの期間は単数扱いです。",
+   "were": "単数・現在なので is。",
+   "have": "ここは be動詞 is が必要です。"
+  },
+  "point": "期間・金額・距離などひとまとまりの数量は単数扱い。",
+  "example": "Ten dollars is enough.",
+  "example_ja": "10ドルで十分だ。"
+ },
+ "jokyu-099": {
+  "why_correct": "not only A but also B は B（the director＝単数）に一致するので is。",
+  "why_wrong": {
+   "are": "近い方 the director が単数なので is。",
+   "be": "be では時制が定まりません。",
+   "have": "ここは be動詞 is が必要です。"
+  },
+  "point": "not only A but also B は B（近い方）に一致。",
+  "example": "Not only the players but also the coach is happy.",
+  "example_ja": "選手だけでなくコーチも喜んでいる。"
+ },
+ "jokyu-100": {
+  "why_correct": "either A or B は動詞を B（the teacher＝単数）に一致させるので is。",
+  "why_wrong": {
+   "are": "近い方 the teacher が単数なので is。",
+   "were": "単数・現在なので is。",
+   "have": "ここは be動詞 is が必要です。"
+  },
+  "point": "either A or B は B（近い方）に一致。",
+  "example": "Either you or he is wrong.",
+  "example_ja": "あなたか彼のどちらかが間違っている。"
+ },
+ "saijokyu-001": {
+  "why_correct": "否定の副詞 Never が文頭に出ると倒置（have I seen）。「こんな美しい夕日は見たことがない」。",
+  "why_wrong": {
+   "Ever": "Ever は単独で文頭に立って倒置を起こしません。",
+   "Often": "Often は否定語ではなく、ここでは倒置・文意に合いません。",
+   "Always": "Always は否定語ではありません。"
+  },
+  "point": "否定語句（never / little / seldom / hardly …）が文頭 → 倒置（疑問文の語順）。",
+  "example": "Never have I felt so happy.",
+  "example_ja": "こんなに幸せを感じたことはない。"
+ },
+ "saijokyu-002": {
+  "why_correct": "Hardly … when「〜するやいなや」。過去完了の倒置で had。",
+  "why_wrong": {
+   "has": "過去の文脈・倒置なので had。",
+   "did": "完了形なので did ではなく had。",
+   "was": "be動詞ではなく過去完了 had arrived。"
+  },
+  "point": "Hardly had ＋ 主語 ＋ 過去分詞 … when 〜「〜するとすぐに…」。",
+  "example": "Hardly had I sat down when the phone rang.",
+  "example_ja": "座ったとたんに電話が鳴った。"
+ },
+ "saijokyu-003": {
+  "why_correct": "Not only が文頭→倒置。一般動詞 sing は did ＋ 原形。",
+  "why_wrong": {
+   "does": "過去の文脈なので did。",
+   "was": "sing は一般動詞なので be動詞は使いません。",
+   "has": "完了形ではないので did。"
+  },
+  "point": "Not only ＋ 倒置（did / 助動詞 / be動詞 ＋ 主語）。",
+  "example": "Not only did he apologize, but he also paid for it.",
+  "example_ja": "彼は謝っただけでなく、その代金も払った。"
+ },
+ "saijokyu-004": {
+  "why_correct": "否定的な Little が文頭→倒置。一般動詞は did。「彼がうそをついているとは思いもしなかった」。",
+  "why_wrong": {
+   "do": "過去の文脈なので did。",
+   "was": "know は一般動詞なので be動詞は使いません。",
+   "had": "完了形ではないので did。"
+  },
+  "point": "Little ＋ 倒置「ほとんど〜なかった／思いもしなかった」。",
+  "example": "Little did they realize the danger.",
+  "example_ja": "彼らはその危険にほとんど気づかなかった。"
+ },
+ "saijokyu-005": {
+  "why_correct": "準否定 Seldom が文頭→倒置。現在の習慣で3単現 Luke なので does。",
+  "why_wrong": {
+   "did": "現在の習慣を表すので does。",
+   "is": "eat は一般動詞なので be動詞は使いません。",
+   "has": "完了形ではないので does。"
+  },
+  "point": "seldom / rarely（めったに〜ない）が文頭 → 倒置。",
+  "example": "Seldom does he make mistakes.",
+  "example_ja": "彼はめったに間違えない。"
+ },
+ "saijokyu-006": {
+  "why_correct": "Only ＋ 副詞句が文頭→倒置。過去なので did ＋ 原形。",
+  "why_wrong": {
+   "do": "過去の文脈なので did。",
+   "was": "understand は一般動詞なので be動詞は使いません。",
+   "had": "完了形ではないので did。"
+  },
+  "point": "Only ＋ 副詞句が文頭 → 倒置（did ＋ 主語 ＋ 原形）。",
+  "example": "Only then did I understand.",
+  "example_ja": "そのとき初めて理解した。"
+ },
+ "saijokyu-007": {
+  "why_correct": "Under no circumstances（否定句）が文頭→倒置。助動詞 should you give up。",
+  "why_wrong": {
+   "are": "give up は一般動詞なので be動詞は不適切です。",
+   "do": "「決して〜してはならない」という文意には should が合います。",
+   "being": "being では倒置の助動詞になりません。"
+  },
+  "point": "Under no circumstances「決して〜ない」＋倒置（助動詞 ＋ 主語 ＋ 原形）。",
+  "example": "Under no circumstances should you open the door.",
+  "example_ja": "どんな状況でもドアを開けてはいけない。"
+ },
+ "saijokyu-008": {
+  "why_correct": "場所の副詞句（On the hill）が文頭→主語と動詞の完全倒置。stood an old castle。",
+  "why_wrong": {
+   "standing": "-ing形は述語動詞になりません。",
+   "stand": "描写は過去 stood が自然で、倒置でも動詞は前に出ます。",
+   "stands": "物語的描写なので過去形 stood。"
+  },
+  "point": "場所句が文頭 → 〈場所句 ＋ 動詞 ＋ 主語〉（完全倒置）。",
+  "example": "In the box was a small ring.",
+  "example_ja": "箱の中には小さな指輪があった。"
+ },
+ "saijokyu-009": {
+  "why_correct": "So ＋ 形容詞が文頭→補語の倒置。So tired was Ken that …。Ken は単数なので was。",
+  "why_wrong": {
+   "did": "補語（形容詞）の倒置なので be動詞 was。",
+   "has": "be動詞の倒置なので has は不可。",
+   "were": "Ken は単数なので was。"
+  },
+  "point": "So ＋ 形容詞 ＋ be動詞 ＋ 主語 ＋ that …。",
+  "example": "So great was the noise that we couldn't sleep.",
+  "example_ja": "騒音がひどくて眠れなかった。"
+ },
+ "saijokyu-010": {
+  "why_correct": "No sooner … than「〜するやいなや」。No sooner had she left than …。than。",
+  "why_wrong": {
+   "when": "Hardly / Scarcely は when ですが、No sooner は than と相関します。",
+   "then": "then は副詞で、相関の接続にはなりません。",
+   "that": "No sooner … that とは言いません。"
+  },
+  "point": "No sooner had ＋ 主語 ＋ 過去分詞 … than 〜「〜するやいなや」。",
+  "example": "No sooner had he arrived than he left again.",
+  "example_ja": "彼は着くやいなや、また出ていった。"
+ },
+ "saijokyu-011": {
+  "why_correct": "強調構文 It was A that 〜。A が人で主語でも、強調構文は that（who も可）。",
+  "why_wrong": {
+   "which": "人を強調するときに which は使いません。",
+   "what": "強調構文では what を使いません。",
+   "whom": "主語の強調なので目的格 whom は不可。"
+  },
+  "point": "強調構文 It is/was A that 〜（A が人なら who も可）。",
+  "example": "It was Ken that solved the problem.",
+  "example_ja": "その問題を解いたのはケンだった。"
+ },
+ "saijokyu-012": {
+  "why_correct": "強調構文。場所の副詞句（in Kyoto）を強調するときは that。",
+  "why_wrong": {
+   "which": "強調構文では which を使いません。",
+   "where": "強調構文では where は使いません（that）。",
+   "when": "強調構文では when は使いません（that）。"
+  },
+  "point": "副詞句（時・場所）を強調するときも that。",
+  "example": "It was at the park that they met.",
+  "example_ja": "彼らが会ったのは公園でだった。"
+ },
+ "saijokyu-013": {
+  "why_correct": "It is not until 〜 that …「〜して初めて…する」。that。",
+  "why_wrong": {
+   "when": "この構文は that を使います。",
+   "until": "until を重ねては使いません。",
+   "which": "強調構文では which は使いません。"
+  },
+  "point": "It is not until 〜 that …「〜して初めて…」。",
+  "example": "It was not until he left that I knew his name.",
+  "example_ja": "彼が去って初めて、私は彼の名前を知った。"
+ },
+ "saijokyu-014": {
+  "why_correct": "強調構文の疑問。主語（人）をたずねるので Who was it that …?",
+  "why_wrong": {
+   "Whose": "「だれの」ではなく「だれが」なので Who。",
+   "Whom": "主語をたずねるので目的格 Whom は不可。",
+   "Which": "人をたずねるので Who。"
+  },
+  "point": "疑問詞 ＋ is/was it that 〜?（強調構文の疑問）。",
+  "example": "Who was it that called you?",
+  "example_ja": "あなたに電話したのはだれだったの？"
+ },
+ "saijokyu-015": {
+  "why_correct": "強調の do ＋ 原形「本当に〜する」。I do believe …。",
+  "why_wrong": {
+   "am": "be動詞では一般動詞 believe を強調できません。",
+   "have": "have では強調になりません。",
+   "did": "現在の信念なので do（過去なら did）。"
+  },
+  "point": "do / does / did ＋ 原形＝強調「本当に〜する」。",
+  "example": "I do love this song.",
+  "example_ja": "私は本当にこの歌が大好きだ。"
+ },
+ "saijokyu-016": {
+  "why_correct": "yesterday があるので過去の強調 did ＋ 原形。He did call you。",
+  "why_wrong": {
+   "does": "過去なので did。",
+   "was": "call は一般動詞なので be動詞では強調できません。",
+   "has": "has では強調になりません。"
+  },
+  "point": "過去の強調は did ＋ 原形。",
+  "example": "She did finish it on time.",
+  "example_ja": "彼女は確かに時間どおりに終えた。"
+ },
+ "saijokyu-017": {
+  "why_correct": "強調構文。主語（his honesty）を強調するときは that。",
+  "why_wrong": {
+   "who": "強調されるのが人ではないので who は不可。",
+   "what": "強調構文では what を使いません。",
+   "which": "強調構文では which は使いません。"
+  },
+  "point": "強調構文の that は先行詞が人でもモノでも使える。",
+  "example": "It was her smile that caught my eye.",
+  "example_ja": "私の目を引いたのは彼女の笑顔だった。"
+ },
+ "saijokyu-018": {
+  "why_correct": "強調構文の疑問。「何を言いたかったのか」と目的語をたずねるので What。",
+  "why_wrong": {
+   "Which": "選択肢から選ぶ意味になり、ここでは合いません。",
+   "That": "疑問詞ではありません。",
+   "How": "How は方法をたずね、ここでは合いません。"
+  },
+  "point": "What is it that 〜?（強調構文の疑問）。",
+  "example": "What was it that surprised you?",
+  "example_ja": "あなたを驚かせたのは何だったの？"
+ },
+ "saijokyu-019": {
+  "why_correct": "強調構文 It is health that 〜。主語 health を強調。that。",
+  "why_wrong": {
+   "which": "強調構文では which を使いません。",
+   "what": "強調構文では what を使いません。",
+   "who": "強調されるのが人ではないので who は不可。"
+  },
+  "point": "It is A that 〜（強調構文）。",
+  "example": "It is effort that leads to success.",
+  "example_ja": "成功につながるのは努力だ。"
+ },
+ "saijokyu-020": {
+  "why_correct": "命令文の強調 Do ＋ 原形「ぜひ〜してください」。Do come …。",
+  "why_wrong": {
+   "Are": "be動詞では命令文の強調になりません。",
+   "Will": "Will では命令文の強調になりません。",
+   "Have": "Have では命令文の強調になりません。"
+  },
+  "point": "Do ＋ 原形（命令文）＝「ぜひ〜してください」。",
+  "example": "Do have some more cake.",
+  "example_ja": "ぜひもっとケーキを召し上がって。"
+ },
+ "saijokyu-021": {
+  "why_correct": "The number of 〜「〜の数」は単数扱いなので is。",
+  "why_wrong": {
+   "are": "The number of は単数扱いです。",
+   "were": "単数・現在なので is。",
+   "have": "ここは be動詞 is が必要です。"
+  },
+  "point": "The number of 〜（単数）↔ A number of 〜（複数）。",
+  "example": "The number of cars is increasing.",
+  "example_ja": "車の数は増えている。"
+ },
+ "saijokyu-022": {
+  "why_correct": "A number of 〜「多くの〜」は複数扱いなので are。",
+  "why_wrong": {
+   "is": "A number of は複数扱いです。",
+   "was": "複数・現在なので are。",
+   "has": "ここは be動詞 are が必要です。"
+  },
+  "point": "A number of 〜 ＝ many（複数扱い）。",
+  "example": "A number of students are waiting.",
+  "example_ja": "多くの生徒が待っている。"
+ },
+ "saijokyu-023": {
+  "why_correct": "Each of 〜 は単数扱いなので has。",
+  "why_wrong": {
+   "have": "each は単数扱いで has。",
+   "are": "each は単数扱いです。",
+   "were": "単数・現在なので has。"
+  },
+  "point": "each / every / either / neither は単数扱い。",
+  "example": "Each of us has a role.",
+  "example_ja": "私たちにはそれぞれ役割がある。"
+ },
+ "saijokyu-024": {
+  "why_correct": "Neither of 〜 は単数扱いなので is。",
+  "why_wrong": {
+   "are": "neither は単数扱いです。",
+   "were": "単数・現在なので is。",
+   "have": "ここは be動詞 is が必要です。"
+  },
+  "point": "neither of 〜 は単数扱い「どちらも〜ない」。",
+  "example": "Neither of the answers is correct.",
+  "example_ja": "どちらの答えも正しくない。"
+ },
+ "saijokyu-025": {
+  "why_correct": "学問名 Mathematics は単数扱いなので is。",
+  "why_wrong": {
+   "are": "学問名は単数扱いです。",
+   "were": "単数・現在なので is。",
+   "have": "ここは be動詞 is が必要です。"
+  },
+  "point": "mathematics / economics / physics などは単数扱い。",
+  "example": "Physics is difficult for me.",
+  "example_ja": "物理は私には難しい。"
+ },
+ "saijokyu-026": {
+  "why_correct": "Ten years はひとまとまりの期間なので単数扱い is。",
+  "why_wrong": {
+   "are": "ひとまとまりの期間は単数扱いです。",
+   "were": "単数・現在なので is。",
+   "have": "ここは be動詞 is が必要です。"
+  },
+  "point": "期間・金額・距離などのまとまりは単数扱い。",
+  "example": "Five miles is a long way to walk.",
+  "example_ja": "5マイルは歩くには長い距離だ。"
+ },
+ "saijokyu-027": {
+  "why_correct": "not only A but also B は B（he）に一致するので is。",
+  "why_wrong": {
+   "are": "近い方 he が単数なので is。",
+   "am": "主語は he なので am は不可。",
+   "were": "単数・現在なので is。"
+  },
+  "point": "not only A but also B は B（近い方）に一致。",
+  "example": "Not only they but also she is invited.",
+  "example_ja": "彼らだけでなく彼女も招待されている。"
+ },
+ "saijokyu-028": {
+  "why_correct": "either A or B は B（she）に一致。3単現なので has。",
+  "why_wrong": {
+   "have": "近い方 she が単数なので has。",
+   "are": "be動詞ではなく、ここは has to go の has。",
+   "were": "単数・現在なので has。"
+  },
+  "point": "either A or B は B（近い方）に一致。",
+  "example": "Either you or he has to decide.",
+  "example_ja": "あなたか彼のどちらかが決めなければならない。"
+ },
+ "saijokyu-029": {
+  "why_correct": "no more … than「…と同じく〜でない」。no more expensive than that one「あれと同様に高くない」。",
+  "why_wrong": {
+   "not": "not more は単なる「より高くない」で、慣用の no more … than とは意味が異なります。",
+   "much": "much は比較級を強めますが、ここは慣用の no。",
+   "very": "very は比較級には付きません。"
+  },
+  "point": "no more A than B「B と同様に A でない」。",
+  "example": "This is no more difficult than that.",
+  "example_ja": "これはあれと同じくらい難しくない。"
+ },
+ "saijokyu-030": {
+  "why_correct": "no less than ＋ 数「〜も（多い）」。no less than ten thousand yen「1万円も」。",
+  "why_wrong": {
+   "not": "not less than は「少なくとも」で意味が異なります。",
+   "much": "much ではこの慣用になりません。",
+   "few": "few ではこの慣用になりません。"
+  },
+  "point": "no less than「〜も（多い）」／no more than「たった〜」。",
+  "example": "She earns no less than a million yen a month.",
+  "example_ja": "彼女は月に100万円も稼ぐ。"
+ },
+ "saijokyu-031": {
+  "why_correct": "not so much A as B「AというよりむしろB」。as。",
+  "why_wrong": {
+   "than": "この構文は as を使います（not so much A as B）。",
+   "like": "like ではこの構文になりません。",
+   "that": "that ではこの構文になりません。"
+  },
+  "point": "not so much A as B「A よりむしろ B」。",
+  "example": "It is not so much a hobby as a job.",
+  "example_ja": "それは趣味というよりむしろ仕事だ。"
+ },
+ "saijokyu-032": {
+  "why_correct": "The 比較級 …, the 比較級 …。the better you become の the。",
+  "why_wrong": {
+   "a": "この構文では the 比較級 を使います。",
+   "much": "比較級の前は the です。",
+   "more": "ここは the better で、more は不要です。"
+  },
+  "point": "The 比較級 〜, the 比較級 …「〜すればするほど…」。",
+  "example": "The more, the better.",
+  "example_ja": "多ければ多いほどよい。"
+ },
+ "saijokyu-033": {
+  "why_correct": "people は可算名詞。no fewer than「〜も（多い）」は可算には fewer。",
+  "why_wrong": {
+   "less": "less は不可算名詞用です（可算は fewer）。",
+   "few": "no few than という形はありません。",
+   "least": "least は最上級で、ここでは使いません。"
+  },
+  "point": "可算は fewer、不可算は less。no fewer than「〜も」。",
+  "example": "No fewer than 50 people came.",
+  "example_ja": "50人もの人が来た。"
+ },
+ "saijokyu-034": {
+  "why_correct": "クジラの構文 A is no more B than C is。no more a fish than a horse is。than。",
+  "why_wrong": {
+   "as": "この構文は than を使います。",
+   "that": "that ではこの構文になりません。",
+   "then": "then は副詞で接続にはなりません。"
+  },
+  "point": "A is no more B than C is「C が B でないのと同様、A も B でない」。",
+  "example": "A bat is no more a bird than a mouse is.",
+  "example_ja": "コウモリは、ネズミが鳥でないのと同様、鳥ではない。"
+ },
+ "saijokyu-035": {
+  "why_correct": "would rather A than B「BよりむしろAしたい」。would rather walk than wait。rather。",
+  "why_wrong": {
+   "better": "had better は別の表現で、than とは相関しません。",
+   "more": "would more という言い方はありません。",
+   "very": "would very という言い方はありません。"
+  },
+  "point": "would rather A than B「B よりむしろ A したい」。",
+  "example": "I would rather stay than go.",
+  "example_ja": "行くよりむしろとどまりたい。"
+ },
+ "saijokyu-036": {
+  "why_correct": "by far ＋ the ＋ 最上級「断然〜」。by far the best。by。",
+  "why_wrong": {
+   "very": "very は原級の強調（the very best のように語順が違う）です。",
+   "much": "much the best も可ですが、ここは by far の形。",
+   "too": "too は最上級を強めません。"
+  },
+  "point": "by far ＋ the ＋ 最上級（最上級の強調）。",
+  "example": "He is by far the tallest.",
+  "example_ja": "彼は断然いちばん背が高い。"
+ },
+ "saijokyu-037": {
+  "why_correct": "the last ＋ 名詞 ＋ to do「最も〜しそうにない／決して〜しない」。the last person to tell a lie。",
+  "why_wrong": {
+   "first": "the first person to do は「最初に〜する人」で意味が逆です。",
+   "best": "the best person to do は文意に合いません。",
+   "only": "the only person to do は「唯一〜する人」で意味が違います。"
+  },
+  "point": "the last 〜 to do「決して〜しない（最も〜しそうにない）」。",
+  "example": "She is the last person to give up.",
+  "example_ja": "彼女は決してあきらめない人だ。"
+ },
+ "saijokyu-038": {
+  "why_correct": "同一人物の2つの性質を比べる more A than B。more wise than clever。than。",
+  "why_wrong": {
+   "as": "比較級 more の相手は than です。",
+   "that": "that ではこの構文になりません。",
+   "then": "then は副詞で接続にはなりません。"
+  },
+  "point": "同一人物の性質比較は more A than B（wiser ではなく more wise）。",
+  "example": "He is more lucky than clever.",
+  "example_ja": "彼は賢いというより運がよいのだ。"
+ },
+ "saijokyu-039": {
+  "why_correct": "倍数 ＋ as ＋ 原級 ＋ as。three times as large as。as。",
+  "why_wrong": {
+   "than": "倍数表現は as 〜 as を使います。",
+   "so": "肯定文では as 〜 as。",
+   "too": "too ではこの構文になりません。"
+  },
+  "point": "倍数（twice / three times）＋ as ＋ 原級 ＋ as。",
+  "example": "This room is twice as big as mine.",
+  "example_ja": "この部屋は私の部屋の2倍の広さだ。"
+ },
+ "saijokyu-040": {
+  "why_correct": "none the ＋ 比較級 ＋ for 〜「〜だからといって少しも…でない」。none the happier for his wealth。the。",
+  "why_wrong": {
+   "a": "この慣用は none the ＋ 比較級 です。",
+   "no": "no the という形はありません。",
+   "so": "so ではこの慣用になりません。"
+  },
+  "point": "none the ＋ 比較級 ＋ for 〜「〜にもかかわらず少しも…でない」。",
+  "example": "He is none the wiser for his experience.",
+  "example_ja": "彼は経験を積んでも少しも賢くなっていない。"
+ },
+ "saijokyu-041": {
+  "why_correct": "Not all 〜「すべてが〜とは限らない」（部分否定）。",
+  "why_wrong": {
+   "No": "No students passed なら全否定で「だれも合格しなかった」と意味が変わります。",
+   "None": "None of の形が必要で、ここは Not all。",
+   "Never": "Never は文意に合いません。"
+  },
+  "point": "not all / not every / not always ＝ 部分否定。",
+  "example": "Not all of them agreed.",
+  "example_ja": "全員が賛成したわけではない。"
+ },
+ "saijokyu-042": {
+  "why_correct": "not always「必ずしも〜でない」（部分否定）。",
+  "why_wrong": {
+   "never": "not never は二重否定で不自然です。",
+   "ever": "not ever は「決して〜ない」（全否定）です。",
+   "very": "not very は「あまり〜ない」で意味が変わります。"
+  },
+  "point": "not always「必ずしも〜とは限らない」。",
+  "example": "The expensive one is not always the best.",
+  "example_ja": "高いものが必ずしも最良とは限らない。"
+ },
+ "saijokyu-043": {
+  "why_correct": "cannot ＋ … ＋ enough「いくら〜してもしきれない」。cannot thank you enough。",
+  "why_wrong": {
+   "too": "cannot ＋ too は形容詞・副詞の前（cannot be too careful）の形で、ここは enough。",
+   "very": "very ではこの慣用になりません。",
+   "much": "much ではこの慣用になりません。"
+  },
+  "point": "cannot ＋ 動詞 ＋ enough「いくら〜してもしきれない」。",
+  "example": "I cannot praise her enough.",
+  "example_ja": "彼女はいくらほめても足りない。"
+ },
+ "saijokyu-044": {
+  "why_correct": "cannot be too ＋ 形容詞「いくら〜してもしすぎることはない」。cannot be too careful。",
+  "why_wrong": {
+   "enough": "enough は語順が異なり、ここは too。",
+   "very": "very ではこの慣用になりません。",
+   "so": "so ではこの慣用になりません。"
+  },
+  "point": "cannot be too ＋ 形容詞「いくら〜してもしすぎることはない」。",
+  "example": "You cannot be too careful with money.",
+  "example_ja": "お金にはいくら注意してもしすぎることはない。"
+ },
+ "saijokyu-045": {
+  "why_correct": "anything but「決して〜でない」。anything but selfish「決してわがままではない」。",
+  "why_wrong": {
+   "something": "something but という慣用はありません。",
+   "nothing": "nothing but は「〜にすぎない／〜だけ」で意味が逆です。",
+   "everything": "everything but という慣用はここでは合いません。"
+  },
+  "point": "anything but「決して〜でない」／nothing but「〜にすぎない」。",
+  "example": "His explanation was anything but clear.",
+  "example_ja": "彼の説明は決して明快ではなかった。"
+ },
+ "saijokyu-046": {
+  "why_correct": "far from「決して〜でない」。far from satisfied「決して満足していない」。",
+  "why_wrong": {
+   "away": "away from は「〜から離れて」で意味が違います。",
+   "free": "free from は「〜がない」で、satisfied とは結びつきません。",
+   "apart": "apart from は「〜は別として」です。"
+  },
+  "point": "far from ＋ 形容詞/名詞「決して〜でない」。",
+  "example": "The work is far from finished.",
+  "example_ja": "その仕事は決して終わっていない。"
+ },
+ "saijokyu-047": {
+  "why_correct": "nothing but「〜にすぎない／〜だけ」。nothing but water「水だけ」。",
+  "why_wrong": {
+   "than": "nothing than という慣用はありません。",
+   "for": "nothing for ではこの意味になりません。",
+   "of": "nothing of は別の意味です。"
+  },
+  "point": "nothing but ＝ only「〜だけ・〜にすぎない」。",
+  "example": "He does nothing but complain.",
+  "example_ja": "彼は不平ばかり言っている。"
+ },
+ "saijokyu-048": {
+  "why_correct": "people は可算名詞。「ほとんど〜ない」（準否定）は可算には Few。",
+  "why_wrong": {
+   "Little": "little は不可算名詞用です（people は可算）。",
+   "Many": "many は「多くの」で否定的な意味になりません。",
+   "Much": "much は不可算名詞用です。"
+  },
+  "point": "few（ほとんどない・可算）／little（ほとんどない・不可算）。",
+  "example": "Few people understand this.",
+  "example_ja": "これを理解する人はほとんどいない。"
+ },
+ "saijokyu-049": {
+  "why_correct": "money は不可算名詞。「ほとんどない」（準否定）は little。",
+  "why_wrong": {
+   "few": "few は可算名詞用です（money は不可算）。",
+   "many": "many は可算名詞用です。",
+   "a few": "a few は可算名詞用で、肯定的「少しはある」です。"
+  },
+  "point": "little ＋ 不可算（ほとんどない）／a little（少しはある）。",
+  "example": "I have little time today.",
+  "example_ja": "今日はほとんど時間がない。"
+ },
+ "saijokyu-050": {
+  "why_correct": "never 〜 without -ing「〜せずには…しない＝必ず…する」（二重否定）。",
+  "why_wrong": {
+   "with": "with では二重否定の意味になりません。",
+   "by": "by ではこの慣用になりません。",
+   "for": "for ではこの慣用になりません。"
+  },
+  "point": "never 〜 without …「…せずには〜しない」（二重否定＝強い肯定）。",
+  "example": "She never travels without taking photos.",
+  "example_ja": "彼女は旅行すると必ず写真を撮る。"
+ },
+ "saijokyu-051": {
+  "why_correct": "複合関係代名詞 Whoever「〜する人はだれでも」（主格）。後ろが動詞 comes。",
+  "why_wrong": {
+   "Whomever": "目的格なので、後ろが動詞 comes（主語が必要）のここでは主格 Whoever。",
+   "Whichever": "Whichever は選択肢から選ぶ意味です。",
+   "However": "However は「どんなに〜でも」です。"
+  },
+  "point": "whoever（主格・〜する人はだれでも）／whomever（目的格）。",
+  "example": "Whoever wants to join is welcome.",
+  "example_ja": "参加したい人はだれでも歓迎です。"
+ },
+ "saijokyu-052": {
+  "why_correct": "whichever「どれでも／どちらでも」（選択）。take whichever you like。",
+  "why_wrong": {
+   "whoever": "whoever は人を表します。",
+   "however": "however は「どんなに〜でも」です。",
+   "whenever": "whenever は「いつでも」です。"
+  },
+  "point": "whichever「（限られた中から）どれでも・どちらでも」。",
+  "example": "Choose whichever you prefer.",
+  "example_ja": "お好きなほうを選んでください。"
+ },
+ "saijokyu-053": {
+  "why_correct": "However ＋ 形容詞/副詞「どんなに〜でも」（譲歩）。However hard it is。",
+  "why_wrong": {
+   "Whatever": "Whatever は名詞を伴います（形容詞 hard の前は However）。",
+   "Whoever": "Whoever は人を表します。",
+   "Whenever": "Whenever は「いつでも」です。"
+  },
+  "point": "However ＋ 形容詞/副詞 ＋ S ＋ V「どんなに〜でも」。",
+  "example": "However busy you are, eat well.",
+  "example_ja": "どんなに忙しくても、よく食べなさい。"
+ },
+ "saijokyu-054": {
+  "why_correct": "Whatever「何が起ころうと」（複合関係代名詞・主語）。Whatever happens。",
+  "why_wrong": {
+   "Whoever": "Whoever は人を表します。",
+   "However": "However は「どんなに〜でも」です。",
+   "Wherever": "Wherever は場所を表します。"
+  },
+  "point": "whatever（何が／何を〜しても）。",
+  "example": "Whatever you decide, I will support you.",
+  "example_ja": "あなたが何を決めても、私は応援します。"
+ },
+ "saijokyu-055": {
+  "why_correct": "連鎖関係代名詞。a man who ＋ I think ＋ is honest。挿入の I think の後に that は入れず、動詞 is が続くので think。",
+  "why_wrong": {
+   "think that": "連鎖関係代名詞では I think の後に that を入れません。",
+   "am thinking": "ここは単純な I think が自然です。",
+   "thought that": "時制・that の点で合いません。"
+  },
+  "point": "〈関係代名詞 ＋ S ＋ think / believe ＋ V〉連鎖関係代名詞。think の後に that を入れない。",
+  "example": "He is a person who I believe is reliable.",
+  "example_ja": "彼は信頼できると私が思う人だ。"
+ },
+ "saijokyu-056": {
+  "why_correct": "Wherever「どこへ〜しても」（場所）。Wherever you go。",
+  "why_wrong": {
+   "Whatever": "Whatever は「何が／何を」です。",
+   "However": "However は「どんなに〜でも」です。",
+   "Whoever": "Whoever は人を表します。"
+  },
+  "point": "wherever「どこへ／どこで〜しても」。",
+  "example": "Wherever she goes, her dog follows.",
+  "example_ja": "彼女が行くところどこへでも、犬がついてくる。"
+ },
+ "saijokyu-057": {
+  "why_correct": "to の後でも、後ろが動詞 wants なので主格 whoever（節全体が to の目的語）。",
+  "why_wrong": {
+   "whomever": "後ろが動詞 wants なので、節内では主格 whoever。",
+   "whichever": "whichever は選択肢から選ぶ意味です。",
+   "however": "however は「どんなに〜でも」です。"
+  },
+  "point": "whoever / whomever は節内での働きで決める（wants の主語 → whoever）。",
+  "example": "Give it to whoever needs it.",
+  "example_ja": "必要とする人にだれにでもあげなさい。"
+ },
+ "saijokyu-058": {
+  "why_correct": "No matter what「何を〜しようと」（＝whatever）。No matter what you say。",
+  "why_wrong": {
+   "which": "No matter which は「どれを〜しても」で、ここは「何を」なので what。",
+   "how": "No matter how は「どんなに〜でも」です。",
+   "who": "No matter who は「だれが〜しても」です。"
+  },
+  "point": "no matter what ＝ whatever「何を〜しても」。",
+  "example": "No matter what happens, stay calm.",
+  "example_ja": "何が起ころうと、落ち着いていなさい。"
+ },
+ "saijokyu-059": {
+  "why_correct": "Whenever「いつ〜しても」（時）。Whenever you come。",
+  "why_wrong": {
+   "Wherever": "Wherever は場所を表します。",
+   "However": "However は「どんなに〜でも」です。",
+   "Whatever": "Whatever は「何が／何を」です。"
+  },
+  "point": "whenever「〜するときはいつでも」。",
+  "example": "Whenever you need help, just ask.",
+  "example_ja": "助けが必要なときはいつでも、言ってね。"
+ },
+ "saijokyu-060": {
+  "why_correct": "連鎖関係代名詞。the book which ＋ I believe ＋ will help you。先行詞 book はモノなので which。",
+  "why_wrong": {
+   "what": "what は先行詞を含むので、先行詞 book がある文では使いません。",
+   "whom": "whom は人に使います。",
+   "whose": "whose は所有を表します。"
+  },
+  "point": "連鎖関係代名詞でも先行詞がモノなら which。",
+  "example": "That is the plan which I think will work.",
+  "example_ja": "あれが、うまくいくと私が思う計画だ。"
+ },
+ "saijokyu-061": {
+  "why_correct": "as long as「〜する限り（条件）」。As long as you are with me。As。",
+  "why_wrong": {
+   "So": "so long as も使えますが、文頭の定型は As long as が自然です。",
+   "By": "by long as という形はありません。",
+   "In": "in long as という形はありません。"
+  },
+  "point": "as long as「〜する限り（条件・期間）」。",
+  "example": "As long as it is free, I will join.",
+  "example_ja": "無料である限り、参加します。"
+ },
+ "saijokyu-062": {
+  "why_correct": "in case「〜に備えて」。in case it rains。case。",
+  "why_wrong": {
+   "time": "in time は「間に合って」です。",
+   "order": "in order to do は「〜するために」です。",
+   "spite": "in spite of は「〜にもかかわらず」です。"
+  },
+  "point": "in case ＋ 文「〜する場合に備えて」。",
+  "example": "Save money in case you lose your job.",
+  "example_ja": "職を失う場合に備えてお金を蓄えなさい。"
+ },
+ "saijokyu-063": {
+  "why_correct": "now that「今や〜だから」（理由）。Now that you are an adult。that。",
+  "why_wrong": {
+   "when": "now when という接続はしません。",
+   "which": "which では理由の接続になりません。",
+   "then": "then は副詞で接続にはなりません。"
+  },
+  "point": "now that ＋ 文「今や〜なので」（理由）。",
+  "example": "Now that it's sunny, let's go out.",
+  "example_ja": "晴れたのだから、出かけよう。"
+ },
+ "saijokyu-064": {
+  "why_correct": "形容詞 ＋ as ＋ S ＋ V「〜だけれど」（譲歩の倒置）。Young as he is。as。",
+  "why_wrong": {
+   "though": "though を使うなら Though he is young の語順になります。",
+   "even": "even ではこの譲歩構文になりません。",
+   "so": "so ではこの譲歩構文になりません。"
+  },
+  "point": "形容詞 ＋ as ＋ S ＋ V「〜だけれども」（譲歩の倒置）。",
+  "example": "Tired as she was, she finished it.",
+  "example_ja": "彼女は疲れていたが、それを終えた。"
+ },
+ "saijokyu-065": {
+  "why_correct": "so that ＋ 主語 ＋ could「〜するために」（目的）。so that he could pass。that。",
+  "why_wrong": {
+   "as": "so as to do（to＋原形）の形なら可ですが、ここは so that ＋ 文。",
+   "for": "so for という接続はしません。",
+   "then": "then は副詞で接続にはなりません。"
+  },
+  "point": "so that ＋ 主語 ＋ can / could「〜するために」（目的）。",
+  "example": "Speak slowly so that everyone can understand.",
+  "example_ja": "みんなが理解できるように、ゆっくり話して。"
+ },
+ "saijokyu-066": {
+  "why_correct": "once「いったん〜すると」。Once you make a promise。Once。",
+  "why_wrong": {
+   "While": "While は「〜している間」です。",
+   "Since": "Since は「〜以来／〜なので」です。",
+   "Unless": "Unless は「〜しない限り」です。"
+  },
+  "point": "once「いったん〜すれば」。",
+  "example": "Once you start, you can't stop.",
+  "example_ja": "いったん始めると、やめられない。"
+ },
+ "saijokyu-067": {
+  "why_correct": "the moment ＋ 文「〜するとすぐに」（接続詞的）。The moment he saw me。moment。",
+  "why_wrong": {
+   "time": "the time は「〜するとすぐに」の意味では使いません。",
+   "while": "while は「〜している間」です。",
+   "once": "once は冠詞 the を伴いません。"
+  },
+  "point": "the moment / the instant ＝ as soon as「〜するやいなや」。",
+  "example": "The moment I opened the door, the cat ran out.",
+  "example_ja": "ドアを開けたとたん、猫が飛び出した。"
+ },
+ "saijokyu-068": {
+  "why_correct": "until「〜するまで（ずっと）」。I'll wait here until she comes back。",
+  "why_wrong": {
+   "by": "by は「〜までに（期限）」で、継続の意味ではありません。",
+   "for": "for は期間の長さに使います。",
+   "since": "since は起点に使います。"
+  },
+  "point": "until「〜までずっと」（継続）／by「〜までに」（期限）。",
+  "example": "Stay here until I come back.",
+  "example_ja": "私が戻るまでここにいて。"
+ },
+ "saijokyu-069": {
+  "why_correct": "in case「〜に備えて」。in case you get lost。in。",
+  "why_wrong": {
+   "by": "by case という形はありません。",
+   "at": "at case という形はありません。",
+   "on": "on case という形はありません。"
+  },
+  "point": "in case ＋ 文「〜する場合に備えて」。",
+  "example": "Take a charger in case your phone dies.",
+  "example_ja": "電池が切れる場合に備えて充電器を持って行きなさい。"
+ },
+ "saijokyu-070": {
+  "why_correct": "unless「〜しない限り」（＝if … not）。won't go out unless it stops raining。",
+  "why_wrong": {
+   "if": "if it stops なら「やんだら出かける」と逆になります。",
+   "when": "when では条件の否定になりません。",
+   "while": "while は「〜している間」です。"
+  },
+  "point": "unless ＝ if … not「〜しない限り」。",
+  "example": "I won't go unless you come with me.",
+  "example_ja": "あなたが一緒に来ない限り、私は行きません。"
+ },
+ "saijokyu-071": {
+  "why_correct": "prevent ＋ O ＋ from ＋ -ing「Oが〜するのを妨げる」。prevented us from going out。from。",
+  "why_wrong": {
+   "to": "prevent O to do という形はありません。",
+   "of": "prevent O of という形はありません。",
+   "for": "prevent O for という形はありません。"
+  },
+  "point": "prevent / stop / keep ＋ O ＋ from ＋ -ing。",
+  "example": "Illness prevented him from working.",
+  "example_ja": "病気のせいで彼は働けなかった。"
+ },
+ "saijokyu-072": {
+  "why_correct": "無生物主語 ＋ bring 人「〜のおかげで／せいで来る」。What brought you here?「なぜここへ？」。",
+  "why_wrong": {
+   "took": "take は「連れて行く」で、here（こちら）とは方向が合いません。",
+   "came": "come は自動詞で、目的語 you を取れません。",
+   "went": "go は自動詞で、目的語 you を取れません。"
+  },
+  "point": "What brings / brought you here?「なぜここに来たの？」（無生物主語）。",
+  "example": "What brought you to Japan?",
+  "example_ja": "何があなたを日本へ来させたのですか（なぜ日本へ？）。"
+ },
+ "saijokyu-073": {
+  "why_correct": "the fact ＋ that ＋ 完全文「〜という事実」（同格の that）。",
+  "why_wrong": {
+   "which": "which の後ろは不完全文。同格は完全文 ＋ that。",
+   "what": "what は先行詞を含み、ここでは合いません。",
+   "why": "why では同格になりません。"
+  },
+  "point": "同格の that：the fact / idea / news ＋ that ＋ 完全文。",
+  "example": "The news that he won spread quickly.",
+  "example_ja": "彼が勝ったという知らせはすぐに広まった。"
+ },
+ "saijokyu-074": {
+  "why_correct": "no idea ＋ that ＋ 完全文「〜とは思いもしなかった」（同格の that）。",
+  "why_wrong": {
+   "which": "which では同格になりません。",
+   "what": "what は先行詞を含みます。",
+   "if": "if では「〜という」の同格になりません。"
+  },
+  "point": "the idea / no idea ＋ that 〜（同格）。",
+  "example": "I had no idea that it was so late.",
+  "example_ja": "そんなに遅いとは思いもしなかった。"
+ },
+ "saijokyu-075": {
+  "why_correct": "無生物主語 ＋ bring 人 to 〜「〜すると…に着く」。Five minutes' walk brought me to the station。",
+  "why_wrong": {
+   "took": "take 人 to の形もありますが、ここは「（歩くと）連れてくる」で brought が自然です。",
+   "went": "go は自動詞で、目的語 me を取れません。",
+   "came": "come は自動詞で、目的語 me を取れません。"
+  },
+  "point": "無生物主語 ＋ bring 人 to 〜「〜すると（人は）…に着く」。",
+  "example": "A short walk brought us to the beach.",
+  "example_ja": "少し歩くと、私たちは浜辺に着いた。"
+ },
+ "saijokyu-076": {
+  "why_correct": "no doubt ＋ that ＋ 完全文「〜という疑いはない」（同格の that）。",
+  "why_wrong": {
+   "which": "which では同格になりません。",
+   "what": "what は先行詞を含みます。",
+   "whether": "whether は「〜かどうか」で、断定の同格には that。"
+  },
+  "point": "There is no doubt that 〜「〜は間違いない」（同格）。",
+  "example": "There is no doubt that she will win.",
+  "example_ja": "彼女が勝つことは間違いない。"
+ },
+ "saijokyu-077": {
+  "why_correct": "make ＋ O ＋ 原形「Oに〜させる」。make you feel better。make。",
+  "why_wrong": {
+   "let": "let は「〜させてやる（許可）」で文意に合いません。",
+   "have": "have ＋ O ＋ 原形は「〜してもらう」で文意に合いません。",
+   "get": "get は〈O ＋ to do〉で、原形 feel とは合いません。"
+  },
+  "point": "make ＋ O ＋ 原形「（物事が）O に〜させる」。",
+  "example": "This song makes me feel calm.",
+  "example_ja": "この歌は私を落ち着かせる。"
+ },
+ "saijokyu-078": {
+  "why_correct": "make ＋ O ＋ C（形容詞）。The news made everyone happy。made。",
+  "why_wrong": {
+   "let": "let ＋ O ＋ 形容詞の形は通常とりません。",
+   "got": "get ＋ O ＋ 形容詞は限定的で、ここは made。",
+   "had": "have ＋ O ＋ 形容詞の形は通常とりません。"
+  },
+  "point": "make ＋ O ＋ 形容詞「O を〜（の状態）にする」。",
+  "example": "The gift made her happy.",
+  "example_ja": "その贈り物は彼女を喜ばせた。"
+ },
+ "saijokyu-079": {
+  "why_correct": "If の省略倒置。If I had known → Had I known。Had。",
+  "why_wrong": {
+   "If": "If があれば倒置しません。",
+   "Have": "Have では仮定法の倒置になりません。",
+   "Did": "Did では仮定法過去完了になりません。"
+  },
+  "point": "Had ＋ 主語 ＋ 過去分詞（＝if 主語 had ＋ 過去分詞）。",
+  "example": "Had I known, I would have come.",
+  "example_ja": "知っていたら、来たのに。"
+ },
+ "saijokyu-080": {
+  "why_correct": "If の省略倒置。If I were you → Were I you。Were。",
+  "why_wrong": {
+   "If": "If があれば倒置しません。",
+   "Was": "仮定法では was でなく were。",
+   "Had": "現在の仮定なので Were I（Had ＋ 過去分詞は過去の仮定）。"
+  },
+  "point": "Were ＋ 主語（＝if 主語 were）「もし〜なら」。",
+  "example": "Were I rich, I would help them.",
+  "example_ja": "もし金持ちなら、彼らを助けるのに。"
+ },
+ "saijokyu-081": {
+  "why_correct": "If it were not for 〜「〜がなければ」の倒置。Were it not for water。Were。",
+  "why_wrong": {
+   "Had": "Had it not been for 〜は過去の仮定。ここは現在なので Were it not for。",
+   "If": "If があれば倒置しません。",
+   "Was": "仮定法では was でなく were。"
+  },
+  "point": "Were it not for 〜（現在）／Had it not been for 〜（過去）「〜がなければ」。",
+  "example": "Were it not for the sun, we couldn't live.",
+  "example_ja": "太陽がなければ、私たちは生きられない。"
+ },
+ "saijokyu-082": {
+  "why_correct": "But for 〜「〜がなければ」（＝If it had not been for）。But for your help。But。",
+  "why_wrong": {
+   "Except": "except は「〜を除いて」で仮定の意味になりません。",
+   "Were": "Were it not for なら it not for が必要です。",
+   "Had": "Had it not been for なら it not been for が必要です。"
+  },
+  "point": "But for 〜「〜がなければ」（仮定法の慣用）。",
+  "example": "But for the rain, the trip would have been perfect.",
+  "example_ja": "雨さえなければ、旅行は完璧だったのに。"
+ },
+ "saijokyu-083": {
+  "why_correct": "It is time ＋ 主語 ＋ 過去形（仮定法過去）「もう〜してよいころだ」。went。",
+  "why_wrong": {
+   "go": "原形ではこの構文になりません。",
+   "have gone": "現在完了ではなく仮定法過去（過去形）です。",
+   "going": "-ing形では合いません。"
+  },
+  "point": "It is time ＋ 主語 ＋ 過去形「（とっくに）〜する時間だ」。",
+  "example": "It is time you started studying.",
+  "example_ja": "もう勉強を始める時間ですよ。"
+ },
+ "saijokyu-084": {
+  "why_correct": "I wish ＋ 仮定法過去完了「（過去に）〜しておけばよかった」。had studied。",
+  "why_wrong": {
+   "have": "現在完了ではなく had ＋ 過去分詞。",
+   "has": "has では仮定法になりません。",
+   "having": "having では仮定法になりません。"
+  },
+  "point": "I wish ＋ had ＋ 過去分詞「（あのとき）〜だったらなあ」（過去の後悔）。",
+  "example": "I wish I had taken your advice.",
+  "example_ja": "あなたの助言に従っておけばよかった。"
+ },
+ "saijokyu-085": {
+  "why_correct": "現在より前のことを「まるで〜したかのように」言うので as if ＋ 過去完了。had seen。",
+  "why_wrong": {
+   "has": "as if の仮定法では過去完了 had ＋ 過去分詞。",
+   "have": "have では時制が合いません。",
+   "having": "having では仮定法になりません。"
+  },
+  "point": "as if ＋ 過去完了「（過去に）まるで〜したかのように」。",
+  "example": "He spoke as if he had been there.",
+  "example_ja": "彼はまるでそこにいたかのように話した。"
+ },
+ "saijokyu-086": {
+  "why_correct": "If it had not been for 〜「〜がなかったら」（過去の仮定）。had not been for the map。for。",
+  "why_wrong": {
+   "of": "had not been of という形はありません。",
+   "to": "had not been to という形はありません。",
+   "with": "had not been with という形はありません。"
+  },
+  "point": "If it had not been for 〜「〜がなかったら」（過去）。",
+  "example": "If it had not been for you, I would have failed.",
+  "example_ja": "あなたがいなかったら、私は失敗していただろう。"
+ },
+ "saijokyu-087": {
+  "why_correct": "Should ＋ 主語 ＋ 原形＝If you should「万一〜なら」（if 省略倒置）。Should you need help。",
+  "why_wrong": {
+   "Would": "Would ＋ 主語のこの倒置はしません。",
+   "Could": "Could ＋ 主語のこの倒置はしません。",
+   "Might": "Might ＋ 主語のこの倒置はしません。"
+  },
+  "point": "Should ＋ 主語 ＋ 原形（if 省略倒置）「万一〜すれば」。",
+  "example": "Should anything happen, call me.",
+  "example_ja": "万一何かあれば、電話してください。"
+ },
+ "saijokyu-088": {
+  "why_correct": "Without 〜（〜がなければ）＝仮定法過去完了相当。主節は could not have ＋ 過去分詞。could。",
+  "why_wrong": {
+   "will": "will not have は仮定法の結果になりません。",
+   "can": "現在の can ではなく、過去の結果は could have。",
+   "shall": "shall not have はこの仮定法の結果になりません。"
+  },
+  "point": "Without 〜 ＝ If it had not been for 〜。主節は助動詞 ＋ have ＋ 過去分詞。",
+  "example": "Without water, the plant could not have survived.",
+  "example_ja": "水がなければ、その植物は生き残れなかっただろう。"
+ },
+ "saijokyu-089": {
+  "why_correct": "「賢い人なら（仮に）そんなことは言わないだろう」と仮定を含む推量なので would。",
+  "why_wrong": {
+   "will": "will は単なる未来で、仮定を含む控えめな推量は would。",
+   "can": "can は「〜できる」で文意に合いません。",
+   "shall": "shall ではこの推量になりません。"
+  },
+  "point": "would「（仮に〜なら）…だろう」（控えめな推量・仮定）。",
+  "example": "A true friend would never betray you.",
+  "example_ja": "本当の友なら、決して裏切らないだろう。"
+ },
+ "saijokyu-090": {
+  "why_correct": "would rather ＋ 主語 ＋ 過去形（仮定法）「（人）にむしろ〜してほしい」。would rather you stayed。",
+  "why_wrong": {
+   "stay": "would rather ＋ 主語 のときは過去形（仮定法）を使います。",
+   "have stayed": "現在の願望なので過去形 stayed です。",
+   "staying": "-ing形では合いません。"
+  },
+  "point": "would rather ＋ 主語 ＋ 過去形「（人に）むしろ〜してほしい」。",
+  "example": "I would rather you didn't smoke here.",
+  "example_ja": "ここでたばこを吸わないでほしいのですが。"
+ },
+ "saijokyu-091": {
+  "why_correct": "too ＋ 形容詞 ＋ to do「〜すぎて…できない」。too hot to drink。to。",
+  "why_wrong": {
+   "for": "ここは to ＋ 原形（to drink）が必要です。",
+   "that": "too … that の構文はありません。",
+   "at": "at では不定詞になりません。"
+  },
+  "point": "too ＋ 形容詞 ＋ to do「…するには〜すぎる」。",
+  "example": "The tea is too hot to drink now.",
+  "example_ja": "お茶は熱すぎて今は飲めない。"
+ },
+ "saijokyu-092": {
+  "why_correct": "形容詞 ＋ enough ＋ to do「…するのに十分〜」。rich enough to buy。enough。",
+  "why_wrong": {
+   "too": "too rich to buy は「金持ちすぎて買えない」と逆の意味です。",
+   "very": "very … to の形はありません。",
+   "so": "so … to の形はありません。"
+  },
+  "point": "形容詞 ＋ enough ＋ to do（enough は形容詞の後ろ）。",
+  "example": "She is tall enough to reach the shelf.",
+  "example_ja": "彼女は棚に手が届くほど背が高い。"
+ },
+ "saijokyu-093": {
+  "why_correct": "so ＋ 形容詞 ＋ that …「とても〜なので…」。so kind that she helped me。that。",
+  "why_wrong": {
+   "as": "so … as that の構文はありません。",
+   "to": "ここは so kind that の構文です。",
+   "than": "than ではこの構文になりません。"
+  },
+  "point": "so ＋ 形容詞 ＋ that …「とても〜なので…」。",
+  "example": "He was so tired that he slept all day.",
+  "example_ja": "彼はとても疲れていて一日中眠った。"
+ },
+ "saijokyu-094": {
+  "why_correct": "such ＋ a ＋ 形容詞 ＋ 名詞 ＋ that …。such a nice day that …。such。",
+  "why_wrong": {
+   "so": "so の後ろは形容詞・副詞。名詞句（a nice day）の前は such。",
+   "very": "very … that の構文はありません。",
+   "too": "too … that の構文はありません。"
+  },
+  "point": "such ＋ (a/an) ＋ 形容詞 ＋ 名詞 ＋ that …。",
+  "example": "It was such a good book that I read it twice.",
+  "example_ja": "とてもよい本だったので2度読んだ。"
+ },
+ "saijokyu-095": {
+  "why_correct": "接続詞節中の〈主語＋be動詞〉が省略された形。Though (she was) tired「疲れていたけれど」。Though。",
+  "why_wrong": {
+   "Despite": "despite は前置詞で、節（主語＋動詞）を続けられません。",
+   "However": "However は副詞で、この位置の接続にはなりません。",
+   "Because": "Because は「〜なので」で、逆接の文意に合いません。"
+  },
+  "point": "接続詞節中の〈主語＋be動詞〉は省略可（Though tired, …）。",
+  "example": "When young, he lived abroad.",
+  "example_ja": "若いころ、彼は海外に住んでいた。"
+ },
+ "saijokyu-096": {
+  "why_correct": "as ＋ 原級 ＋ as possible「できるだけ〜」。as fast as possible。possible。",
+  "why_wrong": {
+   "possibly": "この慣用は as … as possible です。",
+   "can": "as … as he can の形なら可ですが、ここは possible。",
+   "he": "as fast as he だけでは意味が成り立ちません。"
+  },
+  "point": "as ＋ 原級 ＋ as possible「できるだけ〜」。",
+  "example": "Please reply as soon as possible.",
+  "example_ja": "できるだけ早く返信してください。"
+ },
+ "saijokyu-097": {
+  "why_correct": "if necessary「必要なら」＝if it is necessary の〈主語＋be動詞〉省略。necessary。",
+  "why_wrong": {
+   "necessarily": "necessarily は副詞で、ここでは合いません。",
+   "need": "need は動詞・名詞で、この慣用には necessary。",
+   "necessity": "necessity は名詞で、ここでは合いません。"
+  },
+  "point": "if necessary / if possible（if ＋ 主語 ＋ be の省略）。",
+  "example": "I will stay late if necessary.",
+  "example_ja": "必要なら遅くまで残ります。"
+ },
+ "saijokyu-098": {
+  "why_correct": "too ＋ 形容詞 ＋ for 人 ＋ to do「（人には）〜すぎて…できない」。too heavy for me to carry。to。",
+  "why_wrong": {
+   "for": "意味上の主語 for me はすでにあり、ここは to ＋ 原形。",
+   "that": "too … that の構文はありません。",
+   "at": "at では不定詞になりません。"
+  },
+  "point": "too ＋ 形容詞 ＋ for 人 ＋ to do。",
+  "example": "The book is too difficult for me to read.",
+  "example_ja": "その本は私には難しすぎて読めない。"
+ },
+ "saijokyu-099": {
+  "why_correct": "so ＋ 副詞 ＋ that …「とても〜なので…」。so fast that I couldn't follow。that。",
+  "why_wrong": {
+   "as": "so … as that の構文はありません。",
+   "to": "ここは so fast that の構文です。",
+   "than": "than ではこの構文になりません。"
+  },
+  "point": "so ＋ 形容詞/副詞 ＋ that …「とても〜なので…」。",
+  "example": "She ran so quickly that I lost sight of her.",
+  "example_ja": "彼女がとても速く走ったので、見失った。"
+ },
+ "saijokyu-100": {
+  "why_correct": "so ＋ 形容詞 ＋ that …。形容詞 difficult の前なので so。",
+  "why_wrong": {
+   "such": "such は名詞句の前（such a difficult problem）。形容詞 difficult の前は so。",
+   "very": "very … that の構文はありません。",
+   "too": "too … that の構文はありません。"
+  },
+  "point": "so ＋ 形容詞 ＋ that …（形容詞単独の前は so、名詞句の前は such）。",
+  "example": "The test was so hard that few passed.",
+  "example_ja": "テストはとても難しく、合格者はわずかだった。"
+ }
+}
