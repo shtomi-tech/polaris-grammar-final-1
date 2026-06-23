@@ -11,7 +11,8 @@ const STUDENT_KEY = "englishPractice.selectedStudent";
 
 let META=null, selectedLevel=null, session=null, curChoices=[], answered=false;
 let pendingComplete=null, pendingNextQ=null;
-let curUnit="", curPoint=null;   // 解答中のポイント確認用
+let curUnit="", curPoint=null, curGrammarKey=null, curLevelKey=null, curUnitRaw=null;   // 解答中のポイント確認用
+let grammarDetailContext=null;
 
 // ---------- 初期化 ----------
 async function init(){
@@ -92,15 +93,24 @@ function renderLevels(prof){
   document.querySelectorAll(".levelopt").forEach(b=>{
     b.onclick = ()=>{ selectedLevel=b.dataset.key;
       document.querySelectorAll(".levelopt").forEach(x=>x.classList.toggle("sel", x===b));
-      fillUnits(b.dataset.key); $("#startBtn").disabled=false; };
+      fillUnits(b.dataset.key); $("#startBtn").disabled=false; updateSetupGrammarBtn(); };
   });
   if(selectedLevel) $("#startBtn").disabled=false;
+  updateSetupGrammarBtn();
 }
 
 function fillUnits(levelKey){
   const l = META.levels.find(x=>x.key===levelKey);
   $("#unitSel").innerHTML = '<option value="">レベル全体</option>'
     + l.units.map(u=>`<option value="${esc(u)}">${esc(u)}</option>`).join("");
+  $("#unitSel").onchange = updateSetupGrammarBtn;
+  updateSetupGrammarBtn();
+}
+
+function updateSetupGrammarBtn(){
+  const btn = $("#setupGrammarBtn");
+  if(!btn) return;
+  btn.disabled = !(selectedLevel && $("#unitSel").value);
 }
 
 // ---------- プロフィール（XPバー） ----------
@@ -124,7 +134,7 @@ $("#startBtn").onclick = async ()=>{
   show("quiz"); renderQuestion(res.question);
 };
 
-function show(id){ for(const s of ["home","quiz","setdone","teacher","checker","roadmap","review","stats"]) $("#"+s).classList.toggle("hide", s!==id); }
+function show(id){ for(const s of ["home","quiz","setdone","teacher","checker","roadmap","review","stats","grammar","grammarDetail"]) $("#"+s).classList.toggle("hide", s!==id); }
 
 function showPracticeSetup(){
   show("home");
@@ -136,6 +146,7 @@ function showPracticeSetup(){
 function renderQuestion(q){
   answered=false; curChoices=q.choices;
   curUnit = `${q.level_label}・${q.unit}`; curPoint = q.point || null;
+  curGrammarKey = q.grammar_key || null; curLevelKey = q.level || null; curUnitRaw = q.unit || null;
   $("#pointBtn").classList.remove("hide");   // 解答中はポイント確認を出す
   closePoint();
   $("#qUnit").textContent = `${q.level_label}・${q.unit}`;
@@ -207,8 +218,13 @@ function renderRich(res){
     h += `<div class="rsec"><div class="rlabel">例文</div><div class="rex"><span class="en">${esc(r.example)}</span>`
        + (r.example_ja?` <span class="ja">— ${esc(r.example_ja)}</span>`:"") + `</div></div>`;
   }
+  if(!res.correct && curGrammarKey){
+    h += `<div class="rsec"><button type="button" class="ghost grammarInline" data-key="${esc(curGrammarKey)}">文法ページで確認</button></div>`;
+  }
   $("#qRich").innerHTML = h;
   $("#qRich").classList.remove("hide");
+  const link = $("#qRich").querySelector(".grammarInline");
+  if(link) link.onclick = ()=> openGrammarDetail(link.dataset.key, {level:curLevelKey, unit:curUnitRaw, from:"quiz"});
 }
 
 $("#nextBtn").onclick = ()=>{
@@ -310,6 +326,7 @@ function openPoint(){
   $("#pmBody").innerHTML = curPoint
     ? `<div class="ppoint">${esc(curPoint)}</div>`
     : '<p class="pnone">この問題にはポイントの登録がありません。</p>';
+  $("#pmGrammarBtn").disabled = !curGrammarKey;
   $("#pmodal").style.display="flex";
 }
 function closePoint(){ $("#pmodal").style.display="none"; }
@@ -317,6 +334,175 @@ function pointOpen(){ return $("#pmodal").style.display==="flex"; }
 $("#pointBtn").onclick = openPoint;
 $("#pmodalClose").onclick = closePoint;
 $("#pmodal").onclick = e=>{ if(e.target===$("#pmodal")) closePoint(); };
+$("#pmGrammarBtn").onclick = ()=>{
+  if(!curGrammarKey) return;
+  closePoint();
+  openGrammarDetail(curGrammarKey, {level:curLevelKey, unit:curUnitRaw, from:"quiz"});
+};
+
+// ---------- 文法確認ページ ----------
+$("#grammarBtn").onclick = openGrammar;
+$("#grammarClose").onclick = goHome;
+$("#grammarBack").onclick = ()=>{
+  if(grammarDetailContext && grammarDetailContext.from==="quiz") show("quiz");
+  else if(grammarDetailContext && grammarDetailContext.from==="checker") openChecker();
+  else if(grammarDetailContext && grammarDetailContext.from==="roadmap") openRoadmap();
+  else if(grammarDetailContext && grammarDetailContext.from==="setup") showPracticeSetup();
+  else openGrammar();
+};
+$("#grammarDetailHome").onclick = goHome;
+$("#setupGrammarBtn").onclick = ()=>{
+  const unit = $("#unitSel").value;
+  if(!selectedLevel || !unit) return;
+  openGrammarFromUnit(selectedLevel, unit, "setup");
+};
+
+async function grammarKeyForUnit(unit){
+  const d = await api("/api/grammar", {student:currentStudent()});
+  for(const p of d.pages){
+    if(p.origins.some(o=>o.unit===unit)) return p.key;
+  }
+  return null;
+}
+
+async function openGrammarFromUnit(level, unit, from){
+  const key = await grammarKeyForUnit(unit);
+  if(!key){ alert("この単元の文法ページはまだ登録されていません。"); return; }
+  openGrammarDetail(key, {level, unit, from});
+}
+
+async function openGrammar(){
+  const student = currentStudent();
+  $("#grammarWho").textContent = student
+    ? `${student} さんの進捗に合わせて、確認すべき文法を上に出します。`
+    : "ゲスト：進捗は保存されません。文法ページは自由に確認できます。";
+  const d = await api("/api/grammar", {student});
+  renderGrammarList(d.pages);
+  show("grammar");
+}
+
+function bestOrigin(origins){
+  if(!origins || !origins.length) return null;
+  return origins.slice().sort((a,b)=>
+    (b.review - a.review)
+    || ((a.mastered/a.total) - (b.mastered/b.total))
+    || a.level_label.localeCompare(b.level_label)
+  )[0];
+}
+
+function renderGrammarList(pages){
+  const sorted = pages.slice().sort((a,b)=>
+    (b.priority - a.priority)
+    || (b.review - a.review)
+    || ((a.total ? a.mastered/a.total : 1) - (b.total ? b.mastered/b.total : 1))
+  );
+  let html = '<div class="grammarGrid">';
+  for(const p of sorted){
+    const pct = p.total ? Math.round(100*p.mastered/p.total) : 0;
+    const origin = bestOrigin(p.origins);
+    const flag = p.review ? `復習 ${p.review}` : (p.total && p.mastered < p.total ? "確認推奨" : "確認");
+    html += `<article class="gcard${p.review?' urgent':''}">
+      <div class="ghead"><div><p class="label">Grammar</p><h2>${esc(p.title)}</h2></div><span class="gflag">${esc(flag)}</span></div>
+      <p class="gsummary">${esc(p.summary)}</p>
+      <div class="gmeta">${p.total ? `克服 ${p.mastered}/${p.total} ・ ${pct}%${p.review?` ・ 復習 ${p.review}`:''}` : "対応単元なし"}</div>
+      <div class="xpbar grammarBar"><div class="xpfill" style="width:${pct}%"></div></div>
+      <div class="row gactions">
+        <button type="button" class="ghost gopen" data-key="${esc(p.key)}">文法を確認</button>
+        ${origin ? `<button type="button" class="cta gpractice" data-lv="${esc(origin.level)}" data-unit="${esc(origin.unit)}">問題を解く ▶</button>` : ""}
+      </div>
+    </article>`;
+  }
+  html += "</div>";
+  $("#grammarBody").innerHTML = html;
+  $("#grammarBody").querySelectorAll(".gopen").forEach(b=>{
+    b.onclick = ()=> openGrammarDetail(b.dataset.key, {from:"list"});
+  });
+  $("#grammarBody").querySelectorAll(".gpractice").forEach(b=>{
+    b.onclick = ()=> practiceUnit(b.dataset.lv, b.dataset.unit);
+  });
+}
+
+async function openGrammarDetail(key, context={}){
+  grammarDetailContext = context;
+  $("#grammarBack").textContent = grammarBackLabel(context.from);
+  const d = await api("/api/grammar/detail", {student:currentStudent(), key});
+  renderGrammarDetail(d.key, d.page, d.origins, context);
+  show("grammarDetail");
+}
+
+function grammarBackLabel(from){
+  if(from==="quiz") return "問題へ戻る";
+  if(from==="checker") return "単元選択へ戻る";
+  if(from==="roadmap") return "全体へ戻る";
+  if(from==="setup") return "演習設定へ戻る";
+  return "一覧へ戻る";
+}
+
+function renderGrammarDetail(key, page, origins, context){
+  const origin = context.level && context.unit
+    ? {level:context.level, unit:context.unit}
+    : bestOrigin(origins);
+  const total = origins.reduce((n,o)=>n+o.total,0);
+  const mastered = origins.reduce((n,o)=>n+o.mastered,0);
+  const review = origins.reduce((n,o)=>n+o.review,0);
+  const pct = total ? Math.round(100*mastered/total) : 0;
+  $("#grammarDetailWho").textContent = total
+    ? `関連単元の克服 ${mastered}/${total}（${pct}%）${review?`・復習 ${review}`:""}`
+    : "この文法ページに対応する演習単元はまだありません。";
+
+  let html = `<article class="grammarNote">
+    <header class="noteHero">
+      <p class="label">Grammar Note</p>
+      <h2>${esc(page.title)}</h2>
+      <p>${esc(page.summary)}</p>
+    </header>
+    ${renderNoteSection("この単元で見るポイント", page.checkpoints)}
+    ${renderNoteSection("解き方の手順", page.steps, true)}
+    ${renderNoteSection("よくある間違い", page.mistakes)}
+    ${renderExamples(page.examples)}
+    ${renderNoteSection("発展", page.advanced)}
+  </article>`;
+
+  if(origins.length){
+    html += `<div class="card"><p class="label">関連単元</p><div class="originList">`;
+    for(const o of origins){
+      const opct = o.total ? Math.round(100*o.mastered/o.total) : 0;
+      html += `<button type="button" class="originBtn${o.review?' has-rev':''}" data-lv="${esc(o.level)}" data-unit="${esc(o.unit)}">
+        <span class="originName">${esc(o.level_label)}・${esc(o.unit)}</span>
+        <span class="originMeta">克服 ${o.mastered}/${o.total} ・ ${opct}%${o.review?` ・ 復習 ${o.review}`:""}</span>
+      </button>`;
+    }
+    html += `</div></div>`;
+  }
+
+  html += `<div class="row detailActions">`;
+  if(origin){
+    html += `<button type="button" class="cta" id="grammarPracticeBtn" data-lv="${esc(origin.level)}" data-unit="${esc(origin.unit)}">この単元の問題を始める ▶</button>`;
+  }
+  html += `<button type="button" class="ghost" id="grammarListBtn">文法一覧へ</button></div>`;
+  $("#grammarDetailBody").innerHTML = html;
+  $("#grammarListBtn").onclick = openGrammar;
+  const practice = $("#grammarPracticeBtn");
+  if(practice) practice.onclick = ()=> practiceUnit(practice.dataset.lv, practice.dataset.unit);
+  $("#grammarDetailBody").querySelectorAll(".originBtn").forEach(b=>{
+    b.onclick = ()=> practiceUnit(b.dataset.lv, b.dataset.unit);
+  });
+}
+
+function renderNoteSection(title, items, ordered=false){
+  if(!items || !items.length) return "";
+  const tag = ordered ? "ol" : "ul";
+  return `<section class="noteSec"><h3>${esc(title)}</h3><${tag}>`
+    + items.map(x=>`<li>${esc(x)}</li>`).join("")
+    + `</${tag}></section>`;
+}
+
+function renderExamples(examples){
+  if(!examples || !examples.length) return "";
+  return `<section class="noteSec"><h3>例文</h3><div class="exampleList">`
+    + examples.map(x=>`<div class="exline"><span class="en">${esc(x.en)}</span><span class="ja">${esc(x.ja)}</span></div>`).join("")
+    + `</div></section>`;
+}
 
 // ---------- 単元クリアチェッカー ＋ ワンクリック単元演習 ----------
 $("#checkerBtn").onclick = openChecker;
@@ -338,16 +524,22 @@ function renderChecker(levels){
           + `<span class="ckcount">${done}/${lv.units.length} 単元クリア</span></div><div class="uchips">`;
     for(const u of lv.units){
       const rev = u.review>0 ? " has-rev" : "";
-      html += `<button type="button" class="uchip${u.complete?' done':''}${rev}"`
-            + ` data-lv="${esc(lv.key)}" data-unit="${esc(u.unit)}">`
+      html += `<div class="uchip${u.complete?' done':''}${rev}">`
             + `<span class="un">${esc(u.unit)}</span>`
-            + `<span class="uc">克服 ${u.mastered}/${u.total}${u.review?`・復習${u.review}`:''}</span></button>`;
+            + `<span class="uc">克服 ${u.mastered}/${u.total}${u.review?`・復習${u.review}`:''}</span>`
+            + `<div class="unitActions">`
+            + `<button type="button" class="ghost unitGrammar" data-lv="${esc(lv.key)}" data-unit="${esc(u.unit)}">文法</button>`
+            + `<button type="button" class="unitPractice" data-lv="${esc(lv.key)}" data-unit="${esc(u.unit)}">演習</button>`
+            + `</div></div>`;
     }
     html += "</div></div>";
   }
   $("#checkerBody").innerHTML = html;
-  $("#checkerBody").querySelectorAll(".uchip").forEach(b=>{
+  $("#checkerBody").querySelectorAll(".unitPractice").forEach(b=>{
     b.onclick = ()=> practiceUnit(b.dataset.lv, b.dataset.unit);
+  });
+  $("#checkerBody").querySelectorAll(".unitGrammar").forEach(b=>{
+    b.onclick = ()=> openGrammarFromUnit(b.dataset.lv, b.dataset.unit, "checker");
   });
 }
 async function practiceUnit(levelKey, unit){
@@ -387,17 +579,24 @@ function renderRoadmap(levels){
     for(const u of lv.units){
       const upct = u.total ? Math.round(100*u.mastered/u.total) : 0;
       const cls = u.complete ? "done" : u.review ? "review" : "";
-      html += `<button type="button" class="roadunit ${cls}" data-lv="${esc(lv.key)}" data-unit="${esc(u.unit)}">`
+      html += `<article class="roadunit ${cls}">`
             + `<span class="rn">${esc(u.unit)}</span>`
             + `<span class="rm">${u.mastered}/${u.total} 克服${u.review?`・復習${u.review}`:''}</span>`
-            + `<span class="roadbar"><i style="width:${upct}%"></i></span></button>`;
+            + `<span class="roadbar"><i style="width:${upct}%"></i></span>`
+            + `<div class="unitActions">`
+            + `<button type="button" class="ghost roadGrammar" data-lv="${esc(lv.key)}" data-unit="${esc(u.unit)}">文法</button>`
+            + `<button type="button" class="roadPractice" data-lv="${esc(lv.key)}" data-unit="${esc(u.unit)}">演習</button>`
+            + `</div></article>`;
     }
     html += "</div></section>";
   }
   html += "</div>";
   $("#roadmapBody").innerHTML = html;
-  $("#roadmapBody").querySelectorAll(".roadunit").forEach(b=>{
+  $("#roadmapBody").querySelectorAll(".roadPractice").forEach(b=>{
     b.onclick = ()=> practiceUnit(b.dataset.lv, b.dataset.unit);
+  });
+  $("#roadmapBody").querySelectorAll(".roadGrammar").forEach(b=>{
+    b.onclick = ()=> openGrammarFromUnit(b.dataset.lv, b.dataset.unit, "roadmap");
   });
 }
 

@@ -174,4 +174,24 @@ rs = c.post("/api/review/start", json={"student": "テスト太郎",
 assert rs["question"] and rs["question"]["set_kind"] == "review"
 print("  review/start ✓")
 
+print("=== 9. 文法確認API：一覧・詳細・出題中の対応キー ===")
+g = c.post("/api/grammar", json={"student": "テスト太郎"}).json()
+titles = [p["title"] for p in g["pages"]]
+print(f"  grammar_pages={len(titles)} first={titles[0]}")
+assert len(g["pages"]) >= 30 and "be動詞" in titles and "関係詞" in titles and "仮定法" in titles
+be = next(p for p in g["pages"] if p["key"] == "be動詞")
+assert be["origins"] and be["total"] > 0
+gd = c.post("/api/grammar/detail", json={"student": "テスト太郎", "key": "be動詞"}).json()
+assert gd["page"]["checkpoints"] and gd["origins"]
+b = begin("", "chokyu_super", "be動詞（現在）")
+assert b["question"]["grammar_key"] == "be動詞"
+assert b["question"]["level"] == "chokyu_super"
+all_units = []
+for lv in data.LEVEL_ORDER:
+    for q in data.BY_LEVEL[lv]:
+        if q["unit"] not in all_units:
+            all_units.append(q["unit"])
+assert all(server.grammar.key_for_unit(u) for u in all_units)
+print("  grammar/detail + question.grammar_key ✓")
+
 print("\nALL OK ✅")

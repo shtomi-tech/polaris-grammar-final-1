@@ -170,17 +170,16 @@
                         display:flex; justify-content:space-between; align-items:baseline; }
   .ckLevel .ckcount { color:var(--muted); }
   .uchips { display:flex; flex-wrap:wrap; gap:8px; }
-  .uchip { display:flex; flex-direction:column; gap:2px; align-items:flex-start; text-align:left;
+  .uchip { display:flex; flex-direction:column; gap:7px; align-items:flex-start; text-align:left;
            border:1.5px solid var(--ink); background:var(--paper); color:var(--ink);
-           padding:8px 10px; min-height:auto; min-width:128px; cursor:pointer; }
-  .uchip:hover { background:var(--ink); color:var(--parchment); }
+           padding:8px 10px; min-height:auto; min-width:168px; }
   .uchip .un { font-size:13px; font-weight:600; line-height:1.35; }
   .uchip .uc { font-family:var(--mono); font-size:10px; letter-spacing:.04em; color:var(--muted); }
-  .uchip:hover .uc { color:var(--parchment); }
   .uchip.done { border-color:var(--ok); }
   .uchip.done .un::before { content:"✓ "; color:var(--ok); }
-  .uchip.done:hover .un::before { color:var(--parchment); }
   .uchip.has-rev { border-left:4px solid var(--clay); }
+  .unitActions { display:flex; gap:6px; width:100%; margin-top:auto; }
+  .unitActions button { flex:1; min-height:34px; padding:5px 8px; font-size:12px; }
 
   /* ロードマップ / 学習記録 / 今日の復習 */
   .roadmap { display:flex; flex-direction:column; gap:12px; }
@@ -190,10 +189,9 @@
   .roadlv-title { font-family:var(--serif); font-size:17px; }
   .roadlv-meta { font-family:var(--mono); font-size:10px; letter-spacing:.08em; color:rgba(250,249,246,.72); }
   .roadunits { display:grid; grid-template-columns:repeat(auto-fit,minmax(160px,1fr)); }
-  .roadunit { appearance:none; min-height:104px; text-align:left; background:var(--paper); color:var(--ink);
+  .roadunit { min-height:128px; text-align:left; background:var(--paper); color:var(--ink);
               border:0; border-right:1px solid var(--line); border-bottom:1px solid var(--line);
               padding:10px; display:flex; flex-direction:column; gap:7px; }
-  .roadunit:hover { background:var(--parchment); color:var(--ink); }
   .roadunit.done { background:#e8f3ea; }
   .roadunit.review { background:#fbeae4; }
   .roadunit .rn { font-size:13px; font-weight:700; line-height:1.35; }
@@ -217,6 +215,48 @@
   .dueItem input { margin-top:4px; }
   .dueItem .dt { font-size:13px; line-height:1.55; flex:1; }
   .dueItem .dr { font-family:var(--mono); font-size:10px; color:var(--clay); }
+
+  /* 文法確認 */
+  .grammarGrid { display:grid; grid-template-columns:repeat(auto-fit,minmax(260px,1fr)); gap:12px; }
+  .gcard { border:1px solid var(--ink); background:var(--paper); padding:16px; }
+  .gcard.urgent { border-left:4px solid var(--clay); }
+  .ghead { display:flex; justify-content:space-between; gap:12px; align-items:flex-start; }
+  .ghead h2 { margin:0; }
+  .gflag { font-family:var(--mono); font-size:10px; letter-spacing:.08em; border:1px solid var(--ink);
+           padding:2px 6px; white-space:nowrap; }
+  .urgent .gflag { color:var(--clay); border-color:var(--clay); }
+  .gsummary { font-size:13px; color:#2c2a26; line-height:1.75; margin:10px 0; }
+  .gmeta { font-family:var(--mono); font-size:10px; color:var(--muted); margin-bottom:6px; }
+  .grammarBar { height:7px; margin-bottom:12px; }
+  .gactions { align-items:stretch; }
+  .gactions button { flex:1 1 120px; }
+  .grammarInline { margin-top:4px; }
+  .pactions { margin-top:14px; }
+  .pactions button { width:100%; }
+
+  .grammarNote { border:1px solid var(--ink); background:var(--paper); margin-bottom:16px; }
+  .noteHero { background:var(--ink); color:var(--parchment); padding:18px 20px; }
+  .noteHero .label { color:rgba(250,249,246,.72); }
+  .noteHero h2 { font-size:24px; margin:0 0 8px; }
+  .noteHero p { margin:0; max-width:64ch; font-size:14px; line-height:1.85; }
+  .noteSec { padding:16px 20px; border-top:1px solid var(--ink); }
+  .noteSec h3 { font-family:var(--mono); font-size:11px; letter-spacing:.14em; text-transform:uppercase;
+                margin:0 0 8px; color:var(--muted); }
+  .noteSec ul, .noteSec ol { margin:0; padding-left:22px; }
+  .noteSec li { font-size:14px; line-height:1.8; margin:3px 0; }
+  .exampleList { display:grid; gap:8px; }
+  .exline { border-left:3px solid var(--clay); padding:4px 0 4px 10px; }
+  .exline .en { display:block; font-style:italic; font-size:15px; }
+  .exline .ja { display:block; color:var(--muted); font-size:13px; margin-top:2px; }
+  .originList { display:grid; grid-template-columns:repeat(auto-fit,minmax(210px,1fr)); gap:8px; }
+  .originBtn { background:var(--paper); color:var(--ink); text-align:left; border:1px solid var(--ink);
+               min-height:auto; padding:9px 10px; display:flex; flex-direction:column; gap:3px; }
+  .originBtn:hover { background:var(--ink); color:var(--parchment); }
+  .originBtn.has-rev { border-left:4px solid var(--clay); }
+  .originName { font-size:13px; font-weight:700; line-height:1.35; }
+  .originMeta { font-family:var(--mono); font-size:10px; color:var(--muted); }
+  .originBtn:hover .originMeta { color:var(--parchment); }
+  .detailActions { margin-bottom:16px; }
 
   /* 単元カバレッジ・ヒートマップ（先生用） */
   .cov { display:grid; grid-template-columns:repeat(auto-fill,minmax(150px,1fr)); gap:5px; margin:8px 0 4px; }

@@ -68,6 +68,11 @@
           <span class="actionTitle">単元を選ぶ</span>
           <span class="actionBody">クリア状況から、次に詰める単元を選びます。</span>
         </button>
+        <button class="homeAction" id="grammarBtn" type="button">
+          <span class="actionLabel">Grammar</span>
+          <span class="actionTitle">文法を確認</span>
+          <span class="actionBody">問題を解く前に、単元ごとの見方と解き方を確認します。</span>
+        </button>
       </div>
     </div>
 
@@ -79,9 +84,39 @@
         <label class="meta" for="unitSel">単元で絞る（任意）</label>
         <select id="unitSel"><option value="">レベル全体</option></select>
       </div>
-      <button class="cta" id="startBtn" type="button" disabled>演習をはじめる ▶</button>
+      <div class="row" style="margin-top:10px">
+        <button class="cta" id="startBtn" type="button" disabled>演習をはじめる ▶</button>
+        <button class="ghost" id="setupGrammarBtn" type="button" disabled>選んだ単元の文法を確認</button>
+      </div>
       <p class="hint" style="margin-top:10px">前回の間違いがあれば、最初に「間違い直し」から出題します。続けて未出題の問題を10問ずつ・ランダム順で出します。</p>
     </div>
+  </section>
+
+  <!-- ================= 文法確認 ================= -->
+  <section id="grammar" class="hide">
+    <div class="card">
+      <div class="row">
+        <p class="label" style="margin:0">文法確認</p>
+        <div class="spacer"></div>
+        <button class="ghost" id="grammarClose" type="button">ホームへ戻る</button>
+      </div>
+      <p class="hint" id="grammarWho" style="margin-top:8px"></p>
+    </div>
+    <div id="grammarBody"></div>
+  </section>
+
+  <!-- ================= 文法詳細 ================= -->
+  <section id="grammarDetail" class="hide">
+    <div class="card">
+      <div class="row">
+        <p class="label" style="margin:0">文法ノート</p>
+        <div class="spacer"></div>
+        <button class="ghost" id="grammarBack" type="button">一覧へ戻る</button>
+        <button class="ghost" id="grammarDetailHome" type="button">ホームへ戻る</button>
+      </div>
+      <p class="hint" id="grammarDetailWho" style="margin-top:8px"></p>
+    </div>
+    <div id="grammarDetailBody"></div>
   </section>
 
   <!-- ================= 単元ロードマップ ================= -->
@@ -237,6 +272,9 @@
   <div class="pbody">
     <div class="punit" id="pmUnit"></div>
     <div id="pmBody"></div>
+    <div class="row pactions">
+      <button type="button" class="ghost" id="pmGrammarBtn">この単元の文法ページへ</button>
+    </div>
   </div>
 </div></div>
 

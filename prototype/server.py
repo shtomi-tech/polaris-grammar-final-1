@@ -26,6 +26,7 @@ from fastapi.staticfiles import StaticFiles
 from pydantic import BaseModel
 
 import data
+import grammar
 import history
 import homework
 
@@ -120,7 +121,8 @@ def _serve(s: dict, qid: str) -> dict:
         total = len(s["main_queue"])
     return {
         "qid": qid, "number": q["number"], "level_label": q["level_label"],
-        "unit": q["unit"], "stem": q["stem"], "choices": choices,
+        "level": q["level"], "unit": q["unit"], "stem": q["stem"], "choices": choices,
+        "grammar_key": grammar.key_for_unit(q["unit"]),
         "set_kind": s["set_kind"], "fixing": fixing, "pos": pos, "total": total,
         # 解答中に確認できる単元の文法ポイント（答えそのものではなく原則。数学の公式表示と同趣旨）
         "point": (q.get("rich") or {}).get("point"),
@@ -340,6 +342,59 @@ def weakness(req: StudentReq):
 def unit_progress(req: StudentReq):
     """レベル×単元の克服状況（クリアチェッカー／先生ヒートマップ用）。ゲストは全未克服。"""
     return {"levels": history.unit_progress(req.student.strip())}
+
+
+def _grammar_origins(student: str) -> dict[str, list[dict]]:
+    """文法ページキーごとに、対応するレベル×単元の進捗をまとめる。"""
+    grouped: dict[str, list[dict]] = {key: [] for key in grammar.ORDER}
+    for lv in history.unit_progress(student.strip()):
+        for u in lv["units"]:
+            key = grammar.key_for_unit(u["unit"])
+            if not key or key not in grouped:
+                continue
+            grouped[key].append({
+                "level": lv["key"], "level_label": lv["label"],
+                "unit": u["unit"], "total": u["total"],
+                "mastered": u["mastered"], "review": u["review"],
+                "complete": u["complete"],
+            })
+    return grouped
+
+
+@app.post("/api/grammar")
+def grammar_list(req: StudentReq):
+    """文法確認ページ一覧。生徒があれば進捗と連動して返す。"""
+    origins = _grammar_origins(req.student)
+    pages = []
+    for key in grammar.ORDER:
+        page = grammar.PAGES[key]
+        os = origins.get(key, [])
+        total = sum(x["total"] for x in os)
+        mastered = sum(x["mastered"] for x in os)
+        review = sum(x["review"] for x in os)
+        pages.append({
+            "key": key, "title": page["title"], "summary": page["summary"],
+            "total": total, "mastered": mastered, "review": review,
+            "priority": review > 0 or (total > 0 and mastered < total),
+            "origins": os,
+        })
+    return {"student": req.student.strip(), "pages": pages}
+
+
+class GrammarDetailReq(BaseModel):
+    student: str = ""
+    key: str
+
+
+@app.post("/api/grammar/detail")
+def grammar_detail(req: GrammarDetailReq):
+    key = req.key.strip()
+    page = grammar.PAGES.get(key)
+    if not page:
+        raise HTTPException(404, "文法ページが見つかりません")
+    origins = _grammar_origins(req.student).get(key, [])
+    return {"student": req.student.strip(), "key": key, "page": page,
+            "origins": origins}
 
 
 @app.post("/api/stats")
