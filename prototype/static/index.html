@@ -4,248 +4,13 @@
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>英語演習</title>
-<style>
-  /* claude デザイン言語：アイボリー地＋ニアブラックのインク・無彩色・影ゼロ・角丸0px・編集的 */
-  :root { --ink:#141413; --parchment:#faf9f6; --paper:#ffffff; --rule:#141413; --line:#ddd8cc;
-          --muted:#6f6a5f; --clay:#b5532e; --ok:#16a34a; --warn:#d97706; --ng:#dc2626;
-          --sans:"Segoe UI","Hiragino Kaku Gothic ProN","Meiryo",sans-serif;
-          --serif:Georgia,"Hiragino Mincho ProN","Yu Mincho",serif;
-          --mono:"JetBrains Mono","SFMono-Regular",Consolas,monospace; }
-  * { box-sizing: border-box; }
-  body { margin:0; font-family:var(--sans); color:var(--ink); background:var(--parchment); line-height:1.6; }
-  button:focus-visible, a:focus-visible, input:focus-visible, select:focus-visible,
-  .choice:focus-visible { outline:2px solid var(--ink); outline-offset:2px; }
-  @media (prefers-reduced-motion: reduce) {
-    *, *::before, *::after { animation-duration:.001ms !important; animation-iteration-count:1 !important;
-      transition-duration:.001ms !important; }
-  }
-  .wrap { max-width:780px; margin:0 auto; padding:24px 16px 64px; }
-
-  /* ヘッダ */
-  .top { display:flex; justify-content:space-between; align-items:flex-end; gap:12px; flex-wrap:wrap;
-         margin-bottom:18px; border-bottom:2px solid var(--ink); padding-bottom:12px; }
-  h1 { font-family:var(--serif); font-size:18px; font-weight:500; letter-spacing:.01em; margin:0;
-       background:var(--ink); color:var(--parchment); padding:6px 12px; }
-  /* ランチャーの選択画面へ戻る導線（両アプリ共通） */
-  .brand { display:flex; flex-direction:column; align-items:flex-start; gap:4px; }
-  .backlink { font-family:var(--mono); font-size:11px; letter-spacing:.08em; text-transform:uppercase;
-              color:var(--muted); text-decoration:none; }
-  .backlink:hover { color:var(--ink); text-decoration:underline; }
-  .meta { font-family:var(--mono); font-size:11px; letter-spacing:.1em; text-transform:uppercase; color:var(--muted); }
-
-  /* ランク / XP バー */
-  #profileBar { display:none; align-items:center; gap:12px; flex:1; min-width:240px; }
-  .rankbadge { font-family:var(--serif); font-size:13px; background:var(--ink); color:var(--parchment);
-               padding:3px 10px; white-space:nowrap; }
-  .xpwrap { flex:1; min-width:140px; }
-  .xpmeta { display:flex; justify-content:space-between; font-family:var(--mono); font-size:10px;
-            letter-spacing:.06em; color:var(--muted); margin-bottom:3px; }
-  .xpbar { height:10px; border:1.5px solid var(--ink); background:var(--paper); }
-  .xpfill { height:100%; background:var(--clay); width:0%; transition:width .5s ease; }
-
-  /* ボタン */
-  button { cursor:pointer; font-size:14px; padding:9px 16px; min-height:44px; border-radius:0;
-           background:var(--ink); color:var(--parchment); border:1px solid var(--ink);
-           font-family:inherit; transition:background .12s ease, color .12s ease; }
-  button:hover { background:#000; }
-  .cta { border-radius:0 0 8px 8px; font-weight:600; }   /* 主CTA：上は角・下だけ丸 */
-  button.ghost { background:transparent; color:var(--ink); }
-  button.ghost:hover { background:var(--ink); color:var(--parchment); }
-  button:disabled { opacity:.45; cursor:default; }
-  button:disabled:hover { background:var(--ink); }
-  select, input[type=text], input[type=number] { font-family:inherit; font-size:14px; padding:8px 10px;
-           border:1px solid var(--ink); border-radius:0; background:var(--paper); color:var(--ink); min-height:42px; }
-
-  .card { border:1px solid var(--ink); background:var(--paper); padding:18px 20px; margin-bottom:16px; }
-  .label { font-family:var(--mono); font-size:11px; letter-spacing:.16em; text-transform:uppercase;
-           color:var(--muted); margin:0 0 6px; }
-  .row { display:flex; gap:10px; flex-wrap:wrap; align-items:center; }
-  .spacer { flex:1; }
-  .hide { display:none !important; }
-  .hint { font-size:12px; color:var(--muted); }
-  .suggest { background:var(--paper); border:1px solid var(--ink); border-left:4px solid var(--clay);
-             padding:10px 12px; font-size:13px; line-height:1.8; }
-  hr.rule { border:0; border-top:1px solid var(--line); margin:16px 0; }
-
-  /* レベル選択カード */
-  .levels { display:grid; grid-template-columns:1fr; gap:8px; }
-  .levelopt { display:flex; align-items:center; gap:12px; border:1px solid var(--ink); background:var(--paper);
-              padding:10px 14px; cursor:pointer; text-align:left; color:var(--ink); min-height:auto; }
-  .levelopt:hover { background:var(--parchment); }
-  .levelopt.sel { border-width:2px; border-color:var(--clay); }
-  .levelopt .lname { font-weight:600; font-size:15px; flex:0 0 88px; }
-  .levelopt .lcov { font-family:var(--mono); font-size:11px; color:var(--muted); flex:1; }
-  .minibar { height:7px; border:1px solid var(--ink); background:var(--paper); width:120px; }
-  .minifill { height:100%; background:var(--clay); }
-  .lw { font-family:var(--mono); font-size:10px; color:var(--muted); }
-  .done-tag { font-family:var(--mono); font-size:10px; color:var(--ok); border:1px solid var(--ok); padding:0 5px; }
-
-  /* 出題 */
-  .qhead { display:flex; justify-content:space-between; align-items:baseline; margin-bottom:10px; }
-  .unit { font-family:var(--mono); font-size:11px; letter-spacing:.1em; text-transform:uppercase; color:var(--muted); }
-  .setpos { font-family:var(--mono); font-size:11px; color:var(--muted); }
-  .fixing { color:var(--clay); }
-  .stem { font-size:20px; line-height:1.8; margin:6px 0 18px; }
-  .stem .blank { border-bottom:2px solid var(--ink); padding:0 22px; }
-  .choices { display:grid; gap:10px; }
-  .choice { display:flex; align-items:center; gap:12px; width:100%; text-align:left; background:var(--paper);
-            color:var(--ink); border:1.5px solid var(--ink); padding:12px 14px; font-size:16px; min-height:52px; }
-  .choice:hover:not(:disabled) { background:var(--ink); color:var(--parchment); }
-  .choice .k { font-family:var(--mono); font-size:12px; border:1px solid currentColor; border-radius:0;
-               width:22px; height:22px; display:inline-flex; align-items:center; justify-content:center; flex:0 0 auto; }
-  .choice.correct { border-color:var(--ok); border-width:2px; background:var(--paper); color:var(--ink); }
-  .choice.wrong { border-color:var(--ng); border-width:2px; background:var(--paper); color:var(--ink); }
-  .choice.correct .k { color:var(--ok); }
-  .choice.wrong .k { color:var(--ng); }
-
-  .feedback { margin-top:16px; border:1px solid var(--ink); border-left:4px solid var(--ink); padding:12px 16px;
-              background:var(--parchment); }
-  .verdict { font-family:var(--serif); font-size:16px; font-weight:600; margin-bottom:4px; }
-  .verdict.ok { color:var(--ok); }
-  .verdict.ng { color:var(--ng); }
-  .ansline { font-size:15px; margin-bottom:6px; }
-  .expl { font-size:14px; color:#2c2a26; }
-  .xpgain { font-family:var(--mono); font-size:11px; color:var(--clay); margin-top:8px; }
-  /* 詳しい解説（構造化） */
-  .rich { margin-top:10px; }
-  .rich .rsec { margin-top:12px; }
-  .rich .rlabel { font-family:var(--mono); font-size:10px; letter-spacing:.14em; text-transform:uppercase;
-                  color:var(--muted); margin-bottom:4px; }
-  .rich .rwhy { font-size:14px; line-height:1.75; }
-  .rich ul.rwrong { list-style:none; margin:0; padding:0; }
-  .rich ul.rwrong li { font-size:13.5px; line-height:1.7; padding:5px 0 5px 0; border-top:1px solid var(--line); }
-  .rich ul.rwrong li:first-child { border-top:0; }
-  .rich .ch { font-family:var(--mono); font-weight:700; margin-right:6px; }
-  .rich li.chosen { background:#fbeae4; margin:0 -8px; padding-left:8px; padding-right:8px; }
-  .rich li.chosen .tag { font-family:var(--mono); font-size:10px; color:var(--clay); border:1px solid var(--clay);
-                         padding:0 5px; margin-left:6px; }
-  .rich .rpoint { font-size:14px; line-height:1.75; border-left:3px solid var(--clay); padding:2px 0 2px 10px; }
-  .rich .rex { font-size:14px; }
-  .rich .rex .en { font-style:italic; }
-  .rich .rex .ja { color:var(--muted); font-size:13px; }
-
-  /* セット完了 */
-  .bigmsg { font-family:var(--serif); font-size:22px; margin:4px 0 12px; }
-
-  /* 昇格オーバーレイ（控えめ） */
-  #levelup { position:fixed; inset:0; background:rgba(20,20,19,.55); display:none; align-items:center;
-             justify-content:center; z-index:50; }
-  #levelup .lu { background:var(--ink); color:var(--parchment); border:1px solid var(--parchment);
-                 padding:26px 34px; text-align:center; animation:lurise .45s ease; max-width:80%; }
-  #levelup .lulabel { font-family:var(--mono); font-size:11px; letter-spacing:.32em; text-transform:uppercase; opacity:.75; }
-  #levelup .luname { font-family:var(--serif); font-size:30px; margin:8px 0 4px; }
-  #levelup .lusub { font-size:13px; opacity:.8; }
-  @keyframes lurise { from { opacity:0; transform:translateY(10px); } to { opacity:1; transform:none; } }
-
-  /* 表 */
-  table.wk { width:100%; border-collapse:collapse; font-size:13px; }
-  table.wk th { font-family:var(--mono); font-size:10px; text-transform:uppercase; letter-spacing:.06em;
-                color:var(--muted); text-align:left; border-bottom:2px solid var(--ink); padding:6px 8px; }
-  table.wk td { border-bottom:1px solid var(--line); padding:6px 8px; }
-  table.wk td.acc { font-family:var(--mono); }
-  .lowacc { color:var(--ng); font-weight:700; }
-  .reviewlist li { font-size:13px; margin-bottom:3px; }
-
-  /* 番号グリッド（紙入力の誤答チェック） */
-  .numgrid { display:grid; grid-template-columns:repeat(10,1fr); gap:4px; margin-top:8px; }
-  .numgrid button { padding:0; min-height:36px; font-size:13px; font-family:var(--mono); background:var(--paper); color:var(--ink); }
-  .numgrid button.on { background:var(--ng); color:#fff; border-color:var(--ng); }
-  .numgrid button.out { opacity:.3; }
-  .toast { font-size:13px; color:var(--clay); margin-top:8px; }
-
-  /* 単元クリアチェッカー */
-  .ckLevel { margin-bottom:18px; }
-  .ckLevel > .cklabel { font-family:var(--mono); font-size:11px; letter-spacing:.12em; text-transform:uppercase;
-                        color:var(--ink); border-bottom:1px solid var(--ink); padding-bottom:4px; margin-bottom:8px;
-                        display:flex; justify-content:space-between; align-items:baseline; }
-  .ckLevel .ckcount { color:var(--muted); }
-  .uchips { display:flex; flex-wrap:wrap; gap:8px; }
-  .uchip { display:flex; flex-direction:column; gap:2px; align-items:flex-start; text-align:left;
-           border:1.5px solid var(--ink); background:var(--paper); color:var(--ink);
-           padding:8px 10px; min-height:auto; min-width:128px; cursor:pointer; }
-  .uchip:hover { background:var(--ink); color:var(--parchment); }
-  .uchip .un { font-size:13px; font-weight:600; line-height:1.35; }
-  .uchip .uc { font-family:var(--mono); font-size:10px; letter-spacing:.04em; color:var(--muted); }
-  .uchip:hover .uc { color:var(--parchment); }
-  .uchip.done { border-color:var(--ok); }
-  .uchip.done .un::before { content:"✓ "; color:var(--ok); }
-  .uchip.done:hover .un::before { color:var(--parchment); }
-  .uchip.has-rev { border-left:4px solid var(--clay); }
-
-  /* ロードマップ / 学習記録 / 今日の復習 */
-  .roadmap { display:flex; flex-direction:column; gap:12px; }
-  .roadlv { border:1px solid var(--ink); background:var(--paper); }
-  .roadlv-head { display:flex; justify-content:space-between; gap:12px; align-items:baseline;
-                 background:var(--ink); color:var(--parchment); padding:9px 12px; }
-  .roadlv-title { font-family:var(--serif); font-size:17px; }
-  .roadlv-meta { font-family:var(--mono); font-size:10px; letter-spacing:.08em; color:rgba(250,249,246,.72); }
-  .roadunits { display:grid; grid-template-columns:repeat(auto-fit,minmax(160px,1fr)); }
-  .roadunit { appearance:none; min-height:104px; text-align:left; background:var(--paper); color:var(--ink);
-              border:0; border-right:1px solid var(--line); border-bottom:1px solid var(--line);
-              padding:10px; display:flex; flex-direction:column; gap:7px; }
-  .roadunit:hover { background:var(--parchment); color:var(--ink); }
-  .roadunit.done { background:#e8f3ea; }
-  .roadunit.review { background:#fbeae4; }
-  .roadunit .rn { font-size:13px; font-weight:700; line-height:1.35; }
-  .roadunit .rm { font-family:var(--mono); font-size:10px; color:var(--muted); }
-  .roadbar { height:6px; border:1px solid var(--ink); background:var(--paper); }
-  .roadbar i { display:block; height:100%; background:var(--ink); }
-  .roadunit.review .roadbar i { background:var(--clay); }
-  .roadunit.done .roadbar i { background:var(--ok); }
-  .statbox { display:flex; gap:10px; flex-wrap:wrap; margin:10px 0; }
-  .metric { border:1px solid var(--ink); background:var(--parchment); padding:8px 12px; min-width:110px; }
-  .metric .mn { font-family:var(--mono); font-size:10px; letter-spacing:.08em; color:var(--muted); }
-  .metric .mv { font-size:20px; font-weight:700; line-height:1.35; }
-  .statrow { display:flex; align-items:center; gap:10px; margin:7px 0; font-size:13px; }
-  .statrow .sn { flex:0 0 190px; line-height:1.3; }
-  .statbar { flex:1; min-width:120px; height:12px; border:1px solid var(--ink); background:var(--paper); }
-  .statbar i { display:block; height:100%; background:var(--ink); }
-  .statrow .sv { flex:0 0 92px; text-align:right; font-family:var(--mono); color:var(--muted); font-size:11px; }
-  .dueList { display:flex; flex-direction:column; gap:8px; }
-  .dueItem { display:flex; gap:10px; align-items:flex-start; border:1px solid var(--line); background:var(--paper);
-             padding:9px 10px; }
-  .dueItem input { margin-top:4px; }
-  .dueItem .dt { font-size:13px; line-height:1.55; flex:1; }
-  .dueItem .dr { font-family:var(--mono); font-size:10px; color:var(--clay); }
-
-  /* 単元カバレッジ・ヒートマップ（先生用） */
-  .cov { display:grid; grid-template-columns:repeat(auto-fill,minmax(150px,1fr)); gap:5px; margin:8px 0 4px; }
-  .cell { border:1px solid var(--line); padding:6px 8px; font-size:12px; line-height:1.4; }
-  .cell .cn { display:block; }
-  .cell .cv { font-family:var(--mono); font-size:10px; color:var(--muted); }
-  .cell.g { background:#e8f3ea; border-color:var(--ok); }
-  .cell.y { background:#fbf2e3; border-color:var(--warn); }
-  .cell.r { background:#fbe9e7; border-color:var(--ng); }
-  .covhead { font-family:var(--mono); font-size:11px; letter-spacing:.1em; text-transform:uppercase;
-             color:var(--ink); margin:14px 0 2px; }
-  .covlegend { font-family:var(--mono); font-size:10px; color:var(--muted); margin-top:4px; }
-  .covlegend .sw { display:inline-block; width:10px; height:10px; border:1px solid var(--ink); margin:0 3px 0 10px;
-                   vertical-align:middle; }
-  .covlegend .sw.g{background:#e8f3ea;border-color:var(--ok);} .covlegend .sw.y{background:#fbf2e3;border-color:var(--warn);}
-  .covlegend .sw.r{background:#fbe9e7;border-color:var(--ng);}
-
-  /* ポイント確認モーダル（解答中） */
-  #pmodal { position:fixed; inset:0; background:rgba(20,20,19,.5); display:none; align-items:center;
-            justify-content:center; z-index:60; padding:16px; }
-  #pmodal .pbox { background:var(--paper); border:1px solid var(--ink); max-width:520px; width:100%;
-                  max-height:80vh; overflow:auto; }
-  #pmodal .phead { background:var(--ink); color:var(--parchment); padding:10px 16px; display:flex;
-                   justify-content:space-between; align-items:center; }
-  #pmodal .phead .ptitle { font-family:var(--serif); font-size:15px; }
-  #pmodal .phead button { background:transparent; border:1px solid var(--parchment); color:var(--parchment);
-                          min-height:auto; padding:3px 10px; font-size:13px; }
-  #pmodal .pbody { padding:16px; }
-  #pmodal .punit { font-family:var(--mono); font-size:11px; letter-spacing:.1em; text-transform:uppercase;
-                   color:var(--muted); margin-bottom:8px; }
-  #pmodal .ppoint { font-size:15px; line-height:1.8; border-left:3px solid var(--clay); padding:4px 0 4px 12px; }
-  #pmodal .pnone { font-size:14px; color:var(--muted); }
-</style>
+<link rel="stylesheet" href="/static/styles.css" />
 </head>
 <body>
 <div class="wrap">
   <div class="top">
     <div class="brand">
-      <a class="backlink" id="homeLink" href="/">← 英語ホームへ</a>
+      <a class="backlink" id="launcherLink" href="http://127.0.0.1:8080/">← 演習サイト選択へ</a>
       <h1>英語演習</h1>
     </div>
     <div id="profileBar">
@@ -255,6 +20,7 @@
         <div class="xpbar"><div class="xpfill" id="xpFill"></div></div>
       </div>
     </div>
+    <button class="ghost" id="englishHomeBtn" type="button">英語ホームへ</button>
     <button class="ghost" id="teacherBtn" type="button">先生メニュー</button>
   </div>
 
@@ -273,6 +39,39 @@
     </div>
 
     <div class="card">
+      <p class="label">学習ホーム</p>
+      <h2>英語ホーム：<span id="homeStudentName">ゲスト</span> さん</h2>
+      <p class="hint">文法レベルと単元を選ぶときは「今日やる」から始めます。復習や記録確認はここから直接開けます。</p>
+      <div class="homeActions">
+        <button class="homeAction" id="todayBtn" type="button">
+          <span class="actionLabel">Practice</span>
+          <span class="actionTitle">今日やる</span>
+          <span class="actionBody">文法レベルと単元を選んで、10問ずつ演習します。</span>
+        </button>
+        <button class="homeAction" id="reviewBtn" type="button">
+          <span class="actionLabel">Review</span>
+          <span class="actionTitle">復習する</span>
+          <span class="actionBody">間隔反復で、今日戻すべき問題を確認します。</span>
+        </button>
+        <button class="homeAction" id="statsBtn" type="button">
+          <span class="actionLabel">Record</span>
+          <span class="actionTitle">記録を見る</span>
+          <span class="actionBody">正答率、最近の解答、弱くなりやすい単元を見ます。</span>
+        </button>
+        <button class="homeAction" id="roadmapBtn" type="button">
+          <span class="actionLabel">Roadmap</span>
+          <span class="actionTitle">全体を見る</span>
+          <span class="actionBody">5レベル全体の到達度を単元ごとに確認します。</span>
+        </button>
+        <button class="homeAction" id="checkerBtn" type="button">
+          <span class="actionLabel">Check</span>
+          <span class="actionTitle">単元を選ぶ</span>
+          <span class="actionBody">クリア状況から、次に詰める単元を選びます。</span>
+        </button>
+      </div>
+    </div>
+
+    <div class="card hide" id="practiceSetup">
       <p class="label">文法レベルを選ぶ</p>
       <div class="levels" id="levelList"></div>
       <hr class="rule" />
@@ -280,16 +79,8 @@
         <label class="meta" for="unitSel">単元で絞る（任意）</label>
         <select id="unitSel"><option value="">レベル全体</option></select>
       </div>
-    </div>
-
-    <button class="cta" id="startBtn" type="button" disabled>演習をはじめる ▶</button>
-    <p class="hint" style="margin-top:10px">前回の間違いがあれば、最初に「間違い直し」から出題します。続けて未出題の問題を10問ずつ・ランダム順で出します。</p>
-    <div class="row" style="margin-top:14px">
-      <button class="ghost" id="roadmapBtn" type="button">🗺 単元ロードマップ</button>
-      <button class="ghost" id="checkerBtn" type="button">📋 単元クリアチェッカー</button>
-      <button class="ghost" id="reviewBtn" type="button">🔁 今日の復習</button>
-      <button class="ghost" id="statsBtn" type="button">📈 学習記録</button>
-      <span class="hint">全体像、克服状況、今日やる復習、最近の学習記録を確認できます。</span>
+      <button class="cta" id="startBtn" type="button" disabled>演習をはじめる ▶</button>
+      <p class="hint" style="margin-top:10px">前回の間違いがあれば、最初に「間違い直し」から出題します。続けて未出題の問題を10問ずつ・ランダム順で出します。</p>
     </div>
   </section>
 
@@ -348,9 +139,12 @@
   <!-- ================= 出題 ================= -->
   <section id="quiz" class="hide">
     <div class="card">
-      <div class="qhead">
-        <span class="unit" id="qUnit"></span>
-        <span class="setpos" id="qPos"></span>
+      <div class="qContext">
+        <div>
+          <p class="label">Now</p>
+          <div class="unit" id="qUnit"></div>
+        </div>
+        <div class="setpos" id="qPos"></div>
       </div>
       <div class="stem" id="qStem"></div>
       <div class="choices" id="qChoices"></div>
@@ -364,7 +158,7 @@
     </div>
     <div class="row">
       <button class="ghost" id="quitBtn" type="button">ホームへ</button>
-      <button class="ghost" id="pointBtn" type="button">💡 ポイントを確認</button>
+      <button class="ghost" id="pointBtn" type="button">ポイントを確認</button>
       <div class="spacer"></div>
       <button class="cta hide" id="nextBtn" type="button">次へ ▶</button>
     </div>
@@ -439,617 +233,13 @@
 <!-- ポイント確認モーダル（解答中） -->
 <div id="pmodal"><div class="pbox">
   <div class="phead"><span class="ptitle">文法ポイント</span>
-    <button type="button" id="pmodalClose">✕ 閉じる</button></div>
+    <button type="button" id="pmodalClose">閉じる</button></div>
   <div class="pbody">
     <div class="punit" id="pmUnit"></div>
     <div id="pmBody"></div>
   </div>
 </div></div>
 
-<script>
-const $ = s => document.querySelector(s);
-const api = async (path, body) => {
-  const opt = body ? {method:"POST", headers:{"Content-Type":"application/json"}, body:JSON.stringify(body)} : {};
-  const r = await fetch(path, opt);
-  if(!r.ok){ let d; try{ d=(await r.json()).detail; }catch(e){} throw new Error(d || r.statusText); }
-  return r.json();
-};
-const KEYS = ["ア","イ","ウ","エ"];
-const esc = s => String(s).replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
-const STUDENT_KEY = "englishPractice.selectedStudent";
-
-let META=null, selectedLevel=null, session=null, curChoices=[], answered=false;
-let pendingComplete=null, pendingNextQ=null;
-let curUnit="", curPoint=null;   // 解答中のポイント確認用
-
-// ---------- 初期化 ----------
-async function init(){
-  META = await api("/api/meta");
-  await refreshStudents();
-  await restoreSelectedStudent();
-  await refreshReviewBadge();
-  $("#paperLevel").innerHTML = META.levels.map(l=>`<option value="${l.key}">${esc(l.label)}</option>`).join("");
-}
-
-async function refreshStudents(){
-  const {students} = await api("/api/students");
-  const opts = ['<option value="">（ゲストで試す）</option>']
-    .concat(students.map(s=>`<option value="${esc(s)}">${esc(s)}</option>`));
-  for(const sel of ["#studentSel","#paperStudent","#wkStudent"]){
-    const el=$(sel); const keep=el.value;
-    el.innerHTML = opts.join("");
-    if([...el.options].some(o=>o.value===keep)) el.value=keep;
-  }
-}
-
-function currentStudent(){ return $("#studentSel").value; }
-function rememberStudent(name=currentStudent()){
-  localStorage.setItem(STUDENT_KEY, name || "");
-}
-function syncTeacherStudentSelects(){
-  const name = currentStudent();
-  for(const sel of ["#paperStudent","#wkStudent"]){
-    const el = $(sel);
-    if(name && [...el.options].some(o=>o.value===name)) el.value = name;
-  }
-}
-async function restoreSelectedStudent(){
-  const saved = localStorage.getItem(STUDENT_KEY) || "";
-  if([...$("#studentSel").options].some(o=>o.value===saved)){
-    $("#studentSel").value = saved;
-  }
-  await updateStudentHint();
-}
-
-async function updateStudentHint(){
-  const name = currentStudent();
-  rememberStudent(name);
-  $("#renameBtn").classList.toggle("hide", !name);
-  $("#delBtn").classList.toggle("hide", !name);
-  if(!name){ $("#studentHint").textContent = "ゲスト：記録は残りません（XP・復習はこのセッション内のみ）。";
-             applyProfile(null); renderLevels(null); await refreshReviewBadge(); return; }
-  const prof = await api("/api/profile", {student:name});
-  $("#studentHint").textContent = `${name} さん — ${prof.rank.name}（XP ${prof.rank.xp} / ${prof.rank.max_xp}）`;
-  renderLevels(prof);
-  applyProfile(prof);
-  await refreshReviewBadge();
-}
-
-// ---------- レベル選択 ----------
-function renderLevels(prof){
-  const cov = {};
-  if(prof) for(const l of prof.levels) cov[l.key]=l;
-  $("#levelList").innerHTML = META.levels.map(l=>{
-    const c = cov[l.key];
-    const m = c ? c.mastered : 0, tot = l.count;
-    const pct = Math.round(100*m/tot);
-    const done = c && c.complete;
-    const rev = c && c.review ? ` ・復習${c.review}` : "";
-    return `<button type="button" class="levelopt${selectedLevel===l.key?' sel':''}" data-key="${l.key}">
-      <span class="lname">${esc(l.label)}</span>
-      <span class="minibar"><span class="minifill" style="width:${pct}%"></span></span>
-      <span class="lcov">${m}/${tot} 克服${rev}</span>
-      <span class="lw">×${l.weight}</span>
-      ${done?'<span class="done-tag">完了</span>':''}
-    </button>`;
-  }).join("");
-  document.querySelectorAll(".levelopt").forEach(b=>{
-    b.onclick = ()=>{ selectedLevel=b.dataset.key;
-      document.querySelectorAll(".levelopt").forEach(x=>x.classList.toggle("sel", x===b));
-      fillUnits(b.dataset.key); $("#startBtn").disabled=false; };
-  });
-  if(selectedLevel) $("#startBtn").disabled=false;
-}
-
-function fillUnits(levelKey){
-  const l = META.levels.find(x=>x.key===levelKey);
-  $("#unitSel").innerHTML = '<option value="">レベル全体</option>'
-    + l.units.map(u=>`<option value="${esc(u)}">${esc(u)}</option>`).join("");
-}
-
-// ---------- プロフィール（XPバー） ----------
-function applyProfile(prof){
-  if(!prof){ $("#profileBar").style.display="none"; return; }
-  const r = prof.rank;
-  $("#profileBar").style.display="flex";
-  $("#rankName").textContent = r.name;
-  $("#xpText").textContent = `XP ${r.xp} / ${r.max_xp}`;
-  $("#xpNext").textContent = r.is_max ? "最高ランク" : `次: ${r.next_name} まで ${r.to_next}`;
-  $("#xpFill").style.width = (r.overall_pct||0) + "%";
-}
-
-// ---------- 出題開始 ----------
-$("#startBtn").onclick = async ()=>{
-  const unit = $("#unitSel").value || null;
-  const res = await api("/api/begin", {student:currentStudent(), level:selectedLevel, unit});
-  session = res.session;
-  applyProfile(res.profile);
-  if(res.level_done){ showSetDone(true, res.profile); return; }
-  show("quiz"); renderQuestion(res.question);
-};
-
-function show(id){ for(const s of ["home","quiz","setdone","teacher","checker","roadmap","review","stats"]) $("#"+s).classList.toggle("hide", s!==id); }
-
-// ---------- 1問の描画 ----------
-function renderQuestion(q){
-  answered=false; curChoices=q.choices;
-  curUnit = `${q.level_label}・${q.unit}`; curPoint = q.point || null;
-  $("#pointBtn").classList.remove("hide");   // 解答中はポイント確認を出す
-  closePoint();
-  $("#qUnit").textContent = `${q.level_label}・${q.unit}`;
-  if(q.fixing){ $("#qPos").innerHTML = '<span class="fixing">間違い直し</span>'; }
-  else { $("#qPos").textContent = `${q.set_kind==="review"?"復習 ":""}${q.pos} / ${q.total}`; }
-  $("#qStem").innerHTML = esc(q.stem).replace("___", '<span class="blank"></span>');
-  $("#qChoices").innerHTML = q.choices.map((ch,i)=>
-    `<button type="button" class="choice" data-i="${i}">
-       <span class="k">${KEYS[i]}</span><span>${esc(ch)}</span></button>`).join("");
-  document.querySelectorAll(".choice").forEach(b=> b.onclick=()=>submitAnswer(+b.dataset.i));
-  $("#qFeedback").classList.add("hide");
-  $("#nextBtn").classList.add("hide");
-}
-
-async function submitAnswer(i){
-  if(answered) return;
-  answered=true;
-  $("#pointBtn").classList.add("hide");   // 採点後は解説にポイントが出るので隠す
-  closePoint();
-  const res = await api("/api/answer", {session, choice: curChoices[i]});
-  document.querySelectorAll(".choice").forEach((b,k)=>{
-    b.disabled=true;
-    if(curChoices[k]===res.answer_text) b.classList.add("correct");
-    if(k===i && !res.correct) b.classList.add("wrong");
-  });
-  $("#qVerdict").textContent = res.correct ? "正解" : "不正解";
-  $("#qVerdict").className = "verdict " + (res.correct?"ok":"ng");
-  $("#qAns").innerHTML = `正解：<b>${esc(res.answer_text)}</b>`;
-  renderRich(res);
-  if(res.xp_delta>0){ $("#qXp").textContent = `＋${res.xp_delta} XP（克服！）`; $("#qXp").classList.remove("hide"); }
-  else $("#qXp").classList.add("hide");
-  $("#qFeedback").classList.remove("hide");
-  applyProfile(res.profile);
-  if(res.rank_up) showLevelUp(res.rank);
-
-  pendingComplete = res.set_complete ? res : null;
-  pendingNextQ = res.set_complete ? null : res.question;
-  $("#nextBtn").textContent = res.set_complete ? "セット完了 ▶" : "次へ ▶";
-  $("#nextBtn").classList.remove("hide");
-  $("#nextBtn").focus();
-}
-
-// 詳しい解説（構造化）を描画。rich があればそちらを、無ければ従来の1行解説を出す。
-function renderRich(res){
-  const r = res.rich;
-  if(!r){
-    $("#qExpl").textContent = res.explanation || "";
-    $("#qExpl").classList.remove("hide");
-    $("#qRich").classList.add("hide"); $("#qRich").innerHTML="";
-    return;
-  }
-  $("#qExpl").classList.add("hide");
-  let h = "";
-  if(r.why_correct){
-    h += `<div class="rsec"><div class="rlabel">なぜ正解か</div><div class="rwhy">${esc(r.why_correct)}</div></div>`;
-  }
-  if(r.why_wrong && Object.keys(r.why_wrong).length){
-    h += '<div class="rsec"><div class="rlabel">ほかの選択肢</div><ul class="rwrong">';
-    for(const [choice,reason] of Object.entries(r.why_wrong)){
-      const mine = (!res.correct && choice===res.chosen);
-      h += `<li class="${mine?'chosen':''}"><span class="ch">${esc(choice)}</span>${esc(reason)}${mine?'<span class="tag">あなたの解答</span>':''}</li>`;
-    }
-    h += "</ul></div>";
-  }
-  if(r.point){
-    h += `<div class="rsec"><div class="rlabel">ポイント</div><div class="rpoint">${esc(r.point)}</div></div>`;
-  }
-  if(r.example){
-    h += `<div class="rsec"><div class="rlabel">例文</div><div class="rex"><span class="en">${esc(r.example)}</span>`
-       + (r.example_ja?` <span class="ja">— ${esc(r.example_ja)}</span>`:"") + `</div></div>`;
-  }
-  $("#qRich").innerHTML = h;
-  $("#qRich").classList.remove("hide");
-}
-
-$("#nextBtn").onclick = ()=>{
-  if(pendingComplete){ const r=pendingComplete; pendingComplete=null;
-    showSetDone(false, r.profile, r.has_more); }
-  else if(pendingNextQ){ const q=pendingNextQ; pendingNextQ=null; renderQuestion(q); }
-};
-
-// ---------- セット完了 ----------
-function showSetDone(levelDone, prof, hasMore){
-  applyProfile(prof);
-  if(levelDone || hasMore===false){
-    $("#doneMsg").textContent = "このレベルは全問克服！";
-    $("#doneSub").textContent = "おめでとう。別のレベルにも挑戦してみよう。";
-    $("#contBtn").classList.add("hide");
-  } else {
-    $("#doneMsg").textContent = "セット完了";
-    $("#doneSub").textContent = "間違えた問題は全部解き直しました。次の10問へ進めます。";
-    $("#contBtn").classList.remove("hide");
-  }
-  show("setdone");
-}
-$("#contBtn").onclick = async ()=>{
-  const res = await api("/api/next_set", {session});
-  applyProfile(res.profile);
-  if(res.level_done){ showSetDone(true, res.profile); return; }
-  show("quiz"); renderQuestion(res.question);
-};
-$("#doneHome").onclick = goHome;
-$("#quitBtn").onclick = goHome;
-async function goHome(){ session=null; await updateStudentHint(); show("home"); }
-$("#homeLink").onclick = e=>{ e.preventDefault(); goHome(); };
-
-// 昇格演出（控えめ・自動で閉じる）
-function showLevelUp(rank){
-  $("#luName").textContent = rank.name;
-  $("#luSub").textContent = `XP ${rank.xp} / ${rank.max_xp}`;
-  const ov = $("#levelup"); ov.style.display="flex";
-  setTimeout(()=>{ ov.style.display="none"; }, 1900);
-}
-$("#levelup").onclick = ()=>{ $("#levelup").style.display="none"; };
-
-// キーボード操作：1〜4で選択、Enterで次へ
-document.addEventListener("keydown", e=>{
-  if(pointOpen()){ if(e.key==="Escape") closePoint(); return; }  // モーダル中はマス入力を無視
-  if($("#quiz").classList.contains("hide")) return;
-  if(["1","2","3","4"].includes(e.key)){
-    const b=document.querySelector(`.choice[data-i="${+e.key-1}"]`);
-    if(b && !b.disabled) b.click();
-  }
-  if(e.key==="Enter" && !$("#nextBtn").classList.contains("hide")) $("#nextBtn").click();
-});
-
-// 学習者選択
-$("#studentSel").onchange = updateStudentHint;
-$("#addStudentBtn").onclick = async ()=>{
-  const inp=$("#newStudent");
-  if(inp.classList.contains("hide")){ inp.classList.remove("hide"); inp.focus(); $("#addStudentBtn").textContent="追加する"; }
-  else { const name=inp.value.trim(); if(!name) return;
-    await addAndSelect(name); inp.value=""; inp.classList.add("hide"); $("#addStudentBtn").textContent="＋ 新規"; }
-};
-$("#newStudent").addEventListener("keydown", e=>{ if(e.key==="Enter"){ e.preventDefault(); $("#addStudentBtn").click(); }});
-async function addAndSelect(name){
-  await api("/api/register", {student:name});
-  rememberStudent(name);
-  await refreshStudents(); $("#studentSel").value=name; await updateStudentHint();
-}
-// 改名：選択中の生徒の名前を変更（進捗・誤答も新名へ移る）
-$("#renameBtn").onclick = async ()=>{
-  const cur = currentStudent(); if(!cur) return;
-  const name = (prompt(`「${cur}」の新しい名前を入力してください`, cur)||"").trim();
-  if(!name || name===cur) return;
-  try{
-    await api("/api/student/rename", {old:cur, new:name});
-    rememberStudent(name);
-    await refreshStudents(); $("#studentSel").value=name; await updateStudentHint();
-  }catch(e){ alert("改名に失敗しました："+e.message); }
-};
-// 削除：選択中の生徒を進捗・XPごと完全に削除
-$("#delBtn").onclick = async ()=>{
-  const cur = currentStudent(); if(!cur) return;
-  if(!confirm(`「${cur}」を削除します。XP・進捗・復習記録もすべて消えます。元に戻せません。よろしいですか？`)) return;
-  try{
-    await api("/api/student/delete", {student:cur});
-    rememberStudent("");
-    $("#studentSel").value=""; await refreshStudents(); await updateStudentHint();
-  }catch(e){ alert("削除に失敗しました："+e.message); }
-};
-
-// ---------- ポイント確認モーダル（解答中・数学アプリの公式ポップアップに相当） ----------
-function openPoint(){
-  $("#pmUnit").textContent = curUnit;
-  $("#pmBody").innerHTML = curPoint
-    ? `<div class="ppoint">${esc(curPoint)}</div>`
-    : '<p class="pnone">この問題にはポイントの登録がありません。</p>';
-  $("#pmodal").style.display="flex";
-}
-function closePoint(){ $("#pmodal").style.display="none"; }
-function pointOpen(){ return $("#pmodal").style.display==="flex"; }
-$("#pointBtn").onclick = openPoint;
-$("#pmodalClose").onclick = closePoint;
-$("#pmodal").onclick = e=>{ if(e.target===$("#pmodal")) closePoint(); };
-
-// ---------- 単元クリアチェッカー ＋ ワンクリック単元演習 ----------
-$("#checkerBtn").onclick = openChecker;
-$("#checkerClose").onclick = goHome;
-async function openChecker(){
-  const student = currentStudent();
-  $("#checkerWho").textContent = student
-    ? `${student} さんの克服状況（チップを押すとその単元の演習が始まります）`
-    : "ゲスト：記録は残らないので全単元が未克服表示です。チップを押すとお試し演習が始まります。";
-  const {levels} = await api("/api/unit_progress", {student});
-  renderChecker(levels);
-  show("checker");
-}
-function renderChecker(levels){
-  let html="";
-  for(const lv of levels){
-    const done = lv.units.filter(u=>u.complete).length;
-    html += `<div class="ckLevel"><div class="cklabel"><span>${esc(lv.label)}</span>`
-          + `<span class="ckcount">${done}/${lv.units.length} 単元クリア</span></div><div class="uchips">`;
-    for(const u of lv.units){
-      const rev = u.review>0 ? " has-rev" : "";
-      html += `<button type="button" class="uchip${u.complete?' done':''}${rev}"`
-            + ` data-lv="${esc(lv.key)}" data-unit="${esc(u.unit)}">`
-            + `<span class="un">${esc(u.unit)}</span>`
-            + `<span class="uc">克服 ${u.mastered}/${u.total}${u.review?`・復習${u.review}`:''}</span></button>`;
-    }
-    html += "</div></div>";
-  }
-  $("#checkerBody").innerHTML = html;
-  $("#checkerBody").querySelectorAll(".uchip").forEach(b=>{
-    b.onclick = ()=> practiceUnit(b.dataset.lv, b.dataset.unit);
-  });
-}
-async function practiceUnit(levelKey, unit){
-  selectedLevel = levelKey;
-  const res = await api("/api/begin", {student:currentStudent(), level:levelKey, unit});
-  session = res.session;
-  applyProfile(res.profile);
-  if(res.level_done){ showSetDone(true, res.profile); return; }
-  show("quiz"); renderQuestion(res.question);
-}
-
-// ---------- 単元ロードマップ ----------
-$("#roadmapBtn").onclick = openRoadmap;
-$("#roadmapClose").onclick = goHome;
-async function openRoadmap(){
-  const student = currentStudent();
-  $("#roadmapWho").textContent = student
-    ? `${student} さんの全体像。単元を押すと、その単元の演習を開始できます。`
-    : "ゲスト：記録は残らないので全単元が未克服表示です。";
-  const {levels} = await api("/api/unit_progress", {student});
-  renderRoadmap(levels);
-  show("roadmap");
-}
-function renderRoadmap(levels){
-  let total=0, mastered=0, review=0;
-  for(const lv of levels) for(const u of lv.units){ total+=u.total; mastered+=u.mastered; review+=u.review; }
-  const pct = total ? Math.round(100*mastered/total) : 0;
-  let html = `<div class="card"><div class="meta">全 ${total} 問中 ${mastered} 問克服（${pct}%）`
-           + `${review?`・復習 ${review} 問`:''}</div><div class="xpbar" style="height:8px"><div class="xpfill" style="width:${pct}%"></div></div></div>`;
-  html += '<div class="roadmap">';
-  for(const lv of levels){
-    const lvTotal = lv.units.reduce((n,u)=>n+u.total,0);
-    const lvMastered = lv.units.reduce((n,u)=>n+u.mastered,0);
-    const lvPct = lvTotal ? Math.round(100*lvMastered/lvTotal) : 0;
-    html += `<section class="roadlv"><div class="roadlv-head"><div class="roadlv-title">${esc(lv.label)}</div>`
-          + `<div class="roadlv-meta">${lvMastered} / ${lvTotal} ・ ${lvPct}%</div></div><div class="roadunits">`;
-    for(const u of lv.units){
-      const upct = u.total ? Math.round(100*u.mastered/u.total) : 0;
-      const cls = u.complete ? "done" : u.review ? "review" : "";
-      html += `<button type="button" class="roadunit ${cls}" data-lv="${esc(lv.key)}" data-unit="${esc(u.unit)}">`
-            + `<span class="rn">${esc(u.unit)}</span>`
-            + `<span class="rm">${u.mastered}/${u.total} 克服${u.review?`・復習${u.review}`:''}</span>`
-            + `<span class="roadbar"><i style="width:${upct}%"></i></span></button>`;
-    }
-    html += "</div></section>";
-  }
-  html += "</div>";
-  $("#roadmapBody").innerHTML = html;
-  $("#roadmapBody").querySelectorAll(".roadunit").forEach(b=>{
-    b.onclick = ()=> practiceUnit(b.dataset.lv, b.dataset.unit);
-  });
-}
-
-// ---------- 今日の復習 ----------
-$("#reviewBtn").onclick = openReview;
-$("#reviewClose").onclick = goHome;
-async function refreshReviewBadge(){
-  const btn = $("#reviewBtn");
-  if(!btn) return;
-  const student = currentStudent();
-  if(!student){ btn.textContent = "🔁 今日の復習"; return; }
-  try{
-    const d = await api("/api/review/due", {student});
-    btn.textContent = d.count ? `🔁 今日の復習 (${d.count})` : "🔁 今日の復習";
-  }catch(e){ btn.textContent = "🔁 今日の復習"; }
-}
-async function openReview(){
-  const student = currentStudent();
-  if(!student){
-    $("#reviewWho").textContent = "今日の復習は生徒ごとの記録から作ります。";
-    $("#reviewBody").innerHTML = `<div class="card"><div class="suggest">生徒を選ぶか「＋新規」で登録すると、未克服問と復習時期の来た問題がここに並びます。</div></div>`;
-    show("review"); return;
-  }
-  $("#reviewWho").textContent = `${student} さんの復習候補です。前回誤答を優先し、克服済みでも時間が空いた問題を戻します。`;
-  const d = await api("/api/review/due", {student});
-  renderReview(d);
-  show("review");
-}
-function renderReview(d){
-  if(!d.due.length){
-    $("#reviewBody").innerHTML = `<div class="card"><div class="bigmsg">今日は復習なし</div><p class="hint">未克服問や復習時期の来た問題はありません。新しい問題に進めます。</p></div>`;
-    return;
-  }
-  let html = `<div class="card"><div class="meta">${d.count} 件の復習候補。上から最大10問を選んで開始できます。</div><div class="dueList">`;
-  for(const item of d.due.slice(0, 30)){
-    html += `<label class="dueItem"><input type="checkbox" class="dueChk" value="${esc(item.qid)}" checked>`
-          + `<span class="dt"><span class="dr">${esc(item.reason)}${item.overdue_days?`・${item.overdue_days}日超過`:''}</span><br>`
-          + `[${esc(item.level_label)} #${item.number}・${esc(item.unit)}] ${esc(item.stem)}</span></label>`;
-  }
-  html += `</div><div class="row" style="margin-top:14px"><button class="cta" id="reviewStart" type="button">選んだ問題で復習開始 ▶</button>`
-       + `<button class="ghost" id="reviewTop10" type="button">上から10問だけ選ぶ</button></div></div>`;
-  $("#reviewBody").innerHTML = html;
-  $("#reviewTop10").onclick = ()=>{
-    const boxes = [...document.querySelectorAll(".dueChk")];
-    boxes.forEach((b,i)=> b.checked = i < 10);
-  };
-  $("#reviewStart").onclick = startSelectedReview;
-}
-async function startSelectedReview(){
-  const student = currentStudent();
-  const qids = [...document.querySelectorAll(".dueChk:checked")].map(x=>x.value).slice(0, 10);
-  if(!qids.length){ alert("復習する問題を選んでください"); return; }
-  const res = await api("/api/review/start", {student, qids});
-  session = res.session;
-  applyProfile(res.profile);
-  if(res.level_done){ showSetDone(true, res.profile); return; }
-  show("quiz"); renderQuestion(res.question);
-}
-
-// ---------- 学習記録 ----------
-$("#statsBtn").onclick = openStats;
-$("#statsClose").onclick = goHome;
-function statBar(name, pct, sub){
-  const p = pct==null ? 0 : pct;
-  return `<div class="statrow"><div class="sn">${esc(name)}</div><div class="statbar"><i style="width:${p}%"></i></div>`
-       + `<div class="sv">${pct==null?'—':pct+'%'} ${sub?esc(sub):''}</div></div>`;
-}
-async function openStats(){
-  const student = currentStudent();
-  if(!student){
-    $("#statsWho").textContent = "ゲストモードでは学習記録は保存されません。";
-    $("#statsBody").innerHTML = `<div class="card"><div class="suggest">記録を見るには、生徒を選ぶか「＋新規」で登録してから演習してください。</div></div>`;
-    show("stats"); return;
-  }
-  $("#statsWho").textContent = `${student} さんの学習記録です。`;
-  const s = await api("/api/stats", {student});
-  renderStats(s);
-  show("stats");
-}
-function renderStats(s){
-  const acc = s.accuracy==null ? "—" : s.accuracy + "%";
-  let html = `<div class="card"><div class="statbox">`
-    + `<div class="metric"><div class="mn">正答率</div><div class="mv">${acc}</div></div>`
-    + `<div class="metric"><div class="mn">解答数</div><div class="mv">${s.total_seen}</div></div>`
-    + `<div class="metric"><div class="mn">克服XP</div><div class="mv">${s.profile.rank.xp}</div></div>`
-    + `<div class="metric"><div class="mn">今日の復習</div><div class="mv">${s.due_count}</div></div>`
-    + `</div></div>`;
-  html += `<div class="card"><p class="label">レベル別</p>`;
-  html += s.by_level.length ? s.by_level.map(x=>statBar(x.level_label, x.accuracy, `${x.correct}/${x.seen}`)).join("") : '<p class="hint">まだ記録がありません。</p>';
-  html += `</div><div class="card"><p class="label">弱点になりやすい単元</p>`;
-  html += s.by_unit.length ? s.by_unit.slice(0,8).map(x=>statBar(`${x.level_label}・${x.unit}`, x.accuracy, `${x.correct}/${x.seen} 復習${x.review}`)).join("") : '<p class="hint">まだ記録がありません。</p>';
-  html += `</div><div class="card"><p class="label">最近触った問題</p>`;
-  if(s.recent.length){
-    html += '<table class="wk"><thead><tr><th>日時</th><th>問題</th><th>正/誤</th><th>状態</th></tr></thead><tbody>';
-    for(const r of s.recent){
-      const status = r.review ? "復習中" : r.mastered ? "克服" : "未克服";
-      html += `<tr><td class="acc">${esc((r.updated_at||"").slice(5,16))}</td>`
-           + `<td>[${esc(r.level_label)} #${r.number}・${esc(r.unit)}] ${esc(r.stem)}</td>`
-           + `<td class="acc">${r.correct}/${r.wrong}</td><td>${status}</td></tr>`;
-    }
-    html += "</tbody></table>";
-  } else {
-    html += '<p class="hint">まだ記録がありません。</p>';
-  }
-  html += "</div>";
-  $("#statsBody").innerHTML = html;
-}
-
-// 先生メニュー
-$("#teacherBtn").onclick = async ()=>{ await refreshStudents(); syncTeacherStudentSelects(); show("teacher"); };
-$("#teacherClose").onclick = ()=>{ show("home"); };
-
-// 紙入力グリッド
-let paperWrong = new Set();
-$("#paperBuild").onclick = ()=>{
-  const f=+$("#paperFrom").value, t=+$("#paperTo").value;
-  const lo=Math.min(f,t), hi=Math.max(f,t);
-  paperWrong = new Set();
-  let html="";
-  for(let n=1;n<=100;n++){
-    const inRange = n>=lo && n<=hi;
-    html+=`<button type="button" data-n="${n}" class="${inRange?'':'out'}" ${inRange?'':'disabled'}>${n}</button>`;
-  }
-  $("#paperGrid").innerHTML=html;
-  $("#paperGrid").querySelectorAll("button:not(.out)").forEach(b=>{
-    b.onclick=()=>{ const n=+b.dataset.n;
-      if(paperWrong.has(n)){ paperWrong.delete(n); b.classList.remove("on"); }
-      else { paperWrong.add(n); b.classList.add("on"); } };
-  });
-  $("#paperSubmit").disabled=false;
-  $("#paperToast").classList.add("hide");
-};
-$("#paperSubmit").onclick = async ()=>{
-  const student=$("#paperStudent").value;
-  if(!student){ alert("生徒を選んでください（ゲストには紙入力できません）"); return; }
-  const f=+$("#paperFrom").value, t=+$("#paperTo").value;
-  const res = await api("/api/paper", {student, level:$("#paperLevel").value,
-     from_no:Math.min(f,t), to_no:Math.max(f,t), wrong:[...paperWrong]});
-  const to=$("#paperToast"); to.classList.remove("hide");
-  to.textContent = `反映：${res.applied}問（新規克服 ${res.newly_mastered}・誤答 ${res.wrong}）／ +${res.xp_gained} XP → ${res.profile.rank.name}`;
-  await refreshStudents();
-};
-
-// 弱点ビュー
-$("#wkLoad").onclick = async ()=>{
-  const student=$("#wkStudent").value;
-  if(!student){ alert("生徒を選んでください"); return; }
-  const w = await api("/api/weakness", {student});
-  const r=w.profile.rank;
-  $("#wkProfile").innerHTML = `${esc(student)} — <b>${esc(r.name)}</b>（XP ${r.xp}/${r.max_xp}・全体${r.overall_pct}%）`;
-  const up = await api("/api/unit_progress", {student});
-  let html = renderCoverage(up.levels);
-  html += '<table class="wk"><thead><tr><th>レベル</th><th>単元</th><th>正答率</th><th>正/誤</th><th>克服</th></tr></thead><tbody>';
-  for(const u of w.units){
-    const acc = u.accuracy==null ? "—" : u.accuracy+"%";
-    const low = (u.accuracy!=null && u.accuracy<60) ? "lowacc" : "";
-    html += `<tr><td>${esc(u.level_label)}</td><td>${esc(u.unit)}</td>
-      <td class="acc ${low}">${acc}</td><td class="acc">${u.correct}/${u.wrong}</td>
-      <td class="acc">${u.mastered}</td></tr>`;
-  }
-  html += "</tbody></table>";
-
-  // よくある間違え方（正解 ← 選んだ誤答）
-  if(w.confusions && w.confusions.length){
-    html += '<p class="label" style="margin-top:18px">よくある間違え方</p>';
-    html += '<table class="wk"><thead><tr><th>レベル/単元</th><th>正解</th><th>選んだ誤答</th><th>回数</th></tr></thead><tbody>';
-    for(const c of w.confusions){
-      html += `<tr><td>${esc(c.level_label)}・${esc(c.unit)} <span class="hint">#${c.number}</span></td>
-        <td class="acc"><b>${esc(c.correct)}</b></td>
-        <td class="acc lowacc">${esc(c.chosen)}</td>
-        <td class="acc">${c.count}</td></tr>`;
-    }
-    html += "</tbody></table>";
-  }
-
-  if(w.review.length){
-    html += `<p class="label" style="margin-top:18px">未克服（復習リスト）${w.review.length}件</p><ul class="reviewlist">`;
-    for(const rv of w.review){
-      let miss = "";
-      if(rv.misses && rv.misses.length){
-        miss = ' <span class="hint">／ 誤答: ' +
-          rv.misses.map(m=>`${esc(m.choice)}${m.count>1?'×'+m.count:''}`).join("・") + '</span>';
-      }
-      html += `<li>[${esc(rv.level_label)} #${rv.number}・${esc(rv.unit)}] ${esc(rv.stem)}
-               <span class="hint">→ 正解 ${esc(rv.answer)}</span>${miss}</li>`;
-    }
-    html += "</ul>";
-  } else { html += '<p class="hint" style="margin-top:12px">未克服の問題はありません。</p>'; }
-  $("#wkBody").innerHTML = html;
-};
-
-// 単元カバレッジ・ヒートマップ（先生用）：克服0=赤／途中=黄／全克服=緑。手薄を上にソート。
-function renderCoverage(levels){
-  let html = '<p class="label">単元カバレッジ（克服状況）</p>';
-  for(const lv of levels){
-    const done = lv.units.filter(u=>u.complete).length;
-    html += `<div class="covhead">${esc(lv.label)} — ${done}/${lv.units.length} 単元クリア</div>`;
-    const units = lv.units.slice().sort((a,b)=>
-      (a.mastered/a.total) - (b.mastered/b.total) || b.review - a.review);
-    html += '<div class="cov">';
-    for(const u of units){
-      const cls = u.complete ? "g" : (u.mastered>0 ? "y" : "r");
-      const revtxt = u.review ? `・復習${u.review}` : "";
-      html += `<div class="cell ${cls}"><span class="cn">${esc(u.unit)}</span>`
-            + `<span class="cv">${u.mastered}/${u.total} 克服${revtxt}</span></div>`;
-    }
-    html += "</div>";
-  }
-  html += '<p class="covlegend"><span class="sw r"></span>克服0'
-        + '<span class="sw y"></span>途中<span class="sw g"></span>全克服</p>';
-  return html;
-}
-
-$("#wkPrint").onclick = ()=>{
-  const student=$("#wkStudent").value;
-  if(!student){ alert("生徒を選んでください"); return; }
-  window.open(`/api/homework?student=${encodeURIComponent(student)}`, "_blank");
-};
-
-init();
-</script>
+<script src="/static/app.js"></script>
 </body>
 </html>

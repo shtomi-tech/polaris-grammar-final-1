@@ -1,0 +1,621 @@
+const $ = s => document.querySelector(s);
+const api = async (path, body) => {
+  const opt = body ? {method:"POST", headers:{"Content-Type":"application/json"}, body:JSON.stringify(body)} : {};
+  const r = await fetch(path, opt);
+  if(!r.ok){ let d; try{ d=(await r.json()).detail; }catch(e){} throw new Error(d || r.statusText); }
+  return r.json();
+};
+const KEYS = ["ア","イ","ウ","エ"];
+const esc = s => String(s).replace(/[&<>"]/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[c]));
+const STUDENT_KEY = "englishPractice.selectedStudent";
+
+let META=null, selectedLevel=null, session=null, curChoices=[], answered=false;
+let pendingComplete=null, pendingNextQ=null;
+let curUnit="", curPoint=null;   // 解答中のポイント確認用
+
+// ---------- 初期化 ----------
+async function init(){
+  META = await api("/api/meta");
+  await refreshStudents();
+  await restoreSelectedStudent();
+  await refreshReviewBadge();
+  $("#paperLevel").innerHTML = META.levels.map(l=>`<option value="${l.key}">${esc(l.label)}</option>`).join("");
+}
+
+async function refreshStudents(){
+  const {students} = await api("/api/students");
+  const opts = ['<option value="">（ゲストで試す）</option>']
+    .concat(students.map(s=>`<option value="${esc(s)}">${esc(s)}</option>`));
+  for(const sel of ["#studentSel","#paperStudent","#wkStudent"]){
+    const el=$(sel); const keep=el.value;
+    el.innerHTML = opts.join("");
+    if([...el.options].some(o=>o.value===keep)) el.value=keep;
+  }
+}
+
+function currentStudent(){ return $("#studentSel").value; }
+function updateHomeStudentName(){
+  const name = currentStudent();
+  $("#homeStudentName").textContent = name || "ゲスト";
+}
+function rememberStudent(name=currentStudent()){
+  localStorage.setItem(STUDENT_KEY, name || "");
+}
+function syncTeacherStudentSelects(){
+  const name = currentStudent();
+  for(const sel of ["#paperStudent","#wkStudent"]){
+    const el = $(sel);
+    if(name && [...el.options].some(o=>o.value===name)) el.value = name;
+  }
+}
+async function restoreSelectedStudent(){
+  const saved = localStorage.getItem(STUDENT_KEY) || "";
+  if([...$("#studentSel").options].some(o=>o.value===saved)){
+    $("#studentSel").value = saved;
+  }
+  await updateStudentHint();
+}
+
+async function updateStudentHint(){
+  const name = currentStudent();
+  rememberStudent(name);
+  updateHomeStudentName();
+  $("#renameBtn").classList.toggle("hide", !name);
+  $("#delBtn").classList.toggle("hide", !name);
+  if(!name){ $("#studentHint").textContent = "ゲスト：記録は残りません（XP・復習はこのセッション内のみ）。";
+             applyProfile(null); renderLevels(null); await refreshReviewBadge(); return; }
+  const prof = await api("/api/profile", {student:name});
+  $("#studentHint").textContent = `${name} さん — ${prof.rank.name}（XP ${prof.rank.xp} / ${prof.rank.max_xp}）`;
+  renderLevels(prof);
+  applyProfile(prof);
+  await refreshReviewBadge();
+}
+
+// ---------- レベル選択 ----------
+function renderLevels(prof){
+  const cov = {};
+  if(prof) for(const l of prof.levels) cov[l.key]=l;
+  $("#levelList").innerHTML = META.levels.map(l=>{
+    const c = cov[l.key];
+    const m = c ? c.mastered : 0, tot = l.count;
+    const pct = Math.round(100*m/tot);
+    const done = c && c.complete;
+    const rev = c && c.review ? ` ・復習${c.review}` : "";
+    return `<button type="button" class="levelopt${selectedLevel===l.key?' sel':''}" data-key="${l.key}">
+      <span class="lname">${esc(l.label)}</span>
+      <span class="minibar"><span class="minifill" style="width:${pct}%"></span></span>
+      <span class="lcov">${m}/${tot} 克服${rev}</span>
+      <span class="lw">×${l.weight}</span>
+      ${done?'<span class="done-tag">完了</span>':''}
+    </button>`;
+  }).join("");
+  document.querySelectorAll(".levelopt").forEach(b=>{
+    b.onclick = ()=>{ selectedLevel=b.dataset.key;
+      document.querySelectorAll(".levelopt").forEach(x=>x.classList.toggle("sel", x===b));
+      fillUnits(b.dataset.key); $("#startBtn").disabled=false; };
+  });
+  if(selectedLevel) $("#startBtn").disabled=false;
+}
+
+function fillUnits(levelKey){
+  const l = META.levels.find(x=>x.key===levelKey);
+  $("#unitSel").innerHTML = '<option value="">レベル全体</option>'
+    + l.units.map(u=>`<option value="${esc(u)}">${esc(u)}</option>`).join("");
+}
+
+// ---------- プロフィール（XPバー） ----------
+function applyProfile(prof){
+  if(!prof){ $("#profileBar").style.display="none"; return; }
+  const r = prof.rank;
+  $("#profileBar").style.display="flex";
+  $("#rankName").textContent = r.name;
+  $("#xpText").textContent = `XP ${r.xp} / ${r.max_xp}`;
+  $("#xpNext").textContent = r.is_max ? "最高ランク" : `次: ${r.next_name} まで ${r.to_next}`;
+  $("#xpFill").style.width = (r.overall_pct||0) + "%";
+}
+
+// ---------- 出題開始 ----------
+$("#startBtn").onclick = async ()=>{
+  const unit = $("#unitSel").value || null;
+  const res = await api("/api/begin", {student:currentStudent(), level:selectedLevel, unit});
+  session = res.session;
+  applyProfile(res.profile);
+  if(res.level_done){ showSetDone(true, res.profile); return; }
+  show("quiz"); renderQuestion(res.question);
+};
+
+function show(id){ for(const s of ["home","quiz","setdone","teacher","checker","roadmap","review","stats"]) $("#"+s).classList.toggle("hide", s!==id); }
+
+function showPracticeSetup(){
+  show("home");
+  $("#practiceSetup").classList.remove("hide");
+  $("#practiceSetup").scrollIntoView({behavior:"smooth", block:"start"});
+}
+
+// ---------- 1問の描画 ----------
+function renderQuestion(q){
+  answered=false; curChoices=q.choices;
+  curUnit = `${q.level_label}・${q.unit}`; curPoint = q.point || null;
+  $("#pointBtn").classList.remove("hide");   // 解答中はポイント確認を出す
+  closePoint();
+  $("#qUnit").textContent = `${q.level_label}・${q.unit}`;
+  if(q.fixing){ $("#qPos").innerHTML = '<span class="fixing">間違い直し</span>'; }
+  else { $("#qPos").textContent = `${q.set_kind==="review"?"復習 ":""}${q.pos} / ${q.total}`; }
+  $("#qStem").innerHTML = esc(q.stem).replace("___", '<span class="blank"></span>');
+  $("#qChoices").innerHTML = q.choices.map((ch,i)=>
+    `<button type="button" class="choice" data-i="${i}">
+       <span class="k">${KEYS[i]}</span><span>${esc(ch)}</span></button>`).join("");
+  document.querySelectorAll(".choice").forEach(b=> b.onclick=()=>submitAnswer(+b.dataset.i));
+  $("#qFeedback").classList.add("hide");
+  $("#nextBtn").classList.add("hide");
+}
+
+async function submitAnswer(i){
+  if(answered) return;
+  answered=true;
+  $("#pointBtn").classList.add("hide");   // 採点後は解説にポイントが出るので隠す
+  closePoint();
+  const res = await api("/api/answer", {session, choice: curChoices[i]});
+  document.querySelectorAll(".choice").forEach((b,k)=>{
+    b.disabled=true;
+    if(curChoices[k]===res.answer_text) b.classList.add("correct");
+    if(k===i && !res.correct) b.classList.add("wrong");
+  });
+  $("#qVerdict").textContent = res.correct ? "正解" : "不正解";
+  $("#qVerdict").className = "verdict " + (res.correct?"ok":"ng");
+  $("#qAns").innerHTML = `正解：<b>${esc(res.answer_text)}</b>`;
+  renderRich(res);
+  if(res.xp_delta>0){ $("#qXp").textContent = `＋${res.xp_delta} XP（克服！）`; $("#qXp").classList.remove("hide"); }
+  else $("#qXp").classList.add("hide");
+  $("#qFeedback").classList.remove("hide");
+  applyProfile(res.profile);
+  if(res.rank_up) showLevelUp(res.rank);
+
+  pendingComplete = res.set_complete ? res : null;
+  pendingNextQ = res.set_complete ? null : res.question;
+  $("#nextBtn").textContent = res.set_complete ? "セット完了 ▶" : "次へ ▶";
+  $("#nextBtn").classList.remove("hide");
+  $("#nextBtn").focus();
+}
+
+// 詳しい解説（構造化）を描画。rich があればそちらを、無ければ従来の1行解説を出す。
+function renderRich(res){
+  const r = res.rich;
+  if(!r){
+    $("#qExpl").textContent = res.explanation || "";
+    $("#qExpl").classList.remove("hide");
+    $("#qRich").classList.add("hide"); $("#qRich").innerHTML="";
+    return;
+  }
+  $("#qExpl").classList.add("hide");
+  let h = "";
+  if(r.why_correct){
+    h += `<div class="rsec"><div class="rlabel">なぜ正解か</div><div class="rwhy">${esc(r.why_correct)}</div></div>`;
+  }
+  if(r.why_wrong && Object.keys(r.why_wrong).length){
+    h += '<div class="rsec"><div class="rlabel">ほかの選択肢</div><ul class="rwrong">';
+    for(const [choice,reason] of Object.entries(r.why_wrong)){
+      const mine = (!res.correct && choice===res.chosen);
+      h += `<li class="${mine?'chosen':''}"><span class="ch">${esc(choice)}</span>${esc(reason)}${mine?'<span class="tag">あなたの解答</span>':''}</li>`;
+    }
+    h += "</ul></div>";
+  }
+  if(r.point){
+    h += `<div class="rsec"><div class="rlabel">ポイント</div><div class="rpoint">${esc(r.point)}</div></div>`;
+  }
+  if(r.example){
+    h += `<div class="rsec"><div class="rlabel">例文</div><div class="rex"><span class="en">${esc(r.example)}</span>`
+       + (r.example_ja?` <span class="ja">— ${esc(r.example_ja)}</span>`:"") + `</div></div>`;
+  }
+  $("#qRich").innerHTML = h;
+  $("#qRich").classList.remove("hide");
+}
+
+$("#nextBtn").onclick = ()=>{
+  if(pendingComplete){ const r=pendingComplete; pendingComplete=null;
+    showSetDone(false, r.profile, r.has_more); }
+  else if(pendingNextQ){ const q=pendingNextQ; pendingNextQ=null; renderQuestion(q); }
+};
+
+// ---------- セット完了 ----------
+function showSetDone(levelDone, prof, hasMore){
+  applyProfile(prof);
+  if(levelDone || hasMore===false){
+    $("#doneMsg").textContent = "このレベルは全問克服！";
+    $("#doneSub").textContent = "おめでとう。別のレベルにも挑戦してみよう。";
+    $("#contBtn").classList.add("hide");
+  } else {
+    $("#doneMsg").textContent = "セット完了";
+    $("#doneSub").textContent = "間違えた問題は全部解き直しました。次の10問へ進めます。";
+    $("#contBtn").classList.remove("hide");
+  }
+  show("setdone");
+}
+$("#contBtn").onclick = async ()=>{
+  const res = await api("/api/next_set", {session});
+  applyProfile(res.profile);
+  if(res.level_done){ showSetDone(true, res.profile); return; }
+  show("quiz"); renderQuestion(res.question);
+};
+$("#doneHome").onclick = goHome;
+$("#quitBtn").onclick = goHome;
+async function goHome(){
+  session=null;
+  await updateStudentHint();
+  $("#practiceSetup").classList.add("hide");
+  show("home");
+}
+$("#englishHomeBtn").onclick = goHome;
+$("#todayBtn").onclick = showPracticeSetup;
+
+// 昇格演出（控えめ・自動で閉じる）
+function showLevelUp(rank){
+  $("#luName").textContent = rank.name;
+  $("#luSub").textContent = `XP ${rank.xp} / ${rank.max_xp}`;
+  const ov = $("#levelup"); ov.style.display="flex";
+  setTimeout(()=>{ ov.style.display="none"; }, 1900);
+}
+$("#levelup").onclick = ()=>{ $("#levelup").style.display="none"; };
+
+// キーボード操作：1〜4で選択、Enterで次へ
+document.addEventListener("keydown", e=>{
+  if(pointOpen()){ if(e.key==="Escape") closePoint(); return; }  // モーダル中はマス入力を無視
+  if($("#quiz").classList.contains("hide")) return;
+  if(["1","2","3","4"].includes(e.key)){
+    const b=document.querySelector(`.choice[data-i="${+e.key-1}"]`);
+    if(b && !b.disabled) b.click();
+  }
+  if(e.key==="Enter" && !$("#nextBtn").classList.contains("hide")) $("#nextBtn").click();
+});
+
+// 学習者選択
+$("#studentSel").onchange = updateStudentHint;
+$("#addStudentBtn").onclick = async ()=>{
+  const inp=$("#newStudent");
+  if(inp.classList.contains("hide")){ inp.classList.remove("hide"); inp.focus(); $("#addStudentBtn").textContent="追加する"; }
+  else { const name=inp.value.trim(); if(!name) return;
+    await addAndSelect(name); inp.value=""; inp.classList.add("hide"); $("#addStudentBtn").textContent="＋ 新規"; }
+};
+$("#newStudent").addEventListener("keydown", e=>{ if(e.key==="Enter"){ e.preventDefault(); $("#addStudentBtn").click(); }});
+async function addAndSelect(name){
+  await api("/api/register", {student:name});
+  rememberStudent(name);
+  await refreshStudents(); $("#studentSel").value=name; await updateStudentHint();
+}
+// 改名：選択中の生徒の名前を変更（進捗・誤答も新名へ移る）
+$("#renameBtn").onclick = async ()=>{
+  const cur = currentStudent(); if(!cur) return;
+  const name = (prompt(`「${cur}」の新しい名前を入力してください`, cur)||"").trim();
+  if(!name || name===cur) return;
+  try{
+    await api("/api/student/rename", {old:cur, new:name});
+    rememberStudent(name);
+    await refreshStudents(); $("#studentSel").value=name; await updateStudentHint();
+  }catch(e){ alert("改名に失敗しました："+e.message); }
+};
+// 削除：選択中の生徒を進捗・XPごと完全に削除
+$("#delBtn").onclick = async ()=>{
+  const cur = currentStudent(); if(!cur) return;
+  if(!confirm(`「${cur}」を削除します。XP・進捗・復習記録もすべて消えます。元に戻せません。よろしいですか？`)) return;
+  try{
+    await api("/api/student/delete", {student:cur});
+    rememberStudent("");
+    $("#studentSel").value=""; await refreshStudents(); await updateStudentHint();
+  }catch(e){ alert("削除に失敗しました："+e.message); }
+};
+
+// ---------- ポイント確認モーダル（解答中・数学アプリの公式ポップアップに相当） ----------
+function openPoint(){
+  $("#pmUnit").textContent = curUnit;
+  $("#pmBody").innerHTML = curPoint
+    ? `<div class="ppoint">${esc(curPoint)}</div>`
+    : '<p class="pnone">この問題にはポイントの登録がありません。</p>';
+  $("#pmodal").style.display="flex";
+}
+function closePoint(){ $("#pmodal").style.display="none"; }
+function pointOpen(){ return $("#pmodal").style.display==="flex"; }
+$("#pointBtn").onclick = openPoint;
+$("#pmodalClose").onclick = closePoint;
+$("#pmodal").onclick = e=>{ if(e.target===$("#pmodal")) closePoint(); };
+
+// ---------- 単元クリアチェッカー ＋ ワンクリック単元演習 ----------
+$("#checkerBtn").onclick = openChecker;
+$("#checkerClose").onclick = goHome;
+async function openChecker(){
+  const student = currentStudent();
+  $("#checkerWho").textContent = student
+    ? `${student} さんの克服状況（チップを押すとその単元の演習が始まります）`
+    : "ゲスト：記録は残らないので全単元が未克服表示です。チップを押すとお試し演習が始まります。";
+  const {levels} = await api("/api/unit_progress", {student});
+  renderChecker(levels);
+  show("checker");
+}
+function renderChecker(levels){
+  let html="";
+  for(const lv of levels){
+    const done = lv.units.filter(u=>u.complete).length;
+    html += `<div class="ckLevel"><div class="cklabel"><span>${esc(lv.label)}</span>`
+          + `<span class="ckcount">${done}/${lv.units.length} 単元クリア</span></div><div class="uchips">`;
+    for(const u of lv.units){
+      const rev = u.review>0 ? " has-rev" : "";
+      html += `<button type="button" class="uchip${u.complete?' done':''}${rev}"`
+            + ` data-lv="${esc(lv.key)}" data-unit="${esc(u.unit)}">`
+            + `<span class="un">${esc(u.unit)}</span>`
+            + `<span class="uc">克服 ${u.mastered}/${u.total}${u.review?`・復習${u.review}`:''}</span></button>`;
+    }
+    html += "</div></div>";
+  }
+  $("#checkerBody").innerHTML = html;
+  $("#checkerBody").querySelectorAll(".uchip").forEach(b=>{
+    b.onclick = ()=> practiceUnit(b.dataset.lv, b.dataset.unit);
+  });
+}
+async function practiceUnit(levelKey, unit){
+  selectedLevel = levelKey;
+  const res = await api("/api/begin", {student:currentStudent(), level:levelKey, unit});
+  session = res.session;
+  applyProfile(res.profile);
+  if(res.level_done){ showSetDone(true, res.profile); return; }
+  show("quiz"); renderQuestion(res.question);
+}
+
+// ---------- 単元ロードマップ ----------
+$("#roadmapBtn").onclick = openRoadmap;
+$("#roadmapClose").onclick = goHome;
+async function openRoadmap(){
+  const student = currentStudent();
+  $("#roadmapWho").textContent = student
+    ? `${student} さんの全体像。単元を押すと、その単元の演習を開始できます。`
+    : "ゲスト：記録は残らないので全単元が未克服表示です。";
+  const {levels} = await api("/api/unit_progress", {student});
+  renderRoadmap(levels);
+  show("roadmap");
+}
+function renderRoadmap(levels){
+  let total=0, mastered=0, review=0;
+  for(const lv of levels) for(const u of lv.units){ total+=u.total; mastered+=u.mastered; review+=u.review; }
+  const pct = total ? Math.round(100*mastered/total) : 0;
+  let html = `<div class="card"><div class="meta">全 ${total} 問中 ${mastered} 問克服（${pct}%）`
+           + `${review?`・復習 ${review} 問`:''}</div><div class="xpbar" style="height:8px"><div class="xpfill" style="width:${pct}%"></div></div></div>`;
+  html += '<div class="roadmap">';
+  for(const lv of levels){
+    const lvTotal = lv.units.reduce((n,u)=>n+u.total,0);
+    const lvMastered = lv.units.reduce((n,u)=>n+u.mastered,0);
+    const lvPct = lvTotal ? Math.round(100*lvMastered/lvTotal) : 0;
+    html += `<section class="roadlv"><div class="roadlv-head"><div class="roadlv-title">${esc(lv.label)}</div>`
+          + `<div class="roadlv-meta">${lvMastered} / ${lvTotal} ・ ${lvPct}%</div></div><div class="roadunits">`;
+    for(const u of lv.units){
+      const upct = u.total ? Math.round(100*u.mastered/u.total) : 0;
+      const cls = u.complete ? "done" : u.review ? "review" : "";
+      html += `<button type="button" class="roadunit ${cls}" data-lv="${esc(lv.key)}" data-unit="${esc(u.unit)}">`
+            + `<span class="rn">${esc(u.unit)}</span>`
+            + `<span class="rm">${u.mastered}/${u.total} 克服${u.review?`・復習${u.review}`:''}</span>`
+            + `<span class="roadbar"><i style="width:${upct}%"></i></span></button>`;
+    }
+    html += "</div></section>";
+  }
+  html += "</div>";
+  $("#roadmapBody").innerHTML = html;
+  $("#roadmapBody").querySelectorAll(".roadunit").forEach(b=>{
+    b.onclick = ()=> practiceUnit(b.dataset.lv, b.dataset.unit);
+  });
+}
+
+// ---------- 今日の復習 ----------
+$("#reviewBtn").onclick = openReview;
+$("#reviewClose").onclick = goHome;
+async function refreshReviewBadge(){
+  const btn = $("#reviewBtn");
+  if(!btn) return;
+  const title = btn.querySelector(".actionTitle");
+  const student = currentStudent();
+  if(!student){ (title || btn).textContent = "復習する"; return; }
+  try{
+    const d = await api("/api/review/due", {student});
+    (title || btn).textContent = d.count ? `復習する（${d.count}）` : "復習する";
+  }catch(e){ (title || btn).textContent = "復習する"; }
+}
+async function openReview(){
+  const student = currentStudent();
+  if(!student){
+    $("#reviewWho").textContent = "今日の復習は生徒ごとの記録から作ります。";
+    $("#reviewBody").innerHTML = `<div class="card"><div class="suggest">生徒を選ぶか「＋新規」で登録すると、未克服問と復習時期の来た問題がここに並びます。</div></div>`;
+    show("review"); return;
+  }
+  $("#reviewWho").textContent = `${student} さんの復習候補です。前回誤答を優先し、克服済みでも時間が空いた問題を戻します。`;
+  const d = await api("/api/review/due", {student});
+  renderReview(d);
+  show("review");
+}
+function renderReview(d){
+  if(!d.due.length){
+    $("#reviewBody").innerHTML = `<div class="card"><div class="bigmsg">今日は復習なし</div><p class="hint">未克服問や復習時期の来た問題はありません。新しい問題に進めます。</p></div>`;
+    return;
+  }
+  let html = `<div class="card"><div class="meta">${d.count} 件の復習候補。上から最大10問を選んで開始できます。</div><div class="dueList">`;
+  for(const item of d.due.slice(0, 30)){
+    html += `<label class="dueItem"><input type="checkbox" class="dueChk" value="${esc(item.qid)}" checked>`
+          + `<span class="dt"><span class="dr">${esc(item.reason)}${item.overdue_days?`・${item.overdue_days}日超過`:''}</span><br>`
+          + `[${esc(item.level_label)} #${item.number}・${esc(item.unit)}] ${esc(item.stem)}</span></label>`;
+  }
+  html += `</div><div class="row" style="margin-top:14px"><button class="cta" id="reviewStart" type="button">選んだ問題で復習開始 ▶</button>`
+       + `<button class="ghost" id="reviewTop10" type="button">上から10問だけ選ぶ</button></div></div>`;
+  $("#reviewBody").innerHTML = html;
+  $("#reviewTop10").onclick = ()=>{
+    const boxes = [...document.querySelectorAll(".dueChk")];
+    boxes.forEach((b,i)=> b.checked = i < 10);
+  };
+  $("#reviewStart").onclick = startSelectedReview;
+}
+async function startSelectedReview(){
+  const student = currentStudent();
+  const qids = [...document.querySelectorAll(".dueChk:checked")].map(x=>x.value).slice(0, 10);
+  if(!qids.length){ alert("復習する問題を選んでください"); return; }
+  const res = await api("/api/review/start", {student, qids});
+  session = res.session;
+  applyProfile(res.profile);
+  if(res.level_done){ showSetDone(true, res.profile); return; }
+  show("quiz"); renderQuestion(res.question);
+}
+
+// ---------- 学習記録 ----------
+$("#statsBtn").onclick = openStats;
+$("#statsClose").onclick = goHome;
+function statBar(name, pct, sub){
+  const p = pct==null ? 0 : pct;
+  return `<div class="statrow"><div class="sn">${esc(name)}</div><div class="statbar"><i style="width:${p}%"></i></div>`
+       + `<div class="sv">${pct==null?'—':pct+'%'} ${sub?esc(sub):''}</div></div>`;
+}
+async function openStats(){
+  const student = currentStudent();
+  if(!student){
+    $("#statsWho").textContent = "ゲストモードでは学習記録は保存されません。";
+    $("#statsBody").innerHTML = `<div class="card"><div class="suggest">記録を見るには、生徒を選ぶか「＋新規」で登録してから演習してください。</div></div>`;
+    show("stats"); return;
+  }
+  $("#statsWho").textContent = `${student} さんの学習記録です。`;
+  const s = await api("/api/stats", {student});
+  renderStats(s);
+  show("stats");
+}
+function renderStats(s){
+  const acc = s.accuracy==null ? "—" : s.accuracy + "%";
+  let html = `<div class="card"><div class="statbox">`
+    + `<div class="metric"><div class="mn">正答率</div><div class="mv">${acc}</div></div>`
+    + `<div class="metric"><div class="mn">解答数</div><div class="mv">${s.total_seen}</div></div>`
+    + `<div class="metric"><div class="mn">克服XP</div><div class="mv">${s.profile.rank.xp}</div></div>`
+    + `<div class="metric"><div class="mn">今日の復習</div><div class="mv">${s.due_count}</div></div>`
+    + `</div></div>`;
+  html += `<div class="card"><p class="label">レベル別</p>`;
+  html += s.by_level.length ? s.by_level.map(x=>statBar(x.level_label, x.accuracy, `${x.correct}/${x.seen}`)).join("") : '<p class="hint">まだ記録がありません。</p>';
+  html += `</div><div class="card"><p class="label">弱点になりやすい単元</p>`;
+  html += s.by_unit.length ? s.by_unit.slice(0,8).map(x=>statBar(`${x.level_label}・${x.unit}`, x.accuracy, `${x.correct}/${x.seen} 復習${x.review}`)).join("") : '<p class="hint">まだ記録がありません。</p>';
+  html += `</div><div class="card"><p class="label">最近触った問題</p>`;
+  if(s.recent.length){
+    html += '<table class="wk"><thead><tr><th>日時</th><th>問題</th><th>正/誤</th><th>状態</th></tr></thead><tbody>';
+    for(const r of s.recent){
+      const status = r.review ? "復習中" : r.mastered ? "克服" : "未克服";
+      html += `<tr><td class="acc">${esc((r.updated_at||"").slice(5,16))}</td>`
+           + `<td>[${esc(r.level_label)} #${r.number}・${esc(r.unit)}] ${esc(r.stem)}</td>`
+           + `<td class="acc">${r.correct}/${r.wrong}</td><td>${status}</td></tr>`;
+    }
+    html += "</tbody></table>";
+  } else {
+    html += '<p class="hint">まだ記録がありません。</p>';
+  }
+  html += "</div>";
+  $("#statsBody").innerHTML = html;
+}
+
+// 先生メニュー
+$("#teacherBtn").onclick = async ()=>{ await refreshStudents(); syncTeacherStudentSelects(); show("teacher"); };
+$("#teacherClose").onclick = ()=>{ show("home"); };
+
+// 紙入力グリッド
+let paperWrong = new Set();
+$("#paperBuild").onclick = ()=>{
+  const f=+$("#paperFrom").value, t=+$("#paperTo").value;
+  const lo=Math.min(f,t), hi=Math.max(f,t);
+  paperWrong = new Set();
+  let html="";
+  for(let n=1;n<=100;n++){
+    const inRange = n>=lo && n<=hi;
+    html+=`<button type="button" data-n="${n}" class="${inRange?'':'out'}" ${inRange?'':'disabled'}>${n}</button>`;
+  }
+  $("#paperGrid").innerHTML=html;
+  $("#paperGrid").querySelectorAll("button:not(.out)").forEach(b=>{
+    b.onclick=()=>{ const n=+b.dataset.n;
+      if(paperWrong.has(n)){ paperWrong.delete(n); b.classList.remove("on"); }
+      else { paperWrong.add(n); b.classList.add("on"); } };
+  });
+  $("#paperSubmit").disabled=false;
+  $("#paperToast").classList.add("hide");
+};
+$("#paperSubmit").onclick = async ()=>{
+  const student=$("#paperStudent").value;
+  if(!student){ alert("生徒を選んでください（ゲストには紙入力できません）"); return; }
+  const f=+$("#paperFrom").value, t=+$("#paperTo").value;
+  const res = await api("/api/paper", {student, level:$("#paperLevel").value,
+     from_no:Math.min(f,t), to_no:Math.max(f,t), wrong:[...paperWrong]});
+  const to=$("#paperToast"); to.classList.remove("hide");
+  to.textContent = `反映：${res.applied}問（新規克服 ${res.newly_mastered}・誤答 ${res.wrong}）／ +${res.xp_gained} XP → ${res.profile.rank.name}`;
+  await refreshStudents();
+};
+
+// 弱点ビュー
+$("#wkLoad").onclick = async ()=>{
+  const student=$("#wkStudent").value;
+  if(!student){ alert("生徒を選んでください"); return; }
+  const w = await api("/api/weakness", {student});
+  const r=w.profile.rank;
+  $("#wkProfile").innerHTML = `${esc(student)} — <b>${esc(r.name)}</b>（XP ${r.xp}/${r.max_xp}・全体${r.overall_pct}%）`;
+  const up = await api("/api/unit_progress", {student});
+  let html = renderCoverage(up.levels);
+  html += '<table class="wk"><thead><tr><th>レベル</th><th>単元</th><th>正答率</th><th>正/誤</th><th>克服</th></tr></thead><tbody>';
+  for(const u of w.units){
+    const acc = u.accuracy==null ? "—" : u.accuracy+"%";
+    const low = (u.accuracy!=null && u.accuracy<60) ? "lowacc" : "";
+    html += `<tr><td>${esc(u.level_label)}</td><td>${esc(u.unit)}</td>
+      <td class="acc ${low}">${acc}</td><td class="acc">${u.correct}/${u.wrong}</td>
+      <td class="acc">${u.mastered}</td></tr>`;
+  }
+  html += "</tbody></table>";
+
+  // よくある間違え方（正解 ← 選んだ誤答）
+  if(w.confusions && w.confusions.length){
+    html += '<p class="label" style="margin-top:18px">よくある間違え方</p>';
+    html += '<table class="wk"><thead><tr><th>レベル/単元</th><th>正解</th><th>選んだ誤答</th><th>回数</th></tr></thead><tbody>';
+    for(const c of w.confusions){
+      html += `<tr><td>${esc(c.level_label)}・${esc(c.unit)} <span class="hint">#${c.number}</span></td>
+        <td class="acc"><b>${esc(c.correct)}</b></td>
+        <td class="acc lowacc">${esc(c.chosen)}</td>
+        <td class="acc">${c.count}</td></tr>`;
+    }
+    html += "</tbody></table>";
+  }
+
+  if(w.review.length){
+    html += `<p class="label" style="margin-top:18px">未克服（復習リスト）${w.review.length}件</p><ul class="reviewlist">`;
+    for(const rv of w.review){
+      let miss = "";
+      if(rv.misses && rv.misses.length){
+        miss = ' <span class="hint">／ 誤答: ' +
+          rv.misses.map(m=>`${esc(m.choice)}${m.count>1?'×'+m.count:''}`).join("・") + '</span>';
+      }
+      html += `<li>[${esc(rv.level_label)} #${rv.number}・${esc(rv.unit)}] ${esc(rv.stem)}
+               <span class="hint">→ 正解 ${esc(rv.answer)}</span>${miss}</li>`;
+    }
+    html += "</ul>";
+  } else { html += '<p class="hint" style="margin-top:12px">未克服の問題はありません。</p>'; }
+  $("#wkBody").innerHTML = html;
+};
+
+// 単元カバレッジ・ヒートマップ（先生用）：克服0=赤／途中=黄／全克服=緑。手薄を上にソート。
+function renderCoverage(levels){
+  let html = '<p class="label">単元カバレッジ（克服状況）</p>';
+  for(const lv of levels){
+    const done = lv.units.filter(u=>u.complete).length;
+    html += `<div class="covhead">${esc(lv.label)} — ${done}/${lv.units.length} 単元クリア</div>`;
+    const units = lv.units.slice().sort((a,b)=>
+      (a.mastered/a.total) - (b.mastered/b.total) || b.review - a.review);
+    html += '<div class="cov">';
+    for(const u of units){
+      const cls = u.complete ? "g" : (u.mastered>0 ? "y" : "r");
+      const revtxt = u.review ? `・復習${u.review}` : "";
+      html += `<div class="cell ${cls}"><span class="cn">${esc(u.unit)}</span>`
+            + `<span class="cv">${u.mastered}/${u.total} 克服${revtxt}</span></div>`;
+    }
+    html += "</div>";
+  }
+  html += '<p class="covlegend"><span class="sw r"></span>克服0'
+        + '<span class="sw y"></span>途中<span class="sw g"></span>全克服</p>';
+  return html;
+}
+
+$("#wkPrint").onclick = ()=>{
+  const student=$("#wkStudent").value;
+  if(!student){ alert("生徒を選んでください"); return; }
+  window.open(`/api/homework?student=${encodeURIComponent(student)}`, "_blank");
+};
+
+init();
