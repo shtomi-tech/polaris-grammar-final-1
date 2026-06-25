@@ -1,0 +1,324 @@
+{
+  "items": [
+    {
+      "id": "junior_nouns_countable",
+      "course": "junior",
+      "level": "中1",
+      "unit": "名詞",
+      "item": "単数形・複数形",
+      "order": 8,
+      "explanation": {"rule": "数えられる名詞は、1つなら単数形、2つ以上なら複数形にする。", "form": "a book / two books", "usage": "ものの数をはっきり言うときに使う。", "example": "I have two books.", "translation": "私は本を2冊持っています。", "mistake": "two book のように、2つ以上なのに単数形のままにしない。"},
+      "practiceExamples": [
+        {"stem": "I have two ___.", "answer": "books", "distractors": ["book", "booking", "booked"], "translation": "私は本を2冊持っています。", "why": "two の後なので複数形 books。"},
+        {"stem": "She has a ___.", "answer": "cat", "distractors": ["cats", "cat's", "catting"], "translation": "彼女は猫を1匹飼っています。", "why": "a の後は単数名詞 cat。"},
+        {"stem": "There are three ___ in the room.", "answer": "chairs", "distractors": ["chair", "chair's", "chaired"], "translation": "部屋に椅子が3脚あります。", "why": "three の後なので複数形 chairs。"},
+        {"stem": "This is an ___.", "answer": "apple", "distractors": ["apples", "apple's", "appling"], "translation": "これはリンゴです。", "why": "an の後は単数名詞 apple。"},
+        {"stem": "We need five ___.", "answer": "boxes", "distractors": ["box", "boxs", "boxed"], "translation": "私たちは箱が5つ必要です。", "why": "box の複数形は boxes。"}
+      ]
+    },
+    {
+      "id": "junior_pronouns_basic",
+      "course": "junior",
+      "level": "中1",
+      "unit": "代名詞",
+      "item": "主格・所有格・目的格",
+      "order": 9,
+      "explanation": {"rule": "代名詞は文中の役割によって形が変わる。", "form": "I / my / me, he / his / him", "usage": "同じ名詞のくり返しを避けるときに使う。", "example": "I know him.", "translation": "私は彼を知っています。", "mistake": "動詞や前置詞の後ろでは he ではなく him を使う。"},
+      "practiceExamples": [
+        {"stem": "I know ___.", "answer": "him", "distractors": ["he", "his", "himself"], "translation": "私は彼を知っています。", "why": "know の目的語なので him。"},
+        {"stem": "This is ___ bag.", "answer": "my", "distractors": ["I", "me", "mine"], "translation": "これは私のかばんです。", "why": "名詞 bag の前なので所有格 my。"},
+        {"stem": "___ is my sister.", "answer": "She", "distractors": ["Her", "Hers", "Her's"], "translation": "彼女は私の姉妹です。", "why": "主語なので She。"},
+        {"stem": "Please help ___.", "answer": "me", "distractors": ["I", "my", "mine"], "translation": "私を手伝ってください。", "why": "help の目的語なので me。"},
+        {"stem": "That book is ___.", "answer": "mine", "distractors": ["my", "I", "me"], "translation": "あの本は私のものです。", "why": "単独で「私のもの」を表すので mine。"}
+      ]
+    },
+    {
+      "id": "junior_there_is",
+      "course": "junior",
+      "level": "中1",
+      "unit": "There is構文",
+      "item": "There is / There are",
+      "order": 10,
+      "explanation": {"rule": "There is / are は「〜がある・いる」を表す。", "form": "There is + 単数名詞 / There are + 複数名詞", "usage": "人やものの存在を言うときに使う。", "example": "There is a book on the desk.", "translation": "机の上に本があります。", "mistake": "後ろの名詞が複数なら There are にする。"},
+      "practiceExamples": [
+        {"stem": "___ a book on the desk.", "answer": "There is", "distractors": ["There are", "It is", "They are"], "translation": "机の上に本があります。", "why": "a book は単数なので There is。"},
+        {"stem": "___ three cats in the park.", "answer": "There are", "distractors": ["There is", "It is", "That is"], "translation": "公園に猫が3匹います。", "why": "three cats は複数なので There are。"},
+        {"stem": "___ a pen in my bag.", "answer": "There is", "distractors": ["There are", "They are", "These are"], "translation": "私のかばんにペンがあります。", "why": "a pen は単数。"},
+        {"stem": "___ many students in the room.", "answer": "There are", "distractors": ["There is", "It is", "This is"], "translation": "部屋に多くの生徒がいます。", "why": "many students は複数。"},
+        {"stem": "___ no water in the bottle.", "answer": "There is", "distractors": ["There are", "They are", "Those are"], "translation": "そのボトルには水がありません。", "why": "water は不可算名詞なので There is。"}
+      ]
+    },
+    {
+      "id": "junior_infinitive_basic",
+      "course": "junior",
+      "level": "中2",
+      "unit": "不定詞",
+      "item": "to + 動詞の原形",
+      "order": 11,
+      "explanation": {"rule": "不定詞は to + 動詞の原形で、名詞・形容詞・副詞の働きをする。", "form": "to + 動詞の原形", "usage": "「〜すること」「〜するための」「〜するために」を表す。", "example": "I want to study English.", "translation": "私は英語を勉強したいです。", "mistake": "to の後ろを過去形や三単現にしない。"},
+      "practiceExamples": [
+        {"stem": "I want ___ English.", "answer": "to study", "distractors": ["study", "studied", "studying"], "translation": "私は英語を勉強したいです。", "why": "want の後ろは to 不定詞。"},
+        {"stem": "She went to the library ___ books.", "answer": "to read", "distractors": ["read", "reading", "reads"], "translation": "彼女は本を読むために図書館へ行きました。", "why": "目的を表す副詞的用法。"},
+        {"stem": "I have homework ___.", "answer": "to do", "distractors": ["do", "doing", "did"], "translation": "私にはするべき宿題があります。", "why": "名詞 homework を後ろから説明する。"},
+        {"stem": "It is fun ___ soccer.", "answer": "to play", "distractors": ["play", "played", "playing"], "translation": "サッカーをするのは楽しいです。", "why": "It is ... to の形。"},
+        {"stem": "He knows how ___ a computer.", "answer": "to use", "distractors": ["use", "using", "used"], "translation": "彼はコンピュータの使い方を知っています。", "why": "how to + 原形。"}
+      ]
+    },
+    {
+      "id": "junior_gerund_basic",
+      "course": "junior",
+      "level": "中2",
+      "unit": "動名詞",
+      "item": "-ing が作る名詞",
+      "order": 12,
+      "explanation": {"rule": "動名詞は動詞の-ing形で「〜すること」を表す。", "form": "動詞 + -ing", "usage": "主語・目的語・前置詞の後ろで名詞のように使う。", "example": "I enjoy playing tennis.", "translation": "私はテニスをすることを楽しみます。", "mistake": "enjoy の後ろに to 不定詞は置かない。"},
+      "practiceExamples": [
+        {"stem": "I enjoy ___ tennis.", "answer": "playing", "distractors": ["play", "to play", "played"], "translation": "私はテニスをすることを楽しみます。", "why": "enjoy の後ろは動名詞。"},
+        {"stem": "___ English is important.", "answer": "Studying", "distractors": ["Study", "To studying", "Studied"], "translation": "英語を勉強することは重要です。", "why": "主語になる動名詞。"},
+        {"stem": "She finished ___ dinner.", "answer": "cooking", "distractors": ["cook", "to cook", "cooked"], "translation": "彼女は夕食を作り終えました。", "why": "finish の後ろは動名詞。"},
+        {"stem": "He is good at ___ soccer.", "answer": "playing", "distractors": ["play", "to play", "played"], "translation": "彼はサッカーが得意です。", "why": "前置詞 at の後ろは動名詞。"},
+        {"stem": "Thank you for ___ me.", "answer": "helping", "distractors": ["help", "to help", "helped"], "translation": "手伝ってくれてありがとう。", "why": "前置詞 for の後ろは動名詞。"}
+      ]
+    },
+    {
+      "id": "senior_conjunctions",
+      "course": "senior",
+      "level": "基礎",
+      "unit": "接続詞",
+      "item": "等位接続詞・従属接続詞",
+      "order": 201,
+      "explanation": {"rule": "接続詞は語・句・節をつなぐ。従属接続詞の後ろには主語と動詞が続く。", "form": "and / but / because / when / if + S V", "usage": "文と文の関係を表すときに使う。", "example": "I stayed home because it was raining.", "translation": "雨が降っていたので、私は家にいました。", "mistake": "because の後ろを名詞だけにしない。"},
+      "practiceExamples": [
+        {"stem": "I stayed home ___ it was raining.", "answer": "because", "distractors": ["during", "therefore", "despite"], "translation": "雨が降っていたので、私は家にいました。", "why": "理由を表す接続詞 because。"},
+        {"stem": "Call me ___ you arrive.", "answer": "when", "distractors": ["during", "because of", "until of"], "translation": "到着したら電話してください。", "why": "時を表す接続詞 when。"},
+        {"stem": "I like tea, ___ my brother likes coffee.", "answer": "but", "distractors": ["because", "if", "when"], "translation": "私は紅茶が好きですが、兄はコーヒーが好きです。", "why": "対比なので but。"},
+        {"stem": "You can stay here ___ you are quiet.", "answer": "if", "distractors": ["during", "because of", "despite"], "translation": "静かにしているなら、ここにいてよいです。", "why": "条件を表す if。"},
+        {"stem": "She is kind ___ smart.", "answer": "and", "distractors": ["because", "although", "if"], "translation": "彼女は親切で賢いです。", "why": "同じ働きの形容詞をつなぐ and。"}
+      ]
+    },
+    {
+      "id": "senior_subjunctive",
+      "course": "senior",
+      "level": "標準",
+      "unit": "仮定法",
+      "item": "仮定法過去・過去完了",
+      "order": 202,
+      "explanation": {"rule": "仮定法は事実と違う想像を、時制をずらして表す。", "form": "If S 過去形, S would 原形 / If S had p.p., S would have p.p.", "usage": "現実と違う現在・過去の話をするときに使う。", "example": "If I were rich, I would travel around the world.", "translation": "もし私が裕福なら、世界中を旅行するのに。", "mistake": "仮定法の if 節は、現在の話でも過去形を使う。"},
+      "practiceExamples": [
+        {"stem": "If I ___ rich, I would travel.", "answer": "were", "distractors": ["am", "will be", "have been"], "translation": "もし私が裕福なら旅行するのに。", "why": "現在の事実と違う仮定なので were。"},
+        {"stem": "If he had studied harder, he ___ passed.", "answer": "would have", "distractors": ["will have", "would", "had"], "translation": "もっと勉強していたら、彼は合格していたでしょう。", "why": "過去の仮定なので would have p.p.。"},
+        {"stem": "I wish I ___ a bird.", "answer": "were", "distractors": ["am", "will be", "have been"], "translation": "私が鳥だったらなあ。", "why": "I wish の仮定法。"},
+        {"stem": "If she ___ here, she would help us.", "answer": "were", "distractors": ["is", "will be", "has been"], "translation": "彼女がここにいれば、私たちを助けてくれるのに。", "why": "現在の事実と違う仮定。"},
+        {"stem": "If I had known it, I ___ told you.", "answer": "would have", "distractors": ["will have", "would", "had"], "translation": "それを知っていたら、あなたに言っていたでしょう。", "why": "過去の反実仮想。"}
+      ]
+    },
+    {
+      "id": "senior_modals",
+      "course": "senior",
+      "level": "基礎",
+      "unit": "助動詞",
+      "item": "基本助動詞",
+      "order": 203,
+      "explanation": {"rule": "助動詞は動詞に可能・義務・推量などの意味を加える。", "form": "助動詞 + 動詞の原形", "usage": "can, must, may, should, will などを意味に応じて使う。", "example": "You should study every day.", "translation": "あなたは毎日勉強するべきです。", "mistake": "助動詞の後ろに三単現のsをつけない。"},
+      "practiceExamples": [
+        {"stem": "You ___ study every day.", "answer": "should", "distractors": ["are", "studies", "studying"], "translation": "あなたは毎日勉強するべきです。", "why": "助言なので should。"},
+        {"stem": "He ___ be tired.", "answer": "may", "distractors": ["does", "is", "has"], "translation": "彼は疲れているかもしれません。", "why": "推量なので may。"},
+        {"stem": "You ___ not smoke here.", "answer": "must", "distractors": ["are", "do", "have"], "translation": "ここで喫煙してはいけません。", "why": "禁止は must not。"},
+        {"stem": "She can ___ French.", "answer": "speak", "distractors": ["speaks", "spoke", "speaking"], "translation": "彼女はフランス語を話せます。", "why": "助動詞の後ろは原形。"},
+        {"stem": "I ___ call you tomorrow.", "answer": "will", "distractors": ["am", "did", "have"], "translation": "私は明日あなたに電話します。", "why": "未来を表す will。"}
+      ]
+    },
+    {
+      "id": "senior_articles",
+      "course": "senior",
+      "level": "基礎",
+      "unit": "冠詞",
+      "item": "a / an / the",
+      "order": 204,
+      "explanation": {"rule": "a / an は初出・不特定、the は特定できる名詞につける。", "form": "a + 子音音 / an + 母音音 / the + 特定名詞", "usage": "名詞がどの程度特定されているかを示す。", "example": "I saw a dog. The dog was small.", "translation": "私は犬を見ました。その犬は小さかったです。", "mistake": "母音字ではなく母音音かどうかで a / an を選ぶ。"},
+      "practiceExamples": [
+        {"stem": "I saw ___ dog.", "answer": "a", "distractors": ["an", "the", "some"], "translation": "私は犬を見ました。", "why": "初出で不特定なので a。"},
+        {"stem": "She ate ___ apple.", "answer": "an", "distractors": ["a", "the", "some"], "translation": "彼女はリンゴを食べました。", "why": "apple は母音音で始まるので an。"},
+        {"stem": "___ sun rises in the east.", "answer": "The", "distractors": ["A", "An", "Some"], "translation": "太陽は東から昇ります。", "why": "唯一のものなので the。"},
+        {"stem": "I bought a book. ___ book was interesting.", "answer": "The", "distractors": ["A", "An", "Some"], "translation": "私は本を買いました。その本は面白かったです。", "why": "2回目で特定できるので the。"},
+        {"stem": "He is ___ honest man.", "answer": "an", "distractors": ["a", "the", "some"], "translation": "彼は正直な人です。", "why": "honest は h を発音せず母音音で始まる。"}
+      ]
+    },
+    {
+      "id": "senior_nouns",
+      "course": "senior",
+      "level": "基礎",
+      "unit": "名詞",
+      "item": "可算・不可算",
+      "order": 205,
+      "explanation": {"rule": "可算名詞は数えられ、不可算名詞はそのままでは数えない。", "form": "many + 可算複数 / much + 不可算", "usage": "数や量を正しく表すときに使う。", "example": "I don't have much information.", "translation": "私はあまり情報を持っていません。", "mistake": "information に s をつけない。"},
+      "practiceExamples": [
+        {"stem": "I don't have much ___.", "answer": "information", "distractors": ["informations", "inform", "informed"], "translation": "私はあまり情報を持っていません。", "why": "information は不可算名詞。"},
+        {"stem": "There are many ___ in the room.", "answer": "chairs", "distractors": ["chair", "furniture", "information"], "translation": "部屋には多くの椅子があります。", "why": "many の後ろは可算複数。"},
+        {"stem": "I need a piece of ___.", "answer": "advice", "distractors": ["advices", "advise", "advising"], "translation": "私は助言が1つ必要です。", "why": "advice は不可算名詞。"},
+        {"stem": "She has three ___.", "answer": "books", "distractors": ["book", "money", "water"], "translation": "彼女は本を3冊持っています。", "why": "three の後ろは可算複数。"},
+        {"stem": "We need some ___.", "answer": "water", "distractors": ["waters", "watered", "watering"], "translation": "私たちは水が必要です。", "why": "water は不可算名詞。"}
+      ]
+    },
+    {
+      "id": "senior_adjectives_adverbs",
+      "course": "senior",
+      "level": "基礎",
+      "unit": "形容詞・副詞",
+      "item": "形容詞と副詞の区別",
+      "order": 206,
+      "explanation": {"rule": "形容詞は名詞を、副詞は動詞・形容詞・文全体を修飾する。", "form": "形容詞 + 名詞 / 動詞 + 副詞", "usage": "何を修飾しているかで形を選ぶ。", "example": "She speaks English fluently.", "translation": "彼女は流ちょうに英語を話します。", "mistake": "動詞を修飾するのに形容詞を使わない。"},
+      "practiceExamples": [
+        {"stem": "She speaks English ___.", "answer": "fluently", "distractors": ["fluent", "fluency", "fluenter"], "translation": "彼女は流ちょうに英語を話します。", "why": "speaks を修飾するので副詞。"},
+        {"stem": "He is a ___ driver.", "answer": "careful", "distractors": ["carefully", "care", "caringly"], "translation": "彼は慎重な運転手です。", "why": "名詞 driver を修飾するので形容詞。"},
+        {"stem": "She answered the question ___.", "answer": "correctly", "distractors": ["correct", "correction", "correctness"], "translation": "彼女はその質問に正しく答えました。", "why": "answered を修飾するので副詞。"},
+        {"stem": "This is an ___ problem.", "answer": "easy", "distractors": ["easily", "ease", "easiness"], "translation": "これは簡単な問題です。", "why": "名詞 problem を修飾するので形容詞。"},
+        {"stem": "The test was ___ difficult.", "answer": "very", "distractors": ["many", "much of", "a few"], "translation": "そのテストはとても難しかったです。", "why": "形容詞 difficult を修飾する副詞 very。"}
+      ]
+    },
+    {
+      "id": "senior_sentence_patterns",
+      "course": "senior",
+      "level": "基礎",
+      "unit": "文型",
+      "item": "5文型",
+      "order": 207,
+      "explanation": {"rule": "英語の骨格はSV・SVC・SVO・SVOO・SVOCの5文型で整理できる。", "form": "S V / S V C / S V O / S V O O / S V O C", "usage": "動詞の後ろに何が続くかを判断するときに使う。", "example": "She made me happy.", "translation": "彼女は私を幸せにしました。", "mistake": "補語Cと目的語Oを混同しない。"},
+      "practiceExamples": [
+        {"stem": "She made me ___.", "answer": "happy", "distractors": ["happily", "happiness", "happen"], "translation": "彼女は私を幸せにしました。", "why": "me の状態を説明する補語。"},
+        {"stem": "He gave me a ___.", "answer": "present", "distractors": ["happy", "quickly", "beautifully"], "translation": "彼は私にプレゼントをくれました。", "why": "give はSVOOを作れる。"},
+        {"stem": "The soup tastes ___.", "answer": "good", "distractors": ["well", "goodly", "goods"], "translation": "そのスープはおいしいです。", "why": "taste の後ろは補語の形容詞。"},
+        {"stem": "I found the book ___.", "answer": "interesting", "distractors": ["interestingly", "interest", "interestedly"], "translation": "私はその本が面白いと思いました。", "why": "the book の状態を説明する補語。"},
+        {"stem": "They call him ___.", "answer": "Ken", "distractors": ["quickly", "kindly", "there"], "translation": "彼らは彼をケンと呼びます。", "why": "him の呼び名を表す補語。"}
+      ]
+    },
+    {
+      "id": "senior_infinitive",
+      "course": "senior",
+      "level": "基礎",
+      "unit": "不定詞",
+      "item": "名詞的・形容詞的・副詞的用法",
+      "order": 208,
+      "explanation": {"rule": "不定詞は to + 原形で、文中で名詞・形容詞・副詞の働きをする。", "form": "to + 動詞の原形", "usage": "意味と位置から用法を判断する。", "example": "I have many things to do.", "translation": "私にはするべきことがたくさんあります。", "mistake": "to の後ろに過去形や三単現を置かない。"},
+      "practiceExamples": [
+        {"stem": "I have many things ___.", "answer": "to do", "distractors": ["do", "doing", "did"], "translation": "私にはするべきことがたくさんあります。", "why": "名詞 things を後ろから説明する。"},
+        {"stem": "She studied hard ___ the exam.", "answer": "to pass", "distractors": ["pass", "passing", "passed"], "translation": "彼女は試験に合格するために一生懸命勉強しました。", "why": "目的を表す副詞的用法。"},
+        {"stem": "___ English is useful.", "answer": "To learn", "distractors": ["Learn", "Learning to", "Learned"], "translation": "英語を学ぶことは役に立ちます。", "why": "主語になる名詞的用法。"},
+        {"stem": "He is old enough ___ a car.", "answer": "to drive", "distractors": ["drive", "driving", "drove"], "translation": "彼は車を運転できる年齢です。", "why": "enough to の形。"},
+        {"stem": "This book is easy ___.", "answer": "to read", "distractors": ["read", "reading", "readed"], "translation": "この本は読みやすいです。", "why": "形容詞を補う不定詞。"}
+      ]
+    },
+    {
+      "id": "senior_participles",
+      "course": "senior",
+      "level": "標準",
+      "unit": "分詞",
+      "item": "現在分詞・過去分詞",
+      "order": 209,
+      "explanation": {"rule": "現在分詞は能動・進行、過去分詞は受動・完了の意味を持つ。", "form": "-ing / p.p.", "usage": "名詞を前後から修飾するときに使う。", "example": "The boy playing soccer is my brother.", "translation": "サッカーをしている少年は私の弟です。", "mistake": "修飾される名詞との関係が能動か受動かを見る。"},
+      "practiceExamples": [
+        {"stem": "The boy ___ soccer is my brother.", "answer": "playing", "distractors": ["played", "play", "plays"], "translation": "サッカーをしている少年は私の弟です。", "why": "boy が play する側なので現在分詞。"},
+        {"stem": "The language ___ in Canada is English and French.", "answer": "spoken", "distractors": ["speaking", "speaks", "speak"], "translation": "カナダで話されている言語は英語とフランス語です。", "why": "language は話される側なので過去分詞。"},
+        {"stem": "Look at the ___ window.", "answer": "broken", "distractors": ["breaking", "break", "breaks"], "translation": "その壊れた窓を見なさい。", "why": "window は壊された状態。"},
+        {"stem": "The girl ___ over there is my friend.", "answer": "standing", "distractors": ["stood", "stand", "stands"], "translation": "あそこで立っている女の子は私の友人です。", "why": "girl が立っているので現在分詞。"},
+        {"stem": "This is a letter ___ by my mother.", "answer": "written", "distractors": ["writing", "wrote", "write"], "translation": "これは母によって書かれた手紙です。", "why": "letter は書かれた側なので過去分詞。"}
+      ]
+    },
+    {
+      "id": "senior_passive",
+      "course": "senior",
+      "level": "基礎",
+      "unit": "受動態",
+      "item": "be動詞 + 過去分詞",
+      "order": 210,
+      "explanation": {"rule": "受動態は主語が動作を受ける文で、be動詞 + 過去分詞で表す。", "form": "be動詞 + p.p.", "usage": "誰がしたかより、何がされたかを言いたいときに使う。", "example": "This song is loved by many people.", "translation": "この歌は多くの人に愛されています。", "mistake": "目的語を取らない自動詞は原則として受動態にできない。"},
+      "practiceExamples": [
+        {"stem": "This song is ___ by many people.", "answer": "loved", "distractors": ["love", "loving", "loves"], "translation": "この歌は多くの人に愛されています。", "why": "受動態は be + 過去分詞。"},
+        {"stem": "English is ___ in many countries.", "answer": "spoken", "distractors": ["speaking", "speak", "speaks"], "translation": "英語は多くの国で話されています。", "why": "English は話される側。"},
+        {"stem": "The window was ___ yesterday.", "answer": "broken", "distractors": ["breaking", "break", "breaks"], "translation": "その窓は昨日壊されました。", "why": "was + 過去分詞。"},
+        {"stem": "This temple was ___ 300 years ago.", "answer": "built", "distractors": ["building", "build", "builds"], "translation": "この寺は300年前に建てられました。", "why": "build の過去分詞 built。"},
+        {"stem": "The room is ___ every day.", "answer": "cleaned", "distractors": ["clean", "cleaning", "cleans"], "translation": "その部屋は毎日掃除されます。", "why": "is + cleaned で受動態。"}
+      ]
+    },
+    {
+      "id": "senior_comparison",
+      "course": "senior",
+      "level": "基礎",
+      "unit": "比較",
+      "item": "原級・比較級・最上級",
+      "order": 211,
+      "explanation": {"rule": "比較は同じ程度・より〜・最も〜を表す。", "form": "as ... as / -er than / the -est", "usage": "人やものの性質を比べるときに使う。", "example": "This book is more interesting than that one.", "translation": "この本はあの本より面白いです。", "mistake": "最上級には通常 the をつける。"},
+      "practiceExamples": [
+        {"stem": "This book is ___ interesting than that one.", "answer": "more", "distractors": ["most", "as", "very"], "translation": "この本はあの本より面白いです。", "why": "interesting の比較級は more interesting。"},
+        {"stem": "He is ___ tallest boy in the class.", "answer": "the", "distractors": ["a", "an", "more"], "translation": "彼はクラスで一番背が高い少年です。", "why": "最上級には通常 the。"},
+        {"stem": "She is as tall ___ her sister.", "answer": "as", "distractors": ["than", "to", "from"], "translation": "彼女は姉妹と同じくらい背が高いです。", "why": "as ... as の形。"},
+        {"stem": "This question is ___ than that one.", "answer": "easier", "distractors": ["easy", "easiest", "more easy"], "translation": "この問題はあの問題より簡単です。", "why": "easy の比較級は easier。"},
+        {"stem": "This is the ___ important point.", "answer": "most", "distractors": ["more", "as", "very"], "translation": "これが最も重要な点です。", "why": "important の最上級は most important。"}
+      ]
+    },
+    {
+      "id": "senior_relatives",
+      "course": "senior",
+      "level": "標準",
+      "unit": "関係詞",
+      "item": "関係代名詞・関係副詞",
+      "order": 212,
+      "explanation": {"rule": "関係詞は名詞を後ろから説明する節を作る。", "form": "先行詞 + who / which / that / where + S V", "usage": "名詞に詳しい説明を加えるときに使う。", "example": "The boy who lives next door is my friend.", "translation": "隣に住んでいる少年は私の友人です。", "mistake": "関係詞節の中で足りない要素を確認する。"},
+      "practiceExamples": [
+        {"stem": "The boy ___ lives next door is my friend.", "answer": "who", "distractors": ["which", "where", "when"], "translation": "隣に住んでいる少年は私の友人です。", "why": "先行詞が人で主格なので who。"},
+        {"stem": "This is the book ___ I bought yesterday.", "answer": "which", "distractors": ["who", "where", "when"], "translation": "これは私が昨日買った本です。", "why": "先行詞が物なので which。"},
+        {"stem": "This is the city ___ I was born.", "answer": "where", "distractors": ["which", "who", "when"], "translation": "ここは私が生まれた町です。", "why": "場所を表す関係副詞 where。"},
+        {"stem": "I know the girl ___ father is a doctor.", "answer": "whose", "distractors": ["who", "which", "where"], "translation": "私は父親が医者である少女を知っています。", "why": "所有関係を表す whose。"},
+        {"stem": "The day ___ we met was rainy.", "answer": "when", "distractors": ["where", "who", "which"], "translation": "私たちが会った日は雨でした。", "why": "時を表す関係副詞 when。"}
+      ]
+    },
+    {
+      "id": "senior_prepositions",
+      "course": "senior",
+      "level": "基礎",
+      "unit": "前置詞",
+      "item": "時・場所の前置詞",
+      "order": 213,
+      "explanation": {"rule": "前置詞は名詞の前に置き、時・場所・方向・関係を表す。", "form": "at / on / in / by / for / with + 名詞", "usage": "名詞を文の中で修飾語として働かせる。", "example": "I arrived at the station at seven.", "translation": "私は7時に駅に着きました。", "mistake": "時刻は at、曜日・日付は on、月・年は in を基本にする。"},
+      "practiceExamples": [
+        {"stem": "I arrived ___ the station at seven.", "answer": "at", "distractors": ["in", "on", "by"], "translation": "私は7時に駅に着きました。", "why": "地点としての駅には at。"},
+        {"stem": "She was born ___ 2010.", "answer": "in", "distractors": ["on", "at", "by"], "translation": "彼女は2010年に生まれました。", "why": "年には in。"},
+        {"stem": "We have a test ___ Monday.", "answer": "on", "distractors": ["in", "at", "by"], "translation": "私たちは月曜日にテストがあります。", "why": "曜日には on。"},
+        {"stem": "He goes to school ___ bus.", "answer": "by", "distractors": ["on", "in", "at"], "translation": "彼はバスで学校へ行きます。", "why": "交通手段は by。"},
+        {"stem": "She is good ___ English.", "answer": "at", "distractors": ["in", "on", "by"], "translation": "彼女は英語が得意です。", "why": "be good at の形。"}
+      ]
+    },
+    {
+      "id": "senior_negation_questions",
+      "course": "senior",
+      "level": "基礎",
+      "unit": "否定・疑問",
+      "item": "否定表現と疑問詞",
+      "order": 214,
+      "explanation": {"rule": "否定は not / no / never などで表し、疑問詞は不足情報をたずねる。", "form": "not / no / never / who / what / where / when / why / how", "usage": "否定や質問の範囲を正確に示す。", "example": "I have never seen such a beautiful view.", "translation": "私はそんな美しい景色を見たことがありません。", "mistake": "not の位置で否定の範囲が変わる。"},
+      "practiceExamples": [
+        {"stem": "I have ___ seen such a beautiful view.", "answer": "never", "distractors": ["ever", "yet", "already"], "translation": "私はそんな美しい景色を見たことがありません。", "why": "never は経験の否定。"},
+        {"stem": "___ did you go yesterday?", "answer": "Where", "distractors": ["Who", "What", "Why"], "translation": "あなたは昨日どこへ行きましたか。", "why": "場所をたずねるので where。"},
+        {"stem": "___ do you study English?", "answer": "Why", "distractors": ["Who", "Which", "Where"], "translation": "なぜ英語を勉強するのですか。", "why": "理由をたずねるので why。"},
+        {"stem": "There is ___ water in the bottle.", "answer": "no", "distractors": ["not", "never", "none"], "translation": "そのボトルには水がありません。", "why": "名詞 water の前で no を使う。"},
+        {"stem": "I do ___ like coffee.", "answer": "not", "distractors": ["no", "never", "none"], "translation": "私はコーヒーが好きではありません。", "why": "一般動詞の否定は do not。"}
+      ]
+    },
+    {
+      "id": "senior_emphasis_inversion",
+      "course": "senior",
+      "level": "入試実戦",
+      "unit": "強調構文・倒置",
+      "item": "It is ... that / 倒置",
+      "order": 215,
+      "explanation": {"rule": "強調構文は It is ... that で特定部分を強調し、倒置は語順を変えて強調や文法条件を示す。", "form": "It is X that ... / Never V S ...", "usage": "英文の焦点や強調を読み取るときに使う。", "example": "It was Tom that broke the window.", "translation": "窓を割ったのはトムでした。", "mistake": "It is ... that の ... には強調したい語句が入る。"},
+      "practiceExamples": [
+        {"stem": "It was Tom ___ broke the window.", "answer": "that", "distractors": ["whoever", "where", "when"], "translation": "窓を割ったのはトムでした。", "why": "強調構文は It is/was ... that。"},
+        {"stem": "It is this book ___ I want to read.", "answer": "that", "distractors": ["where", "when", "whose"], "translation": "私が読みたいのはこの本です。", "why": "this book を強調する構文。"},
+        {"stem": "Never ___ I seen such a view.", "answer": "have", "distractors": ["has", "did", "am"], "translation": "私はそんな景色を一度も見たことがありません。", "why": "否定語 Never が文頭に出ると倒置。"},
+        {"stem": "Only then ___ I understand the truth.", "answer": "did", "distractors": ["do", "am", "have"], "translation": "その時になって初めて私は真実を理解しました。", "why": "Only then が文頭に出ると倒置。"},
+        {"stem": "It was in Kyoto ___ I met her.", "answer": "that", "distractors": ["where", "when", "who"], "translation": "私が彼女に会ったのは京都でした。", "why": "場所句 in Kyoto を強調している。"}
+      ]
+    }
+  ]
+}

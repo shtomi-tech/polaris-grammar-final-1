@@ -1,0 +1,559 @@
+{
+  "items": [
+    {
+      "id": "junior_be_basic",
+      "course": "junior",
+      "level": "中1",
+      "unit": "be動詞",
+      "item": "am / are / is",
+      "order": 1,
+      "explanation": {
+        "rule": "主語に合わせて am / are / is を使い分ける。",
+        "form": "I am / You are / He is / She is / It is / We are / They are",
+        "usage": "人やものの名前・状態・性質・場所を表すときに使う。",
+        "example": "I am a student.",
+        "translation": "私は生徒です。",
+        "mistake": "I are や He am のように、主語とbe動詞をずらさない。"
+      },
+      "memorySeeds": [
+        {
+          "stem": "I の後に置くbe動詞はどれ？",
+          "answer": "am",
+          "distractors": ["are", "is", "be"],
+          "why": "I だけは am を使う。"
+        },
+        {
+          "stem": "He / She / It の後に置くbe動詞はどれ？",
+          "answer": "is",
+          "distractors": ["am", "are", "do"],
+          "why": "三人称単数の主語には is を使う。"
+        }
+      ],
+      "practiceSeeds": [
+        {"stem": "I ___ a student.", "answer": "am", "translation": "私は生徒です。", "why": "主語が I なので am を使う。"},
+        {"stem": "You ___ kind.", "answer": "are", "translation": "あなたは親切です。", "why": "主語が You なので are を使う。"},
+        {"stem": "He ___ my brother.", "answer": "is", "translation": "彼は私の兄弟です。", "why": "主語が He なので is を使う。"},
+        {"stem": "They ___ in the park.", "answer": "are", "translation": "彼らは公園にいます。", "why": "主語が They なので are を使う。"},
+        {"stem": "It ___ cold today.", "answer": "is", "translation": "今日は寒いです。", "why": "主語が It なので is を使う。"}
+      ]
+    },
+    {
+      "id": "junior_general_present",
+      "course": "junior",
+      "level": "中1",
+      "unit": "一般動詞",
+      "item": "現在形と三単現のs",
+      "order": 2,
+      "explanation": {
+        "rule": "主語が三人称単数で現在の文では、一般動詞に s / es をつける。",
+        "form": "I play / You play / He plays / She studies",
+        "usage": "ふだんすること・習慣・事実を表すときに使う。",
+        "example": "She plays tennis.",
+        "translation": "彼女はテニスをします。",
+        "mistake": "does を使う疑問文・否定文では、動詞は原形に戻る。"
+      },
+      "memorySeeds": [
+        {
+          "stem": "三単現のsが必要な主語はどれ？",
+          "answer": "He",
+          "distractors": ["I", "You", "They"],
+          "why": "He は三人称単数なので、現在形では動詞に s がつく。"
+        },
+        {
+          "stem": "She の後に続く正しい形はどれ？",
+          "answer": "studies",
+          "distractors": ["study", "studying", "studied"],
+          "why": "study は y を i に変えて es をつけ、studies になる。"
+        }
+      ],
+      "practiceSeeds": [
+        {"stem": "She ___ tennis every Sunday.", "answer": "plays", "translation": "彼女は毎週日曜日にテニスをします。", "why": "主語が She なので play に s をつける。"},
+        {"stem": "They ___ English after school.", "answer": "study", "translation": "彼らは放課後に英語を勉強します。", "why": "主語が They なので動詞は原形。"},
+        {"stem": "My father ___ coffee every morning.", "answer": "drinks", "translation": "父は毎朝コーヒーを飲みます。", "why": "My father は三人称単数なので drinks。"},
+        {"stem": "I ___ soccer on Fridays.", "answer": "play", "translation": "私は金曜日にサッカーをします。", "why": "主語が I なので動詞は原形。"},
+        {"stem": "Tom ___ in Tokyo.", "answer": "lives", "translation": "トムは東京に住んでいます。", "why": "Tom は三人称単数なので lives。"}
+      ]
+    },
+    {
+      "id": "junior_questions_basic",
+      "course": "junior",
+      "level": "中1",
+      "unit": "疑問文",
+      "item": "be動詞・一般動詞の疑問文",
+      "order": 3,
+      "explanation": {
+        "rule": "be動詞の文はbe動詞を前へ、一般動詞の文は Do / Does / Did を前へ出す。",
+        "form": "Are you ...? / Do you ...? / Does he ...? / Did you ...?",
+        "usage": "相手にたずねる文を作るときに使う。",
+        "example": "Does she like music?",
+        "translation": "彼女は音楽が好きですか。",
+        "mistake": "Does / Did を使ったら、後ろの一般動詞は原形に戻す。"
+      },
+      "memorySeeds": [
+        {
+          "stem": "She likes music. を疑問文にするとき、文頭に置く語は？",
+          "answer": "Does",
+          "distractors": ["Do", "Is", "Did"],
+          "why": "主語が三人称単数・現在なので Does を使う。"
+        },
+        {
+          "stem": "Are you busy? のような疑問文を作る品詞は？",
+          "answer": "be動詞",
+          "distractors": ["一般動詞", "前置詞", "接続詞"],
+          "why": "be動詞の文では be動詞を文頭に出して疑問文を作る。"
+        }
+      ],
+      "practiceSeeds": [
+        {"stem": "___ you busy now?", "answer": "Are", "translation": "あなたは今忙しいですか。", "why": "be動詞 are を文頭に出す。"},
+        {"stem": "___ she like music?", "answer": "Does", "translation": "彼女は音楽が好きですか。", "why": "主語が she なので Does を使い、like は原形。"},
+        {"stem": "___ they play soccer?", "answer": "Do", "translation": "彼らはサッカーをしますか。", "why": "主語が they なので Do を使う。"},
+        {"stem": "___ he at home?", "answer": "Is", "translation": "彼は家にいますか。", "why": "be動詞 is を文頭に出す。"},
+        {"stem": "___ you watch the movie yesterday?", "answer": "Did", "translation": "あなたは昨日その映画を見ましたか。", "why": "過去の一般動詞の疑問文なので Did を使う。"}
+      ]
+    },
+    {
+      "id": "junior_present_progressive",
+      "course": "junior",
+      "level": "中1",
+      "unit": "現在進行形",
+      "item": "be動詞 + -ing",
+      "order": 4,
+      "explanation": {
+        "rule": "今している最中の動作は be動詞 + 動詞の-ing形で表す。",
+        "form": "am / are / is + -ing",
+        "usage": "now などと一緒に、今進行中の動作を表す。",
+        "example": "She is studying English now.",
+        "translation": "彼女は今英語を勉強しています。",
+        "mistake": "be動詞を抜かして She studying のようにしない。"
+      },
+      "memorySeeds": [
+        {
+          "stem": "現在進行形の形はどれ？",
+          "answer": "be動詞 + -ing",
+          "distractors": ["have + 過去分詞", "助動詞 + 原形", "to + 原形"],
+          "why": "現在進行形は be動詞 + 動詞の-ing形で作る。"
+        },
+        {
+          "stem": "now と相性がよい形はどれ？",
+          "answer": "現在進行形",
+          "distractors": ["過去完了", "仮定法過去", "比較級"],
+          "why": "now は今している動作を表す現在進行形とよく使う。"
+        }
+      ],
+      "practiceSeeds": [
+        {"stem": "She is ___ English now.", "answer": "studying", "translation": "彼女は今英語を勉強しています。", "why": "現在進行形なので study の -ing形 studying。"},
+        {"stem": "They are ___ soccer in the park.", "answer": "playing", "translation": "彼らは公園でサッカーをしています。", "why": "are + -ing の形にする。"},
+        {"stem": "I am ___ dinner now.", "answer": "cooking", "translation": "私は今夕食を作っています。", "why": "am + cooking で現在進行形。"},
+        {"stem": "He is ___ TV.", "answer": "watching", "translation": "彼はテレビを見ています。", "why": "watch の -ing形は watching。"},
+        {"stem": "We are ___ to music.", "answer": "listening", "translation": "私たちは音楽を聞いています。", "why": "listen の -ing形 listening を使う。"}
+      ]
+    },
+    {
+      "id": "senior_present_past",
+      "course": "senior",
+      "level": "基礎",
+      "unit": "時制",
+      "item": "現在形・過去形",
+      "order": 101,
+      "explanation": {
+        "rule": "現在形は現在の習慣・事実、過去形は過去の一点の出来事を表す。",
+        "form": "現在形: 動詞の現在形 / 過去形: 動詞の過去形",
+        "usage": "every day なら現在形、yesterday / last ... なら過去形を使うことが多い。",
+        "example": "I visited Kyoto last year.",
+        "translation": "私は昨年京都を訪れました。",
+        "mistake": "明確な過去時点がある文で現在完了を使わない。"
+      },
+      "memorySeeds": [
+        {
+          "stem": "yesterday と一緒に使う基本時制は？",
+          "answer": "過去形",
+          "distractors": ["現在形", "現在完了形", "未来完了形"],
+          "why": "yesterday は明確な過去時点なので過去形を使う。"
+        },
+        {
+          "stem": "習慣や一般的事実を表す基本時制は？",
+          "answer": "現在形",
+          "distractors": ["過去形", "過去完了形", "未来進行形"],
+          "why": "現在形は習慣・不変の事実を表す。"
+        }
+      ],
+      "practiceSeeds": [
+        {"stem": "I ___ Kyoto last year.", "answer": "visited", "translation": "私は昨年京都を訪れました。", "why": "last year があるので過去形 visited。"},
+        {"stem": "She ___ tennis every Sunday.", "answer": "plays", "translation": "彼女は毎週日曜日にテニスをします。", "why": "every Sunday は習慣なので現在形。主語が She なので plays。"},
+        {"stem": "They ___ in Osaka in 2020.", "answer": "lived", "translation": "彼らは2020年に大阪に住んでいました。", "why": "in 2020 は過去時点なので過去形。"},
+        {"stem": "Water ___ at 100 degrees Celsius.", "answer": "boils", "translation": "水は摂氏100度で沸騰します。", "why": "一般的事実なので現在形 boils。"},
+        {"stem": "He ___ the book yesterday.", "answer": "read", "translation": "彼は昨日その本を読みました。", "why": "yesterday があるので過去形。read は綴りが同じ過去形。"}
+      ]
+    },
+    {
+      "id": "senior_progressive",
+      "course": "senior",
+      "level": "基礎",
+      "unit": "時制",
+      "item": "進行形",
+      "order": 102,
+      "explanation": {
+        "rule": "進行形は、ある時点で動作が進行中であることを表す。",
+        "form": "be動詞 + -ing",
+        "usage": "now, at that time, when ... などと一緒に使われやすい。",
+        "example": "I was studying when you called me.",
+        "translation": "あなたが電話したとき、私は勉強していました。",
+        "mistake": "know や like など状態を表す動詞は、ふつう進行形にしない。"
+      },
+      "memorySeeds": [
+        {
+          "stem": "進行形の中心イメージは？",
+          "answer": "動作が進行中",
+          "distractors": ["経験がある", "過去より前", "もし〜なら"],
+          "why": "進行形は、ある時点で動作が進んでいることを表す。"
+        },
+        {
+          "stem": "進行形にしにくい動詞はどれ？",
+          "answer": "know",
+          "distractors": ["run", "study", "write"],
+          "why": "know は状態動詞なので、ふつう進行形にしない。"
+        }
+      ],
+      "practiceSeeds": [
+        {"stem": "I was ___ when you called me.", "answer": "studying", "translation": "あなたが電話したとき、私は勉強していました。", "why": "was + -ing で過去進行形。"},
+        {"stem": "She is ___ a letter now.", "answer": "writing", "translation": "彼女は今手紙を書いています。", "why": "is + writing で現在進行形。"},
+        {"stem": "They were ___ soccer at that time.", "answer": "playing", "translation": "彼らはその時サッカーをしていました。", "why": "were + playing で過去進行形。"},
+        {"stem": "The baby is ___ now.", "answer": "sleeping", "translation": "その赤ちゃんは今眠っています。", "why": "is + sleeping で進行中の状態を表す。"},
+        {"stem": "We are ___ for the bus.", "answer": "waiting", "translation": "私たちはバスを待っています。", "why": "are + waiting で現在進行形。"}
+      ]
+    },
+    {
+      "id": "senior_present_perfect_continuation",
+      "course": "senior",
+      "level": "基礎",
+      "unit": "時制",
+      "item": "現在完了・継続",
+      "order": 103,
+      "explanation": {
+        "rule": "過去から現在まで同じ状態が続いていることを表す。",
+        "form": "have / has + 過去分詞",
+        "usage": "for や since と一緒に使われやすい。",
+        "example": "I have lived here for three years.",
+        "translation": "私はここに3年間住んでいます。",
+        "mistake": "for は期間、since は開始時点を表す。"
+      },
+      "memorySeeds": [
+        {
+          "stem": "現在完了の継続用法と相性がよい語は？",
+          "answer": "for",
+          "distractors": ["yesterday", "last night", "now"],
+          "why": "for は期間を表し、継続用法と相性がよい。"
+        },
+        {
+          "stem": "since が表すものは？",
+          "answer": "開始時点",
+          "distractors": ["期間", "頻度", "結果"],
+          "why": "since は「〜以来」という開始時点を表す。"
+        }
+      ],
+      "practiceSeeds": [
+        {"stem": "I have ___ here for three years.", "answer": "lived", "translation": "私はここに3年間住んでいます。", "why": "現在完了は have + 過去分詞。live の過去分詞は lived。"},
+        {"stem": "She has ___ sick since Monday.", "answer": "been", "translation": "彼女は月曜日からずっと病気です。", "why": "状態の継続なので has been。"},
+        {"stem": "We have ___ each other for ten years.", "answer": "known", "translation": "私たちは10年間お互いを知っています。", "why": "know の過去分詞 known を使う。"},
+        {"stem": "He has ___ in this city since 2020.", "answer": "worked", "translation": "彼は2020年からこの町で働いています。", "why": "since 2020 なので現在完了の継続。"},
+        {"stem": "They have ___ married for five years.", "answer": "been", "translation": "彼らは結婚して5年になります。", "why": "状態の継続は have been married。"}
+      ]
+    },
+    {
+      "id": "senior_present_perfect_experience",
+      "course": "senior",
+      "level": "基礎",
+      "unit": "時制",
+      "item": "現在完了・経験",
+      "order": 104,
+      "explanation": {
+        "rule": "過去から現在までの間にしたことがある経験を表す。",
+        "form": "have / has + 過去分詞",
+        "usage": "ever, never, once, twice, before などと一緒に使われやすい。",
+        "example": "I have visited Kyoto twice.",
+        "translation": "私は京都を2回訪れたことがあります。",
+        "mistake": "yesterday のような明確な過去時点とは一緒に使わない。"
+      },
+      "memorySeeds": [
+        {
+          "stem": "現在完了の経験用法が表す意味は？",
+          "answer": "したことがある",
+          "distractors": ["今している", "これからする", "過去より前にした"],
+          "why": "経験用法は、今までにしたことがあるかを表す。"
+        },
+        {
+          "stem": "経験用法と相性がよい語は？",
+          "answer": "ever",
+          "distractors": ["yesterday", "now", "last week"],
+          "why": "ever は「今までに」という意味で経験用法とよく使う。"
+        }
+      ],
+      "practiceSeeds": [
+        {"stem": "I have ___ Kyoto twice.", "answer": "visited", "translation": "私は京都を2回訪れたことがあります。", "why": "現在完了は have + 過去分詞。visit の過去分詞は visited。"},
+        {"stem": "Have you ever ___ sushi?", "answer": "eaten", "translation": "あなたは今までに寿司を食べたことがありますか。", "why": "eat の過去分詞 eaten を使う。"},
+        {"stem": "She has never ___ abroad.", "answer": "been", "translation": "彼女は一度も海外に行ったことがありません。", "why": "have been abroad で海外へ行った経験を表す。"},
+        {"stem": "He has ___ this movie before.", "answer": "seen", "translation": "彼は以前この映画を見たことがあります。", "why": "see の過去分詞 seen を使う。"},
+        {"stem": "We have ___ there once.", "answer": "stayed", "translation": "私たちはそこに一度泊まったことがあります。", "why": "stay の過去分詞 stayed を使う。"}
+      ]
+    },
+    {
+      "id": "senior_present_perfect_completion",
+      "course": "senior",
+      "level": "基礎",
+      "unit": "時制",
+      "item": "現在完了・完了",
+      "order": 105,
+      "explanation": {
+        "rule": "過去に始まった動作が、今ちょうど終わった・すでに終わったことを表す。",
+        "form": "have / has + 過去分詞",
+        "usage": "already, yet, just などと一緒に使われやすい。",
+        "example": "I have just finished my homework.",
+        "translation": "私はちょうど宿題を終えたところです。",
+        "mistake": "yet は疑問文・否定文で使われやすい。"
+      },
+      "memorySeeds": [
+        {
+          "stem": "現在完了の完了用法と相性がよい語は？",
+          "answer": "just",
+          "distractors": ["yesterday", "ago", "last year"],
+          "why": "just は「ちょうど」という意味で完了用法と相性がよい。"
+        },
+        {
+          "stem": "否定文で「まだ〜していない」を表す語は？",
+          "answer": "yet",
+          "distractors": ["already", "ever", "before"],
+          "why": "not ... yet で「まだ〜していない」を表す。"
+        }
+      ],
+      "practiceSeeds": [
+        {"stem": "I have just ___ my homework.", "answer": "finished", "translation": "私はちょうど宿題を終えたところです。", "why": "現在完了は have + 過去分詞。finish の過去分詞は finished。"},
+        {"stem": "She has already ___ lunch.", "answer": "eaten", "translation": "彼女はすでに昼食を食べました。", "why": "eat の過去分詞 eaten を使う。"},
+        {"stem": "Have you ___ the report yet?", "answer": "written", "translation": "あなたはもうレポートを書きましたか。", "why": "write の過去分詞 written を使う。"},
+        {"stem": "He has not ___ the room yet.", "answer": "cleaned", "translation": "彼はまだ部屋を掃除していません。", "why": "not ... yet で未完了を表す。"},
+        {"stem": "We have just ___ at the station.", "answer": "arrived", "translation": "私たちはちょうど駅に着いたところです。", "why": "arrive の過去分詞 arrived を使う。"}
+      ]
+    },
+    {
+      "id": "junior_past_basic",
+      "course": "junior",
+      "level": "中1",
+      "unit": "過去形",
+      "item": "規則動詞・不規則動詞",
+      "order": 5,
+      "explanation": {
+        "rule": "過去の出来事は動詞を過去形にして表す。",
+        "form": "規則動詞: -ed / 不規則動詞: go-went, see-saw など",
+        "usage": "yesterday, last ..., ... ago など、過去を表す語句と一緒に使う。",
+        "example": "I went to the library yesterday.",
+        "translation": "私は昨日図書館へ行きました。",
+        "mistake": "過去形の疑問文・否定文では Did / didn't を使い、動詞は原形に戻す。"
+      },
+      "memorySeeds": [
+        {
+          "stem": "go の過去形はどれ？",
+          "answer": "went",
+          "distractors": ["goed", "gone", "going"],
+          "why": "go は不規則動詞で、過去形は went。"
+        },
+        {
+          "stem": "過去形と相性がよい語句はどれ？",
+          "answer": "yesterday",
+          "distractors": ["now", "every day", "tomorrow"],
+          "why": "yesterday は明確な過去時点なので過去形を使う。"
+        }
+      ],
+      "practiceSeeds": [
+        {"stem": "I ___ to the library yesterday.", "answer": "went", "translation": "私は昨日図書館へ行きました。", "why": "yesterday があるので go の過去形 went。"},
+        {"stem": "She ___ tennis last Sunday.", "answer": "played", "translation": "彼女は先週の日曜日にテニスをしました。", "why": "last Sunday があるので過去形 played。"},
+        {"stem": "We ___ a movie last night.", "answer": "saw", "translation": "私たちは昨夜映画を見ました。", "why": "see の過去形は saw。"},
+        {"stem": "He ___ his homework after dinner.", "answer": "did", "translation": "彼は夕食後に宿題をしました。", "why": "do の過去形は did。"},
+        {"stem": "They ___ in Osaka three years ago.", "answer": "lived", "translation": "彼らは3年前大阪に住んでいました。", "why": "ago があるので過去形 lived。"}
+      ]
+    },
+    {
+      "id": "junior_future_basic",
+      "course": "junior",
+      "level": "中2",
+      "unit": "未来表現",
+      "item": "will / be going to",
+      "order": 6,
+      "explanation": {
+        "rule": "未来のことは will または be going to で表す。",
+        "form": "will + 動詞の原形 / be going to + 動詞の原形",
+        "usage": "その場で決めた未来には will、前から決めている予定には be going to を使いやすい。",
+        "example": "I will call you later.",
+        "translation": "あとであなたに電話します。",
+        "mistake": "will の後ろは必ず動詞の原形にする。"
+      },
+      "memorySeeds": [
+        {
+          "stem": "will の後ろに置く動詞の形は？",
+          "answer": "原形",
+          "distractors": ["過去形", "-ing形", "過去分詞"],
+          "why": "助動詞 will の後ろは動詞の原形。"
+        },
+        {
+          "stem": "be going to の後ろに置く形は？",
+          "answer": "動詞の原形",
+          "distractors": ["過去形", "過去分詞", "三単現"],
+          "why": "be going to + 動詞の原形で未来を表す。"
+        }
+      ],
+      "practiceSeeds": [
+        {"stem": "I ___ call you later.", "answer": "will", "translation": "あとであなたに電話します。", "why": "未来の動作なので will + 原形。"},
+        {"stem": "She is ___ to visit Kyoto.", "answer": "going", "translation": "彼女は京都を訪れる予定です。", "why": "be going to の形にする。"},
+        {"stem": "We will ___ home soon.", "answer": "leave", "translation": "私たちはまもなく家を出ます。", "why": "will の後ろは動詞の原形 leave。"},
+        {"stem": "They are ___ to study tonight.", "answer": "going", "translation": "彼らは今夜勉強する予定です。", "why": "are going to + 原形で予定を表す。"},
+        {"stem": "He will ___ the window.", "answer": "open", "translation": "彼は窓を開けるでしょう。", "why": "will の後ろは原形 open。"}
+      ]
+    },
+    {
+      "id": "junior_aux_can",
+      "course": "junior",
+      "level": "中1",
+      "unit": "助動詞",
+      "item": "can",
+      "order": 7,
+      "explanation": {
+        "rule": "can は「〜できる」という能力・可能を表す。",
+        "form": "can + 動詞の原形",
+        "usage": "できること・可能なことを言うときに使う。",
+        "example": "I can swim.",
+        "translation": "私は泳ぐことができます。",
+        "mistake": "can の後ろに三単現のsや過去形を置かない。"
+      },
+      "memorySeeds": [
+        {
+          "stem": "can の意味として正しいものは？",
+          "answer": "〜できる",
+          "distractors": ["〜しなければならない", "〜するつもりだ", "〜した"],
+          "why": "can は能力・可能を表す助動詞。"
+        },
+        {
+          "stem": "can の後ろに置く動詞の形は？",
+          "answer": "原形",
+          "distractors": ["三単現", "過去形", "-ing形"],
+          "why": "助動詞の後ろは動詞の原形。"
+        }
+      ],
+      "practiceSeeds": [
+        {"stem": "I ___ swim.", "answer": "can", "translation": "私は泳ぐことができます。", "why": "能力を表すので can。"},
+        {"stem": "She can ___ English.", "answer": "speak", "translation": "彼女は英語を話せます。", "why": "can の後ろは原形 speak。"},
+        {"stem": "Can you ___ fast?", "answer": "swim", "translation": "あなたは速く泳げますか。", "why": "Can you の後ろは原形 swim。"},
+        {"stem": "He can ___ a computer.", "answer": "use", "translation": "彼はコンピュータを使えます。", "why": "can + 原形 use。"},
+        {"stem": "They can ___ the problem.", "answer": "solve", "translation": "彼らはその問題を解けます。", "why": "can の後ろは原形 solve。"}
+      ]
+    },
+    {
+      "id": "senior_past_perfect",
+      "course": "senior",
+      "level": "標準",
+      "unit": "時制",
+      "item": "過去完了",
+      "order": 106,
+      "explanation": {
+        "rule": "過去のある時点よりさらに前のことを had + 過去分詞で表す。",
+        "form": "had + 過去分詞",
+        "usage": "2つの過去の出来事の前後関係をはっきりさせたいときに使う。",
+        "example": "The train had left when I arrived.",
+        "translation": "私が到着したとき、電車はすでに出発していました。",
+        "mistake": "単に過去の出来事を並べるだけなら、過去完了が不要な場合もある。"
+      },
+      "memorySeeds": [
+        {
+          "stem": "過去完了の形はどれ？",
+          "answer": "had + 過去分詞",
+          "distractors": ["have + 過去分詞", "will + 原形", "be + -ing"],
+          "why": "過去完了は had + 過去分詞で作る。"
+        },
+        {
+          "stem": "過去完了が表しやすいものは？",
+          "answer": "過去より前",
+          "distractors": ["今している動作", "未来の予定", "一般的事実"],
+          "why": "過去完了は、過去の基準時より前の出来事を表す。"
+        }
+      ],
+      "practiceSeeds": [
+        {"stem": "The train ___ left when I arrived.", "answer": "had", "translation": "私が到着したとき、電車はすでに出発していました。", "why": "到着より前に出発していたので had + 過去分詞。"},
+        {"stem": "She had ___ home before I called.", "answer": "gone", "translation": "私が電話する前に、彼女は家に帰っていました。", "why": "go の過去分詞 gone を使う。"},
+        {"stem": "He had ___ the report by noon.", "answer": "completed", "translation": "彼は正午までにレポートを完成させていました。", "why": "had + completed で過去完了。"},
+        {"stem": "They had ___ before the rain started.", "answer": "left", "translation": "雨が降り始める前に彼らは出発していました。", "why": "leave の過去分詞 left を使う。"},
+        {"stem": "I had ___ dinner when she arrived.", "answer": "finished", "translation": "彼女が到着したとき、私は夕食を終えていました。", "why": "到着より前に終えていたので過去完了。"}
+      ]
+    },
+    {
+      "id": "senior_future_perfect",
+      "course": "senior",
+      "level": "標準",
+      "unit": "時制",
+      "item": "未来完了",
+      "order": 107,
+      "explanation": {
+        "rule": "未来のある時点までに完了していることを will have + 過去分詞で表す。",
+        "form": "will have + 過去分詞",
+        "usage": "by tomorrow, by next year など、未来の期限と一緒に使いやすい。",
+        "example": "I will have finished the work by tomorrow.",
+        "translation": "私は明日までにその仕事を終えているでしょう。",
+        "mistake": "by は期限を表し、until は継続の終点を表す。"
+      },
+      "memorySeeds": [
+        {
+          "stem": "未来完了の形はどれ？",
+          "answer": "will have + 過去分詞",
+          "distractors": ["had + 過去分詞", "will be + -ing", "have + 過去分詞"],
+          "why": "未来完了は will have + 過去分詞で作る。"
+        },
+        {
+          "stem": "未来完了と相性がよい語句は？",
+          "answer": "by next year",
+          "distractors": ["yesterday", "now", "last night"],
+          "why": "by next year は未来の期限を表す。"
+        }
+      ],
+      "practiceSeeds": [
+        {"stem": "I ___ finished the work by tomorrow.", "answer": "will have", "translation": "私は明日までにその仕事を終えているでしょう。", "why": "未来完了は will have + 過去分詞。"},
+        {"stem": "She will have ___ the book by next week.", "answer": "read", "translation": "彼女は来週までにその本を読んでしまっているでしょう。", "why": "will have + 過去分詞。read は過去分詞も read。"},
+        {"stem": "They will have ___ by the time we arrive.", "answer": "left", "translation": "私たちが到着する頃には、彼らは出発しているでしょう。", "why": "leave の過去分詞 left を使う。"},
+        {"stem": "He will have ___ the project by Friday.", "answer": "completed", "translation": "彼は金曜日までにその計画を完了しているでしょう。", "why": "will have completed で未来完了。"},
+        {"stem": "We will have ___ dinner before the show starts.", "answer": "finished", "translation": "ショーが始まる前に、私たちは夕食を終えているでしょう。", "why": "未来の基準時までの完了なので未来完了。"}
+      ]
+    },
+    {
+      "id": "senior_present_perfect_progressive",
+      "course": "senior",
+      "level": "標準",
+      "unit": "時制",
+      "item": "現在完了進行形",
+      "order": 108,
+      "explanation": {
+        "rule": "過去から現在まで続いている動作を have / has been -ing で表す。",
+        "form": "have / has been + -ing",
+        "usage": "動作が今までずっと続いていることを強調したいときに使う。",
+        "example": "I have been studying English for two hours.",
+        "translation": "私は2時間ずっと英語を勉強しています。",
+        "mistake": "状態動詞は現在完了進行形にしにくい。"
+      },
+      "memorySeeds": [
+        {
+          "stem": "現在完了進行形の形はどれ？",
+          "answer": "have been + -ing",
+          "distractors": ["have + 過去分詞", "had + 過去分詞", "will + 原形"],
+          "why": "現在完了進行形は have / has been + -ing。"
+        },
+        {
+          "stem": "現在完了進行形が強調するものは？",
+          "answer": "動作の継続",
+          "distractors": ["過去の一点", "未来の予定", "比較の差"],
+          "why": "過去から現在まで動作が続いていることを強調する。"
+        }
+      ],
+      "practiceSeeds": [
+        {"stem": "I have ___ English for two hours.", "answer": "been studying", "translation": "私は2時間ずっと英語を勉強しています。", "why": "現在完了進行形は have been + -ing。"},
+        {"stem": "She has ___ here since morning.", "answer": "been working", "translation": "彼女は朝からここで働き続けています。", "why": "has been + -ing で動作の継続。"},
+        {"stem": "It has ___ all day.", "answer": "been raining", "translation": "一日中雨が降り続いています。", "why": "has been raining で降り続いていることを表す。"},
+        {"stem": "They have ___ in Tokyo for a year.", "answer": "been living", "translation": "彼らは1年間東京に住み続けています。", "why": "have been living で継続を強調する。"},
+        {"stem": "We have ___ for the bus for thirty minutes.", "answer": "been waiting", "translation": "私たちは30分間バスを待ち続けています。", "why": "have been waiting で待つ動作の継続。"}
+      ]
+    }
+  ]
+}

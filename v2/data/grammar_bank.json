@@ -1,0 +1,5081 @@
+{
+  "memoryQuestions": [
+    {
+      "id": "junior_be_basic_memory_1",
+      "itemId": "junior_be_basic",
+      "mode": "memory",
+      "type": "rule",
+      "stem": "I の後に置くbe動詞はどれ？",
+      "choices": [
+        "is",
+        "be",
+        "am",
+        "are"
+      ],
+      "answer": "am",
+      "whyCorrect": "I だけは am を使う。",
+      "whyWrong": {
+        "are": "この文法事項のルールとは合わない選択肢です。",
+        "is": "この文法事項のルールとは合わない選択肢です。",
+        "be": "この文法事項のルールとは合わない選択肢です。"
+      }
+    },
+    {
+      "id": "junior_be_basic_memory_2",
+      "itemId": "junior_be_basic",
+      "mode": "memory",
+      "type": "rule",
+      "stem": "He / She / It の後に置くbe動詞はどれ？",
+      "choices": [
+        "is",
+        "am",
+        "are",
+        "do"
+      ],
+      "answer": "is",
+      "whyCorrect": "三人称単数の主語には is を使う。",
+      "whyWrong": {
+        "am": "この文法事項のルールとは合わない選択肢です。",
+        "are": "この文法事項のルールとは合わない選択肢です。",
+        "do": "この文法事項のルールとは合わない選択肢です。"
+      }
+    },
+    {
+      "id": "junior_general_present_memory_1",
+      "itemId": "junior_general_present",
+      "mode": "memory",
+      "type": "rule",
+      "stem": "三単現のsが必要な主語はどれ？",
+      "choices": [
+        "I",
+        "You",
+        "They",
+        "He"
+      ],
+      "answer": "He",
+      "whyCorrect": "He は三人称単数なので、現在形では動詞に s がつく。",
+      "whyWrong": {
+        "I": "この文法事項のルールとは合わない選択肢です。",
+        "You": "この文法事項のルールとは合わない選択肢です。",
+        "They": "この文法事項のルールとは合わない選択肢です。"
+      }
+    },
+    {
+      "id": "junior_general_present_memory_2",
+      "itemId": "junior_general_present",
+      "mode": "memory",
+      "type": "rule",
+      "stem": "She の後に続く正しい形はどれ？",
+      "choices": [
+        "study",
+        "studying",
+        "studied",
+        "studies"
+      ],
+      "answer": "studies",
+      "whyCorrect": "study は y を i に変えて es をつけ、studies になる。",
+      "whyWrong": {
+        "study": "この文法事項のルールとは合わない選択肢です。",
+        "studying": "この文法事項のルールとは合わない選択肢です。",
+        "studied": "この文法事項のルールとは合わない選択肢です。"
+      }
+    },
+    {
+      "id": "junior_questions_basic_memory_1",
+      "itemId": "junior_questions_basic",
+      "mode": "memory",
+      "type": "rule",
+      "stem": "She likes music. を疑問文にするとき、文頭に置く語は？",
+      "choices": [
+        "Did",
+        "Does",
+        "Do",
+        "Is"
+      ],
+      "answer": "Does",
+      "whyCorrect": "主語が三人称単数・現在なので Does を使う。",
+      "whyWrong": {
+        "Do": "この文法事項のルールとは合わない選択肢です。",
+        "Is": "この文法事項のルールとは合わない選択肢です。",
+        "Did": "この文法事項のルールとは合わない選択肢です。"
+      }
+    },
+    {
+      "id": "junior_questions_basic_memory_2",
+      "itemId": "junior_questions_basic",
+      "mode": "memory",
+      "type": "rule",
+      "stem": "Are you busy? のような疑問文を作る品詞は？",
+      "choices": [
+        "前置詞",
+        "接続詞",
+        "be動詞",
+        "一般動詞"
+      ],
+      "answer": "be動詞",
+      "whyCorrect": "be動詞の文では be動詞を文頭に出して疑問文を作る。",
+      "whyWrong": {
+        "一般動詞": "この文法事項のルールとは合わない選択肢です。",
+        "前置詞": "この文法事項のルールとは合わない選択肢です。",
+        "接続詞": "この文法事項のルールとは合わない選択肢です。"
+      }
+    },
+    {
+      "id": "junior_present_progressive_memory_1",
+      "itemId": "junior_present_progressive",
+      "mode": "memory",
+      "type": "rule",
+      "stem": "現在進行形の形はどれ？",
+      "choices": [
+        "be動詞 + -ing",
+        "have + 過去分詞",
+        "助動詞 + 原形",
+        "to + 原形"
+      ],
+      "answer": "be動詞 + -ing",
+      "whyCorrect": "現在進行形は be動詞 + 動詞の-ing形で作る。",
+      "whyWrong": {
+        "have + 過去分詞": "この文法事項のルールとは合わない選択肢です。",
+        "助動詞 + 原形": "この文法事項のルールとは合わない選択肢です。",
+        "to + 原形": "この文法事項のルールとは合わない選択肢です。"
+      }
+    },
+    {
+      "id": "junior_present_progressive_memory_2",
+      "itemId": "junior_present_progressive",
+      "mode": "memory",
+      "type": "rule",
+      "stem": "now と相性がよい形はどれ？",
+      "choices": [
+        "仮定法過去",
+        "比較級",
+        "現在進行形",
+        "過去完了"
+      ],
+      "answer": "現在進行形",
+      "whyCorrect": "now は今している動作を表す現在進行形とよく使う。",
+      "whyWrong": {
+        "過去完了": "この文法事項のルールとは合わない選択肢です。",
+        "仮定法過去": "この文法事項のルールとは合わない選択肢です。",
+        "比較級": "この文法事項のルールとは合わない選択肢です。"
+      }
+    },
+    {
+      "id": "senior_present_past_memory_1",
+      "itemId": "senior_present_past",
+      "mode": "memory",
+      "type": "rule",
+      "stem": "yesterday と一緒に使う基本時制は？",
+      "choices": [
+        "未来完了形",
+        "過去形",
+        "現在形",
+        "現在完了形"
+      ],
+      "answer": "過去形",
+      "whyCorrect": "yesterday は明確な過去時点なので過去形を使う。",
+      "whyWrong": {
+        "現在形": "この文法事項のルールとは合わない選択肢です。",
+        "現在完了形": "この文法事項のルールとは合わない選択肢です。",
+        "未来完了形": "この文法事項のルールとは合わない選択肢です。"
+      }
+    },
+    {
+      "id": "senior_present_past_memory_2",
+      "itemId": "senior_present_past",
+      "mode": "memory",
+      "type": "rule",
+      "stem": "習慣や一般的事実を表す基本時制は？",
+      "choices": [
+        "現在形",
+        "過去形",
+        "過去完了形",
+        "未来進行形"
+      ],
+      "answer": "現在形",
+      "whyCorrect": "現在形は習慣・不変の事実を表す。",
+      "whyWrong": {
+        "過去形": "この文法事項のルールとは合わない選択肢です。",
+        "過去完了形": "この文法事項のルールとは合わない選択肢です。",
+        "未来進行形": "この文法事項のルールとは合わない選択肢です。"
+      }
+    },
+    {
+      "id": "senior_progressive_memory_1",
+      "itemId": "senior_progressive",
+      "mode": "memory",
+      "type": "rule",
+      "stem": "進行形の中心イメージは？",
+      "choices": [
+        "動作が進行中",
+        "経験がある",
+        "過去より前",
+        "もし〜なら"
+      ],
+      "answer": "動作が進行中",
+      "whyCorrect": "進行形は、ある時点で動作が進んでいることを表す。",
+      "whyWrong": {
+        "経験がある": "この文法事項のルールとは合わない選択肢です。",
+        "過去より前": "この文法事項のルールとは合わない選択肢です。",
+        "もし〜なら": "この文法事項のルールとは合わない選択肢です。"
+      }
+    },
+    {
+      "id": "senior_progressive_memory_2",
+      "itemId": "senior_progressive",
+      "mode": "memory",
+      "type": "rule",
+      "stem": "進行形にしにくい動詞はどれ？",
+      "choices": [
+        "write",
+        "know",
+        "run",
+        "study"
+      ],
+      "answer": "know",
+      "whyCorrect": "know は状態動詞なので、ふつう進行形にしない。",
+      "whyWrong": {
+        "run": "この文法事項のルールとは合わない選択肢です。",
+        "study": "この文法事項のルールとは合わない選択肢です。",
+        "write": "この文法事項のルールとは合わない選択肢です。"
+      }
+    },
+    {
+      "id": "senior_present_perfect_continuation_memory_1",
+      "itemId": "senior_present_perfect_continuation",
+      "mode": "memory",
+      "type": "rule",
+      "stem": "現在完了の継続用法と相性がよい語は？",
+      "choices": [
+        "now",
+        "for",
+        "yesterday",
+        "last night"
+      ],
+      "answer": "for",
+      "whyCorrect": "for は期間を表し、継続用法と相性がよい。",
+      "whyWrong": {
+        "yesterday": "この文法事項のルールとは合わない選択肢です。",
+        "last night": "この文法事項のルールとは合わない選択肢です。",
+        "now": "この文法事項のルールとは合わない選択肢です。"
+      }
+    },
+    {
+      "id": "senior_present_perfect_continuation_memory_2",
+      "itemId": "senior_present_perfect_continuation",
+      "mode": "memory",
+      "type": "rule",
+      "stem": "since が表すものは？",
+      "choices": [
+        "期間",
+        "頻度",
+        "結果",
+        "開始時点"
+      ],
+      "answer": "開始時点",
+      "whyCorrect": "since は「〜以来」という開始時点を表す。",
+      "whyWrong": {
+        "期間": "この文法事項のルールとは合わない選択肢です。",
+        "頻度": "この文法事項のルールとは合わない選択肢です。",
+        "結果": "この文法事項のルールとは合わない選択肢です。"
+      }
+    },
+    {
+      "id": "senior_present_perfect_experience_memory_1",
+      "itemId": "senior_present_perfect_experience",
+      "mode": "memory",
+      "type": "rule",
+      "stem": "現在完了の経験用法が表す意味は？",
+      "choices": [
+        "これからする",
+        "過去より前にした",
+        "したことがある",
+        "今している"
+      ],
+      "answer": "したことがある",
+      "whyCorrect": "経験用法は、今までにしたことがあるかを表す。",
+      "whyWrong": {
+        "今している": "この文法事項のルールとは合わない選択肢です。",
+        "これからする": "この文法事項のルールとは合わない選択肢です。",
+        "過去より前にした": "この文法事項のルールとは合わない選択肢です。"
+      }
+    },
+    {
+      "id": "senior_present_perfect_experience_memory_2",
+      "itemId": "senior_present_perfect_experience",
+      "mode": "memory",
+      "type": "rule",
+      "stem": "経験用法と相性がよい語は？",
+      "choices": [
+        "now",
+        "last week",
+        "ever",
+        "yesterday"
+      ],
+      "answer": "ever",
+      "whyCorrect": "ever は「今までに」という意味で経験用法とよく使う。",
+      "whyWrong": {
+        "yesterday": "この文法事項のルールとは合わない選択肢です。",
+        "now": "この文法事項のルールとは合わない選択肢です。",
+        "last week": "この文法事項のルールとは合わない選択肢です。"
+      }
+    },
+    {
+      "id": "senior_present_perfect_completion_memory_1",
+      "itemId": "senior_present_perfect_completion",
+      "mode": "memory",
+      "type": "rule",
+      "stem": "現在完了の完了用法と相性がよい語は？",
+      "choices": [
+        "ago",
+        "last year",
+        "just",
+        "yesterday"
+      ],
+      "answer": "just",
+      "whyCorrect": "just は「ちょうど」という意味で完了用法と相性がよい。",
+      "whyWrong": {
+        "yesterday": "この文法事項のルールとは合わない選択肢です。",
+        "ago": "この文法事項のルールとは合わない選択肢です。",
+        "last year": "この文法事項のルールとは合わない選択肢です。"
+      }
+    },
+    {
+      "id": "senior_present_perfect_completion_memory_2",
+      "itemId": "senior_present_perfect_completion",
+      "mode": "memory",
+      "type": "rule",
+      "stem": "否定文で「まだ〜していない」を表す語は？",
+      "choices": [
+        "ever",
+        "before",
+        "yet",
+        "already"
+      ],
+      "answer": "yet",
+      "whyCorrect": "not ... yet で「まだ〜していない」を表す。",
+      "whyWrong": {
+        "already": "この文法事項のルールとは合わない選択肢です。",
+        "ever": "この文法事項のルールとは合わない選択肢です。",
+        "before": "この文法事項のルールとは合わない選択肢です。"
+      }
+    },
+    {
+      "id": "junior_past_basic_memory_1",
+      "itemId": "junior_past_basic",
+      "mode": "memory",
+      "type": "rule",
+      "stem": "go の過去形はどれ？",
+      "choices": [
+        "gone",
+        "going",
+        "went",
+        "goed"
+      ],
+      "answer": "went",
+      "whyCorrect": "go は不規則動詞で、過去形は went。",
+      "whyWrong": {
+        "goed": "この文法事項のルールとは合わない選択肢です。",
+        "gone": "この文法事項のルールとは合わない選択肢です。",
+        "going": "この文法事項のルールとは合わない選択肢です。"
+      }
+    },
+    {
+      "id": "junior_past_basic_memory_2",
+      "itemId": "junior_past_basic",
+      "mode": "memory",
+      "type": "rule",
+      "stem": "過去形と相性がよい語句はどれ？",
+      "choices": [
+        "every day",
+        "tomorrow",
+        "yesterday",
+        "now"
+      ],
+      "answer": "yesterday",
+      "whyCorrect": "yesterday は明確な過去時点なので過去形を使う。",
+      "whyWrong": {
+        "now": "この文法事項のルールとは合わない選択肢です。",
+        "every day": "この文法事項のルールとは合わない選択肢です。",
+        "tomorrow": "この文法事項のルールとは合わない選択肢です。"
+      }
+    },
+    {
+      "id": "junior_future_basic_memory_1",
+      "itemId": "junior_future_basic",
+      "mode": "memory",
+      "type": "rule",
+      "stem": "will の後ろに置く動詞の形は？",
+      "choices": [
+        "過去形",
+        "-ing形",
+        "過去分詞",
+        "原形"
+      ],
+      "answer": "原形",
+      "whyCorrect": "助動詞 will の後ろは動詞の原形。",
+      "whyWrong": {
+        "過去形": "この文法事項のルールとは合わない選択肢です。",
+        "-ing形": "この文法事項のルールとは合わない選択肢です。",
+        "過去分詞": "この文法事項のルールとは合わない選択肢です。"
+      }
+    },
+    {
+      "id": "junior_future_basic_memory_2",
+      "itemId": "junior_future_basic",
+      "mode": "memory",
+      "type": "rule",
+      "stem": "be going to の後ろに置く形は？",
+      "choices": [
+        "過去分詞",
+        "三単現",
+        "動詞の原形",
+        "過去形"
+      ],
+      "answer": "動詞の原形",
+      "whyCorrect": "be going to + 動詞の原形で未来を表す。",
+      "whyWrong": {
+        "過去形": "この文法事項のルールとは合わない選択肢です。",
+        "過去分詞": "この文法事項のルールとは合わない選択肢です。",
+        "三単現": "この文法事項のルールとは合わない選択肢です。"
+      }
+    },
+    {
+      "id": "junior_aux_can_memory_1",
+      "itemId": "junior_aux_can",
+      "mode": "memory",
+      "type": "rule",
+      "stem": "can の意味として正しいものは？",
+      "choices": [
+        "〜した",
+        "〜できる",
+        "〜しなければならない",
+        "〜するつもりだ"
+      ],
+      "answer": "〜できる",
+      "whyCorrect": "can は能力・可能を表す助動詞。",
+      "whyWrong": {
+        "〜しなければならない": "この文法事項のルールとは合わない選択肢です。",
+        "〜するつもりだ": "この文法事項のルールとは合わない選択肢です。",
+        "〜した": "この文法事項のルールとは合わない選択肢です。"
+      }
+    },
+    {
+      "id": "junior_aux_can_memory_2",
+      "itemId": "junior_aux_can",
+      "mode": "memory",
+      "type": "rule",
+      "stem": "can の後ろに置く動詞の形は？",
+      "choices": [
+        "三単現",
+        "過去形",
+        "-ing形",
+        "原形"
+      ],
+      "answer": "原形",
+      "whyCorrect": "助動詞の後ろは動詞の原形。",
+      "whyWrong": {
+        "三単現": "この文法事項のルールとは合わない選択肢です。",
+        "過去形": "この文法事項のルールとは合わない選択肢です。",
+        "-ing形": "この文法事項のルールとは合わない選択肢です。"
+      }
+    },
+    {
+      "id": "senior_past_perfect_memory_1",
+      "itemId": "senior_past_perfect",
+      "mode": "memory",
+      "type": "rule",
+      "stem": "過去完了の形はどれ？",
+      "choices": [
+        "have + 過去分詞",
+        "will + 原形",
+        "be + -ing",
+        "had + 過去分詞"
+      ],
+      "answer": "had + 過去分詞",
+      "whyCorrect": "過去完了は had + 過去分詞で作る。",
+      "whyWrong": {
+        "have + 過去分詞": "この文法事項のルールとは合わない選択肢です。",
+        "will + 原形": "この文法事項のルールとは合わない選択肢です。",
+        "be + -ing": "この文法事項のルールとは合わない選択肢です。"
+      }
+    },
+    {
+      "id": "senior_past_perfect_memory_2",
+      "itemId": "senior_past_perfect",
+      "mode": "memory",
+      "type": "rule",
+      "stem": "過去完了が表しやすいものは？",
+      "choices": [
+        "過去より前",
+        "今している動作",
+        "未来の予定",
+        "一般的事実"
+      ],
+      "answer": "過去より前",
+      "whyCorrect": "過去完了は、過去の基準時より前の出来事を表す。",
+      "whyWrong": {
+        "今している動作": "この文法事項のルールとは合わない選択肢です。",
+        "未来の予定": "この文法事項のルールとは合わない選択肢です。",
+        "一般的事実": "この文法事項のルールとは合わない選択肢です。"
+      }
+    },
+    {
+      "id": "senior_future_perfect_memory_1",
+      "itemId": "senior_future_perfect",
+      "mode": "memory",
+      "type": "rule",
+      "stem": "未来完了の形はどれ？",
+      "choices": [
+        "will have + 過去分詞",
+        "had + 過去分詞",
+        "will be + -ing",
+        "have + 過去分詞"
+      ],
+      "answer": "will have + 過去分詞",
+      "whyCorrect": "未来完了は will have + 過去分詞で作る。",
+      "whyWrong": {
+        "had + 過去分詞": "この文法事項のルールとは合わない選択肢です。",
+        "will be + -ing": "この文法事項のルールとは合わない選択肢です。",
+        "have + 過去分詞": "この文法事項のルールとは合わない選択肢です。"
+      }
+    },
+    {
+      "id": "senior_future_perfect_memory_2",
+      "itemId": "senior_future_perfect",
+      "mode": "memory",
+      "type": "rule",
+      "stem": "未来完了と相性がよい語句は？",
+      "choices": [
+        "last night",
+        "by next year",
+        "yesterday",
+        "now"
+      ],
+      "answer": "by next year",
+      "whyCorrect": "by next year は未来の期限を表す。",
+      "whyWrong": {
+        "yesterday": "この文法事項のルールとは合わない選択肢です。",
+        "now": "この文法事項のルールとは合わない選択肢です。",
+        "last night": "この文法事項のルールとは合わない選択肢です。"
+      }
+    },
+    {
+      "id": "senior_present_perfect_progressive_memory_1",
+      "itemId": "senior_present_perfect_progressive",
+      "mode": "memory",
+      "type": "rule",
+      "stem": "現在完了進行形の形はどれ？",
+      "choices": [
+        "have been + -ing",
+        "have + 過去分詞",
+        "had + 過去分詞",
+        "will + 原形"
+      ],
+      "answer": "have been + -ing",
+      "whyCorrect": "現在完了進行形は have / has been + -ing。",
+      "whyWrong": {
+        "have + 過去分詞": "この文法事項のルールとは合わない選択肢です。",
+        "had + 過去分詞": "この文法事項のルールとは合わない選択肢です。",
+        "will + 原形": "この文法事項のルールとは合わない選択肢です。"
+      }
+    },
+    {
+      "id": "senior_present_perfect_progressive_memory_2",
+      "itemId": "senior_present_perfect_progressive",
+      "mode": "memory",
+      "type": "rule",
+      "stem": "現在完了進行形が強調するものは？",
+      "choices": [
+        "未来の予定",
+        "比較の差",
+        "動作の継続",
+        "過去の一点"
+      ],
+      "answer": "動作の継続",
+      "whyCorrect": "過去から現在まで動作が続いていることを強調する。",
+      "whyWrong": {
+        "過去の一点": "この文法事項のルールとは合わない選択肢です。",
+        "未来の予定": "この文法事項のルールとは合わない選択肢です。",
+        "比較の差": "この文法事項のルールとは合わない選択肢です。"
+      }
+    },
+    {
+      "id": "junior_nouns_countable_memory_1",
+      "itemId": "junior_nouns_countable",
+      "mode": "memory",
+      "type": "rule",
+      "stem": "「単数形・複数形」の中心ルールとして最も適切なものは？",
+      "choices": [
+        "数えられる名詞は、1つなら単数形、2つ以上なら複数形にする。",
+        "過去の一点だけを表す。",
+        "主語と動詞を省略してよい。",
+        "名詞を必ず複数形にする。"
+      ],
+      "answer": "数えられる名詞は、1つなら単数形、2つ以上なら複数形にする。",
+      "whyCorrect": "数えられる名詞は、1つなら単数形、2つ以上なら複数形にする。",
+      "whyWrong": {
+        "過去の一点だけを表す。": "この文法事項のルールとは合わない選択肢です。",
+        "主語と動詞を省略してよい。": "この文法事項のルールとは合わない選択肢です。",
+        "名詞を必ず複数形にする。": "この文法事項のルールとは合わない選択肢です。"
+      }
+    },
+    {
+      "id": "junior_nouns_countable_memory_2",
+      "itemId": "junior_nouns_countable",
+      "mode": "memory",
+      "type": "rule",
+      "stem": "「単数形・複数形」の基本形として最も近いものは？",
+      "choices": [
+        "助動詞 + 動詞の原形",
+        "a book / two books",
+        "have + 過去分詞",
+        "be動詞 + -ing"
+      ],
+      "answer": "a book / two books",
+      "whyCorrect": "基本形は「a book / two books」。",
+      "whyWrong": {
+        "have + 過去分詞": "この文法事項のルールとは合わない選択肢です。",
+        "be動詞 + -ing": "この文法事項のルールとは合わない選択肢です。",
+        "助動詞 + 動詞の原形": "この文法事項のルールとは合わない選択肢です。"
+      }
+    },
+    {
+      "id": "junior_pronouns_basic_memory_1",
+      "itemId": "junior_pronouns_basic",
+      "mode": "memory",
+      "type": "rule",
+      "stem": "「主格・所有格・目的格」の中心ルールとして最も適切なものは？",
+      "choices": [
+        "過去の一点だけを表す。",
+        "主語と動詞を省略してよい。",
+        "名詞を必ず複数形にする。",
+        "代名詞は文中の役割によって形が変わる。"
+      ],
+      "answer": "代名詞は文中の役割によって形が変わる。",
+      "whyCorrect": "代名詞は文中の役割によって形が変わる。",
+      "whyWrong": {
+        "過去の一点だけを表す。": "この文法事項のルールとは合わない選択肢です。",
+        "主語と動詞を省略してよい。": "この文法事項のルールとは合わない選択肢です。",
+        "名詞を必ず複数形にする。": "この文法事項のルールとは合わない選択肢です。"
+      }
+    },
+    {
+      "id": "junior_pronouns_basic_memory_2",
+      "itemId": "junior_pronouns_basic",
+      "mode": "memory",
+      "type": "rule",
+      "stem": "「主格・所有格・目的格」の基本形として最も近いものは？",
+      "choices": [
+        "I / my / me, he / his / him",
+        "have + 過去分詞",
+        "be動詞 + -ing",
+        "助動詞 + 動詞の原形"
+      ],
+      "answer": "I / my / me, he / his / him",
+      "whyCorrect": "基本形は「I / my / me, he / his / him」。",
+      "whyWrong": {
+        "have + 過去分詞": "この文法事項のルールとは合わない選択肢です。",
+        "be動詞 + -ing": "この文法事項のルールとは合わない選択肢です。",
+        "助動詞 + 動詞の原形": "この文法事項のルールとは合わない選択肢です。"
+      }
+    },
+    {
+      "id": "junior_there_is_memory_1",
+      "itemId": "junior_there_is",
+      "mode": "memory",
+      "type": "rule",
+      "stem": "「There is / There are」の中心ルールとして最も適切なものは？",
+      "choices": [
+        "名詞を必ず複数形にする。",
+        "There is / are は「〜がある・いる」を表す。",
+        "過去の一点だけを表す。",
+        "主語と動詞を省略してよい。"
+      ],
+      "answer": "There is / are は「〜がある・いる」を表す。",
+      "whyCorrect": "There is / are は「〜がある・いる」を表す。",
+      "whyWrong": {
+        "過去の一点だけを表す。": "この文法事項のルールとは合わない選択肢です。",
+        "主語と動詞を省略してよい。": "この文法事項のルールとは合わない選択肢です。",
+        "名詞を必ず複数形にする。": "この文法事項のルールとは合わない選択肢です。"
+      }
+    },
+    {
+      "id": "junior_there_is_memory_2",
+      "itemId": "junior_there_is",
+      "mode": "memory",
+      "type": "rule",
+      "stem": "「There is / There are」の基本形として最も近いものは？",
+      "choices": [
+        "be動詞 + -ing",
+        "助動詞 + 動詞の原形",
+        "There is + 単数名詞 / There are + 複数名詞",
+        "have + 過去分詞"
+      ],
+      "answer": "There is + 単数名詞 / There are + 複数名詞",
+      "whyCorrect": "基本形は「There is + 単数名詞 / There are + 複数名詞」。",
+      "whyWrong": {
+        "have + 過去分詞": "この文法事項のルールとは合わない選択肢です。",
+        "be動詞 + -ing": "この文法事項のルールとは合わない選択肢です。",
+        "助動詞 + 動詞の原形": "この文法事項のルールとは合わない選択肢です。"
+      }
+    },
+    {
+      "id": "junior_infinitive_basic_memory_1",
+      "itemId": "junior_infinitive_basic",
+      "mode": "memory",
+      "type": "rule",
+      "stem": "「to + 動詞の原形」の中心ルールとして最も適切なものは？",
+      "choices": [
+        "名詞を必ず複数形にする。",
+        "不定詞は to + 動詞の原形で、名詞・形容詞・副詞の働きをする。",
+        "過去の一点だけを表す。",
+        "主語と動詞を省略してよい。"
+      ],
+      "answer": "不定詞は to + 動詞の原形で、名詞・形容詞・副詞の働きをする。",
+      "whyCorrect": "不定詞は to + 動詞の原形で、名詞・形容詞・副詞の働きをする。",
+      "whyWrong": {
+        "過去の一点だけを表す。": "この文法事項のルールとは合わない選択肢です。",
+        "主語と動詞を省略してよい。": "この文法事項のルールとは合わない選択肢です。",
+        "名詞を必ず複数形にする。": "この文法事項のルールとは合わない選択肢です。"
+      }
+    },
+    {
+      "id": "junior_infinitive_basic_memory_2",
+      "itemId": "junior_infinitive_basic",
+      "mode": "memory",
+      "type": "rule",
+      "stem": "「to + 動詞の原形」の基本形として最も近いものは？",
+      "choices": [
+        "to + 動詞の原形",
+        "have + 過去分詞",
+        "be動詞 + -ing",
+        "助動詞 + 動詞の原形"
+      ],
+      "answer": "to + 動詞の原形",
+      "whyCorrect": "基本形は「to + 動詞の原形」。",
+      "whyWrong": {
+        "have + 過去分詞": "この文法事項のルールとは合わない選択肢です。",
+        "be動詞 + -ing": "この文法事項のルールとは合わない選択肢です。",
+        "助動詞 + 動詞の原形": "この文法事項のルールとは合わない選択肢です。"
+      }
+    },
+    {
+      "id": "junior_gerund_basic_memory_1",
+      "itemId": "junior_gerund_basic",
+      "mode": "memory",
+      "type": "rule",
+      "stem": "「-ing が作る名詞」の中心ルールとして最も適切なものは？",
+      "choices": [
+        "過去の一点だけを表す。",
+        "主語と動詞を省略してよい。",
+        "名詞を必ず複数形にする。",
+        "動名詞は動詞の-ing形で「〜すること」を表す。"
+      ],
+      "answer": "動名詞は動詞の-ing形で「〜すること」を表す。",
+      "whyCorrect": "動名詞は動詞の-ing形で「〜すること」を表す。",
+      "whyWrong": {
+        "過去の一点だけを表す。": "この文法事項のルールとは合わない選択肢です。",
+        "主語と動詞を省略してよい。": "この文法事項のルールとは合わない選択肢です。",
+        "名詞を必ず複数形にする。": "この文法事項のルールとは合わない選択肢です。"
+      }
+    },
+    {
+      "id": "junior_gerund_basic_memory_2",
+      "itemId": "junior_gerund_basic",
+      "mode": "memory",
+      "type": "rule",
+      "stem": "「-ing が作る名詞」の基本形として最も近いものは？",
+      "choices": [
+        "have + 過去分詞",
+        "be動詞 + -ing",
+        "助動詞 + 動詞の原形",
+        "動詞 + -ing"
+      ],
+      "answer": "動詞 + -ing",
+      "whyCorrect": "基本形は「動詞 + -ing」。",
+      "whyWrong": {
+        "have + 過去分詞": "この文法事項のルールとは合わない選択肢です。",
+        "be動詞 + -ing": "この文法事項のルールとは合わない選択肢です。",
+        "助動詞 + 動詞の原形": "この文法事項のルールとは合わない選択肢です。"
+      }
+    },
+    {
+      "id": "senior_conjunctions_memory_1",
+      "itemId": "senior_conjunctions",
+      "mode": "memory",
+      "type": "rule",
+      "stem": "「等位接続詞・従属接続詞」の中心ルールとして最も適切なものは？",
+      "choices": [
+        "過去の一点だけを表す。",
+        "主語と動詞を省略してよい。",
+        "名詞を必ず複数形にする。",
+        "接続詞は語・句・節をつなぐ。従属接続詞の後ろには主語と動詞が続く。"
+      ],
+      "answer": "接続詞は語・句・節をつなぐ。従属接続詞の後ろには主語と動詞が続く。",
+      "whyCorrect": "接続詞は語・句・節をつなぐ。従属接続詞の後ろには主語と動詞が続く。",
+      "whyWrong": {
+        "過去の一点だけを表す。": "この文法事項のルールとは合わない選択肢です。",
+        "主語と動詞を省略してよい。": "この文法事項のルールとは合わない選択肢です。",
+        "名詞を必ず複数形にする。": "この文法事項のルールとは合わない選択肢です。"
+      }
+    },
+    {
+      "id": "senior_conjunctions_memory_2",
+      "itemId": "senior_conjunctions",
+      "mode": "memory",
+      "type": "rule",
+      "stem": "「等位接続詞・従属接続詞」の基本形として最も近いものは？",
+      "choices": [
+        "助動詞 + 動詞の原形",
+        "and / but / because / when / if + S V",
+        "have + 過去分詞",
+        "be動詞 + -ing"
+      ],
+      "answer": "and / but / because / when / if + S V",
+      "whyCorrect": "基本形は「and / but / because / when / if + S V」。",
+      "whyWrong": {
+        "have + 過去分詞": "この文法事項のルールとは合わない選択肢です。",
+        "be動詞 + -ing": "この文法事項のルールとは合わない選択肢です。",
+        "助動詞 + 動詞の原形": "この文法事項のルールとは合わない選択肢です。"
+      }
+    },
+    {
+      "id": "senior_subjunctive_memory_1",
+      "itemId": "senior_subjunctive",
+      "mode": "memory",
+      "type": "rule",
+      "stem": "「仮定法過去・過去完了」の中心ルールとして最も適切なものは？",
+      "choices": [
+        "名詞を必ず複数形にする。",
+        "仮定法は事実と違う想像を、時制をずらして表す。",
+        "過去の一点だけを表す。",
+        "主語と動詞を省略してよい。"
+      ],
+      "answer": "仮定法は事実と違う想像を、時制をずらして表す。",
+      "whyCorrect": "仮定法は事実と違う想像を、時制をずらして表す。",
+      "whyWrong": {
+        "過去の一点だけを表す。": "この文法事項のルールとは合わない選択肢です。",
+        "主語と動詞を省略してよい。": "この文法事項のルールとは合わない選択肢です。",
+        "名詞を必ず複数形にする。": "この文法事項のルールとは合わない選択肢です。"
+      }
+    },
+    {
+      "id": "senior_subjunctive_memory_2",
+      "itemId": "senior_subjunctive",
+      "mode": "memory",
+      "type": "rule",
+      "stem": "「仮定法過去・過去完了」の基本形として最も近いものは？",
+      "choices": [
+        "If S 過去形, S would 原形 / If S had p.p., S would have p.p.",
+        "have + 過去分詞",
+        "be動詞 + -ing",
+        "助動詞 + 動詞の原形"
+      ],
+      "answer": "If S 過去形, S would 原形 / If S had p.p., S would have p.p.",
+      "whyCorrect": "基本形は「If S 過去形, S would 原形 / If S had p.p., S would have p.p.」。",
+      "whyWrong": {
+        "have + 過去分詞": "この文法事項のルールとは合わない選択肢です。",
+        "be動詞 + -ing": "この文法事項のルールとは合わない選択肢です。",
+        "助動詞 + 動詞の原形": "この文法事項のルールとは合わない選択肢です。"
+      }
+    },
+    {
+      "id": "senior_modals_memory_1",
+      "itemId": "senior_modals",
+      "mode": "memory",
+      "type": "rule",
+      "stem": "「基本助動詞」の中心ルールとして最も適切なものは？",
+      "choices": [
+        "主語と動詞を省略してよい。",
+        "名詞を必ず複数形にする。",
+        "助動詞は動詞に可能・義務・推量などの意味を加える。",
+        "過去の一点だけを表す。"
+      ],
+      "answer": "助動詞は動詞に可能・義務・推量などの意味を加える。",
+      "whyCorrect": "助動詞は動詞に可能・義務・推量などの意味を加える。",
+      "whyWrong": {
+        "過去の一点だけを表す。": "この文法事項のルールとは合わない選択肢です。",
+        "主語と動詞を省略してよい。": "この文法事項のルールとは合わない選択肢です。",
+        "名詞を必ず複数形にする。": "この文法事項のルールとは合わない選択肢です。"
+      }
+    },
+    {
+      "id": "senior_modals_memory_2",
+      "itemId": "senior_modals",
+      "mode": "memory",
+      "type": "rule",
+      "stem": "「基本助動詞」の基本形として最も近いものは？",
+      "choices": [
+        "have + 過去分詞",
+        "be動詞 + -ing",
+        "過去形",
+        "助動詞 + 動詞の原形"
+      ],
+      "answer": "助動詞 + 動詞の原形",
+      "whyCorrect": "基本形は「助動詞 + 動詞の原形」。",
+      "whyWrong": {
+        "have + 過去分詞": "この文法事項のルールとは合わない選択肢です。",
+        "be動詞 + -ing": "この文法事項のルールとは合わない選択肢です。",
+        "助動詞 + 動詞の原形": "この文法事項のルールとは合わない選択肢です。"
+      }
+    },
+    {
+      "id": "senior_articles_memory_1",
+      "itemId": "senior_articles",
+      "mode": "memory",
+      "type": "rule",
+      "stem": "「a / an / the」の中心ルールとして最も適切なものは？",
+      "choices": [
+        "名詞を必ず複数形にする。",
+        "a / an は初出・不特定、the は特定できる名詞につける。",
+        "過去の一点だけを表す。",
+        "主語と動詞を省略してよい。"
+      ],
+      "answer": "a / an は初出・不特定、the は特定できる名詞につける。",
+      "whyCorrect": "a / an は初出・不特定、the は特定できる名詞につける。",
+      "whyWrong": {
+        "過去の一点だけを表す。": "この文法事項のルールとは合わない選択肢です。",
+        "主語と動詞を省略してよい。": "この文法事項のルールとは合わない選択肢です。",
+        "名詞を必ず複数形にする。": "この文法事項のルールとは合わない選択肢です。"
+      }
+    },
+    {
+      "id": "senior_articles_memory_2",
+      "itemId": "senior_articles",
+      "mode": "memory",
+      "type": "rule",
+      "stem": "「a / an / the」の基本形として最も近いものは？",
+      "choices": [
+        "助動詞 + 動詞の原形",
+        "a + 子音音 / an + 母音音 / the + 特定名詞",
+        "have + 過去分詞",
+        "be動詞 + -ing"
+      ],
+      "answer": "a + 子音音 / an + 母音音 / the + 特定名詞",
+      "whyCorrect": "基本形は「a + 子音音 / an + 母音音 / the + 特定名詞」。",
+      "whyWrong": {
+        "have + 過去分詞": "この文法事項のルールとは合わない選択肢です。",
+        "be動詞 + -ing": "この文法事項のルールとは合わない選択肢です。",
+        "助動詞 + 動詞の原形": "この文法事項のルールとは合わない選択肢です。"
+      }
+    },
+    {
+      "id": "senior_nouns_memory_1",
+      "itemId": "senior_nouns",
+      "mode": "memory",
+      "type": "rule",
+      "stem": "「可算・不可算」の中心ルールとして最も適切なものは？",
+      "choices": [
+        "可算名詞は数えられ、不可算名詞はそのままでは数えない。",
+        "過去の一点だけを表す。",
+        "主語と動詞を省略してよい。",
+        "名詞を必ず複数形にする。"
+      ],
+      "answer": "可算名詞は数えられ、不可算名詞はそのままでは数えない。",
+      "whyCorrect": "可算名詞は数えられ、不可算名詞はそのままでは数えない。",
+      "whyWrong": {
+        "過去の一点だけを表す。": "この文法事項のルールとは合わない選択肢です。",
+        "主語と動詞を省略してよい。": "この文法事項のルールとは合わない選択肢です。",
+        "名詞を必ず複数形にする。": "この文法事項のルールとは合わない選択肢です。"
+      }
+    },
+    {
+      "id": "senior_nouns_memory_2",
+      "itemId": "senior_nouns",
+      "mode": "memory",
+      "type": "rule",
+      "stem": "「可算・不可算」の基本形として最も近いものは？",
+      "choices": [
+        "助動詞 + 動詞の原形",
+        "many + 可算複数 / much + 不可算",
+        "have + 過去分詞",
+        "be動詞 + -ing"
+      ],
+      "answer": "many + 可算複数 / much + 不可算",
+      "whyCorrect": "基本形は「many + 可算複数 / much + 不可算」。",
+      "whyWrong": {
+        "have + 過去分詞": "この文法事項のルールとは合わない選択肢です。",
+        "be動詞 + -ing": "この文法事項のルールとは合わない選択肢です。",
+        "助動詞 + 動詞の原形": "この文法事項のルールとは合わない選択肢です。"
+      }
+    },
+    {
+      "id": "senior_adjectives_adverbs_memory_1",
+      "itemId": "senior_adjectives_adverbs",
+      "mode": "memory",
+      "type": "rule",
+      "stem": "「形容詞と副詞の区別」の中心ルールとして最も適切なものは？",
+      "choices": [
+        "主語と動詞を省略してよい。",
+        "名詞を必ず複数形にする。",
+        "形容詞は名詞を、副詞は動詞・形容詞・文全体を修飾する。",
+        "過去の一点だけを表す。"
+      ],
+      "answer": "形容詞は名詞を、副詞は動詞・形容詞・文全体を修飾する。",
+      "whyCorrect": "形容詞は名詞を、副詞は動詞・形容詞・文全体を修飾する。",
+      "whyWrong": {
+        "過去の一点だけを表す。": "この文法事項のルールとは合わない選択肢です。",
+        "主語と動詞を省略してよい。": "この文法事項のルールとは合わない選択肢です。",
+        "名詞を必ず複数形にする。": "この文法事項のルールとは合わない選択肢です。"
+      }
+    },
+    {
+      "id": "senior_adjectives_adverbs_memory_2",
+      "itemId": "senior_adjectives_adverbs",
+      "mode": "memory",
+      "type": "rule",
+      "stem": "「形容詞と副詞の区別」の基本形として最も近いものは？",
+      "choices": [
+        "have + 過去分詞",
+        "be動詞 + -ing",
+        "助動詞 + 動詞の原形",
+        "形容詞 + 名詞 / 動詞 + 副詞"
+      ],
+      "answer": "形容詞 + 名詞 / 動詞 + 副詞",
+      "whyCorrect": "基本形は「形容詞 + 名詞 / 動詞 + 副詞」。",
+      "whyWrong": {
+        "have + 過去分詞": "この文法事項のルールとは合わない選択肢です。",
+        "be動詞 + -ing": "この文法事項のルールとは合わない選択肢です。",
+        "助動詞 + 動詞の原形": "この文法事項のルールとは合わない選択肢です。"
+      }
+    },
+    {
+      "id": "senior_sentence_patterns_memory_1",
+      "itemId": "senior_sentence_patterns",
+      "mode": "memory",
+      "type": "rule",
+      "stem": "「5文型」の中心ルールとして最も適切なものは？",
+      "choices": [
+        "主語と動詞を省略してよい。",
+        "名詞を必ず複数形にする。",
+        "英語の骨格はSV・SVC・SVO・SVOO・SVOCの5文型で整理できる。",
+        "過去の一点だけを表す。"
+      ],
+      "answer": "英語の骨格はSV・SVC・SVO・SVOO・SVOCの5文型で整理できる。",
+      "whyCorrect": "英語の骨格はSV・SVC・SVO・SVOO・SVOCの5文型で整理できる。",
+      "whyWrong": {
+        "過去の一点だけを表す。": "この文法事項のルールとは合わない選択肢です。",
+        "主語と動詞を省略してよい。": "この文法事項のルールとは合わない選択肢です。",
+        "名詞を必ず複数形にする。": "この文法事項のルールとは合わない選択肢です。"
+      }
+    },
+    {
+      "id": "senior_sentence_patterns_memory_2",
+      "itemId": "senior_sentence_patterns",
+      "mode": "memory",
+      "type": "rule",
+      "stem": "「5文型」の基本形として最も近いものは？",
+      "choices": [
+        "助動詞 + 動詞の原形",
+        "S V / S V C / S V O / S V O O / S V O C",
+        "have + 過去分詞",
+        "be動詞 + -ing"
+      ],
+      "answer": "S V / S V C / S V O / S V O O / S V O C",
+      "whyCorrect": "基本形は「S V / S V C / S V O / S V O O / S V O C」。",
+      "whyWrong": {
+        "have + 過去分詞": "この文法事項のルールとは合わない選択肢です。",
+        "be動詞 + -ing": "この文法事項のルールとは合わない選択肢です。",
+        "助動詞 + 動詞の原形": "この文法事項のルールとは合わない選択肢です。"
+      }
+    },
+    {
+      "id": "senior_infinitive_memory_1",
+      "itemId": "senior_infinitive",
+      "mode": "memory",
+      "type": "rule",
+      "stem": "「名詞的・形容詞的・副詞的用法」の中心ルールとして最も適切なものは？",
+      "choices": [
+        "過去の一点だけを表す。",
+        "主語と動詞を省略してよい。",
+        "名詞を必ず複数形にする。",
+        "不定詞は to + 原形で、文中で名詞・形容詞・副詞の働きをする。"
+      ],
+      "answer": "不定詞は to + 原形で、文中で名詞・形容詞・副詞の働きをする。",
+      "whyCorrect": "不定詞は to + 原形で、文中で名詞・形容詞・副詞の働きをする。",
+      "whyWrong": {
+        "過去の一点だけを表す。": "この文法事項のルールとは合わない選択肢です。",
+        "主語と動詞を省略してよい。": "この文法事項のルールとは合わない選択肢です。",
+        "名詞を必ず複数形にする。": "この文法事項のルールとは合わない選択肢です。"
+      }
+    },
+    {
+      "id": "senior_infinitive_memory_2",
+      "itemId": "senior_infinitive",
+      "mode": "memory",
+      "type": "rule",
+      "stem": "「名詞的・形容詞的・副詞的用法」の基本形として最も近いものは？",
+      "choices": [
+        "to + 動詞の原形",
+        "have + 過去分詞",
+        "be動詞 + -ing",
+        "助動詞 + 動詞の原形"
+      ],
+      "answer": "to + 動詞の原形",
+      "whyCorrect": "基本形は「to + 動詞の原形」。",
+      "whyWrong": {
+        "have + 過去分詞": "この文法事項のルールとは合わない選択肢です。",
+        "be動詞 + -ing": "この文法事項のルールとは合わない選択肢です。",
+        "助動詞 + 動詞の原形": "この文法事項のルールとは合わない選択肢です。"
+      }
+    },
+    {
+      "id": "senior_participles_memory_1",
+      "itemId": "senior_participles",
+      "mode": "memory",
+      "type": "rule",
+      "stem": "「現在分詞・過去分詞」の中心ルールとして最も適切なものは？",
+      "choices": [
+        "名詞を必ず複数形にする。",
+        "現在分詞は能動・進行、過去分詞は受動・完了の意味を持つ。",
+        "過去の一点だけを表す。",
+        "主語と動詞を省略してよい。"
+      ],
+      "answer": "現在分詞は能動・進行、過去分詞は受動・完了の意味を持つ。",
+      "whyCorrect": "現在分詞は能動・進行、過去分詞は受動・完了の意味を持つ。",
+      "whyWrong": {
+        "過去の一点だけを表す。": "この文法事項のルールとは合わない選択肢です。",
+        "主語と動詞を省略してよい。": "この文法事項のルールとは合わない選択肢です。",
+        "名詞を必ず複数形にする。": "この文法事項のルールとは合わない選択肢です。"
+      }
+    },
+    {
+      "id": "senior_participles_memory_2",
+      "itemId": "senior_participles",
+      "mode": "memory",
+      "type": "rule",
+      "stem": "「現在分詞・過去分詞」の基本形として最も近いものは？",
+      "choices": [
+        "be動詞 + -ing",
+        "助動詞 + 動詞の原形",
+        "-ing / p.p.",
+        "have + 過去分詞"
+      ],
+      "answer": "-ing / p.p.",
+      "whyCorrect": "基本形は「-ing / p.p.」。",
+      "whyWrong": {
+        "have + 過去分詞": "この文法事項のルールとは合わない選択肢です。",
+        "be動詞 + -ing": "この文法事項のルールとは合わない選択肢です。",
+        "助動詞 + 動詞の原形": "この文法事項のルールとは合わない選択肢です。"
+      }
+    },
+    {
+      "id": "senior_passive_memory_1",
+      "itemId": "senior_passive",
+      "mode": "memory",
+      "type": "rule",
+      "stem": "「be動詞 + 過去分詞」の中心ルールとして最も適切なものは？",
+      "choices": [
+        "受動態は主語が動作を受ける文で、be動詞 + 過去分詞で表す。",
+        "過去の一点だけを表す。",
+        "主語と動詞を省略してよい。",
+        "名詞を必ず複数形にする。"
+      ],
+      "answer": "受動態は主語が動作を受ける文で、be動詞 + 過去分詞で表す。",
+      "whyCorrect": "受動態は主語が動作を受ける文で、be動詞 + 過去分詞で表す。",
+      "whyWrong": {
+        "過去の一点だけを表す。": "この文法事項のルールとは合わない選択肢です。",
+        "主語と動詞を省略してよい。": "この文法事項のルールとは合わない選択肢です。",
+        "名詞を必ず複数形にする。": "この文法事項のルールとは合わない選択肢です。"
+      }
+    },
+    {
+      "id": "senior_passive_memory_2",
+      "itemId": "senior_passive",
+      "mode": "memory",
+      "type": "rule",
+      "stem": "「be動詞 + 過去分詞」の基本形として最も近いものは？",
+      "choices": [
+        "have + 過去分詞",
+        "be動詞 + -ing",
+        "助動詞 + 動詞の原形",
+        "be動詞 + p.p."
+      ],
+      "answer": "be動詞 + p.p.",
+      "whyCorrect": "基本形は「be動詞 + p.p.」。",
+      "whyWrong": {
+        "have + 過去分詞": "この文法事項のルールとは合わない選択肢です。",
+        "be動詞 + -ing": "この文法事項のルールとは合わない選択肢です。",
+        "助動詞 + 動詞の原形": "この文法事項のルールとは合わない選択肢です。"
+      }
+    },
+    {
+      "id": "senior_comparison_memory_1",
+      "itemId": "senior_comparison",
+      "mode": "memory",
+      "type": "rule",
+      "stem": "「原級・比較級・最上級」の中心ルールとして最も適切なものは？",
+      "choices": [
+        "主語と動詞を省略してよい。",
+        "名詞を必ず複数形にする。",
+        "比較は同じ程度・より〜・最も〜を表す。",
+        "過去の一点だけを表す。"
+      ],
+      "answer": "比較は同じ程度・より〜・最も〜を表す。",
+      "whyCorrect": "比較は同じ程度・より〜・最も〜を表す。",
+      "whyWrong": {
+        "過去の一点だけを表す。": "この文法事項のルールとは合わない選択肢です。",
+        "主語と動詞を省略してよい。": "この文法事項のルールとは合わない選択肢です。",
+        "名詞を必ず複数形にする。": "この文法事項のルールとは合わない選択肢です。"
+      }
+    },
+    {
+      "id": "senior_comparison_memory_2",
+      "itemId": "senior_comparison",
+      "mode": "memory",
+      "type": "rule",
+      "stem": "「原級・比較級・最上級」の基本形として最も近いものは？",
+      "choices": [
+        "have + 過去分詞",
+        "be動詞 + -ing",
+        "助動詞 + 動詞の原形",
+        "as ... as / -er than / the -est"
+      ],
+      "answer": "as ... as / -er than / the -est",
+      "whyCorrect": "基本形は「as ... as / -er than / the -est」。",
+      "whyWrong": {
+        "have + 過去分詞": "この文法事項のルールとは合わない選択肢です。",
+        "be動詞 + -ing": "この文法事項のルールとは合わない選択肢です。",
+        "助動詞 + 動詞の原形": "この文法事項のルールとは合わない選択肢です。"
+      }
+    },
+    {
+      "id": "senior_relatives_memory_1",
+      "itemId": "senior_relatives",
+      "mode": "memory",
+      "type": "rule",
+      "stem": "「関係代名詞・関係副詞」の中心ルールとして最も適切なものは？",
+      "choices": [
+        "関係詞は名詞を後ろから説明する節を作る。",
+        "過去の一点だけを表す。",
+        "主語と動詞を省略してよい。",
+        "名詞を必ず複数形にする。"
+      ],
+      "answer": "関係詞は名詞を後ろから説明する節を作る。",
+      "whyCorrect": "関係詞は名詞を後ろから説明する節を作る。",
+      "whyWrong": {
+        "過去の一点だけを表す。": "この文法事項のルールとは合わない選択肢です。",
+        "主語と動詞を省略してよい。": "この文法事項のルールとは合わない選択肢です。",
+        "名詞を必ず複数形にする。": "この文法事項のルールとは合わない選択肢です。"
+      }
+    },
+    {
+      "id": "senior_relatives_memory_2",
+      "itemId": "senior_relatives",
+      "mode": "memory",
+      "type": "rule",
+      "stem": "「関係代名詞・関係副詞」の基本形として最も近いものは？",
+      "choices": [
+        "助動詞 + 動詞の原形",
+        "先行詞 + who / which / that / where + S V",
+        "have + 過去分詞",
+        "be動詞 + -ing"
+      ],
+      "answer": "先行詞 + who / which / that / where + S V",
+      "whyCorrect": "基本形は「先行詞 + who / which / that / where + S V」。",
+      "whyWrong": {
+        "have + 過去分詞": "この文法事項のルールとは合わない選択肢です。",
+        "be動詞 + -ing": "この文法事項のルールとは合わない選択肢です。",
+        "助動詞 + 動詞の原形": "この文法事項のルールとは合わない選択肢です。"
+      }
+    },
+    {
+      "id": "senior_prepositions_memory_1",
+      "itemId": "senior_prepositions",
+      "mode": "memory",
+      "type": "rule",
+      "stem": "「時・場所の前置詞」の中心ルールとして最も適切なものは？",
+      "choices": [
+        "名詞を必ず複数形にする。",
+        "前置詞は名詞の前に置き、時・場所・方向・関係を表す。",
+        "過去の一点だけを表す。",
+        "主語と動詞を省略してよい。"
+      ],
+      "answer": "前置詞は名詞の前に置き、時・場所・方向・関係を表す。",
+      "whyCorrect": "前置詞は名詞の前に置き、時・場所・方向・関係を表す。",
+      "whyWrong": {
+        "過去の一点だけを表す。": "この文法事項のルールとは合わない選択肢です。",
+        "主語と動詞を省略してよい。": "この文法事項のルールとは合わない選択肢です。",
+        "名詞を必ず複数形にする。": "この文法事項のルールとは合わない選択肢です。"
+      }
+    },
+    {
+      "id": "senior_prepositions_memory_2",
+      "itemId": "senior_prepositions",
+      "mode": "memory",
+      "type": "rule",
+      "stem": "「時・場所の前置詞」の基本形として最も近いものは？",
+      "choices": [
+        "at / on / in / by / for / with + 名詞",
+        "have + 過去分詞",
+        "be動詞 + -ing",
+        "助動詞 + 動詞の原形"
+      ],
+      "answer": "at / on / in / by / for / with + 名詞",
+      "whyCorrect": "基本形は「at / on / in / by / for / with + 名詞」。",
+      "whyWrong": {
+        "have + 過去分詞": "この文法事項のルールとは合わない選択肢です。",
+        "be動詞 + -ing": "この文法事項のルールとは合わない選択肢です。",
+        "助動詞 + 動詞の原形": "この文法事項のルールとは合わない選択肢です。"
+      }
+    },
+    {
+      "id": "senior_negation_questions_memory_1",
+      "itemId": "senior_negation_questions",
+      "mode": "memory",
+      "type": "rule",
+      "stem": "「否定表現と疑問詞」の中心ルールとして最も適切なものは？",
+      "choices": [
+        "過去の一点だけを表す。",
+        "主語と動詞を省略してよい。",
+        "名詞を必ず複数形にする。",
+        "否定は not / no / never などで表し、疑問詞は不足情報をたずねる。"
+      ],
+      "answer": "否定は not / no / never などで表し、疑問詞は不足情報をたずねる。",
+      "whyCorrect": "否定は not / no / never などで表し、疑問詞は不足情報をたずねる。",
+      "whyWrong": {
+        "過去の一点だけを表す。": "この文法事項のルールとは合わない選択肢です。",
+        "主語と動詞を省略してよい。": "この文法事項のルールとは合わない選択肢です。",
+        "名詞を必ず複数形にする。": "この文法事項のルールとは合わない選択肢です。"
+      }
+    },
+    {
+      "id": "senior_negation_questions_memory_2",
+      "itemId": "senior_negation_questions",
+      "mode": "memory",
+      "type": "rule",
+      "stem": "「否定表現と疑問詞」の基本形として最も近いものは？",
+      "choices": [
+        "助動詞 + 動詞の原形",
+        "not / no / never / who / what / where / when / why / how",
+        "have + 過去分詞",
+        "be動詞 + -ing"
+      ],
+      "answer": "not / no / never / who / what / where / when / why / how",
+      "whyCorrect": "基本形は「not / no / never / who / what / where / when / why / how」。",
+      "whyWrong": {
+        "have + 過去分詞": "この文法事項のルールとは合わない選択肢です。",
+        "be動詞 + -ing": "この文法事項のルールとは合わない選択肢です。",
+        "助動詞 + 動詞の原形": "この文法事項のルールとは合わない選択肢です。"
+      }
+    },
+    {
+      "id": "senior_emphasis_inversion_memory_1",
+      "itemId": "senior_emphasis_inversion",
+      "mode": "memory",
+      "type": "rule",
+      "stem": "「It is ... that / 倒置」の中心ルールとして最も適切なものは？",
+      "choices": [
+        "名詞を必ず複数形にする。",
+        "強調構文は It is ... that で特定部分を強調し、倒置は語順を変えて強調や文法条件を示す。",
+        "過去の一点だけを表す。",
+        "主語と動詞を省略してよい。"
+      ],
+      "answer": "強調構文は It is ... that で特定部分を強調し、倒置は語順を変えて強調や文法条件を示す。",
+      "whyCorrect": "強調構文は It is ... that で特定部分を強調し、倒置は語順を変えて強調や文法条件を示す。",
+      "whyWrong": {
+        "過去の一点だけを表す。": "この文法事項のルールとは合わない選択肢です。",
+        "主語と動詞を省略してよい。": "この文法事項のルールとは合わない選択肢です。",
+        "名詞を必ず複数形にする。": "この文法事項のルールとは合わない選択肢です。"
+      }
+    },
+    {
+      "id": "senior_emphasis_inversion_memory_2",
+      "itemId": "senior_emphasis_inversion",
+      "mode": "memory",
+      "type": "rule",
+      "stem": "「It is ... that / 倒置」の基本形として最も近いものは？",
+      "choices": [
+        "be動詞 + -ing",
+        "助動詞 + 動詞の原形",
+        "It is X that ... / Never V S ...",
+        "have + 過去分詞"
+      ],
+      "answer": "It is X that ... / Never V S ...",
+      "whyCorrect": "基本形は「It is X that ... / Never V S ...」。",
+      "whyWrong": {
+        "have + 過去分詞": "この文法事項のルールとは合わない選択肢です。",
+        "be動詞 + -ing": "この文法事項のルールとは合わない選択肢です。",
+        "助動詞 + 動詞の原形": "この文法事項のルールとは合わない選択肢です。"
+      }
+    }
+  ],
+  "practiceQuestions": [
+    {
+      "id": "junior_be_basic_practice_1",
+      "itemId": "junior_be_basic",
+      "mode": "practice",
+      "type": "blank",
+      "stem": "I ___ a student.",
+      "choices": [
+        "is",
+        "be",
+        "am",
+        "are"
+      ],
+      "answer": "am",
+      "whyCorrect": "主語が I なので am を使う。",
+      "whyWrong": {
+        "are": "語形・時制・主語との対応が、この空所には合いません。",
+        "is": "語形・時制・主語との対応が、この空所には合いません。",
+        "be": "語形・時制・主語との対応が、この空所には合いません。"
+      },
+      "translation": "私は生徒です。"
+    },
+    {
+      "id": "junior_be_basic_practice_2",
+      "itemId": "junior_be_basic",
+      "mode": "practice",
+      "type": "blank",
+      "stem": "You ___ kind.",
+      "choices": [
+        "are",
+        "am",
+        "is",
+        "be"
+      ],
+      "answer": "are",
+      "whyCorrect": "主語が You なので are を使う。",
+      "whyWrong": {
+        "am": "語形・時制・主語との対応が、この空所には合いません。",
+        "is": "語形・時制・主語との対応が、この空所には合いません。",
+        "be": "語形・時制・主語との対応が、この空所には合いません。"
+      },
+      "translation": "あなたは親切です。"
+    },
+    {
+      "id": "junior_be_basic_practice_3",
+      "itemId": "junior_be_basic",
+      "mode": "practice",
+      "type": "blank",
+      "stem": "He ___ my brother.",
+      "choices": [
+        "is",
+        "am",
+        "are",
+        "be"
+      ],
+      "answer": "is",
+      "whyCorrect": "主語が He なので is を使う。",
+      "whyWrong": {
+        "am": "語形・時制・主語との対応が、この空所には合いません。",
+        "are": "語形・時制・主語との対応が、この空所には合いません。",
+        "be": "語形・時制・主語との対応が、この空所には合いません。"
+      },
+      "translation": "彼は私の兄弟です。"
+    },
+    {
+      "id": "junior_be_basic_practice_4",
+      "itemId": "junior_be_basic",
+      "mode": "practice",
+      "type": "blank",
+      "stem": "They ___ in the park.",
+      "choices": [
+        "are",
+        "am",
+        "is",
+        "be"
+      ],
+      "answer": "are",
+      "whyCorrect": "主語が They なので are を使う。",
+      "whyWrong": {
+        "am": "語形・時制・主語との対応が、この空所には合いません。",
+        "is": "語形・時制・主語との対応が、この空所には合いません。",
+        "be": "語形・時制・主語との対応が、この空所には合いません。"
+      },
+      "translation": "彼らは公園にいます。"
+    },
+    {
+      "id": "junior_be_basic_practice_5",
+      "itemId": "junior_be_basic",
+      "mode": "practice",
+      "type": "blank",
+      "stem": "It ___ cold today.",
+      "choices": [
+        "is",
+        "am",
+        "are",
+        "be"
+      ],
+      "answer": "is",
+      "whyCorrect": "主語が It なので is を使う。",
+      "whyWrong": {
+        "am": "語形・時制・主語との対応が、この空所には合いません。",
+        "are": "語形・時制・主語との対応が、この空所には合いません。",
+        "be": "語形・時制・主語との対応が、この空所には合いません。"
+      },
+      "translation": "今日は寒いです。"
+    },
+    {
+      "id": "junior_general_present_practice_1",
+      "itemId": "junior_general_present",
+      "mode": "practice",
+      "type": "blank",
+      "stem": "She ___ tennis every Sunday.",
+      "choices": [
+        "play",
+        "playing",
+        "played",
+        "plays"
+      ],
+      "answer": "plays",
+      "whyCorrect": "主語が She なので play に s をつける。",
+      "whyWrong": {
+        "play": "語形・時制・主語との対応が、この空所には合いません。",
+        "playing": "語形・時制・主語との対応が、この空所には合いません。",
+        "played": "語形・時制・主語との対応が、この空所には合いません。"
+      },
+      "translation": "彼女は毎週日曜日にテニスをします。"
+    },
+    {
+      "id": "junior_general_present_practice_2",
+      "itemId": "junior_general_present",
+      "mode": "practice",
+      "type": "blank",
+      "stem": "They ___ English after school.",
+      "choices": [
+        "studies",
+        "studied",
+        "studying",
+        "study"
+      ],
+      "answer": "study",
+      "whyCorrect": "主語が They なので動詞は原形。",
+      "whyWrong": {
+        "studies": "語形・時制・主語との対応が、この空所には合いません。",
+        "studied": "語形・時制・主語との対応が、この空所には合いません。",
+        "studying": "語形・時制・主語との対応が、この空所には合いません。"
+      },
+      "translation": "彼らは放課後に英語を勉強します。"
+    },
+    {
+      "id": "junior_general_present_practice_3",
+      "itemId": "junior_general_present",
+      "mode": "practice",
+      "type": "blank",
+      "stem": "My father ___ coffee every morning.",
+      "choices": [
+        "drank",
+        "drinks",
+        "drink",
+        "drinking"
+      ],
+      "answer": "drinks",
+      "whyCorrect": "My father は三人称単数なので drinks。",
+      "whyWrong": {
+        "drink": "語形・時制・主語との対応が、この空所には合いません。",
+        "drinking": "語形・時制・主語との対応が、この空所には合いません。",
+        "drank": "語形・時制・主語との対応が、この空所には合いません。"
+      },
+      "translation": "父は毎朝コーヒーを飲みます。"
+    },
+    {
+      "id": "junior_general_present_practice_4",
+      "itemId": "junior_general_present",
+      "mode": "practice",
+      "type": "blank",
+      "stem": "I ___ soccer on Fridays.",
+      "choices": [
+        "played",
+        "playing",
+        "play",
+        "plays"
+      ],
+      "answer": "play",
+      "whyCorrect": "主語が I なので動詞は原形。",
+      "whyWrong": {
+        "plays": "語形・時制・主語との対応が、この空所には合いません。",
+        "played": "語形・時制・主語との対応が、この空所には合いません。",
+        "playing": "語形・時制・主語との対応が、この空所には合いません。"
+      },
+      "translation": "私は金曜日にサッカーをします。"
+    },
+    {
+      "id": "junior_general_present_practice_5",
+      "itemId": "junior_general_present",
+      "mode": "practice",
+      "type": "blank",
+      "stem": "Tom ___ in Tokyo.",
+      "choices": [
+        "lived",
+        "lives",
+        "live",
+        "living"
+      ],
+      "answer": "lives",
+      "whyCorrect": "Tom は三人称単数なので lives。",
+      "whyWrong": {
+        "live": "語形・時制・主語との対応が、この空所には合いません。",
+        "living": "語形・時制・主語との対応が、この空所には合いません。",
+        "lived": "語形・時制・主語との対応が、この空所には合いません。"
+      },
+      "translation": "トムは東京に住んでいます。"
+    },
+    {
+      "id": "junior_questions_basic_practice_1",
+      "itemId": "junior_questions_basic",
+      "mode": "practice",
+      "type": "blank",
+      "stem": "___ you busy now?",
+      "choices": [
+        "Are",
+        "Do",
+        "Is",
+        "Did"
+      ],
+      "answer": "Are",
+      "whyCorrect": "be動詞 are を文頭に出す。",
+      "whyWrong": {
+        "Do": "語形・時制・主語との対応が、この空所には合いません。",
+        "Is": "語形・時制・主語との対応が、この空所には合いません。",
+        "Did": "語形・時制・主語との対応が、この空所には合いません。"
+      },
+      "translation": "あなたは今忙しいですか。"
+    },
+    {
+      "id": "junior_questions_basic_practice_2",
+      "itemId": "junior_questions_basic",
+      "mode": "practice",
+      "type": "blank",
+      "stem": "___ she like music?",
+      "choices": [
+        "Did",
+        "Does",
+        "Do",
+        "Is"
+      ],
+      "answer": "Does",
+      "whyCorrect": "主語が she なので Does を使い、like は原形。",
+      "whyWrong": {
+        "Do": "語形・時制・主語との対応が、この空所には合いません。",
+        "Is": "語形・時制・主語との対応が、この空所には合いません。",
+        "Did": "語形・時制・主語との対応が、この空所には合いません。"
+      },
+      "translation": "彼女は音楽が好きですか。"
+    },
+    {
+      "id": "junior_questions_basic_practice_3",
+      "itemId": "junior_questions_basic",
+      "mode": "practice",
+      "type": "blank",
+      "stem": "___ they play soccer?",
+      "choices": [
+        "Did",
+        "Do",
+        "Does",
+        "Are"
+      ],
+      "answer": "Do",
+      "whyCorrect": "主語が they なので Do を使う。",
+      "whyWrong": {
+        "Does": "語形・時制・主語との対応が、この空所には合いません。",
+        "Are": "語形・時制・主語との対応が、この空所には合いません。",
+        "Did": "語形・時制・主語との対応が、この空所には合いません。"
+      },
+      "translation": "彼らはサッカーをしますか。"
+    },
+    {
+      "id": "junior_questions_basic_practice_4",
+      "itemId": "junior_questions_basic",
+      "mode": "practice",
+      "type": "blank",
+      "stem": "___ he at home?",
+      "choices": [
+        "Is",
+        "Are",
+        "Do",
+        "Does"
+      ],
+      "answer": "Is",
+      "whyCorrect": "be動詞 is を文頭に出す。",
+      "whyWrong": {
+        "Are": "語形・時制・主語との対応が、この空所には合いません。",
+        "Do": "語形・時制・主語との対応が、この空所には合いません。",
+        "Does": "語形・時制・主語との対応が、この空所には合いません。"
+      },
+      "translation": "彼は家にいますか。"
+    },
+    {
+      "id": "junior_questions_basic_practice_5",
+      "itemId": "junior_questions_basic",
+      "mode": "practice",
+      "type": "blank",
+      "stem": "___ you watch the movie yesterday?",
+      "choices": [
+        "Do",
+        "Does",
+        "Are",
+        "Did"
+      ],
+      "answer": "Did",
+      "whyCorrect": "過去の一般動詞の疑問文なので Did を使う。",
+      "whyWrong": {
+        "Do": "語形・時制・主語との対応が、この空所には合いません。",
+        "Does": "語形・時制・主語との対応が、この空所には合いません。",
+        "Are": "語形・時制・主語との対応が、この空所には合いません。"
+      },
+      "translation": "あなたは昨日その映画を見ましたか。"
+    },
+    {
+      "id": "junior_present_progressive_practice_1",
+      "itemId": "junior_present_progressive",
+      "mode": "practice",
+      "type": "blank",
+      "stem": "She is ___ English now.",
+      "choices": [
+        "studies",
+        "studying",
+        "study",
+        "studied"
+      ],
+      "answer": "studying",
+      "whyCorrect": "現在進行形なので study の -ing形 studying。",
+      "whyWrong": {
+        "study": "語形・時制・主語との対応が、この空所には合いません。",
+        "studied": "語形・時制・主語との対応が、この空所には合いません。",
+        "studies": "語形・時制・主語との対応が、この空所には合いません。"
+      },
+      "translation": "彼女は今英語を勉強しています。"
+    },
+    {
+      "id": "junior_present_progressive_practice_2",
+      "itemId": "junior_present_progressive",
+      "mode": "practice",
+      "type": "blank",
+      "stem": "They are ___ soccer in the park.",
+      "choices": [
+        "playing",
+        "play",
+        "played",
+        "plays"
+      ],
+      "answer": "playing",
+      "whyCorrect": "are + -ing の形にする。",
+      "whyWrong": {
+        "play": "語形・時制・主語との対応が、この空所には合いません。",
+        "played": "語形・時制・主語との対応が、この空所には合いません。",
+        "plays": "語形・時制・主語との対応が、この空所には合いません。"
+      },
+      "translation": "彼らは公園でサッカーをしています。"
+    },
+    {
+      "id": "junior_present_progressive_practice_3",
+      "itemId": "junior_present_progressive",
+      "mode": "practice",
+      "type": "blank",
+      "stem": "I am ___ dinner now.",
+      "choices": [
+        "cooked",
+        "cooks",
+        "cooking",
+        "cook"
+      ],
+      "answer": "cooking",
+      "whyCorrect": "am + cooking で現在進行形。",
+      "whyWrong": {
+        "cook": "語形・時制・主語との対応が、この空所には合いません。",
+        "cooked": "語形・時制・主語との対応が、この空所には合いません。",
+        "cooks": "語形・時制・主語との対応が、この空所には合いません。"
+      },
+      "translation": "私は今夕食を作っています。"
+    },
+    {
+      "id": "junior_present_progressive_practice_4",
+      "itemId": "junior_present_progressive",
+      "mode": "practice",
+      "type": "blank",
+      "stem": "He is ___ TV.",
+      "choices": [
+        "watch",
+        "watched",
+        "watches",
+        "watching"
+      ],
+      "answer": "watching",
+      "whyCorrect": "watch の -ing形は watching。",
+      "whyWrong": {
+        "watch": "語形・時制・主語との対応が、この空所には合いません。",
+        "watched": "語形・時制・主語との対応が、この空所には合いません。",
+        "watches": "語形・時制・主語との対応が、この空所には合いません。"
+      },
+      "translation": "彼はテレビを見ています。"
+    },
+    {
+      "id": "junior_present_progressive_practice_5",
+      "itemId": "junior_present_progressive",
+      "mode": "practice",
+      "type": "blank",
+      "stem": "We are ___ to music.",
+      "choices": [
+        "listen",
+        "listened",
+        "listens",
+        "listening"
+      ],
+      "answer": "listening",
+      "whyCorrect": "listen の -ing形 listening を使う。",
+      "whyWrong": {
+        "listen": "語形・時制・主語との対応が、この空所には合いません。",
+        "listened": "語形・時制・主語との対応が、この空所には合いません。",
+        "listens": "語形・時制・主語との対応が、この空所には合いません。"
+      },
+      "translation": "私たちは音楽を聞いています。"
+    },
+    {
+      "id": "senior_present_past_practice_1",
+      "itemId": "senior_present_past",
+      "mode": "practice",
+      "type": "blank",
+      "stem": "I ___ Kyoto last year.",
+      "choices": [
+        "visited",
+        "visit",
+        "visiting",
+        "visits"
+      ],
+      "answer": "visited",
+      "whyCorrect": "last year があるので過去形 visited。",
+      "whyWrong": {
+        "visit": "語形・時制・主語との対応が、この空所には合いません。",
+        "visiting": "語形・時制・主語との対応が、この空所には合いません。",
+        "visits": "語形・時制・主語との対応が、この空所には合いません。"
+      },
+      "translation": "私は昨年京都を訪れました。"
+    },
+    {
+      "id": "senior_present_past_practice_2",
+      "itemId": "senior_present_past",
+      "mode": "practice",
+      "type": "blank",
+      "stem": "She ___ tennis every Sunday.",
+      "choices": [
+        "play",
+        "playing",
+        "played",
+        "plays"
+      ],
+      "answer": "plays",
+      "whyCorrect": "every Sunday は習慣なので現在形。主語が She なので plays。",
+      "whyWrong": {
+        "play": "語形・時制・主語との対応が、この空所には合いません。",
+        "playing": "語形・時制・主語との対応が、この空所には合いません。",
+        "played": "語形・時制・主語との対応が、この空所には合いません。"
+      },
+      "translation": "彼女は毎週日曜日にテニスをします。"
+    },
+    {
+      "id": "senior_present_past_practice_3",
+      "itemId": "senior_present_past",
+      "mode": "practice",
+      "type": "blank",
+      "stem": "They ___ in Osaka in 2020.",
+      "choices": [
+        "lived",
+        "live",
+        "living",
+        "lives"
+      ],
+      "answer": "lived",
+      "whyCorrect": "in 2020 は過去時点なので過去形。",
+      "whyWrong": {
+        "live": "語形・時制・主語との対応が、この空所には合いません。",
+        "living": "語形・時制・主語との対応が、この空所には合いません。",
+        "lives": "語形・時制・主語との対応が、この空所には合いません。"
+      },
+      "translation": "彼らは2020年に大阪に住んでいました。"
+    },
+    {
+      "id": "senior_present_past_practice_4",
+      "itemId": "senior_present_past",
+      "mode": "practice",
+      "type": "blank",
+      "stem": "Water ___ at 100 degrees Celsius.",
+      "choices": [
+        "boil",
+        "boiled",
+        "boiling",
+        "boils"
+      ],
+      "answer": "boils",
+      "whyCorrect": "一般的事実なので現在形 boils。",
+      "whyWrong": {
+        "boil": "語形・時制・主語との対応が、この空所には合いません。",
+        "boiled": "語形・時制・主語との対応が、この空所には合いません。",
+        "boiling": "語形・時制・主語との対応が、この空所には合いません。"
+      },
+      "translation": "水は摂氏100度で沸騰します。"
+    },
+    {
+      "id": "senior_present_past_practice_5",
+      "itemId": "senior_present_past",
+      "mode": "practice",
+      "type": "blank",
+      "stem": "He ___ the book yesterday.",
+      "choices": [
+        "read",
+        "reads",
+        "reading",
+        "has read"
+      ],
+      "answer": "read",
+      "whyCorrect": "yesterday があるので過去形。read は綴りが同じ過去形。",
+      "whyWrong": {
+        "reads": "語形・時制・主語との対応が、この空所には合いません。",
+        "reading": "語形・時制・主語との対応が、この空所には合いません。",
+        "has read": "語形・時制・主語との対応が、この空所には合いません。"
+      },
+      "translation": "彼は昨日その本を読みました。"
+    },
+    {
+      "id": "senior_progressive_practice_1",
+      "itemId": "senior_progressive",
+      "mode": "practice",
+      "type": "blank",
+      "stem": "I was ___ when you called me.",
+      "choices": [
+        "studies",
+        "studying",
+        "study",
+        "studied"
+      ],
+      "answer": "studying",
+      "whyCorrect": "was + -ing で過去進行形。",
+      "whyWrong": {
+        "study": "語形・時制・主語との対応が、この空所には合いません。",
+        "studied": "語形・時制・主語との対応が、この空所には合いません。",
+        "studies": "語形・時制・主語との対応が、この空所には合いません。"
+      },
+      "translation": "あなたが電話したとき、私は勉強していました。"
+    },
+    {
+      "id": "senior_progressive_practice_2",
+      "itemId": "senior_progressive",
+      "mode": "practice",
+      "type": "blank",
+      "stem": "She is ___ a letter now.",
+      "choices": [
+        "writing",
+        "write",
+        "wrote",
+        "writes"
+      ],
+      "answer": "writing",
+      "whyCorrect": "is + writing で現在進行形。",
+      "whyWrong": {
+        "write": "語形・時制・主語との対応が、この空所には合いません。",
+        "wrote": "語形・時制・主語との対応が、この空所には合いません。",
+        "writes": "語形・時制・主語との対応が、この空所には合いません。"
+      },
+      "translation": "彼女は今手紙を書いています。"
+    },
+    {
+      "id": "senior_progressive_practice_3",
+      "itemId": "senior_progressive",
+      "mode": "practice",
+      "type": "blank",
+      "stem": "They were ___ soccer at that time.",
+      "choices": [
+        "playing",
+        "play",
+        "played",
+        "plays"
+      ],
+      "answer": "playing",
+      "whyCorrect": "were + playing で過去進行形。",
+      "whyWrong": {
+        "play": "語形・時制・主語との対応が、この空所には合いません。",
+        "played": "語形・時制・主語との対応が、この空所には合いません。",
+        "plays": "語形・時制・主語との対応が、この空所には合いません。"
+      },
+      "translation": "彼らはその時サッカーをしていました。"
+    },
+    {
+      "id": "senior_progressive_practice_4",
+      "itemId": "senior_progressive",
+      "mode": "practice",
+      "type": "blank",
+      "stem": "The baby is ___ now.",
+      "choices": [
+        "sleeps",
+        "sleeping",
+        "sleep",
+        "slept"
+      ],
+      "answer": "sleeping",
+      "whyCorrect": "is + sleeping で進行中の状態を表す。",
+      "whyWrong": {
+        "sleep": "語形・時制・主語との対応が、この空所には合いません。",
+        "slept": "語形・時制・主語との対応が、この空所には合いません。",
+        "sleeps": "語形・時制・主語との対応が、この空所には合いません。"
+      },
+      "translation": "その赤ちゃんは今眠っています。"
+    },
+    {
+      "id": "senior_progressive_practice_5",
+      "itemId": "senior_progressive",
+      "mode": "practice",
+      "type": "blank",
+      "stem": "We are ___ for the bus.",
+      "choices": [
+        "waits",
+        "waiting",
+        "wait",
+        "waited"
+      ],
+      "answer": "waiting",
+      "whyCorrect": "are + waiting で現在進行形。",
+      "whyWrong": {
+        "wait": "語形・時制・主語との対応が、この空所には合いません。",
+        "waited": "語形・時制・主語との対応が、この空所には合いません。",
+        "waits": "語形・時制・主語との対応が、この空所には合いません。"
+      },
+      "translation": "私たちはバスを待っています。"
+    },
+    {
+      "id": "senior_present_perfect_continuation_practice_1",
+      "itemId": "senior_present_perfect_continuation",
+      "mode": "practice",
+      "type": "blank",
+      "stem": "I have ___ here for three years.",
+      "choices": [
+        "lived",
+        "live",
+        "living",
+        "lives"
+      ],
+      "answer": "lived",
+      "whyCorrect": "現在完了は have + 過去分詞。live の過去分詞は lived。",
+      "whyWrong": {
+        "live": "語形・時制・主語との対応が、この空所には合いません。",
+        "living": "語形・時制・主語との対応が、この空所には合いません。",
+        "lives": "語形・時制・主語との対応が、この空所には合いません。"
+      },
+      "translation": "私はここに3年間住んでいます。"
+    },
+    {
+      "id": "senior_present_perfect_continuation_practice_2",
+      "itemId": "senior_present_perfect_continuation",
+      "mode": "practice",
+      "type": "blank",
+      "stem": "She has ___ sick since Monday.",
+      "choices": [
+        "being",
+        "was",
+        "been",
+        "be"
+      ],
+      "answer": "been",
+      "whyCorrect": "状態の継続なので has been。",
+      "whyWrong": {
+        "be": "語形・時制・主語との対応が、この空所には合いません。",
+        "being": "語形・時制・主語との対応が、この空所には合いません。",
+        "was": "語形・時制・主語との対応が、この空所には合いません。"
+      },
+      "translation": "彼女は月曜日からずっと病気です。"
+    },
+    {
+      "id": "senior_present_perfect_continuation_practice_3",
+      "itemId": "senior_present_perfect_continuation",
+      "mode": "practice",
+      "type": "blank",
+      "stem": "We have ___ each other for ten years.",
+      "choices": [
+        "know",
+        "knew",
+        "knowing",
+        "known"
+      ],
+      "answer": "known",
+      "whyCorrect": "know の過去分詞 known を使う。",
+      "whyWrong": {
+        "know": "語形・時制・主語との対応が、この空所には合いません。",
+        "knew": "語形・時制・主語との対応が、この空所には合いません。",
+        "knowing": "語形・時制・主語との対応が、この空所には合いません。"
+      },
+      "translation": "私たちは10年間お互いを知っています。"
+    },
+    {
+      "id": "senior_present_perfect_continuation_practice_4",
+      "itemId": "senior_present_perfect_continuation",
+      "mode": "practice",
+      "type": "blank",
+      "stem": "He has ___ in this city since 2020.",
+      "choices": [
+        "worked",
+        "work",
+        "working",
+        "works"
+      ],
+      "answer": "worked",
+      "whyCorrect": "since 2020 なので現在完了の継続。",
+      "whyWrong": {
+        "work": "語形・時制・主語との対応が、この空所には合いません。",
+        "working": "語形・時制・主語との対応が、この空所には合いません。",
+        "works": "語形・時制・主語との対応が、この空所には合いません。"
+      },
+      "translation": "彼は2020年からこの町で働いています。"
+    },
+    {
+      "id": "senior_present_perfect_continuation_practice_5",
+      "itemId": "senior_present_perfect_continuation",
+      "mode": "practice",
+      "type": "blank",
+      "stem": "They have ___ married for five years.",
+      "choices": [
+        "being",
+        "was",
+        "been",
+        "be"
+      ],
+      "answer": "been",
+      "whyCorrect": "状態の継続は have been married。",
+      "whyWrong": {
+        "be": "語形・時制・主語との対応が、この空所には合いません。",
+        "being": "語形・時制・主語との対応が、この空所には合いません。",
+        "was": "語形・時制・主語との対応が、この空所には合いません。"
+      },
+      "translation": "彼らは結婚して5年になります。"
+    },
+    {
+      "id": "senior_present_perfect_experience_practice_1",
+      "itemId": "senior_present_perfect_experience",
+      "mode": "practice",
+      "type": "blank",
+      "stem": "I have ___ Kyoto twice.",
+      "choices": [
+        "visited",
+        "visit",
+        "visiting",
+        "visits"
+      ],
+      "answer": "visited",
+      "whyCorrect": "現在完了は have + 過去分詞。visit の過去分詞は visited。",
+      "whyWrong": {
+        "visit": "語形・時制・主語との対応が、この空所には合いません。",
+        "visiting": "語形・時制・主語との対応が、この空所には合いません。",
+        "visits": "語形・時制・主語との対応が、この空所には合いません。"
+      },
+      "translation": "私は京都を2回訪れたことがあります。"
+    },
+    {
+      "id": "senior_present_perfect_experience_practice_2",
+      "itemId": "senior_present_perfect_experience",
+      "mode": "practice",
+      "type": "blank",
+      "stem": "Have you ever ___ sushi?",
+      "choices": [
+        "eat",
+        "ate",
+        "eating",
+        "eaten"
+      ],
+      "answer": "eaten",
+      "whyCorrect": "eat の過去分詞 eaten を使う。",
+      "whyWrong": {
+        "eat": "語形・時制・主語との対応が、この空所には合いません。",
+        "ate": "語形・時制・主語との対応が、この空所には合いません。",
+        "eating": "語形・時制・主語との対応が、この空所には合いません。"
+      },
+      "translation": "あなたは今までに寿司を食べたことがありますか。"
+    },
+    {
+      "id": "senior_present_perfect_experience_practice_3",
+      "itemId": "senior_present_perfect_experience",
+      "mode": "practice",
+      "type": "blank",
+      "stem": "She has never ___ abroad.",
+      "choices": [
+        "being",
+        "was",
+        "been",
+        "be"
+      ],
+      "answer": "been",
+      "whyCorrect": "have been abroad で海外へ行った経験を表す。",
+      "whyWrong": {
+        "be": "語形・時制・主語との対応が、この空所には合いません。",
+        "being": "語形・時制・主語との対応が、この空所には合いません。",
+        "was": "語形・時制・主語との対応が、この空所には合いません。"
+      },
+      "translation": "彼女は一度も海外に行ったことがありません。"
+    },
+    {
+      "id": "senior_present_perfect_experience_practice_4",
+      "itemId": "senior_present_perfect_experience",
+      "mode": "practice",
+      "type": "blank",
+      "stem": "He has ___ this movie before.",
+      "choices": [
+        "seeing",
+        "seen",
+        "see",
+        "saw"
+      ],
+      "answer": "seen",
+      "whyCorrect": "see の過去分詞 seen を使う。",
+      "whyWrong": {
+        "see": "語形・時制・主語との対応が、この空所には合いません。",
+        "saw": "語形・時制・主語との対応が、この空所には合いません。",
+        "seeing": "語形・時制・主語との対応が、この空所には合いません。"
+      },
+      "translation": "彼は以前この映画を見たことがあります。"
+    },
+    {
+      "id": "senior_present_perfect_experience_practice_5",
+      "itemId": "senior_present_perfect_experience",
+      "mode": "practice",
+      "type": "blank",
+      "stem": "We have ___ there once.",
+      "choices": [
+        "staying",
+        "stays",
+        "stayed",
+        "stay"
+      ],
+      "answer": "stayed",
+      "whyCorrect": "stay の過去分詞 stayed を使う。",
+      "whyWrong": {
+        "stay": "語形・時制・主語との対応が、この空所には合いません。",
+        "staying": "語形・時制・主語との対応が、この空所には合いません。",
+        "stays": "語形・時制・主語との対応が、この空所には合いません。"
+      },
+      "translation": "私たちはそこに一度泊まったことがあります。"
+    },
+    {
+      "id": "senior_present_perfect_completion_practice_1",
+      "itemId": "senior_present_perfect_completion",
+      "mode": "practice",
+      "type": "blank",
+      "stem": "I have just ___ my homework.",
+      "choices": [
+        "finishing",
+        "finishes",
+        "finished",
+        "finish"
+      ],
+      "answer": "finished",
+      "whyCorrect": "現在完了は have + 過去分詞。finish の過去分詞は finished。",
+      "whyWrong": {
+        "finish": "語形・時制・主語との対応が、この空所には合いません。",
+        "finishing": "語形・時制・主語との対応が、この空所には合いません。",
+        "finishes": "語形・時制・主語との対応が、この空所には合いません。"
+      },
+      "translation": "私はちょうど宿題を終えたところです。"
+    },
+    {
+      "id": "senior_present_perfect_completion_practice_2",
+      "itemId": "senior_present_perfect_completion",
+      "mode": "practice",
+      "type": "blank",
+      "stem": "She has already ___ lunch.",
+      "choices": [
+        "eat",
+        "ate",
+        "eating",
+        "eaten"
+      ],
+      "answer": "eaten",
+      "whyCorrect": "eat の過去分詞 eaten を使う。",
+      "whyWrong": {
+        "eat": "語形・時制・主語との対応が、この空所には合いません。",
+        "ate": "語形・時制・主語との対応が、この空所には合いません。",
+        "eating": "語形・時制・主語との対応が、この空所には合いません。"
+      },
+      "translation": "彼女はすでに昼食を食べました。"
+    },
+    {
+      "id": "senior_present_perfect_completion_practice_3",
+      "itemId": "senior_present_perfect_completion",
+      "mode": "practice",
+      "type": "blank",
+      "stem": "Have you ___ the report yet?",
+      "choices": [
+        "write",
+        "wrote",
+        "writing",
+        "written"
+      ],
+      "answer": "written",
+      "whyCorrect": "write の過去分詞 written を使う。",
+      "whyWrong": {
+        "write": "語形・時制・主語との対応が、この空所には合いません。",
+        "wrote": "語形・時制・主語との対応が、この空所には合いません。",
+        "writing": "語形・時制・主語との対応が、この空所には合いません。"
+      },
+      "translation": "あなたはもうレポートを書きましたか。"
+    },
+    {
+      "id": "senior_present_perfect_completion_practice_4",
+      "itemId": "senior_present_perfect_completion",
+      "mode": "practice",
+      "type": "blank",
+      "stem": "He has not ___ the room yet.",
+      "choices": [
+        "cleaned",
+        "clean",
+        "cleaning",
+        "cleans"
+      ],
+      "answer": "cleaned",
+      "whyCorrect": "not ... yet で未完了を表す。",
+      "whyWrong": {
+        "clean": "語形・時制・主語との対応が、この空所には合いません。",
+        "cleaning": "語形・時制・主語との対応が、この空所には合いません。",
+        "cleans": "語形・時制・主語との対応が、この空所には合いません。"
+      },
+      "translation": "彼はまだ部屋を掃除していません。"
+    },
+    {
+      "id": "senior_present_perfect_completion_practice_5",
+      "itemId": "senior_present_perfect_completion",
+      "mode": "practice",
+      "type": "blank",
+      "stem": "We have just ___ at the station.",
+      "choices": [
+        "arrive",
+        "arriving",
+        "arrives",
+        "arrived"
+      ],
+      "answer": "arrived",
+      "whyCorrect": "arrive の過去分詞 arrived を使う。",
+      "whyWrong": {
+        "arrive": "語形・時制・主語との対応が、この空所には合いません。",
+        "arriving": "語形・時制・主語との対応が、この空所には合いません。",
+        "arrives": "語形・時制・主語との対応が、この空所には合いません。"
+      },
+      "translation": "私たちはちょうど駅に着いたところです。"
+    },
+    {
+      "id": "junior_past_basic_practice_1",
+      "itemId": "junior_past_basic",
+      "mode": "practice",
+      "type": "blank",
+      "stem": "I ___ to the library yesterday.",
+      "choices": [
+        "goes",
+        "going",
+        "went",
+        "go"
+      ],
+      "answer": "went",
+      "whyCorrect": "yesterday があるので go の過去形 went。",
+      "whyWrong": {
+        "go": "語形・時制・主語との対応が、この空所には合いません。",
+        "goes": "語形・時制・主語との対応が、この空所には合いません。",
+        "going": "語形・時制・主語との対応が、この空所には合いません。"
+      },
+      "translation": "私は昨日図書館へ行きました。"
+    },
+    {
+      "id": "junior_past_basic_practice_2",
+      "itemId": "junior_past_basic",
+      "mode": "practice",
+      "type": "blank",
+      "stem": "She ___ tennis last Sunday.",
+      "choices": [
+        "playing",
+        "played",
+        "play",
+        "plays"
+      ],
+      "answer": "played",
+      "whyCorrect": "last Sunday があるので過去形 played。",
+      "whyWrong": {
+        "play": "語形・時制・主語との対応が、この空所には合いません。",
+        "plays": "語形・時制・主語との対応が、この空所には合いません。",
+        "playing": "語形・時制・主語との対応が、この空所には合いません。"
+      },
+      "translation": "彼女は先週の日曜日にテニスをしました。"
+    },
+    {
+      "id": "junior_past_basic_practice_3",
+      "itemId": "junior_past_basic",
+      "mode": "practice",
+      "type": "blank",
+      "stem": "We ___ a movie last night.",
+      "choices": [
+        "seeing",
+        "saw",
+        "see",
+        "seen"
+      ],
+      "answer": "saw",
+      "whyCorrect": "see の過去形は saw。",
+      "whyWrong": {
+        "see": "語形・時制・主語との対応が、この空所には合いません。",
+        "seen": "語形・時制・主語との対応が、この空所には合いません。",
+        "seeing": "語形・時制・主語との対応が、この空所には合いません。"
+      },
+      "translation": "私たちは昨夜映画を見ました。"
+    },
+    {
+      "id": "junior_past_basic_practice_4",
+      "itemId": "junior_past_basic",
+      "mode": "practice",
+      "type": "blank",
+      "stem": "He ___ his homework after dinner.",
+      "choices": [
+        "do",
+        "does",
+        "done",
+        "did"
+      ],
+      "answer": "did",
+      "whyCorrect": "do の過去形は did。",
+      "whyWrong": {
+        "do": "語形・時制・主語との対応が、この空所には合いません。",
+        "does": "語形・時制・主語との対応が、この空所には合いません。",
+        "done": "語形・時制・主語との対応が、この空所には合いません。"
+      },
+      "translation": "彼は夕食後に宿題をしました。"
+    },
+    {
+      "id": "junior_past_basic_practice_5",
+      "itemId": "junior_past_basic",
+      "mode": "practice",
+      "type": "blank",
+      "stem": "They ___ in Osaka three years ago.",
+      "choices": [
+        "lived",
+        "live",
+        "living",
+        "lives"
+      ],
+      "answer": "lived",
+      "whyCorrect": "ago があるので過去形 lived。",
+      "whyWrong": {
+        "live": "語形・時制・主語との対応が、この空所には合いません。",
+        "living": "語形・時制・主語との対応が、この空所には合いません。",
+        "lives": "語形・時制・主語との対応が、この空所には合いません。"
+      },
+      "translation": "彼らは3年前大阪に住んでいました。"
+    },
+    {
+      "id": "junior_future_basic_practice_1",
+      "itemId": "junior_future_basic",
+      "mode": "practice",
+      "type": "blank",
+      "stem": "I ___ call you later.",
+      "choices": [
+        "will",
+        "is",
+        "did",
+        "has"
+      ],
+      "answer": "will",
+      "whyCorrect": "未来の動作なので will + 原形。",
+      "whyWrong": {
+        "is": "語形・時制・主語との対応が、この空所には合いません。",
+        "did": "語形・時制・主語との対応が、この空所には合いません。",
+        "has": "語形・時制・主語との対応が、この空所には合いません。"
+      },
+      "translation": "あとであなたに電話します。"
+    },
+    {
+      "id": "junior_future_basic_practice_2",
+      "itemId": "junior_future_basic",
+      "mode": "practice",
+      "type": "blank",
+      "stem": "She is ___ to visit Kyoto.",
+      "choices": [
+        "going",
+        "go",
+        "went",
+        "gone"
+      ],
+      "answer": "going",
+      "whyCorrect": "be going to の形にする。",
+      "whyWrong": {
+        "go": "語形・時制・主語との対応が、この空所には合いません。",
+        "went": "語形・時制・主語との対応が、この空所には合いません。",
+        "gone": "語形・時制・主語との対応が、この空所には合いません。"
+      },
+      "translation": "彼女は京都を訪れる予定です。"
+    },
+    {
+      "id": "junior_future_basic_practice_3",
+      "itemId": "junior_future_basic",
+      "mode": "practice",
+      "type": "blank",
+      "stem": "We will ___ home soon.",
+      "choices": [
+        "leaves",
+        "left",
+        "leaving",
+        "leave"
+      ],
+      "answer": "leave",
+      "whyCorrect": "will の後ろは動詞の原形 leave。",
+      "whyWrong": {
+        "leaves": "語形・時制・主語との対応が、この空所には合いません。",
+        "left": "語形・時制・主語との対応が、この空所には合いません。",
+        "leaving": "語形・時制・主語との対応が、この空所には合いません。"
+      },
+      "translation": "私たちはまもなく家を出ます。"
+    },
+    {
+      "id": "junior_future_basic_practice_4",
+      "itemId": "junior_future_basic",
+      "mode": "practice",
+      "type": "blank",
+      "stem": "They are ___ to study tonight.",
+      "choices": [
+        "going",
+        "go",
+        "went",
+        "gone"
+      ],
+      "answer": "going",
+      "whyCorrect": "are going to + 原形で予定を表す。",
+      "whyWrong": {
+        "go": "語形・時制・主語との対応が、この空所には合いません。",
+        "went": "語形・時制・主語との対応が、この空所には合いません。",
+        "gone": "語形・時制・主語との対応が、この空所には合いません。"
+      },
+      "translation": "彼らは今夜勉強する予定です。"
+    },
+    {
+      "id": "junior_future_basic_practice_5",
+      "itemId": "junior_future_basic",
+      "mode": "practice",
+      "type": "blank",
+      "stem": "He will ___ the window.",
+      "choices": [
+        "opened",
+        "opening",
+        "open",
+        "opens"
+      ],
+      "answer": "open",
+      "whyCorrect": "will の後ろは原形 open。",
+      "whyWrong": {
+        "opens": "語形・時制・主語との対応が、この空所には合いません。",
+        "opened": "語形・時制・主語との対応が、この空所には合いません。",
+        "opening": "語形・時制・主語との対応が、この空所には合いません。"
+      },
+      "translation": "彼は窓を開けるでしょう。"
+    },
+    {
+      "id": "junior_aux_can_practice_1",
+      "itemId": "junior_aux_can",
+      "mode": "practice",
+      "type": "blank",
+      "stem": "I ___ swim.",
+      "choices": [
+        "will",
+        "does",
+        "can",
+        "must"
+      ],
+      "answer": "can",
+      "whyCorrect": "能力を表すので can。",
+      "whyWrong": {
+        "must": "語形・時制・主語との対応が、この空所には合いません。",
+        "will": "語形・時制・主語との対応が、この空所には合いません。",
+        "does": "語形・時制・主語との対応が、この空所には合いません。"
+      },
+      "translation": "私は泳ぐことができます。"
+    },
+    {
+      "id": "junior_aux_can_practice_2",
+      "itemId": "junior_aux_can",
+      "mode": "practice",
+      "type": "blank",
+      "stem": "She can ___ English.",
+      "choices": [
+        "speak",
+        "speaks",
+        "speaking",
+        "spoke"
+      ],
+      "answer": "speak",
+      "whyCorrect": "can の後ろは原形 speak。",
+      "whyWrong": {
+        "speaks": "語形・時制・主語との対応が、この空所には合いません。",
+        "speaking": "語形・時制・主語との対応が、この空所には合いません。",
+        "spoke": "語形・時制・主語との対応が、この空所には合いません。"
+      },
+      "translation": "彼女は英語を話せます。"
+    },
+    {
+      "id": "junior_aux_can_practice_3",
+      "itemId": "junior_aux_can",
+      "mode": "practice",
+      "type": "blank",
+      "stem": "Can you ___ fast?",
+      "choices": [
+        "swim",
+        "swims",
+        "swam",
+        "swimming"
+      ],
+      "answer": "swim",
+      "whyCorrect": "Can you の後ろは原形 swim。",
+      "whyWrong": {
+        "swims": "語形・時制・主語との対応が、この空所には合いません。",
+        "swam": "語形・時制・主語との対応が、この空所には合いません。",
+        "swimming": "語形・時制・主語との対応が、この空所には合いません。"
+      },
+      "translation": "あなたは速く泳げますか。"
+    },
+    {
+      "id": "junior_aux_can_practice_4",
+      "itemId": "junior_aux_can",
+      "mode": "practice",
+      "type": "blank",
+      "stem": "He can ___ a computer.",
+      "choices": [
+        "uses",
+        "used",
+        "using",
+        "use"
+      ],
+      "answer": "use",
+      "whyCorrect": "can + 原形 use。",
+      "whyWrong": {
+        "uses": "語形・時制・主語との対応が、この空所には合いません。",
+        "used": "語形・時制・主語との対応が、この空所には合いません。",
+        "using": "語形・時制・主語との対応が、この空所には合いません。"
+      },
+      "translation": "彼はコンピュータを使えます。"
+    },
+    {
+      "id": "junior_aux_can_practice_5",
+      "itemId": "junior_aux_can",
+      "mode": "practice",
+      "type": "blank",
+      "stem": "They can ___ the problem.",
+      "choices": [
+        "solves",
+        "solved",
+        "solving",
+        "solve"
+      ],
+      "answer": "solve",
+      "whyCorrect": "can の後ろは原形 solve。",
+      "whyWrong": {
+        "solves": "語形・時制・主語との対応が、この空所には合いません。",
+        "solved": "語形・時制・主語との対応が、この空所には合いません。",
+        "solving": "語形・時制・主語との対応が、この空所には合いません。"
+      },
+      "translation": "彼らはその問題を解けます。"
+    },
+    {
+      "id": "senior_past_perfect_practice_1",
+      "itemId": "senior_past_perfect",
+      "mode": "practice",
+      "type": "blank",
+      "stem": "The train ___ left when I arrived.",
+      "choices": [
+        "have",
+        "has",
+        "having",
+        "had"
+      ],
+      "answer": "had",
+      "whyCorrect": "到着より前に出発していたので had + 過去分詞。",
+      "whyWrong": {
+        "have": "語形・時制・主語との対応が、この空所には合いません。",
+        "has": "語形・時制・主語との対応が、この空所には合いません。",
+        "having": "語形・時制・主語との対応が、この空所には合いません。"
+      },
+      "translation": "私が到着したとき、電車はすでに出発していました。"
+    },
+    {
+      "id": "senior_past_perfect_practice_2",
+      "itemId": "senior_past_perfect",
+      "mode": "practice",
+      "type": "blank",
+      "stem": "She had ___ home before I called.",
+      "choices": [
+        "go",
+        "went",
+        "going",
+        "gone"
+      ],
+      "answer": "gone",
+      "whyCorrect": "go の過去分詞 gone を使う。",
+      "whyWrong": {
+        "go": "語形・時制・主語との対応が、この空所には合いません。",
+        "went": "語形・時制・主語との対応が、この空所には合いません。",
+        "going": "語形・時制・主語との対応が、この空所には合いません。"
+      },
+      "translation": "私が電話する前に、彼女は家に帰っていました。"
+    },
+    {
+      "id": "senior_past_perfect_practice_3",
+      "itemId": "senior_past_perfect",
+      "mode": "practice",
+      "type": "blank",
+      "stem": "He had ___ the report by noon.",
+      "choices": [
+        "complete",
+        "completing",
+        "completes",
+        "completed"
+      ],
+      "answer": "completed",
+      "whyCorrect": "had + completed で過去完了。",
+      "whyWrong": {
+        "complete": "語形・時制・主語との対応が、この空所には合いません。",
+        "completing": "語形・時制・主語との対応が、この空所には合いません。",
+        "completes": "語形・時制・主語との対応が、この空所には合いません。"
+      },
+      "translation": "彼は正午までにレポートを完成させていました。"
+    },
+    {
+      "id": "senior_past_perfect_practice_4",
+      "itemId": "senior_past_perfect",
+      "mode": "practice",
+      "type": "blank",
+      "stem": "They had ___ before the rain started.",
+      "choices": [
+        "leaves",
+        "left",
+        "leave",
+        "leaving"
+      ],
+      "answer": "left",
+      "whyCorrect": "leave の過去分詞 left を使う。",
+      "whyWrong": {
+        "leave": "語形・時制・主語との対応が、この空所には合いません。",
+        "leaving": "語形・時制・主語との対応が、この空所には合いません。",
+        "leaves": "語形・時制・主語との対応が、この空所には合いません。"
+      },
+      "translation": "雨が降り始める前に彼らは出発していました。"
+    },
+    {
+      "id": "senior_past_perfect_practice_5",
+      "itemId": "senior_past_perfect",
+      "mode": "practice",
+      "type": "blank",
+      "stem": "I had ___ dinner when she arrived.",
+      "choices": [
+        "finishing",
+        "finishes",
+        "finished",
+        "finish"
+      ],
+      "answer": "finished",
+      "whyCorrect": "到着より前に終えていたので過去完了。",
+      "whyWrong": {
+        "finish": "語形・時制・主語との対応が、この空所には合いません。",
+        "finishing": "語形・時制・主語との対応が、この空所には合いません。",
+        "finishes": "語形・時制・主語との対応が、この空所には合いません。"
+      },
+      "translation": "彼女が到着したとき、私は夕食を終えていました。"
+    },
+    {
+      "id": "senior_future_perfect_practice_1",
+      "itemId": "senior_future_perfect",
+      "mode": "practice",
+      "type": "blank",
+      "stem": "I ___ finished the work by tomorrow.",
+      "choices": [
+        "will have",
+        "have",
+        "had",
+        "will be"
+      ],
+      "answer": "will have",
+      "whyCorrect": "未来完了は will have + 過去分詞。",
+      "whyWrong": {
+        "have": "語形・時制・主語との対応が、この空所には合いません。",
+        "had": "語形・時制・主語との対応が、この空所には合いません。",
+        "will be": "語形・時制・主語との対応が、この空所には合いません。"
+      },
+      "translation": "私は明日までにその仕事を終えているでしょう。"
+    },
+    {
+      "id": "senior_future_perfect_practice_2",
+      "itemId": "senior_future_perfect",
+      "mode": "practice",
+      "type": "blank",
+      "stem": "She will have ___ the book by next week.",
+      "choices": [
+        "read",
+        "reads",
+        "reading",
+        "has read"
+      ],
+      "answer": "read",
+      "whyCorrect": "will have + 過去分詞。read は過去分詞も read。",
+      "whyWrong": {
+        "reads": "語形・時制・主語との対応が、この空所には合いません。",
+        "reading": "語形・時制・主語との対応が、この空所には合いません。",
+        "has read": "語形・時制・主語との対応が、この空所には合いません。"
+      },
+      "translation": "彼女は来週までにその本を読んでしまっているでしょう。"
+    },
+    {
+      "id": "senior_future_perfect_practice_3",
+      "itemId": "senior_future_perfect",
+      "mode": "practice",
+      "type": "blank",
+      "stem": "They will have ___ by the time we arrive.",
+      "choices": [
+        "leaves",
+        "left",
+        "leave",
+        "leaving"
+      ],
+      "answer": "left",
+      "whyCorrect": "leave の過去分詞 left を使う。",
+      "whyWrong": {
+        "leave": "語形・時制・主語との対応が、この空所には合いません。",
+        "leaving": "語形・時制・主語との対応が、この空所には合いません。",
+        "leaves": "語形・時制・主語との対応が、この空所には合いません。"
+      },
+      "translation": "私たちが到着する頃には、彼らは出発しているでしょう。"
+    },
+    {
+      "id": "senior_future_perfect_practice_4",
+      "itemId": "senior_future_perfect",
+      "mode": "practice",
+      "type": "blank",
+      "stem": "He will have ___ the project by Friday.",
+      "choices": [
+        "complete",
+        "completing",
+        "completes",
+        "completed"
+      ],
+      "answer": "completed",
+      "whyCorrect": "will have completed で未来完了。",
+      "whyWrong": {
+        "complete": "語形・時制・主語との対応が、この空所には合いません。",
+        "completing": "語形・時制・主語との対応が、この空所には合いません。",
+        "completes": "語形・時制・主語との対応が、この空所には合いません。"
+      },
+      "translation": "彼は金曜日までにその計画を完了しているでしょう。"
+    },
+    {
+      "id": "senior_future_perfect_practice_5",
+      "itemId": "senior_future_perfect",
+      "mode": "practice",
+      "type": "blank",
+      "stem": "We will have ___ dinner before the show starts.",
+      "choices": [
+        "finishing",
+        "finishes",
+        "finished",
+        "finish"
+      ],
+      "answer": "finished",
+      "whyCorrect": "未来の基準時までの完了なので未来完了。",
+      "whyWrong": {
+        "finish": "語形・時制・主語との対応が、この空所には合いません。",
+        "finishing": "語形・時制・主語との対応が、この空所には合いません。",
+        "finishes": "語形・時制・主語との対応が、この空所には合いません。"
+      },
+      "translation": "ショーが始まる前に、私たちは夕食を終えているでしょう。"
+    },
+    {
+      "id": "senior_present_perfect_progressive_practice_1",
+      "itemId": "senior_present_perfect_progressive",
+      "mode": "practice",
+      "type": "blank",
+      "stem": "I have ___ English for two hours.",
+      "choices": [
+        "studied",
+        "studying",
+        "study",
+        "been studying"
+      ],
+      "answer": "been studying",
+      "whyCorrect": "現在完了進行形は have been + -ing。",
+      "whyWrong": {
+        "studied": "語形・時制・主語との対応が、この空所には合いません。",
+        "studying": "語形・時制・主語との対応が、この空所には合いません。",
+        "study": "語形・時制・主語との対応が、この空所には合いません。"
+      },
+      "translation": "私は2時間ずっと英語を勉強しています。"
+    },
+    {
+      "id": "senior_present_perfect_progressive_practice_2",
+      "itemId": "senior_present_perfect_progressive",
+      "mode": "practice",
+      "type": "blank",
+      "stem": "She has ___ here since morning.",
+      "choices": [
+        "work",
+        "been working",
+        "worked",
+        "working"
+      ],
+      "answer": "been working",
+      "whyCorrect": "has been + -ing で動作の継続。",
+      "whyWrong": {
+        "worked": "語形・時制・主語との対応が、この空所には合いません。",
+        "working": "語形・時制・主語との対応が、この空所には合いません。",
+        "work": "語形・時制・主語との対応が、この空所には合いません。"
+      },
+      "translation": "彼女は朝からここで働き続けています。"
+    },
+    {
+      "id": "senior_present_perfect_progressive_practice_3",
+      "itemId": "senior_present_perfect_progressive",
+      "mode": "practice",
+      "type": "blank",
+      "stem": "It has ___ all day.",
+      "choices": [
+        "raining",
+        "rain",
+        "been raining",
+        "rained"
+      ],
+      "answer": "been raining",
+      "whyCorrect": "has been raining で降り続いていることを表す。",
+      "whyWrong": {
+        "rained": "語形・時制・主語との対応が、この空所には合いません。",
+        "raining": "語形・時制・主語との対応が、この空所には合いません。",
+        "rain": "語形・時制・主語との対応が、この空所には合いません。"
+      },
+      "translation": "一日中雨が降り続いています。"
+    },
+    {
+      "id": "senior_present_perfect_progressive_practice_4",
+      "itemId": "senior_present_perfect_progressive",
+      "mode": "practice",
+      "type": "blank",
+      "stem": "They have ___ in Tokyo for a year.",
+      "choices": [
+        "live",
+        "been living",
+        "lived",
+        "living"
+      ],
+      "answer": "been living",
+      "whyCorrect": "have been living で継続を強調する。",
+      "whyWrong": {
+        "lived": "語形・時制・主語との対応が、この空所には合いません。",
+        "living": "語形・時制・主語との対応が、この空所には合いません。",
+        "live": "語形・時制・主語との対応が、この空所には合いません。"
+      },
+      "translation": "彼らは1年間東京に住み続けています。"
+    },
+    {
+      "id": "senior_present_perfect_progressive_practice_5",
+      "itemId": "senior_present_perfect_progressive",
+      "mode": "practice",
+      "type": "blank",
+      "stem": "We have ___ for the bus for thirty minutes.",
+      "choices": [
+        "waited",
+        "waiting",
+        "wait",
+        "been waiting"
+      ],
+      "answer": "been waiting",
+      "whyCorrect": "have been waiting で待つ動作の継続。",
+      "whyWrong": {
+        "waited": "語形・時制・主語との対応が、この空所には合いません。",
+        "waiting": "語形・時制・主語との対応が、この空所には合いません。",
+        "wait": "語形・時制・主語との対応が、この空所には合いません。"
+      },
+      "translation": "私たちは30分間バスを待ち続けています。"
+    },
+    {
+      "id": "junior_nouns_countable_practice_1",
+      "itemId": "junior_nouns_countable",
+      "mode": "practice",
+      "type": "blank",
+      "stem": "I have two ___.",
+      "choices": [
+        "booking",
+        "booked",
+        "books",
+        "book"
+      ],
+      "answer": "books",
+      "whyCorrect": "two の後なので複数形 books。",
+      "whyWrong": {
+        "book": "語形・時制・主語との対応が、この空所には合いません。",
+        "booking": "語形・時制・主語との対応が、この空所には合いません。",
+        "booked": "語形・時制・主語との対応が、この空所には合いません。"
+      },
+      "translation": "私は本を2冊持っています。"
+    },
+    {
+      "id": "junior_nouns_countable_practice_2",
+      "itemId": "junior_nouns_countable",
+      "mode": "practice",
+      "type": "blank",
+      "stem": "She has a ___.",
+      "choices": [
+        "cat",
+        "cats",
+        "cat's",
+        "catting"
+      ],
+      "answer": "cat",
+      "whyCorrect": "a の後は単数名詞 cat。",
+      "whyWrong": {
+        "cats": "語形・時制・主語との対応が、この空所には合いません。",
+        "cat's": "語形・時制・主語との対応が、この空所には合いません。",
+        "catting": "語形・時制・主語との対応が、この空所には合いません。"
+      },
+      "translation": "彼女は猫を1匹飼っています。"
+    },
+    {
+      "id": "junior_nouns_countable_practice_3",
+      "itemId": "junior_nouns_countable",
+      "mode": "practice",
+      "type": "blank",
+      "stem": "There are three ___ in the room.",
+      "choices": [
+        "chair's",
+        "chaired",
+        "chairs",
+        "chair"
+      ],
+      "answer": "chairs",
+      "whyCorrect": "three の後なので複数形 chairs。",
+      "whyWrong": {
+        "chair": "語形・時制・主語との対応が、この空所には合いません。",
+        "chair's": "語形・時制・主語との対応が、この空所には合いません。",
+        "chaired": "語形・時制・主語との対応が、この空所には合いません。"
+      },
+      "translation": "部屋に椅子が3脚あります。"
+    },
+    {
+      "id": "junior_nouns_countable_practice_4",
+      "itemId": "junior_nouns_countable",
+      "mode": "practice",
+      "type": "blank",
+      "stem": "This is an ___.",
+      "choices": [
+        "apple's",
+        "appling",
+        "apple",
+        "apples"
+      ],
+      "answer": "apple",
+      "whyCorrect": "an の後は単数名詞 apple。",
+      "whyWrong": {
+        "apples": "語形・時制・主語との対応が、この空所には合いません。",
+        "apple's": "語形・時制・主語との対応が、この空所には合いません。",
+        "appling": "語形・時制・主語との対応が、この空所には合いません。"
+      },
+      "translation": "これはリンゴです。"
+    },
+    {
+      "id": "junior_nouns_countable_practice_5",
+      "itemId": "junior_nouns_countable",
+      "mode": "practice",
+      "type": "blank",
+      "stem": "We need five ___.",
+      "choices": [
+        "box",
+        "boxs",
+        "boxed",
+        "boxes"
+      ],
+      "answer": "boxes",
+      "whyCorrect": "box の複数形は boxes。",
+      "whyWrong": {
+        "box": "語形・時制・主語との対応が、この空所には合いません。",
+        "boxs": "語形・時制・主語との対応が、この空所には合いません。",
+        "boxed": "語形・時制・主語との対応が、この空所には合いません。"
+      },
+      "translation": "私たちは箱が5つ必要です。"
+    },
+    {
+      "id": "junior_pronouns_basic_practice_1",
+      "itemId": "junior_pronouns_basic",
+      "mode": "practice",
+      "type": "blank",
+      "stem": "I know ___.",
+      "choices": [
+        "his",
+        "himself",
+        "him",
+        "he"
+      ],
+      "answer": "him",
+      "whyCorrect": "know の目的語なので him。",
+      "whyWrong": {
+        "he": "語形・時制・主語との対応が、この空所には合いません。",
+        "his": "語形・時制・主語との対応が、この空所には合いません。",
+        "himself": "語形・時制・主語との対応が、この空所には合いません。"
+      },
+      "translation": "私は彼を知っています。"
+    },
+    {
+      "id": "junior_pronouns_basic_practice_2",
+      "itemId": "junior_pronouns_basic",
+      "mode": "practice",
+      "type": "blank",
+      "stem": "This is ___ bag.",
+      "choices": [
+        "me",
+        "mine",
+        "my",
+        "I"
+      ],
+      "answer": "my",
+      "whyCorrect": "名詞 bag の前なので所有格 my。",
+      "whyWrong": {
+        "I": "語形・時制・主語との対応が、この空所には合いません。",
+        "me": "語形・時制・主語との対応が、この空所には合いません。",
+        "mine": "語形・時制・主語との対応が、この空所には合いません。"
+      },
+      "translation": "これは私のかばんです。"
+    },
+    {
+      "id": "junior_pronouns_basic_practice_3",
+      "itemId": "junior_pronouns_basic",
+      "mode": "practice",
+      "type": "blank",
+      "stem": "___ is my sister.",
+      "choices": [
+        "She",
+        "Her",
+        "Hers",
+        "Her's"
+      ],
+      "answer": "She",
+      "whyCorrect": "主語なので She。",
+      "whyWrong": {
+        "Her": "語形・時制・主語との対応が、この空所には合いません。",
+        "Hers": "語形・時制・主語との対応が、この空所には合いません。",
+        "Her's": "語形・時制・主語との対応が、この空所には合いません。"
+      },
+      "translation": "彼女は私の姉妹です。"
+    },
+    {
+      "id": "junior_pronouns_basic_practice_4",
+      "itemId": "junior_pronouns_basic",
+      "mode": "practice",
+      "type": "blank",
+      "stem": "Please help ___.",
+      "choices": [
+        "my",
+        "mine",
+        "me",
+        "I"
+      ],
+      "answer": "me",
+      "whyCorrect": "help の目的語なので me。",
+      "whyWrong": {
+        "I": "語形・時制・主語との対応が、この空所には合いません。",
+        "my": "語形・時制・主語との対応が、この空所には合いません。",
+        "mine": "語形・時制・主語との対応が、この空所には合いません。"
+      },
+      "translation": "私を手伝ってください。"
+    },
+    {
+      "id": "junior_pronouns_basic_practice_5",
+      "itemId": "junior_pronouns_basic",
+      "mode": "practice",
+      "type": "blank",
+      "stem": "That book is ___.",
+      "choices": [
+        "my",
+        "I",
+        "me",
+        "mine"
+      ],
+      "answer": "mine",
+      "whyCorrect": "単独で「私のもの」を表すので mine。",
+      "whyWrong": {
+        "my": "語形・時制・主語との対応が、この空所には合いません。",
+        "I": "語形・時制・主語との対応が、この空所には合いません。",
+        "me": "語形・時制・主語との対応が、この空所には合いません。"
+      },
+      "translation": "あの本は私のものです。"
+    },
+    {
+      "id": "junior_there_is_practice_1",
+      "itemId": "junior_there_is",
+      "mode": "practice",
+      "type": "blank",
+      "stem": "___ a book on the desk.",
+      "choices": [
+        "There is",
+        "There are",
+        "It is",
+        "They are"
+      ],
+      "answer": "There is",
+      "whyCorrect": "a book は単数なので There is。",
+      "whyWrong": {
+        "There are": "語形・時制・主語との対応が、この空所には合いません。",
+        "It is": "語形・時制・主語との対応が、この空所には合いません。",
+        "They are": "語形・時制・主語との対応が、この空所には合いません。"
+      },
+      "translation": "机の上に本があります。"
+    },
+    {
+      "id": "junior_there_is_practice_2",
+      "itemId": "junior_there_is",
+      "mode": "practice",
+      "type": "blank",
+      "stem": "___ three cats in the park.",
+      "choices": [
+        "There are",
+        "There is",
+        "It is",
+        "That is"
+      ],
+      "answer": "There are",
+      "whyCorrect": "three cats は複数なので There are。",
+      "whyWrong": {
+        "There is": "語形・時制・主語との対応が、この空所には合いません。",
+        "It is": "語形・時制・主語との対応が、この空所には合いません。",
+        "That is": "語形・時制・主語との対応が、この空所には合いません。"
+      },
+      "translation": "公園に猫が3匹います。"
+    },
+    {
+      "id": "junior_there_is_practice_3",
+      "itemId": "junior_there_is",
+      "mode": "practice",
+      "type": "blank",
+      "stem": "___ a pen in my bag.",
+      "choices": [
+        "There is",
+        "There are",
+        "They are",
+        "These are"
+      ],
+      "answer": "There is",
+      "whyCorrect": "a pen は単数。",
+      "whyWrong": {
+        "There are": "語形・時制・主語との対応が、この空所には合いません。",
+        "They are": "語形・時制・主語との対応が、この空所には合いません。",
+        "These are": "語形・時制・主語との対応が、この空所には合いません。"
+      },
+      "translation": "私のかばんにペンがあります。"
+    },
+    {
+      "id": "junior_there_is_practice_4",
+      "itemId": "junior_there_is",
+      "mode": "practice",
+      "type": "blank",
+      "stem": "___ many students in the room.",
+      "choices": [
+        "There are",
+        "There is",
+        "It is",
+        "This is"
+      ],
+      "answer": "There are",
+      "whyCorrect": "many students は複数。",
+      "whyWrong": {
+        "There is": "語形・時制・主語との対応が、この空所には合いません。",
+        "It is": "語形・時制・主語との対応が、この空所には合いません。",
+        "This is": "語形・時制・主語との対応が、この空所には合いません。"
+      },
+      "translation": "部屋に多くの生徒がいます。"
+    },
+    {
+      "id": "junior_there_is_practice_5",
+      "itemId": "junior_there_is",
+      "mode": "practice",
+      "type": "blank",
+      "stem": "___ no water in the bottle.",
+      "choices": [
+        "There is",
+        "There are",
+        "They are",
+        "Those are"
+      ],
+      "answer": "There is",
+      "whyCorrect": "water は不可算名詞なので There is。",
+      "whyWrong": {
+        "There are": "語形・時制・主語との対応が、この空所には合いません。",
+        "They are": "語形・時制・主語との対応が、この空所には合いません。",
+        "Those are": "語形・時制・主語との対応が、この空所には合いません。"
+      },
+      "translation": "そのボトルには水がありません。"
+    },
+    {
+      "id": "junior_infinitive_basic_practice_1",
+      "itemId": "junior_infinitive_basic",
+      "mode": "practice",
+      "type": "blank",
+      "stem": "I want ___ English.",
+      "choices": [
+        "to study",
+        "study",
+        "studied",
+        "studying"
+      ],
+      "answer": "to study",
+      "whyCorrect": "want の後ろは to 不定詞。",
+      "whyWrong": {
+        "study": "語形・時制・主語との対応が、この空所には合いません。",
+        "studied": "語形・時制・主語との対応が、この空所には合いません。",
+        "studying": "語形・時制・主語との対応が、この空所には合いません。"
+      },
+      "translation": "私は英語を勉強したいです。"
+    },
+    {
+      "id": "junior_infinitive_basic_practice_2",
+      "itemId": "junior_infinitive_basic",
+      "mode": "practice",
+      "type": "blank",
+      "stem": "She went to the library ___ books.",
+      "choices": [
+        "reads",
+        "to read",
+        "read",
+        "reading"
+      ],
+      "answer": "to read",
+      "whyCorrect": "目的を表す副詞的用法。",
+      "whyWrong": {
+        "read": "語形・時制・主語との対応が、この空所には合いません。",
+        "reading": "語形・時制・主語との対応が、この空所には合いません。",
+        "reads": "語形・時制・主語との対応が、この空所には合いません。"
+      },
+      "translation": "彼女は本を読むために図書館へ行きました。"
+    },
+    {
+      "id": "junior_infinitive_basic_practice_3",
+      "itemId": "junior_infinitive_basic",
+      "mode": "practice",
+      "type": "blank",
+      "stem": "I have homework ___.",
+      "choices": [
+        "doing",
+        "did",
+        "to do",
+        "do"
+      ],
+      "answer": "to do",
+      "whyCorrect": "名詞 homework を後ろから説明する。",
+      "whyWrong": {
+        "do": "語形・時制・主語との対応が、この空所には合いません。",
+        "doing": "語形・時制・主語との対応が、この空所には合いません。",
+        "did": "語形・時制・主語との対応が、この空所には合いません。"
+      },
+      "translation": "私にはするべき宿題があります。"
+    },
+    {
+      "id": "junior_infinitive_basic_practice_4",
+      "itemId": "junior_infinitive_basic",
+      "mode": "practice",
+      "type": "blank",
+      "stem": "It is fun ___ soccer.",
+      "choices": [
+        "play",
+        "played",
+        "playing",
+        "to play"
+      ],
+      "answer": "to play",
+      "whyCorrect": "It is ... to の形。",
+      "whyWrong": {
+        "play": "語形・時制・主語との対応が、この空所には合いません。",
+        "played": "語形・時制・主語との対応が、この空所には合いません。",
+        "playing": "語形・時制・主語との対応が、この空所には合いません。"
+      },
+      "translation": "サッカーをするのは楽しいです。"
+    },
+    {
+      "id": "junior_infinitive_basic_practice_5",
+      "itemId": "junior_infinitive_basic",
+      "mode": "practice",
+      "type": "blank",
+      "stem": "He knows how ___ a computer.",
+      "choices": [
+        "to use",
+        "use",
+        "using",
+        "used"
+      ],
+      "answer": "to use",
+      "whyCorrect": "how to + 原形。",
+      "whyWrong": {
+        "use": "語形・時制・主語との対応が、この空所には合いません。",
+        "using": "語形・時制・主語との対応が、この空所には合いません。",
+        "used": "語形・時制・主語との対応が、この空所には合いません。"
+      },
+      "translation": "彼はコンピュータの使い方を知っています。"
+    },
+    {
+      "id": "junior_gerund_basic_practice_1",
+      "itemId": "junior_gerund_basic",
+      "mode": "practice",
+      "type": "blank",
+      "stem": "I enjoy ___ tennis.",
+      "choices": [
+        "playing",
+        "play",
+        "to play",
+        "played"
+      ],
+      "answer": "playing",
+      "whyCorrect": "enjoy の後ろは動名詞。",
+      "whyWrong": {
+        "play": "語形・時制・主語との対応が、この空所には合いません。",
+        "to play": "語形・時制・主語との対応が、この空所には合いません。",
+        "played": "語形・時制・主語との対応が、この空所には合いません。"
+      },
+      "translation": "私はテニスをすることを楽しみます。"
+    },
+    {
+      "id": "junior_gerund_basic_practice_2",
+      "itemId": "junior_gerund_basic",
+      "mode": "practice",
+      "type": "blank",
+      "stem": "___ English is important.",
+      "choices": [
+        "Studied",
+        "Studying",
+        "Study",
+        "To studying"
+      ],
+      "answer": "Studying",
+      "whyCorrect": "主語になる動名詞。",
+      "whyWrong": {
+        "Study": "語形・時制・主語との対応が、この空所には合いません。",
+        "To studying": "語形・時制・主語との対応が、この空所には合いません。",
+        "Studied": "語形・時制・主語との対応が、この空所には合いません。"
+      },
+      "translation": "英語を勉強することは重要です。"
+    },
+    {
+      "id": "junior_gerund_basic_practice_3",
+      "itemId": "junior_gerund_basic",
+      "mode": "practice",
+      "type": "blank",
+      "stem": "She finished ___ dinner.",
+      "choices": [
+        "to cook",
+        "cooked",
+        "cooking",
+        "cook"
+      ],
+      "answer": "cooking",
+      "whyCorrect": "finish の後ろは動名詞。",
+      "whyWrong": {
+        "cook": "語形・時制・主語との対応が、この空所には合いません。",
+        "to cook": "語形・時制・主語との対応が、この空所には合いません。",
+        "cooked": "語形・時制・主語との対応が、この空所には合いません。"
+      },
+      "translation": "彼女は夕食を作り終えました。"
+    },
+    {
+      "id": "junior_gerund_basic_practice_4",
+      "itemId": "junior_gerund_basic",
+      "mode": "practice",
+      "type": "blank",
+      "stem": "He is good at ___ soccer.",
+      "choices": [
+        "playing",
+        "play",
+        "to play",
+        "played"
+      ],
+      "answer": "playing",
+      "whyCorrect": "前置詞 at の後ろは動名詞。",
+      "whyWrong": {
+        "play": "語形・時制・主語との対応が、この空所には合いません。",
+        "to play": "語形・時制・主語との対応が、この空所には合いません。",
+        "played": "語形・時制・主語との対応が、この空所には合いません。"
+      },
+      "translation": "彼はサッカーが得意です。"
+    },
+    {
+      "id": "junior_gerund_basic_practice_5",
+      "itemId": "junior_gerund_basic",
+      "mode": "practice",
+      "type": "blank",
+      "stem": "Thank you for ___ me.",
+      "choices": [
+        "helped",
+        "helping",
+        "help",
+        "to help"
+      ],
+      "answer": "helping",
+      "whyCorrect": "前置詞 for の後ろは動名詞。",
+      "whyWrong": {
+        "help": "語形・時制・主語との対応が、この空所には合いません。",
+        "to help": "語形・時制・主語との対応が、この空所には合いません。",
+        "helped": "語形・時制・主語との対応が、この空所には合いません。"
+      },
+      "translation": "手伝ってくれてありがとう。"
+    },
+    {
+      "id": "senior_conjunctions_practice_1",
+      "itemId": "senior_conjunctions",
+      "mode": "practice",
+      "type": "blank",
+      "stem": "I stayed home ___ it was raining.",
+      "choices": [
+        "because",
+        "during",
+        "therefore",
+        "despite"
+      ],
+      "answer": "because",
+      "whyCorrect": "理由を表す接続詞 because。",
+      "whyWrong": {
+        "during": "語形・時制・主語との対応が、この空所には合いません。",
+        "therefore": "語形・時制・主語との対応が、この空所には合いません。",
+        "despite": "語形・時制・主語との対応が、この空所には合いません。"
+      },
+      "translation": "雨が降っていたので、私は家にいました。"
+    },
+    {
+      "id": "senior_conjunctions_practice_2",
+      "itemId": "senior_conjunctions",
+      "mode": "practice",
+      "type": "blank",
+      "stem": "Call me ___ you arrive.",
+      "choices": [
+        "because of",
+        "until of",
+        "when",
+        "during"
+      ],
+      "answer": "when",
+      "whyCorrect": "時を表す接続詞 when。",
+      "whyWrong": {
+        "during": "語形・時制・主語との対応が、この空所には合いません。",
+        "because of": "語形・時制・主語との対応が、この空所には合いません。",
+        "until of": "語形・時制・主語との対応が、この空所には合いません。"
+      },
+      "translation": "到着したら電話してください。"
+    },
+    {
+      "id": "senior_conjunctions_practice_3",
+      "itemId": "senior_conjunctions",
+      "mode": "practice",
+      "type": "blank",
+      "stem": "I like tea, ___ my brother likes coffee.",
+      "choices": [
+        "when",
+        "but",
+        "because",
+        "if"
+      ],
+      "answer": "but",
+      "whyCorrect": "対比なので but。",
+      "whyWrong": {
+        "because": "語形・時制・主語との対応が、この空所には合いません。",
+        "if": "語形・時制・主語との対応が、この空所には合いません。",
+        "when": "語形・時制・主語との対応が、この空所には合いません。"
+      },
+      "translation": "私は紅茶が好きですが、兄はコーヒーが好きです。"
+    },
+    {
+      "id": "senior_conjunctions_practice_4",
+      "itemId": "senior_conjunctions",
+      "mode": "practice",
+      "type": "blank",
+      "stem": "You can stay here ___ you are quiet.",
+      "choices": [
+        "despite",
+        "if",
+        "during",
+        "because of"
+      ],
+      "answer": "if",
+      "whyCorrect": "条件を表す if。",
+      "whyWrong": {
+        "during": "語形・時制・主語との対応が、この空所には合いません。",
+        "because of": "語形・時制・主語との対応が、この空所には合いません。",
+        "despite": "語形・時制・主語との対応が、この空所には合いません。"
+      },
+      "translation": "静かにしているなら、ここにいてよいです。"
+    },
+    {
+      "id": "senior_conjunctions_practice_5",
+      "itemId": "senior_conjunctions",
+      "mode": "practice",
+      "type": "blank",
+      "stem": "She is kind ___ smart.",
+      "choices": [
+        "if",
+        "and",
+        "because",
+        "although"
+      ],
+      "answer": "and",
+      "whyCorrect": "同じ働きの形容詞をつなぐ and。",
+      "whyWrong": {
+        "because": "語形・時制・主語との対応が、この空所には合いません。",
+        "although": "語形・時制・主語との対応が、この空所には合いません。",
+        "if": "語形・時制・主語との対応が、この空所には合いません。"
+      },
+      "translation": "彼女は親切で賢いです。"
+    },
+    {
+      "id": "senior_subjunctive_practice_1",
+      "itemId": "senior_subjunctive",
+      "mode": "practice",
+      "type": "blank",
+      "stem": "If I ___ rich, I would travel.",
+      "choices": [
+        "have been",
+        "were",
+        "am",
+        "will be"
+      ],
+      "answer": "were",
+      "whyCorrect": "現在の事実と違う仮定なので were。",
+      "whyWrong": {
+        "am": "語形・時制・主語との対応が、この空所には合いません。",
+        "will be": "語形・時制・主語との対応が、この空所には合いません。",
+        "have been": "語形・時制・主語との対応が、この空所には合いません。"
+      },
+      "translation": "もし私が裕福なら旅行するのに。"
+    },
+    {
+      "id": "senior_subjunctive_practice_2",
+      "itemId": "senior_subjunctive",
+      "mode": "practice",
+      "type": "blank",
+      "stem": "If he had studied harder, he ___ passed.",
+      "choices": [
+        "had",
+        "would have",
+        "will have",
+        "would"
+      ],
+      "answer": "would have",
+      "whyCorrect": "過去の仮定なので would have p.p.。",
+      "whyWrong": {
+        "will have": "語形・時制・主語との対応が、この空所には合いません。",
+        "would": "語形・時制・主語との対応が、この空所には合いません。",
+        "had": "語形・時制・主語との対応が、この空所には合いません。"
+      },
+      "translation": "もっと勉強していたら、彼は合格していたでしょう。"
+    },
+    {
+      "id": "senior_subjunctive_practice_3",
+      "itemId": "senior_subjunctive",
+      "mode": "practice",
+      "type": "blank",
+      "stem": "I wish I ___ a bird.",
+      "choices": [
+        "have been",
+        "were",
+        "am",
+        "will be"
+      ],
+      "answer": "were",
+      "whyCorrect": "I wish の仮定法。",
+      "whyWrong": {
+        "am": "語形・時制・主語との対応が、この空所には合いません。",
+        "will be": "語形・時制・主語との対応が、この空所には合いません。",
+        "have been": "語形・時制・主語との対応が、この空所には合いません。"
+      },
+      "translation": "私が鳥だったらなあ。"
+    },
+    {
+      "id": "senior_subjunctive_practice_4",
+      "itemId": "senior_subjunctive",
+      "mode": "practice",
+      "type": "blank",
+      "stem": "If she ___ here, she would help us.",
+      "choices": [
+        "has been",
+        "were",
+        "is",
+        "will be"
+      ],
+      "answer": "were",
+      "whyCorrect": "現在の事実と違う仮定。",
+      "whyWrong": {
+        "is": "語形・時制・主語との対応が、この空所には合いません。",
+        "will be": "語形・時制・主語との対応が、この空所には合いません。",
+        "has been": "語形・時制・主語との対応が、この空所には合いません。"
+      },
+      "translation": "彼女がここにいれば、私たちを助けてくれるのに。"
+    },
+    {
+      "id": "senior_subjunctive_practice_5",
+      "itemId": "senior_subjunctive",
+      "mode": "practice",
+      "type": "blank",
+      "stem": "If I had known it, I ___ told you.",
+      "choices": [
+        "had",
+        "would have",
+        "will have",
+        "would"
+      ],
+      "answer": "would have",
+      "whyCorrect": "過去の反実仮想。",
+      "whyWrong": {
+        "will have": "語形・時制・主語との対応が、この空所には合いません。",
+        "would": "語形・時制・主語との対応が、この空所には合いません。",
+        "had": "語形・時制・主語との対応が、この空所には合いません。"
+      },
+      "translation": "それを知っていたら、あなたに言っていたでしょう。"
+    },
+    {
+      "id": "senior_modals_practice_1",
+      "itemId": "senior_modals",
+      "mode": "practice",
+      "type": "blank",
+      "stem": "You ___ study every day.",
+      "choices": [
+        "studying",
+        "should",
+        "are",
+        "studies"
+      ],
+      "answer": "should",
+      "whyCorrect": "助言なので should。",
+      "whyWrong": {
+        "are": "語形・時制・主語との対応が、この空所には合いません。",
+        "studies": "語形・時制・主語との対応が、この空所には合いません。",
+        "studying": "語形・時制・主語との対応が、この空所には合いません。"
+      },
+      "translation": "あなたは毎日勉強するべきです。"
+    },
+    {
+      "id": "senior_modals_practice_2",
+      "itemId": "senior_modals",
+      "mode": "practice",
+      "type": "blank",
+      "stem": "He ___ be tired.",
+      "choices": [
+        "has",
+        "may",
+        "does",
+        "is"
+      ],
+      "answer": "may",
+      "whyCorrect": "推量なので may。",
+      "whyWrong": {
+        "does": "語形・時制・主語との対応が、この空所には合いません。",
+        "is": "語形・時制・主語との対応が、この空所には合いません。",
+        "has": "語形・時制・主語との対応が、この空所には合いません。"
+      },
+      "translation": "彼は疲れているかもしれません。"
+    },
+    {
+      "id": "senior_modals_practice_3",
+      "itemId": "senior_modals",
+      "mode": "practice",
+      "type": "blank",
+      "stem": "You ___ not smoke here.",
+      "choices": [
+        "are",
+        "do",
+        "have",
+        "must"
+      ],
+      "answer": "must",
+      "whyCorrect": "禁止は must not。",
+      "whyWrong": {
+        "are": "語形・時制・主語との対応が、この空所には合いません。",
+        "do": "語形・時制・主語との対応が、この空所には合いません。",
+        "have": "語形・時制・主語との対応が、この空所には合いません。"
+      },
+      "translation": "ここで喫煙してはいけません。"
+    },
+    {
+      "id": "senior_modals_practice_4",
+      "itemId": "senior_modals",
+      "mode": "practice",
+      "type": "blank",
+      "stem": "She can ___ French.",
+      "choices": [
+        "speak",
+        "speaks",
+        "spoke",
+        "speaking"
+      ],
+      "answer": "speak",
+      "whyCorrect": "助動詞の後ろは原形。",
+      "whyWrong": {
+        "speaks": "語形・時制・主語との対応が、この空所には合いません。",
+        "spoke": "語形・時制・主語との対応が、この空所には合いません。",
+        "speaking": "語形・時制・主語との対応が、この空所には合いません。"
+      },
+      "translation": "彼女はフランス語を話せます。"
+    },
+    {
+      "id": "senior_modals_practice_5",
+      "itemId": "senior_modals",
+      "mode": "practice",
+      "type": "blank",
+      "stem": "I ___ call you tomorrow.",
+      "choices": [
+        "will",
+        "am",
+        "did",
+        "have"
+      ],
+      "answer": "will",
+      "whyCorrect": "未来を表す will。",
+      "whyWrong": {
+        "am": "語形・時制・主語との対応が、この空所には合いません。",
+        "did": "語形・時制・主語との対応が、この空所には合いません。",
+        "have": "語形・時制・主語との対応が、この空所には合いません。"
+      },
+      "translation": "私は明日あなたに電話します。"
+    },
+    {
+      "id": "senior_articles_practice_1",
+      "itemId": "senior_articles",
+      "mode": "practice",
+      "type": "blank",
+      "stem": "I saw ___ dog.",
+      "choices": [
+        "an",
+        "the",
+        "some",
+        "a"
+      ],
+      "answer": "a",
+      "whyCorrect": "初出で不特定なので a。",
+      "whyWrong": {
+        "an": "語形・時制・主語との対応が、この空所には合いません。",
+        "the": "語形・時制・主語との対応が、この空所には合いません。",
+        "some": "語形・時制・主語との対応が、この空所には合いません。"
+      },
+      "translation": "私は犬を見ました。"
+    },
+    {
+      "id": "senior_articles_practice_2",
+      "itemId": "senior_articles",
+      "mode": "practice",
+      "type": "blank",
+      "stem": "She ate ___ apple.",
+      "choices": [
+        "some",
+        "an",
+        "a",
+        "the"
+      ],
+      "answer": "an",
+      "whyCorrect": "apple は母音音で始まるので an。",
+      "whyWrong": {
+        "a": "語形・時制・主語との対応が、この空所には合いません。",
+        "the": "語形・時制・主語との対応が、この空所には合いません。",
+        "some": "語形・時制・主語との対応が、この空所には合いません。"
+      },
+      "translation": "彼女はリンゴを食べました。"
+    },
+    {
+      "id": "senior_articles_practice_3",
+      "itemId": "senior_articles",
+      "mode": "practice",
+      "type": "blank",
+      "stem": "___ sun rises in the east.",
+      "choices": [
+        "A",
+        "An",
+        "Some",
+        "The"
+      ],
+      "answer": "The",
+      "whyCorrect": "唯一のものなので the。",
+      "whyWrong": {
+        "A": "語形・時制・主語との対応が、この空所には合いません。",
+        "An": "語形・時制・主語との対応が、この空所には合いません。",
+        "Some": "語形・時制・主語との対応が、この空所には合いません。"
+      },
+      "translation": "太陽は東から昇ります。"
+    },
+    {
+      "id": "senior_articles_practice_4",
+      "itemId": "senior_articles",
+      "mode": "practice",
+      "type": "blank",
+      "stem": "I bought a book. ___ book was interesting.",
+      "choices": [
+        "A",
+        "An",
+        "Some",
+        "The"
+      ],
+      "answer": "The",
+      "whyCorrect": "2回目で特定できるので the。",
+      "whyWrong": {
+        "A": "語形・時制・主語との対応が、この空所には合いません。",
+        "An": "語形・時制・主語との対応が、この空所には合いません。",
+        "Some": "語形・時制・主語との対応が、この空所には合いません。"
+      },
+      "translation": "私は本を買いました。その本は面白かったです。"
+    },
+    {
+      "id": "senior_articles_practice_5",
+      "itemId": "senior_articles",
+      "mode": "practice",
+      "type": "blank",
+      "stem": "He is ___ honest man.",
+      "choices": [
+        "some",
+        "an",
+        "a",
+        "the"
+      ],
+      "answer": "an",
+      "whyCorrect": "honest は h を発音せず母音音で始まる。",
+      "whyWrong": {
+        "a": "語形・時制・主語との対応が、この空所には合いません。",
+        "the": "語形・時制・主語との対応が、この空所には合いません。",
+        "some": "語形・時制・主語との対応が、この空所には合いません。"
+      },
+      "translation": "彼は正直な人です。"
+    },
+    {
+      "id": "senior_nouns_practice_1",
+      "itemId": "senior_nouns",
+      "mode": "practice",
+      "type": "blank",
+      "stem": "I don't have much ___.",
+      "choices": [
+        "inform",
+        "informed",
+        "information",
+        "informations"
+      ],
+      "answer": "information",
+      "whyCorrect": "information は不可算名詞。",
+      "whyWrong": {
+        "informations": "語形・時制・主語との対応が、この空所には合いません。",
+        "inform": "語形・時制・主語との対応が、この空所には合いません。",
+        "informed": "語形・時制・主語との対応が、この空所には合いません。"
+      },
+      "translation": "私はあまり情報を持っていません。"
+    },
+    {
+      "id": "senior_nouns_practice_2",
+      "itemId": "senior_nouns",
+      "mode": "practice",
+      "type": "blank",
+      "stem": "There are many ___ in the room.",
+      "choices": [
+        "furniture",
+        "information",
+        "chairs",
+        "chair"
+      ],
+      "answer": "chairs",
+      "whyCorrect": "many の後ろは可算複数。",
+      "whyWrong": {
+        "chair": "語形・時制・主語との対応が、この空所には合いません。",
+        "furniture": "語形・時制・主語との対応が、この空所には合いません。",
+        "information": "語形・時制・主語との対応が、この空所には合いません。"
+      },
+      "translation": "部屋には多くの椅子があります。"
+    },
+    {
+      "id": "senior_nouns_practice_3",
+      "itemId": "senior_nouns",
+      "mode": "practice",
+      "type": "blank",
+      "stem": "I need a piece of ___.",
+      "choices": [
+        "advice",
+        "advices",
+        "advise",
+        "advising"
+      ],
+      "answer": "advice",
+      "whyCorrect": "advice は不可算名詞。",
+      "whyWrong": {
+        "advices": "語形・時制・主語との対応が、この空所には合いません。",
+        "advise": "語形・時制・主語との対応が、この空所には合いません。",
+        "advising": "語形・時制・主語との対応が、この空所には合いません。"
+      },
+      "translation": "私は助言が1つ必要です。"
+    },
+    {
+      "id": "senior_nouns_practice_4",
+      "itemId": "senior_nouns",
+      "mode": "practice",
+      "type": "blank",
+      "stem": "She has three ___.",
+      "choices": [
+        "money",
+        "water",
+        "books",
+        "book"
+      ],
+      "answer": "books",
+      "whyCorrect": "three の後ろは可算複数。",
+      "whyWrong": {
+        "book": "語形・時制・主語との対応が、この空所には合いません。",
+        "money": "語形・時制・主語との対応が、この空所には合いません。",
+        "water": "語形・時制・主語との対応が、この空所には合いません。"
+      },
+      "translation": "彼女は本を3冊持っています。"
+    },
+    {
+      "id": "senior_nouns_practice_5",
+      "itemId": "senior_nouns",
+      "mode": "practice",
+      "type": "blank",
+      "stem": "We need some ___.",
+      "choices": [
+        "watering",
+        "water",
+        "waters",
+        "watered"
+      ],
+      "answer": "water",
+      "whyCorrect": "water は不可算名詞。",
+      "whyWrong": {
+        "waters": "語形・時制・主語との対応が、この空所には合いません。",
+        "watered": "語形・時制・主語との対応が、この空所には合いません。",
+        "watering": "語形・時制・主語との対応が、この空所には合いません。"
+      },
+      "translation": "私たちは水が必要です。"
+    },
+    {
+      "id": "senior_adjectives_adverbs_practice_1",
+      "itemId": "senior_adjectives_adverbs",
+      "mode": "practice",
+      "type": "blank",
+      "stem": "She speaks English ___.",
+      "choices": [
+        "fluenter",
+        "fluently",
+        "fluent",
+        "fluency"
+      ],
+      "answer": "fluently",
+      "whyCorrect": "speaks を修飾するので副詞。",
+      "whyWrong": {
+        "fluent": "語形・時制・主語との対応が、この空所には合いません。",
+        "fluency": "語形・時制・主語との対応が、この空所には合いません。",
+        "fluenter": "語形・時制・主語との対応が、この空所には合いません。"
+      },
+      "translation": "彼女は流ちょうに英語を話します。"
+    },
+    {
+      "id": "senior_adjectives_adverbs_practice_2",
+      "itemId": "senior_adjectives_adverbs",
+      "mode": "practice",
+      "type": "blank",
+      "stem": "He is a ___ driver.",
+      "choices": [
+        "care",
+        "caringly",
+        "careful",
+        "carefully"
+      ],
+      "answer": "careful",
+      "whyCorrect": "名詞 driver を修飾するので形容詞。",
+      "whyWrong": {
+        "carefully": "語形・時制・主語との対応が、この空所には合いません。",
+        "care": "語形・時制・主語との対応が、この空所には合いません。",
+        "caringly": "語形・時制・主語との対応が、この空所には合いません。"
+      },
+      "translation": "彼は慎重な運転手です。"
+    },
+    {
+      "id": "senior_adjectives_adverbs_practice_3",
+      "itemId": "senior_adjectives_adverbs",
+      "mode": "practice",
+      "type": "blank",
+      "stem": "She answered the question ___.",
+      "choices": [
+        "correctness",
+        "correctly",
+        "correct",
+        "correction"
+      ],
+      "answer": "correctly",
+      "whyCorrect": "answered を修飾するので副詞。",
+      "whyWrong": {
+        "correct": "語形・時制・主語との対応が、この空所には合いません。",
+        "correction": "語形・時制・主語との対応が、この空所には合いません。",
+        "correctness": "語形・時制・主語との対応が、この空所には合いません。"
+      },
+      "translation": "彼女はその質問に正しく答えました。"
+    },
+    {
+      "id": "senior_adjectives_adverbs_practice_4",
+      "itemId": "senior_adjectives_adverbs",
+      "mode": "practice",
+      "type": "blank",
+      "stem": "This is an ___ problem.",
+      "choices": [
+        "ease",
+        "easiness",
+        "easy",
+        "easily"
+      ],
+      "answer": "easy",
+      "whyCorrect": "名詞 problem を修飾するので形容詞。",
+      "whyWrong": {
+        "easily": "語形・時制・主語との対応が、この空所には合いません。",
+        "ease": "語形・時制・主語との対応が、この空所には合いません。",
+        "easiness": "語形・時制・主語との対応が、この空所には合いません。"
+      },
+      "translation": "これは簡単な問題です。"
+    },
+    {
+      "id": "senior_adjectives_adverbs_practice_5",
+      "itemId": "senior_adjectives_adverbs",
+      "mode": "practice",
+      "type": "blank",
+      "stem": "The test was ___ difficult.",
+      "choices": [
+        "much of",
+        "a few",
+        "very",
+        "many"
+      ],
+      "answer": "very",
+      "whyCorrect": "形容詞 difficult を修飾する副詞 very。",
+      "whyWrong": {
+        "many": "語形・時制・主語との対応が、この空所には合いません。",
+        "much of": "語形・時制・主語との対応が、この空所には合いません。",
+        "a few": "語形・時制・主語との対応が、この空所には合いません。"
+      },
+      "translation": "そのテストはとても難しかったです。"
+    },
+    {
+      "id": "senior_sentence_patterns_practice_1",
+      "itemId": "senior_sentence_patterns",
+      "mode": "practice",
+      "type": "blank",
+      "stem": "She made me ___.",
+      "choices": [
+        "happiness",
+        "happen",
+        "happy",
+        "happily"
+      ],
+      "answer": "happy",
+      "whyCorrect": "me の状態を説明する補語。",
+      "whyWrong": {
+        "happily": "語形・時制・主語との対応が、この空所には合いません。",
+        "happiness": "語形・時制・主語との対応が、この空所には合いません。",
+        "happen": "語形・時制・主語との対応が、この空所には合いません。"
+      },
+      "translation": "彼女は私を幸せにしました。"
+    },
+    {
+      "id": "senior_sentence_patterns_practice_2",
+      "itemId": "senior_sentence_patterns",
+      "mode": "practice",
+      "type": "blank",
+      "stem": "He gave me a ___.",
+      "choices": [
+        "happy",
+        "quickly",
+        "beautifully",
+        "present"
+      ],
+      "answer": "present",
+      "whyCorrect": "give はSVOOを作れる。",
+      "whyWrong": {
+        "happy": "語形・時制・主語との対応が、この空所には合いません。",
+        "quickly": "語形・時制・主語との対応が、この空所には合いません。",
+        "beautifully": "語形・時制・主語との対応が、この空所には合いません。"
+      },
+      "translation": "彼は私にプレゼントをくれました。"
+    },
+    {
+      "id": "senior_sentence_patterns_practice_3",
+      "itemId": "senior_sentence_patterns",
+      "mode": "practice",
+      "type": "blank",
+      "stem": "The soup tastes ___.",
+      "choices": [
+        "well",
+        "goodly",
+        "goods",
+        "good"
+      ],
+      "answer": "good",
+      "whyCorrect": "taste の後ろは補語の形容詞。",
+      "whyWrong": {
+        "well": "語形・時制・主語との対応が、この空所には合いません。",
+        "goodly": "語形・時制・主語との対応が、この空所には合いません。",
+        "goods": "語形・時制・主語との対応が、この空所には合いません。"
+      },
+      "translation": "そのスープはおいしいです。"
+    },
+    {
+      "id": "senior_sentence_patterns_practice_4",
+      "itemId": "senior_sentence_patterns",
+      "mode": "practice",
+      "type": "blank",
+      "stem": "I found the book ___.",
+      "choices": [
+        "interesting",
+        "interestingly",
+        "interest",
+        "interestedly"
+      ],
+      "answer": "interesting",
+      "whyCorrect": "the book の状態を説明する補語。",
+      "whyWrong": {
+        "interestingly": "語形・時制・主語との対応が、この空所には合いません。",
+        "interest": "語形・時制・主語との対応が、この空所には合いません。",
+        "interestedly": "語形・時制・主語との対応が、この空所には合いません。"
+      },
+      "translation": "私はその本が面白いと思いました。"
+    },
+    {
+      "id": "senior_sentence_patterns_practice_5",
+      "itemId": "senior_sentence_patterns",
+      "mode": "practice",
+      "type": "blank",
+      "stem": "They call him ___.",
+      "choices": [
+        "kindly",
+        "there",
+        "Ken",
+        "quickly"
+      ],
+      "answer": "Ken",
+      "whyCorrect": "him の呼び名を表す補語。",
+      "whyWrong": {
+        "quickly": "語形・時制・主語との対応が、この空所には合いません。",
+        "kindly": "語形・時制・主語との対応が、この空所には合いません。",
+        "there": "語形・時制・主語との対応が、この空所には合いません。"
+      },
+      "translation": "彼らは彼をケンと呼びます。"
+    },
+    {
+      "id": "senior_infinitive_practice_1",
+      "itemId": "senior_infinitive",
+      "mode": "practice",
+      "type": "blank",
+      "stem": "I have many things ___.",
+      "choices": [
+        "doing",
+        "did",
+        "to do",
+        "do"
+      ],
+      "answer": "to do",
+      "whyCorrect": "名詞 things を後ろから説明する。",
+      "whyWrong": {
+        "do": "語形・時制・主語との対応が、この空所には合いません。",
+        "doing": "語形・時制・主語との対応が、この空所には合いません。",
+        "did": "語形・時制・主語との対応が、この空所には合いません。"
+      },
+      "translation": "私にはするべきことがたくさんあります。"
+    },
+    {
+      "id": "senior_infinitive_practice_2",
+      "itemId": "senior_infinitive",
+      "mode": "practice",
+      "type": "blank",
+      "stem": "She studied hard ___ the exam.",
+      "choices": [
+        "passing",
+        "passed",
+        "to pass",
+        "pass"
+      ],
+      "answer": "to pass",
+      "whyCorrect": "目的を表す副詞的用法。",
+      "whyWrong": {
+        "pass": "語形・時制・主語との対応が、この空所には合いません。",
+        "passing": "語形・時制・主語との対応が、この空所には合いません。",
+        "passed": "語形・時制・主語との対応が、この空所には合いません。"
+      },
+      "translation": "彼女は試験に合格するために一生懸命勉強しました。"
+    },
+    {
+      "id": "senior_infinitive_practice_3",
+      "itemId": "senior_infinitive",
+      "mode": "practice",
+      "type": "blank",
+      "stem": "___ English is useful.",
+      "choices": [
+        "Learn",
+        "Learning to",
+        "Learned",
+        "To learn"
+      ],
+      "answer": "To learn",
+      "whyCorrect": "主語になる名詞的用法。",
+      "whyWrong": {
+        "Learn": "語形・時制・主語との対応が、この空所には合いません。",
+        "Learning to": "語形・時制・主語との対応が、この空所には合いません。",
+        "Learned": "語形・時制・主語との対応が、この空所には合いません。"
+      },
+      "translation": "英語を学ぶことは役に立ちます。"
+    },
+    {
+      "id": "senior_infinitive_practice_4",
+      "itemId": "senior_infinitive",
+      "mode": "practice",
+      "type": "blank",
+      "stem": "He is old enough ___ a car.",
+      "choices": [
+        "drive",
+        "driving",
+        "drove",
+        "to drive"
+      ],
+      "answer": "to drive",
+      "whyCorrect": "enough to の形。",
+      "whyWrong": {
+        "drive": "語形・時制・主語との対応が、この空所には合いません。",
+        "driving": "語形・時制・主語との対応が、この空所には合いません。",
+        "drove": "語形・時制・主語との対応が、この空所には合いません。"
+      },
+      "translation": "彼は車を運転できる年齢です。"
+    },
+    {
+      "id": "senior_infinitive_practice_5",
+      "itemId": "senior_infinitive",
+      "mode": "practice",
+      "type": "blank",
+      "stem": "This book is easy ___.",
+      "choices": [
+        "readed",
+        "to read",
+        "read",
+        "reading"
+      ],
+      "answer": "to read",
+      "whyCorrect": "形容詞を補う不定詞。",
+      "whyWrong": {
+        "read": "語形・時制・主語との対応が、この空所には合いません。",
+        "reading": "語形・時制・主語との対応が、この空所には合いません。",
+        "readed": "語形・時制・主語との対応が、この空所には合いません。"
+      },
+      "translation": "この本は読みやすいです。"
+    },
+    {
+      "id": "senior_participles_practice_1",
+      "itemId": "senior_participles",
+      "mode": "practice",
+      "type": "blank",
+      "stem": "The boy ___ soccer is my brother.",
+      "choices": [
+        "playing",
+        "played",
+        "play",
+        "plays"
+      ],
+      "answer": "playing",
+      "whyCorrect": "boy が play する側なので現在分詞。",
+      "whyWrong": {
+        "played": "語形・時制・主語との対応が、この空所には合いません。",
+        "play": "語形・時制・主語との対応が、この空所には合いません。",
+        "plays": "語形・時制・主語との対応が、この空所には合いません。"
+      },
+      "translation": "サッカーをしている少年は私の弟です。"
+    },
+    {
+      "id": "senior_participles_practice_2",
+      "itemId": "senior_participles",
+      "mode": "practice",
+      "type": "blank",
+      "stem": "The language ___ in Canada is English and French.",
+      "choices": [
+        "spoken",
+        "speaking",
+        "speaks",
+        "speak"
+      ],
+      "answer": "spoken",
+      "whyCorrect": "language は話される側なので過去分詞。",
+      "whyWrong": {
+        "speaking": "語形・時制・主語との対応が、この空所には合いません。",
+        "speaks": "語形・時制・主語との対応が、この空所には合いません。",
+        "speak": "語形・時制・主語との対応が、この空所には合いません。"
+      },
+      "translation": "カナダで話されている言語は英語とフランス語です。"
+    },
+    {
+      "id": "senior_participles_practice_3",
+      "itemId": "senior_participles",
+      "mode": "practice",
+      "type": "blank",
+      "stem": "Look at the ___ window.",
+      "choices": [
+        "breaking",
+        "break",
+        "breaks",
+        "broken"
+      ],
+      "answer": "broken",
+      "whyCorrect": "window は壊された状態。",
+      "whyWrong": {
+        "breaking": "語形・時制・主語との対応が、この空所には合いません。",
+        "break": "語形・時制・主語との対応が、この空所には合いません。",
+        "breaks": "語形・時制・主語との対応が、この空所には合いません。"
+      },
+      "translation": "その壊れた窓を見なさい。"
+    },
+    {
+      "id": "senior_participles_practice_4",
+      "itemId": "senior_participles",
+      "mode": "practice",
+      "type": "blank",
+      "stem": "The girl ___ over there is my friend.",
+      "choices": [
+        "standing",
+        "stood",
+        "stand",
+        "stands"
+      ],
+      "answer": "standing",
+      "whyCorrect": "girl が立っているので現在分詞。",
+      "whyWrong": {
+        "stood": "語形・時制・主語との対応が、この空所には合いません。",
+        "stand": "語形・時制・主語との対応が、この空所には合いません。",
+        "stands": "語形・時制・主語との対応が、この空所には合いません。"
+      },
+      "translation": "あそこで立っている女の子は私の友人です。"
+    },
+    {
+      "id": "senior_participles_practice_5",
+      "itemId": "senior_participles",
+      "mode": "practice",
+      "type": "blank",
+      "stem": "This is a letter ___ by my mother.",
+      "choices": [
+        "writing",
+        "wrote",
+        "write",
+        "written"
+      ],
+      "answer": "written",
+      "whyCorrect": "letter は書かれた側なので過去分詞。",
+      "whyWrong": {
+        "writing": "語形・時制・主語との対応が、この空所には合いません。",
+        "wrote": "語形・時制・主語との対応が、この空所には合いません。",
+        "write": "語形・時制・主語との対応が、この空所には合いません。"
+      },
+      "translation": "これは母によって書かれた手紙です。"
+    },
+    {
+      "id": "senior_passive_practice_1",
+      "itemId": "senior_passive",
+      "mode": "practice",
+      "type": "blank",
+      "stem": "This song is ___ by many people.",
+      "choices": [
+        "loving",
+        "loves",
+        "loved",
+        "love"
+      ],
+      "answer": "loved",
+      "whyCorrect": "受動態は be + 過去分詞。",
+      "whyWrong": {
+        "love": "語形・時制・主語との対応が、この空所には合いません。",
+        "loving": "語形・時制・主語との対応が、この空所には合いません。",
+        "loves": "語形・時制・主語との対応が、この空所には合いません。"
+      },
+      "translation": "この歌は多くの人に愛されています。"
+    },
+    {
+      "id": "senior_passive_practice_2",
+      "itemId": "senior_passive",
+      "mode": "practice",
+      "type": "blank",
+      "stem": "English is ___ in many countries.",
+      "choices": [
+        "spoken",
+        "speaking",
+        "speak",
+        "speaks"
+      ],
+      "answer": "spoken",
+      "whyCorrect": "English は話される側。",
+      "whyWrong": {
+        "speaking": "語形・時制・主語との対応が、この空所には合いません。",
+        "speak": "語形・時制・主語との対応が、この空所には合いません。",
+        "speaks": "語形・時制・主語との対応が、この空所には合いません。"
+      },
+      "translation": "英語は多くの国で話されています。"
+    },
+    {
+      "id": "senior_passive_practice_3",
+      "itemId": "senior_passive",
+      "mode": "practice",
+      "type": "blank",
+      "stem": "The window was ___ yesterday.",
+      "choices": [
+        "breaking",
+        "break",
+        "breaks",
+        "broken"
+      ],
+      "answer": "broken",
+      "whyCorrect": "was + 過去分詞。",
+      "whyWrong": {
+        "breaking": "語形・時制・主語との対応が、この空所には合いません。",
+        "break": "語形・時制・主語との対応が、この空所には合いません。",
+        "breaks": "語形・時制・主語との対応が、この空所には合いません。"
+      },
+      "translation": "その窓は昨日壊されました。"
+    },
+    {
+      "id": "senior_passive_practice_4",
+      "itemId": "senior_passive",
+      "mode": "practice",
+      "type": "blank",
+      "stem": "This temple was ___ 300 years ago.",
+      "choices": [
+        "built",
+        "building",
+        "build",
+        "builds"
+      ],
+      "answer": "built",
+      "whyCorrect": "build の過去分詞 built。",
+      "whyWrong": {
+        "building": "語形・時制・主語との対応が、この空所には合いません。",
+        "build": "語形・時制・主語との対応が、この空所には合いません。",
+        "builds": "語形・時制・主語との対応が、この空所には合いません。"
+      },
+      "translation": "この寺は300年前に建てられました。"
+    },
+    {
+      "id": "senior_passive_practice_5",
+      "itemId": "senior_passive",
+      "mode": "practice",
+      "type": "blank",
+      "stem": "The room is ___ every day.",
+      "choices": [
+        "cleaned",
+        "clean",
+        "cleaning",
+        "cleans"
+      ],
+      "answer": "cleaned",
+      "whyCorrect": "is + cleaned で受動態。",
+      "whyWrong": {
+        "clean": "語形・時制・主語との対応が、この空所には合いません。",
+        "cleaning": "語形・時制・主語との対応が、この空所には合いません。",
+        "cleans": "語形・時制・主語との対応が、この空所には合いません。"
+      },
+      "translation": "その部屋は毎日掃除されます。"
+    },
+    {
+      "id": "senior_comparison_practice_1",
+      "itemId": "senior_comparison",
+      "mode": "practice",
+      "type": "blank",
+      "stem": "This book is ___ interesting than that one.",
+      "choices": [
+        "very",
+        "more",
+        "most",
+        "as"
+      ],
+      "answer": "more",
+      "whyCorrect": "interesting の比較級は more interesting。",
+      "whyWrong": {
+        "most": "語形・時制・主語との対応が、この空所には合いません。",
+        "as": "語形・時制・主語との対応が、この空所には合いません。",
+        "very": "語形・時制・主語との対応が、この空所には合いません。"
+      },
+      "translation": "この本はあの本より面白いです。"
+    },
+    {
+      "id": "senior_comparison_practice_2",
+      "itemId": "senior_comparison",
+      "mode": "practice",
+      "type": "blank",
+      "stem": "He is ___ tallest boy in the class.",
+      "choices": [
+        "a",
+        "an",
+        "more",
+        "the"
+      ],
+      "answer": "the",
+      "whyCorrect": "最上級には通常 the。",
+      "whyWrong": {
+        "a": "語形・時制・主語との対応が、この空所には合いません。",
+        "an": "語形・時制・主語との対応が、この空所には合いません。",
+        "more": "語形・時制・主語との対応が、この空所には合いません。"
+      },
+      "translation": "彼はクラスで一番背が高い少年です。"
+    },
+    {
+      "id": "senior_comparison_practice_3",
+      "itemId": "senior_comparison",
+      "mode": "practice",
+      "type": "blank",
+      "stem": "She is as tall ___ her sister.",
+      "choices": [
+        "as",
+        "than",
+        "to",
+        "from"
+      ],
+      "answer": "as",
+      "whyCorrect": "as ... as の形。",
+      "whyWrong": {
+        "than": "語形・時制・主語との対応が、この空所には合いません。",
+        "to": "語形・時制・主語との対応が、この空所には合いません。",
+        "from": "語形・時制・主語との対応が、この空所には合いません。"
+      },
+      "translation": "彼女は姉妹と同じくらい背が高いです。"
+    },
+    {
+      "id": "senior_comparison_practice_4",
+      "itemId": "senior_comparison",
+      "mode": "practice",
+      "type": "blank",
+      "stem": "This question is ___ than that one.",
+      "choices": [
+        "easy",
+        "easiest",
+        "more easy",
+        "easier"
+      ],
+      "answer": "easier",
+      "whyCorrect": "easy の比較級は easier。",
+      "whyWrong": {
+        "easy": "語形・時制・主語との対応が、この空所には合いません。",
+        "easiest": "語形・時制・主語との対応が、この空所には合いません。",
+        "more easy": "語形・時制・主語との対応が、この空所には合いません。"
+      },
+      "translation": "この問題はあの問題より簡単です。"
+    },
+    {
+      "id": "senior_comparison_practice_5",
+      "itemId": "senior_comparison",
+      "mode": "practice",
+      "type": "blank",
+      "stem": "This is the ___ important point.",
+      "choices": [
+        "very",
+        "most",
+        "more",
+        "as"
+      ],
+      "answer": "most",
+      "whyCorrect": "important の最上級は most important。",
+      "whyWrong": {
+        "more": "語形・時制・主語との対応が、この空所には合いません。",
+        "as": "語形・時制・主語との対応が、この空所には合いません。",
+        "very": "語形・時制・主語との対応が、この空所には合いません。"
+      },
+      "translation": "これが最も重要な点です。"
+    },
+    {
+      "id": "senior_relatives_practice_1",
+      "itemId": "senior_relatives",
+      "mode": "practice",
+      "type": "blank",
+      "stem": "The boy ___ lives next door is my friend.",
+      "choices": [
+        "where",
+        "when",
+        "who",
+        "which"
+      ],
+      "answer": "who",
+      "whyCorrect": "先行詞が人で主格なので who。",
+      "whyWrong": {
+        "which": "語形・時制・主語との対応が、この空所には合いません。",
+        "where": "語形・時制・主語との対応が、この空所には合いません。",
+        "when": "語形・時制・主語との対応が、この空所には合いません。"
+      },
+      "translation": "隣に住んでいる少年は私の友人です。"
+    },
+    {
+      "id": "senior_relatives_practice_2",
+      "itemId": "senior_relatives",
+      "mode": "practice",
+      "type": "blank",
+      "stem": "This is the book ___ I bought yesterday.",
+      "choices": [
+        "when",
+        "which",
+        "who",
+        "where"
+      ],
+      "answer": "which",
+      "whyCorrect": "先行詞が物なので which。",
+      "whyWrong": {
+        "who": "語形・時制・主語との対応が、この空所には合いません。",
+        "where": "語形・時制・主語との対応が、この空所には合いません。",
+        "when": "語形・時制・主語との対応が、この空所には合いません。"
+      },
+      "translation": "これは私が昨日買った本です。"
+    },
+    {
+      "id": "senior_relatives_practice_3",
+      "itemId": "senior_relatives",
+      "mode": "practice",
+      "type": "blank",
+      "stem": "This is the city ___ I was born.",
+      "choices": [
+        "when",
+        "where",
+        "which",
+        "who"
+      ],
+      "answer": "where",
+      "whyCorrect": "場所を表す関係副詞 where。",
+      "whyWrong": {
+        "which": "語形・時制・主語との対応が、この空所には合いません。",
+        "who": "語形・時制・主語との対応が、この空所には合いません。",
+        "when": "語形・時制・主語との対応が、この空所には合いません。"
+      },
+      "translation": "ここは私が生まれた町です。"
+    },
+    {
+      "id": "senior_relatives_practice_4",
+      "itemId": "senior_relatives",
+      "mode": "practice",
+      "type": "blank",
+      "stem": "I know the girl ___ father is a doctor.",
+      "choices": [
+        "which",
+        "where",
+        "whose",
+        "who"
+      ],
+      "answer": "whose",
+      "whyCorrect": "所有関係を表す whose。",
+      "whyWrong": {
+        "who": "語形・時制・主語との対応が、この空所には合いません。",
+        "which": "語形・時制・主語との対応が、この空所には合いません。",
+        "where": "語形・時制・主語との対応が、この空所には合いません。"
+      },
+      "translation": "私は父親が医者である少女を知っています。"
+    },
+    {
+      "id": "senior_relatives_practice_5",
+      "itemId": "senior_relatives",
+      "mode": "practice",
+      "type": "blank",
+      "stem": "The day ___ we met was rainy.",
+      "choices": [
+        "who",
+        "which",
+        "when",
+        "where"
+      ],
+      "answer": "when",
+      "whyCorrect": "時を表す関係副詞 when。",
+      "whyWrong": {
+        "where": "語形・時制・主語との対応が、この空所には合いません。",
+        "who": "語形・時制・主語との対応が、この空所には合いません。",
+        "which": "語形・時制・主語との対応が、この空所には合いません。"
+      },
+      "translation": "私たちが会った日は雨でした。"
+    },
+    {
+      "id": "senior_prepositions_practice_1",
+      "itemId": "senior_prepositions",
+      "mode": "practice",
+      "type": "blank",
+      "stem": "I arrived ___ the station at seven.",
+      "choices": [
+        "in",
+        "on",
+        "by",
+        "at"
+      ],
+      "answer": "at",
+      "whyCorrect": "地点としての駅には at。",
+      "whyWrong": {
+        "in": "語形・時制・主語との対応が、この空所には合いません。",
+        "on": "語形・時制・主語との対応が、この空所には合いません。",
+        "by": "語形・時制・主語との対応が、この空所には合いません。"
+      },
+      "translation": "私は7時に駅に着きました。"
+    },
+    {
+      "id": "senior_prepositions_practice_2",
+      "itemId": "senior_prepositions",
+      "mode": "practice",
+      "type": "blank",
+      "stem": "She was born ___ 2010.",
+      "choices": [
+        "by",
+        "in",
+        "on",
+        "at"
+      ],
+      "answer": "in",
+      "whyCorrect": "年には in。",
+      "whyWrong": {
+        "on": "語形・時制・主語との対応が、この空所には合いません。",
+        "at": "語形・時制・主語との対応が、この空所には合いません。",
+        "by": "語形・時制・主語との対応が、この空所には合いません。"
+      },
+      "translation": "彼女は2010年に生まれました。"
+    },
+    {
+      "id": "senior_prepositions_practice_3",
+      "itemId": "senior_prepositions",
+      "mode": "practice",
+      "type": "blank",
+      "stem": "We have a test ___ Monday.",
+      "choices": [
+        "in",
+        "at",
+        "by",
+        "on"
+      ],
+      "answer": "on",
+      "whyCorrect": "曜日には on。",
+      "whyWrong": {
+        "in": "語形・時制・主語との対応が、この空所には合いません。",
+        "at": "語形・時制・主語との対応が、この空所には合いません。",
+        "by": "語形・時制・主語との対応が、この空所には合いません。"
+      },
+      "translation": "私たちは月曜日にテストがあります。"
+    },
+    {
+      "id": "senior_prepositions_practice_4",
+      "itemId": "senior_prepositions",
+      "mode": "practice",
+      "type": "blank",
+      "stem": "He goes to school ___ bus.",
+      "choices": [
+        "at",
+        "by",
+        "on",
+        "in"
+      ],
+      "answer": "by",
+      "whyCorrect": "交通手段は by。",
+      "whyWrong": {
+        "on": "語形・時制・主語との対応が、この空所には合いません。",
+        "in": "語形・時制・主語との対応が、この空所には合いません。",
+        "at": "語形・時制・主語との対応が、この空所には合いません。"
+      },
+      "translation": "彼はバスで学校へ行きます。"
+    },
+    {
+      "id": "senior_prepositions_practice_5",
+      "itemId": "senior_prepositions",
+      "mode": "practice",
+      "type": "blank",
+      "stem": "She is good ___ English.",
+      "choices": [
+        "in",
+        "on",
+        "by",
+        "at"
+      ],
+      "answer": "at",
+      "whyCorrect": "be good at の形。",
+      "whyWrong": {
+        "in": "語形・時制・主語との対応が、この空所には合いません。",
+        "on": "語形・時制・主語との対応が、この空所には合いません。",
+        "by": "語形・時制・主語との対応が、この空所には合いません。"
+      },
+      "translation": "彼女は英語が得意です。"
+    },
+    {
+      "id": "senior_negation_questions_practice_1",
+      "itemId": "senior_negation_questions",
+      "mode": "practice",
+      "type": "blank",
+      "stem": "I have ___ seen such a beautiful view.",
+      "choices": [
+        "never",
+        "ever",
+        "yet",
+        "already"
+      ],
+      "answer": "never",
+      "whyCorrect": "never は経験の否定。",
+      "whyWrong": {
+        "ever": "語形・時制・主語との対応が、この空所には合いません。",
+        "yet": "語形・時制・主語との対応が、この空所には合いません。",
+        "already": "語形・時制・主語との対応が、この空所には合いません。"
+      },
+      "translation": "私はそんな美しい景色を見たことがありません。"
+    },
+    {
+      "id": "senior_negation_questions_practice_2",
+      "itemId": "senior_negation_questions",
+      "mode": "practice",
+      "type": "blank",
+      "stem": "___ did you go yesterday?",
+      "choices": [
+        "Why",
+        "Where",
+        "Who",
+        "What"
+      ],
+      "answer": "Where",
+      "whyCorrect": "場所をたずねるので where。",
+      "whyWrong": {
+        "Who": "語形・時制・主語との対応が、この空所には合いません。",
+        "What": "語形・時制・主語との対応が、この空所には合いません。",
+        "Why": "語形・時制・主語との対応が、この空所には合いません。"
+      },
+      "translation": "あなたは昨日どこへ行きましたか。"
+    },
+    {
+      "id": "senior_negation_questions_practice_3",
+      "itemId": "senior_negation_questions",
+      "mode": "practice",
+      "type": "blank",
+      "stem": "___ do you study English?",
+      "choices": [
+        "Why",
+        "Who",
+        "Which",
+        "Where"
+      ],
+      "answer": "Why",
+      "whyCorrect": "理由をたずねるので why。",
+      "whyWrong": {
+        "Who": "語形・時制・主語との対応が、この空所には合いません。",
+        "Which": "語形・時制・主語との対応が、この空所には合いません。",
+        "Where": "語形・時制・主語との対応が、この空所には合いません。"
+      },
+      "translation": "なぜ英語を勉強するのですか。"
+    },
+    {
+      "id": "senior_negation_questions_practice_4",
+      "itemId": "senior_negation_questions",
+      "mode": "practice",
+      "type": "blank",
+      "stem": "There is ___ water in the bottle.",
+      "choices": [
+        "not",
+        "never",
+        "none",
+        "no"
+      ],
+      "answer": "no",
+      "whyCorrect": "名詞 water の前で no を使う。",
+      "whyWrong": {
+        "not": "語形・時制・主語との対応が、この空所には合いません。",
+        "never": "語形・時制・主語との対応が、この空所には合いません。",
+        "none": "語形・時制・主語との対応が、この空所には合いません。"
+      },
+      "translation": "そのボトルには水がありません。"
+    },
+    {
+      "id": "senior_negation_questions_practice_5",
+      "itemId": "senior_negation_questions",
+      "mode": "practice",
+      "type": "blank",
+      "stem": "I do ___ like coffee.",
+      "choices": [
+        "no",
+        "never",
+        "none",
+        "not"
+      ],
+      "answer": "not",
+      "whyCorrect": "一般動詞の否定は do not。",
+      "whyWrong": {
+        "no": "語形・時制・主語との対応が、この空所には合いません。",
+        "never": "語形・時制・主語との対応が、この空所には合いません。",
+        "none": "語形・時制・主語との対応が、この空所には合いません。"
+      },
+      "translation": "私はコーヒーが好きではありません。"
+    },
+    {
+      "id": "senior_emphasis_inversion_practice_1",
+      "itemId": "senior_emphasis_inversion",
+      "mode": "practice",
+      "type": "blank",
+      "stem": "It was Tom ___ broke the window.",
+      "choices": [
+        "whoever",
+        "where",
+        "when",
+        "that"
+      ],
+      "answer": "that",
+      "whyCorrect": "強調構文は It is/was ... that。",
+      "whyWrong": {
+        "whoever": "語形・時制・主語との対応が、この空所には合いません。",
+        "where": "語形・時制・主語との対応が、この空所には合いません。",
+        "when": "語形・時制・主語との対応が、この空所には合いません。"
+      },
+      "translation": "窓を割ったのはトムでした。"
+    },
+    {
+      "id": "senior_emphasis_inversion_practice_2",
+      "itemId": "senior_emphasis_inversion",
+      "mode": "practice",
+      "type": "blank",
+      "stem": "It is this book ___ I want to read.",
+      "choices": [
+        "where",
+        "when",
+        "whose",
+        "that"
+      ],
+      "answer": "that",
+      "whyCorrect": "this book を強調する構文。",
+      "whyWrong": {
+        "where": "語形・時制・主語との対応が、この空所には合いません。",
+        "when": "語形・時制・主語との対応が、この空所には合いません。",
+        "whose": "語形・時制・主語との対応が、この空所には合いません。"
+      },
+      "translation": "私が読みたいのはこの本です。"
+    },
+    {
+      "id": "senior_emphasis_inversion_practice_3",
+      "itemId": "senior_emphasis_inversion",
+      "mode": "practice",
+      "type": "blank",
+      "stem": "Never ___ I seen such a view.",
+      "choices": [
+        "have",
+        "has",
+        "did",
+        "am"
+      ],
+      "answer": "have",
+      "whyCorrect": "否定語 Never が文頭に出ると倒置。",
+      "whyWrong": {
+        "has": "語形・時制・主語との対応が、この空所には合いません。",
+        "did": "語形・時制・主語との対応が、この空所には合いません。",
+        "am": "語形・時制・主語との対応が、この空所には合いません。"
+      },
+      "translation": "私はそんな景色を一度も見たことがありません。"
+    },
+    {
+      "id": "senior_emphasis_inversion_practice_4",
+      "itemId": "senior_emphasis_inversion",
+      "mode": "practice",
+      "type": "blank",
+      "stem": "Only then ___ I understand the truth.",
+      "choices": [
+        "do",
+        "am",
+        "have",
+        "did"
+      ],
+      "answer": "did",
+      "whyCorrect": "Only then が文頭に出ると倒置。",
+      "whyWrong": {
+        "do": "語形・時制・主語との対応が、この空所には合いません。",
+        "am": "語形・時制・主語との対応が、この空所には合いません。",
+        "have": "語形・時制・主語との対応が、この空所には合いません。"
+      },
+      "translation": "その時になって初めて私は真実を理解しました。"
+    },
+    {
+      "id": "senior_emphasis_inversion_practice_5",
+      "itemId": "senior_emphasis_inversion",
+      "mode": "practice",
+      "type": "blank",
+      "stem": "It was in Kyoto ___ I met her.",
+      "choices": [
+        "where",
+        "when",
+        "who",
+        "that"
+      ],
+      "answer": "that",
+      "whyCorrect": "場所句 in Kyoto を強調している。",
+      "whyWrong": {
+        "where": "語形・時制・主語との対応が、この空所には合いません。",
+        "when": "語形・時制・主語との対応が、この空所には合いません。",
+        "who": "語形・時制・主語との対応が、この空所には合いません。"
+      },
+      "translation": "私が彼女に会ったのは京都でした。"
+    }
+  ]
+}

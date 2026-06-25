@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>英語演習 v2</title>
+<link rel="stylesheet" href="static/styles.css">
+</head>
+<body>
+<div class="wrap">
+  <header class="top">
+    <div class="brand">
+      <a class="backlink" href="../prototype/static/index.html">← 旧英語演習へ</a>
+      <h1>英語演習 v2</h1>
+    </div>
+    <div class="topActions">
+      <button class="ghost" id="resetBtn" type="button">進捗リセット</button>
+      <button class="ghost" id="checkerTopBtn" type="button">クリアチェッカー</button>
+    </div>
+  </header>
+
+  <main>
+    <section class="card hero">
+      <p class="label">Grammar Flow</p>
+      <h2>文法事項を1つずつ、説明・暗記・演習でクリアする</h2>
+      <p class="hint">初期版は localStorage に進捗を保存します。中学基礎と高校時制の最小データで、学習導線を確認できます。</p>
+    </section>
+
+    <section class="card" id="homePanel">
+      <div class="sectionHead">
+        <div>
+          <p class="label">Course</p>
+          <h2>学習範囲を選ぶ</h2>
+        </div>
+        <div class="progressSummary" id="progressSummary"></div>
+      </div>
+      <div class="selectorGrid">
+        <div>
+          <label class="fieldLabel" for="courseSel">コース</label>
+          <select id="courseSel"></select>
+        </div>
+        <div>
+          <label class="fieldLabel" for="levelSel">レベル</label>
+          <select id="levelSel"></select>
+        </div>
+        <div>
+          <label class="fieldLabel" for="unitSel">単元</label>
+          <select id="unitSel"></select>
+        </div>
+      </div>
+      <div class="filterRow">
+        <label class="checkline"><input id="incompleteOnly" type="checkbox"> 未完了だけ表示</label>
+      </div>
+      <div id="itemList" class="itemList"></div>
+    </section>
+
+    <section class="card hide" id="itemPanel">
+      <div class="itemHead">
+        <div>
+          <p class="label" id="itemBreadcrumb">Grammar</p>
+          <h2 id="itemTitle"></h2>
+        </div>
+        <button class="ghost" id="backToListBtn" type="button">一覧へ戻る</button>
+      </div>
+      <div class="statusLine" id="itemStatusLine"></div>
+      <div class="tabs" role="tablist" aria-label="文法事項メニュー">
+        <button class="tab active" id="tabExplain" type="button">説明</button>
+        <button class="tab" id="tabMemory" type="button">暗記4択</button>
+        <button class="tab" id="tabPractice" type="button">練習問題</button>
+      </div>
+      <div id="tabBody"></div>
+    </section>
+
+    <section class="card hide" id="checkerPanel">
+      <div class="itemHead">
+        <div>
+          <p class="label">Clear Checker</p>
+          <h2>統合クリアチェッカー</h2>
+        </div>
+        <button class="ghost" id="checkerCloseBtn" type="button">ホームへ戻る</button>
+      </div>
+      <div id="checkerBody"></div>
+    </section>
+  </main>
+</div>
+
+<script src="static/app.js"></script>
+</body>
+</html>
