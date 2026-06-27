@@ -1,0 +1,1810 @@
+{
+  "source": {
+    "book": "大学入試問題集 関正生の英文法ファイナル演習ポラリス［1 標準レベル］",
+    "note": "ユーザー提供スクショから4択問題のみを転記する。"
+  },
+  "units": [
+    {
+      "id": "unit01",
+      "title": "UNIT 01",
+      "sets": [
+        {
+          "id": "unit01_set_01",
+          "title": "空所補充問題 01-10"
+        }
+      ]
+    },
+    {
+      "id": "unit02",
+      "title": "UNIT 02",
+      "sets": [
+        {
+          "id": "unit02_set_01",
+          "title": "空所補充問題 01-10"
+        }
+      ]
+    },
+    {
+      "id": "unit03",
+      "title": "UNIT 03",
+      "sets": [
+        {
+          "id": "unit03_set_01",
+          "title": "空所補充問題 01-10"
+        }
+      ]
+    },
+    {
+      "id": "unit04",
+      "title": "UNIT 04",
+      "sets": [
+        {
+          "id": "unit04_set_01",
+          "title": "空所補充問題 01-10"
+        }
+      ]
+    },
+    {
+      "id": "unit05",
+      "title": "UNIT 05",
+      "sets": [
+        {
+          "id": "unit05_set_01",
+          "title": "空所補充問題 01-10"
+        }
+      ]
+    },
+    {
+      "id": "unit06",
+      "title": "UNIT 06",
+      "sets": [
+        {
+          "id": "unit06_set_01",
+          "title": "空所補充問題 01-10"
+        }
+      ]
+    },
+    {
+      "id": "unit07",
+      "title": "UNIT 07",
+      "sets": [
+        {
+          "id": "unit07_set_01",
+          "title": "空所補充問題 01-10"
+        }
+      ]
+    },
+    {
+      "id": "unit08",
+      "title": "UNIT 08",
+      "sets": [
+        {
+          "id": "unit08_set_01",
+          "title": "空所補充問題 01-10"
+        }
+      ]
+    },
+    {
+      "id": "unit09",
+      "title": "UNIT 09",
+      "sets": [
+        {
+          "id": "unit09_set_01",
+          "title": "空所補充問題 01-10"
+        }
+      ]
+    },
+    {
+      "id": "unit10",
+      "title": "UNIT 10",
+      "sets": [
+        {
+          "id": "unit10_set_01",
+          "title": "空所補充問題 01-10"
+        }
+      ]
+    }
+  ],
+  "questions": [
+    {
+      "id": "unit01_001",
+      "unitId": "unit01",
+      "setId": "unit01_set_01",
+      "no": 1,
+      "sourcePage": "006 / 014 / 016",
+      "stem": "One of (     ) about living abroad is being far away from your friends and family.",
+      "choices": [
+        "the most challenging things",
+        "most challenging things",
+        "the most challenging thing",
+        "most challenging thing"
+      ],
+      "answerIndex": 0,
+      "note": "最上級を使った慣用表現\none of the 最上級 複数名詞「最も〜なうちの1つだ」という表現です。\n「最も〜なものが複数あるうちの1つ」なので、必ず最上級の後ろの名詞は「複数形」になります。",
+      "translation": "外国で生活することで最も大変なことのうちの1つは、友達や家族と離れ離れになることだ。"
+    },
+    {
+      "id": "unit01_002",
+      "unitId": "unit01",
+      "setId": "unit01_set_01",
+      "no": 2,
+      "sourcePage": "006 / 014 / 016",
+      "stem": "My friend gave me (     ) on how to keep fit.",
+      "choices": [
+        "an advice",
+        "advices",
+        "some advices",
+        "some advice"
+      ],
+      "answerIndex": 3,
+      "note": "adviceは不可算名詞\nadvice は不可算名詞です。some は可算名詞にも不可算名詞にも使えるので、4. some advice が正解です。不可算名詞なので冠詞の a がついたり、複数形 advices になることはありません。ちなみに、英語では「目に見えないものは数えない」という発想があるため、目に見えない「情報」は不可算名詞になります。\n情報系（news / advice / information）は数えない",
+      "translation": "友達が体調を維持する方法についてのアドバイスをくれた。"
+    },
+    {
+      "id": "unit01_003",
+      "unitId": "unit01",
+      "setId": "unit01_set_01",
+      "no": 3,
+      "sourcePage": "006 / 014 / 016",
+      "stem": "Don’t forget (     ) some milk while you are out.",
+      "choices": [
+        "buying",
+        "to buy",
+        "to have bought",
+        "having bought"
+      ],
+      "answerIndex": 1,
+      "note": "forget to 原形 と forget -ing の判別\nwhile you are out「（これから）外出するとき」から「未来」のこととわかるので、forget to buy の形にします。Don't forget to 原形「（これから）〜するのを忘れないで」→「忘れずに〜して」となります。ちなみに、forget -ing だと「（過去に）〜したことを忘れる」となります。\nto 原形 は「未来」-ing は「過去」を表す",
+      "translation": "外出するときに牛乳を買うのを忘れないように。"
+    },
+    {
+      "id": "unit01_004",
+      "unitId": "unit01",
+      "setId": "unit01_set_01",
+      "no": 4,
+      "sourcePage": "006 / 014 / 016",
+      "stem": "Kenta’s parents were getting more and more angry (     ) him.",
+      "choices": [
+        "on",
+        "to",
+        "with",
+        "against"
+      ],
+      "answerIndex": 2,
+      "note": "「相手（〜に対して）」を表す with\nget angry with 〜「〜に対して怒る」という表現です。この with は「相手（〜に対して）」を表します。「一緒に」と覚えている人が多い with ですが、本来は “A vs. B” という「ライバル」関係を表していました。それが時間の経過と共に「A と B はワンセット」→「一緒に」となったんです。\n「相手」の with は熟語でよく使われる",
+      "translation": "ケンタの親は彼に対してより一層怒った。"
+    },
+    {
+      "id": "unit01_005",
+      "unitId": "unit01",
+      "setId": "unit01_set_01",
+      "no": 5,
+      "sourcePage": "006 / 014 / 016",
+      "stem": "Many people lost their homes to the typhoon (     ) struck the Nagoya area in 1959.",
+      "choices": [
+        "what",
+        "that",
+        "who",
+        "whom"
+      ],
+      "answerIndex": 1,
+      "note": "関係代名詞の後ろは「不完全」\n空所直後 φ struck the Nagoya area in 1959 は struck の S が欠けた「不完全」な形です。先行詞は the typhoon なので、2. that を選べばOKです。ちなみに strike は本来「打つ」という意味で、「災害が地域を打つように襲いかかる」→「襲う」という意味になりました。ほかにも「体を打つ」→「殴る」「頭を打つ」→「思いつく」、「心を打つ」→「印象を与える」という意味も重要です。また、今回の英文全体は lose A to B「A を B に明け渡す・B が原因で A を失う」の形になっています。\n関係詞の問題は「後ろ」が大事",
+      "translation": "1959年に名古屋を直撃した台風で、多くの人が家を失った。"
+    },
+    {
+      "id": "unit01_006",
+      "unitId": "unit01",
+      "setId": "unit01_set_01",
+      "no": 6,
+      "sourcePage": "007 / 015 / 017",
+      "stem": "I knew Amanda was interested in tennis, (     ) I decided to buy her a book about Wimbledon.",
+      "choices": [
+        "then",
+        "because",
+        "nevertheless",
+        "so"
+      ],
+      "answerIndex": 3,
+      "note": "SV 接続詞 SVの形\n空所前後が SV なので（I knew 〜（ ）I decided 〜）、空所には接続詞が入ります。意味が通るのは 4. so です。1. then「それから」や 3. nevertheless「それにもかかわらず」は副詞なので、文をつなぐことはできません。\n品詞の判別問題は入試頻出！",
+      "translation": "私はアマンダがテニスに興味があるのを知っていたので、彼女にウィンブルドンの本を買ってあげることに決めた。"
+    },
+    {
+      "id": "unit01_007",
+      "unitId": "unit01",
+      "setId": "unit01_set_01",
+      "no": 7,
+      "sourcePage": "007 / 015 / 017",
+      "stem": "(     ) the bad weather, we stayed at home.",
+      "choices": [
+        "Because",
+        "Because of",
+        "On account",
+        "In spite"
+      ],
+      "answerIndex": 1,
+      "note": "「原因・理由」を表す前置詞\n空所直後が名詞のカタマリ（the bad weather）なので、前置詞を選びます。because of 〜「〜が原因で」という意味の前置詞です。3 は on account of 〜「〜が原因で」ならOKです。4 は in spite of 〜「〜にもかかわらず」という意味の前置詞になります。",
+      "translation": "天候が悪かったので、私たちは家にいた。"
+    },
+    {
+      "id": "unit01_008",
+      "unitId": "unit01",
+      "setId": "unit01_set_01",
+      "no": 8,
+      "sourcePage": "007 / 015 / 017",
+      "stem": "Do you mean that the whole building (     ) to you?",
+      "choices": [
+        "is belong",
+        "is belonging",
+        "belongs",
+        "belong"
+      ],
+      "answerIndex": 2,
+      "note": "belong to 〜 は進行形にできない\nbelong to 〜「〜に属している」は進行形にできない動詞です。さらに空所直前 the whole building は単数形なので、3. belongs を選びます。「5秒ごとに中断・再開できない」動詞は「進行形にできない」と考えてください。\n物 belong to 人「物は人のものである」という意味でよく使われる\n\n進行形の正しい考え方\n状態動詞（進行形にできない動詞）の一例\nlive「住んでいる」 / belong to「属している」 / resemble「似ている」\nlike「好き」 / know「知っている」 / believe「信じている」\n進行形にできない動詞を暗記しなくても、「5秒ごとに中断・再開できない動詞は進行形にできない」というルールですべて解決します。たとえば、know や like は5秒ごとに「記憶を消したり戻したり」、はたまた「好きになったり嫌いになったり」意図的にできる人はいませんね。だから、×) be knowing / be liking という形はありません。一方、「5秒ごとに中断・再開できる動詞」、たとえば write「書く」や study「勉強する」は進行形（be writing / be studying）にできますね。have は「持つ」という意味では進行形にできませんが、「食べる・飲む」という意味なら進行形にできるのも、この「5秒ルール」で解決できますね。",
+      "translation": "建物全体が君のものだって言いたいのかい？"
+    },
+    {
+      "id": "unit01_009",
+      "unitId": "unit01",
+      "setId": "unit01_set_01",
+      "no": 9,
+      "sourcePage": "007 / 015 / 018",
+      "stem": "Jack will call you when he (     ) in Kasugai.",
+      "choices": [
+        "arrives",
+        "arrived",
+        "will arrive",
+        "arrive"
+      ],
+      "answerIndex": 0,
+      "note": "時・条件を表す副詞節のルール\nwhen から文末まで副詞節を作ります。「時・条件を表す副詞節の中では未来形の代わりに現在形」というルールから現在形を選びます。ちなみに、主節は will を使ってOKです。あくまで副詞節の「中」が現在形です。",
+      "translation": "ジャックは春日井に着いたらあなたに連絡するだろう。"
+    },
+    {
+      "id": "unit01_010",
+      "unitId": "unit01",
+      "setId": "unit01_set_01",
+      "no": 10,
+      "sourcePage": "007 / 015 / 018",
+      "stem": "The new machine (     ) us a lot of time on the job.",
+      "choices": [
+        "shortened",
+        "made",
+        "created",
+        "saved"
+      ],
+      "answerIndex": 3,
+      "note": "save 人 手間「人の手間を省く」\nsave 人 手間 の形で「人の手間を省く」という意味です。第4文型（SV人 物）は原則として「人に物を与える」という意味になりますが、ほんの一部の動詞（take型）は「人から物を奪う」という意味になります。save は take 型の動詞で、「人から手間を奪う」→「人の手間を省く」ということなんです。\n\ntake型の動詞　基本形: take 人 物「人から物を奪う」\ntake 人 時間　「人から時間を奪う」→「人は時間がかかる」\ncost 人 お金　「人からお金を奪う」→「人にお金がかかる」\n人 命　「人から命を奪う」→「人の命が犠牲になる」\nsave 人 手間　「人から手間を奪う」→「人の手間が省ける」\nspare 人 手間　「人から手間を奪う」→「人の手間が省ける」\nowe 人 お金　「人からお金を（一時的に）奪う」→「人からお金を借りる」\n※ spare は spare 人 時間 の形なら「人に時間を与える」となります。",
+      "translation": "新しい機械のおかげで、仕事にかかる多くの時間を省くことができた。"
+    },
+    {
+      "id": "unit02_001",
+      "unitId": "unit02",
+      "setId": "unit02_set_01",
+      "no": 1,
+      "sourcePage": "008 / 019",
+      "stem": "I like (     ) to music because it helps me relax and feel refreshed.",
+      "choices": [
+        "listening",
+        "listened",
+        "hearing",
+        "hear"
+      ],
+      "answerIndex": 0,
+      "note": "「きく」の判別\nlike -ing「〜するのが好き」という意味です（-ingは動名詞で直訳は「〜することが好き」）。また空所直後の to に注目し、1. listening を選びます（listen to 〜「〜を聴く」）。hear は hear O「O が聞こえる」、hear that SV「SV という噂を耳にする」、hear of 〜「〜の噂を聞く」などの形で使います。",
+      "translation": "リラックスでき、爽やかな気分にしてくれるので、音楽を聴くのが好きです。"
+    },
+    {
+      "id": "unit02_002",
+      "unitId": "unit02",
+      "setId": "unit02_set_01",
+      "no": 2,
+      "sourcePage": "008 / 019",
+      "stem": "The house (     ) the famous writer was born is open to public as a museum.",
+      "choices": [
+        "when",
+        "that",
+        "which",
+        "where"
+      ],
+      "answerIndex": 3,
+      "note": "関係代名詞の後ろは「不完全」、関係副詞の後ろは「完全」\n空所直後 the famous writer was born が「完全」な形なので、空所には関係副詞が入ります。先行詞は The house なので、場所を表す関係副詞 4. where を選べばOKです。be + p.p. は後ろに名詞を置く必要がないので「完全」な形です。たとえば、She broke the door. を受動態にした、The door was broken. という英文は後ろに名詞が不要な「完全」な形です。",
+      "translation": "有名な作家が生まれたその家は、記念館として一般向けに公開されている。"
+    },
+    {
+      "id": "unit02_003",
+      "unitId": "unit02",
+      "setId": "unit02_set_01",
+      "no": 3,
+      "sourcePage": "008 / 019",
+      "stem": "She (     ) absent from school since the day before yesterday.",
+      "choices": [
+        "was",
+        "has been",
+        "were",
+        "have been"
+      ],
+      "answerIndex": 1,
+      "note": "sinceをヒントに現在完了形（have p.p.）を選ぶ\nsince the day before yesterday に注目です。「一昨日からずっと欠席」ということなので、現在完了形を選びます。このように「過去から現在まで」を表す時制が現在完了形です。S が she（3人称単数）なので、4. have been はアウトです。",
+      "translation": "一昨日から彼女は学校を欠席している。"
+    },
+    {
+      "id": "unit02_004",
+      "unitId": "unit02",
+      "setId": "unit02_set_01",
+      "no": 4,
+      "sourcePage": "008 / 019",
+      "stem": "There are (     ) people who shop online on a regular basis.",
+      "choices": [
+        "by number of",
+        "the number of",
+        "a number of",
+        "any number with"
+      ],
+      "answerIndex": 2,
+      "note": "a number ofとthe number ofの判別\na number of people「たくさんの人々」という意味です。a number of 名詞 は「たくさんの名詞」という意味で「複数扱い」します（名詞がメイン）。2. the number of は「〜の数」という意味で「単数扱い」します（the number という抽象名詞がメイン）。今回は文脈に合いませんし、後ろの who shop という形もアウトです。",
+      "translation": "定期的にネットで買い物をする人はたくさんいる。"
+    },
+    {
+      "id": "unit02_005",
+      "unitId": "unit02",
+      "setId": "unit02_set_01",
+      "no": 5,
+      "sourcePage": "008 / 019",
+      "stem": "The man put on (     ) and started to write down something on a piece of paper.",
+      "choices": [
+        "grasses",
+        "grass",
+        "glasses",
+        "glass"
+      ],
+      "answerIndex": 2,
+      "note": "「メガネ」はglasses\n空所直前の put on「身につける」と文脈に合うのは 3. glasses「メガネ」だけです。メガネは「レンズが2枚」あるので、必ず複数形 glasses の形で使います。grass は「芝生」という意味です。gl- がつく単語は「キラキラ・ギラギラ」のイメージから区別するといいでしょう（glory はキラキラした「栄光」）。",
+      "translation": "その男性はメガネをかけ、1枚の紙に何かを書き留め始めた。"
+    },
+    {
+      "id": "unit02_006",
+      "unitId": "unit02",
+      "setId": "unit02_set_01",
+      "no": 6,
+      "sourcePage": "009 / 019",
+      "stem": "She was so upset that she did not know (     ).",
+      "choices": [
+        "to what do",
+        "do what to",
+        "what do to",
+        "what to do"
+      ],
+      "answerIndex": 3,
+      "note": "what to do「何をすべきか」\nwhat to do「何をすべきか」という意味です。「疑問詞 + to 原形」で名詞のカタマリを作り、今回は他動詞 know の O になっています。ほかにも where to 原形「どこへ〜すべきか」、when to 原形「いつ〜すべきか」などがあります。",
+      "translation": "彼女はあまりにも気が動転していたので、何をするべきかわからなかった。"
+    },
+    {
+      "id": "unit02_007",
+      "unitId": "unit02",
+      "setId": "unit02_set_01",
+      "no": 7,
+      "sourcePage": "009 / 019",
+      "stem": "I was shocked to find my name (     ) on the wall.",
+      "choices": [
+        "wrote",
+        "writing",
+        "write",
+        "written"
+      ],
+      "answerIndex": 3,
+      "note": "知覚動詞findの語法\n空所前の find に注目し、SVOC の構造を予想します。OC は「S’ + V」の関係で、my name がS’、（ ）がVです。「名前は書かれている」という受動関係が自然なので、p.p. を選びます。\n\nSVOCの全体像と解法\n【STEP1】SVOCをとる動詞に見えたらSVOCを予想！\n(1) 使役動詞・知覚動詞\n使役動詞 make / have / let だけ！\n知覚動詞 see / watch / hear / feel / think / consider / find / catch / smell など\n※赤字の7つだけで入試問題の大半はカバーできる。\n(2) 使役もどき keep / leave / get\n(3) V 人 to 原形 allow / enable / force / advise など\n(4) help help 人（to）原形\n(5) V A as B regard / think of / look on など\n\n【STEP2】OとCの関係（S’+Vの関係）！\n(1) C に動詞 → S’+V と考える　※(1)のほうが(2)よりはるかに出ます。\n(2) C に形容詞 → O=C と考える\n\n【STEP3】S’+Vの関係は？（「する」or「される」を判断！）\n(1) S’がVする（能動）→ V は 原形 / to不定詞 / -ing\n(2) S’がVされる（受動）→ V は p.p.",
+      "translation": "壁に自分の名前が書かれていたのを見て、私はショックを受けた。"
+    },
+    {
+      "id": "unit02_008",
+      "unitId": "unit02",
+      "setId": "unit02_set_01",
+      "no": 8,
+      "sourcePage": "009 / 019",
+      "stem": "What do you think is the (     ) language to learn in the world?",
+      "choices": [
+        "most different",
+        "most distant",
+        "most dependent",
+        "most difficult"
+      ],
+      "answerIndex": 3,
+      "note": "文脈で判断する問題\n「世界で学ぶのが（　）な言語」という文脈に合うのは 4. most difficult「最も難しい」しかありません。ほかの選択肢も意味だけはチェックしておいてください。\n1. most different「最も異なった」　2. most distant「最も遠い」　3. most dependent「最も頼っている」",
+      "translation": "世界で最も習得するのが難しい言語は何だと思いますか？"
+    },
+    {
+      "id": "unit02_009",
+      "unitId": "unit02",
+      "setId": "unit02_set_01",
+      "no": 9,
+      "sourcePage": "009 / 019",
+      "stem": "It is very kind (     ) to invite me to dinner.",
+      "choices": [
+        "for him",
+        "of him",
+        "with him",
+        "to him"
+      ],
+      "answerIndex": 1,
+      "note": "kind「親切な」は「人の性質」を表す形容詞\n空所直前 kind「優しい」に注目です。“It is 人の性質 of 人 to 〜” の形です。普通、to 不定詞の「意味上のS」は “for 人” で表しますが、「人の性質」を表す形容詞がくるときは “of 人” の形になります。\n\n人の性質を表す形容詞\ncareless「不注意な」 / foolish・absurd・stupid・silly「愚かな」\nrude・bad「無礼な」 / crazy「正気じゃない」 / mean「卑劣な」\nselfish「わがままな」 / ignorant「無知な」 / kind・good・nice・sweet「優しい」\nhonest「正直な」 / clever・wise・sensible「賢い」\nconscientious「良心的な」 / thoughtful「思慮深い」 / brave「勇敢な」 / bold「大胆な」",
+      "translation": "夕食に招待してくれるなんて、彼はとても親切な人だ。"
+    },
+    {
+      "id": "unit02_010",
+      "unitId": "unit02",
+      "setId": "unit02_set_01",
+      "no": 10,
+      "sourcePage": "009 / 019",
+      "stem": "You don’t like vegetables, (     )?",
+      "choices": [
+        "don’t you",
+        "don’t they",
+        "do you",
+        "do they"
+      ],
+      "answerIndex": 2,
+      "note": "付加疑問文\n前半 You don’t like vegetables が「否定文」なので、付加疑問文の形は「肯定文」にします。S は you なので、3. do you が正解です（4. do they はアウト）。付加疑問文は、文末に「疑問文の出だし（VS）」の形を加え、「前半が肯定 → 文末は否定」、「前半が否定 → 文末は肯定」にするのがポイントです。",
+      "translation": "あなたは野菜が好きではないんですよね？"
+    },
+    {
+      "id": "unit03_001",
+      "unitId": "unit03",
+      "setId": "unit03_set_01",
+      "no": 1,
+      "sourcePage": "010 / 024",
+      "stem": "I had so much homework (     ) I could not get any sleep last night.",
+      "choices": [
+        "that",
+        "as",
+        "when",
+        "why"
+      ],
+      "answerIndex": 0,
+      "note": "so 〜 that構文\nso に注目です。so とペアを作るのは that です。so 〜 that SV で「結果（とても〜なのでSVだ）・程度（SVなほど〜だ）」を表します。",
+      "translation": "宿題がかなりあったから、昨夜は一睡もできなかった。"
+    },
+    {
+      "id": "unit03_002",
+      "unitId": "unit03",
+      "setId": "unit03_set_01",
+      "no": 2,
+      "sourcePage": "010 / 024",
+      "stem": "The coach looks (     ) with the performance of the players.",
+      "choices": [
+        "satisfy",
+        "to satisfy",
+        "have satisfied",
+        "satisfied"
+      ],
+      "answerIndex": 3,
+      "note": "satisfyは「満足させる」\nThe coach がSです。「コーチは満足させられる」わけですから、p.p. の 4. satisfied が正解です。satisfy などの「感情を表す動詞」は原則「〜させる」という意味で、「その気持ちにさせる」場合には -ing、「その気持ちにさせられる」場合には p.p. を使います。ちなみに、今回の英文は The coach is satisfied → The coach looks satisfied と be 動詞から look になったイメージです。\n\n感情動詞\namuse「楽しませる」 / interest「興味を与える」 / excite「ワクワクさせる」\nplease・delight「喜ばせる」 / satisfy「満足させる」 / relieve「安心させる」\nmove・touch「感動させる」 / fascinate・absorb「夢中にさせる」\nattract「興味を持たせる」 / surprise・amaze・astonish「驚かせる」\nembarrass「恥ずかしい思いをさせる」 / bore・tire・exhaust「疲れさせる」\ndepress・disappoint・discourage「がっかりさせる」 / disgust「うんざりさせる」\nannoy・irritate「イライラさせる」 / upset「うろたえさせる・むしゃくしゃさせる」\nfrighten「怖がらせる」",
+      "translation": "そのコーチは選手たちの功績に満足しているようだ。"
+    },
+    {
+      "id": "unit03_003",
+      "unitId": "unit03",
+      "setId": "unit03_set_01",
+      "no": 3,
+      "sourcePage": "010 / 024",
+      "stem": "We had a very nice conversation (     ) lunch.",
+      "choices": [
+        "than",
+        "over",
+        "while",
+        "when"
+      ],
+      "answerIndex": 1,
+      "note": "「〜を食べながら」を表すover\nover lunch「昼食を食べながら」という熟語です。over は「覆う」イメージで、「会話が昼食の上を覆うように行き交う」様子から over が使われます。ちなみに、3. while も「〜しながら」という意味ですが、こちらは「従属接続詞」なので後ろに SV がきます。",
+      "translation": "昼食を食べながら、私たちはとても素晴らしい会話をした。"
+    },
+    {
+      "id": "unit03_004",
+      "unitId": "unit03",
+      "setId": "unit03_set_01",
+      "no": 4,
+      "sourcePage": "010 / 024",
+      "stem": "My teacher told me that I should consider (     ) for a job abroad.",
+      "choices": [
+        "apply",
+        "to apply",
+        "applying",
+        "applied"
+      ],
+      "answerIndex": 2,
+      "note": "considerは-ingをとる\n空所直前 consider に注目です。consider は後ろに -ing をとる動詞です。本来「頭の中で何度も反復して考える」という意味で、このように「反復」のイメージがある動詞は -ing をとります。",
+      "translation": "先生は私に、海外で職を探すことを考えてみるべきだと言った。"
+    },
+    {
+      "id": "unit03_005",
+      "unitId": "unit03",
+      "setId": "unit03_set_01",
+      "no": 5,
+      "sourcePage": "010 / 024",
+      "stem": "Come visit me in my office when you (     ) your homework.",
+      "choices": [
+        "will finish",
+        "have finished",
+        "finishing",
+        "are finished"
+      ],
+      "answerIndex": 1,
+      "note": "時・条件を表す副詞節のルール\nwhen から文末まで副詞節を作ります。「時・条件を表す副詞節の中では未来形の代わりに現在形」というルールから現在形を選ぶと考えます。今回の選択肢に現在形がないので、「未来完了形の代わりに現在完了形」を使えばOKです。ちなみに、今回の問題は主節に will が使われていませんが、「命令文」も「（これから）〜しなさい」ということで未来の内容を表しています。",
+      "translation": "宿題が終わったら、私の研究室を訪ねて来なさい。"
+    },
+    {
+      "id": "unit03_006",
+      "unitId": "unit03",
+      "setId": "unit03_set_01",
+      "no": 6,
+      "sourcePage": "011 / 024",
+      "stem": "I (     ) for my exams all day long today.",
+      "choices": [
+        "had studied",
+        "study",
+        "have been studying",
+        "had been studied"
+      ],
+      "answerIndex": 2,
+      "note": "現在完了形は意外な語句をヒントにする\nall day long today「今日は1日中ずっと」に注目です。「朝から今までずっと」ということなので、これをヒントに現在完了形を選びます。このように「過去から現在まで」を表す時制が現在完了形です。正解の have been -ing は「現在完了進行形」と呼ばれるもので、「ずっと〜している」という「継続」を表します。",
+      "translation": "今日は1日中ずっと、試験のために勉強をしていた。"
+    },
+    {
+      "id": "unit03_007",
+      "unitId": "unit03",
+      "setId": "unit03_set_01",
+      "no": 7,
+      "sourcePage": "011 / 024",
+      "stem": "I (     ) rather cook at home than eat outside.",
+      "choices": [
+        "would",
+        "will",
+        "must",
+        "shall"
+      ],
+      "answerIndex": 0,
+      "note": "ratherを使った熟語\nwould rather 原形 than 原形「原形よりもむしろ原形したい」という熟語です。ちなみに、文脈から明らかな場合は than 以下が省略されて、単に would rather 原形 となることもあります。",
+      "translation": "外食するよりもむしろ家で料理するほうがいい。"
+    },
+    {
+      "id": "unit03_008",
+      "unitId": "unit03",
+      "setId": "unit03_set_01",
+      "no": 8,
+      "sourcePage": "011 / 024",
+      "stem": "If I spoke another language well, I (     ) abroad.",
+      "choices": [
+        "study",
+        "studied",
+        "will study",
+        "would study"
+      ],
+      "answerIndex": 3,
+      "note": "「仮定法過去」の公式\nIf I spoke another language well から「仮定法過去」の公式（If S 過去形, S would 原形）を考えます。主節は “S would 原形” を選べばOKです。\n\n仮定法の公式\n(1) 仮定法過去の公式　「現在」の妄想 / 過去形を使う\nIf S 過去形, S would 原形「もし〜ならば…だろうに」\n(2) 仮定法過去完了の公式　「過去」の妄想 / 過去完了形を使う\nIf S had p.p., S would have p.p.「もし〜だったら…だったろうに」\n(3) 混合文（仮定法過去完了 + 仮定法過去）\nIf S had p.p., S would 原形「もし〜だったなら、（今は）…だろうに」\n※ now などのヒントがあることが多い\n(4) 未来の仮定　未来」の妄想\nIf S should 原形, S would 原形 / 命令文など\nIf S were to 原形, S would 原形\n※主節は would 以外に could / might / should でも可",
+      "translation": "もしほかの言語をうまく話せたら、留学するだろうに。"
+    },
+    {
+      "id": "unit03_009",
+      "unitId": "unit03",
+      "setId": "unit03_set_01",
+      "no": 9,
+      "sourcePage": "011 / 024",
+      "stem": "It was so nice (     ) you to send me a bunch of flowers.",
+      "choices": [
+        "to",
+        "of",
+        "by",
+        "about"
+      ],
+      "answerIndex": 1,
+      "note": "「人の性質」を表す形容詞\n空所直前 nice「優しい」に注目です。“It is 人の性質 of 人 to 〜” の形です。普通、to 不定詞の「意味上のS」は “for 人” で表しますが、「人の性質」を表す形容詞がくるときは “of 人” の形になります。",
+      "translation": "花束を送ってくれるなんて君はなんて優しい人なんだ。"
+    },
+    {
+      "id": "unit03_010",
+      "unitId": "unit03",
+      "setId": "unit03_set_01",
+      "no": 10,
+      "sourcePage": "011 / 024",
+      "stem": "Bring a bottle of water just (     ) case you get thirsty.",
+      "choices": [
+        "in",
+        "on",
+        "of",
+        "at"
+      ],
+      "answerIndex": 0,
+      "note": "in case「〜するといけないから」で1つの接続詞\n空所直後の case に注目です。“SV in case SV” の形（in case が後ろにくる）でよく使われ、「SVするといけないからSVだ」という意味になります。今回のように直前に just がつくこともあります（just は単なる強調）。また、in case 以降には「余計なものがつかない」イメージで、×) in a case、×) in case s not v、×) in case s will v に注意してください。",
+      "translation": "喉が渇くといけないから、水を1本持っていきなさい。"
+    },
+    {
+      "id": "unit04_001",
+      "unitId": "unit04",
+      "setId": "unit04_set_01",
+      "no": 1,
+      "sourcePage": "012 / 029",
+      "stem": "X: How long have you been with your girlfriend?\nY: We’ve been together (     ).",
+      "choices": [
+        "when we were in high school",
+        "since we were in high school",
+        "five years ago",
+        "last year"
+      ],
+      "answerIndex": 1,
+      "note": "sinceは「〜から今まで」\n空所前 We’ve been together に注目です。現在完了形は「過去から今まで」という時制を表すので、2. since we were in high school を選べば文脈に合います。since は「〜以来」と覚えると思いますが、「〜から今まで」と覚えたほうが、よりそのイメージがハッキリします。ほかの選択肢はどれも「過去の1点」しか表さないので、現在完了形と共に使うことはできません。",
+      "translation": "X: 彼女とどれくらい一緒にいるの？\nY: 高校生のころから一緒にいるよ。"
+    },
+    {
+      "id": "unit04_002",
+      "unitId": "unit04",
+      "setId": "unit04_set_01",
+      "no": 2,
+      "sourcePage": "012 / 029",
+      "stem": "X: I heard that the new ramen shop near school is really bad.\nY: It (     ) be. Whenever I walk by the shop, I see a lot of people waiting outside.",
+      "choices": [
+        "must",
+        "can",
+        "can’t",
+        "mustn’t"
+      ],
+      "answerIndex": 2,
+      "note": "It can’t be.「ありえない」\nIt can’t be.「ありえない」という表現です。本来は It can’t be {true}.「それが真実のはずがない」で、true が省略されてよく使われます。この can は「ありえる」という意味で、can be の形で使われることが多いです。",
+      "translation": "X: 学校の近くの新しいラーメン屋は本当にまずいって聞いたよ。\nY: 絶対そんなことはないよ。店に通りかかるといつも、たくさんの人が外で待っているのを見るよ。"
+    },
+    {
+      "id": "unit04_003",
+      "unitId": "unit04",
+      "setId": "unit04_set_01",
+      "no": 3,
+      "sourcePage": "012 / 029",
+      "stem": "X: Professor Long speaks too fast.\nY: Yeah. I could understand him better if he (     ) more slowly.",
+      "choices": [
+        "had spoken",
+        "have spoken",
+        "spoke",
+        "speaks"
+      ],
+      "answerIndex": 2,
+      "note": "「仮定法過去」の公式\n主節 I could understand 〜 から「仮定法過去」の公式（If S 過去形, S would 原形）を考えます（今回は would ではなく could が使われています）。if節は “If S 過去形” を選べばOKです。今回は if 節が後ろに移動した形です。",
+      "translation": "X: ロング教授は話すのが速すぎるよ。\nY: ああ。もっとゆっくり話してくれるなら、もっとよく話していることが理解できるのに。"
+    },
+    {
+      "id": "unit04_004",
+      "unitId": "unit04",
+      "setId": "unit04_set_01",
+      "no": 4,
+      "sourcePage": "012 / 029",
+      "stem": "X: Where is Mary? I need to talk to her.\nY: She went to the library, but I don’t know when (     ) back.",
+      "choices": [
+        "will she be",
+        "she will be",
+        "does she come",
+        "comes she"
+      ],
+      "answerIndex": 1,
+      "note": "時・条件を表す副詞節のルールのひっかけ問題\n空所前の know は他動詞です。他動詞の後ろには名詞がくるので、when（ ）back というカタマリは名詞節になります。「時・条件を表す副詞節の中では現在形」ですが、名詞節の中は普通に未来形でOKです。さらに「間接疑問文（文の中に疑問文が埋め込まれた文）」の形なので、「普通の語順（SV）」を選びます。\n\n自動詞と他動詞の瞬間判別法\n自動詞 → 「あっそう」で終われる動詞\n他動詞 → 「何を？」と聞き返す動詞\n※後ろに「名詞」はこない / ※後ろに「名詞」がくる\n動詞に「何を？」とツッコミを入れて、それが通れば「他動詞」、そうでなければ「自動詞」です。たとえば know「知っている」と言われたら「何を？」と聞き返しますね。だから know は他動詞です。でも sleep「眠る」は「何を？」と聞いても意味不明なので、「あっそう」と考え、自動詞と判断します。",
+      "translation": "X: メアリーはどこにいるの？彼女と話さないといけないの。\nY: 彼女なら図書館に行ったよ。だけど、いつ戻ってくるかは知らないな。"
+    },
+    {
+      "id": "unit04_005",
+      "unitId": "unit04",
+      "setId": "unit04_set_01",
+      "no": 5,
+      "sourcePage": "012 / 029",
+      "stem": "X: You are always in good shape. Are you doing anything special?\nY: Not really. I only try to (     ) three meals every day.",
+      "choices": [
+        "eat",
+        "be eating",
+        "eating",
+        "have eaten"
+      ],
+      "answerIndex": 0,
+      "note": "try to 原形「〜しようとする」\ntry to 原形「〜しようとする」という意味です。ちなみに、try -ing だと「試しに〜してみる」という意味になりますが、大学入試ではほぼ間違いなく try to 原形 のほうが答えになる問題しか出ません。ちなみに、1文目 be in good shape は「体形を維持している」という熟語です。",
+      "translation": "X: 君はいつも体形を維持してるよね。何か特別なことをしているの？\nY: 別にしてないよ。毎日3食とることを心がけているだけだよ。"
+    },
+    {
+      "id": "unit04_006",
+      "unitId": "unit04",
+      "setId": "unit04_set_01",
+      "no": 6,
+      "sourcePage": "013 / 029",
+      "stem": "X: Why has the meeting been put off?\nY: Because the meeting room (     ) needs to be used for another, more important meeting.",
+      "choices": [
+        "which reserved",
+        "which has reserved",
+        "who reserved it",
+        "which we reserved"
+      ],
+      "answerIndex": 3,
+      "note": "関係代名詞の後ろは「不完全」\n空所部分が直前の the meeting room を修飾しています。4. which we reserved を選び「私たちが予約した会議室」とします。which we reserved φ は O が欠けた「不完全」な形です（reserve は他動詞）。1. which reserved と 2. which has reserved は、S も O もない形でアウトです（「不完全」な形は「名詞が1つない形」です）。3. who reserved it は、そもそも who がおかしいですね。",
+      "translation": "X: なんで会議は延期になったの？\nY: 予約した会議室をほかのもっと大事な会議に使う必要があるからだよ。"
+    },
+    {
+      "id": "unit04_007",
+      "unitId": "unit04",
+      "setId": "unit04_set_01",
+      "no": 7,
+      "sourcePage": "013 / 029",
+      "stem": "X: Why were you late for the morning meeting?\nY: I overslept because I went to bed (     ) last night.",
+      "choices": [
+        "lately",
+        "late",
+        "latest",
+        "of late"
+      ],
+      "answerIndex": 1,
+      "note": "lateとlatelyの判別\n文脈に合うのは 2. late「遅く」だけです。1. lately は「最近」という意味の副詞、3. latest は the latest で「最新の」となります。",
+      "translation": "X: なんで朝の会議に遅れたの？\nY: 昨晩夜更かししたから、寝坊したの。"
+    },
+    {
+      "id": "unit04_008",
+      "unitId": "unit04",
+      "setId": "unit04_set_01",
+      "no": 8,
+      "sourcePage": "013 / 029",
+      "stem": "X: Do you think I have time to go to the restroom?\nY: The concert will start (     ) five minutes, so you’ve got to hurry!",
+      "choices": [
+        "between",
+        "from",
+        "in",
+        "for"
+      ],
+      "answerIndex": 2,
+      "note": "「〜後」を表すin\n「経過（〜後）」を表す in です。「今」を基準に「〜後・〜したら」を表すときには in を使います。in の用法の中でもダントツの出題率です。ちなみに、「今」を基準に「〜前」は “〜 ago” を使います。",
+      "translation": "X: トイレに行く時間あると思う？\nY: コンサートは5分後に始まるんだよ。急がないと！"
+    },
+    {
+      "id": "unit04_009",
+      "unitId": "unit04",
+      "setId": "unit04_set_01",
+      "no": 9,
+      "sourcePage": "013 / 029",
+      "stem": "My doctor has advised me to stop going to aerobics classes for the time (     ).",
+      "choices": [
+        "span",
+        "end",
+        "being",
+        "up"
+      ],
+      "answerIndex": 2,
+      "note": "前置詞を使った熟語\nfor the time being「しばらくの間」という熟語です。for は「〜の間」という意味で、「今の時間（the time）が存在している（being）間（for）」→「しばらくの間・さしあたって」と考えてください。",
+      "translation": "医者は私に、しばらくエアロビクス教室に行くのをやめるように勧めた。"
+    },
+    {
+      "id": "unit04_010",
+      "unitId": "unit04",
+      "setId": "unit04_set_01",
+      "no": 10,
+      "sourcePage": "013 / 029",
+      "stem": "This type of building is (     ) to the region.",
+      "choices": [
+        "unique",
+        "similar",
+        "up",
+        "opposite"
+      ],
+      "answerIndex": 0,
+      "note": "uniqueは「独特の・特有の」\nunique to 〜「〜に特有である」です。ほかの選択肢は 2. similar「よく似た」、3. up「上へ」、4. opposite「反対側の」で意味がどれも合いません。",
+      "translation": "この様式の建物はその地域に特有のものだ。"
+    },
+    {
+      "id": "unit05_001",
+      "unitId": "unit05",
+      "setId": "unit05_set_01",
+      "no": 1,
+      "sourcePage": "014 / 034",
+      "stem": "I need to finish writing my report (     ) Friday so that I can leave for Sapporo on Saturday morning.",
+      "choices": [
+        "since",
+        "by",
+        "until",
+        "to"
+      ],
+      "answerIndex": 1,
+      "note": "「〜まで」の判別\n今回は「金曜までにはレポートを終える」という文脈が自然なので、2. by が正解です。「〜まで」を表す前置詞は2つありますが、by は「〜までには」、till / until は「〜までずっと」と押さえておくのがポイントです。",
+      "translation": "土曜の朝に札幌に出発できるように、金曜日までにレポートを書き終える必要がある。"
+    },
+    {
+      "id": "unit05_002",
+      "unitId": "unit05",
+      "setId": "unit05_set_01",
+      "no": 2,
+      "sourcePage": "014 / 034",
+      "stem": "The last train for Hiroshima (     ) when I arrived at Tokyo station.",
+      "choices": [
+        "had left",
+        "has left",
+        "would leave",
+        "leaves"
+      ],
+      "answerIndex": 0,
+      "note": "「過去の1点までの完了」には過去完了形（had p.p.）\nwhen I arrived at Tokyo station に注目です。「東京駅に着いた」という過去の1点より前に「すでに電車が出発していた」わけですから、過去完了形（had p.p.）を選びます。",
+      "translation": "私が東京駅に着いたときには、広島行の最終電車が出発してしまっていた。"
+    },
+    {
+      "id": "unit05_003",
+      "unitId": "unit05",
+      "setId": "unit05_set_01",
+      "no": 3,
+      "sourcePage": "014 / 034",
+      "stem": "There are four cats in the park near my house. One is black, (     ) is brown, and the others are white and black.",
+      "choices": [
+        "the one",
+        "other",
+        "ones",
+        "another"
+      ],
+      "answerIndex": 3,
+      "note": "anotherはan + otherと考える\n「4匹のうち1匹は黒、もう1匹は茶色」という流れから、4. another を選びます。「2つ」のうち1つ目は one、残り1つは「どれか特定（共通認識）できる」ので the other ですが、「3つ以上」のうち、1つ目は one、「もう1つ」は「どれか特定（共通認識）できない」ので、another となります（an + other）。ちなみに、「残りすべて（複数）」を表す場合は、「どれか特定（共通認識）できる」ので the others となります（今回も the others が使われていますね）。",
+      "translation": "我が家の近くの公園には4匹のネコがいる。1匹は黒色、もう1匹は茶色、残りは白黒色だ。"
+    },
+    {
+      "id": "unit05_004",
+      "unitId": "unit05",
+      "setId": "unit05_set_01",
+      "no": 4,
+      "sourcePage": "014 / 034",
+      "stem": "(     ) my father nor my brother smokes.",
+      "choices": [
+        "Either",
+        "Both",
+        "Neither",
+        "Not only"
+      ],
+      "answerIndex": 2,
+      "note": "neither A nor B「AもBもどちらも〜ない」\n空所直後 my father nor my brother に注目です。nor とペアを作るのは 3. Neither で、neither A nor B「AもBもどちらも〜ない」となります。ほかの選択肢はそれぞれ、either A or B「AかBどちらか」、both A and B「AとB両方」、not only A but also B「AだけでなくBも」の形を作ります。\n\n等位接続詞の重要表現\nboth A and B「AとB両方」\neither A or B「AかBどちらか」\nneither A nor B「AもBもどちらも〜でない」\nnot A but B「AでなくB」\nnot only A but also B「AだけでなくBも」",
+      "translation": "父も兄もタバコを吸わない。"
+    },
+    {
+      "id": "unit05_005",
+      "unitId": "unit05",
+      "setId": "unit05_set_01",
+      "no": 5,
+      "sourcePage": "014 / 034",
+      "stem": "This summer is (     ) hotter than last summer.",
+      "choices": [
+        "much",
+        "too",
+        "so",
+        "very"
+      ],
+      "answerIndex": 0,
+      "note": "比較級の強調を表すmuch\n空所直後 hotter という比較級に注目です。比較級を強調できるのは much です。very は使えません。much 以外に、far / by far / even なども比較級を強調する働きがあります。",
+      "translation": "この夏は去年の夏よりはるかに暑い。"
+    },
+    {
+      "id": "unit05_006",
+      "unitId": "unit05",
+      "setId": "unit05_set_01",
+      "no": 6,
+      "sourcePage": "015 / 034",
+      "stem": "If I (     ) more books in my youth, I would have chosen a different job.",
+      "choices": [
+        "read",
+        "would have read",
+        "had read",
+        "would read"
+      ],
+      "answerIndex": 2,
+      "note": "「仮定法過去完了」の公式\n主節 I would have chosen から「仮定法過去完了」の公式（If S had p.p., S would have p.p.）を予想します。if節は “If S had p.p.” を選べばOKです。",
+      "translation": "若いときにもっと本を読んでいれば、違った職を選んでいただろう。"
+    },
+    {
+      "id": "unit05_007",
+      "unitId": "unit05",
+      "setId": "unit05_set_01",
+      "no": 7,
+      "sourcePage": "015 / 034",
+      "stem": "The museum (     ) I visited was beautifully decorated with antique furniture.",
+      "choices": [
+        "which",
+        "in which",
+        "into which",
+        "what"
+      ],
+      "answerIndex": 0,
+      "note": "「不完全」なら関係代名詞\nS の The museum を空所から visited までが修飾しています。空所の後ろ I visited φ は他動詞 visited の O が欠けた「不完全」な形なので、空所には関係代名詞が入ります。2. in which や 3. into which などの “前置詞 + which” の後ろは「完全」がきます。4. what の後ろは「不完全」がきますが、「名詞節」を作るので、そもそも先行詞を修飾することができません。\n\n関係代名詞 vs. 関係副詞\n区別\n(1) 〜名詞 +（　）+ 不完全 →「関係代名詞」が入る\n(2) 〜名詞 +（　）+ 完全 →「関係副詞」が入る\n\n不完全のパターン\n(1) S が欠ける\n名詞（　）V　ex.（　）has 〜 ※ has の S が不足\n名詞（　）SV　ex.（　）I thought φ was 〜 ※ was の S が不足\n(2) O が欠ける\n名詞（　）S 他動詞φ　ex.（　）I make φ ※ make の O が不足\n名詞（　）〜前置詞φ　ex.（　）I live in φ ※ in の O が不足\n※「S が不足 → 主格の関係代名詞を入れる」、「O が不足 → 目的格の関係代名詞を入れる」と考えればOK",
+      "translation": "私が訪れた美術館はアンティークの家具で美しく装飾されていた。"
+    },
+    {
+      "id": "unit05_008",
+      "unitId": "unit05",
+      "setId": "unit05_set_01",
+      "no": 8,
+      "sourcePage": "015 / 034",
+      "stem": "He saw the protesters still (     ) in front of the government building.",
+      "choices": [
+        "shouted",
+        "shouting",
+        "shout",
+        "to shout"
+      ],
+      "answerIndex": 1,
+      "note": "知覚動詞seeの語法\nsaw に注目し、SVOC の構造を予想します。OC は「S’ + V」の関係で、the protesters がS’、（　）がVです。「抗議者は叫んでいる」という能動関係が自然なので、-ing を選びます。ちなみに 3. shout（原形）も能動関係を表しますが、-ing が「動作の途中」を表すのに対し、原形は「動作の一部始終」を表します。今回は still「まだ」から動作の「途中」であることがわかります。",
+      "translation": "彼は抗議者たちが政府の建物の前でまだ叫んでいるのを見た。"
+    },
+    {
+      "id": "unit05_009",
+      "unitId": "unit05",
+      "setId": "unit05_set_01",
+      "no": 9,
+      "sourcePage": "015 / 034",
+      "stem": "I need to go to the bank because I have (     ) cash with me.",
+      "choices": [
+        "few",
+        "a few",
+        "little",
+        "a little"
+      ],
+      "answerIndex": 2,
+      "note": "cashは不可算名詞\n空所直後 cash は不可算名詞なので、3. little と 4. a little が候補です。「ほとんどお金がないので銀行に行く」という流れが自然なので、3. little が正解です。little は「ほとんど〜ない」、a little は「少しある」という意味です。ちなみに cash が不可算名詞と知らなくても、1. few や 2. a few を使う場合、cashes（複数形）にならないといけないので、その視点からもおかしいと気づけます。",
+      "translation": "持ち合わせがほとんどないので、銀行に行く必要がある。"
+    },
+    {
+      "id": "unit05_010",
+      "unitId": "unit05",
+      "setId": "unit05_set_01",
+      "no": 10,
+      "sourcePage": "015 / 034",
+      "stem": "I promised that I would lose weight, so I (     ) eat snacks between meals.",
+      "choices": [
+        "don’t have to",
+        "must",
+        "have to",
+        "mustn’t"
+      ],
+      "answerIndex": 3,
+      "note": "must notは「禁止」\n「痩せると約束」→「だから間食は（　）」という流れから、「禁止」を表す 4. mustn’t を選びます。must not が「〜してはいけない」という「禁止」表現であるのに対して、1. don’t have to は「〜する必要はない」を表します。",
+      "translation": "私は痩せると約束したんだ。だから、食間におやつを食べちゃいけないの。"
+    },
+    {
+      "id": "unit06_001",
+      "unitId": "unit06",
+      "setId": "unit06_set_01",
+      "no": 1,
+      "sourcePage": "016 / 039",
+      "stem": "Where is the bicycle that (     ) in the garage?",
+      "choices": [
+        "is",
+        "was",
+        "will be",
+        "be"
+      ],
+      "answerIndex": 1,
+      "translation": "ガレージにあった自転車はどこにあるの？",
+      "note": "文脈をヒントに「時制」を考える\nthat は関係代名詞で直前の the bicycle を修飾しています。選択肢の中で文意が通るのは 2. was だけです。「ガレージに（過去）あった自転車は（今）どこ？」ということです。ほかの選択肢では意味が通りません。"
+    },
+    {
+      "id": "unit06_002",
+      "unitId": "unit06",
+      "setId": "unit06_set_01",
+      "no": 2,
+      "sourcePage": "016 / 039",
+      "stem": "Two hours (     ) long enough to complete this task.",
+      "choices": [
+        "don’t",
+        "doesn’t",
+        "isn’t",
+        "aren’t"
+      ],
+      "answerIndex": 2,
+      "translation": "2時間は、この仕事を仕上げるのに十分な長さではない。",
+      "note": "「2時間」で1つのカタマリと考える\n空所直後 long は形容詞なので、be 動詞を選べばOKです。「時間・距離・金額」などは、たとえ複数形でも「1つのカタマリ」と考えられる場合には、「単数扱い」の動詞で受けるのが原則です。日本語でも「1万円は子どもにとっては大金だ」と言うとき、「1万円」を1つのカタマリとしてとらえていますよね。"
+    },
+    {
+      "id": "unit06_003",
+      "unitId": "unit06",
+      "setId": "unit06_set_01",
+      "no": 3,
+      "sourcePage": "016 / 039",
+      "stem": "There were some grammatical errors in his essay, but they seem (     ).",
+      "choices": [
+        "to correct",
+        "correcting",
+        "to be correcting",
+        "to have been corrected"
+      ],
+      "answerIndex": 3,
+      "translation": "彼のエッセイにはいくつか文法的な間違いがあったが、それらは訂正されたようだ。",
+      "note": "不定詞の完了形（to have p.p.）の受動態\n空所前の they は some grammatical errors を指します。「ミスがあったが、修正された」と考え、受動関係になっている 4. to have been corrected を選べばOKです。ちなみに、不定詞の完了形（to have p.p.）は「主節より1つ前の時制」を表します。今回は「修正された（to have been corrected）」のは過去、「予想している（seem）」のは今です。"
+    },
+    {
+      "id": "unit06_004",
+      "unitId": "unit06",
+      "setId": "unit06_set_01",
+      "no": 4,
+      "sourcePage": "016 / 039",
+      "stem": "It’s time she (     ) to think about her future.",
+      "choices": [
+        "begin",
+        "begins",
+        "is beginning",
+        "began"
+      ],
+      "answerIndex": 3,
+      "translation": "彼女は自身の将来について考え始めてもよいころだ。",
+      "note": "It is time S 過去形「もう〜する時間だ」\nIt is time S 過去形「もう〜する時間だ」という仮定法の慣用表現です（この表現では絶対に過去形しかきません）。「（今）すべきなのにしていない。だから〜する時間だ」ということで「仮定法過去」の形が使われたものです。"
+    },
+    {
+      "id": "unit06_005",
+      "unitId": "unit06",
+      "setId": "unit06_set_01",
+      "no": 5,
+      "sourcePage": "016 / 039",
+      "stem": "When are you going to have your PC (     )?",
+      "choices": [
+        "repair",
+        "repaired",
+        "repairing",
+        "to repair"
+      ],
+      "answerIndex": 1,
+      "translation": "いつパソコンを直してもらうつもりなの？",
+      "note": "使役動詞haveの語法\nhave に注目し、SVOC の構造を予想します。OC は「S’ + V」の関係になっており、今回は your PC がS’、（　）がVです。「パソコンは修理される」という受動関係が自然なので、p.p. の 2. repaired が正解です。"
+    },
+    {
+      "id": "unit06_006",
+      "unitId": "unit06",
+      "setId": "unit06_set_01",
+      "no": 6,
+      "sourcePage": "017 / 039",
+      "stem": "I’ll be angry if you (     ) me a lie again.",
+      "choices": [
+        "tell",
+        "will tell",
+        "told",
+        "have told"
+      ],
+      "answerIndex": 0,
+      "note": "時・条件を表す副詞節のルール\nif から文末まで副詞節を作ります。「時・条件を表す副詞節の中では未来形の代わりに現在形」というルールから現在形を選びます。ちなみに、主節は will を使ってOKです（今回は I’ll be）。あくまで副詞節の「中」が現在形になります。",
+      "translation": "もしまた嘘をついたら、怒るよ。"
+    },
+    {
+      "id": "unit06_007",
+      "unitId": "unit06",
+      "setId": "unit06_set_01",
+      "no": 7,
+      "sourcePage": "017 / 039",
+      "stem": "I am used to (     ) because I have lived alone for a long time.",
+      "choices": [
+        "cook",
+        "cooking",
+        "cooked",
+        "be cooking"
+      ],
+      "answerIndex": 1,
+      "note": "be used to -ing「〜することに慣れている」\nbe used to -ing「〜することに慣れている」という形です。この to は前置詞なので、後ろには -ing がきます。「反復」のイメージを持つ動詞は -ing をとります。今回も「反復して慣れる」というイメージですね。\n\n-ingをとる動詞\n(1)「中断」のイメージ\nstop / give up「やめる」 / finish「終える」\n(2)「逃避」のイメージ\nmiss「逃す」 / avoid・escape・help「避ける」 / put off・postpone「延期する」\nobject to -ing / be opposed to -ing「反対する」 / deny「否定する」\n(3)「反復」のイメージ\npractice「練習する」 / enjoy「楽しむ」 / be used to -ing「〜することに慣れている」\nmind「気にする」 / consider「考える」 / look forward to -ing「〜を楽しみに待つ」",
+      "translation": "長い間1人暮らしをしていたので、料理をするのには慣れている。"
+    },
+    {
+      "id": "unit06_008",
+      "unitId": "unit06",
+      "setId": "unit06_set_01",
+      "no": 8,
+      "sourcePage": "017 / 039",
+      "stem": "A lot of people may feel it easy (     ) this question.",
+      "choices": [
+        "answer",
+        "to answer",
+        "answering",
+        "for answering"
+      ],
+      "answerIndex": 1,
+      "note": "使役・知覚動詞の後にitがきたら「仮の構文」\nfeel O (it) C (easy) の形です。この it は仮Oで、空所以降に O を作る to 原形 を選べばOKです。ちなみに、SV it C to 〜 のパターンは整序問題でも頻出です。",
+      "translation": "この問題に答えることは簡単だと、多くの人が感じているかもしれない。"
+    },
+    {
+      "id": "unit06_009",
+      "unitId": "unit06",
+      "setId": "unit06_set_01",
+      "no": 9,
+      "sourcePage": "017 / 039",
+      "stem": "The apples (     ) by the storm were thrown away.",
+      "choices": [
+        "damage",
+        "damaging",
+        "damaged",
+        "to damage"
+      ],
+      "answerIndex": 2,
+      "note": "分詞の働きは「名詞を修飾する」\nThe apples (     ) by the storm までが長いS、were がVです。空所には The apples を修飾する分詞が入ると考えます。「嵐によってダメージを与えられる」という受動関係なので、p.p. を選びます。ちなみに、空所直後の by もヒントになります。",
+      "translation": "嵐のせいで傷んだリンゴは捨てられた。"
+    },
+    {
+      "id": "unit06_010",
+      "unitId": "unit06",
+      "setId": "unit06_set_01",
+      "no": 10,
+      "sourcePage": "017 / 039",
+      "stem": "My son has three best friends, all of (     ) are his classmates.",
+      "choices": [
+        "them",
+        "these",
+        "those",
+        "whom"
+      ],
+      "answerIndex": 3,
+      "note": "“名詞 + 前置詞 + 関係代名詞”のパターン\nもとの2つの文は My son has three best friends. + All of them are his classmates. です。先行詞（best friends）を指す代名詞（them）を目的格の whom に変え、「whom だけ前に出す / of whom を前に出す」こともできますが、意味のカタマリを作る all of whom ごと前に出すこともよくあります（今回はもともと先頭にあり、その形になっています）。ちなみに 1. them を選んでしまうと、“SV, SV” の形になってしまいアウトです（接続詞が必要）。",
+      "translation": "息子には3人の親友がおり、3人全員が息子のクラスメイトだ。"
+    },
+    {
+      "id": "unit07_001",
+      "unitId": "unit07",
+      "setId": "unit07_set_01",
+      "no": 1,
+      "sourcePage": "018 / 044",
+      "stem": "The train service is suspended (     ) the rail construction is going on.",
+      "choices": [
+        "with",
+        "while",
+        "after",
+        "during"
+      ],
+      "answerIndex": 1,
+      "note": "duringとwhileは品詞の区別がポイント\n「〜の間」という意味では 2. while と 4. during の2つがあります。during は前置詞で、while は接続詞です。今回は空所直後が the rail construction is going on という SV なので、2. while を選びます。1. with は前置詞、3. after は前置詞も接続詞もありますが、ここでは意味が合いません。ちなみに suspend は本来「つるす」という意味で（「サスペンダー」で有名ですね）、「業務を一時的につるす」→「一時中断する」となりました。\n\n前置詞 vs. 接続詞でよく狙われる組み合わせ\n「〜の間」 during / while\n「〜までには」 by / by the time\n「〜なので」 because of / because\n「〜だけれども」 in spite of・despite・for all・with all / though・although・even though・even if\n「〜にかかわらず」 regardless of・irrespective of / whether",
+      "translation": "線路の工事が行われている間、鉄道業務は一時中止される。"
+    },
+    {
+      "id": "unit07_002",
+      "unitId": "unit07",
+      "setId": "unit07_set_01",
+      "no": 2,
+      "sourcePage": "018 / 044",
+      "stem": "(     ) further information is available so far, but we are expecting an update within 24 hours.",
+      "choices": [
+        "Any",
+        "Few",
+        "No",
+        "Many"
+      ],
+      "answerIndex": 2,
+      "note": "不可算名詞とセットで「形容詞」が狙われる\n空所後の information は不可算名詞です。3. No は可算名詞にも不可算名詞にも使えるので、今回はこれが正解です。2. Few や 4. Many は可算名詞と共に使うのでアウト、1. Any は可算名詞にも不可算名詞にも使えますが、肯定文で使うと「どんな〜でも」という意味で、ここでは文脈に合いません。英語では「目に見えないものは数えない」という発想があるため、目に見えない「情報」は不可算名詞になるのでしたね。",
+      "translation": "今のところ、それ以上の情報は手に入らないが、24時間以内に最新情報が手に入るだろう（私たちは24時間以内に更新されると思っている）。"
+    },
+    {
+      "id": "unit07_003",
+      "unitId": "unit07",
+      "setId": "unit07_set_01",
+      "no": 3,
+      "sourcePage": "018 / 044",
+      "stem": "It is no (     ) crying over spilt milk.",
+      "choices": [
+        "good",
+        "bad",
+        "useless",
+        "helpless"
+      ],
+      "answerIndex": 0,
+      "note": "動名詞は慣用表現もよく出る\nIt is no good -ing「〜しても無駄だ」という熟語です。この good は「役に立つこと」という意味の名詞で、直訳「〜しても役に立たない」→「〜しても無駄だ」となりました。good が use になることもあります（この use も「役に立つこと」という意味の名詞です）。",
+      "translation": "覆水盆に返らず（こぼれたミルクを嘆いても無駄だ）。"
+    },
+    {
+      "id": "unit07_004",
+      "unitId": "unit07",
+      "setId": "unit07_set_01",
+      "no": 4,
+      "sourcePage": "018 / 044",
+      "stem": "(     ) that dinner would be served at the conference, I would not have eaten sandwiches on the way.",
+      "choices": [
+        "If I know",
+        "Had I known",
+        "If I were to know",
+        "Should I know"
+      ],
+      "answerIndex": 1,
+      "note": "仮定法は「倒置」が頻出！\n主節 I would not have eaten から「仮定法過去完了」の公式（If S had p.p., S would have p.p.）を考えます。今回は倒置のパターン（Had S p.p., S would have p.p.）になっており、2. Had I known が正解です。",
+      "translation": "もし、会議で夕食が出てくることを知っていたら、途中でサンドイッチを食べてくることもなかっただろう。"
+    },
+    {
+      "id": "unit07_005",
+      "unitId": "unit07",
+      "setId": "unit07_set_01",
+      "no": 5,
+      "sourcePage": "018 / 044",
+      "stem": "The era will soon come (     ) what scientists are saying will come true.",
+      "choices": [
+        "when",
+        "which",
+        "where",
+        "to"
+      ],
+      "answerIndex": 0,
+      "note": "長文でも大事な「特殊な第1文型」\nwhen は関係副詞で、when 節は S の The era を修飾しています。元々は The era when what scientists are saying will come true will soon come. という形でしたが、あまりにも S が頭でっかちでバランスが悪いため、when 以下を後ろへ移動しています。ちなみに空所直後の what は関係代名詞で、what scientists are saying「科学者が言っていること」という S のカタマリを作っています。",
+      "translation": "科学者たちが言っていることが現実になる時代がもうすぐ来るだろう。"
+    },
+    {
+      "id": "unit07_006",
+      "unitId": "unit07",
+      "setId": "unit07_set_01",
+      "no": 6,
+      "sourcePage": "019 / 044",
+      "stem": "To the (     ) of my knowledge, he is fluent in Spanish.",
+      "choices": [
+        "end",
+        "both",
+        "most",
+        "best"
+      ],
+      "answerIndex": 3,
+      "note": "前置詞を含む熟語\nto the best of one’s knowledge「人の知る限りでは」という熟語です。直訳すると「人の知識（one’s knowledge）のベストな状態まで（to the best）」で、そこから「人の知る限りでは」となりました。この to は「到達点（〜まで）」を表し、to が空所で問われることもあります。",
+      "translation": "私の知る限り、彼はスペイン語を流ちょうに話す。"
+    },
+    {
+      "id": "unit07_007",
+      "unitId": "unit07",
+      "setId": "unit07_set_01",
+      "no": 7,
+      "sourcePage": "019 / 044",
+      "stem": "I had my passport (     ) at the airport last summer.",
+      "choices": [
+        "stole",
+        "steal",
+        "stolen",
+        "stealing"
+      ],
+      "answerIndex": 2,
+      "note": "使役動詞haveを使った「盗まれる」\nhave に注目し、SVOC の構造を予想します。OC は「S’ + V」の関係になっており、今回は my passport がS’、（　）がVです。「パスポートは盗まれる」という受動関係が自然なので、p.p. の 3. stolen が正解です。",
+      "translation": "私は去年の夏、空港でパスポートを盗まれた。"
+    },
+    {
+      "id": "unit07_008",
+      "unitId": "unit07",
+      "setId": "unit07_set_01",
+      "no": 8,
+      "sourcePage": "019 / 044",
+      "stem": "There is (     ) strange about that company.",
+      "choices": [
+        "something",
+        "everything",
+        "one",
+        "anywhere"
+      ],
+      "answerIndex": 0,
+      "note": "There isを使った頻出表現\nThere is something 形容詞 about 〜「〜には何か形容詞なところがある」という表現です。直訳は「〜について（about）何か（something）形容詞なところがある（There is）」です。ちなみに、about は本来「周辺（〜の周りに）」を表す前置詞で、そこから「約〜」と「〜について」という意味が生まれました。たとえば、about 30 は「30の周り」→「約30」、about me は「私の周辺のこと」→「私について」となったんです。",
+      "translation": "あの会社には何か奇妙なところがある。"
+    },
+    {
+      "id": "unit07_009",
+      "unitId": "unit07",
+      "setId": "unit07_set_01",
+      "no": 9,
+      "sourcePage": "019 / 044",
+      "stem": "See to it that the elderly (     ) properly cared for.",
+      "choices": [
+        "has",
+        "have",
+        "are",
+        "is"
+      ],
+      "answerIndex": 2,
+      "note": "“the + 形容詞”で「〜な人々」\n空所直前の the elderly は「お年寄り」という意味です。“the + 形容詞”で「〜な人々」を表します。「人々」という意味なので複数扱いです。さらに今回は受動態と考え、3. are を選びます（care for the elderly → the elderly are cared for）。",
+      "translation": "お年寄りをちゃんとお世話するようにしなさい。"
+    },
+    {
+      "id": "unit07_010",
+      "unitId": "unit07",
+      "setId": "unit07_set_01",
+      "no": 10,
+      "sourcePage": "019 / 044",
+      "stem": "The professor’s explanation was (     ) my understanding.",
+      "choices": [
+        "at",
+        "out",
+        "beside",
+        "beyond"
+      ],
+      "answerIndex": 3,
+      "note": "beyondを使った頻出熟語\nbeyond one’s understanding「人には理解できない」という熟語です。beyond は「超越（〜を超えて）」を表し、「人が理解できる範囲を超えて」→「人には理解できない」となりました。",
+      "translation": "私は教授の説明を理解できなかった。"
+    },
+    {
+      "id": "unit08_001",
+      "unitId": "unit08",
+      "setId": "unit08_set_01",
+      "no": 1,
+      "sourcePage": "020 / 049",
+      "stem": "It was so cold yesterday that (     ) anybody went swimming.",
+      "choices": [
+        "all",
+        "almost",
+        "most",
+        "hardly"
+      ],
+      "answerIndex": 3,
+      "translation": "昨日はひどく寒かったので、泳ぎに行った人はほとんどいませんでした。",
+      "note": "hardlyは否定語\n日本文「ほとんどいませんでした」に注目です。空所には否定語が入るので、「ほとんど〜ない」という意味の 4. hardly が正解です。"
+    },
+    {
+      "id": "unit08_002",
+      "unitId": "unit08",
+      "setId": "unit08_set_01",
+      "no": 2,
+      "sourcePage": "020 / 049",
+      "stem": "(     ) going on a hike next Sunday?",
+      "choices": [
+        "What if",
+        "How far",
+        "How about",
+        "What on"
+      ],
+      "answerIndex": 2,
+      "translation": "今度の日曜日にハイキングに行くのはどうだい？",
+      "note": "「提案」するHow about 〜？\nHow about -ing?「〜するのはどう？」という慣用表現です。日常会話でも多用されます。ちなみに、まったく同じ意味で What about -ing? になることもあります。"
+    },
+    {
+      "id": "unit08_003",
+      "unitId": "unit08",
+      "setId": "unit08_set_01",
+      "no": 3,
+      "sourcePage": "020 / 049",
+      "stem": "(     ) you won ten million yen in a lottery. What would you do with all that money?",
+      "choices": [
+        "Suppose",
+        "Supposed",
+        "To suppose",
+        "If supposing"
+      ],
+      "answerIndex": 0,
+      "translation": "宝くじで1,000万円当たったとしたら、君はそれで何をするだろうね？",
+      "note": "ifと同じ意味の接続詞\n日本文「宝くじで1,000万円当たったとしたら」に注目です。Suppose には「もし〜なら」という意味で if と同じ働きがあります。if と同じ意味の suppose / supposing / provided / providing の4つは何度も声に出して覚えてください。ちなみに今回の問題のように主節が省略され、“Suppose sv?”「svしたらどうだろう？」という形で使われることもあります。"
+    },
+    {
+      "id": "unit08_004",
+      "unitId": "unit08",
+      "setId": "unit08_set_01",
+      "no": 4,
+      "sourcePage": "020 / 049",
+      "stem": "We’ll have to move that big desk; it’s really (     ) the way.",
+      "choices": [
+        "by",
+        "in",
+        "on",
+        "out of"
+      ],
+      "answerIndex": 1,
+      "translation": "あの大きな机を移動しなければいけないね。本当にじゃまなんだから。",
+      "note": "「邪魔になって」を表すには？\nin the way「道をふさいで・邪魔になって」という熟語です。直訳「道の中にある」→「道をふさいで・邪魔になって」となりました。ほかの選択肢はそれぞれ、1. by the way「ところで」、3. on the way「途中で」、4. out of the way「道を外れて・邪魔にならないところに」です。"
+    },
+    {
+      "id": "unit08_005",
+      "unitId": "unit08",
+      "setId": "unit08_set_01",
+      "no": 5,
+      "sourcePage": "020 / 049",
+      "stem": "There can be (     ) that the United Kingdom is a multicultural society.",
+      "choices": [
+        "no problem",
+        "no saying",
+        "no doubt",
+        "no meaning"
+      ],
+      "answerIndex": 2,
+      "translation": "英国が多文化社会であるということはまちがいない。",
+      "note": "There is構文の頻出形\nThere can be no doubt that 〜「〜という疑いがない」という意味です。can be は「ありえる」という意味で、空所直後の that は直前の doubt を説明しています（同格の that）。直訳「〜という疑いはありえない」→「〜ということは間違いない」となりました。"
+    },
+    {
+      "id": "unit08_006",
+      "unitId": "unit08",
+      "setId": "unit08_set_01",
+      "no": 6,
+      "sourcePage": "021 / 049",
+      "stem": "We (     ) laughing at his funny disguise.",
+      "choices": [
+        "could not but",
+        "could not help",
+        "could not feel like",
+        "could not worth"
+      ],
+      "answerIndex": 1,
+      "translation": "僕たちは彼の滑稽な変装を見て笑わないではいられなかった。",
+      "note": "「〜しないではいられない」を表す熟語\ncannot help -ing「どうしても〜してしまう・〜しないではいられない」という熟語です。この help は「避ける」という意味で、直訳「〜することを避けられない」→「どうしても〜してしまう」となりました。今回は過去形になっています。"
+    },
+    {
+      "id": "unit08_007",
+      "unitId": "unit08",
+      "setId": "unit08_set_01",
+      "no": 7,
+      "sourcePage": "021 / 049",
+      "stem": "I remember (     ) this small village ten years ago.",
+      "choices": [
+        "to visit",
+        "to be visiting",
+        "visited",
+        "visiting"
+      ],
+      "answerIndex": 3,
+      "translation": "わたしは10年前にこの小さな村を訪れたことを覚えています。",
+      "note": "remember -ingとremember to 原形の違いは？\n空所直前の remember と日本文「訪れたこと」に注目です。4. visiting を選び、remember -ing「（過去に）〜したのを覚えている」の形にします。ちなみに、remember to 原形 なら「（これから）〜するのを覚えている」（要するに「忘れずに〜する」）という意味になります。"
+    },
+    {
+      "id": "unit08_008",
+      "unitId": "unit08",
+      "setId": "unit08_set_01",
+      "no": 8,
+      "sourcePage": "021 / 049",
+      "stem": "His father (     ) to be more careful in his choice of words.",
+      "choices": [
+        "advised him",
+        "warned to him",
+        "suggested him",
+        "said him"
+      ],
+      "answerIndex": 0,
+      "translation": "父親は彼にもっと言葉遣いに慎重になるよう忠告した。",
+      "note": "動詞の語法は「形」から攻める！\nadvise 人 to 原形「人に〜するよう忠告する」という形です。warn は直後に前置詞が不要で、warn 人 to 原形 の形で使います（問題編5ページ）。また、suggest や say は直後に前置詞を置いて、suggest to 人 that sv、say to 人 that sv の形ならOKです。"
+    },
+    {
+      "id": "unit08_009",
+      "unitId": "unit08",
+      "setId": "unit08_set_01",
+      "no": 9,
+      "sourcePage": "021 / 049",
+      "stem": "That man would be (     ) man to tell a lie.",
+      "choices": [
+        "the far from",
+        "the first",
+        "the last",
+        "the least"
+      ],
+      "answerIndex": 2,
+      "translation": "あの男は決して嘘はつかない男です。",
+      "note": "the lastの意外な意味\n日本文「決して嘘はつかない男です」に注目です。the last 名詞 to 原形「最も〜しそうにない名詞」の形です。直訳「〜する人を思い浮かべたとき、そのランキングで一番最後にくる名詞」→「最も〜しそうにない名詞」となりました。"
+    },
+    {
+      "id": "unit08_010",
+      "unitId": "unit08",
+      "setId": "unit08_set_01",
+      "no": 10,
+      "sourcePage": "021 / 049",
+      "stem": "That river has been so polluted that it can (     ) be used as a source of drinking water.",
+      "choices": [
+        "no less",
+        "much more",
+        "more or less",
+        "no longer"
+      ],
+      "answerIndex": 3,
+      "translation": "あの川はあまりに汚染されてしまったので、もうその水を飲料水に使うことはできない。",
+      "note": "「もはや〜ない」という意味の熟語\n日本文「もうその水を飲料水に使うことはできない」に注目です。no longer「もはや〜ない」という熟語です。ちなみに、3. more or less は「多かれ少なかれ」という意味です。"
+    },
+    {
+      "id": "unit09_001",
+      "unitId": "unit09",
+      "setId": "unit09_set_01",
+      "no": 1,
+      "sourcePage": "022 / 054",
+      "stem": "My parents have been together for a long time. At the beginning of next month, they (     ) for 30 years.",
+      "choices": [
+        "have been married",
+        "have married",
+        "will have been married",
+        "will married"
+      ],
+      "answerIndex": 2,
+      "note": "「未来までの継続」には未来完了形（will have p.p.）\nAt the beginning of next month に注目です。「来月の初め」という未来の1点まで「ずっと結婚している」という内容から、未来完了形（will have p.p.）を選びます。「未来の1点までの継続」を表すのは未来完了形です。",
+      "translation": "私の親は長い間一緒にいるんだ。来月の初めには結婚して30年になるよ。"
+    },
+    {
+      "id": "unit09_002",
+      "unitId": "unit09",
+      "setId": "unit09_set_01",
+      "no": 2,
+      "sourcePage": "022 / 054",
+      "stem": "I think it’s important to make friends with people (     ) background and experience are different from my own.",
+      "choices": [
+        "whose",
+        "who",
+        "whom",
+        "which"
+      ],
+      "answerIndex": 0,
+      "note": "関係代名詞whoseのポイント\n空所直後に、無冠詞名詞 background and experience があるので、whose を入れてみます。people whose background and experience「人々の経歴や経験」という所有関係が成り立つので、1. whose が正解です。whose は (1) 空所の後ろに無冠詞名詞がある、(2) “先行詞 whose 名詞” のとき、“先行詞’s 名詞” という所有関係になることがポイントです。",
+      "translation": "私が思うに、自分とは異なった経歴や経験を持つ人と友人になることは大切だ。"
+    },
+    {
+      "id": "unit09_003",
+      "unitId": "unit09",
+      "setId": "unit09_set_01",
+      "no": 3,
+      "sourcePage": "022 / 054",
+      "stem": "My teacher always says that I’ll never learn how to speak English well (     ) practicing a lot.",
+      "choices": [
+        "and",
+        "less",
+        "keep",
+        "without"
+      ],
+      "answerIndex": 3,
+      "note": "without -ing「〜しないで」\n4. without を選んで without practicing a lot「たくさん練習しないと」とすれば文脈に合います。3. keep は keep -ing の形自体はOKですが、そもそも空所に動詞を入れることはできません（動詞を追加するためには接続詞などが必要）。",
+      "translation": "たくさん練習しないと私は英語をうまく話せるようには決してならないと、先生はいつも言う。"
+    },
+    {
+      "id": "unit09_004",
+      "unitId": "unit09",
+      "setId": "unit09_set_01",
+      "no": 4,
+      "sourcePage": "022 / 054",
+      "stem": "Toshiko’s grades kept getting (     ) because she studied so much.",
+      "choices": [
+        "better and better",
+        "better and best",
+        "good and better",
+        "much more better"
+      ],
+      "answerIndex": 0,
+      "note": "比較級 and 比較級「だんだん〜」\n“比較級 and 比較級”「だんだん〜」という熟語です。同じ比較級を and で結んだ形で使います。ちなみに、“比較級 and 比較級” の発展として、“more and more beautiful” のように “more and more 原級” の形もあります。",
+      "translation": "トシコはかなり勉強したので、成績はどんどんよくなり続けた。"
+    },
+    {
+      "id": "unit09_005",
+      "unitId": "unit09",
+      "setId": "unit09_set_01",
+      "no": 5,
+      "sourcePage": "022 / 054",
+      "stem": "I heard that (     ) for the meeting made everyone angry.",
+      "choices": [
+        "you be late",
+        "you were late",
+        "you’re being late",
+        "your being late"
+      ],
+      "answerIndex": 3,
+      "note": "動名詞の意味上のS\n空所直前 that は接続詞なので、後ろに SV を予想します。4. your being late が that 節内の S の働きをしています（made がV）。動名詞 being の前に意味上の S として your が入った形です。動名詞の意味上のSは “所有格 + -ing” か “目的格 + -ing” の形で表します。",
+      "translation": "あなたが会議に遅れたせいで、みんなが怒ったって聞いたよ。"
+    },
+    {
+      "id": "unit09_006",
+      "unitId": "unit09",
+      "setId": "unit09_set_01",
+      "no": 6,
+      "sourcePage": "023 / 054",
+      "stem": "A: (     ) your brother afraid of snakes?\nB: No, he thinks they’re cool!",
+      "choices": [
+        "Does",
+        "Will",
+        "Has",
+        "Is"
+      ],
+      "answerIndex": 3,
+      "note": "afraidは形容詞\nbe afraid of 〜「〜を恐れる」という熟語です。今回は Is が前に出て疑問文の形になっています。",
+      "translation": "A: 弟さん、ヘビのこと怖がっているの？\nB: いや。あいつはヘビのことかっこいいって思っているよ。"
+    },
+    {
+      "id": "unit09_007",
+      "unitId": "unit09",
+      "setId": "unit09_set_01",
+      "no": 7,
+      "sourcePage": "023 / 054",
+      "stem": "I’d like to talk to the professor some time soon. What time (     )?",
+      "choices": [
+        "will he convenient",
+        "would be convenient for him",
+        "will he be convenient",
+        "would it be convenient for him"
+      ],
+      "answerIndex": 1,
+      "note": "convenientは人を主語にしない\nconvenient は “日時 is convenient for 人”「日時が人にとって都合がいい」の形で使います（for が狙われることもあります）。今回は「日時」が What time になった形です。4. would it be convenient for him では it が邪魔ですし、be 動詞もないのでアウトです。\n\n人を主語にしない形容詞\nconvenient「都合がいい」 / inconvenient「都合が悪い」\nnecessary「必要な」 / unnecessary「不要な」 / possible「可能な・ありうる」",
+      "translation": "いつか近いうちに教授と話してみたいと思っています。教授にとって都合のいい時間はいつごろでしょうか？"
+    },
+    {
+      "id": "unit09_008",
+      "unitId": "unit09",
+      "setId": "unit09_set_01",
+      "no": 8,
+      "sourcePage": "023 / 054",
+      "stem": "I’m in a big hurry. Can you fix my car (     ) Friday?",
+      "choices": [
+        "since",
+        "by",
+        "at",
+        "until"
+      ],
+      "answerIndex": 1,
+      "note": "「〜まで」を表すbyとuntilの判別\n今回は「金曜までには修理する」という文脈に合うので、2. by が正解です。単に「〜まで」と覚えるのではなく、by は「〜までには」、till / until は「〜までずっと」と押さえておくのがポイントです。",
+      "translation": "とても急いでいるんだ。金曜日までに車を修理できるかい？"
+    },
+    {
+      "id": "unit09_009",
+      "unitId": "unit09",
+      "setId": "unit09_set_01",
+      "no": 9,
+      "sourcePage": "023 / 054",
+      "stem": "Harry (     ) very angry if he had heard what Sally said about him.",
+      "choices": [
+        "had been gotten",
+        "may be get",
+        "may be gotten",
+        "would have gotten"
+      ],
+      "answerIndex": 3,
+      "note": "「仮定法過去完了」の公式\nif he had heard 〜 から、「仮定法過去完了」の公式（If S had p.p., S would have p.p.）を予想します。主節は “S would have p.p.” を選べばOKです。ちなみに今回は if 節が後半にある “S would have p.p. if S had p.p.” の形になっています。",
+      "translation": "もしサリーがハリーに言ったことが聞こえていたら、彼はとても怒っていただろうね。"
+    },
+    {
+      "id": "unit09_010",
+      "unitId": "unit09",
+      "setId": "unit09_set_01",
+      "no": 10,
+      "sourcePage": "023 / 054",
+      "stem": "Today, our teacher asked everyone in the class (     ) we spend studying every day.",
+      "choices": [
+        "how long",
+        "what long time",
+        "if long time",
+        "such a long time"
+      ],
+      "answerIndex": 0,
+      "note": "how long 〜？「どのくらいの長さ〜？」\nhow long 〜?「どのくらいの長さ〜？」が文脈に合います。今回は “ask 人 物” で「物の部分が how long sv という間接疑問文（文の中に疑問文が埋め込まれた文）になっているため、普通の sv の語順（we spend）になっています。",
+      "translation": "今日、先生はクラスのみんなに毎日どれくらい勉強しているか聞いた。"
+    },
+    {
+      "id": "unit10_001",
+      "unitId": "unit10",
+      "setId": "unit10_set_01",
+      "no": 1,
+      "sourcePage": "024 / 058",
+      "stem": "Wait (     ) you get home before you open this gift box.",
+      "choices": [
+        "after",
+        "to",
+        "until",
+        "when"
+      ],
+      "answerIndex": 2,
+      "note": "untilは「〜までずっと」\n空所直後は you get home という sv なので、空所には接続詞が入ります。1. after、3. until、4. when の中で文脈に合うのは 3. until です。until は必ず「〜までずっと」と覚えてください。ちなみに until と after には前置詞もあるので、直後に名詞がくることもあります。",
+      "translation": "家に着くまで待ってからこのギフトボックスを開けて。"
+    },
+    {
+      "id": "unit10_002",
+      "unitId": "unit10",
+      "setId": "unit10_set_01",
+      "no": 2,
+      "sourcePage": "024 / 058",
+      "stem": "It was difficult to (     ) a date which is convenient for everyone.",
+      "choices": [
+        "arrange",
+        "elect",
+        "notify",
+        "inform"
+      ],
+      "answerIndex": 0,
+      "note": "arrangeの核心イメージは「きちんと並べる」\narrange a date「日にちを取り決める」という意味です。日本語の「アレンジする」は「変化をつける」みたいなイメージを持たれますが、arrange の核心は「きちんと並べる」です。さらに「きちんと並べる」→「取り決める・準備する」となりました。arrange 本来の感覚を問う良問です。ちなみに、後ろは S is convenient for 人 の形で、57ページ 07 に出てきましたね。ほかの選択肢はそれぞれ、2. elect「選ぶ」、3. notify「通知する」、4. inform「知らせる」という意味です。",
+      "translation": "全員に都合のいい日を取り決めるのは難しかった。"
+    },
+    {
+      "id": "unit10_003",
+      "unitId": "unit10",
+      "setId": "unit10_set_01",
+      "no": 3,
+      "sourcePage": "024 / 058",
+      "stem": "I have never (     ) any experience of living in the country.",
+      "choices": [
+        "done",
+        "had",
+        "made",
+        "wished"
+      ],
+      "answerIndex": 1,
+      "note": "haveの核心は「所有する」\n空所直後 any experience に注目です。選択肢の中で experience を O にとれるのは 2. had だけです。have は日本語の「持っている」という意味よりも使用範囲が広く、色々なものを「所有」でき、「食べる」や「経験する」という意味まで表します。今回は「経験を所有する」という感覚です。",
+      "translation": "田舎（その国）で暮らしたことは一度もない。"
+    },
+    {
+      "id": "unit10_004",
+      "unitId": "unit10",
+      "setId": "unit10_set_01",
+      "no": 4,
+      "sourcePage": "024 / 058",
+      "stem": "There’s (     ) to be frightened of the dog; he’s quite harmless.",
+      "choices": [
+        "a fear",
+        "no fear",
+        "no need",
+        "any reason"
+      ],
+      "answerIndex": 2,
+      "note": "There is no need to 原形「〜する必要性がない」\n空所直後の to be frightened につながり、さらに文脈に合うのは 3. no need だけです。この to 〜 は「形容詞的用法（同格）」で、直前の need を説明しています。今回のように同格の to 不定詞は、もとの品詞も to 〜 をとれるものが多いです。たとえば、decide to 〜「〜しようと決心する」→ decision to 〜「〜しようという決心」、be able to 〜「〜できる」→ ability to 〜「〜する能力」などです。",
+      "translation": "その犬を怖がる必要はないよ。まったくもって無害だからね。"
+    },
+    {
+      "id": "unit10_005",
+      "unitId": "unit10",
+      "setId": "unit10_set_01",
+      "no": 5,
+      "sourcePage": "024 / 058",
+      "stem": "The clock isn’t as (     ) as it should be; it is usually one or two minutes fast.",
+      "choices": [
+        "accurate",
+        "certain",
+        "strict",
+        "true"
+      ],
+      "answerIndex": 0,
+      "note": "「時計が正確」を表す形容詞は？\n後半の it is usually one or two minutes fast から、「時計が正確ではない」とわかります。1. accurate が正解で「正確な・誤差のない」という意味です。2. certain「人が確信している」、3. strict「厳しい・厳格な」、4. true「真実の」という意味で、どれも時計の正確さを表す形容詞としては使えません。",
+      "translation": "その時計は本来ほど正確じゃないよ。よく1、2分進んでいるからね。\n（直訳：それが本来は正確なはずだが、それほどは正確ではない。）"
+    },
+    {
+      "id": "unit10_006",
+      "unitId": "unit10",
+      "setId": "unit10_set_01",
+      "no": 6,
+      "sourcePage": "025 / 058",
+      "stem": "“Do you want to go to Hakone by bus or train?”\n“I (     ) by train.”",
+      "choices": [
+        "will have gone",
+        "would rather go",
+        "would rather to go",
+        "would rather have gone"
+      ],
+      "answerIndex": 1,
+      "note": "would rather 原形「むしろ〜したい」\nwould rather 原形「むしろ〜したい」という熟語です。would 原形 の間に副詞 rather が入った感覚です。助動詞 would の後ろには原形がくるので、3. would rather to go はアウトです。4. would rather have gone のように have p.p. がくることもあります。ちなみに、この熟語はもともと would rather 原形 than 原形「原形よりもむしろ原形したい」という形でしたが、文脈から明らかな場合は than 以下が省略されることもあります（今回は than go by bus が省略されています）。",
+      "translation": "「箱根にバスで行きたい？それとも電車で行きたい？」\n「電車のほうがいいな。」"
+    },
+    {
+      "id": "unit10_007",
+      "unitId": "unit10",
+      "setId": "unit10_set_01",
+      "no": 7,
+      "sourcePage": "025 / 058",
+      "stem": "“Can I help you?”\n“Yes. Do you know (     )?”",
+      "choices": [
+        "when comes the train",
+        "when does the train come",
+        "when the train comes",
+        "when will come the train"
+      ],
+      "answerIndex": 2,
+      "note": "間接疑問文は普通の語順\n間接疑問文の問題です。「間接疑問文では普通の語順（倒置が起きない）」なので、3. when the train comes という SV の語順が正しく、1. when comes the train、2. when does the train come、4. when will come the train はすべてアウトです。",
+      "translation": "「どうかなさいましたか？」\n「ええ、いつ電車が来るかわかりますか？」"
+    },
+    {
+      "id": "unit10_008",
+      "unitId": "unit10",
+      "setId": "unit10_set_01",
+      "no": 8,
+      "sourcePage": "025 / 058",
+      "stem": "“Did you study last night?”\n“No. (     ), I would have done better on today’s test.”",
+      "choices": [
+        "If I hadn’t",
+        "If not",
+        "Otherwise",
+        "Unless"
+      ],
+      "answerIndex": 2,
+      "note": "if節の代用表現otherwise\n主節 I would have done 〜 から「仮定法過去完了（If S had p.p., S would have p.p.）」を考えます。正解は 3. Otherwise「もしそうでなければ」で、Otherwise (= If I had studied last night), I would have done better on today’s test. となります。この Otherwise は「勉強しなかった現実と違うならば（＝勉強していれば）」ということです。ちなみに、1. If I hadn’t は省略を補うと If I hadn’t {studied last night}「もし昨晩、勉強していなかったら」となり、文脈に合いません。",
+      "translation": "「昨日の夜、勉強した？」\n「いや。していたら、今日のテストはもっとよくできただろうね。」"
+    },
+    {
+      "id": "unit10_009",
+      "unitId": "unit10",
+      "setId": "unit10_set_01",
+      "no": 9,
+      "sourcePage": "025 / 058",
+      "stem": "“Would you like to go out for dinner this weekend?”\n“Sure. By then I (     ) my report.”",
+      "choices": [
+        "finished",
+        "have finished",
+        "had finished",
+        "will have finished"
+      ],
+      "answerIndex": 3,
+      "note": "「未来までの完了」には未来完了形（will have p.p.）\nBy then に注目です。ここでの By then とは、1文目の内容から「今週末までに」のことだとわかります。「今週末」という未来の1点までに「レポートを終わらせる」という内容から、未来完了形を選びます。",
+      "translation": "「今週末の夕食は外食にしない？」\n「もちろん。そのときまでには、レポートを終わらせておくよ。」"
+    },
+    {
+      "id": "unit10_010",
+      "unitId": "unit10",
+      "setId": "unit10_set_01",
+      "no": 10,
+      "sourcePage": "025 / 058",
+      "stem": "“My brother said you called me last night.”\n“Yes. I called (     ) if you’d like to go to Hokkaido this summer.”",
+      "choices": [
+        "you saw",
+        "you see",
+        "for seeing",
+        "to see"
+      ],
+      "answerIndex": 3,
+      "note": "「確かめる」という意味のsee\nto see if sv で「sv かどうか確かめるために」となります（to 不定詞は副詞的用法の「目的」）。ここでの see は「確かめる」という意味で、直後の if は名詞節を作っており「〜かどうか」という意味です。see は「見る」という意味から、「（心で）よく見る」→「調べる・確かめる」、さらに「気をつける」となりました。",
+      "translation": "「弟が言っていたんだけど、昨日の夜、僕に電話したらしいね。」\n「うん。今年の夏に北海道に行きたいか聞きたくて電話したんだ。」"
+    }
+  ]
+}

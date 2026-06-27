@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ポラリス英文法ファイナル演習1 4択演習</title>
+<link rel="stylesheet" href="static/styles.css">
+</head>
+<body>
+<div class="wrap">
+  <header class="top">
+    <div class="brand">
+      <a class="backlink" href="../v2/index.html">← 英語演習 v2</a>
+      <h1>ポラリス英文法ファイナル演習1</h1>
+    </div>
+    <div class="topActions">
+      <div class="studentControls" aria-label="生徒別進捗">
+        <label class="fieldLabel compact" for="studentSel">生徒</label>
+        <select id="studentSel"></select>
+        <button class="ghost" id="addStudentBtn" type="button">生徒追加</button>
+      </div>
+      <button class="ghost" id="resetBtn" type="button">進捗リセット</button>
+      <button class="ghost" id="summaryBtn" type="button">成績一覧</button>
+    </div>
+  </header>
+
+  <main>
+    <section class="card hero">
+      <p class="label">Polaris Grammar Drill</p>
+      <h2>標準レベルの英文法4択を、正解するまで効率よく周回する</h2>
+      <p class="hint">UNITごとに問題を解き、正答・和訳・解説を確認しながら弱点をつぶしていきます。</p>
+    </section>
+
+    <section class="card" id="homePanel">
+      <div class="sectionHead">
+        <div>
+          <p class="label">Select</p>
+          <h2>演習セットを選ぶ</h2>
+        </div>
+        <div class="progressSummary" id="progressSummary"></div>
+      </div>
+      <div class="selectorGrid">
+        <div>
+          <label class="fieldLabel" for="unitSel">単元</label>
+          <select id="unitSel"></select>
+        </div>
+        <div>
+          <label class="fieldLabel" for="setSel">セット</label>
+          <select id="setSel"></select>
+        </div>
+        <div>
+          <label class="fieldLabel" for="modeSel">表示</label>
+          <select id="modeSel">
+            <option value="all">全問</option>
+            <option value="unresolved">未正解だけ</option>
+            <option value="wrong">誤答のみ</option>
+          </select>
+        </div>
+      </div>
+      <div class="actions">
+        <button class="cta" id="startBtn" type="button">演習を始める</button>
+        <button class="ghost" id="reviewBtn" type="button">全体の未正解を復習</button>
+      </div>
+      <div id="setList" class="itemList"></div>
+    </section>
+
+    <section class="card hide" id="quizPanel">
+      <div class="itemHead">
+        <div>
+          <p class="label" id="quizBreadcrumb">Polaris</p>
+          <h2 id="quizTitle"></h2>
+        </div>
+        <button class="ghost" id="backBtn" type="button">一覧へ戻る</button>
+      </div>
+      <div id="quizBody"></div>
+    </section>
+
+    <section class="card hide" id="summaryPanel">
+      <div class="itemHead">
+        <div>
+          <p class="label">Summary</p>
+          <h2>成績一覧</h2>
+        </div>
+        <button class="ghost" id="summaryCloseBtn" type="button">ホームへ戻る</button>
+      </div>
+      <div id="summaryBody"></div>
+    </section>
+  </main>
+</div>
+
+<script src="static/app.js"></script>
+</body>
+</html>
