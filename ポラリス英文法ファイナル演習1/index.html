@@ -49,14 +49,18 @@
           <select id="setSel"></select>
         </div>
         <div>
-          <label class="fieldLabel" for="modeSel">表示</label>
+          <label class="fieldLabel" for="modeSel">出題モード</label>
           <select id="modeSel">
-            <option value="all">全問</option>
-            <option value="unresolved">未正解だけ</option>
-            <option value="wrong">誤答のみ</option>
+            <option value="setAll">セット全問</option>
+            <option value="setUnresolved">セットの未正解のみ</option>
+            <option value="setWrong">セットの誤答のみ</option>
+            <option value="unitRandom">UNIT指定ランダム</option>
+            <option value="allRandom">全問ランダム</option>
+            <option value="tenTest">10問テスト</option>
           </select>
         </div>
       </div>
+      <p class="modeHelp" id="modeHelp"></p>
       <div class="actions">
         <button class="cta" id="startBtn" type="button">演習を始める</button>
         <button class="ghost" id="reviewBtn" type="button">全体の未正解を復習</button>

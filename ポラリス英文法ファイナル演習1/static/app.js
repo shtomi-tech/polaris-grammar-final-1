@@ -12,8 +12,27 @@ let questionData = { source: {}, units: [], questions: [] };
 let students = [];
 let activeStudentId = DEFAULT_STUDENT.id;
 let progress = {};
-let selected = { unitId: "", setId: "", mode: "all" };
+let selected = { unitId: "", setId: "", mode: "setAll" };
 let quiz = null;
+
+const MODE_HELP = {
+  setAll: "選択したセットの10問を出題します。",
+  setUnresolved: "選択したセットのうち、まだ正解済みになっていない問題だけを出題します。",
+  setWrong: "選択したセットのうち、過去に間違えていて、まだ正解済みでない問題だけを出題します。",
+  unitRandom: "選択したUNIT内の問題をランダム順で出題します。",
+  allRandom: "収録済みの全問題をランダム順で出題します。",
+  tenTest: "収録済みの全問題からランダムに10問を出題します。"
+};
+
+const MODE_TITLE = {
+  setAll: "セット全問",
+  setUnresolved: "セットの未正解のみ",
+  setWrong: "セットの誤答のみ",
+  unitRandom: "UNIT指定ランダム",
+  allRandom: "全問ランダム",
+  tenTest: "10問テスト",
+  review: "全体の未正解を復習"
+};
 
 function esc(value) {
   return String(value ?? "").replace(/[&<>"]/g, ch => ({
@@ -125,9 +144,22 @@ function questionsForSet(unitId, setId) {
 
 function filteredQuestions(unitId, setId, mode) {
   const questions = questionsForSet(unitId, setId);
-  if (mode === "unresolved") return questions.filter(question => !stateFor(question.id).cleared);
-  if (mode === "wrong") return questions.filter(question => stateFor(question.id).wrong > 0 && !stateFor(question.id).cleared);
+  if (mode === "setUnresolved") return questions.filter(question => !stateFor(question.id).cleared);
+  if (mode === "setWrong") return questions.filter(question => stateFor(question.id).wrong > 0 && !stateFor(question.id).cleared);
   return questions;
+}
+
+function questionsForUnit(unitId) {
+  return questionData.questions
+    .filter(question => question.unitId === unitId)
+    .sort((a, b) => String(a.setId).localeCompare(String(b.setId)) || Number(a.no) - Number(b.no));
+}
+
+function buildQuestionPool() {
+  if (selected.mode === "unitRandom") return shuffled(questionsForUnit(selected.unitId));
+  if (selected.mode === "allRandom") return shuffled(questionData.questions);
+  if (selected.mode === "tenTest") return shuffled(questionData.questions).slice(0, 10);
+  return shuffled(filteredQuestions(selected.unitId, selected.setId, selected.mode));
 }
 
 function allUnresolvedQuestions() {
@@ -178,7 +210,9 @@ function renderSelectors() {
   ).join("");
   if (!setById(selected.unitId, selected.setId)) selected.setId = sets[0]?.id || "";
   $("#setSel").value = selected.setId;
+  if (!MODE_HELP[selected.mode]) selected.mode = "setAll";
   $("#modeSel").value = selected.mode;
+  $("#modeHelp").textContent = MODE_HELP[selected.mode] || "";
 }
 
 function badgeHtml(stats) {
@@ -211,6 +245,7 @@ function renderSetList() {
     card.onclick = () => {
       selected.unitId = card.dataset.unit;
       selected.setId = card.dataset.set;
+      selected.mode = "setAll";
       renderHome();
       startQuiz(false);
     };
@@ -226,10 +261,11 @@ function renderHome() {
 
 function startQuiz(globalReview) {
   const pool = globalReview
-    ? allUnresolvedQuestions()
-    : filteredQuestions(selected.unitId, selected.setId, selected.mode);
+    ? shuffled(allUnresolvedQuestions())
+    : buildQuestionPool();
   quiz = {
     globalReview,
+    mode: globalReview ? "review" : selected.mode,
     pool: shuffled(pool),
     index: 0,
     answered: false,
@@ -264,7 +300,9 @@ function renderQuiz() {
 
   const { unit, set } = questionContext(q);
   $("#quizBreadcrumb").textContent = `${unit?.title || q.unitId} / ${set?.title || q.setId}`;
-  $("#quizTitle").textContent = quiz.globalReview ? "全体復習" : set?.title || "4択演習";
+  $("#quizTitle").textContent = quiz.globalReview
+    ? MODE_TITLE.review
+    : `${MODE_TITLE[quiz.mode] || "4択演習"}${quiz.mode?.startsWith("set") ? ` / ${set?.title || ""}` : ""}`;
   const stats = statsFor(quiz.pool);
   const stem = String(q.stem || "").replace(/\n/g, "<br>");
 
