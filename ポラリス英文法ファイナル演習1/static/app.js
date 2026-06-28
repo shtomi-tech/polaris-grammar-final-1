@@ -7,6 +7,18 @@ const STUDENTS_KEY = "polarisFinalGrammar1.students";
 const ACTIVE_STUDENT_KEY = "polarisFinalGrammar1.activeStudent";
 const DEFAULT_STUDENT = { id: "default", name: "共通" };
 const KEYS = ["ア", "イ", "ウ", "エ"];
+const UNIT_SOURCES = {
+  unit01: "中部大学 工/経営情報/国際関係など",
+  unit02: "札幌学院大学 法/経済/経営/社会情報",
+  unit03: "神奈川大学 法/経済/経営/外国語など",
+  unit04: "北海学園大学 経済/人文/工",
+  unit05: "芝浦工業大学 工/システム理工/デザイン工",
+  unit06: "九州国際大学 法/経済/国際関係",
+  unit07: "玉川大学 教育/芸術/リベラルアーツなど",
+  unit08: "成城大学 経済",
+  unit09: "東京経済大学 経済/経営/コミュニケーションなど",
+  unit10: "東京電機大学 未来科学/工/理工/情報環境"
+};
 
 let questionData = { source: {}, units: [], questions: [] };
 let students = [];
@@ -34,6 +46,9 @@ const MODE_TITLE = {
   review: "全体の未正解を復習"
 };
 
+const MASTER_TARGET = 30;
+const RECENT_STEP3_LIMIT = 10;
+
 function esc(value) {
   return String(value ?? "").replace(/[&<>"]/g, ch => ({
     "&": "&amp;",
@@ -44,9 +59,13 @@ function esc(value) {
 }
 
 async function loadJson(path) {
-  const response = await fetch(path);
+  const response = await fetch(path, { cache: "no-store" });
   if (!response.ok) throw new Error(`${path}: ${response.statusText}`);
   return response.json();
+}
+
+function unitSource(unit) {
+  return unit?.source || UNIT_SOURCES[unit?.id] || "出題元未登録";
 }
 
 function progressKey(studentId = activeStudentId) {
@@ -109,6 +128,16 @@ function saveProgress() {
   localStorage.setItem(progressKey(), JSON.stringify(progress));
 }
 
+function metaState() {
+  if (!progress.__meta || typeof progress.__meta !== "object") {
+    progress.__meta = {};
+  }
+  const meta = progress.__meta;
+  if (typeof meta.bestStreak !== "number") meta.bestStreak = 0;
+  if (typeof meta.mastered !== "boolean") meta.mastered = false;
+  return meta;
+}
+
 function stateFor(questionId) {
   if (!progress[questionId]) {
     progress[questionId] = {
@@ -117,9 +146,18 @@ function stateFor(questionId) {
       wrong: 0,
       lastChoice: null,
       lastAnsweredAt: null,
-      cleared: false
+      cleared: false,
+      step1Cleared: false,
+      step2Cleared: false,
+      step3Correct: 0,
+      step3Wrong: 0
     };
   }
+  const state = progress[questionId];
+  if (typeof state.step1Cleared !== "boolean") state.step1Cleared = false;
+  if (typeof state.step2Cleared !== "boolean") state.step2Cleared = false;
+  if (typeof state.step3Correct !== "number") state.step3Correct = 0;
+  if (typeof state.step3Wrong !== "number") state.step3Wrong = 0;
   return progress[questionId];
 }
 
@@ -160,6 +198,35 @@ function buildQuestionPool() {
   if (selected.mode === "allRandom") return shuffled(questionData.questions);
   if (selected.mode === "tenTest") return shuffled(questionData.questions).slice(0, 10);
   return shuffled(filteredQuestions(selected.unitId, selected.setId, selected.mode));
+}
+
+function stepStats(field, questions = questionData.questions) {
+  const total = questions.length;
+  const cleared = questions.filter(question => stateFor(question.id)[field]).length;
+  return { total, cleared, remaining: Math.max(total - cleared, 0) };
+}
+
+function step2Unlocked() {
+  return stepStats("step1Cleared").remaining === 0 && questionData.questions.length > 0;
+}
+
+function step3Unlocked() {
+  return step2Unlocked() && stepStats("step2Cleared").remaining === 0 && questionData.questions.length > 0;
+}
+
+function updateStepCompletionDates() {
+  const meta = metaState();
+  const now = new Date().toISOString();
+  if (!meta.step1CompletedAt && step2Unlocked()) meta.step1CompletedAt = now;
+  if (!meta.step2CompletedAt && step3Unlocked()) meta.step2CompletedAt = now;
+  if (meta.mastered && !meta.masteredAt) meta.masteredAt = now;
+}
+
+function pickStep3Question(recentIds = []) {
+  const blocked = new Set(recentIds);
+  const candidates = questionData.questions.filter(question => !blocked.has(question.id));
+  const pool = candidates.length ? candidates : questionData.questions;
+  return pool[Math.floor(Math.random() * pool.length)];
 }
 
 function allUnresolvedQuestions() {
@@ -215,26 +282,135 @@ function renderSelectors() {
   $("#modeHelp").textContent = MODE_HELP[selected.mode] || "";
 }
 
-function badgeHtml(stats) {
-  return [
-    `<span class="badge ${stats.cleared === stats.total && stats.total ? "ok" : "warn"}">正解済 ${stats.cleared}/${stats.total}</span>`,
-    `<span class="badge ${stats.remaining === 0 && stats.total ? "ok" : ""}">残り ${stats.remaining}</span>`,
-    `<span class="badge ${stats.wrong ? "warn" : "ok"}">誤答 ${stats.wrong}</span>`
-  ].join("");
+function progressRatio(stats) {
+  return stats.total ? `${stats.cleared}/${stats.total}` : "0/0";
+}
+
+function renderMasterPath() {
+  const meta = metaState();
+  updateStepCompletionDates();
+  const step1 = stepStats("step1Cleared");
+  const step2 = stepStats("step2Cleared");
+  const step2Open = step2Unlocked();
+  const step3Open = step3Unlocked();
+  const masterLabel = meta.mastered ? "MASTER" : `最高連続正解 ${meta.bestStreak}/${MASTER_TARGET}`;
+
+  $("#masterPath").innerHTML = `
+    <div class="masterGrid">
+      <div class="stepCard active">
+        <p class="label">Step 1</p>
+        <h3>UNIT演習</h3>
+        <div class="stepCount">${progressRatio(step1)}</div>
+        <p class="hint">UNITごとに一度正解した問題を積み上げる。</p>
+      </div>
+      <div class="stepCard ${step2Open ? "active" : "locked"}">
+        <p class="label">Step 2</p>
+        <h3>ランダム制覇</h3>
+        <div class="stepCount">${progressRatio(step2)}</div>
+        <p class="hint">${step2Open ? "未クリア問題だけをランダム出題。" : "Step 1を全問クリアで解放。"}</p>
+        <button class="ghost" id="step2Btn" type="button" ${step2Open ? "" : "disabled"}>Step 2を始める</button>
+      </div>
+      <div class="stepCard ${step3Open ? "active" : "locked"} ${meta.mastered ? "mastered" : ""}">
+        <p class="label">Step 3</p>
+        <h3>30問連続正解</h3>
+        <div class="stepCount">${masterLabel}</div>
+        <p class="hint">${step3Open ? "間違えたら0から続行。30連続で合格。" : "Step 2を全問クリアで解放。"}</p>
+        <button class="ghost" id="step3Btn" type="button" ${step3Open ? "" : "disabled"}>Step 3を始める</button>
+      </div>
+    </div>
+  `;
+
+  $("#step2Btn").onclick = () => startStep2Quiz();
+  $("#step3Btn").onclick = () => startStep3Quiz();
+}
+
+function renderHeatmap(enabled) {
+  const rows = questionData.units.map(unit => {
+    const questions = questionsForUnit(unit.id);
+    const stats = stepStats("step2Cleared", questions);
+    const cells = questions.map(question => {
+      const done = stateFor(question.id).step2Cleared;
+      return `
+        <button class="heatCell ${done ? "filled" : ""}" type="button" data-question="${esc(question.id)}" ${enabled ? "" : "disabled"} title="${esc(unit.title)} 問${String(question.no).padStart(2, "0")}">
+          ${esc(question.no)}
+        </button>
+      `;
+    }).join("");
+    return `
+      <div class="heatRow">
+        <div class="heatLabel">${esc(unit.title)} <span>${stats.cleared}/${stats.total}</span></div>
+        <div class="heatCells">${cells}</div>
+      </div>
+    `;
+  }).join("");
+  return `
+    <div class="heatmap ${enabled ? "" : "locked"}">
+      <div class="heatHead">
+        <div>
+          <p class="label">Step 2 Heatmap</p>
+          <h3>ランダム制覇マップ</h3>
+        </div>
+        <p class="hint">${enabled ? "正解した問題が埋まります。マスを押すとその1問を確認できます。" : "Step 1クリア後に解放されます。"}</p>
+      </div>
+      ${rows}
+    </div>
+  `;
+}
+
+function renderStep3Challenge(enabled) {
+  const meta = metaState();
+  const filled = Math.min(meta.bestStreak, MASTER_TARGET);
+  const rows = [0, 10, 20].map(start => {
+    const cells = Array.from({ length: 10 }, (_, offset) => {
+      const number = start + offset + 1;
+      return `<span class="challengeDot ${number <= filled ? "filled" : ""}" aria-label="${number}問目">${number}</span>`;
+    }).join("");
+    return `
+      <div class="challengeTrackRow">
+        <div class="challengeTrackLabel">${start + 1}-${start + 10}</div>
+        <div class="challengeTrack">${cells}</div>
+      </div>
+    `;
+  }).join("");
+  const remaining = Math.max(MASTER_TARGET - filled, 0);
+  return `
+    <div class="challengeMap ${enabled ? "" : "locked"} ${meta.mastered ? "mastered" : ""}">
+      <div class="challengeHeader">
+        <div>
+          <p class="label">Step 3 Challenge</p>
+          <h3>30問連続正解チャレンジ</h3>
+        </div>
+        <div class="challengeResult">${meta.mastered ? "MASTER" : `あと ${remaining}`}</div>
+      </div>
+      <div class="challengeStatus">
+        <div>
+          <span class="stepCount">${meta.mastered ? "最高記録 達成済" : `最高 ${filled}/${MASTER_TARGET}`}</span>
+          <p class="hint">${enabled ? "現在の連続正解はセッション内のみ。最高記録は保存されます。" : "Step 2クリア後に解放されます。"}</p>
+        </div>
+        <button class="ghost" id="step3PanelBtn" type="button" ${enabled ? "" : "disabled"}>Step 3を始める</button>
+      </div>
+      <div class="challengeTracks">${rows}</div>
+    </div>
+  `;
 }
 
 function renderSetList() {
-  const allStats = statsFor(questionData.questions);
-  $("#progressSummary").textContent = `${activeStudent().name}: ${allStats.cleared}/${allStats.total} 正解済`;
+  const step1 = stepStats("step1Cleared");
+  $("#progressSummary").textContent = `${activeStudent().name}: Step 1 ${step1.cleared}/${step1.total}`;
   const units = questionData.units;
   $("#setList").innerHTML = units.map(unit => {
     const cards = unit.sets.map(set => {
-      const stats = statsFor(questionsForSet(unit.id, set.id));
+      const questions = questionsForSet(unit.id, set.id);
+      const stats = stepStats("step1Cleared", questions);
       return `
         <button class="itemCard ${stats.remaining === 0 && stats.total ? "done" : ""}" type="button" data-unit="${esc(unit.id)}" data-set="${esc(set.id)}">
           <div class="itemMeta">${esc(unit.title)}</div>
           <h3>${esc(set.title)}</h3>
-          <div class="badgeRow">${badgeHtml(stats)}</div>
+          <p class="sourceLine">${esc(unitSource(unit))}</p>
+          <div class="badgeRow">
+            <span class="badge ${stats.remaining === 0 && stats.total ? "ok" : "warn"}">Step 1 ${stats.cleared}/${stats.total}</span>
+            <span class="badge ${stats.remaining === 0 && stats.total ? "ok" : ""}">残り ${stats.remaining}</span>
+          </div>
         </button>
       `;
     }).join("");
@@ -247,25 +423,38 @@ function renderSetList() {
       selected.setId = card.dataset.set;
       selected.mode = "setAll";
       renderHome();
-      startQuiz(false);
+      startStep1Quiz(selected.unitId, selected.setId);
     };
   });
+
+  const step2Open = step2Unlocked();
+  $("#step2Heatmap").innerHTML = renderHeatmap(step2Open);
+  $$(".heatCell[data-question]").forEach(cell => {
+    cell.onclick = () => {
+      if (!step2Open) return;
+      const question = questionData.questions.find(item => item.id === cell.dataset.question);
+      if (question) startStep2Quiz(question);
+    };
+  });
+
+  const step3Open = step3Unlocked();
+  $("#step3Challenge").innerHTML = renderStep3Challenge(step3Open);
+  $("#step3PanelBtn").onclick = () => startStep3Quiz();
 }
 
 function renderHome() {
   renderStudentControls();
   renderSelectors();
+  renderMasterPath();
   renderSetList();
   setVisible("homePanel");
 }
 
-function startQuiz(globalReview) {
-  const pool = globalReview
-    ? shuffled(allUnresolvedQuestions())
-    : buildQuestionPool();
+function startStep1Quiz(unitId, setId) {
+  const pool = questionsForSet(unitId, setId);
   quiz = {
-    globalReview,
-    mode: globalReview ? "review" : selected.mode,
+    kind: "step1",
+    mode: "step1",
     pool: shuffled(pool),
     index: 0,
     answered: false,
@@ -275,7 +464,56 @@ function startQuiz(globalReview) {
   setVisible("quizPanel");
 }
 
+function startStep2Quiz(singleQuestion = null) {
+  const remaining = questionData.questions.filter(question => !stateFor(question.id).step2Cleared);
+  const pool = singleQuestion ? [singleQuestion] : (remaining.length ? remaining : questionData.questions);
+  quiz = {
+    kind: "step2",
+    mode: singleQuestion ? "step2Single" : "step2",
+    pool: shuffled(pool),
+    index: 0,
+    answered: false,
+    selectedChoice: null
+  };
+  renderQuiz();
+  setVisible("quizPanel");
+}
+
+function startStep3Quiz() {
+  quiz = {
+    kind: "step3",
+    mode: "step3",
+    pool: [],
+    index: 0,
+    answered: false,
+    selectedChoice: null,
+    currentQuestion: pickStep3Question(),
+    streak: 0,
+    recentIds: []
+  };
+  renderQuiz();
+  setVisible("quizPanel");
+}
+
+function startQuiz(globalReview) {
+  const pool = globalReview
+    ? shuffled(allUnresolvedQuestions())
+    : buildQuestionPool();
+  quiz = {
+    kind: "free",
+    globalReview,
+    mode: globalReview ? "review" : selected.mode,
+    pool,
+    index: 0,
+    answered: false,
+    selectedChoice: null
+  };
+  renderQuiz();
+  setVisible("quizPanel");
+}
+
 function currentQuestion() {
+  if (quiz?.kind === "step3") return quiz.currentQuestion;
   return quiz?.pool[quiz.index];
 }
 
@@ -300,18 +538,17 @@ function renderQuiz() {
 
   const { unit, set } = questionContext(q);
   $("#quizBreadcrumb").textContent = `${unit?.title || q.unitId} / ${set?.title || q.setId}`;
-  $("#quizTitle").textContent = quiz.globalReview
-    ? MODE_TITLE.review
-    : `${MODE_TITLE[quiz.mode] || "4択演習"}${quiz.mode?.startsWith("set") ? ` / ${set?.title || ""}` : ""}`;
-  const stats = statsFor(quiz.pool);
+  $("#quizTitle").textContent = quizTitle(q, set);
+  const stats = quiz.kind === "step3" ? null : statsFor(quiz.pool);
   const stem = String(q.stem || "").replace(/\n/g, "<br>");
+  const progressText = quizProgressText(stats);
 
   $("#quizBody").innerHTML = `
     <div class="quizBox">
       <div class="quizTop">
         <div>
           <p class="label">Question ${esc(q.no)}</p>
-          <div class="hint">${quiz.index + 1}/${quiz.pool.length} 問目 / この演習内の未正解 ${stats.remaining}</div>
+          <div class="hint">${esc(progressText)}</div>
         </div>
         <div class="streak">${esc(q.sourcePage ? `p.${q.sourcePage}` : questionData.source.book || "Polaris")}</div>
       </div>
@@ -341,6 +578,23 @@ function renderQuiz() {
   };
 }
 
+function quizTitle(question, set) {
+  if (quiz.kind === "step1") return `Step 1 UNIT演習 / ${set?.title || ""}`;
+  if (quiz.kind === "step2") return quiz.mode === "step2Single" ? "Step 2 1問確認" : "Step 2 ランダム制覇";
+  if (quiz.kind === "step3") return "Step 3 30問連続正解";
+  return quiz.globalReview
+    ? MODE_TITLE.review
+    : `${MODE_TITLE[quiz.mode] || "4択演習"}${quiz.mode?.startsWith("set") ? ` / ${set?.title || ""}` : ""}`;
+}
+
+function quizProgressText(stats) {
+  if (quiz.kind === "step3") {
+    const meta = metaState();
+    return `現在 ${quiz.streak}/${MASTER_TARGET} 連続正解 / 最高 ${meta.bestStreak}/${MASTER_TARGET}`;
+  }
+  return `${quiz.index + 1}/${quiz.pool.length} 問目 / この演習内の未正解 ${stats.remaining}`;
+}
+
 function answerQuestion(choiceIndex) {
   if (quiz.answered) return;
   quiz.answered = true;
@@ -353,11 +607,25 @@ function answerQuestion(choiceIndex) {
   state.lastAnsweredAt = new Date().toISOString();
   if (correct) {
     state.correct += 1;
-    state.cleared = true;
+    if (quiz.kind === "free") state.cleared = true;
+    if (quiz.kind === "step1") state.step1Cleared = true;
+    if (quiz.kind === "step2") state.step2Cleared = true;
+    if (quiz.kind === "step3") {
+      state.step3Correct += 1;
+      quiz.streak += 1;
+      const meta = metaState();
+      if (quiz.streak > meta.bestStreak) meta.bestStreak = quiz.streak;
+      if (quiz.streak >= MASTER_TARGET) meta.mastered = true;
+    }
   } else {
     state.wrong += 1;
-    state.cleared = false;
+    if (quiz.kind === "free") state.cleared = false;
+    if (quiz.kind === "step3") {
+      state.step3Wrong += 1;
+      quiz.streak = 0;
+    }
   }
+  updateStepCompletionDates();
   saveProgress();
 
   $$(".choiceBtn").forEach(button => {
@@ -368,7 +636,14 @@ function answerQuestion(choiceIndex) {
   });
   $("#feedbackSlot").innerHTML = feedbackHtml(q, choiceIndex, correct);
   $("#nextBtn").classList.remove("hide");
-  $("#nextBtn").textContent = quiz.index >= quiz.pool.length - 1 ? "結果を確認" : "次の問題へ";
+  $("#nextBtn").textContent = nextButtonText();
+}
+
+function nextButtonText() {
+  if (quiz.kind === "step3") {
+    return metaState().mastered ? "合格後も続ける" : "次の問題へ";
+  }
+  return quiz.index >= quiz.pool.length - 1 ? "結果を確認" : "次の問題へ";
 }
 
 function feedbackHtml(q, choiceIndex, correct) {
@@ -388,6 +663,14 @@ function feedbackHtml(q, choiceIndex, correct) {
 }
 
 function moveNext() {
+  if (quiz.kind === "step3") {
+    const q = currentQuestion();
+    quiz.recentIds = [q.id, ...quiz.recentIds.filter(id => id !== q.id)].slice(0, RECENT_STEP3_LIMIT);
+    quiz.currentQuestion = pickStep3Question(quiz.recentIds);
+    quiz.answered = false;
+    quiz.selectedChoice = null;
+    return;
+  }
   if (quiz.index < quiz.pool.length - 1) {
     quiz.index += 1;
     quiz.answered = false;
@@ -471,7 +754,7 @@ function bindEvents() {
   $("#summaryBtn").onclick = renderSummary;
   $("#summaryCloseBtn").onclick = renderHome;
   $("#resetBtn").onclick = () => {
-    if (!confirm(`${activeStudent().name} のポラリス演習の進捗をリセットしますか？`)) return;
+    if (!confirm(`${activeStudent().name} のステップ進捗・自由演習記録をすべてリセットしますか？`)) return;
     progress = {};
     saveProgress();
     renderHome();

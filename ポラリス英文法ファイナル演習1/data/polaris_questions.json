@@ -7,6 +7,7 @@
     {
       "id": "unit01",
       "title": "UNIT 01",
+      "source": "中部大学 工/経営情報/国際関係など",
       "sets": [
         {
           "id": "unit01_set_01",
@@ -17,6 +18,7 @@
     {
       "id": "unit02",
       "title": "UNIT 02",
+      "source": "札幌学院大学 法/経済/経営/社会情報",
       "sets": [
         {
           "id": "unit02_set_01",
@@ -27,6 +29,7 @@
     {
       "id": "unit03",
       "title": "UNIT 03",
+      "source": "神奈川大学 法/経済/経営/外国語など",
       "sets": [
         {
           "id": "unit03_set_01",
@@ -37,6 +40,7 @@
     {
       "id": "unit04",
       "title": "UNIT 04",
+      "source": "北海学園大学 経済/人文/工",
       "sets": [
         {
           "id": "unit04_set_01",
@@ -47,6 +51,7 @@
     {
       "id": "unit05",
       "title": "UNIT 05",
+      "source": "芝浦工業大学 工/システム理工/デザイン工",
       "sets": [
         {
           "id": "unit05_set_01",
@@ -57,6 +62,7 @@
     {
       "id": "unit06",
       "title": "UNIT 06",
+      "source": "九州国際大学 法/経済/国際関係",
       "sets": [
         {
           "id": "unit06_set_01",
@@ -67,6 +73,7 @@
     {
       "id": "unit07",
       "title": "UNIT 07",
+      "source": "玉川大学 教育/芸術/リベラルアーツなど",
       "sets": [
         {
           "id": "unit07_set_01",
@@ -77,6 +84,7 @@
     {
       "id": "unit08",
       "title": "UNIT 08",
+      "source": "成城大学 経済",
       "sets": [
         {
           "id": "unit08_set_01",
@@ -87,6 +95,7 @@
     {
       "id": "unit09",
       "title": "UNIT 09",
+      "source": "東京経済大学 経済/経営/コミュニケーションなど",
       "sets": [
         {
           "id": "unit09_set_01",
@@ -97,6 +106,7 @@
     {
       "id": "unit10",
       "title": "UNIT 10",
+      "source": "東京電機大学 未来科学/工/理工/情報環境",
       "sets": [
         {
           "id": "unit10_set_01",

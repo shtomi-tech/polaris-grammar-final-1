@@ -19,7 +19,7 @@
         <select id="studentSel"></select>
         <button class="ghost" id="addStudentBtn" type="button">生徒追加</button>
       </div>
-      <button class="ghost" id="resetBtn" type="button">進捗リセット</button>
+      <button class="ghost" id="resetBtn" type="button">全進捗リセット</button>
       <button class="ghost" id="summaryBtn" type="button">成績一覧</button>
     </div>
   </header>
@@ -34,11 +34,30 @@
     <section class="card" id="homePanel">
       <div class="sectionHead">
         <div>
-          <p class="label">Select</p>
-          <h2>演習セットを選ぶ</h2>
+          <p class="label">Master Path</p>
+          <h2>3ステップでポラリス英文法を仕上げる</h2>
         </div>
         <div class="progressSummary" id="progressSummary"></div>
       </div>
+      <div id="masterPath"></div>
+      <div class="stepUnitHead">
+        <div>
+          <p class="label">Step 1</p>
+          <h2>UNIT演習</h2>
+        </div>
+        <p class="hint">各UNITの10問を解き、全100問を一度でも正解したらStep 2へ進めます。</p>
+      </div>
+      <div id="setList" class="itemList"></div>
+      <div id="step2Heatmap"></div>
+      <div id="step3Challenge"></div>
+
+      <div class="freePractice">
+        <div class="sectionHead">
+          <div>
+            <p class="label">Free Practice</p>
+            <h2>自由演習</h2>
+          </div>
+        </div>
       <div class="selectorGrid">
         <div>
           <label class="fieldLabel" for="unitSel">単元</label>
@@ -65,7 +84,7 @@
         <button class="cta" id="startBtn" type="button">演習を始める</button>
         <button class="ghost" id="reviewBtn" type="button">全体の未正解を復習</button>
       </div>
-      <div id="setList" class="itemList"></div>
+      </div>
     </section>
 
     <section class="card hide" id="quizPanel">

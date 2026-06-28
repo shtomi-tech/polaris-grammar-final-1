@@ -201,6 +201,227 @@ h2 {
   padding-left: 10px;
 }
 
+.masterGrid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  border-top: 1px solid var(--ink);
+  border-left: 1px solid var(--ink);
+  margin-bottom: 16px;
+}
+
+.stepCard {
+  border-right: 1px solid var(--ink);
+  border-bottom: 1px solid var(--ink);
+  min-height: 188px;
+  padding: 14px;
+}
+
+.stepCard h3,
+.heatHead h3 {
+  font-family: var(--serif);
+  font-size: 20px;
+  font-weight: 500;
+  line-height: 1.4;
+  margin: 0 0 8px;
+}
+
+.stepCard.locked {
+  color: var(--muted);
+  background: repeating-linear-gradient(
+    135deg,
+    var(--paper),
+    var(--paper) 8px,
+    var(--parchment) 8px,
+    var(--parchment) 16px
+  );
+}
+
+.stepCard.mastered {
+  border-top: 4px solid var(--ink);
+}
+
+.stepCount {
+  border: 1px solid var(--ink);
+  display: inline-flex;
+  font-family: var(--mono);
+  font-size: 12px;
+  letter-spacing: .08em;
+  margin: 4px 0 2px;
+  padding: 3px 8px;
+  text-transform: uppercase;
+}
+
+.stepCard button {
+  margin-top: 12px;
+  width: 100%;
+}
+
+.heatmap {
+  border: 1px solid var(--ink);
+  margin-bottom: 18px;
+  padding: 14px;
+}
+
+.heatmap.locked,
+.challengeMap.locked {
+  opacity: .62;
+}
+
+.challengeMap {
+  border: 1px solid var(--ink);
+  margin-bottom: 18px;
+  padding: 14px;
+}
+
+.challengeMap.mastered {
+  border-top: 4px solid var(--ink);
+}
+
+.challengeHeader {
+  align-items: flex-start;
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  flex-wrap: wrap;
+  margin-bottom: 12px;
+}
+
+.challengeResult {
+  background: var(--ink);
+  color: var(--parchment);
+  font-family: var(--serif);
+  font-size: 24px;
+  line-height: 1;
+  min-width: 108px;
+  padding: 12px 14px;
+  text-align: center;
+}
+
+.heatHead,
+.stepUnitHead {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  flex-wrap: wrap;
+  margin-bottom: 12px;
+}
+
+.heatHead .hint,
+.stepUnitHead .hint {
+  max-width: 520px;
+}
+
+.heatRow {
+  display: grid;
+  grid-template-columns: 116px 1fr;
+  align-items: center;
+  border-top: 1px solid var(--line);
+  min-height: 42px;
+}
+
+.heatLabel {
+  color: var(--muted);
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: .06em;
+}
+
+.heatLabel span {
+  color: var(--ink);
+}
+
+.heatCells {
+  display: grid;
+  grid-template-columns: repeat(10, minmax(28px, 1fr));
+  gap: 4px;
+  padding: 6px 0;
+}
+
+.heatCell {
+  background: var(--paper);
+  color: var(--muted);
+  min-height: 30px;
+  padding: 0;
+  font-family: var(--mono);
+  font-size: 10px;
+}
+
+.heatCell.filled {
+  background: var(--ink);
+  color: var(--parchment);
+}
+
+.heatCell:disabled {
+  cursor: default;
+}
+
+.challengeStatus {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 10px;
+  flex-wrap: wrap;
+  border-top: 1px solid var(--line);
+  padding-top: 10px;
+  margin-bottom: 12px;
+}
+
+.challengeTracks {
+  border-top: 1px solid var(--ink);
+  border-left: 1px solid var(--ink);
+}
+
+.challengeTrackRow {
+  display: grid;
+  grid-template-columns: 86px 1fr;
+  min-height: 42px;
+}
+
+.challengeTrackLabel {
+  align-items: center;
+  border-right: 1px solid var(--ink);
+  border-bottom: 1px solid var(--ink);
+  color: var(--muted);
+  display: flex;
+  font-family: var(--mono);
+  font-size: 11px;
+  justify-content: center;
+  letter-spacing: .06em;
+}
+
+.challengeTrack {
+  border-bottom: 1px solid var(--ink);
+  display: grid;
+  grid-template-columns: repeat(10, minmax(32px, 1fr));
+  gap: 0;
+}
+
+.challengeDot {
+  border-right: 1px solid var(--line);
+  color: var(--muted);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 42px;
+  font-family: var(--mono);
+  font-size: 10px;
+}
+
+.challengeDot.filled {
+  background: var(--ink);
+  color: var(--parchment);
+}
+
+.challengeDot:last-child {
+  border-right: 0;
+}
+
+.freePractice {
+  border-top: 2px solid var(--ink);
+  margin-top: 20px;
+  padding-top: 18px;
+}
+
 .selectorGrid {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -277,6 +498,15 @@ h2 {
   font-size: 10px;
   letter-spacing: .08em;
   text-transform: uppercase;
+}
+
+.sourceLine {
+  border-left: 2px solid var(--line);
+  color: var(--muted);
+  font-size: 12px;
+  line-height: 1.55;
+  margin: 0;
+  padding-left: 8px;
 }
 
 .badgeRow {
@@ -550,8 +780,42 @@ h2 {
 @media (max-width: 720px) {
   .selectorGrid,
   .itemList,
-  .explainGrid {
+  .explainGrid,
+  .masterGrid {
     grid-template-columns: 1fr;
+  }
+
+  .heatRow {
+    grid-template-columns: 1fr;
+    padding: 8px 0;
+  }
+
+  .heatCells {
+    grid-template-columns: repeat(5, minmax(36px, 1fr));
+  }
+
+  .challengeHeader,
+  .challengeStatus {
+    align-items: stretch;
+    flex-direction: column;
+  }
+
+  .challengeResult,
+  .challengeStatus button {
+    width: 100%;
+  }
+
+  .challengeTrackRow {
+    grid-template-columns: 1fr;
+  }
+
+  .challengeTrackLabel {
+    justify-content: flex-start;
+    padding: 6px 8px;
+  }
+
+  .challengeTrack {
+    grid-template-columns: repeat(5, minmax(36px, 1fr));
   }
 
   .checkerRow {
