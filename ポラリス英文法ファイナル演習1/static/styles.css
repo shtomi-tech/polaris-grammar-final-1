@@ -495,6 +495,55 @@ h2 {
   text-align: center;
 }
 
+.sectionHead {
+  align-items: start;
+  display: flex;
+  gap: 16px;
+  justify-content: space-between;
+}
+
+.sectionHead h2 {
+  margin: 0;
+}
+
+.savedList {
+  border-top: 1px solid var(--ink);
+  margin-top: 18px;
+}
+
+.savedStudent {
+  align-items: center;
+  border-bottom: 1px solid var(--line);
+  display: grid;
+  gap: 16px;
+  grid-template-columns: minmax(0, 1fr) auto;
+  padding: 14px 0;
+}
+
+.savedName {
+  font-weight: 700;
+  margin: 0 0 6px;
+}
+
+.savedMeta,
+.emptySaved {
+  color: var(--muted);
+  font-family: var(--mono);
+  font-size: 11px;
+  margin: 0;
+}
+
+.emptySaved {
+  padding: 16px 0;
+}
+
+.savedActions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  justify-content: end;
+}
+
 .progressSummary {
   color: var(--muted);
   font-family: var(--mono);
