@@ -57,6 +57,8 @@
         </div>
         <div class="qrBox">
           <canvas id="qrCanvas" width="240" height="240" aria-label="生徒用QRコード"></canvas>
+          <img id="qrImage" class="qrImage" alt="生徒用QRコード">
+          <p id="qrMessage" class="qrMessage"></p>
         </div>
       </div>
 
@@ -96,6 +98,44 @@ function sqlString(value) {
   return String(value || "").replace(/'/g, "''");
 }
 
+function clearQr() {
+  const canvas = $("#qrCanvas");
+  const context = canvas.getContext("2d");
+  context.clearRect(0, 0, canvas.width, canvas.height);
+  $("#qrImage").removeAttribute("src");
+  $("#qrImage").hidden = true;
+  $("#qrCanvas").hidden = false;
+  $("#qrMessage").textContent = "";
+}
+
+function showQrFallback(text, reason = "") {
+  const image = $("#qrImage");
+  const qrUrl = new URL("https://api.qrserver.com/v1/create-qr-code/");
+  qrUrl.searchParams.set("size", "240x240");
+  qrUrl.searchParams.set("margin", "8");
+  qrUrl.searchParams.set("data", text);
+  image.src = qrUrl.toString();
+  image.hidden = false;
+  $("#qrCanvas").hidden = true;
+  $("#qrMessage").textContent = reason ? `QR画像で表示しています: ${reason}` : "QR画像で表示しています。";
+}
+
+function renderQr(text) {
+  clearQr();
+  if (!window.QRCode || typeof window.QRCode.toCanvas !== "function") {
+    showQrFallback(text, "内蔵ライブラリを読み込めませんでした");
+    return;
+  }
+
+  window.QRCode.toCanvas($("#qrCanvas"), text, {
+    width: 240,
+    margin: 1,
+    color: { dark: "#141413", light: "#faf9f6" }
+  }, error => {
+    if (error) showQrFallback(text, "canvas生成に失敗しました");
+  });
+}
+
 function buildShareUrl() {
   const base = ($("#baseUrl").value || defaultBaseUrl()).trim();
   const studentId = ($("#studentId").value || slugify($("#studentName").value)).trim();
@@ -119,14 +159,11 @@ function buildShareUrl() {
     "  active = true;"
   ].join("\n");
 
-  QRCode.toCanvas($("#qrCanvas"), url.toString(), {
-    width: 240,
-    margin: 1,
-    color: { dark: "#141413", light: "#faf9f6" }
-  });
+  renderQr(url.toString());
 }
 
 $("#baseUrl").value = defaultBaseUrl();
+$("#qrImage").hidden = true;
 $("#tokenBtn").onclick = () => {
   $("#token").value = randomToken();
 };
