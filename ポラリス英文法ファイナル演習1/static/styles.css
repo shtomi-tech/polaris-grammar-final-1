@@ -32,7 +32,9 @@ input:focus-visible {
 }
 
 button,
-select {
+select,
+input,
+textarea {
   font: inherit;
 }
 
@@ -59,7 +61,9 @@ button.ghost:hover {
   color: var(--parchment);
 }
 
-select {
+select,
+input,
+textarea {
   width: 100%;
   min-height: 44px;
   border: 1px solid var(--ink);
@@ -67,6 +71,11 @@ select {
   background: var(--paper);
   color: var(--ink);
   padding: 8px 10px;
+}
+
+textarea {
+  min-height: 96px;
+  resize: vertical;
 }
 
 .wrap {
@@ -449,11 +458,57 @@ h2 {
   accent-color: var(--ink);
 }
 
+.adminActions {
+  align-items: end;
+  height: 100%;
+}
+
+.shareOutput {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 280px;
+  gap: 16px;
+  margin: 18px 0;
+}
+
+.qrBox {
+  border: 1px solid var(--ink);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 280px;
+  padding: 18px;
+}
+
 .progressSummary {
   color: var(--muted);
   font-family: var(--mono);
   font-size: 11px;
   letter-spacing: .06em;
+}
+
+.shareStatus {
+  border-left: 2px solid var(--line);
+  color: var(--muted);
+  font-family: var(--mono);
+  font-size: 10px;
+  letter-spacing: .04em;
+  max-width: 240px;
+  padding-left: 8px;
+}
+
+.shareStatus.ok {
+  border-left-color: var(--ok);
+  color: var(--ok);
+}
+
+.shareStatus.ng {
+  border-left-color: var(--ng);
+  color: var(--ng);
+}
+
+.shareStatus.syncing {
+  border-left-color: var(--clay);
+  color: var(--clay);
 }
 
 .itemList {
@@ -741,7 +796,8 @@ h2 {
   .selectorGrid,
   .itemList,
   .explainGrid,
-  .masterGrid {
+  .masterGrid,
+  .shareOutput {
     grid-template-columns: 1fr;
   }
 

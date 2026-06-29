@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ポラリス英文法 生徒QR作成</title>
+<link rel="stylesheet" href="static/styles.css">
+<script src="https://cdn.jsdelivr.net/npm/qrcode@1.5.4/build/qrcode.min.js"></script>
+</head>
+<body>
+<div class="wrap">
+  <header class="top">
+    <div class="brand">
+      <a class="backlink" href="index.html">← 演習画面へ</a>
+      <h1>生徒QR作成</h1>
+    </div>
+  </header>
+
+  <main>
+    <section class="card hero">
+      <p class="label">Share Admin</p>
+      <h2>生徒専用URLとQRコードを作成する</h2>
+      <p class="hint">ここで生成した生徒IDとトークンをSupabaseへ登録し、URLをQRコードとして配布します。</p>
+    </section>
+
+    <section class="card">
+      <div class="selectorGrid">
+        <div>
+          <label class="fieldLabel" for="baseUrl">公開URL</label>
+          <input id="baseUrl" type="url" placeholder="https://polaris-grammar-final-1.netlify.app/">
+        </div>
+        <div>
+          <label class="fieldLabel" for="studentName">生徒名</label>
+          <input id="studentName" type="text" placeholder="冨田翔太">
+        </div>
+        <div>
+          <label class="fieldLabel" for="studentId">生徒ID</label>
+          <input id="studentId" type="text" placeholder="tomita-shota">
+        </div>
+      </div>
+
+      <div class="selectorGrid">
+        <div>
+          <label class="fieldLabel" for="token">アクセストークン</label>
+          <input id="token" type="text" placeholder="ランダム生成します">
+        </div>
+        <div class="actions adminActions">
+          <button id="tokenBtn" type="button">トークン生成</button>
+          <button class="ghost" id="buildBtn" type="button">URLとQRを作成</button>
+        </div>
+      </div>
+
+      <div class="shareOutput">
+        <div>
+          <p class="label">Student URL</p>
+          <textarea id="studentUrl" readonly rows="3"></textarea>
+        </div>
+        <div class="qrBox">
+          <canvas id="qrCanvas" width="240" height="240" aria-label="生徒用QRコード"></canvas>
+        </div>
+      </div>
+
+      <div>
+        <p class="label">Supabase登録SQL</p>
+        <textarea id="insertSql" readonly rows="6"></textarea>
+      </div>
+    </section>
+  </main>
+</div>
+
+<script>
+const $ = selector => document.querySelector(selector);
+
+function defaultBaseUrl() {
+  return window.location.href
+    .replace(/admin\.html.*$/, "")
+    .replace(/index\.html.*$/, "");
+}
+
+function slugify(value) {
+  const ascii = String(value || "")
+    .trim()
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g, "-")
+    .replace(/^-+|-+$/g, "");
+  return ascii || `student-${Date.now().toString(36)}`;
+}
+
+function randomToken() {
+  const bytes = new Uint8Array(24);
+  crypto.getRandomValues(bytes);
+  return Array.from(bytes, byte => byte.toString(16).padStart(2, "0")).join("");
+}
+
+function sqlString(value) {
+  return String(value || "").replace(/'/g, "''");
+}
+
+function buildShareUrl() {
+  const base = ($("#baseUrl").value || defaultBaseUrl()).trim();
+  const studentId = ($("#studentId").value || slugify($("#studentName").value)).trim();
+  const token = ($("#token").value || randomToken()).trim();
+  const name = ($("#studentName").value || studentId).trim();
+
+  $("#baseUrl").value = base;
+  $("#studentId").value = studentId;
+  $("#token").value = token;
+
+  const url = new URL(base);
+  url.searchParams.set("s", studentId);
+  url.searchParams.set("t", token);
+  $("#studentUrl").value = url.toString();
+  $("#insertSql").value = [
+    "insert into public.polaris_students (id, display_name, access_token, active)",
+    `values ('${sqlString(studentId)}', '${sqlString(name)}', '${sqlString(token)}', true)`,
+    "on conflict (id) do update set",
+    "  display_name = excluded.display_name,",
+    "  access_token = excluded.access_token,",
+    "  active = true;"
+  ].join("\n");
+
+  QRCode.toCanvas($("#qrCanvas"), url.toString(), {
+    width: 240,
+    margin: 1,
+    color: { dark: "#141413", light: "#faf9f6" }
+  });
+}
+
+$("#baseUrl").value = defaultBaseUrl();
+$("#tokenBtn").onclick = () => {
+  $("#token").value = randomToken();
+};
+$("#studentName").oninput = () => {
+  if (!$("#studentId").value.trim()) $("#studentId").value = slugify($("#studentName").value);
+};
+$("#buildBtn").onclick = buildShareUrl;
+</script>
+</body>
+</html>

@@ -2,6 +2,15 @@
 
 既存の `英語演習サイト/v2` をベースにした、4択問題専用の静的アプリです。
 
+## 共有初期版
+
+QRコードから生徒のスマホ・タブレットで開ける共有版に対応しています。
+
+- アプリ本体はNetlifyなどの静的ホスティングに配置します。
+- 生徒ごとの進捗はSupabaseに保存できます。
+- URLに `?s=生徒ID&t=アクセストークン` を付けると、生徒専用の共有モードで開きます。
+- Supabase設定がない場合は、従来どおりブラウザの `localStorage` で動きます。
+
 ## 起動
 
 ```powershell
@@ -37,3 +46,57 @@ http://127.0.0.1:8096/
 - `answerIndex` は 0 始まりです。ア=0、イ=1、ウ=2、エ=3。
 - スクショ提供後、OCR結果を確認してこのJSONへ追加します。
 - 進捗はブラウザの `localStorage` に保存されます。
+
+## Supabase設定
+
+1. SupabaseのSQL Editorで `supabase_schema.sql` を実行します。
+2. `static/config.example.json` を `static/config.json` にコピーします。
+3. `supabaseUrl` と `supabaseAnonKey` を自分のSupabaseプロジェクトの値に変更します。
+
+```json
+{
+  "appBaseUrl": "https://polaris-grammar-final-1.netlify.app/",
+  "supabaseUrl": "https://YOUR_PROJECT_ID.supabase.co",
+  "supabaseAnonKey": "YOUR_SUPABASE_ANON_KEY"
+}
+```
+
+`static/config.json` は公開サイトから読み込まれます。Supabase側はRPCだけを匿名実行許可し、テーブル本体はRLSで直接読めない構成です。
+
+ローカルの `static/config.json` はGit管理しません。本番のNetlifyでは、環境変数からデプロイ時に自動生成します。
+
+## 生徒QRの作成
+
+`admin.html` を開くと、生徒専用URL・QRコード・Supabase登録SQLを作れます。
+
+1. 公開URLを入力します。
+2. 生徒名を入力します。
+3. トークンを生成します。
+4. 表示されたSQLをSupabaseで実行します。
+5. 表示されたQRコードを生徒に配布します。
+
+共有URLの例:
+
+```text
+https://polaris-grammar-final-1.netlify.app/?s=tomita-shota&t=ランダムトークン
+```
+
+## Netlify公開
+
+このフォルダをNetlifyのpublish directoryに指定します。`netlify.toml` で検索避けとキャッシュ抑制を設定済みです。
+
+```text
+Publish directory: ポラリス英文法ファイナル演習1
+```
+
+NetlifyのEnvironment variablesに以下を設定します。
+
+```text
+APP_BASE_URL=https://polaris-grammar-final-1.netlify.app/
+SUPABASE_URL=https://YOUR_PROJECT_ID.supabase.co
+SUPABASE_ANON_KEY=YOUR_SUPABASE_ANON_KEY
+```
+
+デプロイ時に `scripts/write-config.mjs` が `static/config.json` を生成します。
+
+`robots.txt` と `X-Robots-Tag` により検索エンジンには出にくくしています。ただしURLを知っている人はアクセスできるため、生徒URLのトークンは推測しにくいものを使ってください。

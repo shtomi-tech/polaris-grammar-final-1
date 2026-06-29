@@ -6,3 +6,6 @@ __pycache__/
 # データベース（生徒の個人記録：ランタイムデータ。questions.json 等のソースとは別）
 *.db
 *.db.bak-*
+
+# 公開アプリの接続設定（Supabase anon keyなど）
+ポラリス英文法ファイナル演習1/static/config.json

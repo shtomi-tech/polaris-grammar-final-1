@@ -5,6 +5,7 @@ const LEGACY_STORAGE_KEY = "polarisFinalGrammar1.progress";
 const STORAGE_PREFIX = "polarisFinalGrammar1.progress.";
 const STUDENTS_KEY = "polarisFinalGrammar1.students";
 const ACTIVE_STUDENT_KEY = "polarisFinalGrammar1.activeStudent";
+const CONFIG_PATH = "static/config.json";
 const DEFAULT_STUDENT = { id: "default", name: "共通" };
 const KEYS = ["ア", "イ", "ウ", "エ"];
 const UNIT_SOURCES = {
@@ -26,6 +27,15 @@ let activeStudentId = DEFAULT_STUDENT.id;
 let progress = {};
 let selected = { unitId: "", setId: "", mode: "setAll" };
 let quiz = null;
+let runtimeConfig = {};
+let saveQueue = Promise.resolve();
+let sharedSession = {
+  requested: false,
+  enabled: false,
+  studentId: "",
+  token: "",
+  student: null
+};
 
 const MODE_HELP = {
   setAll: "選択したセットの10問を出題します。",
@@ -62,6 +72,133 @@ async function loadJson(path) {
   const response = await fetch(path, { cache: "no-store" });
   if (!response.ok) throw new Error(`${path}: ${response.statusText}`);
   return response.json();
+}
+
+async function loadOptionalJson(path) {
+  try {
+    return await loadJson(path);
+  } catch {
+    return {};
+  }
+}
+
+function normalizeConfig(raw = {}) {
+  const supabase = raw.supabase || {};
+  return {
+    appBaseUrl: String(raw.appBaseUrl || "").trim(),
+    supabaseUrl: String(raw.supabaseUrl || supabase.url || "").trim().replace(/\/+$/, ""),
+    supabaseAnonKey: String(raw.supabaseAnonKey || supabase.anonKey || "").trim()
+  };
+}
+
+function parseSharedParams() {
+  const params = new URLSearchParams(window.location.search);
+  return {
+    studentId: params.get("s") || params.get("student") || "",
+    token: params.get("t") || params.get("token") || ""
+  };
+}
+
+function hasCloudConfig() {
+  return Boolean(runtimeConfig.supabaseUrl && runtimeConfig.supabaseAnonKey);
+}
+
+function supabaseHeaders() {
+  return {
+    apikey: runtimeConfig.supabaseAnonKey,
+    Authorization: `Bearer ${runtimeConfig.supabaseAnonKey}`,
+    "Content-Type": "application/json"
+  };
+}
+
+async function supabaseRpc(name, payload) {
+  if (!hasCloudConfig()) throw new Error("Supabase設定が未完了です。");
+  const response = await fetch(`${runtimeConfig.supabaseUrl}/rest/v1/rpc/${name}`, {
+    method: "POST",
+    headers: supabaseHeaders(),
+    body: JSON.stringify(payload)
+  });
+  if (!response.ok) {
+    const text = await response.text();
+    throw new Error(`${name}: ${response.status} ${text || response.statusText}`);
+  }
+  if (response.status === 204) return null;
+  return response.json();
+}
+
+function setShareStatus(message, tone = "") {
+  const slot = $("#shareStatus");
+  if (!slot) return;
+  slot.textContent = message || "";
+  slot.className = `shareStatus ${tone}`.trim();
+}
+
+async function startSharedSession() {
+  if (!sharedSession.studentId || !sharedSession.token) {
+    throw new Error("共有URLに生徒IDまたはアクセストークンがありません。");
+  }
+  if (!hasCloudConfig()) {
+    throw new Error("共有URLですが、static/config.json のSupabase設定が未完了です。");
+  }
+
+  const authRows = await supabaseRpc("polaris_auth_student", {
+    p_student_id: sharedSession.studentId,
+    p_access_token: sharedSession.token
+  });
+  const student = Array.isArray(authRows) ? authRows[0] : authRows;
+  if (!student || !student.id) {
+    throw new Error("生徒URLを確認できませんでした。QRコードを作り直してください。");
+  }
+
+  sharedSession.enabled = true;
+  sharedSession.student = {
+    id: String(student.id),
+    name: String(student.display_name || student.name || student.id)
+  };
+  students = [sharedSession.student];
+  activeStudentId = sharedSession.student.id;
+
+  const loaded = await supabaseRpc("polaris_load_progress", {
+    p_student_id: sharedSession.studentId,
+    p_access_token: sharedSession.token
+  });
+  const cloudProgress = Array.isArray(loaded) ? loaded[0] : loaded;
+  progress = (cloudProgress && typeof cloudProgress === "object")
+    ? (cloudProgress.progress || cloudProgress)
+    : {};
+  localStorage.setItem(progressKey(), JSON.stringify(progress));
+  setShareStatus(`${activeStudent().name} さんの共有進捗を読み込みました。`, "ok");
+}
+
+async function saveSharedProgress() {
+  await supabaseRpc("polaris_save_progress", {
+    p_student_id: sharedSession.studentId,
+    p_access_token: sharedSession.token,
+    p_progress: progress
+  });
+}
+
+function queueSharedSave() {
+  if (!sharedSession.enabled) return;
+  setShareStatus("進捗を保存中...", "syncing");
+  saveQueue = saveQueue
+    .then(() => saveSharedProgress())
+    .then(() => setShareStatus(`${activeStudent().name} さんの進捗を保存しました。`, "ok"))
+    .catch(error => {
+      console.error(error);
+      setShareStatus("進捗のクラウド保存に失敗しました。通信後にもう一度解答してください。", "ng");
+    });
+}
+
+function applySharedUi() {
+  document.body.classList.toggle("sharedMode", sharedSession.enabled);
+  const controls = $(".studentControls");
+  const resetButton = $("#resetBtn");
+  if (controls) controls.classList.toggle("hide", sharedSession.enabled);
+  if (resetButton) resetButton.classList.toggle("hide", sharedSession.enabled);
+  if (!sharedSession.enabled && !sharedSession.requested) {
+    setShareStatus("ローカル保存モード");
+  }
 }
 
 function unitSource(unit) {
@@ -126,6 +263,7 @@ function loadProgress() {
 
 function saveProgress() {
   localStorage.setItem(progressKey(), JSON.stringify(progress));
+  queueSharedSave();
 }
 
 function metaState() {
@@ -265,6 +403,11 @@ function setVisible(panel) {
 }
 
 function renderStudentControls() {
+  if (sharedSession.enabled) {
+    $("#studentSel").innerHTML = `<option value="${esc(activeStudentId)}">${esc(activeStudent().name)}</option>`;
+    $("#studentSel").value = activeStudentId;
+    return;
+  }
   $("#studentSel").innerHTML = students.map(student =>
     `<option value="${esc(student.id)}">${esc(student.name)}</option>`
   ).join("");
@@ -710,6 +853,7 @@ function moveNext() {
 
 function bindEvents() {
   $("#studentSel").onchange = event => {
+    if (sharedSession.enabled) return;
     activeStudentId = event.target.value;
     localStorage.setItem(ACTIVE_STUDENT_KEY, activeStudentId);
     loadProgress();
@@ -717,6 +861,7 @@ function bindEvents() {
     renderHome();
   };
   $("#addStudentBtn").onclick = () => {
+    if (sharedSession.enabled) return;
     const name = prompt("生徒名を入力してください。");
     if (!name || !name.trim()) return;
     const trimmedName = name.trim();
@@ -751,6 +896,7 @@ function bindEvents() {
   $("#reviewBtn").onclick = () => startQuiz(true);
   $("#backBtn").onclick = renderHome;
   $("#resetBtn").onclick = () => {
+    if (sharedSession.enabled) return;
     if (!confirm(`${activeStudent().name} のステップ進捗・自由演習記録をすべてリセットしますか？`)) return;
     progress = {};
     saveProgress();
@@ -760,14 +906,25 @@ function bindEvents() {
 
 async function init() {
   try {
+    runtimeConfig = normalizeConfig(await loadOptionalJson(CONFIG_PATH));
+    const sharedParams = parseSharedParams();
+    sharedSession.studentId = sharedParams.studentId;
+    sharedSession.token = sharedParams.token;
+    sharedSession.requested = Boolean(sharedSession.studentId || sharedSession.token);
     questionData = await loadJson("data/polaris_questions.json");
-    loadStudents();
-    migrateLegacyProgress();
-    loadProgress();
+    if (sharedSession.requested) {
+      await startSharedSession();
+    } else {
+      loadStudents();
+      migrateLegacyProgress();
+      loadProgress();
+    }
     bindEvents();
+    applySharedUi();
     renderHome();
   } catch (error) {
     $("#homePanel").innerHTML = `<div class="empty">データの読み込みに失敗しました: ${esc(error.message)}</div>`;
+    setShareStatus("共有設定または進捗データの読み込みに失敗しました。", "ng");
   }
 }
 
