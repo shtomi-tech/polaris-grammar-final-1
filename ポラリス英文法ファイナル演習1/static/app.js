@@ -180,6 +180,13 @@ function questionsForSet(unitId, setId) {
     .sort((a, b) => Number(a.no) - Number(b.no));
 }
 
+function step1WrongQuestions(questions) {
+  return questions.filter(question => {
+    const state = stateFor(question.id);
+    return state.wrong > 0 && !state.step1Cleared;
+  });
+}
+
 function filteredQuestions(unitId, setId, mode) {
   const questions = questionsForSet(unitId, setId);
   if (mode === "setUnresolved") return questions.filter(question => !stateFor(question.id).cleared);
@@ -252,7 +259,7 @@ function statsFor(questions) {
 }
 
 function setVisible(panel) {
-  for (const id of ["homePanel", "quizPanel", "summaryPanel"]) {
+  for (const id of ["homePanel", "quizPanel"]) {
     $(`#${id}`).classList.toggle("hide", id !== panel);
   }
 }
@@ -402,28 +409,44 @@ function renderSetList() {
     const cards = unit.sets.map(set => {
       const questions = questionsForSet(unit.id, set.id);
       const stats = stepStats("step1Cleared", questions);
+      const wrongCount = step1WrongQuestions(questions).length;
       return `
-        <button class="itemCard ${stats.remaining === 0 && stats.total ? "done" : ""}" type="button" data-unit="${esc(unit.id)}" data-set="${esc(set.id)}">
+        <div class="itemCard ${stats.remaining === 0 && stats.total ? "done" : ""}">
           <div class="itemMeta">${esc(unit.title)}</div>
           <h3>${esc(set.title)}</h3>
           <p class="sourceLine">${esc(unitSource(unit))}</p>
           <div class="badgeRow">
             <span class="badge ${stats.remaining === 0 && stats.total ? "ok" : "warn"}">Step 1 ${stats.cleared}/${stats.total}</span>
             <span class="badge ${stats.remaining === 0 && stats.total ? "ok" : ""}">残り ${stats.remaining}</span>
+            <span class="badge ${wrongCount ? "warn" : ""}">誤答 ${wrongCount}</span>
           </div>
-        </button>
+          <div class="cardActions">
+            <button class="startUnitBtn" type="button" data-unit="${esc(unit.id)}" data-set="${esc(set.id)}">UNIT演習</button>
+            <button class="ghost wrongUnitBtn" type="button" data-unit="${esc(unit.id)}" data-set="${esc(set.id)}" ${wrongCount ? "" : "disabled"}>間違えた問題だけ</button>
+          </div>
+        </div>
       `;
     }).join("");
     return cards;
   }).join("") || `<div class="empty">問題データがまだありません。スクショOCR後に data/polaris_questions.json へ追加します。</div>`;
 
-  $$(".itemCard").forEach(card => {
-    card.onclick = () => {
-      selected.unitId = card.dataset.unit;
-      selected.setId = card.dataset.set;
+  $$(".startUnitBtn").forEach(button => {
+    button.onclick = () => {
+      selected.unitId = button.dataset.unit;
+      selected.setId = button.dataset.set;
       selected.mode = "setAll";
       renderHome();
       startStep1Quiz(selected.unitId, selected.setId);
+    };
+  });
+
+  $$(".wrongUnitBtn").forEach(button => {
+    button.onclick = () => {
+      selected.unitId = button.dataset.unit;
+      selected.setId = button.dataset.set;
+      selected.mode = "setWrong";
+      renderHome();
+      startStep1Quiz(selected.unitId, selected.setId, "wrongOnly");
     };
   });
 
@@ -450,11 +473,12 @@ function renderHome() {
   setVisible("homePanel");
 }
 
-function startStep1Quiz(unitId, setId) {
-  const pool = questionsForSet(unitId, setId);
+function startStep1Quiz(unitId, setId, variant = "all") {
+  const questions = questionsForSet(unitId, setId);
+  const pool = variant === "wrongOnly" ? step1WrongQuestions(questions) : questions;
   quiz = {
     kind: "step1",
-    mode: "step1",
+    mode: variant === "wrongOnly" ? "step1Wrong" : "step1",
     pool: shuffled(pool),
     index: 0,
     answered: false,
@@ -579,7 +603,11 @@ function renderQuiz() {
 }
 
 function quizTitle(question, set) {
-  if (quiz.kind === "step1") return `Step 1 UNIT演習 / ${set?.title || ""}`;
+  if (quiz.kind === "step1") {
+    return quiz.mode === "step1Wrong"
+      ? `Step 1 誤答演習 / ${set?.title || ""}`
+      : `Step 1 UNIT演習 / ${set?.title || ""}`;
+  }
   if (quiz.kind === "step2") return quiz.mode === "step2Single" ? "Step 2 1問確認" : "Step 2 ランダム制覇";
   if (quiz.kind === "step3") return "Step 3 30問連続正解";
   return quiz.globalReview
@@ -677,36 +705,7 @@ function moveNext() {
     quiz.selectedChoice = null;
     return;
   }
-  renderSummary();
-}
-
-function renderSummary() {
-  renderStudentControls();
-  const rows = questionData.units.map(unit => {
-    const setRows = unit.sets.map(set => {
-      const stats = statsFor(questionsForSet(unit.id, set.id));
-      return `
-        <div class="checkerRow">
-          <div class="checkerCell">${esc(unit.title)} / ${esc(set.title)}</div>
-          <div class="checkerCell state ${stats.cleared === stats.total && stats.total ? "ok" : "ng"}">正解済 ${stats.cleared}/${stats.total}</div>
-          <div class="checkerCell state ${stats.remaining === 0 && stats.total ? "ok" : "ng"}">残り ${stats.remaining}</div>
-          <div class="checkerCell state ${stats.wrong ? "ng" : "ok"}">誤答 ${stats.wrong}</div>
-          <div class="checkerCell state ${stats.total ? "ok" : "ng"}">収録 ${stats.total}</div>
-        </div>
-      `;
-    }).join("");
-    return `
-      <div class="checkerGroup">
-        <div class="checkerGroupHead">
-          <span>${esc(unit.title)}</span>
-          <span>${statsFor(questionData.questions.filter(q => q.unitId === unit.id)).cleared}/${questionData.questions.filter(q => q.unitId === unit.id).length}</span>
-        </div>
-        <div class="checkerRows">${setRows}</div>
-      </div>
-    `;
-  }).join("");
-  $("#summaryBody").innerHTML = rows || `<div class="empty">問題データがまだありません。</div>`;
-  setVisible("summaryPanel");
+  renderHome();
 }
 
 function bindEvents() {
@@ -751,8 +750,6 @@ function bindEvents() {
   $("#startBtn").onclick = () => startQuiz(false);
   $("#reviewBtn").onclick = () => startQuiz(true);
   $("#backBtn").onclick = renderHome;
-  $("#summaryBtn").onclick = renderSummary;
-  $("#summaryCloseBtn").onclick = renderHome;
   $("#resetBtn").onclick = () => {
     if (!confirm(`${activeStudent().name} のステップ進捗・自由演習記録をすべてリセットしますか？`)) return;
     progress = {};

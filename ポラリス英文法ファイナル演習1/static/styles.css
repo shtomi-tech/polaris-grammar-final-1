@@ -536,6 +536,20 @@ h2 {
   color: var(--clay);
 }
 
+.cardActions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.cardActions button {
+  min-height: 36px;
+  padding: 6px 10px;
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: .04em;
+}
+
 .tabs {
   display: flex;
   flex-wrap: wrap;
@@ -712,60 +726,6 @@ h2 {
   margin: 4px 0;
 }
 
-.checkerGroup {
-  border: 1px solid var(--ink);
-  margin-bottom: 14px;
-}
-
-.checkerGroupHead {
-  background: var(--ink);
-  color: var(--parchment);
-  display: flex;
-  justify-content: space-between;
-  gap: 12px;
-  padding: 9px 12px;
-}
-
-.checkerRows {
-  display: grid;
-}
-
-.checkerRow {
-  display: grid;
-  grid-template-columns: minmax(180px, 1fr) repeat(4, minmax(84px, auto));
-  gap: 0;
-  border-top: 1px solid var(--line);
-}
-
-.checkerCell {
-  border-right: 1px solid var(--line);
-  min-height: 42px;
-  padding: 8px 10px;
-  display: flex;
-  align-items: center;
-  font-size: 13px;
-}
-
-.checkerCell:last-child {
-  border-right: 0;
-}
-
-.checkerCell.state {
-  justify-content: center;
-  font-family: var(--mono);
-  font-size: 10px;
-  letter-spacing: .06em;
-  text-transform: uppercase;
-}
-
-.state.ok {
-  color: var(--ok);
-}
-
-.state.ng {
-  color: var(--muted);
-}
-
 .empty {
   border: 1px dashed var(--line);
   color: var(--muted);
@@ -816,15 +776,6 @@ h2 {
 
   .challengeTrack {
     grid-template-columns: repeat(5, minmax(36px, 1fr));
-  }
-
-  .checkerRow {
-    grid-template-columns: 1fr 1fr;
-  }
-
-  .checkerCell:first-child {
-    grid-column: 1 / -1;
-    font-weight: 700;
   }
 
   .topActions,
