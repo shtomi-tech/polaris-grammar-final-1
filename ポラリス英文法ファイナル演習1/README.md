@@ -55,7 +55,7 @@ http://127.0.0.1:8096/
 
 ```json
 {
-  "appBaseUrl": "https://polaris-grammar-final-1.netlify.app/",
+  "appBaseUrl": "https://shtomi-tech.github.io/polaris-grammar-final-1/",
   "supabaseUrl": "https://YOUR_PROJECT_ID.supabase.co",
   "supabaseAnonKey": "YOUR_SUPABASE_ANON_KEY"
 }
@@ -80,25 +80,25 @@ http://127.0.0.1:8096/
 共有URLの例:
 
 ```text
-https://polaris-grammar-final-1.netlify.app/?s=tomita-shota&t=ランダムトークン
+https://shtomi-tech.github.io/polaris-grammar-final-1/?s=tomita-shota&t=ランダムトークン
 ```
 
-## Netlify公開
+## GitHub Pages公開
 
-このフォルダをNetlifyのpublish directoryに指定します。`netlify.toml` で検索避けとキャッシュ抑制を設定済みです。
+GitHub Actionsで `ポラリス英文法ファイナル演習1` フォルダをGitHub Pagesへ公開します。
 
 ```text
-Publish directory: ポラリス英文法ファイナル演習1
+公開URL: https://shtomi-tech.github.io/polaris-grammar-final-1/
 ```
 
-NetlifyのEnvironment variablesに以下を設定します。
+GitHub Secretsに以下を設定します。
 
 ```text
-APP_BASE_URL=https://polaris-grammar-final-1.netlify.app/
+APP_BASE_URL=https://shtomi-tech.github.io/polaris-grammar-final-1/
 SUPABASE_URL=https://YOUR_PROJECT_ID.supabase.co
 SUPABASE_ANON_KEY=YOUR_SUPABASE_ANON_KEY
 ```
 
-デプロイ時に `scripts/write-config.mjs` が `static/config.json` を生成します。
+デプロイ時に `.github/workflows/polaris-pages.yml` から `scripts/write-config.mjs` が `static/config.json` を生成します。
 
 `robots.txt` と `X-Robots-Tag` により検索エンジンには出にくくしています。ただしURLを知っている人はアクセスできるため、生徒URLのトークンは推測しにくいものを使ってください。

@@ -1,5 +1,5 @@
 {
-  "appBaseUrl": "https://polaris-grammar-final-1.netlify.app/",
+  "appBaseUrl": "https://shtomi-tech.github.io/polaris-grammar-final-1/",
   "supabaseUrl": "https://YOUR_PROJECT_ID.supabase.co",
   "supabaseAnonKey": "YOUR_SUPABASE_ANON_KEY"
 }

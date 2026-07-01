@@ -9,3 +9,6 @@ __pycache__/
 
 # 公開アプリの接続設定（Supabase anon keyなど）
 ポラリス英文法ファイナル演習1/static/config.json
+
+# Local Netlify folder
+.netlify
