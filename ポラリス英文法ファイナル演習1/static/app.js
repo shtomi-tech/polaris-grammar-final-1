@@ -693,7 +693,7 @@ function questionContext(question) {
 function renderQuiz() {
   const q = currentQuestion();
   if (!q) {
-    $("#quizBreadcrumb").textContent = "Polaris";
+    $("#quizBreadcrumb").textContent = "English Grammar Trainer";
     $("#quizTitle").textContent = "演習対象なし";
     $("#quizBody").innerHTML = `
       <div class="empty">この条件で出題できる問題はありません。</div>
@@ -717,7 +717,7 @@ function renderQuiz() {
           <p class="label">Question ${esc(q.no)}</p>
           <div class="hint">${esc(progressText)}</div>
         </div>
-        <div class="streak">${esc(q.sourcePage ? `p.${q.sourcePage}` : questionData.source.book || "Polaris")}</div>
+        <div class="streak">${esc(q.sourcePage ? `p.${q.sourcePage}` : questionData.source.book || "英文法トレーナー")}</div>
       </div>
       <p class="stem">${stem}</p>
       <div class="choices">
