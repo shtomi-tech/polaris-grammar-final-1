@@ -456,6 +456,9 @@ function renderGrammarDetail(key, page, origins, context){
       <h2>${esc(page.title)}</h2>
       <p>${esc(page.summary)}</p>
     </header>
+    ${renderCore(page.core)}
+    ${renderNoteSection("基本形", page.forms)}
+    ${renderNoteSection("見分けの合図", page.signals)}
     ${renderNoteSection("この単元で見るポイント", page.checkpoints)}
     ${renderNoteSection("解き方の手順", page.steps, true)}
     ${renderNoteSection("よくある間違い", page.mistakes)}
@@ -487,6 +490,11 @@ function renderGrammarDetail(key, page, origins, context){
   $("#grammarDetailBody").querySelectorAll(".originBtn").forEach(b=>{
     b.onclick = ()=> practiceUnit(b.dataset.lv, b.dataset.unit);
   });
+}
+
+function renderCore(core){
+  if(!core) return "";
+  return `<section class="noteSec coreSec"><h3>文法の核</h3><p>${esc(core)}</p></section>`;
 }
 
 function renderNoteSection(title, items, ordered=false){

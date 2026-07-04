@@ -1,151 +1,203 @@
 {
   "items": [
     {
-      "id": "junior_be_basic",
+      "id": "junior_be_present",
       "course": "junior",
       "level": "中1",
       "unit": "be動詞",
-      "item": "am / are / is",
-      "order": 1,
-      "explanation": {
-        "rule": "主語に合わせて am / are / is を使い分ける。",
-        "form": "I am / You are / He is / She is / It is / We are / They are",
-        "usage": "人やものの名前・状態・性質・場所を表すときに使う。",
-        "example": "I am a student.",
-        "translation": "私は生徒です。",
-        "mistake": "I are や He am のように、主語とbe動詞をずらさない。"
-      },
+      "item": "be動詞の肯定文（am / are / is）",
+      "order": 10,
+      "explanation": {"rule": "主語に合わせて am / are / is を使い分け、「〜です／〜にいる」を表す。", "form": "I am ／ You / We / They are ／ He / She / It is", "usage": "人やものの名前・状態・性質・場所を表す。", "example": "I am a student.", "translation": "私は生徒です。", "mistake": "I are / He am のように主語と be 動詞をずらさない。短縮形 I'm / You're / He's。"},
       "memorySeeds": [
-        {
-          "stem": "I の後に置くbe動詞はどれ？",
-          "answer": "am",
-          "distractors": ["are", "is", "be"],
-          "why": "I だけは am を使う。"
-        },
-        {
-          "stem": "He / She / It の後に置くbe動詞はどれ？",
-          "answer": "is",
-          "distractors": ["am", "are", "do"],
-          "why": "三人称単数の主語には is を使う。"
-        }
+        {"stem": "I の後に置く be 動詞は？", "answer": "am", "distractors": ["are", "is", "be"], "why": "I だけは am。"},
+        {"stem": "He / She / It の後に置く be 動詞は？", "answer": "is", "distractors": ["am", "are", "do"], "why": "三人称単数は is。"}
       ],
-      "practiceSeeds": [
-        {"stem": "I ___ a student.", "answer": "am", "translation": "私は生徒です。", "why": "主語が I なので am を使う。"},
-        {"stem": "You ___ kind.", "answer": "are", "translation": "あなたは親切です。", "why": "主語が You なので are を使う。"},
-        {"stem": "He ___ my brother.", "answer": "is", "translation": "彼は私の兄弟です。", "why": "主語が He なので is を使う。"},
-        {"stem": "They ___ in the park.", "answer": "are", "translation": "彼らは公園にいます。", "why": "主語が They なので are を使う。"},
-        {"stem": "It ___ cold today.", "answer": "is", "translation": "今日は寒いです。", "why": "主語が It なので is を使う。"}
+      "practiceExamples": [
+        {"stem": "I ___ a student.", "answer": "am", "distractors": ["are", "is", "be"], "translation": "私は生徒です。", "why": "主語 I→am。"},
+        {"stem": "You ___ kind.", "answer": "are", "distractors": ["am", "is", "be"], "translation": "あなたは親切です。", "why": "You→are。"},
+        {"stem": "He ___ my brother.", "answer": "is", "distractors": ["am", "are", "do"], "translation": "彼は私の兄弟です。", "why": "He→is。"},
+        {"stem": "They ___ in the park.", "answer": "are", "distractors": ["am", "is", "be"], "translation": "彼らは公園にいます。", "why": "They→are。"},
+        {"stem": "It ___ cold today.", "answer": "is", "distractors": ["am", "are", "be"], "translation": "今日は寒いです。", "why": "It→is。"}
       ]
     },
     {
-      "id": "junior_general_present",
+      "id": "junior_be_negq",
+      "course": "junior",
+      "level": "中1",
+      "unit": "be動詞",
+      "item": "be動詞の否定文・疑問文",
+      "order": 11,
+      "explanation": {"rule": "be 動詞の否定は be 動詞の後ろに not、疑問文は be 動詞を主語の前に出す。", "form": "S + be + not ... ／ Be + S ...? ／ Yes, S be. / No, S be not.", "usage": "「〜ではない」「〜ですか」を表す。", "example": "Are you a student?", "translation": "あなたは生徒ですか。", "mistake": "否定は isn't / aren't。疑問文は be 動詞を文頭に。do は使わない。"},
+      "memorySeeds": [
+        {"stem": "You are busy. を疑問文にすると文頭に来る語は？", "answer": "Are", "distractors": ["Do", "Does", "Is"], "why": "be 動詞の疑問文は be 動詞を前に出す。"},
+        {"stem": "is not の短縮形は？", "answer": "isn't", "distractors": ["amn't", "aren't", "don't"], "why": "is not→isn't。"}
+      ],
+      "practiceExamples": [
+        {"stem": "She ___ not a teacher.", "answer": "is", "distractors": ["are", "am", "do"], "translation": "彼女は先生ではありません。", "why": "She→is not。"},
+        {"stem": "___ you tired?", "answer": "Are", "distractors": ["Do", "Is", "Does"], "translation": "あなたは疲れていますか。", "why": "You→Are。"},
+        {"stem": "They ___ not at home.", "answer": "are", "distractors": ["is", "am", "do"], "translation": "彼らは家にいません。", "why": "They→are not。"},
+        {"stem": "___ he your friend?", "answer": "Is", "distractors": ["Are", "Do", "Does"], "translation": "彼はあなたの友達ですか。", "why": "He→Is。"},
+        {"stem": "I ___ not hungry.", "answer": "am", "distractors": ["are", "is", "do"], "translation": "私はおなかがすいていません。", "why": "I→am not。"}
+      ]
+    },
+    {
+      "id": "junior_be_past",
+      "course": "junior",
+      "level": "中1",
+      "unit": "be動詞",
+      "item": "be動詞の過去形（was / were）",
+      "order": 12,
+      "explanation": {"rule": "be 動詞の過去形は was / were で「〜だった／〜にいた」を表す。", "form": "I / He / She / It was ／ You / We / They were", "usage": "過去の状態・場所を表す。否定は wasn't / weren't、疑問は文頭に。", "example": "I was tired yesterday.", "translation": "私は昨日疲れていました。", "mistake": "I / he / she / it→was、you / we / they→were。"},
+      "memorySeeds": [
+        {"stem": "They の be 動詞の過去形は？", "answer": "were", "distractors": ["was", "is", "are"], "why": "you / we / they→were。"},
+        {"stem": "He の be 動詞の過去形は？", "answer": "was", "distractors": ["were", "is", "did"], "why": "三人称単数→was。"}
+      ],
+      "practiceExamples": [
+        {"stem": "I ___ busy yesterday.", "answer": "was", "distractors": ["were", "am", "is"], "translation": "私は昨日忙しかった。", "why": "I→was。"},
+        {"stem": "They ___ in Osaka last week.", "answer": "were", "distractors": ["was", "are", "is"], "translation": "彼らは先週大阪にいました。", "why": "They→were。"},
+        {"stem": "She ___ a nurse before.", "answer": "was", "distractors": ["were", "is", "did"], "translation": "彼女は以前看護師でした。", "why": "She→was。"},
+        {"stem": "We ___ happy then.", "answer": "were", "distractors": ["was", "are", "is"], "translation": "私たちはその時幸せでした。", "why": "We→were。"},
+        {"stem": "It ___ rainy yesterday.", "answer": "was", "distractors": ["were", "is", "did"], "translation": "昨日は雨でした。", "why": "It→was。"}
+      ]
+    },
+    {
+      "id": "junior_gen_present",
       "course": "junior",
       "level": "中1",
       "unit": "一般動詞",
-      "item": "現在形と三単現のs",
-      "order": 2,
-      "explanation": {
-        "rule": "主語が三人称単数で現在の文では、一般動詞に s / es をつける。",
-        "form": "I play / You play / He plays / She studies",
-        "usage": "ふだんすること・習慣・事実を表すときに使う。",
-        "example": "She plays tennis.",
-        "translation": "彼女はテニスをします。",
-        "mistake": "does を使う疑問文・否定文では、動詞は原形に戻る。"
-      },
+      "item": "一般動詞の現在形",
+      "order": 20,
+      "explanation": {"rule": "一般動詞は動作・状態を表す。ふだんのこと・習慣・事実は現在形で表す。", "form": "I / You / We / They + 動詞の原形", "usage": "every day などと一緒に習慣を表す。", "example": "I play tennis.", "translation": "私はテニスをします。", "mistake": "主語が三人称単数のときは s / es が必要（別項目）。"},
       "memorySeeds": [
-        {
-          "stem": "三単現のsが必要な主語はどれ？",
-          "answer": "He",
-          "distractors": ["I", "You", "They"],
-          "why": "He は三人称単数なので、現在形では動詞に s がつく。"
-        },
-        {
-          "stem": "She の後に続く正しい形はどれ？",
-          "answer": "studies",
-          "distractors": ["study", "studying", "studied"],
-          "why": "study は y を i に変えて es をつけ、studies になる。"
-        }
+        {"stem": "一般動詞とは？", "answer": "動作や状態を表す動詞（play, study など）", "distractors": ["be 動詞(am / are / is)", "助動詞(can / will)", "前置詞"], "why": "一般動詞＝be 動詞・助動詞以外の動詞。"},
+        {"stem": "I / You / They のときの動詞の形は？", "answer": "原形（s をつけない）", "distractors": ["s をつける", "-ing をつける", "過去形"], "why": "三人称単数以外は原形。"}
       ],
-      "practiceSeeds": [
-        {"stem": "She ___ tennis every Sunday.", "answer": "plays", "translation": "彼女は毎週日曜日にテニスをします。", "why": "主語が She なので play に s をつける。"},
-        {"stem": "They ___ English after school.", "answer": "study", "translation": "彼らは放課後に英語を勉強します。", "why": "主語が They なので動詞は原形。"},
-        {"stem": "My father ___ coffee every morning.", "answer": "drinks", "translation": "父は毎朝コーヒーを飲みます。", "why": "My father は三人称単数なので drinks。"},
-        {"stem": "I ___ soccer on Fridays.", "answer": "play", "translation": "私は金曜日にサッカーをします。", "why": "主語が I なので動詞は原形。"},
-        {"stem": "Tom ___ in Tokyo.", "answer": "lives", "translation": "トムは東京に住んでいます。", "why": "Tom は三人称単数なので lives。"}
+      "practiceExamples": [
+        {"stem": "I ___ tennis every day.", "answer": "play", "distractors": ["plays", "playing", "played"], "translation": "私は毎日テニスをします。", "why": "I→原形。"},
+        {"stem": "They ___ English.", "answer": "study", "distractors": ["studies", "studying", "studied"], "translation": "彼らは英語を勉強します。", "why": "They→原形。"},
+        {"stem": "We ___ in Tokyo.", "answer": "live", "distractors": ["lives", "living", "lived"], "translation": "私たちは東京に住んでいます。", "why": "We→原形。"},
+        {"stem": "You ___ soccer well.", "answer": "play", "distractors": ["plays", "playing", "played"], "translation": "あなたはサッカーが上手だ。", "why": "You→原形。"},
+        {"stem": "I ___ music.", "answer": "like", "distractors": ["likes", "liking", "liked"], "translation": "私は音楽が好きです。", "why": "I→原形。"}
       ]
     },
     {
-      "id": "junior_questions_basic",
+      "id": "junior_gen_thirds",
+      "course": "junior",
+      "level": "中1",
+      "unit": "一般動詞",
+      "item": "三単現の s",
+      "order": 21,
+      "explanation": {"rule": "主語が三人称単数で現在のとき、一般動詞に s / es をつける。", "form": "He / She / It + 動詞 + s（study→studies, go→goes, have→has）", "usage": "he / she / it や1人の人名・もの1つが主語のとき。", "example": "She plays the piano.", "translation": "彼女はピアノを弾きます。", "mistake": "y→ies、o / s / x / ch / sh→es、have→has は特別変化。"},
+      "memorySeeds": [
+        {"stem": "三単現の s が必要な主語は？", "answer": "He / She / It（三人称単数）", "distractors": ["I", "You", "They"], "why": "三人称単数・現在で s。"},
+        {"stem": "study の三単現の形は？", "answer": "studies", "distractors": ["studys", "studyes", "studying"], "why": "子音＋y→ies。"}
+      ],
+      "practiceExamples": [
+        {"stem": "She ___ tennis on Sunday.", "answer": "plays", "distractors": ["play", "playing", "played"], "translation": "彼女は日曜にテニスをします。", "why": "She→plays。"},
+        {"stem": "He ___ to school by bus.", "answer": "goes", "distractors": ["go", "gos", "going"], "translation": "彼はバスで通学します。", "why": "go→goes。"},
+        {"stem": "My father ___ coffee.", "answer": "drinks", "distractors": ["drink", "drinking", "drank"], "translation": "父はコーヒーを飲みます。", "why": "三単現→drinks。"},
+        {"stem": "Tom ___ in Tokyo.", "answer": "lives", "distractors": ["live", "living", "lived"], "translation": "トムは東京に住んでいます。", "why": "Tom→lives。"},
+        {"stem": "She ___ a dog.", "answer": "has", "distractors": ["have", "haves", "having"], "translation": "彼女は犬を飼っています。", "why": "have→has。"}
+      ]
+    },
+    {
+      "id": "junior_gen_doq",
+      "course": "junior",
+      "level": "中1",
+      "unit": "一般動詞",
+      "item": "一般動詞の否定文・疑問文（do / does）",
+      "order": 22,
+      "explanation": {"rule": "一般動詞の否定・疑問は do / does を使い、動詞は原形に戻す。", "form": "S do / does not + 原形 ／ Do / Does + S + 原形 ...?", "usage": "三人称単数・現在は does、それ以外は do。", "example": "Does she like music?", "translation": "彼女は音楽が好きですか。", "mistake": "does / doesn't を使ったら動詞は原形（plays→play）。"},
+      "memorySeeds": [
+        {"stem": "She likes music. を疑問文にすると文頭に来る語は？", "answer": "Does", "distractors": ["Do", "Is", "Did"], "why": "三人称単数・現在→Does。"},
+        {"stem": "does を使うと後ろの動詞の形は？", "answer": "原形", "distractors": ["三単現の s 形", "-ing 形", "過去形"], "why": "do / does の後は原形。"}
+      ],
+      "practiceExamples": [
+        {"stem": "___ they play soccer?", "answer": "Do", "distractors": ["Does", "Are", "Is"], "translation": "彼らはサッカーをしますか。", "why": "they→Do。"},
+        {"stem": "___ she like music?", "answer": "Does", "distractors": ["Do", "Is", "Are"], "translation": "彼女は音楽が好きですか。", "why": "she→Does＋原形。"},
+        {"stem": "I ___ not eat meat.", "answer": "do", "distractors": ["does", "am", "is"], "translation": "私は肉を食べません。", "why": "I→do not。"},
+        {"stem": "He ___ not play tennis.", "answer": "does", "distractors": ["do", "is", "are"], "translation": "彼はテニスをしません。", "why": "He→does not＋原形。"},
+        {"stem": "___ you know him?", "answer": "Do", "distractors": ["Does", "Are", "Is"], "translation": "あなたは彼を知っていますか。", "why": "you→Do。"}
+      ]
+    },
+    {
+      "id": "junior_wh_pron",
       "course": "junior",
       "level": "中1",
       "unit": "疑問文",
-      "item": "be動詞・一般動詞の疑問文",
-      "order": 3,
-      "explanation": {
-        "rule": "be動詞の文はbe動詞を前へ、一般動詞の文は Do / Does / Did を前へ出す。",
-        "form": "Are you ...? / Do you ...? / Does he ...? / Did you ...?",
-        "usage": "相手にたずねる文を作るときに使う。",
-        "example": "Does she like music?",
-        "translation": "彼女は音楽が好きですか。",
-        "mistake": "Does / Did を使ったら、後ろの一般動詞は原形に戻す。"
-      },
+      "item": "疑問詞のある疑問文（what / who / which / whose）",
+      "order": 30,
+      "explanation": {"rule": "what(何)・who(誰)・which(どれ)・whose(誰の) で具体的な情報をたずねる。", "form": "疑問詞 + be / do / does + S ...?（疑問詞が主語なら 疑問詞 + 動詞）", "usage": "Yes / No では答えられない情報をたずねる。", "example": "What do you want?", "translation": "あなたは何がほしいですか。", "mistake": "答えは Yes / No ではなく具体的な内容で答える。"},
       "memorySeeds": [
-        {
-          "stem": "She likes music. を疑問文にするとき、文頭に置く語は？",
-          "answer": "Does",
-          "distractors": ["Do", "Is", "Did"],
-          "why": "主語が三人称単数・現在なので Does を使う。"
-        },
-        {
-          "stem": "Are you busy? のような疑問文を作る品詞は？",
-          "answer": "be動詞",
-          "distractors": ["一般動詞", "前置詞", "接続詞"],
-          "why": "be動詞の文では be動詞を文頭に出して疑問文を作る。"
-        }
+        {"stem": "「誰が」と人をたずねる疑問詞は？", "answer": "who", "distractors": ["what", "which", "whose"], "why": "who＝誰。"},
+        {"stem": "「誰の」と持ち主をたずねる疑問詞は？", "answer": "whose", "distractors": ["who", "what", "which"], "why": "whose＝誰の。"}
       ],
-      "practiceSeeds": [
-        {"stem": "___ you busy now?", "answer": "Are", "translation": "あなたは今忙しいですか。", "why": "be動詞 are を文頭に出す。"},
-        {"stem": "___ she like music?", "answer": "Does", "translation": "彼女は音楽が好きですか。", "why": "主語が she なので Does を使い、like は原形。"},
-        {"stem": "___ they play soccer?", "answer": "Do", "translation": "彼らはサッカーをしますか。", "why": "主語が they なので Do を使う。"},
-        {"stem": "___ he at home?", "answer": "Is", "translation": "彼は家にいますか。", "why": "be動詞 is を文頭に出す。"},
-        {"stem": "___ you watch the movie yesterday?", "answer": "Did", "translation": "あなたは昨日その映画を見ましたか。", "why": "過去の一般動詞の疑問文なので Did を使う。"}
+      "practiceExamples": [
+        {"stem": "___ is this?", "answer": "What", "distractors": ["Who", "Whose", "Which"], "translation": "これは何ですか。", "why": "もの→What。"},
+        {"stem": "___ is that boy?", "answer": "Who", "distractors": ["What", "Which", "Whose"], "translation": "あの少年は誰ですか。", "why": "人→Who。"},
+        {"stem": "___ bag is this?", "answer": "Whose", "distractors": ["Who", "What", "Which"], "translation": "これは誰のかばんですか。", "why": "持ち主→Whose。"},
+        {"stem": "___ do you like, tea or coffee?", "answer": "Which", "distractors": ["What", "Who", "Whose"], "translation": "紅茶とコーヒーどちらが好きですか。", "why": "選択→Which。"},
+        {"stem": "___ do you want for lunch?", "answer": "What", "distractors": ["Who", "Whose", "Which"], "translation": "昼食に何がほしいですか。", "why": "もの→What。"}
       ]
     },
     {
-      "id": "junior_present_progressive",
+      "id": "junior_wh_adv",
+      "course": "junior",
+      "level": "中1",
+      "unit": "疑問文",
+      "item": "疑問詞のある疑問文（when / where / why / how）",
+      "order": 31,
+      "explanation": {"rule": "when(いつ)・where(どこ)・why(なぜ)・how(どのように) で時・場所・理由・方法をたずねる。", "form": "疑問詞 + do / does / be + S ...? ／ How many / How much / How old ...", "usage": "why には Because ... で答える。how many＋可算複数で数をたずねる。", "example": "Where do you live?", "translation": "あなたはどこに住んでいますか。", "mistake": "how many＋可算複数、how much＋不可算。"},
+      "memorySeeds": [
+        {"stem": "理由をたずねる疑問詞は？", "answer": "why", "distractors": ["when", "where", "how"], "why": "why＝なぜ。Because で答える。"},
+        {"stem": "数をたずねる「いくつ」は？", "answer": "how many", "distractors": ["how much", "how old", "how long"], "why": "how many＋可算複数。"}
+      ],
+      "practiceExamples": [
+        {"stem": "___ do you go to bed?", "answer": "When", "distractors": ["Where", "Why", "How"], "translation": "あなたはいつ寝ますか。", "why": "時→When。"},
+        {"stem": "___ does she live?", "answer": "Where", "distractors": ["When", "Why", "How"], "translation": "彼女はどこに住んでいますか。", "why": "場所→Where。"},
+        {"stem": "___ are you late?", "answer": "Why", "distractors": ["When", "Where", "How"], "translation": "なぜ遅れたのですか。", "why": "理由→Why。"},
+        {"stem": "___ do you go to school?", "answer": "How", "distractors": ["Why", "When", "Whose"], "translation": "どうやって通学しますか。", "why": "方法→How。"},
+        {"stem": "___ books do you have?", "answer": "How many", "distractors": ["How much", "How old", "How long"], "translation": "本を何冊持っていますか。", "why": "数→How many。"}
+      ]
+    },
+    {
+      "id": "junior_prog_present",
       "course": "junior",
       "level": "中1",
       "unit": "現在進行形",
-      "item": "be動詞 + -ing",
-      "order": 4,
-      "explanation": {
-        "rule": "今している最中の動作は be動詞 + 動詞の-ing形で表す。",
-        "form": "am / are / is + -ing",
-        "usage": "now などと一緒に、今進行中の動作を表す。",
-        "example": "She is studying English now.",
-        "translation": "彼女は今英語を勉強しています。",
-        "mistake": "be動詞を抜かして She studying のようにしない。"
-      },
+      "item": "現在進行形（be + -ing）",
+      "order": 40,
+      "explanation": {"rule": "今している最中の動作は be 動詞(am / are / is)＋動詞の -ing 形で表す。", "form": "am / are / is + -ing ／ -ing のつけ方：make→making, run→running", "usage": "now などと一緒に、今進行中の動作を表す。", "example": "She is studying now.", "translation": "彼女は今勉強しています。", "mistake": "be 動詞を抜かさない。like / know など状態動詞は進行形にしない。"},
       "memorySeeds": [
-        {
-          "stem": "現在進行形の形はどれ？",
-          "answer": "be動詞 + -ing",
-          "distractors": ["have + 過去分詞", "助動詞 + 原形", "to + 原形"],
-          "why": "現在進行形は be動詞 + 動詞の-ing形で作る。"
-        },
-        {
-          "stem": "now と相性がよい形はどれ？",
-          "answer": "現在進行形",
-          "distractors": ["過去完了", "仮定法過去", "比較級"],
-          "why": "now は今している動作を表す現在進行形とよく使う。"
-        }
+        {"stem": "現在進行形の形は？", "answer": "be 動詞 + -ing", "distractors": ["have + 過去分詞", "助動詞 + 原形", "to + 原形"], "why": "am / are / is＋-ing。"},
+        {"stem": "run の -ing 形は？", "answer": "running", "distractors": ["runing", "runnning", "runninng"], "why": "短母音＋子音は子音を重ねて running。"}
       ],
-      "practiceSeeds": [
-        {"stem": "She is ___ English now.", "answer": "studying", "translation": "彼女は今英語を勉強しています。", "why": "現在進行形なので study の -ing形 studying。"},
-        {"stem": "They are ___ soccer in the park.", "answer": "playing", "translation": "彼らは公園でサッカーをしています。", "why": "are + -ing の形にする。"},
-        {"stem": "I am ___ dinner now.", "answer": "cooking", "translation": "私は今夕食を作っています。", "why": "am + cooking で現在進行形。"},
-        {"stem": "He is ___ TV.", "answer": "watching", "translation": "彼はテレビを見ています。", "why": "watch の -ing形は watching。"},
-        {"stem": "We are ___ to music.", "answer": "listening", "translation": "私たちは音楽を聞いています。", "why": "listen の -ing形 listening を使う。"}
+      "practiceExamples": [
+        {"stem": "She is ___ English now.", "answer": "studying", "distractors": ["study", "studies", "studied"], "translation": "彼女は今英語を勉強しています。", "why": "is＋-ing。"},
+        {"stem": "They are ___ soccer.", "answer": "playing", "distractors": ["play", "plays", "played"], "translation": "彼らはサッカーをしています。", "why": "are＋-ing。"},
+        {"stem": "I am ___ dinner.", "answer": "cooking", "distractors": ["cook", "cooks", "cooked"], "translation": "私は夕食を作っています。", "why": "am＋-ing。"},
+        {"stem": "He is ___ now.", "answer": "running", "distractors": ["runing", "run", "runs"], "translation": "彼は今走っています。", "why": "run→running。"},
+        {"stem": "We are ___ to music.", "answer": "listening", "distractors": ["listen", "listens", "listened"], "translation": "私たちは音楽を聞いています。", "why": "are＋-ing。"}
+      ]
+    },
+    {
+      "id": "junior_prog_negq_past",
+      "course": "junior",
+      "level": "中1",
+      "unit": "現在進行形",
+      "item": "進行形の否定文・疑問文／過去進行形",
+      "order": 41,
+      "explanation": {"rule": "進行形の否定は be 動詞＋not＋-ing、疑問は be 動詞を前に。過去進行形は was / were＋-ing。", "form": "S be not -ing ／ Be S -ing? ／ was / were + -ing（過去進行形）", "usage": "過去進行形は「そのとき〜していた」を表す。", "example": "I was watching TV then.", "translation": "私はそのときテレビを見ていました。", "mistake": "進行形の否定・疑問は be 動詞で作る（do は使わない）。"},
+      "memorySeeds": [
+        {"stem": "現在進行形の疑問文は何を前に出す？", "answer": "be 動詞", "distractors": ["do", "does", "did"], "why": "進行形は be 動詞で疑問・否定。"},
+        {"stem": "過去進行形の形は？", "answer": "was / were + -ing", "distractors": ["did + -ing", "have + -ing", "will + -ing"], "why": "過去進行形＝was / were＋-ing。"}
+      ],
+      "practiceExamples": [
+        {"stem": "He is ___ watching TV.", "answer": "not", "distractors": ["don't", "doesn't", "no"], "translation": "彼はテレビを見ていません。", "why": "be＋not＋-ing。"},
+        {"stem": "___ you sleeping?", "answer": "Are", "distractors": ["Do", "Does", "Did"], "translation": "あなたは眠っていますか。", "why": "進行形→Are。"},
+        {"stem": "I ___ studying at eight.", "answer": "was", "distractors": ["did", "am", "were"], "translation": "私は8時に勉強していました。", "why": "過去進行形 I→was。"},
+        {"stem": "They ___ playing then.", "answer": "were", "distractors": ["was", "did", "are"], "translation": "彼らはそのとき遊んでいました。", "why": "They→were＋-ing。"},
+        {"stem": "She ___ not reading.", "answer": "was", "distractors": ["did", "were", "does"], "translation": "彼女は読書していませんでした。", "why": "She→was not＋-ing。"}
       ]
     },
     {
@@ -334,114 +386,123 @@
       ]
     },
     {
-      "id": "junior_past_basic",
+      "id": "junior_past_regular",
       "course": "junior",
       "level": "中1",
       "unit": "過去形",
-      "item": "規則動詞・不規則動詞",
-      "order": 5,
-      "explanation": {
-        "rule": "過去の出来事は動詞を過去形にして表す。",
-        "form": "規則動詞: -ed / 不規則動詞: go-went, see-saw など",
-        "usage": "yesterday, last ..., ... ago など、過去を表す語句と一緒に使う。",
-        "example": "I went to the library yesterday.",
-        "translation": "私は昨日図書館へ行きました。",
-        "mistake": "過去形の疑問文・否定文では Did / didn't を使い、動詞は原形に戻す。"
-      },
+      "item": "規則動詞の過去形（-ed）",
+      "order": 50,
+      "explanation": {"rule": "規則動詞の過去形は語尾に -ed をつける。", "form": "play→played, study→studied, stop→stopped", "usage": "yesterday, last ..., ago と一緒に過去を表す。", "example": "I played tennis yesterday.", "translation": "私は昨日テニスをしました。", "mistake": "y→ied、短母音＋子音は子音を重ねて ed（stop→stopped）。"},
       "memorySeeds": [
-        {
-          "stem": "go の過去形はどれ？",
-          "answer": "went",
-          "distractors": ["goed", "gone", "going"],
-          "why": "go は不規則動詞で、過去形は went。"
-        },
-        {
-          "stem": "過去形と相性がよい語句はどれ？",
-          "answer": "yesterday",
-          "distractors": ["now", "every day", "tomorrow"],
-          "why": "yesterday は明確な過去時点なので過去形を使う。"
-        }
+        {"stem": "規則動詞の過去形の作り方は？", "answer": "語尾に -ed をつける", "distractors": ["語尾に -s", "語尾に -ing", "形を変えない"], "why": "規則動詞→-ed。"},
+        {"stem": "study の過去形は？", "answer": "studied", "distractors": ["studyed", "studed", "studying"], "why": "子音＋y→ied。"}
       ],
-      "practiceSeeds": [
-        {"stem": "I ___ to the library yesterday.", "answer": "went", "translation": "私は昨日図書館へ行きました。", "why": "yesterday があるので go の過去形 went。"},
-        {"stem": "She ___ tennis last Sunday.", "answer": "played", "translation": "彼女は先週の日曜日にテニスをしました。", "why": "last Sunday があるので過去形 played。"},
-        {"stem": "We ___ a movie last night.", "answer": "saw", "translation": "私たちは昨夜映画を見ました。", "why": "see の過去形は saw。"},
-        {"stem": "He ___ his homework after dinner.", "answer": "did", "translation": "彼は夕食後に宿題をしました。", "why": "do の過去形は did。"},
-        {"stem": "They ___ in Osaka three years ago.", "answer": "lived", "translation": "彼らは3年前大阪に住んでいました。", "why": "ago があるので過去形 lived。"}
+      "practiceExamples": [
+        {"stem": "I ___ tennis yesterday.", "answer": "played", "distractors": ["play", "plays", "playing"], "translation": "私は昨日テニスをしました。", "why": "yesterday→played。"},
+        {"stem": "She ___ English last night.", "answer": "studied", "distractors": ["study", "studyed", "studies"], "translation": "彼女は昨夜英語を勉強しました。", "why": "study→studied。"},
+        {"stem": "They ___ in Osaka.", "answer": "lived", "distractors": ["live", "lives", "living"], "translation": "彼らは大阪に住んでいました。", "why": "live→lived。"},
+        {"stem": "We ___ the room.", "answer": "cleaned", "distractors": ["clean", "cleans", "cleaning"], "translation": "私たちは部屋を掃除しました。", "why": "clean→cleaned。"},
+        {"stem": "He ___ the bus.", "answer": "stopped", "distractors": ["stoped", "stop", "stopping"], "translation": "彼はバスを止めました。", "why": "stop→stopped。"}
       ]
     },
     {
-      "id": "junior_future_basic",
+      "id": "junior_past_irregular",
+      "course": "junior",
+      "level": "中1",
+      "unit": "過去形",
+      "item": "不規則動詞の過去形",
+      "order": 51,
+      "explanation": {"rule": "不規則動詞は -ed をつけず、独自の過去形に変化する。", "form": "go→went, see→saw, do→did, have→had, eat→ate", "usage": "よく使う動詞に多い。1つずつ覚える。", "example": "I went to the park.", "translation": "私は公園へ行きました。", "mistake": "goed / seed のように -ed をつけない。"},
+      "memorySeeds": [
+        {"stem": "go の過去形は？", "answer": "went", "distractors": ["goed", "gone", "going"], "why": "不規則 go→went。"},
+        {"stem": "see の過去形は？", "answer": "saw", "distractors": ["seed", "seen", "seeing"], "why": "不規則 see→saw。"}
+      ],
+      "practiceExamples": [
+        {"stem": "I ___ to the library.", "answer": "went", "distractors": ["goed", "go", "gone"], "translation": "私は図書館へ行きました。", "why": "go→went。"},
+        {"stem": "We ___ a movie last night.", "answer": "saw", "distractors": ["seed", "see", "seen"], "translation": "私たちは昨夜映画を見ました。", "why": "see→saw。"},
+        {"stem": "He ___ his homework.", "answer": "did", "distractors": ["doed", "do", "done"], "translation": "彼は宿題をしました。", "why": "do→did。"},
+        {"stem": "She ___ breakfast.", "answer": "had", "distractors": ["haded", "have", "has"], "translation": "彼女は朝食を食べました。", "why": "have→had。"},
+        {"stem": "They ___ lunch at noon.", "answer": "ate", "distractors": ["eated", "eat", "eaten"], "translation": "彼らは正午に昼食を食べました。", "why": "eat→ate。"}
+      ]
+    },
+    {
+      "id": "junior_future_will",
       "course": "junior",
       "level": "中2",
       "unit": "未来表現",
-      "item": "will / be going to",
-      "order": 6,
-      "explanation": {
-        "rule": "未来のことは will または be going to で表す。",
-        "form": "will + 動詞の原形 / be going to + 動詞の原形",
-        "usage": "その場で決めた未来には will、前から決めている予定には be going to を使いやすい。",
-        "example": "I will call you later.",
-        "translation": "あとであなたに電話します。",
-        "mistake": "will の後ろは必ず動詞の原形にする。"
-      },
+      "item": "will",
+      "order": 60,
+      "explanation": {"rule": "will＋動詞の原形で未来「〜するだろう／〜します」を表す。", "form": "S will + 原形 ／ 否定 will not(won't) ／ 疑問 Will S ...?", "usage": "その場で決めた未来・予測に使いやすい。", "example": "I will help you.", "translation": "私があなたを手伝います。", "mistake": "will の後ろは必ず原形。三単現でも will のまま。"},
       "memorySeeds": [
-        {
-          "stem": "will の後ろに置く動詞の形は？",
-          "answer": "原形",
-          "distractors": ["過去形", "-ing形", "過去分詞"],
-          "why": "助動詞 will の後ろは動詞の原形。"
-        },
-        {
-          "stem": "be going to の後ろに置く形は？",
-          "answer": "動詞の原形",
-          "distractors": ["過去形", "過去分詞", "三単現"],
-          "why": "be going to + 動詞の原形で未来を表す。"
-        }
+        {"stem": "will の後ろの動詞の形は？", "answer": "原形", "distractors": ["過去形", "-ing 形", "三単現の s 形"], "why": "助動詞 will＋原形。"},
+        {"stem": "will not の短縮形は？", "answer": "won't", "distractors": ["willn't", "willnot", "don't"], "why": "will not→won't。"}
       ],
-      "practiceSeeds": [
-        {"stem": "I ___ call you later.", "answer": "will", "translation": "あとであなたに電話します。", "why": "未来の動作なので will + 原形。"},
-        {"stem": "She is ___ to visit Kyoto.", "answer": "going", "translation": "彼女は京都を訪れる予定です。", "why": "be going to の形にする。"},
-        {"stem": "We will ___ home soon.", "answer": "leave", "translation": "私たちはまもなく家を出ます。", "why": "will の後ろは動詞の原形 leave。"},
-        {"stem": "They are ___ to study tonight.", "answer": "going", "translation": "彼らは今夜勉強する予定です。", "why": "are going to + 原形で予定を表す。"},
-        {"stem": "He will ___ the window.", "answer": "open", "translation": "彼は窓を開けるでしょう。", "why": "will の後ろは原形 open。"}
+      "practiceExamples": [
+        {"stem": "I ___ call you later.", "answer": "will", "distractors": ["am", "do", "was"], "translation": "あとで電話します。", "why": "未来→will。"},
+        {"stem": "She will ___ home soon.", "answer": "leave", "distractors": ["leaves", "left", "leaving"], "translation": "彼女はまもなく出発します。", "why": "will＋原形。"},
+        {"stem": "We ___ win the game.", "answer": "will", "distractors": ["are", "do", "were"], "translation": "私たちは試合に勝つだろう。", "why": "予測→will。"},
+        {"stem": "He will ___ the window.", "answer": "open", "distractors": ["opens", "opened", "opening"], "translation": "彼は窓を開けるでしょう。", "why": "will＋原形。"},
+        {"stem": "___ you help me?", "answer": "Will", "distractors": ["Do", "Are", "Did"], "translation": "手伝ってくれますか。", "why": "依頼→Will you。"}
       ]
     },
     {
-      "id": "junior_aux_can",
+      "id": "junior_future_goingto",
+      "course": "junior",
+      "level": "中2",
+      "unit": "未来表現",
+      "item": "be going to",
+      "order": 61,
+      "explanation": {"rule": "be going to＋動詞の原形で、前から決めている予定・確かな予測を表す。", "form": "am / are / is going to + 原形", "usage": "前から計画していた予定や、根拠のある予測に使いやすい。", "example": "I am going to visit Kyoto.", "translation": "私は京都を訪れる予定です。", "mistake": "be 動詞を主語に合わせる。to の後ろは原形。"},
+      "memorySeeds": [
+        {"stem": "be going to の後ろの形は？", "answer": "動詞の原形", "distractors": ["過去形", "-ing 形", "過去分詞"], "why": "be going to＋原形。"},
+        {"stem": "She ___ going to swim. の be 動詞は？", "answer": "is", "distractors": ["are", "am", "do"], "why": "She→is going to。"}
+      ],
+      "practiceExamples": [
+        {"stem": "I am ___ to study tonight.", "answer": "going", "distractors": ["go", "goes", "gone"], "translation": "私は今夜勉強する予定です。", "why": "be going to。"},
+        {"stem": "She is going to ___ Kyoto.", "answer": "visit", "distractors": ["visits", "visited", "visiting"], "translation": "彼女は京都を訪れる予定です。", "why": "to＋原形。"},
+        {"stem": "They are ___ to play soccer.", "answer": "going", "distractors": ["go", "goes", "went"], "translation": "彼らはサッカーをする予定です。", "why": "be going to。"},
+        {"stem": "He ___ going to buy a car.", "answer": "is", "distractors": ["are", "am", "do"], "translation": "彼は車を買う予定です。", "why": "He→is。"},
+        {"stem": "We are going to ___ a party.", "answer": "have", "distractors": ["has", "had", "having"], "translation": "私たちはパーティーを開く予定です。", "why": "to＋原形。"}
+      ]
+    },
+    {
+      "id": "junior_can_ability",
       "course": "junior",
       "level": "中1",
       "unit": "助動詞",
-      "item": "can",
-      "order": 7,
-      "explanation": {
-        "rule": "can は「〜できる」という能力・可能を表す。",
-        "form": "can + 動詞の原形",
-        "usage": "できること・可能なことを言うときに使う。",
-        "example": "I can swim.",
-        "translation": "私は泳ぐことができます。",
-        "mistake": "can の後ろに三単現のsや過去形を置かない。"
-      },
+      "item": "can（能力・可能）",
+      "order": 70,
+      "explanation": {"rule": "can＋動詞の原形で「〜できる」という能力・可能を表す。", "form": "S can + 原形 ／ 否定 cannot(can't) ／ 疑問 Can S ...?", "usage": "できること・可能なことを言う。", "example": "I can swim.", "translation": "私は泳げます。", "mistake": "can の後ろは原形。三単現の s をつけない。"},
       "memorySeeds": [
-        {
-          "stem": "can の意味として正しいものは？",
-          "answer": "〜できる",
-          "distractors": ["〜しなければならない", "〜するつもりだ", "〜した"],
-          "why": "can は能力・可能を表す助動詞。"
-        },
-        {
-          "stem": "can の後ろに置く動詞の形は？",
-          "answer": "原形",
-          "distractors": ["三単現", "過去形", "-ing形"],
-          "why": "助動詞の後ろは動詞の原形。"
-        }
+        {"stem": "can の意味は？", "answer": "〜できる", "distractors": ["〜しなければならない", "〜するつもりだ", "〜した"], "why": "can＝能力・可能。"},
+        {"stem": "can の後ろの動詞の形は？", "answer": "原形", "distractors": ["三単現", "過去形", "-ing 形"], "why": "助動詞＋原形。"}
       ],
-      "practiceSeeds": [
-        {"stem": "I ___ swim.", "answer": "can", "translation": "私は泳ぐことができます。", "why": "能力を表すので can。"},
-        {"stem": "She can ___ English.", "answer": "speak", "translation": "彼女は英語を話せます。", "why": "can の後ろは原形 speak。"},
-        {"stem": "Can you ___ fast?", "answer": "swim", "translation": "あなたは速く泳げますか。", "why": "Can you の後ろは原形 swim。"},
-        {"stem": "He can ___ a computer.", "answer": "use", "translation": "彼はコンピュータを使えます。", "why": "can + 原形 use。"},
-        {"stem": "They can ___ the problem.", "answer": "solve", "translation": "彼らはその問題を解けます。", "why": "can の後ろは原形 solve。"}
+      "practiceExamples": [
+        {"stem": "I ___ swim fast.", "answer": "can", "distractors": ["am", "do", "was"], "translation": "私は速く泳げます。", "why": "能力→can。"},
+        {"stem": "She can ___ English.", "answer": "speak", "distractors": ["speaks", "spoke", "speaking"], "translation": "彼女は英語を話せます。", "why": "can＋原形。"},
+        {"stem": "___ you play the guitar?", "answer": "Can", "distractors": ["Do", "Are", "Did"], "translation": "ギターを弾けますか。", "why": "能力→Can。"},
+        {"stem": "He ___ not drive a car.", "answer": "can", "distractors": ["does", "is", "did"], "translation": "彼は車を運転できません。", "why": "cannot。"},
+        {"stem": "They can ___ the problem.", "answer": "solve", "distractors": ["solves", "solved", "solving"], "translation": "彼らはその問題を解けます。", "why": "can＋原形。"}
+      ]
+    },
+    {
+      "id": "junior_can_permission",
+      "course": "junior",
+      "level": "中1",
+      "unit": "助動詞",
+      "item": "許可・依頼の can / may",
+      "order": 71,
+      "explanation": {"rule": "Can I 〜?＝「〜してもいい?」(許可)、Can you 〜?＝「〜してくれる?」(依頼)。may も許可を表す。", "form": "Can I + 原形 ...? ／ Can you + 原形 ...? ／ May I + 原形 ...?（ていねい）", "usage": "許可を求める・人に頼むときに使う。May I はより丁寧。", "example": "Can I use your pen?", "translation": "ペンを使ってもいい?", "mistake": "Can I＝許可、Can you＝依頼。意味を取り違えない。"},
+      "memorySeeds": [
+        {"stem": "「〜してもいいですか」と許可を求める形は？", "answer": "Can I 〜? / May I 〜?", "distractors": ["Can you 〜?", "Do you 〜?", "Are you 〜?"], "why": "Can / May I＝許可。"},
+        {"stem": "Can you open the door? の意味は？", "answer": "ドアを開けてくれますか（依頼）", "distractors": ["私が開けてもいいですか", "ドアを開けられますか(能力)", "ドアは開きますか"], "why": "Can you＝依頼。"}
+      ],
+      "practiceExamples": [
+        {"stem": "___ I use your pen?", "answer": "Can", "distractors": ["Do", "Are", "Was"], "translation": "ペンを使ってもいい?", "why": "許可→Can I。"},
+        {"stem": "Can you ___ me?", "answer": "help", "distractors": ["helps", "helped", "helping"], "translation": "手伝ってくれる?", "why": "依頼＋原形。"},
+        {"stem": "___ I come in?", "answer": "May", "distractors": ["Do", "Are", "Did"], "translation": "入ってもよろしいですか。", "why": "丁寧な許可→May I。"},
+        {"stem": "Can I ___ here?", "answer": "sit", "distractors": ["sits", "sat", "sitting"], "translation": "ここに座ってもいい?", "why": "Can I＋原形。"},
+        {"stem": "Can you ___ the window?", "answer": "open", "distractors": ["opens", "opened", "opening"], "translation": "窓を開けてくれる?", "why": "依頼＋原形。"}
       ]
     },
     {

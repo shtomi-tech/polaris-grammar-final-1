@@ -2,6 +2,18 @@
   "be動詞": {
     "title": "be動詞",
     "summary": "be動詞は、主語と時制で形が決まります。まず「主語が何か」「現在か過去か」を見ると、選択肢をかなり絞れます。",
+    "core": "be動詞は「AはBである」「AはBの状態である」「Aがいる・ある」を作る動詞です。動作ではなく、主語の正体・状態・存在をつなぐ役割をします。形は主語と時制だけで決まるので、意味で迷ったらまず主語を見ます。",
+    "forms": [
+      "現在：I am / you are / he・she・it is / we・they are",
+      "過去：I・he・she・it was / you・we・they were",
+      "否定：be動詞 + not",
+      "疑問：be動詞 + 主語 ... ?"
+    ],
+    "signals": [
+      "名詞・形容詞・場所表現が後ろに続く",
+      "動作を表す一般動詞が文の中心にない",
+      "主語の数と時制だけで候補が絞れる"
+    ],
     "checkpoints": [
       "主語が I / you / 複数 / 3人称単数のどれかを見る",
       "yesterday, last, ago など過去の合図があるかを見る",
@@ -44,6 +56,18 @@
   "一般動詞": {
     "title": "一般動詞",
     "summary": "一般動詞は、主語・時制・文の種類で形が変わります。特に現在形では、3人称単数の -s と、疑問文・否定文の Do / Does が中心です。",
+    "core": "一般動詞は「何をするか」「どう動くか」を表す動詞です。be動詞と違い、疑問文・否定文を作るときに do / does / did の助けを借ります。現在形では3人称単数だけ語尾が変わる点が最重要です。",
+    "forms": [
+      "現在肯定：主語 + 動詞現在形（3単現は -s / -es）",
+      "疑問：Do / Does + 主語 + 動詞の原形 ?",
+      "否定：主語 + do / does not + 動詞の原形",
+      "過去：主語 + 過去形、疑問・否定は did + 原形"
+    ],
+    "signals": [
+      "習慣・事実を表す語 every day / usually / often",
+      "does / did が出たら後ろは原形",
+      "be動詞の文ではなく、動作や状態変化を表す文"
+    ],
     "checkpoints": [
       "主語が he / she / it / 名前1人などの3人称単数かを見る",
       "every day, usually など習慣を表す語があるかを見る",
@@ -86,6 +110,18 @@
   "名詞の複数形": {
     "title": "名詞の複数形",
     "summary": "名詞の複数形は、数を表す語と名詞の形をそろえる単元です。two, many, some などが見えたら、名詞が複数形になっているかを確認します。",
+    "core": "複数形は「数えられる名詞が2つ以上ある」ことを示す形です。日本語では名詞の形が変わりにくいので、英語では数を表す語と名詞の形を必ず対応させる必要があります。",
+    "forms": [
+      "基本：名詞 + s",
+      "s / x / ch / sh / o で終わる語：+ es が多い",
+      "子音字 + y：y を i に変えて + es",
+      "不規則：child → children, man → men など"
+    ],
+    "signals": [
+      "two / three / many / several / a few",
+      "these / those の後ろ",
+      "a / an があれば原則単数"
+    ],
     "checkpoints": [
       "two / three / many / some など複数を示す語があるか見る",
       "ふつうは語尾に -s を付ける",
@@ -127,6 +163,18 @@
   "代名詞": {
     "title": "代名詞",
     "summary": "代名詞は、文の中での役割によって形が変わります。主語なら I / he / she、目的語なら me / him / her、所有なら my / his / her のように選びます。",
+    "core": "代名詞は、一度出た名詞や会話上明らかな人・ものを短く受ける語です。英語では文中の役割によって形が変わるため、「誰を指すか」と同時に「主語か目的語か所有か」を判断します。",
+    "forms": [
+      "主格：I / he / she / we / they",
+      "目的格：me / him / her / us / them",
+      "所有格：my / his / her / our / their + 名詞",
+      "所有代名詞：mine / his / hers / ours / theirs"
+    ],
+    "signals": [
+      "動詞の前なら主語になりやすい",
+      "動詞・前置詞の後ろなら目的格",
+      "名詞の前なら所有格"
+    ],
     "checkpoints": [
       "空所が主語・目的語・所有のどれかを見る",
       "前に出てきた名詞が単数か複数かを見る",
@@ -168,6 +216,20 @@
   "時制": {
     "title": "時制",
     "summary": "時制は、文がいつのことを言っているかを表します。まず時を表す語を探し、現在・過去・未来・完了・進行のどれかに分けます。",
+    "core": "時制は、出来事を時間の中に置く仕組みです。英語では「いつ起きたか」だけでなく、「今につながるか」「途中か」「別の時点より前か」も動詞の形で表します。",
+    "forms": [
+      "現在：習慣・事実・現在の状態",
+      "過去：過去の一点で起きたこと",
+      "進行形：be + -ing",
+      "完了形：have / has / had + 過去分詞",
+      "未来：will / be going to + 原形"
+    ],
+    "signals": [
+      "yesterday / last / ago は過去",
+      "now / look は進行形",
+      "since / for / already / yet / ever は完了形",
+      "by the time / before は前後関係を見る"
+    ],
     "checkpoints": [
       "yesterday / last / ago なら過去を考える",
       "now / look / at the moment なら進行形を考える",
@@ -211,6 +273,19 @@
   "助動詞": {
     "title": "助動詞",
     "summary": "助動詞は、動詞に意味を足す語です。can, must, may, should などの後ろは必ず動詞の原形になります。",
+    "core": "助動詞は、動詞の前に置いて「可能・義務・推量・許可・助言」など話し手の判断を足す語です。助動詞が出た時点で、後ろの動詞は原形になります。",
+    "forms": [
+      "助動詞 + 動詞の原形",
+      "疑問：助動詞 + 主語 + 原形 ?",
+      "否定：助動詞 + not + 原形",
+      "過去の推量：助動詞 + have + 過去分詞"
+    ],
+    "signals": [
+      "can は能力・可能性",
+      "must は義務または強い推量",
+      "may / might は許可・弱い推量",
+      "should は助言・当然"
+    ],
     "checkpoints": [
       "空所の後ろに動詞の原形があるかを見る",
       "能力・許可・義務・推量のどの意味か考える",
@@ -252,6 +327,18 @@
   "不定詞": {
     "title": "不定詞",
     "summary": "不定詞は to + 動詞の原形で、名詞・形容詞・副詞のように働きます。空所の前後を見て、何の役割をしているかを判断します。",
+    "core": "不定詞は to + 動詞の原形で、動詞を名詞・形容詞・副詞のように使える形です。「すること」「するための」「するために」と、文中の位置で役割が変わります。",
+    "forms": [
+      "名詞的用法：to do = 〜すること",
+      "形容詞的用法：名詞 + to do = 〜するための名詞",
+      "副詞的用法：動作 + to do = 〜するために",
+      "意味上の主語：for 人 to do"
+    ],
+    "signals": [
+      "to の後ろに動詞の原形がある",
+      "want / decide / hope などの後ろ",
+      "too ... to / enough to / It is ... to do"
+    ],
     "checkpoints": [
       "to の後ろが動詞の原形かを見る",
       "文の主語・目的語になる名詞的用法かを見る",
@@ -293,6 +380,18 @@
   "動名詞": {
     "title": "動名詞",
     "summary": "動名詞は 動詞 + ing が名詞の働きをする形です。主語・目的語・前置詞の後ろに置けます。",
+    "core": "動名詞は 動詞 + ing を名詞として使う形です。「〜すること」という意味を持ち、主語・目的語・前置詞の目的語になります。進行形の -ing と違い、文中では名詞の場所に入ります。",
+    "forms": [
+      "主語：Doing ... is ...",
+      "目的語：enjoy / finish / stop + doing",
+      "前置詞の後ろ：at / in / of / for + doing",
+      "受動：being + 過去分詞"
+    ],
+    "signals": [
+      "前置詞の直後",
+      "enjoy / avoid / finish / give up の後ろ",
+      "文頭に -ing のまとまりがあり主語になる"
+    ],
     "checkpoints": [
       "空所が名詞の位置にあるかを見る",
       "前置詞の後ろなら ing形を考える",
@@ -334,6 +433,18 @@
   "受動態": {
     "title": "受動態",
     "summary": "受動態は be動詞 + 過去分詞で「〜される」を表します。能動態の目的語が主語になる形です。",
+    "core": "受動態は「誰かがする」ではなく「主語がされる」ことを表す形です。主語が動作を受ける側に変わるので、動詞は be + 過去分詞になります。時制は be動詞側で表します。",
+    "forms": [
+      "基本：be + 過去分詞",
+      "過去：was / were + 過去分詞",
+      "助動詞：助動詞 + be + 過去分詞",
+      "完了：have / has been + 過去分詞"
+    ],
+    "signals": [
+      "主語が人やものに何かをされる側",
+      "by + 動作主 が続くことがある",
+      "選択肢に be と過去分詞の組み合わせがある"
+    ],
     "checkpoints": [
       "主語が動作をする側か、される側かを見る",
       "be動詞 + 過去分詞の形になっているか見る",
@@ -375,6 +486,19 @@
   "関係詞": {
     "title": "関係詞",
     "summary": "関係詞は、名詞を後ろから説明するための語です。先行詞が人かものか、関係詞節の中で主語か目的語かを見ます。",
+    "core": "関係詞は、名詞を後ろから文で説明する仕組みです。前の名詞を先行詞と呼び、後ろの節の中で足りない役割を関係詞が受け持ちます。先行詞の種類と節内の欠け方で選びます。",
+    "forms": [
+      "人：who / whom / whose",
+      "もの・動物：which / that",
+      "所有：whose + 名詞",
+      "場所・時・理由：where / when / why",
+      "先行詞を含む what"
+    ],
+    "signals": [
+      "名詞の直後に不完全な文が続く",
+      "後ろの節で主語・目的語・所有語が欠けている",
+      "place / time / reason の後ろは関係副詞を疑う"
+    ],
     "checkpoints": [
       "説明される名詞（先行詞）が人かものかを見る",
       "関係詞節の中で主語が欠けているか、目的語が欠けているかを見る",
@@ -417,6 +541,19 @@
   "冠詞": {
     "title": "冠詞 a / an / the",
     "summary": "冠詞は、名詞が「初めて出る1つ」なのか「特定されたもの」なのかを示します。空所の後ろの名詞が単数か、母音で始まる音か、すでに話題に出たものかを見ます。",
+    "core": "冠詞は、名詞の前で「1つのものか」「特定されたものか」「一般的なものか」を示す小さな印です。a / an は初出の1つ、the は聞き手にもどれか分かるものに使います。",
+    "forms": [
+      "a + 子音で始まる音の単数可算名詞",
+      "an + 母音で始まる音の単数可算名詞",
+      "the + 特定された名詞",
+      "冠詞なし：複数一般・不可算一般・一部の慣用表現"
+    ],
+    "signals": [
+      "初めて出る単数可算名詞",
+      "2回目に出る名詞",
+      "only / first / same / 最上級の近く",
+      "music / water など不可算名詞"
+    ],
     "checkpoints": [
       "後ろの名詞が数えられる単数名詞かを見る",
       "発音が母音で始まるなら an を考える",
@@ -436,9 +573,18 @@
       "the を何でも付ける飾りだと思う"
     ],
     "examples": [
-      {"en": "I saw a dog. The dog was small.", "ja": "私は犬を見ました。その犬は小さかったです。"},
-      {"en": "She has an umbrella.", "ja": "彼女は傘を持っています。"},
-      {"en": "I like music.", "ja": "私は音楽が好きです。"}
+      {
+        "en": "I saw a dog. The dog was small.",
+        "ja": "私は犬を見ました。その犬は小さかったです。"
+      },
+      {
+        "en": "She has an umbrella.",
+        "ja": "彼女は傘を持っています。"
+      },
+      {
+        "en": "I like music.",
+        "ja": "私は音楽が好きです。"
+      }
     ],
     "advanced": [
       "the は話し手と聞き手の間でどれか分かるものに使う。",
@@ -449,6 +595,18 @@
   "疑問詞・間接疑問": {
     "title": "疑問詞・間接疑問",
     "summary": "疑問詞は、何をたずねているかを決める語です。間接疑問では、疑問詞の後ろが疑問文の語順ではなく、主語 + 動詞の語順になります。",
+    "core": "疑問詞は、文の中で不足している情報をたずねる語です。直接疑問では疑問文語順になりますが、間接疑問では疑問詞の後ろが主語 + 動詞の平叙文語順になります。",
+    "forms": [
+      "直接疑問：疑問詞 + 助動詞 / be + 主語 ... ?",
+      "疑問詞が主語：Who came? のように通常語順",
+      "間接疑問：疑問詞 + 主語 + 動詞",
+      "whether / if + 主語 + 動詞 = 〜かどうか"
+    ],
+    "signals": [
+      "know / ask / tell / wonder の後ろ",
+      "where does he live と where he lives の語順差",
+      "who / what / which / whose / when / where / why / how"
+    ],
     "checkpoints": [
       "人なら who、ものなら what、場所なら where、時なら when を考える",
       "理由なら why、方法なら how を考える",
@@ -468,9 +626,18 @@
       "whose と who を混同する"
     ],
     "examples": [
-      {"en": "Where do you live?", "ja": "あなたはどこに住んでいますか。"},
-      {"en": "I know where he lives.", "ja": "私は彼がどこに住んでいるか知っています。"},
-      {"en": "Who opened the door?", "ja": "誰がドアを開けましたか。"}
+      {
+        "en": "Where do you live?",
+        "ja": "あなたはどこに住んでいますか。"
+      },
+      {
+        "en": "I know where he lives.",
+        "ja": "私は彼がどこに住んでいるか知っています。"
+      },
+      {
+        "en": "Who opened the door?",
+        "ja": "誰がドアを開けましたか。"
+      }
     ],
     "advanced": [
       "疑問詞が主語になるときは、Who came? のように do を使わない。",
@@ -481,6 +648,18 @@
   "命令文・付加疑問": {
     "title": "命令文・付加疑問",
     "summary": "命令文は主語 you を省略し、動詞の原形で始めます。付加疑問は文末に短い疑問を足して、確認や念押しをする形です。",
+    "core": "命令文は、相手に行動を求めるために主語 you を省略して動詞の原形で始める文です。付加疑問は文末に短い疑問を足し、「〜ですよね」と確認する形です。",
+    "forms": [
+      "命令：動詞の原形 ...",
+      "否定命令：Don't + 原形",
+      "Let's ... , shall we?",
+      "肯定文 + 否定の付加疑問 / 否定文 + 肯定の付加疑問"
+    ],
+    "signals": [
+      "文頭が原形動詞",
+      "please が前後にある",
+      "文末に , isn't it? / don't you? などがある"
+    ],
     "checkpoints": [
       "命令文は動詞の原形で始まっているかを見る",
       "否定命令は Don't + 原形 になっているかを見る",
@@ -500,9 +679,18 @@
       "付加疑問で前半と同じ肯定・否定にしてしまう"
     ],
     "examples": [
-      {"en": "Open the window, please.", "ja": "窓を開けてください。"},
-      {"en": "Don't be late.", "ja": "遅れないでください。"},
-      {"en": "Let's go, shall we?", "ja": "行きましょう。"}
+      {
+        "en": "Open the window, please.",
+        "ja": "窓を開けてください。"
+      },
+      {
+        "en": "Don't be late.",
+        "ja": "遅れないでください。"
+      },
+      {
+        "en": "Let's go, shall we?",
+        "ja": "行きましょう。"
+      }
     ],
     "advanced": [
       "命令文に will you? を付けると依頼の響きになる。",
@@ -513,6 +701,18 @@
   "There構文": {
     "title": "There is / There are",
     "summary": "There is / There are は「〜がある・いる」を表します。be動詞は後ろに来る名詞の数に合わせます。",
+    "core": "There構文は「存在するもの」を新しく紹介する形です。there 自体は場所を表す主語ではなく、実際の主語は be動詞の後ろの名詞です。その名詞の数に be動詞を合わせます。",
+    "forms": [
+      "There is + 単数名詞 / 不可算名詞",
+      "There are + 複数名詞",
+      "There was / were + 名詞",
+      "疑問：Is / Are there ... ?"
+    ],
+    "signals": [
+      "「〜がある・いる」と訳せる",
+      "be動詞の後ろに名詞が来る",
+      "a / some / many などが後ろの名詞につく"
+    ],
     "checkpoints": [
       "後ろの名詞が単数か複数かを見る",
       "単数なら There is、複数なら There are を使う",
@@ -532,9 +732,18 @@
       "疑問文で Do there...? にする"
     ],
     "examples": [
-      {"en": "There is a book on the desk.", "ja": "机の上に本が1冊あります。"},
-      {"en": "There are many students in the room.", "ja": "部屋にはたくさんの生徒がいます。"},
-      {"en": "Was there a park here?", "ja": "ここに公園がありましたか。"}
+      {
+        "en": "There is a book on the desk.",
+        "ja": "机の上に本が1冊あります。"
+      },
+      {
+        "en": "There are many students in the room.",
+        "ja": "部屋にはたくさんの生徒がいます。"
+      },
+      {
+        "en": "Was there a park here?",
+        "ja": "ここに公園がありましたか。"
+      }
     ],
     "advanced": [
       "There seems to be ... のように見える・思われる表現にも広がる。",
@@ -545,6 +754,18 @@
   "数量表現": {
     "title": "数量表現",
     "summary": "数量表現は、数えられる名詞か数えられない名詞かで使う語が変わります。many / much、few / little、some / any の使い分けが中心です。",
+    "core": "数量表現は、名詞の量や数の多さ・少なさを示す表現です。中心は、後ろの名詞が数えられるか数えられないかで使える語が変わることです。",
+    "forms": [
+      "many / few / a few + 複数可算名詞",
+      "much / little / a little + 不可算名詞",
+      "some は肯定文、any は疑問文・否定文で多い",
+      "a lot of / plenty of は可算・不可算の両方に使える"
+    ],
+    "signals": [
+      "後ろの名詞が複数形か不可算か",
+      "否定文・疑問文なら any を疑う",
+      "few と little は「ほとんどない」寄りの意味"
+    ],
     "checkpoints": [
       "名詞が数えられるか、数えられないかを見る",
       "many / few は数えられる名詞に使う",
@@ -564,9 +785,18 @@
       "否定文で some を選んでしまう"
     ],
     "examples": [
-      {"en": "I have many books.", "ja": "私は本をたくさん持っています。"},
-      {"en": "We don't have much time.", "ja": "私たちにはあまり時間がありません。"},
-      {"en": "Do you have any questions?", "ja": "何か質問はありますか。"}
+      {
+        "en": "I have many books.",
+        "ja": "私は本をたくさん持っています。"
+      },
+      {
+        "en": "We don't have much time.",
+        "ja": "私たちにはあまり時間がありません。"
+      },
+      {
+        "en": "Do you have any questions?",
+        "ja": "何か質問はありますか。"
+      }
     ],
     "advanced": [
       "a few / a little は「少しある」、few / little は「ほとんどない」。",
@@ -577,6 +807,18 @@
   "前置詞": {
     "title": "前置詞",
     "summary": "前置詞は、名詞の前に置いて、時・場所・方向・関係を表します。日本語訳だけでなく、後ろに名詞句が続くことを確認します。",
+    "core": "前置詞は、名詞句の前に置いて、時・場所・方向・原因・関係を表す語です。単独では文をつなげず、必ず後ろに名詞・代名詞・動名詞などの目的語を取ります。",
+    "forms": [
+      "前置詞 + 名詞 / 代名詞 / 動名詞",
+      "時：at / on / in / for / since / during",
+      "場所：at / on / in / under / between",
+      "方向・関係：to / from / with / about / of"
+    ],
+    "signals": [
+      "後ろに主語 + 動詞ではなく名詞句が続く",
+      "日本語の「に・で・から・について」に当たる",
+      "熟語として動詞や形容詞と結びつく"
+    ],
     "checkpoints": [
       "時を表すのか、場所を表すのかを分ける",
       "at / on / in の範囲の広さを見る",
@@ -596,9 +838,18 @@
       "depend on など決まった前置詞を別の語にする"
     ],
     "examples": [
-      {"en": "I get up at seven.", "ja": "私は7時に起きます。"},
-      {"en": "She lives in Tokyo.", "ja": "彼女は東京に住んでいます。"},
-      {"en": "Thank you for helping me.", "ja": "手伝ってくれてありがとう。"}
+      {
+        "en": "I get up at seven.",
+        "ja": "私は7時に起きます。"
+      },
+      {
+        "en": "She lives in Tokyo.",
+        "ja": "彼女は東京に住んでいます。"
+      },
+      {
+        "en": "Thank you for helping me.",
+        "ja": "手伝ってくれてありがとう。"
+      }
     ],
     "advanced": [
       "at は点、on は接触・日付、in は空間・期間の中というイメージで整理する。",
@@ -609,6 +860,18 @@
   "接続詞": {
     "title": "接続詞",
     "summary": "接続詞は、語・句・節をつなぎます。文と文の関係が、理由・時・条件・譲歩・結果のどれかを考えると選びやすくなります。",
+    "core": "接続詞は、語・句・節をつなぎ、文と文の論理関係を示す語です。because なら理由、if なら条件、though なら譲歩というように、後ろの節が主節をどう説明するかを読みます。",
+    "forms": [
+      "等位接続詞：and / but / or / so",
+      "従属接続詞：because / when / if / though / while",
+      "接続詞 + 主語 + 動詞",
+      "相関接続詞：both A and B / either A or B"
+    ],
+    "signals": [
+      "後ろに節が続く",
+      "理由・時・条件・譲歩・結果の関係がある",
+      "カンマで主節と区切られることがある"
+    ],
     "checkpoints": [
       "後ろに主語 + 動詞が続くかを見る",
       "理由なら because、時なら when、条件なら if を考える",
@@ -628,9 +891,18 @@
       "though と however の品詞の違いを見ない"
     ],
     "examples": [
-      {"en": "I stayed home because it rained.", "ja": "雨が降ったので家にいました。"},
-      {"en": "Call me when you arrive.", "ja": "着いたら電話してください。"},
-      {"en": "Although he was tired, he studied.", "ja": "疲れていたが、彼は勉強しました。"}
+      {
+        "en": "I stayed home because it rained.",
+        "ja": "雨が降ったので家にいました。"
+      },
+      {
+        "en": "Call me when you arrive.",
+        "ja": "着いたら電話してください。"
+      },
+      {
+        "en": "Although he was tired, he studied.",
+        "ja": "疲れていたが、彼は勉強しました。"
+      }
     ],
     "advanced": [
       "whether は「〜かどうか」で名詞節を作る。",
@@ -641,6 +913,19 @@
   "比較": {
     "title": "比較",
     "summary": "比較は、2つ以上のものを比べる表現です。原級 as ... as、比較級 -er / more、最上級 -est / most の形を見分けます。",
+    "core": "比較は、性質や程度を比べる表現です。同じ程度なら原級、2つを比べるなら比較級、3つ以上の範囲で一番なら最上級を使います。比べる対象と範囲を必ず確認します。",
+    "forms": [
+      "原級：as + 形容詞/副詞 + as",
+      "比較級：形容詞/副詞-er + than / more + 原級 + than",
+      "最上級：the + -est / most + 原級",
+      "倍数：twice / three times as ... as"
+    ],
+    "signals": [
+      "as ... as",
+      "than",
+      "of / in + 範囲",
+      "the が最上級の前にある"
+    ],
     "checkpoints": [
       "as ... as があるかを見る",
       "than があれば比較級を考える",
@@ -660,9 +945,18 @@
       "最上級の the を落とす"
     ],
     "examples": [
-      {"en": "She is as tall as I am.", "ja": "彼女は私と同じくらい背が高いです。"},
-      {"en": "This book is more interesting than that one.", "ja": "この本はあの本より面白いです。"},
-      {"en": "He is the tallest in his class.", "ja": "彼はクラスで一番背が高いです。"}
+      {
+        "en": "She is as tall as I am.",
+        "ja": "彼女は私と同じくらい背が高いです。"
+      },
+      {
+        "en": "This book is more interesting than that one.",
+        "ja": "この本はあの本より面白いです。"
+      },
+      {
+        "en": "He is the tallest in his class.",
+        "ja": "彼はクラスで一番背が高いです。"
+      }
     ],
     "advanced": [
       "比較級 and 比較級で「ますます〜」を表す。",
@@ -673,6 +967,18 @@
   "分詞": {
     "title": "分詞",
     "summary": "分詞は、現在分詞 -ing と過去分詞を使って名詞を説明します。説明される名詞が「する側」なら -ing、「される側」なら過去分詞を考えます。",
+    "core": "分詞は、動詞の形を使って名詞を説明する表現です。現在分詞 -ing は「〜している」、過去分詞は「〜された・〜されている」という関係を作ります。名詞が動作をする側か受ける側かで決めます。",
+    "forms": [
+      "現在分詞：名詞 + doing / doing + 名詞",
+      "過去分詞：名詞 + done / done + 名詞",
+      "長い説明は名詞の後ろに置く",
+      "感情形容詞：exciting / excited など"
+    ],
+    "signals": [
+      "名詞の前後に -ing や過去分詞がある",
+      "説明される名詞と動詞の関係を見る",
+      "人が感情を抱く側なら -ed が多い"
+    ],
     "checkpoints": [
       "名詞を前から、または後ろから説明しているかを見る",
       "名詞が動作をする側なら現在分詞を使う",
@@ -692,9 +998,18 @@
       "文の述語動詞がないまま分詞だけで文を作る"
     ],
     "examples": [
-      {"en": "Look at the sleeping baby.", "ja": "眠っている赤ちゃんを見てください。"},
-      {"en": "This is a book written in English.", "ja": "これは英語で書かれた本です。"},
-      {"en": "I saw a girl running in the park.", "ja": "私は公園で走っている少女を見ました。"}
+      {
+        "en": "Look at the sleeping baby.",
+        "ja": "眠っている赤ちゃんを見てください。"
+      },
+      {
+        "en": "This is a book written in English.",
+        "ja": "これは英語で書かれた本です。"
+      },
+      {
+        "en": "I saw a girl running in the park.",
+        "ja": "私は公園で走っている少女を見ました。"
+      }
     ],
     "advanced": [
       "感情動詞の分詞は、人が感じるなら interested、ものが感情を起こさせるなら interesting。",
@@ -705,6 +1020,18 @@
   "接続詞・前置詞": {
     "title": "接続詞・前置詞の使い分け",
     "summary": "接続詞は後ろに節、前置詞は後ろに名詞句を取ります。because と because of、although と despite などはこの違いで判断します。",
+    "core": "接続詞と前置詞の違いは、後ろに来るものです。接続詞は主語 + 動詞を含む節を導き、前置詞は名詞句を導きます。意味が似ていても、後ろの形で選択肢が決まります。",
+    "forms": [
+      "接続詞：because / although / when / if + 主語 + 動詞",
+      "前置詞句：because of / despite / during / due to + 名詞句",
+      "before / after / since は接続詞にも前置詞にもなる",
+      "前置詞の後ろの動詞は ing形"
+    ],
+    "signals": [
+      "空所の後ろに主語 + 動詞があるか",
+      "名詞だけなら前置詞を疑う",
+      "because と because of、although と despite の対比"
+    ],
     "checkpoints": [
       "空所の後ろが 主語 + 動詞 か名詞句かを見る",
       "because / although / when / if は接続詞",
@@ -724,9 +1051,18 @@
       "although と despite を意味だけで選ぶ"
     ],
     "examples": [
-      {"en": "I stayed home because it rained.", "ja": "雨が降ったので家にいました。"},
-      {"en": "I stayed home because of the rain.", "ja": "雨のため家にいました。"},
-      {"en": "Despite the rain, we went out.", "ja": "雨にもかかわらず、私たちは出かけました。"}
+      {
+        "en": "I stayed home because it rained.",
+        "ja": "雨が降ったので家にいました。"
+      },
+      {
+        "en": "I stayed home because of the rain.",
+        "ja": "雨のため家にいました。"
+      },
+      {
+        "en": "Despite the rain, we went out.",
+        "ja": "雨にもかかわらず、私たちは出かけました。"
+      }
     ],
     "advanced": [
       "due to は名詞句、while は節を続ける。",
@@ -737,6 +1073,18 @@
   "分詞構文": {
     "title": "分詞構文",
     "summary": "分詞構文は、副詞節を分詞で短くした形です。時・理由・条件・譲歩・付帯状況などを表し、主節との関係を読み取ります。",
+    "core": "分詞構文は、副詞節を短くした表現です。when / because / if / though などで始まる節を、主語を省いて分詞で表します。主節との意味関係は文脈から補います。",
+    "forms": [
+      "能動：Doing ..., 主節",
+      "受動：Done ..., 主節",
+      "完了：Having done ..., 主節",
+      "否定：Not doing / Not having done"
+    ],
+    "signals": [
+      "文頭や文中にカンマつきの -ing / 過去分詞",
+      "主節の主語と分詞の意味上の主語が同じ",
+      "時・理由・条件・譲歩・付帯状況に読める"
+    ],
     "checkpoints": [
       "文頭や文中の -ing / 過去分詞のまとまりを見る",
       "主節の主語と分詞の主語が同じか確認する",
@@ -756,9 +1104,18 @@
       "having + 過去分詞を現在完了と同じものとして処理する"
     ],
     "examples": [
-      {"en": "Feeling tired, I went to bed early.", "ja": "疲れていたので、私は早く寝ました。"},
-      {"en": "Seen from here, the mountain looks beautiful.", "ja": "ここから見ると、その山は美しく見えます。"},
-      {"en": "Having finished my homework, I went out.", "ja": "宿題を終えた後、私は外出しました。"}
+      {
+        "en": "Feeling tired, I went to bed early.",
+        "ja": "疲れていたので、私は早く寝ました。"
+      },
+      {
+        "en": "Seen from here, the mountain looks beautiful.",
+        "ja": "ここから見ると、その山は美しく見えます。"
+      },
+      {
+        "en": "Having finished my homework, I went out.",
+        "ja": "宿題を終えた後、私は外出しました。"
+      }
     ],
     "advanced": [
       "独立分詞構文では、分詞句に独自の主語がある。",
@@ -769,6 +1126,18 @@
   "仮定法": {
     "title": "仮定法",
     "summary": "仮定法は、現実とは違うことや可能性の低いことを表します。現在の仮定は過去形、過去の仮定は had + 過去分詞を使うのが基本です。",
+    "core": "仮定法は、現実とは違うことや実現可能性の低いことを、距離を置いた動詞の形で表す文法です。現在の話でも過去形、過去の話なら過去完了を使うのは、現実からの距離を示すためです。",
+    "forms": [
+      "現在に反する仮定：If + 過去形, would / could + 原形",
+      "過去に反する仮定：If + had + 過去分詞, would have + 過去分詞",
+      "I wish + 過去形 / had + 過去分詞",
+      "If省略：Were / Had / Should + 主語 ..."
+    ],
+    "signals": [
+      "if があって現実と違う内容",
+      "would / could / might が主節にある",
+      "wish / as if / If it were not for"
+    ],
     "checkpoints": [
       "現実と違う仮定かどうかを見る",
       "現在のことなら If + 主語 + 過去形 を考える",
@@ -788,9 +1157,18 @@
       "I wish の後ろを普通の現在形にする"
     ],
     "examples": [
-      {"en": "If I were you, I would study harder.", "ja": "もし私があなたなら、もっと勉強するでしょう。"},
-      {"en": "If I had known it, I would have told you.", "ja": "もしそれを知っていたら、あなたに言ったでしょう。"},
-      {"en": "I wish I could speak English well.", "ja": "英語を上手に話せたらなあ。"}
+      {
+        "en": "If I were you, I would study harder.",
+        "ja": "もし私があなたなら、もっと勉強するでしょう。"
+      },
+      {
+        "en": "If I had known it, I would have told you.",
+        "ja": "もしそれを知っていたら、あなたに言ったでしょう。"
+      },
+      {
+        "en": "I wish I could speak English well.",
+        "ja": "英語を上手に話せたらなあ。"
+      }
     ],
     "advanced": [
       "If の省略倒置では Were / Had / Should が文頭に出る。",
@@ -801,6 +1179,19 @@
   "使役・知覚動詞": {
     "title": "使役・知覚動詞",
     "summary": "使役動詞は「〜させる」、知覚動詞は「〜するのを見る・聞く」を表します。後ろの目的語と補語の形を確認します。",
+    "core": "使役動詞は「人に何かをさせる」、知覚動詞は「人やものが何かするのを見る・聞く・感じる」表現です。目的語の後ろに置く補語の形が動詞ごとに決まります。",
+    "forms": [
+      "make / let / have + O + 原形",
+      "get + O + to do",
+      "see / hear / feel + O + 原形（動作全体）",
+      "see / hear / feel + O + doing（途中の動作）",
+      "受動態では to が戻る：be made to do"
+    ],
+    "signals": [
+      "make / let / have / get",
+      "see / hear / watch / feel / notice",
+      "O と後ろの動詞に主語・述語関係がある"
+    ],
     "checkpoints": [
       "make / let / have / get の違いを見る",
       "make / let / have + O + 原形 の形を確認する",
@@ -820,9 +1211,18 @@
       "される側なのに過去分詞を選ばない"
     ],
     "examples": [
-      {"en": "My mother made me clean my room.", "ja": "母は私に部屋を掃除させました。"},
-      {"en": "I saw him cross the street.", "ja": "私は彼が通りを渡るのを見ました。"},
-      {"en": "I heard my name called.", "ja": "私は自分の名前が呼ばれるのを聞きました。"}
+      {
+        "en": "My mother made me clean my room.",
+        "ja": "母は私に部屋を掃除させました。"
+      },
+      {
+        "en": "I saw him cross the street.",
+        "ja": "私は彼が通りを渡るのを見ました。"
+      },
+      {
+        "en": "I heard my name called.",
+        "ja": "私は自分の名前が呼ばれるのを聞きました。"
+      }
     ],
     "advanced": [
       "make oneself understood のように「自分を理解される」型がある。",
@@ -833,6 +1233,18 @@
   "形式主語・形式目的語・SVOC": {
     "title": "形式主語・形式目的語・SVOC",
     "summary": "it は長い主語や目的語を後ろへ送るために使われます。SVOCでは、O と C の関係を見て、名詞・形容詞・分詞・to do を選びます。",
+    "core": "形式主語・形式目的語の it は、長い to不定詞や that節を後ろに回すための仮の置き場所です。SVOCは、目的語Oを補語Cが説明する文型で、OとCの関係を読むことが中心です。",
+    "forms": [
+      "It is + 形容詞/名詞 + to do / that節",
+      "find / make / think + it + C + to do / that節",
+      "S + V + O + C",
+      "C には名詞・形容詞・原形・to do・分詞が入る"
+    ],
+    "signals": [
+      "it の内容が後ろにある",
+      "find it difficult to ... の形",
+      "O と C が「OはCだ」「OがCする/される」の関係"
+    ],
     "checkpoints": [
       "It is ... to do / that ... の形を見る",
       "find / make / think + it + C + to do / that ... を見る",
@@ -852,9 +1264,18 @@
       "make O to do としてしまう"
     ],
     "examples": [
-      {"en": "It is important to study every day.", "ja": "毎日勉強することは大切です。"},
-      {"en": "I found it difficult to answer the question.", "ja": "私はその質問に答えるのは難しいと分かりました。"},
-      {"en": "The news made me happy.", "ja": "その知らせは私を幸せにしました。"}
+      {
+        "en": "It is important to study every day.",
+        "ja": "毎日勉強することは大切です。"
+      },
+      {
+        "en": "I found it difficult to answer the question.",
+        "ja": "私はその質問に答えるのは難しいと分かりました。"
+      },
+      {
+        "en": "The news made me happy.",
+        "ja": "その知らせは私を幸せにしました。"
+      }
     ],
     "advanced": [
       "形式主語の that 節は事実や判断を表すことが多い。",
@@ -865,6 +1286,18 @@
   "強調構文・倒置": {
     "title": "強調構文・倒置",
     "summary": "強調構文は It is ... that で一部を強く示す形です。倒置は否定語・場所表現・仮定法などで、普通と違う語順になります。",
+    "core": "強調構文は、文の一部を It is ... that で前に出して目立たせる形です。倒置は、否定語・場所表現・仮定法などが文頭に出たときに、主語と助動詞の順番が入れ替わる形です。",
+    "forms": [
+      "強調：It is / was + 強調部分 + that ...",
+      "否定語倒置：Never / Hardly / Not only + 助動詞 + 主語 + 動詞",
+      "場所表現倒置：Here / There / 場所句 + 動詞 + 主語",
+      "仮定法倒置：Were / Had / Should + 主語 ..."
+    ],
+    "signals": [
+      "It is ... that から外しても文が成り立つ",
+      "否定語が文頭に出ている",
+      "普通の語順ではない助動詞 + 主語が見える"
+    ],
     "checkpoints": [
       "It is / was ... that の形かを見る",
       "強調されている部分を外して文が成り立つか確認する",
@@ -884,9 +1317,18 @@
       "仮定法倒置と疑問文を混同する"
     ],
     "examples": [
-      {"en": "It was Tom that broke the window.", "ja": "窓を割ったのはトムでした。"},
-      {"en": "Never have I seen such a thing.", "ja": "そんなものを見たことは一度もありません。"},
-      {"en": "Only then did I understand it.", "ja": "その時になって初めて私はそれを理解しました。"}
+      {
+        "en": "It was Tom that broke the window.",
+        "ja": "窓を割ったのはトムでした。"
+      },
+      {
+        "en": "Never have I seen such a thing.",
+        "ja": "そんなものを見たことは一度もありません。"
+      },
+      {
+        "en": "Only then did I understand it.",
+        "ja": "その時になって初めて私はそれを理解しました。"
+      }
     ],
     "advanced": [
       "not until が文頭に出ると主節が倒置する。",
@@ -897,6 +1339,18 @@
   "否定": {
     "title": "否定表現",
     "summary": "否定は not だけでなく、no, never, few, little, hardly, seldom などでも表せます。部分否定・準否定・二重否定は意味を丁寧に読みます。",
+    "core": "否定は not だけでなく、no / never / hardly / few / little などで意味を反転・制限する表現です。全部を否定するのか、一部だけを否定するのかで意味が大きく変わります。",
+    "forms": [
+      "完全否定：not / no / never",
+      "準否定：hardly / scarcely / seldom / few / little",
+      "部分否定：not all / not both / not always",
+      "二重否定：否定 + 否定で肯定寄りの意味になることがある"
+    ],
+    "signals": [
+      "all / both / every と not の位置",
+      "few / little に a が付くかどうか",
+      "hardly があればほぼ否定として読む"
+    ],
     "checkpoints": [
       "not / no / never など明確な否定語を見る",
       "few / little / hardly / seldom など準否定語を見る",
@@ -916,9 +1370,18 @@
       "否定語文頭の倒置を見落とす"
     ],
     "examples": [
-      {"en": "Not all students like math.", "ja": "すべての生徒が数学を好きなわけではありません。"},
-      {"en": "Few people knew the fact.", "ja": "その事実を知っている人はほとんどいませんでした。"},
-      {"en": "I have never seen it.", "ja": "私はそれを一度も見たことがありません。"}
+      {
+        "en": "Not all students like math.",
+        "ja": "すべての生徒が数学を好きなわけではありません。"
+      },
+      {
+        "en": "Few people knew the fact.",
+        "ja": "その事実を知っている人はほとんどいませんでした。"
+      },
+      {
+        "en": "I have never seen it.",
+        "ja": "私はそれを一度も見たことがありません。"
+      }
     ],
     "advanced": [
       "not always / not necessarily は「いつも〜とは限らない」「必ずしも〜ではない」。",
@@ -929,6 +1392,18 @@
   "話法・名詞節": {
     "title": "話法・名詞節",
     "summary": "話法は、直接話法を間接話法に変える単元です。名詞節は that / whether / 疑問詞節などが、文の主語・目的語・補語になります。",
+    "core": "話法は、誰かの発言や考えを別の文に組み込む表現です。名詞節は that / whether / 疑問詞節などが名詞のかたまりとして、主語・目的語・補語になります。",
+    "forms": [
+      "that節：I think that ...",
+      "whether / if節：〜かどうか",
+      "疑問詞節：what / where / why + 主語 + 動詞",
+      "間接話法：伝達動詞 + 内容節、必要なら時制を一致"
+    ],
+    "signals": [
+      "say / tell / ask / think / know / believe",
+      "that の後ろに完全な文",
+      "疑問文を埋め込むと語順が平叙文になる"
+    ],
     "checkpoints": [
       "say / tell / ask など伝達動詞を見る",
       "時制の一致が必要か確認する",
@@ -948,9 +1423,18 @@
       "whether と that を意味で区別しない"
     ],
     "examples": [
-      {"en": "He said that he was busy.", "ja": "彼は忙しいと言いました。"},
-      {"en": "She asked me where I lived.", "ja": "彼女は私がどこに住んでいるか尋ねました。"},
-      {"en": "The problem is whether he will come.", "ja": "問題は彼が来るかどうかです。"}
+      {
+        "en": "He said that he was busy.",
+        "ja": "彼は忙しいと言いました。"
+      },
+      {
+        "en": "She asked me where I lived.",
+        "ja": "彼女は私がどこに住んでいるか尋ねました。"
+      },
+      {
+        "en": "The problem is whether he will come.",
+        "ja": "問題は彼が来るかどうかです。"
+      }
     ],
     "advanced": [
       "普遍的事実は時制の一致を受けないことがある。",
@@ -961,6 +1445,18 @@
   "無生物主語・同格": {
     "title": "無生物主語・同格",
     "summary": "無生物主語は、人ではないものを主語にして「〜させる・〜へ導く」などを表します。同格は、名詞の内容を後ろから説明します。",
+    "core": "無生物主語は、人ではない出来事・理由・ものを主語にして、人への影響を表す英語らしい構文です。同格は、名詞の内容を後ろの語句や that節で言い換える表現です。",
+    "forms": [
+      "無生物主語 + make / enable / prevent / remind / bring + 人 ...",
+      "原因・出来事 + lead / take / force + 人 ...",
+      "同格：名詞 + that節",
+      "同格：名詞, 言い換え表現, ..."
+    ],
+    "signals": [
+      "主語が抽象名詞や出来事",
+      "直訳すると日本語が不自然になる",
+      "fact / idea / news / belief + that節"
+    ],
     "checkpoints": [
       "主語が人ではない抽象名詞・出来事かを見る",
       "bring / take / enable / prevent などの動詞を見る",
@@ -980,9 +1476,18 @@
       "カンマ同格を挿入句として処理できない"
     ],
     "examples": [
-      {"en": "This map will help you find the station.", "ja": "この地図が駅を見つける助けになります。"},
-      {"en": "The rain prevented us from going out.", "ja": "雨のため私たちは外出できませんでした。"},
-      {"en": "I heard the news that he had won.", "ja": "私は彼が勝ったという知らせを聞きました。"}
+      {
+        "en": "This map will help you find the station.",
+        "ja": "この地図が駅を見つける助けになります。"
+      },
+      {
+        "en": "The rain prevented us from going out.",
+        "ja": "雨のため私たちは外出できませんでした。"
+      },
+      {
+        "en": "I heard the news that he had won.",
+        "ja": "私は彼が勝ったという知らせを聞きました。"
+      }
     ],
     "advanced": [
       "無生物主語は入試長文で因果関係を作ることが多い。",
@@ -993,6 +1498,18 @@
   "主述の一致・語法": {
     "title": "主述の一致・語法",
     "summary": "主述の一致は、主語の数に動詞を合わせる単元です。語法は、動詞・形容詞・名詞がどんな形を後ろに取るかを見る単元です。",
+    "core": "主述の一致は、文の本当の主語に動詞の形を合わせるルールです。語法は、単語ごとに決まっている後ろの形や相性です。どちらも「意味」だけでなく「形の約束」を見る必要があります。",
+    "forms": [
+      "単数主語 + 単数動詞 / 複数主語 + 複数動詞",
+      "A as well as B は A に一致",
+      "each / every / either / neither は単数扱いが多い",
+      "語法：動詞 + to do / doing / that節 / O + C など"
+    ],
+    "signals": [
+      "主語と動詞の間に長い修飾語がある",
+      "and / as well as / together with の扱い",
+      "動詞や形容詞の直後に決まった型が問われる"
+    ],
     "checkpoints": [
       "本当の主語を見つける",
       "主語が単数か複数か確認する",
@@ -1012,9 +1529,18 @@
       "suggest 人 to do など日本語につられた形にする"
     ],
     "examples": [
-      {"en": "The number of students is increasing.", "ja": "生徒数は増えています。"},
-      {"en": "Each of them has a book.", "ja": "彼らはそれぞれ本を持っています。"},
-      {"en": "She suggested that I study harder.", "ja": "彼女は私がもっと勉強するよう提案しました。"}
+      {
+        "en": "The number of students is increasing.",
+        "ja": "生徒数は増えています。"
+      },
+      {
+        "en": "Each of them has a book.",
+        "ja": "彼らはそれぞれ本を持っています。"
+      },
+      {
+        "en": "She suggested that I study harder.",
+        "ja": "彼女は私がもっと勉強するよう提案しました。"
+      }
     ],
     "advanced": [
       "a number of は複数扱い、the number of は単数扱い。",
@@ -1025,6 +1551,19 @@
   "副詞節": {
     "title": "副詞節",
     "summary": "副詞節は、時・条件・理由・譲歩・目的・結果などを表して主節を説明します。接続詞と時制の扱いがよく問われます。",
+    "core": "副詞節は、主節の動作がいつ・なぜ・どんな条件で起きるかを説明する節です。接続詞で始まり、節全体が副詞のように主節を修飾します。時・条件の副詞節では未来内容でも現在形を使います。",
+    "forms": [
+      "時：when / before / after / while / until",
+      "条件：if / unless / as long as",
+      "理由：because / since / as",
+      "譲歩：though / although / even if",
+      "目的・結果：so that / so ... that"
+    ],
+    "signals": [
+      "接続詞 + 主語 + 動詞のまとまり",
+      "主節と従属節の2つの動詞がある",
+      "未来内容なのに副詞節内が現在形"
+    ],
     "checkpoints": [
       "when / if / because / though / so that などの接続詞を見る",
       "副詞節が主節をどう説明しているか読む",
@@ -1044,9 +1583,18 @@
       "譲歩節を理由として訳す"
     ],
     "examples": [
-      {"en": "If it rains tomorrow, I will stay home.", "ja": "明日雨が降れば、家にいます。"},
-      {"en": "I got up early so that I could catch the train.", "ja": "電車に間に合うように早く起きました。"},
-      {"en": "Even though he was tired, he kept working.", "ja": "疲れていたにもかかわらず、彼は働き続けました。"}
+      {
+        "en": "If it rains tomorrow, I will stay home.",
+        "ja": "明日雨が降れば、家にいます。"
+      },
+      {
+        "en": "I got up early so that I could catch the train.",
+        "ja": "電車に間に合うように早く起きました。"
+      },
+      {
+        "en": "Even though he was tired, he kept working.",
+        "ja": "疲れていたにもかかわらず、彼は働き続けました。"
+      }
     ],
     "advanced": [
       "provided that / as long as は条件を表す。",
@@ -1057,6 +1605,18 @@
   "特殊構文": {
     "title": "特殊構文",
     "summary": "特殊構文は、too ... to、so ... that、enough to、省略など、決まった形で意味が決まる表現です。形を見た瞬間に構造を取れるようにします。",
+    "core": "特殊構文は、決まった語順とセットで意味が決まる表現群です。単語ごとに訳すより、型を見抜いてひとかたまりで処理することが重要です。",
+    "forms": [
+      "too + 形容詞/副詞 + to do = 〜すぎて…できない",
+      "so + 形容詞/副詞 + that節 = とても〜なので…",
+      "such + 名詞句 + that節 = とても〜な名詞なので…",
+      "形容詞/副詞 + enough + to do = …するのに十分〜"
+    ],
+    "signals": [
+      "too / so / such / enough",
+      "to do と that節のどちらが続くか",
+      "省略・挿入・呼応表現で普通の語順から外れる"
+    ],
     "checkpoints": [
       "too + 形容詞/副詞 + to do の形を見る",
       "so + 形容詞/副詞 + that 節を見る",
@@ -1076,9 +1636,18 @@
       "if necessary の省略を見落とす"
     ],
     "examples": [
-      {"en": "This tea is too hot to drink.", "ja": "このお茶は熱すぎて飲めません。"},
-      {"en": "He was so tired that he slept soon.", "ja": "彼はとても疲れていたので、すぐ眠りました。"},
-      {"en": "She is tall enough to reach the shelf.", "ja": "彼女は棚に届くほど背が高いです。"}
+      {
+        "en": "This tea is too hot to drink.",
+        "ja": "このお茶は熱すぎて飲めません。"
+      },
+      {
+        "en": "He was so tired that he slept soon.",
+        "ja": "彼はとても疲れていたので、すぐ眠りました。"
+      },
+      {
+        "en": "She is tall enough to reach the shelf.",
+        "ja": "彼女は棚に届くほど背が高いです。"
+      }
     ],
     "advanced": [
       "too ... for 人 to do では for 人 が意味上の主語になる。",

@@ -1,14 +1,22 @@
-# Python
+# 依存・生成物
+node_modules/
 __pycache__/
-*.py[cod]
-.pytest_cache/
+*.pyc
+*.pyo
 
-# データベース（生徒の個人記録：ランタイムデータ。questions.json 等のソースとは別）
-*.db
-*.db.bak-*
-
-# 公開アプリの接続設定（Supabase anon keyなど）
+# 設定（Supabaseキー等・デプロイ時に環境変数から生成する）
 ポラリス英文法ファイナル演習1/static/config.json
 
-# Local Netlify folder
-.netlify
+# データベース（個人情報・可変データはバージョン管理しない）
+*.db
+*.db-journal
+*.db.bak-*
+data.db.bak*
+
+# バックアップ・一時
+*.bak
+*.bak2
+_削除候補/
+.netlify/
+.DS_Store
+Thumbs.db
