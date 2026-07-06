@@ -3,9 +3,9 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>ポラリス英文法 生徒QR作成</title>
+<title>ポラリス英文法 生徒QR作成（移動しました）</title>
 <link rel="stylesheet" href="static/styles.css">
-<script src="https://cdn.jsdelivr.net/npm/qrcode@1.5.4/build/qrcode.min.js"></script>
+<meta name="robots" content="noindex">
 </head>
 <body>
 <div class="wrap">
@@ -18,300 +18,22 @@
 
   <main>
     <section class="card hero">
-      <p class="label">Share Admin</p>
-      <h2>生徒専用URLとQRコードを作成する</h2>
-      <p class="hint">ここで生成した生徒IDとトークンをSupabaseへ登録し、URLをQRコードとして配布します。</p>
+      <p class="label">Moved</p>
+      <h2>この管理ページは移動しました</h2>
+      <p class="hint">生徒専用URLとQRコードの作成・印刷は、講師用ポータル（ローカル）の「生徒共有QRの印刷」に移動しました。生徒名簿もポータル側で管理します。</p>
     </section>
 
     <section class="card">
-      <div class="selectorGrid">
-        <div>
-          <label class="fieldLabel" for="baseUrl">公開URL</label>
-          <input id="baseUrl" type="url" placeholder="https://shtomi-tech.github.io/polaris-grammar-final-1/">
-        </div>
-        <div>
-          <label class="fieldLabel" for="studentName">生徒名</label>
-          <input id="studentName" type="text" placeholder="冨田翔太">
-        </div>
-        <div>
-          <label class="fieldLabel" for="studentId">生徒ID</label>
-          <input id="studentId" type="text" placeholder="tomita-shota">
-        </div>
-      </div>
-
-      <div class="selectorGrid">
-        <div>
-          <label class="fieldLabel" for="token">アクセストークン</label>
-          <input id="token" type="text" placeholder="ランダム生成します">
-        </div>
-        <div class="actions adminActions">
-          <button id="tokenBtn" type="button">トークン生成</button>
-          <button class="ghost" id="buildBtn" type="button">URLとQRを作成</button>
-        </div>
-      </div>
-
-      <div class="shareOutput">
-        <div>
-          <p class="label">Student URL</p>
-          <textarea id="studentUrl" readonly rows="3"></textarea>
-        </div>
-        <div class="qrBox">
-          <canvas id="qrCanvas" width="240" height="240" aria-label="生徒用QRコード"></canvas>
-          <img id="qrImage" class="qrImage" alt="生徒用QRコード">
-          <p id="qrMessage" class="qrMessage"></p>
-        </div>
-      </div>
-
-      <div>
-        <p class="label">Supabase登録SQL</p>
-        <textarea id="insertSql" readonly rows="6"></textarea>
-      </div>
-    </section>
-
-    <section class="card">
-      <div class="sectionHead">
-        <div>
-          <p class="label">Saved Students</p>
-          <h2>保存済み生徒URL</h2>
-        </div>
-        <button class="ghost" id="exportBtn" type="button">一覧をコピー</button>
-      </div>
-      <p class="hint">この管理画面で作成した生徒専用URLを、このブラウザ内に保存します。保存済みの行を選ぶと、上のURLとQRコードを再表示できます。</p>
-      <div id="savedList" class="savedList"></div>
+      <p class="label">操作方法</p>
+      <p class="hint">
+        講師PCで <code>portal/launcher.py</code> を起動し、ブラウザでポータル（<code>http://127.0.0.1:8080/</code>）を開いてください。
+        ページ内の「生徒共有QRの印刷」で、配布先に生徒を選び、アプリを選択して印刷できます。Supabase登録SQLもそこに表示されます。
+      </p>
+      <p class="hint">
+        このページ（旧管理画面）は使用しません。ブックマークがある場合はポータルに置き換えてください。
+      </p>
     </section>
   </main>
 </div>
-
-<script>
-const $ = selector => document.querySelector(selector);
-const SAVED_STUDENTS_KEY = "polarisFinalGrammar1.adminSavedStudents";
-
-function defaultBaseUrl() {
-  return window.location.href
-    .replace(/admin\.html.*$/, "")
-    .replace(/index\.html.*$/, "");
-}
-
-function slugify(value) {
-  const ascii = String(value || "")
-    .trim()
-    .toLowerCase()
-    .replace(/[^a-z0-9]+/g, "-")
-    .replace(/^-+|-+$/g, "");
-  return ascii || `student-${Date.now().toString(36)}`;
-}
-
-function randomToken() {
-  const bytes = new Uint8Array(24);
-  crypto.getRandomValues(bytes);
-  return Array.from(bytes, byte => byte.toString(16).padStart(2, "0")).join("");
-}
-
-function sqlString(value) {
-  return String(value || "").replace(/'/g, "''");
-}
-
-function esc(value) {
-  return String(value ?? "").replace(/[&<>"]/g, ch => ({
-    "&": "&amp;",
-    "<": "&lt;",
-    ">": "&gt;",
-    '"': "&quot;"
-  }[ch]));
-}
-
-function loadSavedStudents() {
-  try {
-    const saved = JSON.parse(localStorage.getItem(SAVED_STUDENTS_KEY) || "[]");
-    return Array.isArray(saved) ? saved.filter(student => student && student.id && student.token && student.url) : [];
-  } catch {
-    return [];
-  }
-}
-
-function saveSavedStudents(students) {
-  localStorage.setItem(SAVED_STUDENTS_KEY, JSON.stringify(students));
-}
-
-function formatSavedAt(value) {
-  if (!value) return "";
-  try {
-    return new Intl.DateTimeFormat("ja-JP", {
-      dateStyle: "short",
-      timeStyle: "short"
-    }).format(new Date(value));
-  } catch {
-    return "";
-  }
-}
-
-function studentUrl(base, studentId, token) {
-  const url = new URL(base);
-  url.searchParams.set("s", studentId);
-  url.searchParams.set("t", token);
-  return url.toString();
-}
-
-function clearQr() {
-  const canvas = $("#qrCanvas");
-  const context = canvas.getContext("2d");
-  context.clearRect(0, 0, canvas.width, canvas.height);
-  $("#qrImage").removeAttribute("src");
-  $("#qrImage").hidden = true;
-  $("#qrCanvas").hidden = false;
-  $("#qrMessage").textContent = "";
-}
-
-function showQrFallback(text, reason = "") {
-  const image = $("#qrImage");
-  const qrUrl = new URL("https://api.qrserver.com/v1/create-qr-code/");
-  qrUrl.searchParams.set("size", "240x240");
-  qrUrl.searchParams.set("margin", "8");
-  qrUrl.searchParams.set("data", text);
-  image.src = qrUrl.toString();
-  image.hidden = false;
-  $("#qrCanvas").hidden = true;
-  $("#qrMessage").textContent = reason ? `QR画像で表示しています: ${reason}` : "QR画像で表示しています。";
-}
-
-function renderQr(text) {
-  clearQr();
-  if (!window.QRCode || typeof window.QRCode.toCanvas !== "function") {
-    showQrFallback(text, "内蔵ライブラリを読み込めませんでした");
-    return;
-  }
-
-  window.QRCode.toCanvas($("#qrCanvas"), text, {
-    width: 240,
-    margin: 1,
-    color: { dark: "#141413", light: "#faf9f6" }
-  }, error => {
-    if (error) showQrFallback(text, "canvas生成に失敗しました");
-  });
-}
-
-function renderSavedStudents() {
-  const saved = loadSavedStudents();
-  const list = $("#savedList");
-  if (!saved.length) {
-    list.innerHTML = `<p class="emptySaved">まだ保存済みの生徒URLはありません。</p>`;
-    return;
-  }
-
-  list.innerHTML = saved.map(student => `
-    <article class="savedStudent" data-id="${esc(student.id)}">
-      <div>
-        <p class="savedName">${esc(student.name || student.id)}</p>
-        <p class="savedMeta">${esc(student.id)} / ${esc(formatSavedAt(student.updatedAt))}</p>
-      </div>
-      <div class="savedActions">
-        <button type="button" data-action="load" data-id="${esc(student.id)}">表示</button>
-        <button class="ghost" type="button" data-action="copy" data-id="${esc(student.id)}">URLコピー</button>
-        <button class="ghost" type="button" data-action="delete" data-id="${esc(student.id)}">削除</button>
-      </div>
-    </article>
-  `).join("");
-}
-
-function showStudentRecord(record) {
-  const base = record.baseUrl || defaultBaseUrl();
-  const url = record.url || studentUrl(base, record.id, record.token);
-  $("#baseUrl").value = base;
-  $("#studentName").value = record.name || record.id;
-  $("#studentId").value = record.id;
-  $("#token").value = record.token;
-  $("#studentUrl").value = url;
-  $("#insertSql").value = [
-    "insert into public.polaris_students (id, display_name, access_token, active)",
-    `values ('${sqlString(record.id)}', '${sqlString(record.name || record.id)}', '${sqlString(record.token)}', true)`,
-    "on conflict (id) do update set",
-    "  display_name = excluded.display_name,",
-    "  access_token = excluded.access_token,",
-    "  active = true;"
-  ].join("\n");
-
-  renderQr(url);
-}
-
-function rememberStudent(record) {
-  const saved = loadSavedStudents();
-  const nextRecord = {
-    ...record,
-    updatedAt: new Date().toISOString()
-  };
-  const next = [nextRecord, ...saved.filter(student => student.id !== record.id)]
-    .sort((a, b) => String(a.name || a.id).localeCompare(String(b.name || b.id), "ja"));
-  saveSavedStudents(next);
-  renderSavedStudents();
-}
-
-function buildShareUrl() {
-  const base = ($("#baseUrl").value || defaultBaseUrl()).trim();
-  const studentId = ($("#studentId").value || slugify($("#studentName").value)).trim();
-  const token = ($("#token").value || randomToken()).trim();
-  const name = ($("#studentName").value || studentId).trim();
-  const url = studentUrl(base, studentId, token);
-  const record = {
-    id: studentId,
-    name,
-    token,
-    baseUrl: base,
-    url
-  };
-
-  showStudentRecord(record);
-  rememberStudent(record);
-}
-
-async function copyText(text) {
-  try {
-    await navigator.clipboard.writeText(text);
-  } catch {
-    const area = document.createElement("textarea");
-    area.value = text;
-    document.body.append(area);
-    area.select();
-    document.execCommand("copy");
-    area.remove();
-  }
-}
-
-$("#baseUrl").value = defaultBaseUrl();
-$("#qrImage").hidden = true;
-$("#tokenBtn").onclick = () => {
-  $("#token").value = randomToken();
-};
-$("#studentName").oninput = () => {
-  if (!$("#studentId").value.trim()) $("#studentId").value = slugify($("#studentName").value);
-};
-$("#buildBtn").onclick = buildShareUrl;
-$("#savedList").onclick = event => {
-  const button = event.target.closest("button[data-action]");
-  if (!button) return;
-  const saved = loadSavedStudents();
-  const student = saved.find(item => item.id === button.dataset.id);
-  if (!student) return;
-  if (button.dataset.action === "load") {
-    showStudentRecord(student);
-  }
-  if (button.dataset.action === "copy") {
-    copyText(student.url);
-    button.textContent = "コピー済み";
-    setTimeout(() => { button.textContent = "URLコピー"; }, 1200);
-  }
-  if (button.dataset.action === "delete") {
-    saveSavedStudents(saved.filter(item => item.id !== button.dataset.id));
-    renderSavedStudents();
-  }
-};
-$("#exportBtn").onclick = () => {
-  const saved = loadSavedStudents();
-  const text = saved.map(student => `${student.name || student.id}\t${student.id}\t${student.url}`).join("\n");
-  copyText(text);
-  $("#exportBtn").textContent = "コピー済み";
-  setTimeout(() => { $("#exportBtn").textContent = "一覧をコピー"; }, 1200);
-};
-renderSavedStudents();
-</script>
 </body>
 </html>
