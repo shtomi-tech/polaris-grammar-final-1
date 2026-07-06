@@ -1,6 +1,7 @@
 const $ = (selector, root = document) => root.querySelector(selector);
 const $$ = (selector, root = document) => Array.from(root.querySelectorAll(selector));
 
+const APP_ID = "english-practice"; // 共通スキーマ app_progress の app 列（全アプリ共用の生徒テーブル app_students を参照）
 const LEGACY_STORAGE_KEY = "polarisFinalGrammar1.progress";
 const STORAGE_PREFIX = "polarisFinalGrammar1.progress.";
 const STUDENTS_KEY = "polarisFinalGrammar1.students";
@@ -141,7 +142,7 @@ async function startSharedSession() {
     throw new Error("共有URLですが、static/config.json のSupabase設定が未完了です。");
   }
 
-  const authRows = await supabaseRpc("polaris_auth_student", {
+  const authRows = await supabaseRpc("app_auth_student", {
     p_student_id: sharedSession.studentId,
     p_access_token: sharedSession.token
   });
@@ -158,7 +159,8 @@ async function startSharedSession() {
   students = [sharedSession.student];
   activeStudentId = sharedSession.student.id;
 
-  const loaded = await supabaseRpc("polaris_load_progress", {
+  const loaded = await supabaseRpc("app_load_progress", {
+    p_app: APP_ID,
     p_student_id: sharedSession.studentId,
     p_access_token: sharedSession.token
   });
@@ -171,7 +173,8 @@ async function startSharedSession() {
 }
 
 async function saveSharedProgress() {
-  await supabaseRpc("polaris_save_progress", {
+  await supabaseRpc("app_save_progress", {
+    p_app: APP_ID,
     p_student_id: sharedSession.studentId,
     p_access_token: sharedSession.token,
     p_progress: progress
