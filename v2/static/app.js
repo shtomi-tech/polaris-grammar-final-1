@@ -1,14 +1,28 @@
 const $ = (selector, root = document) => root.querySelector(selector);
 const $$ = (selector, root = document) => Array.from(root.querySelectorAll(selector));
 
-const STORAGE_KEY = "englishGrammarV2.progress";
+/* ============================================================
+   英文法 v2 — harness の store/engine を本採用
+   進捗・判定・クリア・Leitner間隔反復は vendor/harness に集約。
+   このアプリ固有＝データ→Unit契約への写像 と 説明(explained)フラグ（クイズでないので契約外）。
+   ============================================================ */
+const HARNESS_CONFIG = {
+  appId: "english-practice",
+  modes: ["memory", "practice"],
+  clear: { memory: { type: "allCorrect" }, practice: { type: "allCorrect" } },
+  review: { ladder: [1, 3, 7, 14] },
+};
+const LEGACY_KEY = "englishGrammarV2.progress";      // 旧・自前進捗
+const EXPLAINED_KEY = "englishGrammarV2.explained";  // 説明確認フラグ（app固有）
 const COURSE_LABELS = { junior: "中学英文法", senior: "高校・大学受験英文法" };
 const KEYS = ["ア", "イ", "ウ", "エ"];
 
 let items = [];
-let memoryQuestions = [];
-let practiceQuestions = [];
-let progress = {};
+let units = [];        // harness Unit[]
+let store = null;
+let engine = null;
+let cloud = null;      // harness createCloud のインスタンス（init で生成・config無しなら no-op）
+let explained = {};    // { [itemId]: true }
 let selected = { course: "junior", level: "", unit: "", itemId: "" };
 let activeTab = "explain";
 let quizState = null;
@@ -34,74 +48,106 @@ async function loadOptionalJson(path, fallback) {
   return response.json();
 }
 
-function loadProgress() {
-  try {
-    progress = JSON.parse(localStorage.getItem(STORAGE_KEY) || "{}");
-  } catch {
-    progress = {};
-  }
-}
-
-function saveProgress() {
-  localStorage.setItem(STORAGE_KEY, JSON.stringify(progress));
-}
-
-function defaultProgress() {
+/* ---- データ → Unit 契約への写像 ---- */
+function toQuestion(q) {
   return {
-    explained: false,
-    memoryCleared: false,
-    practiceCleared: false,
-    memoryCorrect: [],
-    practiceCorrect: [],
-    wrongQueue: [],
-    reviewStage: 0,
-    nextReviewAt: null
+    id: q.id,
+    stem: q.stem,
+    choices: q.choices,
+    answer: q.answer,
+    rationale: { whyCorrect: q.whyCorrect, whyWrong: q.whyWrong, translation: q.translation },
   };
 }
+function buildUnits(itemList, bank) {
+  const mem = {}, pra = {};
+  for (const q of bank.memoryQuestions || []) (mem[q.itemId] || (mem[q.itemId] = [])).push(toQuestion(q));
+  for (const q of bank.practiceQuestions || []) (pra[q.itemId] || (pra[q.itemId] = [])).push(toQuestion(q));
+  return itemList.map(it => ({
+    id: it.id,
+    meta: it,
+    modes: { memory: mem[it.id] || [], practice: pra[it.id] || [] },
+  }));
+}
 
+/* ============================================================
+   cloud sync（生徒別・共有URL ?s=&t=）— harness/cloud.js を利用
+   共通スキーマ app_students / app_progress（app="english-practice"）。
+   config.json が無ければ no-op で、従来どおり匿名ローカル動作（無回帰）。
+   このアプリ固有＝進捗(store)と説明フラグ(explained)を1つのjsonbに合成する点のみ。
+   ============================================================ */
+function setShareStatus(message, tone = "") {
+  const slot = $("#shareStatus");
+  if (!slot) return;
+  slot.textContent = message || "";
+  slot.className = "shareStatus" + (tone ? " " + tone : "");
+}
+// クラウドに保存する形： { v, progress(store全体), explained }
+function collectCloudPayload() {
+  return { v: 1, progress: store.snapshot(), explained };
+}
+// クラウドから来た内容を localStorage へ静かに反映（cloudエコー保存を避ける）
+function applyCloudPayload(payload) {
+  if (!payload || typeof payload !== "object") return;
+  const prog = payload.progress || payload; // 旧形式後方互換
+  if (prog && typeof prog === "object") store.replace(prog);
+  if (payload.explained && typeof payload.explained === "object") explained = payload.explained;
+  try {
+    localStorage.setItem(`harness.${HARNESS_CONFIG.appId}.progress`, JSON.stringify(store.snapshot()));
+  } catch { /* ignore */ }
+  saveExplained();
+}
+function applySharedUi() {
+  const enabled = !!(cloud && cloud.isEnabled());
+  document.body.classList.toggle("sharedMode", enabled);
+  const resetBtn = $("#resetBtn");
+  if (resetBtn) resetBtn.classList.toggle("hide", enabled);
+}
+
+/* ---- 説明(explained)フラグの永続化 ---- */
+function loadExplained() {
+  try { explained = JSON.parse(localStorage.getItem(EXPLAINED_KEY) || "{}"); }
+  catch { explained = {}; }
+}
+function saveExplained() {
+  try { localStorage.setItem(EXPLAINED_KEY, JSON.stringify(explained)); } catch { /* ignore */ }
+}
+
+/* ---- 旧進捗 → harness store 形式へ一度だけ移行（データ喪失回避） ---- */
+function migrateLegacy() {
+  const storeKey = `harness.${HARNESS_CONFIG.appId}.progress`;
+  if (localStorage.getItem(storeKey)) return; // 既に新形式あり
+  let legacy;
+  try { legacy = JSON.parse(localStorage.getItem(LEGACY_KEY) || "null"); }
+  catch { legacy = null; }
+  if (!legacy || typeof legacy !== "object") return;
+  const next = {};
+  for (const [id, st] of Object.entries(legacy)) {
+    next[id] = {
+      memory:   { correctIds: st.memoryCorrect || [], cleared: !!st.memoryCleared, wrongQueue: [], reviewStage: 0, nextReviewAt: null },
+      practice: { correctIds: st.practiceCorrect || [], cleared: !!st.practiceCleared, wrongQueue: st.wrongQueue || [], reviewStage: st.reviewStage || 0, nextReviewAt: st.nextReviewAt || null },
+    };
+    if (st.explained) explained[id] = true;
+  }
+  try { localStorage.setItem(storeKey, JSON.stringify(next)); } catch { /* ignore */ }
+  saveExplained();
+}
+
+/* ============================================================
+   engine/store 上の薄いシム（ビューはこの名前をそのまま使う）
+   ============================================================ */
+function questionsFor(itemId, mode) { return engine.questionsFor(itemId, mode); }
+function correctIdsFor(itemId, mode) { return store.modeState(itemId, mode).correctIds; }
+function modeCleared(itemId, mode) { return engine.isModeCleared(itemId, mode); }
+function modeProgress(itemId, mode) { return engine.progressOf(itemId, mode); } // {total,correct,remaining}
+function isComplete(itemId) { return engine.isUnitComplete(itemId); }
 function stateFor(itemId) {
-  if (!progress[itemId]) progress[itemId] = defaultProgress();
-  if (!Array.isArray(progress[itemId].memoryCorrect)) progress[itemId].memoryCorrect = [];
-  if (!Array.isArray(progress[itemId].practiceCorrect)) progress[itemId].practiceCorrect = [];
-  if (!Array.isArray(progress[itemId].wrongQueue)) progress[itemId].wrongQueue = [];
-  if (progress[itemId].memoryCleared && progress[itemId].memoryCorrect.length === 0) {
-    progress[itemId].memoryCorrect = questionsFor(itemId, "memory").map(q => q.id);
-  }
-  if (progress[itemId].practiceCleared && progress[itemId].practiceCorrect.length === 0) {
-    progress[itemId].practiceCorrect = questionsFor(itemId, "practice").map(q => q.id);
-  }
-  return progress[itemId];
+  return {
+    explained: !!explained[itemId],
+    memoryCleared: engine.isModeCleared(itemId, "memory"),
+    practiceCleared: engine.isModeCleared(itemId, "practice"),
+  };
 }
-
-function correctIdsFor(itemId, mode) {
-  const state = stateFor(itemId);
-  return mode === "memory" ? state.memoryCorrect : state.practiceCorrect;
-}
-
-function modeCleared(itemId, mode) {
-  const ids = new Set(correctIdsFor(itemId, mode));
-  const total = questionsFor(itemId, mode).length;
-  return total > 0 && ids.size >= total;
-}
-
-function modeProgress(itemId, mode) {
-  const total = questionsFor(itemId, mode).length;
-  const correct = new Set(correctIdsFor(itemId, mode)).size;
-  const remaining = Math.max(total - correct, 0);
-  return { total, correct, remaining };
-}
-
-function syncClearedFlags(itemId) {
-  const state = stateFor(itemId);
-  state.memoryCleared = modeCleared(itemId, "memory");
-  state.practiceCleared = modeCleared(itemId, "practice");
-  return state;
-}
-
-function isComplete(itemId) {
-  const state = syncClearedFlags(itemId);
-  return state.memoryCleared && state.practiceCleared;
-}
+function syncClearedFlags(itemId) { return stateFor(itemId); }
 
 function grouped(itemsToGroup, key) {
   return [...new Set(itemsToGroup.map(item => item[key]))];
@@ -114,11 +160,6 @@ function currentItems() {
     .filter(item => !selected.unit || item.unit === selected.unit)
     .filter(item => !$("#incompleteOnly").checked || !isComplete(item.id))
     .sort((a, b) => a.order - b.order);
-}
-
-function questionsFor(itemId, mode) {
-  const source = mode === "memory" ? memoryQuestions : practiceQuestions;
-  return source.filter(q => q.itemId === itemId);
 }
 
 function setVisible(panel) {
@@ -235,8 +276,9 @@ function renderExplain(item, state) {
     </div>
   `;
   $("#markExplainBtn").onclick = () => {
-    stateFor(item.id).explained = true;
-    saveProgress();
+    explained[item.id] = true;
+    saveExplained();
+    if (cloud) cloud.queueSave();   // explained は store を触らないので明示的に同期
     renderItemPanel();
   };
   $("#goMemoryBtn").onclick = () => switchTab("memory");
@@ -360,26 +402,9 @@ function renderQuiz(item, mode) {
   };
 }
 
-function scheduleReview(state) {
-  const days = [1, 3, 7, 14];
-  const stage = Math.min(state.reviewStage || 0, days.length - 1);
-  const next = new Date();
-  next.setDate(next.getDate() + days[stage]);
-  state.nextReviewAt = next.toISOString();
-  state.reviewStage = Math.min(stage + 1, days.length - 1);
-}
-
 function restartMode(itemId, mode) {
-  const state = stateFor(itemId);
-  if (mode === "memory") {
-    state.memoryCorrect = [];
-    state.memoryCleared = false;
-  } else {
-    state.practiceCorrect = [];
-    state.practiceCleared = false;
-    state.nextReviewAt = null;
-  }
-  saveProgress();
+  store.resetMode(itemId, mode);
+  store.save();
   quizState = null;
   renderItemPanel();
 }
@@ -390,27 +415,11 @@ function answerQuestion(choice) {
   quizState.selectedChoice = choice;
   const item = currentItem();
   const q = quizState.pool[quizState.index];
-  const state = stateFor(item.id);
-  const correct = choice === q.answer;
   const mode = quizState.mode;
-  const wasPracticeCleared = state.practiceCleared;
 
-  const correctIds = correctIdsFor(item.id, mode);
-  if (correct && !correctIds.includes(q.id)) correctIds.push(q.id);
-  if (mode === "memory") {
-    state.memoryCleared = modeCleared(item.id, "memory");
-  } else {
-    state.practiceCleared = modeCleared(item.id, "practice");
-    if (state.practiceCleared && !wasPracticeCleared) {
-      scheduleReview(state);
-    }
-  }
-  if (correct) {
-    state.wrongQueue = state.wrongQueue.filter(id => id !== q.id);
-  } else if (!state.wrongQueue.includes(q.id)) {
-    state.wrongQueue.push(q.id);
-  }
-  saveProgress();
+  // 判定・進捗更新・クリア再判定・Leitner・保存を engine が一括で行う
+  const res = engine.answer(item.id, mode, q.id, choice);
+  const correct = res.correct;
 
   $$(".choiceBtn").forEach(button => {
     button.disabled = true;
@@ -418,26 +427,25 @@ function answerQuestion(choice) {
     if (button.dataset.choice === choice && !correct) button.classList.add("wrong");
   });
   $("#feedbackSlot").innerHTML = feedbackHtml(q, choice, correct, mode);
-  const nowCleared = mode === "memory" ? state.memoryCleared : state.practiceCleared;
-  $("#nextQuestionBtn").textContent = nowCleared ? "クリアを確認" : "次の問題へ";
+  $("#nextQuestionBtn").textContent = res.modeCleared ? "クリアを確認" : "次の問題へ";
   $("#nextQuestionBtn").classList.remove("hide");
   renderItemStatusOnly();
 }
 
 function feedbackHtml(q, choice, correct, mode) {
-  const wrongEntries = Object.entries(q.whyWrong || {});
+  const r = q.rationale || {};
+  const wrongEntries = Object.entries(r.whyWrong || {});
   const wrongHtml = wrongEntries.length
     ? `<ul class="explainList">${wrongEntries.map(([key, value]) =>
         `<li><strong>${esc(key)}</strong>: ${esc(value)}</li>`
       ).join("")}</ul>`
     : "";
-  const translation = q.translation ? `<p><strong>訳:</strong> ${esc(q.translation)}</p>` : "";
-  const answerLine = mode === "memory" ? "正解" : "正解";
+  const translation = r.translation ? `<p><strong>訳:</strong> ${esc(r.translation)}</p>` : "";
   return `
     <div class="feedback ${correct ? "ok" : "ng"}">
       <h3>${correct ? "正解" : "不正解"}</h3>
-      <p><strong>${answerLine}:</strong> ${esc(q.answer)}</p>
-      <p><strong>なぜ正解か:</strong> ${esc(q.whyCorrect)}</p>
+      <p><strong>正解:</strong> ${esc(q.answer)}</p>
+      <p><strong>なぜ正解か:</strong> ${esc(r.whyCorrect)}</p>
       ${wrongHtml ? `<p><strong>他の選択肢:</strong></p>${wrongHtml}` : ""}
       ${translation}
       ${!correct ? `<p class="hint">あなたの解答: ${esc(choice)}</p>` : ""}
@@ -503,9 +511,12 @@ function bindEvents() {
   $("#checkerTopBtn").onclick = renderChecker;
   $("#checkerCloseBtn").onclick = renderHome;
   $("#resetBtn").onclick = () => {
+    if (cloud && cloud.isEnabled()) return;   // 共有モードでは進捗を消さない
     if (!confirm("v2の進捗をリセットしますか？")) return;
-    progress = {};
-    saveProgress();
+    store.resetAll();
+    store.save();                              // onChange 経由でクラウドにも反映
+    explained = {};
+    saveExplained();
     renderHome();
   };
   $("#tabExplain").onclick = () => switchTab("explain");
@@ -521,9 +532,29 @@ async function init() {
       loadJson("data/grammar_bank.json")
     ]);
     items = [...(itemData.items || []), ...(extraItemData.items || [])].sort((a, b) => a.order - b.order);
-    memoryQuestions = bankData.memoryQuestions || [];
-    practiceQuestions = bankData.practiceQuestions || [];
-    loadProgress();
+    units = buildUnits(items, bankData);
+
+    loadExplained();
+    migrateLegacy();                 // 旧進捗があれば新形式へ（store.load 前に）
+    // store の変更（engine.answer 内の save 等）を検知してクラウドへデバウンス保存
+    store = createStore({
+      appId: HARNESS_CONFIG.appId,
+      modes: HARNESS_CONFIG.modes,
+      onChange: () => { if (cloud) cloud.queueSave(); },
+    });
+    store.load();
+    engine = createEngine(HARNESS_CONFIG, { store, units });
+
+    // 生徒別クラウド同期（共有URL ?s=&t= があり config.json が揃うときのみ有効）
+    cloud = createCloud({
+      appId: HARNESS_CONFIG.appId,
+      getPayload: collectCloudPayload,
+      applyLoaded: applyCloudPayload,
+      onStatus: setShareStatus,
+    });
+    await cloud.init();
+    applySharedUi();
+
     bindEvents();
     renderHome();
   } catch (error) {
