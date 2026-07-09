@@ -14,13 +14,18 @@
       <h1>英文法トレーナー</h1>
     </div>
     <div class="topActions">
-      <div class="studentControls" aria-label="生徒別進捗">
-        <label class="fieldLabel compact" for="studentSel">生徒</label>
-        <select id="studentSel"></select>
-        <button class="ghost" id="addStudentBtn" type="button">生徒追加</button>
-      </div>
-      <button class="ghost" id="resetBtn" type="button">全進捗リセット</button>
       <div class="shareStatus" id="shareStatus" aria-live="polite"></div>
+      <details class="settingsMenu">
+        <summary class="ghost">⚙ 管理</summary>
+        <div class="settingsBody">
+          <div class="studentControls" aria-label="生徒別進捗">
+            <label class="fieldLabel compact" for="studentSel">生徒</label>
+            <select id="studentSel"></select>
+            <button class="ghost" id="addStudentBtn" type="button">生徒追加</button>
+          </div>
+          <button class="ghost" id="resetBtn" type="button">この生徒の記録をすべて消す</button>
+        </div>
+      </details>
     </div>
   </header>
 
@@ -29,6 +34,10 @@
       <p class="label">English Grammar Trainer</p>
       <h2>標準レベルの英文法4択を、正解するまで効率よく周回する</h2>
       <p class="hint">UNITごとに問題を解き、正答・和訳・解説を確認しながら弱点をつぶしていきます。</p>
+      <div class="actions">
+        <button class="cta" id="continueBtn" type="button">▶ つづきから始める</button>
+        <button class="ghost" id="reviewBtn" type="button">苦手だけ復習（全UNIT）</button>
+      </div>
     </section>
 
     <section class="card" id="homePanel">
@@ -51,13 +60,13 @@
       <div id="step2Heatmap"></div>
       <div id="step3Challenge"></div>
 
-      <div class="freePractice">
-        <div class="sectionHead">
+      <details class="freePractice">
+        <summary class="sectionHead">
           <div>
             <p class="label">Free Practice</p>
-            <h2>自由演習</h2>
+            <h2>自由演習（範囲を指定して解く）</h2>
           </div>
-        </div>
+        </summary>
       <div class="selectorGrid">
         <div>
           <label class="fieldLabel" for="unitSel">単元</label>
@@ -70,21 +79,17 @@
         <div>
           <label class="fieldLabel" for="modeSel">出題モード</label>
           <select id="modeSel">
-            <option value="setAll">セット全問</option>
-            <option value="setUnresolved">セットの未正解のみ</option>
-            <option value="setWrong">セットの誤答のみ</option>
-            <option value="unitRandom">UNIT指定ランダム</option>
-            <option value="allRandom">全問ランダム</option>
-            <option value="tenTest">10問テスト</option>
+            <option value="setAll">このセットを解く</option>
+            <option value="setUnresolved">まだ正解していない問題だけ</option>
+            <option value="tenTest">実力チェック（全範囲からランダム10問）</option>
           </select>
         </div>
       </div>
       <p class="modeHelp" id="modeHelp"></p>
       <div class="actions">
         <button class="cta" id="startBtn" type="button">演習を始める</button>
-        <button class="ghost" id="reviewBtn" type="button">全体の未正解を復習</button>
       </div>
-      </div>
+      </details>
     </section>
 
     <section class="card hide" id="quizPanel">

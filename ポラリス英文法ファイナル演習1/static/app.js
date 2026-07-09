@@ -41,20 +41,14 @@ let sharedSession = {
 const MODE_HELP = {
   setAll: "選択したセットの10問を出題します。",
   setUnresolved: "選択したセットのうち、まだ正解済みになっていない問題だけを出題します。",
-  setWrong: "選択したセットのうち、過去に間違えていて、まだ正解済みでない問題だけを出題します。",
-  unitRandom: "選択したUNIT内の問題をランダム順で出題します。",
-  allRandom: "収録済みの全問題をランダム順で出題します。",
   tenTest: "収録済みの全問題からランダムに10問を出題します。"
 };
 
 const MODE_TITLE = {
-  setAll: "セット全問",
-  setUnresolved: "セットの未正解のみ",
-  setWrong: "セットの誤答のみ",
-  unitRandom: "UNIT指定ランダム",
-  allRandom: "全問ランダム",
-  tenTest: "10問テスト",
-  review: "全体の未正解を復習"
+  setAll: "このセットを解く",
+  setUnresolved: "まだ正解していない問題だけ",
+  tenTest: "実力チェック",
+  review: "苦手だけ復習"
 };
 
 const MASTER_TARGET = 30;
@@ -331,7 +325,6 @@ function step1WrongQuestions(questions) {
 function filteredQuestions(unitId, setId, mode) {
   const questions = questionsForSet(unitId, setId);
   if (mode === "setUnresolved") return questions.filter(question => !stateFor(question.id).cleared);
-  if (mode === "setWrong") return questions.filter(question => stateFor(question.id).wrong > 0 && !stateFor(question.id).cleared);
   return questions;
 }
 
@@ -342,8 +335,6 @@ function questionsForUnit(unitId) {
 }
 
 function buildQuestionPool() {
-  if (selected.mode === "unitRandom") return shuffled(questionsForUnit(selected.unitId));
-  if (selected.mode === "allRandom") return shuffled(questionData.questions);
   if (selected.mode === "tenTest") return shuffled(questionData.questions).slice(0, 10);
   return shuffled(filteredQuestions(selected.unitId, selected.setId, selected.mode));
 }
@@ -460,21 +451,54 @@ function renderMasterPath() {
         <p class="label">Step 2</p>
         <h3>ランダム制覇</h3>
         <div class="stepCount">${progressRatio(step2)}</div>
-        <p class="hint">${step2Open ? "未クリア問題だけをランダム出題。" : "Step 1を全問クリアで解放。"}</p>
-        <button class="ghost" id="step2Btn" type="button" ${step2Open ? "" : "disabled"}>Step 2を始める</button>
+        <p class="hint">${step2Open ? "未クリア問題だけをランダム出題。下のヒートマップから始められます。" : "Step 1を全問クリアで解放。"}</p>
       </div>
       <div class="stepCard ${step3Open ? "active" : "locked"} ${meta.mastered ? "mastered" : ""}">
         <p class="label">Step 3</p>
         <h3>30問連続正解</h3>
         <div class="stepCount">${masterLabel}</div>
         <p class="hint">${step3Open ? "間違えたら0から続行。30連続で合格。" : "Step 2を全問クリアで解放。"}</p>
-        <button class="ghost" id="step3Btn" type="button" ${step3Open ? "" : "disabled"}>Step 3を始める</button>
       </div>
     </div>
   `;
+}
 
-  $("#step2Btn").onclick = () => startStep2Quiz();
-  $("#step3Btn").onclick = () => startStep3Quiz();
+function nextAction() {
+  for (const unit of questionData.units) {
+    for (const set of unit.sets) {
+      const questions = questionsForSet(unit.id, set.id);
+      const stats = stepStats("step1Cleared", questions);
+      if (stats.remaining > 0) {
+        return {
+          kind: "step1",
+          unitId: unit.id,
+          setId: set.id,
+          label: `▶ つづきから始める — ${unit.title} 残り${stats.remaining}問`
+        };
+      }
+    }
+  }
+  const step2Stats = stepStats("step2Cleared");
+  if (step2Stats.remaining > 0) {
+    return { kind: "step2", label: `▶ つづきから始める — Step 2 残り${step2Stats.remaining}問` };
+  }
+  const meta = metaState();
+  return {
+    kind: "step3",
+    label: meta.mastered ? "▶ Step 3 チャレンジを続ける（MASTER済み）" : "▶ つづきから始める — Step 3 チャレンジ"
+  };
+}
+
+function renderContinueCta() {
+  const action = nextAction();
+  const button = $("#continueBtn");
+  if (!button) return;
+  button.textContent = action.label;
+  button.onclick = () => {
+    if (action.kind === "step1") startStep1Quiz(action.unitId, action.setId);
+    else if (action.kind === "step2") startStep2Quiz();
+    else startStep3Quiz();
+  };
 }
 
 function renderHeatmap(enabled) {
@@ -556,19 +580,35 @@ function renderSetList() {
       const questions = questionsForSet(unit.id, set.id);
       const stats = stepStats("step1Cleared", questions);
       const wrongCount = step1WrongQuestions(questions).length;
+      const cleared = stats.remaining === 0 && stats.total > 0;
+      let buttonLabel;
+      let variant;
+      if (stats.total === 0) {
+        buttonLabel = "問題なし";
+      } else if (cleared) {
+        buttonLabel = "クリア済み（もう一度解く）";
+        variant = "all";
+      } else if (wrongCount > 0) {
+        buttonLabel = `間違えた${wrongCount}問をやり直す`;
+        variant = "wrongOnly";
+      } else if (stats.cleared > 0) {
+        buttonLabel = `残り${stats.remaining}問を解く`;
+        variant = "all";
+      } else {
+        buttonLabel = "UNIT演習をはじめる";
+        variant = "all";
+      }
       return `
-        <div class="itemCard ${stats.remaining === 0 && stats.total ? "done" : ""}">
+        <div class="itemCard ${cleared ? "done" : ""}">
           <div class="itemMeta">${esc(unit.title)}</div>
           <h3>${esc(set.title)}</h3>
           <p class="sourceLine">${esc(unitSource(unit))}</p>
           <div class="badgeRow">
-            <span class="badge ${stats.remaining === 0 && stats.total ? "ok" : "warn"}">Step 1 ${stats.cleared}/${stats.total}</span>
-            <span class="badge ${stats.remaining === 0 && stats.total ? "ok" : ""}">残り ${stats.remaining}</span>
+            <span class="badge ${cleared ? "ok" : "warn"}">Step 1 ${stats.cleared}/${stats.total}</span>
             <span class="badge ${wrongCount ? "warn" : ""}">誤答 ${wrongCount}</span>
           </div>
           <div class="cardActions">
-            <button class="startUnitBtn" type="button" data-unit="${esc(unit.id)}" data-set="${esc(set.id)}">UNIT演習</button>
-            <button class="ghost wrongUnitBtn" type="button" data-unit="${esc(unit.id)}" data-set="${esc(set.id)}" ${wrongCount ? "" : "disabled"}>間違えた問題だけ</button>
+            <button class="startUnitBtn" type="button" data-unit="${esc(unit.id)}" data-set="${esc(set.id)}" data-variant="${variant || ""}" ${stats.total === 0 ? "disabled" : ""}>${esc(buttonLabel)}</button>
           </div>
         </div>
       `;
@@ -578,21 +618,12 @@ function renderSetList() {
 
   $$(".startUnitBtn").forEach(button => {
     button.onclick = () => {
+      const variant = button.dataset.variant === "wrongOnly" ? "wrongOnly" : "all";
       selected.unitId = button.dataset.unit;
       selected.setId = button.dataset.set;
-      selected.mode = "setAll";
+      selected.mode = variant === "wrongOnly" ? "setUnresolved" : "setAll";
       renderHome();
-      startStep1Quiz(selected.unitId, selected.setId);
-    };
-  });
-
-  $$(".wrongUnitBtn").forEach(button => {
-    button.onclick = () => {
-      selected.unitId = button.dataset.unit;
-      selected.setId = button.dataset.set;
-      selected.mode = "setWrong";
-      renderHome();
-      startStep1Quiz(selected.unitId, selected.setId, "wrongOnly");
+      startStep1Quiz(selected.unitId, selected.setId, variant);
     };
   });
 
@@ -614,6 +645,7 @@ function renderSetList() {
 function renderHome() {
   renderStudentControls();
   renderSelectors();
+  renderContinueCta();
   renderMasterPath();
   renderSetList();
   setVisible("homePanel");

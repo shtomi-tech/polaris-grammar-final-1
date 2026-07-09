@@ -431,6 +431,69 @@ h2 {
   padding-top: 18px;
 }
 
+.freePractice > summary {
+  cursor: pointer;
+  list-style: none;
+}
+
+.freePractice > summary::-webkit-details-marker {
+  display: none;
+}
+
+.freePractice > summary .label::before {
+  content: "▸ ";
+}
+
+.freePractice[open] > summary .label::before {
+  content: "▾ ";
+}
+
+.freePractice > .selectorGrid,
+.freePractice > .modeHelp,
+.freePractice > .actions {
+  margin-top: 14px;
+}
+
+.settingsMenu {
+  position: relative;
+}
+
+.settingsMenu > summary {
+  cursor: pointer;
+  list-style: none;
+}
+
+.settingsMenu > summary::-webkit-details-marker {
+  display: none;
+}
+
+.settingsBody {
+  position: absolute;
+  right: 0;
+  top: calc(100% + 6px);
+  z-index: 10;
+  background: var(--paper);
+  border: 1px solid var(--ink);
+  padding: 14px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  width: 260px;
+}
+
+.settingsBody .studentControls {
+  grid-template-columns: 1fr;
+  justify-items: stretch;
+}
+
+.settingsBody .fieldLabel.compact {
+  padding-bottom: 0;
+}
+
+.settingsBody button {
+  width: 100%;
+}
+
 .selectorGrid {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
