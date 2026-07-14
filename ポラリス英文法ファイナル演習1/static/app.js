@@ -40,13 +40,11 @@ let sharedSession = {
 
 const MODE_HELP = {
   setAll: "選択したセットの10問を出題します。",
-  setUnresolved: "選択したセットのうち、まだ正解済みになっていない問題だけを出題します。",
   tenTest: "収録済みの全問題からランダムに10問を出題します。"
 };
 
 const MODE_TITLE = {
   setAll: "このセットを解く",
-  setUnresolved: "まだ正解していない問題だけ",
   tenTest: "実力チェック",
   review: "苦手だけ復習"
 };
@@ -322,10 +320,8 @@ function step1WrongQuestions(questions) {
   });
 }
 
-function filteredQuestions(unitId, setId, mode) {
-  const questions = questionsForSet(unitId, setId);
-  if (mode === "setUnresolved") return questions.filter(question => !stateFor(question.id).cleared);
-  return questions;
+function filteredQuestions(unitId, setId) {
+  return questionsForSet(unitId, setId);
 }
 
 function questionsForUnit(unitId) {
@@ -336,7 +332,7 @@ function questionsForUnit(unitId) {
 
 function buildQuestionPool() {
   if (selected.mode === "tenTest") return shuffled(questionData.questions).slice(0, 10);
-  return shuffled(filteredQuestions(selected.unitId, selected.setId, selected.mode));
+  return shuffled(filteredQuestions(selected.unitId, selected.setId));
 }
 
 function stepStats(field, questions = questionData.questions) {
@@ -394,6 +390,7 @@ function setVisible(panel) {
   for (const id of ["homePanel", "quizPanel"]) {
     $(`#${id}`).classList.toggle("hide", id !== panel);
   }
+  $("#mobileCtaBar").classList.toggle("hide", panel !== "homePanel");
 }
 
 function renderStudentControls() {
@@ -441,19 +438,19 @@ function renderMasterPath() {
 
   $("#masterPath").innerHTML = `
     <div class="masterGrid">
-      <div class="stepCard active">
+      <div class="stepCard active" data-target="step1Section">
         <p class="label">Step 1</p>
         <h3>UNIT演習</h3>
         <div class="stepCount">${progressRatio(step1)}</div>
         <p class="hint">UNITごとに一度正解した問題を積み上げる。</p>
       </div>
-      <div class="stepCard ${step2Open ? "active" : "locked"}">
+      <div class="stepCard ${step2Open ? "active" : "locked"}" data-target="step2Section">
         <p class="label">Step 2</p>
         <h3>ランダム制覇</h3>
         <div class="stepCount">${progressRatio(step2)}</div>
         <p class="hint">${step2Open ? "未クリア問題だけをランダム出題。下のヒートマップから始められます。" : "Step 1を全問クリアで解放。"}</p>
       </div>
-      <div class="stepCard ${step3Open ? "active" : "locked"} ${meta.mastered ? "mastered" : ""}">
+      <div class="stepCard ${step3Open ? "active" : "locked"} ${meta.mastered ? "mastered" : ""}" data-target="step3Section">
         <p class="label">Step 3</p>
         <h3>30問連続正解</h3>
         <div class="stepCount">${masterLabel}</div>
@@ -461,6 +458,12 @@ function renderMasterPath() {
       </div>
     </div>
   `;
+  $$(".stepCard[data-target]").forEach(card => {
+    card.onclick = () => {
+      const target = document.getElementById(card.dataset.target);
+      if (target) target.scrollIntoView({ behavior: "smooth", block: "start" });
+    };
+  });
 }
 
 function nextAction() {
@@ -491,17 +494,29 @@ function nextAction() {
 
 function renderContinueCta() {
   const action = nextAction();
-  const button = $("#continueBtn");
-  if (!button) return;
-  button.textContent = action.label;
-  button.onclick = () => {
+  const onClick = () => {
     if (action.kind === "step1") startStep1Quiz(action.unitId, action.setId);
     else if (action.kind === "step2") startStep2Quiz();
     else startStep3Quiz();
   };
+  for (const id of ["continueBtn", "continueBtnMobile"]) {
+    const button = $(`#${id}`);
+    if (!button) continue;
+    button.textContent = action.label;
+    button.onclick = onClick;
+  }
+}
+
+function renderReviewCta() {
+  const button = $("#reviewBtn");
+  if (!button) return;
+  const count = allUnresolvedQuestions().length;
+  button.classList.toggle("hide", count === 0);
+  button.textContent = `苦手だけ復習（残り${count}問・全UNIT）`;
 }
 
 function renderHeatmap(enabled) {
+  const overall = stepStats("step2Cleared");
   const rows = questionData.units.map(unit => {
     const questions = questionsForUnit(unit.id);
     const stats = stepStats("step2Cleared", questions);
@@ -521,14 +536,16 @@ function renderHeatmap(enabled) {
     `;
   }).join("");
   return `
-    <div class="heatmap ${enabled ? "" : "locked"}">
-      <div class="heatHead">
+    <div class="stepSection heatmap ${enabled ? "" : "locked"}" id="step2Section">
+      <div class="stepSectionHead">
         <div>
-          <p class="label">Step 2 Heatmap</p>
-          <h3>ランダム制覇マップ</h3>
+          <p class="label">Step 2</p>
+          <h2>ランダム制覇マップ</h2>
         </div>
-        <p class="hint">${enabled ? "正解した問題が埋まります。マスを押すとその1問を確認できます。" : "Step 1クリア後に解放されます。"}</p>
+        <div class="progressSummary">${progressRatio(overall)}</div>
       </div>
+      <p class="hint">${enabled ? "正解した問題が埋まります。未クリアな問題からランダムに出題する場合は下のボタンを押してください。マスを押すとその1問だけ確認できます。" : "Step 1クリア後に解放されます。"}</p>
+      ${enabled ? `<div class="actions"><button class="cta" id="step2StartBtn" type="button">未クリアからランダムに出題</button></div>` : ""}
       ${rows}
     </div>
   `;
@@ -551,11 +568,11 @@ function renderStep3Challenge(enabled) {
   }).join("");
   const remaining = Math.max(MASTER_TARGET - filled, 0);
   return `
-    <div class="challengeMap ${enabled ? "" : "locked"} ${meta.mastered ? "mastered" : ""}">
-      <div class="challengeHeader">
+    <div class="stepSection challengeMap ${enabled ? "" : "locked"} ${meta.mastered ? "mastered" : ""}" id="step3Section">
+      <div class="stepSectionHead">
         <div>
-          <p class="label">Step 3 Challenge</p>
-          <h3>30問連続正解チャレンジ</h3>
+          <p class="label">Step 3</p>
+          <h2>30問連続正解チャレンジ</h2>
         </div>
         <div class="challengeResult">${meta.mastered ? "MASTER" : `あと ${remaining}`}</div>
       </div>
@@ -605,7 +622,7 @@ function renderSetList() {
           <p class="sourceLine">${esc(unitSource(unit))}</p>
           <div class="badgeRow">
             <span class="badge ${cleared ? "ok" : "warn"}">Step 1 ${stats.cleared}/${stats.total}</span>
-            <span class="badge ${wrongCount ? "warn" : ""}">誤答 ${wrongCount}</span>
+            ${wrongCount ? `<span class="badge warn">誤答 ${wrongCount}</span>` : ""}
           </div>
           <div class="cardActions">
             <button class="startUnitBtn" type="button" data-unit="${esc(unit.id)}" data-set="${esc(set.id)}" data-variant="${variant || ""}" ${stats.total === 0 ? "disabled" : ""}>${esc(buttonLabel)}</button>
@@ -621,7 +638,7 @@ function renderSetList() {
       const variant = button.dataset.variant === "wrongOnly" ? "wrongOnly" : "all";
       selected.unitId = button.dataset.unit;
       selected.setId = button.dataset.set;
-      selected.mode = variant === "wrongOnly" ? "setUnresolved" : "setAll";
+      selected.mode = "setAll";
       renderHome();
       startStep1Quiz(selected.unitId, selected.setId, variant);
     };
@@ -636,6 +653,8 @@ function renderSetList() {
       if (question) startStep2Quiz(question);
     };
   });
+  const step2StartBtn = $("#step2StartBtn");
+  if (step2StartBtn) step2StartBtn.onclick = () => startStep2Quiz();
 
   const step3Open = step3Unlocked();
   $("#step3Challenge").innerHTML = renderStep3Challenge(step3Open);
@@ -646,6 +665,7 @@ function renderHome() {
   renderStudentControls();
   renderSelectors();
   renderContinueCta();
+  renderReviewCta();
   renderMasterPath();
   renderSetList();
   setVisible("homePanel");
@@ -765,7 +785,6 @@ function renderQuiz() {
       <div id="feedbackSlot"></div>
     </div>
     <div class="actions">
-      <button class="ghost" id="backToHomeBtn" type="button">一覧へ戻る</button>
       <button class="cta hide" id="nextBtn" type="button">次の問題へ</button>
     </div>
   `;
@@ -773,7 +792,6 @@ function renderQuiz() {
   $$(".choiceBtn").forEach(button => {
     button.onclick = () => answerQuestion(Number(button.dataset.index));
   });
-  $("#backToHomeBtn").onclick = renderHome;
   $("#nextBtn").onclick = () => {
     moveNext();
     renderQuiz();

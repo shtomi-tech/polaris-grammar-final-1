@@ -23,7 +23,9 @@
             <select id="studentSel"></select>
             <button class="ghost" id="addStudentBtn" type="button">生徒追加</button>
           </div>
-          <button class="ghost" id="resetBtn" type="button">この生徒の記録をすべて消す</button>
+          <div class="dangerZone">
+            <button class="danger" id="resetBtn" type="button">この生徒の記録をすべて消す</button>
+          </div>
         </div>
       </details>
     </div>
@@ -49,14 +51,16 @@
         <div class="progressSummary" id="progressSummary"></div>
       </div>
       <div id="masterPath"></div>
-      <div class="stepUnitHead">
-        <div>
-          <p class="label">Step 1</p>
-          <h2>UNIT演習</h2>
+      <div class="stepSection" id="step1Section">
+        <div class="stepSectionHead">
+          <div>
+            <p class="label">Step 1</p>
+            <h2>UNIT演習</h2>
+          </div>
+          <p class="hint">各UNITの10問を解き、全100問を一度でも正解したらStep 2へ進めます。</p>
         </div>
-        <p class="hint">各UNITの10問を解き、全100問を一度でも正解したらStep 2へ進めます。</p>
+        <div id="setList" class="itemList"></div>
       </div>
-      <div id="setList" class="itemList"></div>
       <div id="step2Heatmap"></div>
       <div id="step3Challenge"></div>
 
@@ -80,7 +84,6 @@
           <label class="fieldLabel" for="modeSel">出題モード</label>
           <select id="modeSel">
             <option value="setAll">このセットを解く</option>
-            <option value="setUnresolved">まだ正解していない問題だけ</option>
             <option value="tenTest">実力チェック（全範囲からランダム10問）</option>
           </select>
         </div>
@@ -104,6 +107,10 @@
     </section>
 
   </main>
+
+  <div class="mobileCtaBar hide" id="mobileCtaBar">
+    <button class="cta" id="continueBtnMobile" type="button"></button>
+  </div>
 </div>
 
 <script src="static/app.js?v=20260706-appschema"></script>
