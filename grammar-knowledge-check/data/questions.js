@@ -1,3 +1,154 @@
+const DOMAIN_TARGETS = {
+  foundation: "句・節・文の要素を、英文の中で役割ごとに分ける力",
+  pattern: "動詞の後ろの要素から文型と自他を判断する力",
+  verb_form: "主語・時制・助動詞から動詞の形を決める力",
+  tense: "出来事を基準時との前後関係に置く力",
+  modal: "助動詞・類似表現の形と意味を区別する力",
+  passive: "受け手を主語にした形と必要な前置詞を判断する力",
+  infinitive: "to 不定詞の働きと意味上の主語を見分ける力",
+  gerund: "動名詞を必要とする位置と不定詞との意味差を見分ける力",
+  participle: "分詞の能動・受動と時間関係を判断する力",
+  comparison: "比較の形と話し手の含意を読み取る力",
+  relative: "先行詞と節内で欠ける要素から関係詞を選ぶ力",
+  conjunction: "節と名詞句、節どうしの関係を区別する力",
+  subjunctive: "現実との距離と時間から仮定法の形を決める力",
+  nouns: "名詞の可算性・限定詞・格を文中で判断する力",
+  adverb: "修飾先から形容詞・副詞の形と意味を選ぶ力",
+  preposition: "時間・場所・到達の関係を前置詞で区別する力",
+  negation: "否定の範囲と語順から文意を判断する力"
+};
+
+const QUESTION_META = {
+  q1: { skill: "application", misconceptions: { "句": "接続詞 because を見て句と誤認している。", "単語": "まとまりの中の主語・動詞を確認していない。", "文型": "まとまりの種類と文型を混同している。" } },
+  q2: { skill: "distinction" }, q3: { skill: "knowledge" }, q4: { skill: "application" },
+  q5: { skill: "distinction" }, q6: { skill: "application", priority: "core" }, q7: { skill: "distinction" }, q8: { skill: "application", priority: "core" },
+  q9: { skill: "application" }, q10: { skill: "distinction" }, q11: { skill: "knowledge" },
+  q12: { skill: "application" }, q13: { skill: "distinction", priority: "core" }, q14: { skill: "application" }, q15: { skill: "distinction", priority: "core" }, q16: { skill: "distinction" },
+  q17: { skill: "knowledge" }, q18: { skill: "distinction", priority: "core" }, q19: { skill: "distinction" },
+  q20: { skill: "knowledge" }, q21: { skill: "application", priority: "core" }, q22: { skill: "distinction" },
+  q23: { skill: "knowledge" }, q24: { skill: "application" }, q25: { skill: "application" }, q26: { skill: "distinction", priority: "core" },
+  q27: { skill: "application" }, q28: { skill: "application" }, q29: { skill: "distinction", priority: "core" },
+  q30: { skill: "application" }, q31: { skill: "distinction", priority: "core" }, q32: { skill: "application" }, q33: { skill: "distinction" },
+  q34: { skill: "knowledge" }, q35: { skill: "application" }, q36: { skill: "distinction", priority: "core" }, q37: { skill: "knowledge" },
+  q38: { skill: "application", priority: "core" }, q39: { skill: "distinction" }, q40: { skill: "application" }, q41: { skill: "distinction" },
+  q42: { skill: "distinction", priority: "core" }, q43: { skill: "application", priority: "core" }, q44: { skill: "application" },
+  q45: { skill: "application" }, q46: { skill: "application", priority: "core" }, q47: { skill: "distinction" },
+  q48: { skill: "distinction" }, q49: { skill: "knowledge" }, q50: { skill: "application" }, q51: { skill: "distinction" },
+  q52: { skill: "application" }, q53: { skill: "distinction" }, q54: { skill: "knowledge" },
+  q55: { skill: "distinction", priority: "core" }, q56: { skill: "application", priority: "core" },
+  q57: { skill: "application" }, q58: { skill: "distinction", priority: "core" }, q59: { skill: "application" }, q60: { skill: "application" }
+};
+
+const QUESTION_PATCHES = {
+  q1: {
+    stem: "In \"because he was tired\", \"he was tired\" は何か。",
+    choices: ["句", "節", "単語", "文型"],
+    answer: "節",
+    explanation: "he was tired に主語 he と動詞 was があるため節。because はその節を導く接続詞であり、節そのものではない。"
+  },
+  q8: {
+    stem: "arrive の使い方として正しい文はどれか。",
+    choices: ["We arrived the station before noon.", "We arrived at the station before noon.", "We arrived to the station before noon.", "We arrived the station to before noon."],
+    answer: "We arrived at the station before noon.",
+    explanation: "arrive は目的語を直接取らない自動詞。到着地点には arrive at + 小さい場所 / arrive in + 都市・国を用いる。",
+    misconceptions: { "We arrived the station before noon.": "日本語の『駅に着く』から arrive を他動詞のように扱っている。", "We arrived to the station before noon.": "arrive の後の前置詞を to と一般化している。", "We arrived the station to before noon.": "動詞・前置詞・時を表す語の配置を混同している。" }
+  },
+  q13: {
+    stem: "I lost my key, so I can't open the door. に最も合う時制は？",
+    choices: ["I lost my key.", "I have lost my key.", "I had lost my key yesterday.", "I am losing my key."],
+    answer: "I have lost my key.",
+    explanation: "鍵を失った結果が今も続き、今ドアを開けられない。過去の出来事を現在の結果につなぐので現在完了が最も自然。",
+    misconceptions: { "I lost my key.": "過去の出来事だけを述べる過去形と、現在に残る結果を混同している。", "I had lost my key yesterday.": "過去完了を明確な過去時点 yesterday と単独で用いている。", "I am losing my key.": "lose を一時的な進行中の動作として扱っている。" },
+    reason: { prompt: "現在完了を選ぶ根拠は？", choices: ["失った結果が現在も続いている", "yesterday がある", "主語が三人称単数である", "受動態である"], answer: "失った結果が現在も続いている" }
+  },
+  q18: {
+    stem: "After a month, I am used to ___ up early. に入る形は？",
+    choices: ["get", "got", "getting", "to get"],
+    answer: "getting",
+    explanation: "be used to の to は前置詞で、その後ろには名詞相当の語を置く。動詞なら -ing 形になる。",
+    reason: { prompt: "getting を選ぶ直接の根拠は？", choices: ["to が前置詞として働く", "am の後ろは必ず -ing 形", "early が副詞である", "used が過去形である"], answer: "to が前置詞として働く" }
+  },
+  q21: {
+    stem: "My father gave me this book. を「この本」を主語にして受動態にすると？",
+    choices: ["This book was given me by my father.", "This book was given to me by my father.", "This book gave me by my father.", "This book was giving to me by my father."],
+    answer: "This book was given to me by my father.",
+    explanation: "SVOO を物主語の受動態にすると、残る人には通常 to を付ける。時制は be 動詞 was に表し、given は過去分詞。",
+    reason: { prompt: "to me が必要な理由は？", choices: ["物を主語にすると、人の要素を前置詞句で残すため", "give は常に to を取る自動詞だから", "受動態では目的語を二つ置けないため", "me が主語になるため"], answer: "物を主語にすると、人の要素を前置詞句で残すため" }
+  },
+  q29: {
+    stem: "The bus stopped ___ passengers get off. に入る形は？",
+    choices: ["to let", "letting", "let", "to letting"],
+    answer: "to let",
+    explanation: "stop to do は「〜するために立ち止まる」。バスが止まった目的を表すので to let。stop -ing なら、その行為自体をやめる意味になる。",
+    reason: { prompt: "to let を選ぶ根拠は？", choices: ["停止の目的を表している", "let の後ろは必ず to 不定詞だから", "bus が三人称単数だから", "passengers が複数だから"], answer: "停止の目的を表している" }
+  },
+  q31: {
+    stem: "The lecture was ___, so the students were ___. に最も合う組み合わせは？",
+    choices: ["excited / exciting", "exciting / excited", "excite / excitement", "excited / excited"],
+    answer: "exciting / excited",
+    explanation: "lecture は人を興奮させる側なので exciting、students は興奮を感じる側なので excited。修飾される対象との関係で選ぶ。",
+    reason: { prompt: "二つの形を分ける基準は？", choices: ["人をそうさせる側か、そう感じる側か", "名詞が単数か複数か", "文が現在形か過去形か", "-ed の方が長い語か"], answer: "人をそうさせる側か、そう感じる側か" }
+  },
+  q38: {
+    stem: "The scientist ___ research changed the field won the prize. に入る語は？",
+    choices: ["who", "whose", "which", "where"],
+    answer: "whose",
+    explanation: "research の前には、その研究が誰のものかを示す所有格の関係詞 whose が必要。先行詞は scientist。",
+    misconceptions: { "who": "人を先行詞にすることだけで who を選び、節内の役割を見ていない。", "which": "直後の research を先行詞だと誤認している。", "where": "場所を表していないのに関係副詞を選んでいる。" },
+    reason: { prompt: "whose を選ぶ根拠は？", choices: ["research の所有者を示す必要がある", "scientist が人だから", "後ろが過去形だから", "場所を表す名詞があるから"], answer: "research の所有者を示す必要がある" }
+  },
+  q43: {
+    stem: "___ it was raining, the game was canceled. に最も合う語句は？",
+    choices: ["Because", "Because of", "Although", "Despite"],
+    answer: "Because",
+    explanation: "後ろの it was raining は主語＋動詞を含む節なので Because。Because of と Despite の後ろには名詞句を置く。Although は譲歩を表し、後半の内容と合わない。",
+    misconceptions: { "Because of": "because と because of の後ろに置く形を混同している。", "Although": "原因と譲歩の関係を混同している。", "Despite": "前置詞 despite の後ろに節を置いている。" },
+    reason: { prompt: "Because を選ぶ直接の根拠は？", choices: ["後ろが主語＋動詞を含む節である", "雨は必ず because を伴う", "the game が単数である", "文が過去形である"], answer: "後ろが主語＋動詞を含む節である" }
+  },
+  q46: {
+    stem: "If I had studied harder, I ___ the exam. に入る形は？",
+    choices: ["will pass", "would pass", "would have passed", "had passed"],
+    answer: "would have passed",
+    explanation: "If + had + p.p. は過去の事実に反する仮定。主節は would have + p.p. で、過去に起こらなかった結果を表す。",
+    reason: { prompt: "would have passed を選ぶ根拠は？", choices: ["条件節が過去完了で、過去の反実仮想だから", "harder が比較級だから", "exam が単数だから", "If の後ろは必ず would だから"], answer: "条件節が過去完了で、過去の反実仮想だから" }
+  },
+  q42: {
+    stem: "because と because of の後ろに置く形として正しい組み合わせは？",
+    choices: ["because + 節 / because of + 名詞句", "because + 名詞句 / because of + 節", "because + 原形 / because of + 原形", "because + 副詞 / because of + 副詞"],
+    answer: "because + 節 / because of + 名詞句",
+    explanation: "because it rained のように because の後ろには節を置く。because of the rain のように because of の後ろには名詞句を置く。",
+    misconceptions: { "because + 名詞句 / because of + 節": "because と because of の後ろに置く形を逆にしている。", "because + 原形 / because of + 原形": "接続詞・前置詞の後ろを助動詞と同じように扱っている。", "because + 副詞 / because of + 副詞": "節・名詞句・副詞の役割を区別できていない。" }
+  },
+  q55: {
+    stem: "The report must be finished ___ Friday, but the team will work on it ___ Friday. に最も合う組み合わせは？",
+    choices: ["by / until", "until / by", "at / in", "from / during"],
+    answer: "by / until",
+    explanation: "by Friday は金曜を期限とする。until Friday は金曜まで継続する。前半は完了の期限、後半は作業の継続期間。",
+    reason: { prompt: "by と until を分ける基準は？", choices: ["期限か、継続の終点か", "曜日か月か", "主語が単数か複数か", "受動態か能動態か"], answer: "期限か、継続の終点か" }
+  },
+  q56: {
+    stem: "He was outside the room. He crossed the doorway and walked ___ it. に最も合う語は？",
+    choices: ["to", "into", "at", "by"],
+    answer: "into",
+    explanation: "外から戸口を越えて内部へ入る動きなので into。to は到達点を示すだけで、内部への移動までは表さない。",
+    misconceptions: { "to": "到達点と内部へ入る移動を区別していない。", "at": "場所を点として示す at を移動の方向に用いている。", "by": "そばを通る意味の by を到達の意味で用いている。" },
+    reason: { prompt: "into を選ぶ根拠は？", choices: ["境界を越えて内部へ入る動きがある", "room が単数名詞である", "walk は過去形である", "outside が前置詞だから"], answer: "境界を越えて内部へ入る動きがある" }
+  },
+  q58: {
+    stem: "Few students submitted the form, but a few asked questions. の意味として最も適切なものは？",
+    choices: ["提出した生徒はほとんどおらず、質問した生徒は少しはいた", "提出した生徒も質問した生徒も多かった", "提出した生徒は少しおり、質問した生徒はほとんどいなかった", "提出も質問もゼロだった"],
+    answer: "提出した生徒はほとんどおらず、質問した生徒は少しはいた",
+    explanation: "few は「ほとんどない」、a few は「少しはある」。a の有無は数量だけでなく、話し手の見方を変える。",
+    reason: { prompt: "二つの語を分ける根拠は？", choices: ["a の有無が『少しはある』という含みを作る", "few は複数名詞に使えない", "a few は否定文でしか使えない", "form が単数だから"], answer: "a の有無が『少しはある』という含みを作る" }
+  }
+};
+
+function defaultMisconceptions(question) {
+  return Object.fromEntries(question.choices
+    .filter(choice => choice !== question.answer)
+    .map(choice => [choice, `「${DOMAIN_TARGETS[question.domain]}」の判断根拠を取り違えている。`]));
+}
+
 window.GRAMMAR_CHECK_DATA = {
   title: "英文法 基礎知識チェック",
   domains: [
@@ -80,5 +231,17 @@ window.GRAMMAR_CHECK_DATA = {
     ["negation", "few と a few の違いとして正しいものは？", ["fewはほとんどない、a fewは少しはある", "fewは多い、a fewはゼロ", "両方とも不可算名詞だけに使う", "意味の違いはない"], "fewはほとんどない、a fewは少しはある", "a の有無で話し手の見方が変わる。little / a little も同様。"],
     ["negation", "Do you know where he ___? に入る形は？", ["lives", "does live", "does he live", "live does"], "lives", "間接疑問は where + 主語 + 動詞の平叙文語順。"],
     ["negation", "Never ___ I seen such a view. に入る語は？", ["have", "has", "did", "am"], "have", "否定語 Never が文頭に出ると倒置。現在完了なので have + 主語 + p.p.。"]
-  ].map(([domain, stem, choices, answer, explanation], index) => ({ id: `q${index + 1}`, domain, stem, choices, answer, explanation }))
+  ].map(([domain, stem, choices, answer, explanation], index) => {
+    const id = `q${index + 1}`;
+    const patch = QUESTION_PATCHES[id] || {};
+    const question = { id, domain, stem, choices, answer, explanation, ...patch };
+    const meta = QUESTION_META[id] || {};
+    return {
+      ...question,
+      skill: meta.skill || "knowledge",
+      target: meta.target || DOMAIN_TARGETS[domain],
+      priority: meta.priority || (meta.skill === "knowledge" ? "support" : "core"),
+      misconceptions: { ...defaultMisconceptions(question), ...(meta.misconceptions || {}), ...(patch.misconceptions || {}) }
+    };
+  })
 };

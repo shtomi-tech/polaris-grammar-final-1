@@ -161,6 +161,15 @@ h3 { font-size: 18px; line-height: 1.45; }
   justify-content: center;
 }
 
+.reasonBox { border: 1px solid var(--ink); margin: 20px 0 0; padding: 16px; }
+.reasonBox legend { font-family: var(--mono); font-size: 11px; letter-spacing: .08em; padding: 0 6px; text-transform: uppercase; }
+.reasonBox > p { font-weight: 700; margin-bottom: 12px; }
+.reasonGrid { display: grid; gap: 8px; }
+.reasonChoice { align-items: center; background: var(--paper); color: var(--ink); display: flex; gap: 10px; min-height: 48px; padding: 9px 12px; text-align: left; }
+.reasonChoice:hover { background: var(--ink); color: var(--parchment); }
+.reasonChoice.selected { border: 3px solid var(--ink); padding: 7px 10px; }
+.reasonChoice .key { align-items: center; border: 1px solid currentColor; display: inline-flex; flex: 0 0 24px; font-family: var(--mono); font-size: 11px; height: 24px; justify-content: center; }
+
 .choiceActions { border-top: 1px solid var(--line); margin-top: 24px; padding-top: 16px; }
 .flag { align-items: center; color: var(--muted); display: inline-flex; font-size: 14px; gap: 8px; margin-bottom: 16px; }
 .flag input { accent-color: var(--ink); height: 18px; width: 18px; }
@@ -171,6 +180,17 @@ h3 { font-size: 18px; line-height: 1.45; }
 .score { align-items: baseline; display: flex; flex-wrap: wrap; gap: 10px; }
 .score strong { font-family: var(--serif); font-size: clamp(46px, 10vw, 72px); font-weight: 500; line-height: 1; }
 .score span { color: var(--muted); }
+.measurementGrid { border-left: 1px solid var(--ink); border-top: 1px solid var(--ink); display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); }
+.measurementCard { border-bottom: 1px solid var(--ink); border-right: 1px solid var(--ink); min-height: 184px; padding: 16px; }
+.measurementCard .kicker { margin-bottom: 10px; }
+.measurementCard > strong { display: block; font-family: var(--serif); font-size: 40px; font-weight: 500; line-height: 1; margin-bottom: 12px; }
+.measurementCard > strong span { color: var(--muted); font-family: var(--sans); font-size: 14px; }
+.measurementCard p { font-size: 13px; margin-bottom: 0; }
+.measurementCard .measurementMeta { border-top: 1px solid var(--line); color: var(--muted); font-family: var(--mono); font-size: 10px; letter-spacing: .04em; margin-top: 12px; padding-top: 8px; }
+.misconceptionList { border-top: 1px solid var(--ink); }
+.misconceptionList article { border-bottom: 1px solid var(--ink); padding: 14px 0; }
+.misconceptionList strong { display: block; font-size: 16px; }
+.misconceptionList p { color: var(--muted); font-family: var(--mono); font-size: 11px; letter-spacing: .04em; margin: 4px 0 0; }
 .nextStep { border-top: 1px solid rgba(250, 249, 246, .55); margin-top: 24px; padding-top: 16px; }
 .nextStep > p:not(.kicker) { margin-bottom: 12px; }
 .quietAction { margin-top: 20px; min-height: 40px; padding: 7px 0; }
@@ -211,7 +231,7 @@ h3 { font-size: 18px; line-height: 1.45; }
 .utility p { margin: 0; }
 
 @media (max-width: 640px) {
-  .overview, .flowSteps, .domainList, .guideGrid { grid-template-columns: 1fr; }
+  .overview, .flowSteps, .domainList, .guideGrid, .measurementGrid { grid-template-columns: 1fr; }
   .primaryAction .primary, .quizActionBar .primary { width: 100%; }
   .quizActionBar { align-items: stretch; bottom: 12px; flex-direction: column; position: sticky; z-index: 1; }
   .quizActionBar p { text-align: center; }
