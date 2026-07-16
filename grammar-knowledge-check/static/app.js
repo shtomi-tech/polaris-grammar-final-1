@@ -8,9 +8,7 @@
   const resetButton = document.querySelector("#resetButton");
   const keys = ["1", "2", "3", "4"];
   const skillLabels = {
-    knowledge: "知識",
-    distinction: "識別",
-    application: "適用"
+    knowledge: "知識"
   };
   const domainById = new Map(DATA.domains.map(domain => [domain.id, domain]));
   const questionById = new Map(DATA.questions.map(question => [question.id, question]));
@@ -79,13 +77,13 @@
       : "<p class=\"muted\">進捗はこの端末のブラウザにのみ保存します。生徒名や外部サービスは使いません。</p>";
     app.innerHTML = `
       <section class="panel dark">
-        <p class="kicker">START HERE / ABOUT 40 MINUTES</p>
-        <h2>${DATA.questions.length}問で、知識と識別を分けて確かめる。</h2>
-        <p class="lead">用語を知っているかだけでなく、似た形を見分け、文脈から根拠を選べるかを確認します。解答すると、その場で正答と解説を表示します。</p>
+        <p class="kicker">START HERE / ABOUT 50 MINUTES</p>
+        <h2>${DATA.questions.length}問で、英文法の基礎知識を一巡する。</h2>
+        <p class="lead">品詞と文の骨組みから仮定法・語法まで、17分野の基礎を学習順に確認します。解答すると、その場で正答と解説を表示します。</p>
         <div class="overview" aria-label="アプリの概要">
           <div><strong>${DATA.questions.length}</strong><span>4択の基礎確認</span></div>
           <div><strong>17</strong><span>英文法の分野</span></div>
-          <div><strong>3</strong><span>知識・識別・適用</span></div>
+          <div><strong>5</strong><span>学習段階</span></div>
         </div>
         <div class="primaryAction">
           <button class="primary" id="startButton" type="button">${DATA.questions.length}問のチェックを始める <span>推奨</span></button>
@@ -236,11 +234,12 @@
     };
   }
 
-  function measurementStats(result) {
-    return Object.keys(skillLabels).map(skill => {
-      const answers = result.answers.filter(answer => answer.skill === skill);
+  function stageStats(result) {
+    return DATA.learningStages.map((stage, index) => {
+      const questionIds = new Set(stage.questionIds);
+      const answers = result.answers.filter(answer => questionIds.has(answer.id));
       const correct = answers.filter(answer => answer.correct).length;
-      return { skill, label: skillLabels[skill], answers, correct };
+      return { index: index + 1, label: stage.label, answers, correct };
     });
   }
 
@@ -250,13 +249,12 @@
       const correct = answers.filter(answer => answer.correct).length;
       const uncertain = answers.filter(answer => answer.uncertain).length;
       const rate = correct / answers.length;
-      const missedCore = answers.some(answer => answer.priority === "core" && !answer.correct);
       let status = "review";
       let label = answers.length < 3 ? "要追加確認" : "要確認";
       if (rate < .5) {
         status = "weak";
         label = "未定着";
-      } else if (answers.length >= 3 && rate >= .8 && !missedCore && !uncertain) {
+      } else if (answers.length >= 3 && rate >= .8 && !uncertain) {
         status = "good";
         label = "定着";
       }
@@ -285,7 +283,7 @@
   function renderResult(result) {
     session = null;
     const stats = domainStats(result);
-    const measurements = measurementStats(result);
+    const stages = stageStats(result);
     const misconceptions = misconceptionStats(result);
     const needsReview = stats.filter(stat => stat.status !== "good");
     const priorityNames = needsReview.slice(0, 4).map(stat => stat.domain.label);
@@ -303,14 +301,14 @@
         <button class="secondary quietAction" id="retryButton" type="button">最初から、もう一度解く</button>
       </section>
       <section class="panel">
-        <p class="kicker">MEASUREMENT</p>
-        <h2>何ができているか</h2>
+        <p class="kicker">COVERAGE</p>
+        <h2>学習範囲ごとの到達</h2>
         <div class="measurementGrid">
-          ${measurements.map(stat => `
+          ${stages.map(stat => `
             <article class="measurementCard">
-              <p class="kicker">${escapeHtml(stat.label)}</p>
+              <p class="kicker">STAGE ${stat.index}</p>
               <strong>${stat.correct}<span> / ${stat.answers.length}</span></strong>
-              <p>${stat.skill === "knowledge" ? "用語・基本ルールを再生する力" : stat.skill === "distinction" ? "似た形を根拠で見分ける力" : "文脈から形を判断する力"}</p>
+              <p>${escapeHtml(stat.label)}</p>
             </article>
           `).join("")}
         </div>
@@ -422,7 +420,7 @@
     && DATA.questionOrder.length === DATA.questions.length
     && new Set(DATA.questionOrder).size === DATA.questions.length
     && DATA.questionOrder.every(id => questionById.has(id));
-  if (!DATA || DATA.questions.length !== 100 || DATA.domains.length !== 17 || !hasValidOrder) {
+  if (!DATA || DATA.questions.length !== 120 || DATA.domains.length !== 17 || !hasValidOrder) {
     app.innerHTML = "<section class=\"panel\"><h2>データの読み込みに失敗しました</h2><p>問題数または分野数が想定と異なります。</p></section>";
     return;
   }

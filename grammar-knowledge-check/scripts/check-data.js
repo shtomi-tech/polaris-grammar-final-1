@@ -8,12 +8,12 @@ const errors = [];
 const ids = new Set();
 const stems = new Map();
 const domains = new Set(data.domains.map(domain => domain.id));
-const skillCounts = { knowledge: 0, distinction: 0, application: 0 };
+const skillCounts = { knowledge: 0 };
 let knowledgeSupportCount = 0;
 const warnings = [];
 
 if (data.domains.length !== 17) errors.push(`分野数: ${data.domains.length}（17が必要）`);
-if (data.questions.length !== 100) errors.push(`問題数: ${data.questions.length}（100が必要）`);
+if (data.questions.length !== 120) errors.push(`問題数: ${data.questions.length}（120が必要）`);
 
 for (const question of data.questions) {
   if (ids.has(question.id)) errors.push(`問題ID重複: ${question.id}`);
@@ -49,10 +49,8 @@ for (const domain of data.domains) {
   }
 }
 
-for (const [skill, count] of Object.entries(skillCounts)) {
-  if (!count) errors.push(`測定区分なし: ${skill}`);
-}
-if (knowledgeSupportCount !== 50) errors.push(`知識・補助の問題数: ${knowledgeSupportCount}（50が必要）`);
+if (skillCounts.knowledge !== 120) errors.push(`知識問題数: ${skillCounts.knowledge}（120が必要）`);
+if (knowledgeSupportCount !== 120) errors.push(`知識・補助の問題数: ${knowledgeSupportCount}（120が必要）`);
 
 if (!Array.isArray(data.learningStages) || data.learningStages.length !== 5) errors.push("学習段階: 5段階が必要");
 const stageOrder = Array.isArray(data.learningStages) ? data.learningStages.flatMap(stage => stage.questionIds || []) : [];
