@@ -59,26 +59,28 @@
       : "<p class=\"muted\">進捗はこの端末のブラウザにのみ保存します。生徒名や外部サービスは使いません。</p>";
     app.innerHTML = `
       <section class="panel dark">
-        <p class="kicker">15–20 MINUTES / 60 QUESTIONS / 17 AREAS</p>
-        <h2>英文法の「知っているつもり」を、静かに棚卸しする。</h2>
-        <p class="lead">英文の空所補充ではなく、用語・形・働き・区別を直接たずねます。解説は採点後にまとめて読み、弱点だけをもう一度確認できます。</p>
+        <p class="kicker">START HERE / 15–20 MINUTES</p>
+        <h2>まず、60問の基礎チェックを始める。</h2>
+        <p class="lead">英文の空所補充ではなく、用語・形・働き・区別を直接確認します。迷った問題は印を付け、終了後に必要な解説だけを読みます。</p>
         <div class="overview" aria-label="アプリの概要">
           <div><strong>60</strong><span>4択の基礎確認</span></div>
           <div><strong>17</strong><span>英文法の分野</span></div>
           <div><strong>0</strong><span>外部送信・ログイン</span></div>
         </div>
-        <div class="buttonRow">
-          <button class="primary" id="startButton" type="button">60問のチェックを始める</button>
+        <div class="primaryAction">
+          <button class="primary" id="startButton" type="button">60問のチェックを始める <span>推奨</span></button>
+          <p>初めてなら、ここから始めます。</p>
         </div>
       </section>
       <section class="panel">
-        <h2>使い方</h2>
-        <ul class="noteList">
-          <li>答えを選び、迷った問題には「迷った」を付けます。</li>
-          <li>解答中は正誤を出しません。次の問題の手掛かりにしないためです。</li>
-          <li>終了後、誤答・保留の分野を前提順に解説します。</li>
-          <li>数字キーの 1〜4 で選択、Enter で次へ進めます。</li>
-        </ul>
+        <p class="kicker">FLOW</p>
+        <h2>解く → 弱点を知る → 解説を読む</h2>
+        <div class="flowSteps" aria-label="学習の流れ">
+          <div><strong>1</strong><p>4択で60問を解く</p></div>
+          <div><strong>2</strong><p>迷った問題にも印を付ける</p></div>
+          <div><strong>3</strong><p>必要な分野だけ解説を読む</p></div>
+        </div>
+        <p class="shortcutHint">数字キー 1〜4 で選択、Enter で次へ進めます。</p>
         ${historyHtml}
       </section>
     `;
@@ -108,8 +110,11 @@
           `).join("")}
         </div>
         <div class="choiceActions">
-          <label class="flag"><input id="uncertain" type="checkbox"> 迷った・根拠が曖昧だった</label>
-          <button class="primary" id="nextButton" type="button" ${pendingChoice ? "" : "disabled"}>${session.index === session.questions.length - 1 ? "結果を見る" : "この解答で次へ"}</button>
+          <label class="flag"><input id="uncertain" type="checkbox"> 正解でも根拠が曖昧なら印を付ける</label>
+          <div class="quizActionBar">
+            <p>${pendingChoice ? "選択しました。次へ進めます。" : "答えを1つ選んでください。"}</p>
+            <button class="primary" id="nextButton" type="button" ${pendingChoice ? "" : "disabled"}>${session.index === session.questions.length - 1 ? "結果を見る" : "この解答で次へ"}</button>
+          </div>
         </div>
       </section>
     `;
@@ -182,28 +187,44 @@
   function renderResult(result) {
     session = null;
     const stats = domainStats(result);
+    const needsReview = stats.filter(stat => stat.status !== "good");
+    const priorityNames = needsReview.slice(0, 4).map(stat => stat.domain.label);
     app.innerHTML = `
       <section class="panel dark">
         <p class="kicker">RESULT / ${escapeHtml(result.completedAt)}</p>
         <h2>チェック完了</h2>
         <div class="score"><strong>${result.score}</strong><span>/ ${result.total} 問正解</span></div>
         <p class="lead">${resultMessage(result)}</p>
-        <div class="buttonRow">
-          <button class="primary" id="readGuideButton" type="button">誤答・保留の解説を読む</button>
-          <button class="secondary" id="retryButton" type="button">もう一度チェックする</button>
+        <div class="nextStep">
+          <p class="kicker">NEXT STEP / RECOMMENDED</p>
+          <p>${priorityNames.length ? `まずは「${escapeHtml(priorityNames.join("・"))}」の解説を確認します。` : "迷った分野の解説を短く確認します。"}</p>
+          <button class="primary" id="readGuideButton" type="button">弱点の解説を読む <span>推奨</span></button>
         </div>
+        <button class="secondary quietAction" id="retryButton" type="button">最初から60問を解き直す</button>
       </section>
       <section class="panel">
-        <h2>分野別の状態</h2>
-        <p class="muted">「定着」は今回の4択での確認結果です。理解の証明書ではありません。少し地味ですが、その方が正確です。</p>
-        <div class="domainList">
-          ${stats.map(stat => `
+        <p class="kicker">PRIORITY</p>
+        <h2>今、確認する分野</h2>
+        <p class="muted">正解でも「根拠が曖昧」を選んだ分野は、要確認に残しています。</p>
+        <div class="domainList priorityList">
+          ${(needsReview.length ? needsReview : stats).map(stat => `
             <div class="domainRow">
               <div><strong>${escapeHtml(stat.domain.label)}</strong><div class="domainMeta">${stat.correct}/${stat.answers.length} 正解${stat.uncertain ? ` / 保留 ${stat.uncertain}` : ""}</div></div>
               <span class="status ${stat.status}">${stat.label}</span>
             </div>
           `).join("")}
         </div>
+        <details class="allResults">
+          <summary>17分野すべての結果を表示する</summary>
+          <div class="domainList">
+            ${stats.map(stat => `
+              <div class="domainRow">
+                <div><strong>${escapeHtml(stat.domain.label)}</strong><div class="domainMeta">${stat.correct}/${stat.answers.length} 正解${stat.uncertain ? ` / 保留 ${stat.uncertain}` : ""}</div></div>
+                <span class="status ${stat.status}">${stat.label}</span>
+              </div>
+            `).join("")}
+          </div>
+        </details>
       </section>
     `;
     document.querySelector("#readGuideButton").addEventListener("click", () => renderReview(result));
@@ -218,7 +239,8 @@
         <p class="kicker">REVIEW / WRONG OR UNCERTAIN</p>
         <h2>解説を読む</h2>
         <p class="lead">問題の正誤だけを追わず、同じ分野のルールをまとめて読みます。必要なら、読み終わってから60問をもう一度解いてください。</p>
-        <div class="buttonRow"><button class="secondary" id="backResultButton" type="button">結果へ戻る</button><button class="primary" id="retryButton" type="button">もう一度チェックする</button></div>
+        <div class="primaryAction"><button class="primary" id="retryButton" type="button">解説を読んだら、もう一度60問を解く</button><p>解き直しは、解説を読み終えてからで十分です。</p></div>
+        <button class="secondary quietAction" id="backResultButton" type="button">結果へ戻る</button>
       </section>
       <section class="panel">
         <h2>あなたの解答</h2>
