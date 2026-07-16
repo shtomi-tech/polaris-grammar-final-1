@@ -47,7 +47,7 @@ const QUESTION_META = {
 const LEARNING_STAGES = [
   {
     label: "文の骨組み",
-    questionIds: ["q3", "q71", "q72", "q2", "q4", "q1", "q73", "q61", "q63", "q65", "q67", "q74", "q69", "q70", "q5", "q7", "q6", "q8", "q76", "q11", "q75", "q9", "q10"]
+    questionIds: ["q3", "q71", "q72", "q2", "q4", "q1", "q73", "q61", "q63", "q65", "q67", "q74", "q69", "q70", "q5", "q7", "q6", "q8", "q75", "q76", "q11", "q9", "q10"]
   },
   {
     label: "動詞の体系",
@@ -63,7 +63,7 @@ const LEARNING_STAGES = [
   },
   {
     label: "発展構文と語法",
-    questionIds: ["q95", "q45", "q47", "q96", "q46", "q49", "q97", "q48", "q50", "q51", "q54", "q98", "q52", "q53", "q68", "q99", "q55", "q56", "q100", "q59", "q57", "q58", "q60"]
+    questionIds: ["q95", "q45", "q47", "q96", "q46", "q97", "q49", "q48", "q50", "q51", "q98", "q54", "q52", "q53", "q99", "q68", "q55", "q56", "q100", "q59", "q57", "q58", "q60"]
   }
 ];
 
@@ -183,7 +183,7 @@ window.GRAMMAR_CHECK_DATA = {
   learningStages: LEARNING_STAGES,
   questionOrder: LEARNING_STAGES.flatMap(stage => stage.questionIds),
   domains: [
-    { id: "foundation", label: "品詞・句・節・文の要素", order: 1, rule: "文法用語は、英文を読むための座標です。まず「何が」「どこで」働いているかを分けます。", points: ["句は主語＋動詞を含まないまとまり、節は主語＋動詞を含むまとまり。", "主語(S)・動詞(V)・目的語(O)・補語(C)は文の骨組み。修飾語(M)は骨組みに情報を足す。", "名詞は人・物・事柄、形容詞は名詞を、 副詞は動詞・形容詞・副詞・文全体を修飾する。"], examples: ["in the room は句、because he was tired は節。", "She gave me a book. は S + V + O + O。"], traps: ["長いまとまりでも、主語＋動詞がなければ節ではない。"] },
+    { id: "foundation", label: "品詞・句・節・文の要素", order: 1, rule: "文法用語は、英文を読むための座標です。まず「何が」「どこで」働いているかを分けます。", points: ["単語は一つの語として品詞上の働きをもつ単位。句は二語以上で主語＋述語動詞を含まないまとまり。節は主語＋述語動詞を含むまとまり。", "主語(S)・動詞(V)・目的語(O)・補語(C)は文の骨組み。修飾語(M)は骨組みに情報を足す。", "名詞は人・物・事柄、形容詞は名詞を、 副詞は動詞・形容詞・副詞・文全体を修飾する。"], examples: ["book は単語、in the room は句、because he was tired は節。", "She gave me a book. は S + V + O + O。"], traps: ["語数だけでなく、主語＋述語動詞の有無を見て句と節を分ける。"] },
     { id: "pattern", label: "文型・自他動詞", order: 2, rule: "文型は「動詞の後ろに何を必要とするか」を見る道具です。訳語から決めません。", points: ["SVC の C は S を説明する。SVO の O は動作の対象。", "SVOO は『人に物を与える』型、SVOC の C は O を説明する。", "自動詞は目的語を直接取らず、他動詞は目的語を取る。"], examples: ["She is kind. は SVC。They made him happy. は SVOC。", "listen は listen to music のように前置詞を要する自動詞。"], traps: ["日本語で『〜を』と訳せても、英語で他動詞とは限らない。"] },
     { id: "verb_form", label: "動詞の形・主語との一致", order: 3, rule: "時制・主語・助動詞の三つを先に確認すると、動詞の形はかなり絞れます。", points: ["三人称単数・現在の一般動詞には -s / -es。", "do / does / did の後、助動詞の後、to の後は動詞の原形。", "be 動詞は主語と時制に合わせて am / are / is / was / were を選ぶ。"], examples: ["He plays tennis. / Does he play tennis?", "She can swim. の swim は原形。"], traps: ["does の s と動詞の s を二重にしない。"] },
     { id: "tense", label: "時制・完了形・進行形", order: 4, rule: "時制は出来事を時間軸に置くための仕組みです。単なる日本語訳で選ばず、基準時との前後関係を見ます。", points: ["現在形は習慣・不変の事実・時刻表にも使う。", "進行形は進行中・一時的状態。状態動詞は原則進行形にしない。", "現在完了は『過去から今へ』をつなぐ。継続・経験・完了／結果を文脈で分ける。", "過去完了は過去の基準時よりさらに前。"], examples: ["I have lived here for five years. は継続。", "When I arrived, she had left. は到着より出発が前。"], traps: ["yesterday など明確な過去時点があれば、通常は現在完了を使わない。"] },
@@ -204,7 +204,7 @@ window.GRAMMAR_CHECK_DATA = {
   questions: [
     ["foundation", "句と節の説明として正しいものは？", ["句は主語＋動詞を含み、節は含まない", "句は主語＋動詞を含まず、節は含む", "句も節も必ず動詞を含む", "句も節も必ず主語を含まない"], "句は主語＋動詞を含まず、節は含む", "節かどうかは、主語＋動詞がそろっているかで判断する。"],
     ["foundation", "She gave me a book. の me の文の要素は？", ["主語", "補語", "目的語", "修飾語"], "目的語", "give は『人に物を与える』SVOO型で、me と a book はどちらも目的語。"],
-    ["foundation", "名詞を修飾する品詞はどれか。", ["形容詞", "副詞", "接続詞", "前置詞"], "形容詞", "形容詞は名詞を説明し、副詞は動詞・形容詞・副詞などを説明する。"],
+    ["foundation", "英文法で「単語」と呼ぶ単位の説明として正しいものは？", ["一つの語として品詞上の働きをもつ単位", "二語以上で主語＋述語動詞を含まないまとまり", "主語＋述語動詞を含むまとまり", "必ずピリオドで終わる文全体"], "一つの語として品詞上の働きをもつ単位", "book、quickly、underのように、一つの語として文中で品詞上の働きをもつ単位を単語という。"],
     ["foundation", "because he was tired は何か。", ["句", "節", "単語", "文型"], "節", "he was tired に主語 he と動詞 was があるため節。because はその節を導く接続詞。"],
     ["pattern", "She is kind. の文型は？", ["SV", "SVC", "SVO", "SVOC"], "SVC", "kind は主語 She の性質を説明する補語C。be 動詞の後ろはSVCになりやすい。"],
     ["pattern", "They made him happy. の happy の働きは？", ["主語", "目的語", "目的格補語", "修飾語"], "目的格補語", "happy は目的語 him の状態を説明するC。make + O + C はSVOC。"],
@@ -255,16 +255,16 @@ window.GRAMMAR_CHECK_DATA = {
     ["nouns", "___ students are absent today? に最も合う語は？", ["Much", "Many", "Little", "A little"], "Many", "students は可算名詞の複数なので many。much は不可算名詞。"],
     ["adverb", "She looks ___. に最も合う形は？", ["happily", "happy", "happiness", "happierly"], "happy", "look は主語の状態を説明する補語を取るので形容詞 happy。"],
     ["adverb", "He works hard, but he ___ rests. に入る語は？", ["hard", "hardly", "hardest", "hardness"], "hardly", "hardly は『ほとんど〜ない』。hard は『一生懸命に』で意味が異なる。"],
-    ["adverb", "friendly の品詞は通常どれか。", ["形容詞", "副詞", "動詞", "前置詞"], "形容詞", "-ly で終わっても friendly, lively, lovely などは形容詞。"],
+    ["adverb", "副詞の基本的な働きとして正しいものは？", ["動詞・形容詞・他の副詞・文全体を修飾する", "人・物・事柄の名前を表す", "名詞だけを修飾する", "語と語や節と節を結ぶ"], "動詞・形容詞・他の副詞・文全体を修飾する", "副詞は動詞・形容詞・他の副詞・文全体を修飾し、時・場所・方法・程度などの情報を加える。"],
     ["preposition", "『金曜日までに仕上げる』の期限を表す前置詞は？", ["by", "until", "during", "from"], "by", "by Friday は金曜を期限とする。until Friday は金曜まで継続する。"],
     ["preposition", "I walked ___ the room. に最も合う語は？", ["to", "into", "at", "by"], "into", "部屋の外から中へ入る動きなので into。to は到達点だけを示す。"],
     ["negation", "Not all students agreed. の意味は？", ["全員が賛成した", "誰も賛成しなかった", "全員が賛成したわけではない", "学生だけが賛成した"], "全員が賛成したわけではない", "not が all にかかる部分否定。『全員が〜ない』とは限らない。"],
     ["negation", "few と a few の違いとして正しいものは？", ["fewはほとんどない、a fewは少しはある", "fewは多い、a fewはゼロ", "両方とも不可算名詞だけに使う", "意味の違いはない"], "fewはほとんどない、a fewは少しはある", "a の有無で話し手の見方が変わる。little / a little も同様。"],
     ["negation", "Do you know where he ___? に入る形は？", ["lives", "does live", "does he live", "live does"], "lives", "間接疑問は where + 主語 + 動詞の平叙文語順。"],
     ["negation", "Never ___ I seen such a view. に入る語は？", ["have", "has", "did", "am"], "have", "否定語 Never が文頭に出ると倒置。現在完了なので have + 主語 + p.p.。"],
-    ["pattern", "Birds fly. の文型は？", ["SV", "SVC", "SVO", "SVOC"], "SV", "Birds がS、fly がV。fly の後ろに目的語や補語を必要としないためSV。"],
+    ["pattern", "自動詞の基本的な特徴は？", ["目的語を直接取らない", "目的語を必ず二つ取る", "必ず補語を取る", "受動態だけで使う"], "目的語を直接取らない", "自動詞は目的語を直接取らない。arrive at the stationのように、場所などを続ける場合は前置詞を介する。"],
     ["tense", "現在形と現在進行形の基本的な使い分けとして正しいものは？", ["現在形は習慣、現在進行形は進行中の動作", "現在形は過去、現在進行形は未来", "現在形は受動、現在進行形は能動", "どちらも常に同じ意味"], "現在形は習慣、現在進行形は進行中の動作", "現在形は習慣・一般的事実、現在進行形は今進行中または一時的な動作を表す。"],
-    ["pattern", "The soup tastes delicious. の文型は？", ["SV", "SVC", "SVO", "SVOC"], "SVC", "delicious は目的語ではなく、主語 The soup の状態を説明する補語C。したがってSVC。"],
+    ["pattern", "Birds fly. の文型は？", ["SV", "SVC", "SVO", "SVOC"], "SV", "Birds がS、fly がV。fly は目的語や補語を必要としない自動詞なのでSV。"],
     ["modal", "助動詞と基本的な意味の組み合わせとして正しいものは？", ["can＝能力 / may＝許可・可能性 / should＝助言", "can＝禁止 / may＝過去の習慣 / should＝能力", "can＝完了 / may＝比較 / should＝受動", "can＝所有 / may＝進行 / should＝場所"], "can＝能力 / may＝許可・可能性 / should＝助言", "canは能力、mayは許可・可能性、shouldは助言・軽い義務を表すのが基本。"],
     ["pattern", "She opened the window. の文型は？", ["SV", "SVC", "SVO", "SVOC"], "SVO", "She がS、opened がV、the window が動作の対象O。したがってSVO。"],
     ["relative", "物を先行詞にし、関係詞節内の欠けた要素を補う関係代名詞の組み合わせは？", ["which / that", "who / whom", "where / when", "what / where"], "which / that", "物を先行詞とする関係代名詞にはwhichまたはthatを用いる。whatは先行詞を意味に含むため、直前に先行詞を置かない。"],
@@ -272,11 +272,11 @@ window.GRAMMAR_CHECK_DATA = {
     ["preposition", "時を表すat・on・inの使い分けとして正しい組み合わせは？", ["at 7 o'clock / on Monday / in July", "on 7 o'clock / in Monday / at July", "in 7 o'clock / at Monday / on July", "at 7 o'clock / in Monday / on July"], "at 7 o'clock / on Monday / in July", "時刻にはat、曜日・日付にはon、月・年など広がりのある期間にはinを用いる。"],
     ["pattern", "They elected her captain. の文型は？", ["SVC", "SVO", "SVOO", "SVOC"], "SVOC", "her が目的語O、captain が her の役職を説明する補語C。O = C の関係が成り立つためSVOC。"],
     ["pattern", "The news made everyone anxious. の文型は？", ["SVC", "SVO", "SVOO", "SVOC"], "SVOC", "everyone が目的語O、anxious が everyone の状態を説明する補語C。make + O + C のSVOC。"],
-    ["foundation", "文の骨組みS・V・O・Cに情報を付け足す修飾語を表す記号は？", ["M", "P", "A", "N"], "M", "修飾語はModifierの頭文字Mで表す。時・場所・方法などを付け足すが、文型の骨組みには含めない。"],
-    ["foundation", "補語Cの役割として正しいものは？", ["主語または目的語を説明する", "動詞の時制だけを示す", "名詞を複数形にする", "文と文だけを接続する"], "主語または目的語を説明する", "補語CはSVCでは主語Sを、SVOCでは目的語Oを説明する。S=CまたはO=Cの関係を確認する。"],
+    ["foundation", "英文法で「句」と呼ぶまとまりの説明として正しいものは？", ["一つの語として品詞上の働きをもつ単位", "二語以上で主語＋述語動詞を含まないまとまり", "主語＋述語動詞を含むまとまり", "必ずピリオドで終わる文全体"], "二語以上で主語＋述語動詞を含まないまとまり", "in the roomやto read a bookのように、二語以上が一つの品詞のように働き、主語＋述語動詞を含まないまとまりを句という。"],
+    ["foundation", "英文法で「節」と呼ぶまとまりの説明として正しいものは？", ["一つの語として品詞上の働きをもつ単位", "二語以上で主語＋述語動詞を含まないまとまり", "主語＋述語動詞を含むまとまり", "必ずピリオドで終わる文全体"], "主語＋述語動詞を含むまとまり", "because he was tiredのhe wasのように、主語と述語動詞を含む語のまとまりを節という。節は文の一部としても働く。"],
     ["pattern", "他動詞の基本的な特徴は？", ["目的語を直接取る", "必ず前置詞を伴う", "補語だけを取る", "受動態にできない"], "目的語を直接取る", "他動詞は動作の対象となる目的語Oを直接取る。前置詞を介する場合は、その動詞自体は目的語を直接取っていない。"],
     ["pattern", "OとCの間に「O = C」の関係がある文型は？", ["SV", "SVC", "SVOO", "SVOC"], "SVOC", "SVOCのCは目的語Oの状態・名称を説明する。They called him Tom. ならhim = Tom。"],
-    ["verb_form", "助動詞の直後に置く一般動詞の形は？", ["原形", "過去形", "三単現形", "現在分詞"], "原形", "can, may, must, shouldなどの助動詞の直後には動詞の原形を置く。"],
+    ["verb_form", "動詞の基本的な働きとして正しいものは？", ["主語の動作・状態を表し、時制や主語に応じて形が変わる", "人・物・事柄の名前だけを表す", "名詞だけを詳しく説明する", "語と語や節と節だけを結ぶ"], "主語の動作・状態を表し、時制や主語に応じて形が変わる", "動詞は主語の動作や状態を表し、時制や主語との一致に応じて形が変化する。"],
     ["verb_form", "三人称単数の主語を用いた現在の肯定文で、一般動詞に付けるものは？", ["-sまたは-es", "必ず-ing", "必ず-ed", "to"], "-sまたは-es", "he, she, itなど三人称単数の主語を現在形で用いると、一般動詞に-sまたは-esを付ける。"],
     ["tense", "原則として進行形にしない状態動詞はどれか。", ["know", "run", "write", "swim"], "know", "knowは知識・認識の状態を表すため、通常は進行形にしない。run, write, swimは動作動詞。"],
     ["tense", "現在完了の基本形は？", ["haveまたはhas + 過去分詞", "be + 現在分詞", "did + 原形", "will + 原形"], "haveまたはhas + 過去分詞", "現在完了はhaveまたはhas + 過去分詞で作り、過去の出来事を現在につなげる。"],
@@ -294,13 +294,13 @@ window.GRAMMAR_CHECK_DATA = {
     ["comparison", "goodの比較級と最上級の組み合わせは？", ["better / best", "gooder / goodest", "more good / most good", "well / better"], "better / best", "goodは不規則変化し、比較級better、最上級bestとなる。"],
     ["relative", "関係代名詞whatの特徴は？", ["先行詞を意味に含む", "人だけを先行詞にする", "場所だけを表す", "必ず前置詞を伴う"], "先行詞を意味に含む", "whatはthe thing whichに相当し、「〜すること・もの」という先行詞の意味を内部に含む。"],
     ["relative", "場所を表す先行詞を説明し、節の中で副詞として働く関係詞は？", ["where", "who", "which", "what"], "where", "whereは場所を表す先行詞を受ける関係副詞。後ろには主語・動詞を備えた節が続く。"],
-    ["conjunction", "becauseの直後に置く基本的な形は？", ["主語 + 動詞を含む節", "名詞句だけ", "動詞の原形だけ", "前置詞だけ"], "主語 + 動詞を含む節", "becauseは接続詞なので、because it rainedのように主語 + 動詞を含む節を導く。"],
+    ["conjunction", "接続詞の基本的な働きとして正しいものは？", ["語と語・句と句・節と節を結ぶ", "人・物・事柄の名前を表す", "名詞の前で位置関係だけを示す", "主語の動作だけを表す"], "語と語・句と句・節と節を結ぶ", "接続詞はandのように語や句を結んだり、becauseのように節と節の関係を示したりする。"],
     ["conjunction", "時・条件を表す副詞節で未来のことを述べるとき、基本的に用いる時制は？", ["現在形", "will + 原形", "過去完了", "未来完了"], "現在形", "whenやifが導く時・条件の副詞節では、未来の内容でも現在形で表す。"],
     ["subjunctive", "現在の事実に反する仮定を表す仮定法過去の条件節の基本形は？", ["If + 過去形", "If + 現在形", "If + had + 過去分詞", "If + will + 原形"], "If + 過去形", "現在の反実仮想では時制を一段過去へずらし、If + 過去形を用いる。"],
     ["subjunctive", "過去の事実への後悔を表すI wishの後ろの基本形は？", ["had + 過去分詞", "現在形", "will + 原形", "to + 原形"], "had + 過去分詞", "過去に実現しなかったことへの後悔は、I wish + had + 過去分詞で表す。"],
-    ["nouns", "adviceの数え方として正しいものは？", ["a piece of advice", "an advice", "two advices", "many advice"], "a piece of advice", "adviceは通常不可算名詞。数えるときはa piece of adviceなどの単位表現を用いる。"],
-    ["adverb", "lookやseemの後ろで主語の状態を説明するとき、基本的に用いる品詞は？", ["形容詞", "副詞", "接続詞", "前置詞"], "形容詞", "look happyやseem tiredのように、主語を説明する補語には形容詞を置く。"],
-    ["preposition", "完了の期限「〜までに」を表す基本的な前置詞は？", ["by", "until", "during", "from"], "by", "byは期限までのどこかで完了することを表す。untilはその時点までの継続を表す。"],
+    ["nouns", "名詞の基本的な働きとして正しいものは？", ["人・物・場所・事柄などの名前を表す", "主語の動作や状態を表す", "動詞や形容詞だけを修飾する", "語と語や節と節を結ぶ"], "人・物・場所・事柄などの名前を表す", "名詞は人・物・場所・事柄などの名前を表し、文中で主語・目的語・補語などになる。"],
+    ["adverb", "形容詞の基本的な働きとして正しいものは？", ["名詞を修飾し、補語として主語や目的語を説明する", "動詞・形容詞・副詞だけを修飾する", "主語の動作や時制を表す", "語と語や節と節を結ぶ"], "名詞を修飾し、補語として主語や目的語を説明する", "形容詞は名詞を修飾するほか、be動詞やlookなどの後ろで補語となり、主語や目的語の性質・状態を説明する。"],
+    ["preposition", "前置詞の基本的な働きとして正しいものは？", ["名詞・代名詞の前に置かれ、他の語との関係を示す", "主語の動作や状態を表す", "名詞だけを修飾する", "節と節だけを結ぶ"], "名詞・代名詞の前に置かれ、他の語との関係を示す", "前置詞は名詞・代名詞の前に置かれ、時間・場所・方向・方法など、他の語との関係を示す。"],
     ["negation", "間接疑問文の疑問詞の後ろに続く基本語順は？", ["主語 + 動詞", "助動詞 + 主語", "動詞 + 主語", "疑問詞 + 疑問詞"], "主語 + 動詞", "間接疑問ではwhere he livesのように、疑問詞の後ろを平叙文の語順にする。"]
   ].map(([domain, stem, choices, answer, explanation], index) => {
     const id = `q${index + 1}`;
