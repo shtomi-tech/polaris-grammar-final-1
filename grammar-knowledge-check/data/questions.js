@@ -51,7 +51,7 @@ const LEARNING_STAGES = [
   },
   {
     label: "動詞の体系",
-    questionIds: ["q12", "q62", "q77", "q78", "q16", "q13", "q14", "q15", "q79", "q80", "q64", "q17", "q19", "q18", "q20", "q81", "q82", "q22", "q21"]
+    questionIds: ["q12", "q62", "q78", "q14", "q77", "q13", "q16", "q15", "q79", "q80", "q64", "q17", "q19", "q18", "q20", "q81", "q82", "q22", "q21"]
   },
   {
     label: "準動詞",
@@ -82,93 +82,81 @@ const QUESTION_PATCHES = {
     misconceptions: { "We arrived the station before noon.": "日本語の『駅に着く』から arrive を他動詞のように扱っている。", "We arrived to the station before noon.": "arrive の後の前置詞を to と一般化している。", "We arrived the station to before noon.": "動詞・前置詞・時を表す語の配置を混同している。" }
   },
   q13: {
-    stem: "I lost my key, so I can't open the door. に最も合う時制は？",
-    choices: ["I lost my key.", "I have lost my key.", "I had lost my key yesterday.", "I am losing my key."],
-    answer: "I have lost my key.",
-    explanation: "鍵を失った結果が今も続き、今ドアを開けられない。過去の出来事を現在の結果につなぐので現在完了が最も自然。",
-    misconceptions: { "I lost my key.": "過去の出来事だけを述べる過去形と、現在に残る結果を混同している。", "I had lost my key yesterday.": "過去完了を明確な過去時点 yesterday と単独で用いている。", "I am losing my key.": "lose を一時的な進行中の動作として扱っている。" },
-    reason: { prompt: "現在完了を選ぶ根拠は？", choices: ["失った結果が現在も続いている", "yesterday がある", "主語が三人称単数である", "受動態である"], answer: "失った結果が現在も続いている" }
+    stem: "I have lost my key, so I can't open the door. の現在完了の用法は？",
+    choices: ["継続", "経験", "完了・結果", "過去完了"],
+    answer: "完了・結果",
+    explanation: "鍵を失った結果が現在も続き、今ドアを開けられないため、完了・結果の用法。",
+    misconceptions: { "継続": "過去から現在まで続く状態と、現在に残る結果を混同している。", "経験": "回数・ever・neverなどで表す経験と、現在に残る結果を混同している。", "過去完了": "現在完了の用法と、過去の基準時より前を表す過去完了を混同している。" }
   },
   q18: {
     stem: "After a month, I am used to ___ up early. に入る形は？",
     choices: ["get", "got", "getting", "to get"],
     answer: "getting",
-    explanation: "be used to の to は前置詞で、その後ろには名詞相当の語を置く。動詞なら -ing 形になる。",
-    reason: { prompt: "getting を選ぶ直接の根拠は？", choices: ["to が前置詞として働く", "am の後ろは必ず -ing 形", "early が副詞である", "used が過去形である"], answer: "to が前置詞として働く" }
+    explanation: "be used to の to は前置詞で、その後ろには名詞相当の語を置く。動詞なら -ing 形になる。"
   },
   q21: {
-    stem: "My father gave me this book. を「この本」を主語にして受動態にすると？",
-    choices: ["This book was given me by my father.", "This book was given to me by my father.", "This book gave me by my father.", "This book was giving to me by my father."],
-    answer: "This book was given to me by my father.",
-    explanation: "SVOO を物主語の受動態にすると、残る人には通常 to を付ける。時制は be 動詞 was に表し、given は過去分詞。",
-    reason: { prompt: "to me が必要な理由は？", choices: ["物を主語にすると、人の要素を前置詞句で残すため", "give は常に to を取る自動詞だから", "受動態では目的語を二つ置けないため", "me が主語になるため"], answer: "物を主語にすると、人の要素を前置詞句で残すため" }
+    stem: "This book ___ to me by my father. に入る形は？",
+    choices: ["was given", "gave", "was giving", "given"],
+    answer: "was given",
+    explanation: "本は与えられる側なので受動態be + 過去分詞を使う。過去の出来事なのでwas givenとなり、人の目的語meの前にはtoを置く。"
   },
   q29: {
     stem: "The bus stopped ___ passengers get off. に入る形は？",
     choices: ["to let", "letting", "let", "to letting"],
     answer: "to let",
-    explanation: "stop to do は「〜するために立ち止まる」。バスが止まった目的を表すので to let。stop -ing なら、その行為自体をやめる意味になる。",
-    reason: { prompt: "to let を選ぶ根拠は？", choices: ["停止の目的を表している", "let の後ろは必ず to 不定詞だから", "bus が三人称単数だから", "passengers が複数だから"], answer: "停止の目的を表している" }
+    explanation: "stop to do は「〜するために立ち止まる」。バスが止まった目的を表すのでto let。stop -ingなら、その行為自体をやめる意味になる。"
   },
   q31: {
-    stem: "The lecture was ___, so the students were ___. に最も合う組み合わせは？",
-    choices: ["excited / exciting", "exciting / excited", "excite / excitement", "excited / excited"],
-    answer: "exciting / excited",
-    explanation: "lecture は人を興奮させる側なので exciting、students は興奮を感じる側なので excited。修飾される対象との関係で選ぶ。",
-    reason: { prompt: "二つの形を分ける基準は？", choices: ["人をそうさせる側か、そう感じる側か", "名詞が単数か複数か", "文が現在形か過去形か", "-ed の方が長い語か"], answer: "人をそうさせる側か、そう感じる側か" }
+    stem: "The students were ___ by the lecture. に最も合う語は？",
+    choices: ["excited", "exciting", "excite", "excitement"],
+    answer: "excited",
+    explanation: "studentsは興奮を感じる側なので過去分詞由来の形容詞excitedを使う。人を興奮させる側を表すならexciting。"
   },
   q38: {
     stem: "The scientist ___ research changed the field won the prize. に入る語は？",
     choices: ["who", "whose", "which", "where"],
     answer: "whose",
     explanation: "research の前には、その研究が誰のものかを示す所有格の関係詞 whose が必要。先行詞は scientist。",
-    misconceptions: { "who": "人を先行詞にすることだけで who を選び、節内の役割を見ていない。", "which": "直後の research を先行詞だと誤認している。", "where": "場所を表していないのに関係副詞を選んでいる。" },
-    reason: { prompt: "whose を選ぶ根拠は？", choices: ["research の所有者を示す必要がある", "scientist が人だから", "後ろが過去形だから", "場所を表す名詞があるから"], answer: "research の所有者を示す必要がある" }
+    misconceptions: { "who": "人を先行詞にすることだけで who を選び、節内の役割を見ていない。", "which": "直後の research を先行詞だと誤認している。", "where": "場所を表していないのに関係副詞を選んでいる。" }
   },
   q43: {
     stem: "___ it was raining, the game was canceled. に最も合う語句は？",
     choices: ["Because", "Because of", "Although", "Despite"],
     answer: "Because",
-    explanation: "後ろの it was raining は主語＋動詞を含む節なので Because。Because of と Despite の後ろには名詞句を置く。Although は譲歩を表し、後半の内容と合わない。",
-    misconceptions: { "Because of": "because と because of の後ろに置く形を混同している。", "Although": "原因と譲歩の関係を混同している。", "Despite": "前置詞 despite の後ろに節を置いている。" },
-    reason: { prompt: "Because を選ぶ直接の根拠は？", choices: ["後ろが主語＋動詞を含む節である", "雨は必ず because を伴う", "the game が単数である", "文が過去形である"], answer: "後ろが主語＋動詞を含む節である" }
+    explanation: "後ろのit was rainingは主語＋動詞を含む節なのでBecause。Because ofとDespiteの後ろには名詞句を置く。Althoughは譲歩を表し、後半の内容と合わない。",
+    misconceptions: { "Because of": "because と because of の後ろに置く形を混同している。", "Although": "原因と譲歩の関係を混同している。", "Despite": "前置詞 despite の後ろに節を置いている。" }
   },
   q46: {
     stem: "If I had studied harder, I ___ the exam. に入る形は？",
     choices: ["will pass", "would pass", "would have passed", "had passed"],
     answer: "would have passed",
-    explanation: "If + had + p.p. は過去の事実に反する仮定。主節は would have + p.p. で、過去に起こらなかった結果を表す。",
-    reason: { prompt: "would have passed を選ぶ根拠は？", choices: ["条件節が過去完了で、過去の反実仮想だから", "harder が比較級だから", "exam が単数だから", "If の後ろは必ず would だから"], answer: "条件節が過去完了で、過去の反実仮想だから" }
+    explanation: "条件節がhad + 過去分詞なので、過去の事実に反する仮定。主節はwould have + 過去分詞で、過去に起こらなかった結果を表す。"
   },
   q42: {
-    stem: "because と because of の後ろに置く形として正しい組み合わせは？",
-    choices: ["because + 節 / because of + 名詞句", "because + 名詞句 / because of + 節", "because + 原形 / because of + 原形", "because + 副詞 / because of + 副詞"],
-    answer: "because + 節 / because of + 名詞句",
-    explanation: "because it rained のように because の後ろには節を置く。because of the rain のように because of の後ろには名詞句を置く。",
-    misconceptions: { "because + 名詞句 / because of + 節": "because と because of の後ろに置く形を逆にしている。", "because + 原形 / because of + 原形": "接続詞・前置詞の後ろを助動詞と同じように扱っている。", "because + 副詞 / because of + 副詞": "節・名詞句・副詞の役割を区別できていない。" },
-    reason: { prompt: "組み合わせを分ける直接の根拠は？", choices: ["because の後ろは節、because of の後ろは名詞句だから", "because の方が長い語だから", "because of は過去形だけに使うから", "because は文頭に置けないから"], answer: "because の後ろは節、because of の後ろは名詞句だから" }
+    stem: "The game was canceled ___ the heavy rain. に最も合う語句は？",
+    choices: ["because of", "because", "although", "therefore"],
+    answer: "because of",
+    explanation: "空所の後ろは名詞句the heavy rainなのでbecause ofを使う。becauseの後ろには主語＋動詞を含む節を置く。",
+    misconceptions: { "because": "becauseとbecause ofの後ろに置く形を混同している。", "although": "原因と譲歩の関係を混同している。", "therefore": "原因を導く表現と結果を示す副詞を混同している。" }
   },
   q55: {
-    stem: "The report must be finished ___ Friday, but the team will work on it ___ Friday. に最も合う組み合わせは？",
-    choices: ["by / until", "until / by", "at / in", "from / during"],
-    answer: "by / until",
-    explanation: "by Friday は金曜を期限とする。until Friday は金曜まで継続する。前半は完了の期限、後半は作業の継続期間。",
-    reason: { prompt: "by と until を分ける基準は？", choices: ["期限か、継続の終点か", "曜日か月か", "主語が単数か複数か", "受動態か能動態か"], answer: "期限か、継続の終点か" }
+    stem: "The report must be finished ___ Friday. に最も合う語は？",
+    choices: ["by", "until", "during", "from"],
+    answer: "by",
+    explanation: "finishは完了を表すため、金曜日を期限とするbyを使う。untilはその時点まで動作・状態が継続する場合に使う。"
   },
   q56: {
     stem: "He was outside the room. He crossed the doorway and walked ___ it. に最も合う語は？",
     choices: ["to", "into", "at", "by"],
     answer: "into",
-    explanation: "外から戸口を越えて内部へ入る動きなので into。to は到達点を示すだけで、内部への移動までは表さない。",
-    misconceptions: { "to": "到達点と内部へ入る移動を区別していない。", "at": "場所を点として示す at を移動の方向に用いている。", "by": "そばを通る意味の by を到達の意味で用いている。" },
-    reason: { prompt: "into を選ぶ根拠は？", choices: ["境界を越えて内部へ入る動きがある", "room が単数名詞である", "walk は過去形である", "outside が前置詞だから"], answer: "境界を越えて内部へ入る動きがある" }
+    explanation: "外から戸口という境界を越えて内部へ入る動きなのでinto。toは到達点を示すだけで、内部への移動までは表さない。",
+    misconceptions: { "to": "到達点と内部へ入る移動を区別していない。", "at": "場所を点として示す at を移動の方向に用いている。", "by": "そばを通る意味の by を到達の意味で用いている。" }
   },
   q58: {
-    stem: "Few students submitted the form, but a few asked questions. の意味として最も適切なものは？",
-    choices: ["提出した生徒はほとんどおらず、質問した生徒は少しはいた", "提出した生徒も質問した生徒も多かった", "提出した生徒は少しおり、質問した生徒はほとんどいなかった", "提出も質問もゼロだった"],
-    answer: "提出した生徒はほとんどおらず、質問した生徒は少しはいた",
-    explanation: "few は「ほとんどない」、a few は「少しはある」。a の有無は数量だけでなく、話し手の見方を変える。",
-    reason: { prompt: "二つの語を分ける根拠は？", choices: ["a の有無が『少しはある』という含みを作る", "few は複数名詞に使えない", "a few は否定文でしか使えない", "form が単数だから"], answer: "a の有無が『少しはある』という含みを作る" }
+    stem: "Few students submitted the form. の意味として最も適切なものは？",
+    choices: ["提出した生徒はほとんどいなかった", "提出した生徒は少しはいた", "提出した生徒は大勢いた", "提出した生徒は全員だった"],
+    answer: "提出した生徒はほとんどいなかった",
+    explanation: "few + 可算名詞複数は「ほとんどない」という否定的な意味。a fewなら「少しはある」という肯定的な含みになる。"
   }
 };
 
@@ -186,7 +174,7 @@ window.GRAMMAR_CHECK_DATA = {
     { id: "foundation", label: "品詞・句・節・文の要素", order: 1, rule: "文法用語は、英文を読むための座標です。まず「何が」「どこで」働いているかを分けます。", points: ["単語は一つの語として品詞上の働きをもつ単位。句は二語以上で主語＋述語動詞を含まないまとまり。節は主語＋述語動詞を含むまとまり。", "主語(S)・動詞(V)・目的語(O)・補語(C)は文の骨組み。修飾語(M)は骨組みに情報を足す。", "名詞は人・物・事柄、形容詞は名詞を、 副詞は動詞・形容詞・副詞・文全体を修飾する。"], examples: ["book は単語、in the room は句、because he was tired は節。", "She gave me a book. は S + V + O + O。"], traps: ["語数だけでなく、主語＋述語動詞の有無を見て句と節を分ける。"] },
     { id: "pattern", label: "文型・自他動詞", order: 2, rule: "文型は「動詞の後ろに何を必要とするか」を見る道具です。訳語から決めません。", points: ["SVC の C は S を説明する。SVO の O は動作の対象。", "SVOO は『人に物を与える』型、SVOC の C は O を説明する。", "自動詞は目的語を直接取らず、他動詞は目的語を取る。"], examples: ["She is kind. は SVC。They made him happy. は SVOC。", "listen は listen to music のように前置詞を要する自動詞。"], traps: ["日本語で『〜を』と訳せても、英語で他動詞とは限らない。"] },
     { id: "verb_form", label: "動詞の形・主語との一致", order: 3, rule: "時制・主語・助動詞の三つを先に確認すると、動詞の形はかなり絞れます。", points: ["三人称単数・現在の一般動詞には -s / -es。", "do / does / did の後、助動詞の後、to の後は動詞の原形。", "be 動詞は主語と時制に合わせて am / are / is / was / were を選ぶ。"], examples: ["He plays tennis. / Does he play tennis?", "She can swim. の swim は原形。"], traps: ["does の s と動詞の s を二重にしない。"] },
-    { id: "tense", label: "時制・完了形・進行形", order: 4, rule: "時制は出来事を時間軸に置くための仕組みです。単なる日本語訳で選ばず、基準時との前後関係を見ます。", points: ["現在形は習慣・不変の事実・時刻表にも使う。", "進行形は進行中・一時的状態。状態動詞は原則進行形にしない。", "現在完了は『過去から今へ』をつなぐ。継続・経験・完了／結果を文脈で分ける。", "過去完了は過去の基準時よりさらに前。"], examples: ["I have lived here for five years. は継続。", "When I arrived, she had left. は到着より出発が前。"], traps: ["yesterday など明確な過去時点があれば、通常は現在完了を使わない。"] },
+    { id: "tense", label: "時制・完了形・進行形", order: 4, rule: "時制は出来事を時間軸に置くための仕組みです。単なる日本語訳で選ばず、基準時との前後関係を見ます。", points: ["現在形は習慣・不変の事実・時刻表にも使う。", "進行形は進行中・一時的状態。状態動詞は原則進行形にしない。", "現在完了は『過去から今へ』をつなぐ。継続・経験・完了／結果を文脈で分ける。", "過去完了は過去の基準時よりさらに前。"], examples: ["I have lived here for five years. は継続。", "I have visited Kyoto three times. は経験。", "I have lost my key. は完了・結果。", "When I arrived, she had left. は到着より出発が前。"], traps: ["yesterday など明確な過去時点があれば、通常は現在完了を使わない。"] },
     { id: "modal", label: "助動詞", order: 5, rule: "助動詞は話し手の判断を加え、後ろの動詞を原形にします。", points: ["can / may / must / should / will の後ろは原形。", "must have + p.p. は過去への強い推量。", "used to do は過去の習慣、be used to -ing は『〜に慣れている』。"], examples: ["She must be tired. / She must have been tired.", "I used to play soccer. / I am used to getting up early."], traps: ["must not は『してはいけない』で、have to の否定とは意味が違う。"] },
     { id: "passive", label: "受動態", order: 6, rule: "受動態は『受ける側』を主語にし、be + 過去分詞で作ります。", points: ["時制は be 動詞に表す。", "SVOO は物を主語にする場合、通常 to / for が必要。", "be interested in のように、by 以外の前置詞を伴う受動表現も多い。"], examples: ["The window was broken yesterday.", "A book was given to me."], traps: ["過去分詞だけでは受動態にならない。be 動詞との組で考える。"] },
     { id: "infinitive", label: "不定詞", order: 7, rule: "to + 動詞の原形は、文中で名詞・形容詞・副詞のように働きます。", points: ["名詞的用法＝『〜すること』。主語・目的語・補語になる。", "形容詞的用法＝名詞を後ろから修飾する。", "副詞的用法＝目的・原因・判断の根拠・結果などを表す。", "意味上の主語は原則 for 人、性質を述べる形容詞では of 人。"], examples: ["To read is fun. / a book to read / went there to study", "It is kind of you to help me."], traps: ["『主語・目的語・補語』は名詞的用法の位置であり、3用法そのものではない。"] },
@@ -215,7 +203,7 @@ window.GRAMMAR_CHECK_DATA = {
     ["verb_form", "助動詞 can の直後に置く動詞の形は？", ["原形", "三単現のs形", "過去形", "-ing形"], "原形", "助動詞の後ろは例外なく原形。can swims にはしない。"],
     ["tense", "現在形が最も自然に表すものは？", ["今この瞬間だけの動作", "過去に一度だけ起きた出来事", "習慣・不変の事実", "過去より前の出来事"], "習慣・不変の事実", "現在形は習慣や一般的事実に使う。進行中なら通常は進行形。"],
     ["tense", "現在完了の基本的な時間関係は？", ["過去の一点だけ", "過去から現在へのつながり", "未来の予定だけ", "現在より後の出来事"], "過去から現在へのつながり", "have + p.p. は過去の出来事を現在と結び、継続・経験・完了／結果を表す。"],
-    ["tense", "I have lived here for five years. の現在完了の用法は？", ["経験", "継続", "完了", "結果"], "継続", "for five years が過去から現在までの期間を示すため継続。"],
+    ["tense", "I have lived here for five years. の現在完了の用法は？", ["継続", "経験", "完了・結果", "過去完了"], "継続", "for five yearsが過去から現在まで続く期間を示すため、継続の用法。"],
     ["tense", "When I arrived, she ___ already ___. に最も合う形は？", ["has / left", "had / left", "was / leaving", "will / leave"], "had / left", "到着した過去の時点より、出発がさらに前なので過去完了。"],
     ["tense", "yesterday を伴う文で通常使う時制は？", ["現在完了", "過去形", "未来完了", "現在完了進行形"], "過去形", "yesterday は完結した過去時点を指定するため、通常は過去形。"],
     ["modal", "must have + 過去分詞 が表すものは？", ["未来の予定", "過去への強い推量", "現在の義務", "過去の習慣"], "過去への強い推量", "must have been tired は『疲れていたにちがいない』。"],
@@ -233,7 +221,7 @@ window.GRAMMAR_CHECK_DATA = {
     ["gerund", "stop to smoke の意味は？", ["喫煙をやめる", "喫煙するために立ち止まる", "喫煙し続ける", "喫煙させられる"], "喫煙するために立ち止まる", "stop -ing は行為をやめる、stop to do は別の目的で立ち止まる。"],
     ["participle", "a ___ window に最も合うものは？", ["breaking", "broken", "break", "to break"], "broken", "窓は『壊す』側でなく『壊される』側なので過去分詞 broken。"],
     ["participle", "The movie was ___. に最も合うものは？", ["excited", "exciting", "excite", "excitement"], "exciting", "映画が人を興奮させるので exciting。人が感じる側なら excited。"],
-    ["participle", "分詞構文の意味上の主語は、原則として何と一致するか。", ["直前の名詞", "主節の主語", "目的語", "接続詞"], "主節の主語", "Feeling tired, I went home. では疲れたのも帰ったのも I。"],
+    ["participle", "Walking to school, I saw an old friend. で、学校へ歩いていたのは誰か。", ["主節の主語 I", "目的語 an old friend", "場所を表す school", "文中では特定できない"], "主節の主語 I", "分詞構文Walking to schoolの意味上の主語は、原則として主節の主語Iと一致する。"],
     ["participle", "Having finished my homework, I watched TV. の Having finished が表す関係は？", ["主節と同時", "主節より前に完了", "主節より後", "未来の予定"], "主節より前に完了", "Having + p.p. は『宿題を終えた後で』のように主節より前の完了を表す。"],
     ["comparison", "as + 原級 + as の意味は？", ["〜より…だ", "最も〜だ", "〜と同じくらい…だ", "〜すぎて…できない"], "〜と同じくらい…だ", "同程度を表す原級比較。否定なら not as / so ... as。"],
     ["comparison", "The ___ you read, the ___ you learn. に入る組み合わせは？", ["more / more", "most / most", "much / many", "more / most"], "more / more", "the + 比較級 ..., the + 比較級 ... は『〜すればするほど』。"],
@@ -265,11 +253,11 @@ window.GRAMMAR_CHECK_DATA = {
     ["pattern", "自動詞の基本的な特徴は？", ["目的語を直接取らない", "目的語を必ず二つ取る", "必ず補語を取る", "受動態だけで使う"], "目的語を直接取らない", "自動詞は目的語を直接取らない。arrive at the stationのように、場所などを続ける場合は前置詞を介する。"],
     ["tense", "現在形と現在進行形の基本的な使い分けとして正しいものは？", ["現在形は習慣、現在進行形は進行中の動作", "現在形は過去、現在進行形は未来", "現在形は受動、現在進行形は能動", "どちらも常に同じ意味"], "現在形は習慣、現在進行形は進行中の動作", "現在形は習慣・一般的事実、現在進行形は今進行中または一時的な動作を表す。"],
     ["pattern", "Birds fly. の文型は？", ["SV", "SVC", "SVO", "SVOC"], "SV", "Birds がS、fly がV。fly は目的語や補語を必要としない自動詞なのでSV。"],
-    ["modal", "助動詞と基本的な意味の組み合わせとして正しいものは？", ["can＝能力 / may＝許可・可能性 / should＝助言", "can＝禁止 / may＝過去の習慣 / should＝能力", "can＝完了 / may＝比較 / should＝受動", "can＝所有 / may＝進行 / should＝場所"], "can＝能力 / may＝許可・可能性 / should＝助言", "canは能力、mayは許可・可能性、shouldは助言・軽い義務を表すのが基本。"],
+    ["modal", "助動詞shouldが表す基本的な意味は？", ["助言・軽い義務", "過去の習慣", "強い禁止", "完了した経験"], "助言・軽い義務", "shouldは「〜した方がよい」「〜すべきだ」という助言・軽い義務を表す。"],
     ["pattern", "She opened the window. の文型は？", ["SV", "SVC", "SVO", "SVOC"], "SVO", "She がS、opened がV、the window が動作の対象O。したがってSVO。"],
     ["relative", "物を先行詞にし、関係詞節内の欠けた要素を補う関係代名詞の組み合わせは？", ["which / that", "who / whom", "where / when", "what / where"], "which / that", "物を先行詞とする関係代名詞にはwhichまたはthatを用いる。whatは先行詞を意味に含むため、直前に先行詞を置かない。"],
     ["pattern", "My uncle bought me a bicycle. の文型は？", ["SVC", "SVO", "SVOO", "SVOC"], "SVOO", "me が『人』の目的語、a bicycle が『物』の目的語。二つの目的語を取るためSVOO。"],
-    ["preposition", "時を表すat・on・inの使い分けとして正しい組み合わせは？", ["at 7 o'clock / on Monday / in July", "on 7 o'clock / in Monday / at July", "in 7 o'clock / at Monday / on July", "at 7 o'clock / in Monday / on July"], "at 7 o'clock / on Monday / in July", "時刻にはat、曜日・日付にはon、月・年など広がりのある期間にはinを用いる。"],
+    ["preposition", "The meeting starts ___ 7 p.m. に入る前置詞は？", ["at", "on", "in", "by"], "at", "具体的な時刻の前にはatを使う。曜日・日付にはon、月・年にはinを使う。"],
     ["pattern", "They elected her captain. の文型は？", ["SVC", "SVO", "SVOO", "SVOC"], "SVOC", "her が目的語O、captain が her の役職を説明する補語C。O = C の関係が成り立つためSVOC。"],
     ["pattern", "The news made everyone anxious. の文型は？", ["SVC", "SVO", "SVOO", "SVOC"], "SVOC", "everyone が目的語O、anxious が everyone の状態を説明する補語C。make + O + C のSVOC。"],
     ["foundation", "英文法で「句」と呼ぶまとまりの説明として正しいものは？", ["一つの語として品詞上の働きをもつ単位", "二語以上で主語＋述語動詞を含まないまとまり", "主語＋述語動詞を含むまとまり", "必ずピリオドで終わる文全体"], "二語以上で主語＋述語動詞を含まないまとまり", "in the roomやto read a bookのように、二語以上が一つの品詞のように働き、主語＋述語動詞を含まないまとまりを句という。"],
@@ -278,7 +266,7 @@ window.GRAMMAR_CHECK_DATA = {
     ["pattern", "OとCの間に「O = C」の関係がある文型は？", ["SV", "SVC", "SVOO", "SVOC"], "SVOC", "SVOCのCは目的語Oの状態・名称を説明する。They called him Tom. ならhim = Tom。"],
     ["verb_form", "動詞の基本的な働きとして正しいものは？", ["主語の動作・状態を表し、時制や主語に応じて形が変わる", "人・物・事柄の名前だけを表す", "名詞だけを詳しく説明する", "語と語や節と節だけを結ぶ"], "主語の動作・状態を表し、時制や主語に応じて形が変わる", "動詞は主語の動作や状態を表し、時制や主語との一致に応じて形が変化する。"],
     ["verb_form", "三人称単数の主語を用いた現在の肯定文で、一般動詞に付けるものは？", ["-sまたは-es", "必ず-ing", "必ず-ed", "to"], "-sまたは-es", "he, she, itなど三人称単数の主語を現在形で用いると、一般動詞に-sまたは-esを付ける。"],
-    ["tense", "原則として進行形にしない状態動詞はどれか。", ["know", "run", "write", "swim"], "know", "knowは知識・認識の状態を表すため、通常は進行形にしない。run, write, swimは動作動詞。"],
+    ["tense", "I have visited Kyoto three times. の現在完了の用法は？", ["継続", "経験", "完了・結果", "過去完了"], "経験", "three timesが現在までに経験した回数を示すため、経験の用法。"],
     ["tense", "現在完了の基本形は？", ["haveまたはhas + 過去分詞", "be + 現在分詞", "did + 原形", "will + 原形"], "haveまたはhas + 過去分詞", "現在完了はhaveまたはhas + 過去分詞で作り、過去の出来事を現在につなげる。"],
     ["modal", "must notが表す基本的な意味は？", ["〜してはいけない", "〜する必要はない", "〜したかもしれない", "以前は〜した"], "〜してはいけない", "must notは強い禁止を表す。必要がないという意味のdo not have toとは区別する。"],
     ["modal", "do not have toが表す基本的な意味は？", ["〜する必要はない", "〜してはいけない", "〜したにちがいない", "〜することに慣れている"], "〜する必要はない", "do not have toは義務・必要の否定であり、行為を禁止するmust notとは意味が異なる。"],

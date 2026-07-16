@@ -150,12 +150,10 @@ h3 { font-size: 18px; line-height: 1.45; }
 }
 .choice:hover { background: var(--ink); color: var(--parchment); }
 .choice.selected { border: 3px solid var(--ink); padding: 8px 14px; }
-.choice:disabled, .reasonChoice:disabled { cursor: default; opacity: 1; }
-.choice.correct, .reasonChoice.correct { background: var(--paper); border: 3px solid var(--green); color: var(--ink); padding: 8px 14px; }
-.reasonChoice.correct { padding: 7px 10px; }
-.choice.incorrect, .reasonChoice.incorrect { background: var(--paper); border: 3px solid var(--red); color: var(--ink); padding: 8px 14px; }
-.reasonChoice.incorrect { padding: 7px 10px; }
-.choice.subdued, .reasonChoice.subdued { color: var(--muted); opacity: .62; }
+.choice:disabled { cursor: default; opacity: 1; }
+.choice.correct { background: var(--paper); border: 3px solid var(--green); color: var(--ink); padding: 8px 14px; }
+.choice.incorrect { background: var(--paper); border: 3px solid var(--red); color: var(--ink); padding: 8px 14px; }
+.choice.subdued { color: var(--muted); opacity: .62; }
 .choice .key {
   align-items: center;
   border: 1px solid currentColor;
@@ -166,15 +164,6 @@ h3 { font-size: 18px; line-height: 1.45; }
   height: 26px;
   justify-content: center;
 }
-
-.reasonBox { border: 1px solid var(--ink); margin: 20px 0 0; padding: 16px; }
-.reasonBox legend { font-family: var(--mono); font-size: 11px; letter-spacing: .08em; padding: 0 6px; text-transform: uppercase; }
-.reasonBox > p { font-weight: 700; margin-bottom: 12px; }
-.reasonGrid { display: grid; gap: 8px; }
-.reasonChoice { align-items: center; background: var(--paper); color: var(--ink); display: flex; gap: 10px; min-height: 48px; padding: 9px 12px; text-align: left; }
-.reasonChoice:hover { background: var(--ink); color: var(--parchment); }
-.reasonChoice.selected { border: 3px solid var(--ink); padding: 7px 10px; }
-.reasonChoice .key { align-items: center; border: 1px solid currentColor; display: inline-flex; flex: 0 0 24px; font-family: var(--mono); font-size: 11px; height: 24px; justify-content: center; }
 
 .instantFeedback { background: var(--paper); border: 1px solid var(--ink); border-left: 5px solid var(--ink); margin-top: 20px; padding: 16px; }
 .instantFeedback:focus { outline: 3px solid var(--clay); outline-offset: 3px; }

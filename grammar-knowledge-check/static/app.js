@@ -16,7 +16,6 @@
   const questionById = new Map(DATA.questions.map(question => [question.id, question]));
   let session = null;
   let pendingChoice = null;
-  let pendingReason = null;
   let pendingUncertain = false;
   let answerRevealed = false;
   let cloud = null;
@@ -64,7 +63,6 @@
       responses: []
     };
     pendingChoice = null;
-    pendingReason = null;
     pendingUncertain = false;
     answerRevealed = false;
     renderQuiz();
@@ -73,7 +71,6 @@
   function home() {
     session = null;
     pendingChoice = null;
-    pendingReason = null;
     pendingUncertain = false;
     answerRevealed = false;
     const history = loadHistory();
@@ -101,7 +98,7 @@
         <div class="flowSteps" aria-label="学習の流れ">
           <div><strong>1</strong><p>4択で${DATA.questions.length}問を解く</p></div>
           <div><strong>2</strong><p>正答と解説を確認する</p></div>
-          <div><strong>3</strong><p>重要項目では根拠も確かめる</p></div>
+          <div><strong>3</strong><p>誤答の根拠を読み直す</p></div>
         </div>
         <p class="shortcutHint">数字キー 1〜4 で解答を選択、Enter で次へ進めます。</p>
         ${historyHtml}
@@ -114,13 +111,10 @@
     const question = session.questions[session.index];
     const percent = Math.round((session.index / session.questions.length) * 100);
     const domain = domainById.get(question.domain);
-    const needsReason = Boolean(question.reason);
     const canContinue = answerRevealed;
     const answerStatus = answerRevealed
       ? "解説を確認したら、次へ進んでください。"
-      : !pendingChoice
-        ? "答えを選ぶと、その場で採点します。"
-        : "続けて根拠を選ぶと、その場で採点します。";
+      : "答えを選ぶと、その場で採点します。";
     app.innerHTML = `
       <section class="panel">
         <div class="quizHead">
@@ -139,19 +133,6 @@
             </button>
           `).join("")}
         </div>
-        ${needsReason && pendingChoice ? `
-          <fieldset class="reasonBox">
-            <legend>根拠を1つ選ぶ</legend>
-            <p>${escapeHtml(question.reason.prompt)}</p>
-            <div class="reasonGrid">
-              ${question.reason.choices.map((choice, index) => `
-                <button class="reasonChoice${reasonChoiceClass(question, choice)}" data-reason="${escapeHtml(choice)}" type="button" aria-pressed="${pendingReason === choice}" ${answerRevealed ? "disabled" : ""}>
-                  <span class="key">${String.fromCharCode(65 + index)}</span><span>${escapeHtml(choice)}</span>
-                </button>
-              `).join("")}
-            </div>
-          </fieldset>
-        ` : ""}
         ${instantFeedbackHtml(question)}
         <div class="choiceActions">
           <label class="flag"><input id="uncertain" type="checkbox" ${pendingUncertain ? "checked" : ""}> 正解でも根拠が曖昧なら印を付ける</label>
@@ -167,11 +148,6 @@
         selectAnswer(button.dataset.choice);
       });
     });
-    document.querySelectorAll(".reasonChoice").forEach(button => {
-      button.addEventListener("click", () => {
-        selectReason(button.dataset.reason);
-      });
-    });
     document.querySelector("#uncertain").addEventListener("change", event => {
       pendingUncertain = event.target.checked;
     });
@@ -185,34 +161,14 @@
     return " subdued";
   }
 
-  function reasonChoiceClass(question, choice) {
-    if (!answerRevealed) return pendingReason === choice ? " selected" : "";
-    if (choice === question.reason.answer) return " correct";
-    if (choice === pendingReason) return " incorrect";
-    return " subdued";
-  }
-
   function selectAnswer(choice) {
     if (answerRevealed) return;
-    const question = session.questions[session.index];
     pendingChoice = choice;
-    pendingReason = null;
-    if (question.reason) {
-      renderQuiz();
-      return;
-    }
-    revealAnswer();
-  }
-
-  function selectReason(reason) {
-    if (answerRevealed || !pendingChoice) return;
-    pendingReason = reason;
     revealAnswer();
   }
 
   function revealAnswer() {
-    const question = session.questions[session.index];
-    if (!pendingChoice || (question.reason && !pendingReason)) return;
+    if (!pendingChoice) return;
     answerRevealed = true;
     renderQuiz();
     document.querySelector("#instantFeedback")?.focus();
@@ -221,14 +177,10 @@
   function instantFeedbackHtml(question) {
     if (!answerRevealed) return "";
     const correct = pendingChoice === question.answer;
-    const reasonCorrect = !question.reason || pendingReason === question.reason.answer;
-    const state = correct && reasonCorrect ? "good" : correct ? "review" : "bad";
-    const label = correct && reasonCorrect ? "正解" : correct ? "正解。根拠を確認" : "不正解";
+    const state = correct ? "good" : "bad";
+    const label = correct ? "正解" : "不正解";
     const misconception = !correct && question.misconceptions[pendingChoice]
       ? `<p><strong>今回の混同：</strong>${escapeHtml(question.misconceptions[pendingChoice])}</p>`
-      : "";
-    const reason = question.reason
-      ? `<p><strong>正しい根拠：</strong>${escapeHtml(question.reason.answer)}</p>${!reasonCorrect ? `<p><strong>選んだ根拠：</strong>${escapeHtml(pendingReason)}</p>` : ""}`
       : "";
     return `
       <section class="instantFeedback ${state}" id="instantFeedback" tabindex="-1" aria-live="polite">
@@ -236,7 +188,6 @@
         <h3>${label}</h3>
         <p><strong>正答：</strong>${escapeHtml(question.answer)}</p>
         ${!correct ? `<p><strong>あなたの解答：</strong>${escapeHtml(pendingChoice)}</p>` : ""}
-        ${reason}
         ${misconception}
         <p><strong>解説：</strong>${escapeHtml(question.explanation)}</p>
       </section>
@@ -249,11 +200,9 @@
     session.responses.push({
       id: question.id,
       chosen: pendingChoice,
-      chosenReason: pendingReason,
       uncertain: pendingUncertain
     });
     pendingChoice = null;
-    pendingReason = null;
     pendingUncertain = false;
     answerRevealed = false;
     session.index += 1;
@@ -275,7 +224,6 @@
         ...question,
         ...response,
         correct,
-        reasonCorrect: question.reason ? response.chosenReason === question.reason.answer : null,
         misconception: correct ? null : question.misconceptions[response.chosen]
       };
     });
@@ -292,9 +240,7 @@
     return Object.keys(skillLabels).map(skill => {
       const answers = result.answers.filter(answer => answer.skill === skill);
       const correct = answers.filter(answer => answer.correct).length;
-      const reasonAnswers = answers.filter(answer => answer.reason);
-      const reasonCorrect = reasonAnswers.filter(answer => answer.reasonCorrect).length;
-      return { skill, label: skillLabels[skill], answers, correct, reasonAnswers, reasonCorrect };
+      return { skill, label: skillLabels[skill], answers, correct };
     });
   }
 
@@ -365,7 +311,6 @@
               <p class="kicker">${escapeHtml(stat.label)}</p>
               <strong>${stat.correct}<span> / ${stat.answers.length}</span></strong>
               <p>${stat.skill === "knowledge" ? "用語・基本ルールを再生する力" : stat.skill === "distinction" ? "似た形を根拠で見分ける力" : "文脈から形を判断する力"}</p>
-              ${stat.reasonAnswers.length ? `<p class="measurementMeta">根拠問題 ${stat.reasonCorrect}/${stat.reasonAnswers.length} 正解</p>` : ""}
             </article>
           `).join("")}
         </div>
@@ -397,11 +342,11 @@
   }
 
   function renderReview(result) {
-    const reviewAnswers = result.answers.filter(answer => !answer.correct || answer.uncertain || answer.reasonCorrect === false);
+    const reviewAnswers = result.answers.filter(answer => !answer.correct || answer.uncertain);
     const reviewDomains = domainStats(result).filter(stat => stat.status !== "good");
     app.innerHTML = `
       <section class="panel dark">
-        <p class="kicker">REVIEW / WRONG, UNCERTAIN, OR REASON</p>
+        <p class="kicker">REVIEW / WRONG OR UNCERTAIN</p>
         <h2>解説を読む</h2>
         <p class="lead">正誤だけを追わず、選んだ誤答がどの混同から出たかを確認します。必要なら、解説の後で問題順を変えて解き直します。</p>
         <div class="primaryAction"><button class="primary" id="retryButton" type="button">解説を読んだら、もう一度${DATA.questions.length}問を解く</button><p>同じ学習順で、根拠まで言えるか確かめます。</p></div>
@@ -409,7 +354,7 @@
       </section>
       <section class="panel">
         <h2>あなたの解答</h2>
-        ${reviewAnswers.length ? reviewAnswers.map(answerHtml).join("") : "<div class=\"empty\">誤答・保留・根拠の誤りはありません。</div>"}
+        ${reviewAnswers.length ? reviewAnswers.map(answerHtml).join("") : "<div class=\"empty\">誤答・保留はありません。</div>"}
       </section>
       <section class="panel">
         <h2>分野ごとの解説</h2>
@@ -421,10 +366,9 @@
   }
 
   function answerHtml(answer) {
-    const state = !answer.correct ? "bad" : answer.reasonCorrect === false ? "flagged" : "flagged";
-    const stateLabel = !answer.correct ? "不正解" : answer.reasonCorrect === false ? "根拠を再確認" : "保留";
+    const state = !answer.correct ? "bad" : "flagged";
+    const stateLabel = !answer.correct ? "不正解" : "保留";
     const misconception = answer.misconception ? `<p><strong>混同：</strong>${escapeHtml(answer.misconception)}</p>` : "";
-    const reason = answer.reason ? `<p><strong>根拠：</strong>${escapeHtml(answer.chosenReason || "未選択")} ${answer.reasonCorrect ? "（正解）" : "（要確認）"}</p>` : "";
     return `
       <article class="reviewItem">
         <p class="questionCount">${escapeHtml(domainById.get(answer.domain).label)} / ${escapeHtml(skillLabels[answer.skill])} / ${stateLabel}</p>
@@ -432,7 +376,6 @@
         <div class="answerLine ${state}">
           <p><strong>正解：</strong>${escapeHtml(answer.answer)}</p>
           <p><strong>あなたの解答：</strong>${escapeHtml(answer.chosen)}</p>
-          ${reason}
           ${misconception}
           <p>${escapeHtml(answer.explanation)}</p>
         </div>
@@ -460,12 +403,6 @@
     if (!answerRevealed && keys.includes(event.key)) {
       const question = session.questions[session.index];
       selectAnswer(question.choices[Number(event.key) - 1]);
-      return;
-    }
-    const reasonIndex = ["a", "b", "c", "d"].indexOf(event.key.toLowerCase());
-    const question = session.questions[session.index];
-    if (!answerRevealed && question.reason && pendingChoice && reasonIndex >= 0) {
-      selectReason(question.reason.choices[reasonIndex]);
       return;
     }
     if (event.key === "Enter" && answerRevealed) {

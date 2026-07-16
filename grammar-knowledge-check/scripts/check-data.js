@@ -37,11 +37,7 @@ for (const question of data.questions) {
       if (!question.misconceptions[choice]) errors.push(`誤概念タグ不足: ${question.id} / ${choice}`);
     });
   }
-  if (question.reason) {
-    if (!question.reason.prompt || !Array.isArray(question.reason.choices) || question.reason.choices.length !== 4) errors.push(`根拠選択肢不正: ${question.id}`);
-    else if (new Set(question.reason.choices).size !== 4) errors.push(`根拠選択肢重複: ${question.id}`);
-    else if (!question.reason.choices.includes(question.reason.answer)) errors.push(`根拠の正解が選択肢にない: ${question.id}`);
-  }
+  if (question.reason) errors.push(`一問一判断に反する根拠選択あり: ${question.id}`);
   if (/適切でない|誤っている|間違っている/.test(question.stem)) warnings.push(`否定表現を含む設問: ${question.id}`);
   const lengths = question.choices.map(choice => choice.length).filter(Boolean);
   if (Math.max(...lengths) / Math.min(...lengths) > 4) warnings.push(`選択肢長の差が大きい: ${question.id}`);
