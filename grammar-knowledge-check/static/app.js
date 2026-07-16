@@ -3,12 +3,14 @@
 
   const DATA = window.GRAMMAR_CHECK_DATA;
   const KEY = "grammar-knowledge-check-v1";
+  const APP_ID = "grammar-knowledge-check";
   const app = document.querySelector("#app");
   const resetButton = document.querySelector("#resetButton");
   const keys = ["1", "2", "3", "4"];
   const domainById = new Map(DATA.domains.map(domain => [domain.id, domain]));
   let session = null;
   let pendingChoice = null;
+  let cloud = null;
 
   function escapeHtml(value) {
     return String(value)
@@ -29,6 +31,12 @@
 
   function saveHistory(result) {
     localStorage.setItem(KEY, JSON.stringify(result));
+    if (cloud) cloud.queueSave();
+  }
+
+  function applyCloudProgress(progress) {
+    const history = progress && typeof progress === "object" ? progress.history : null;
+    if (history && typeof history === "object") localStorage.setItem(KEY, JSON.stringify(history));
   }
 
   function shuffle(items) {
@@ -303,6 +311,7 @@
   resetButton.addEventListener("click", () => {
     if (!confirm("この端末に保存した結果を消しますか？")) return;
     localStorage.removeItem(KEY);
+    if (cloud) cloud.queueSave();
     home();
   });
 
@@ -310,5 +319,16 @@
     app.innerHTML = "<section class=\"panel\"><h2>データの読み込みに失敗しました</h2><p>問題数または分野数が想定と異なります。</p></section>";
     return;
   }
-  home();
+  async function init() {
+    cloud = createCloud({
+      appId: APP_ID,
+      configPath: "../static/config.json",
+      getPayload: () => ({ version: 1, history: loadHistory() }),
+      applyLoaded: applyCloudProgress,
+    });
+    await cloud.init();
+    home();
+  }
+
+  init();
 })();
