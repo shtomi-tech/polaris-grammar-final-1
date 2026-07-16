@@ -27,16 +27,26 @@ function questionMarkdown(question) {
   const reason = question.reason
     ? `\n**根拠選択**：${markdown(question.reason.prompt)}\n\n${question.reason.choices.map((choice, index) => `- ${String.fromCharCode(65 + index)}. ${markdown(choice)}${choice === question.reason.answer ? "（正答）" : ""}`).join("\n")}\n`
     : "";
-  return `### ${question.id.toUpperCase()}｜${skillLabels[question.skill]}｜${priorityLabels[question.priority]}\n\n**測定対象**：${markdown(question.target)}\n\n**設問**：${markdown(question.stem)}\n\n| 選択肢 | 内容 | 判定 |\n| --- | --- | --- |\n${choices}\n\n**解説**：${markdown(question.explanation)}\n\n**誤答時に確認する混同**\n\n${misconceptions}${reason}`;
+  return `#### ${question.id.toUpperCase()}｜${skillLabels[question.skill]}｜${priorityLabels[question.priority]}\n\n**測定対象**：${markdown(question.target)}\n\n**設問**：${markdown(question.stem)}\n\n| 選択肢 | 内容 | 判定 |\n| --- | --- | --- |\n${choices}\n\n**解説**：${markdown(question.explanation)}\n\n**誤答時に確認する混同**\n\n${misconceptions}${reason}`;
 }
 
 const summary = Object.entries(skillLabels)
   .map(([skill, label]) => `${label} ${data.questions.filter(question => question.skill === skill).length}問`)
   .join("／");
 const reasonCount = data.questions.filter(question => question.reason).length;
-const sections = data.domains.map(domain => {
-  const questions = data.questions.filter(question => question.domain === domain.id);
-  return `## ${String(domain.order).padStart(2, "0")}｜${domain.label}\n\n${questions.map(questionMarkdown).join("\n\n")}`;
+const questionById = new Map(data.questions.map(question => [question.id, question]));
+const sections = data.learningStages.map((stage, stageIndex) => {
+  const groups = [];
+  stage.questionIds.map(id => questionById.get(id)).forEach(question => {
+    const current = groups.at(-1);
+    if (!current || current.domainId !== question.domain) groups.push({ domainId: question.domain, questions: [] });
+    groups.at(-1).questions.push(question);
+  });
+  const domains = groups.map(group => {
+    const domain = domainById.get(group.domainId);
+    return `### ${String(domain.order).padStart(2, "0")}｜${domain.label}\n\n${group.questions.map(questionMarkdown).join("\n\n")}`;
+  }).join("\n\n");
+  return `## STAGE ${stageIndex + 1}｜${stage.label}\n\n${domains}`;
 });
 const output = `# 英文法 基礎知識チェック｜問題一覧\n\n> 自動生成元：\`data/questions.js\`\n>\n> 全${data.questions.length}問・${data.domains.length}分野／${summary}／根拠選択 ${reasonCount}問\n\n${sections.join("\n\n")}`;
 

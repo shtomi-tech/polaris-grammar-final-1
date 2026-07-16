@@ -44,6 +44,29 @@ const QUESTION_META = {
   q69: { skill: "knowledge", priority: "support" }, q70: { skill: "knowledge", priority: "support" }
 };
 
+const LEARNING_STAGES = [
+  {
+    label: "文の骨組み",
+    questionIds: ["q3", "q71", "q72", "q2", "q4", "q1", "q73", "q61", "q63", "q65", "q67", "q74", "q69", "q70", "q5", "q7", "q6", "q8", "q76", "q11", "q75", "q9", "q10"]
+  },
+  {
+    label: "動詞の体系",
+    questionIds: ["q12", "q62", "q77", "q78", "q16", "q13", "q14", "q15", "q79", "q80", "q64", "q17", "q19", "q18", "q20", "q81", "q82", "q22", "q21"]
+  },
+  {
+    label: "準動詞",
+    questionIds: ["q23", "q83", "q84", "q24", "q25", "q26", "q85", "q86", "q27", "q28", "q29", "q87", "q88", "q30", "q31", "q32", "q33"]
+  },
+  {
+    label: "比較・節・関係詞",
+    questionIds: ["q34", "q89", "q90", "q37", "q35", "q36", "q93", "q42", "q43", "q94", "q44", "q91", "q92", "q66", "q39", "q40", "q38", "q41"]
+  },
+  {
+    label: "発展構文と語法",
+    questionIds: ["q95", "q45", "q47", "q96", "q46", "q49", "q97", "q48", "q50", "q51", "q54", "q98", "q52", "q53", "q68", "q99", "q55", "q56", "q100", "q59", "q57", "q58", "q60"]
+  }
+];
+
 const QUESTION_PATCHES = {
   q1: {
     stem: "In \"because he was tired\", \"he was tired\" は何か。",
@@ -157,6 +180,8 @@ function defaultMisconceptions(question) {
 
 window.GRAMMAR_CHECK_DATA = {
   title: "英文法 基礎知識チェック",
+  learningStages: LEARNING_STAGES,
+  questionOrder: LEARNING_STAGES.flatMap(stage => stage.questionIds),
   domains: [
     { id: "foundation", label: "品詞・句・節・文の要素", order: 1, rule: "文法用語は、英文を読むための座標です。まず「何が」「どこで」働いているかを分けます。", points: ["句は主語＋動詞を含まないまとまり、節は主語＋動詞を含むまとまり。", "主語(S)・動詞(V)・目的語(O)・補語(C)は文の骨組み。修飾語(M)は骨組みに情報を足す。", "名詞は人・物・事柄、形容詞は名詞を、 副詞は動詞・形容詞・副詞・文全体を修飾する。"], examples: ["in the room は句、because he was tired は節。", "She gave me a book. は S + V + O + O。"], traps: ["長いまとまりでも、主語＋動詞がなければ節ではない。"] },
     { id: "pattern", label: "文型・自他動詞", order: 2, rule: "文型は「動詞の後ろに何を必要とするか」を見る道具です。訳語から決めません。", points: ["SVC の C は S を説明する。SVO の O は動作の対象。", "SVOO は『人に物を与える』型、SVOC の C は O を説明する。", "自動詞は目的語を直接取らず、他動詞は目的語を取る。"], examples: ["She is kind. は SVC。They made him happy. は SVOC。", "listen は listen to music のように前置詞を要する自動詞。"], traps: ["日本語で『〜を』と訳せても、英語で他動詞とは限らない。"] },
@@ -238,13 +263,13 @@ window.GRAMMAR_CHECK_DATA = {
     ["negation", "Do you know where he ___? に入る形は？", ["lives", "does live", "does he live", "live does"], "lives", "間接疑問は where + 主語 + 動詞の平叙文語順。"],
     ["negation", "Never ___ I seen such a view. に入る語は？", ["have", "has", "did", "am"], "have", "否定語 Never が文頭に出ると倒置。現在完了なので have + 主語 + p.p.。"],
     ["pattern", "Birds fly. の文型は？", ["SV", "SVC", "SVO", "SVOC"], "SV", "Birds がS、fly がV。fly の後ろに目的語や補語を必要としないためSV。"],
-    ["pattern", "The baby slept peacefully. の文型は？", ["SV", "SVC", "SVO", "SVOO"], "SV", "The baby がS、slept がV。peacefully は動詞を修飾する副詞Mなので、文型には含めずSV。"],
+    ["tense", "現在形と現在進行形の基本的な使い分けとして正しいものは？", ["現在形は習慣、現在進行形は進行中の動作", "現在形は過去、現在進行形は未来", "現在形は受動、現在進行形は能動", "どちらも常に同じ意味"], "現在形は習慣、現在進行形は進行中の動作", "現在形は習慣・一般的事実、現在進行形は今進行中または一時的な動作を表す。"],
     ["pattern", "The soup tastes delicious. の文型は？", ["SV", "SVC", "SVO", "SVOC"], "SVC", "delicious は目的語ではなく、主語 The soup の状態を説明する補語C。したがってSVC。"],
-    ["pattern", "My dream is to study abroad. の文型は？", ["SV", "SVC", "SVO", "SVOO"], "SVC", "to study abroad は主語 My dream の内容を説明する補語C。be動詞を挟んでSとCが同じ内容を指すためSVC。"],
+    ["modal", "助動詞と基本的な意味の組み合わせとして正しいものは？", ["can＝能力 / may＝許可・可能性 / should＝助言", "can＝禁止 / may＝過去の習慣 / should＝能力", "can＝完了 / may＝比較 / should＝受動", "can＝所有 / may＝進行 / should＝場所"], "can＝能力 / may＝許可・可能性 / should＝助言", "canは能力、mayは許可・可能性、shouldは助言・軽い義務を表すのが基本。"],
     ["pattern", "She opened the window. の文型は？", ["SV", "SVC", "SVO", "SVOC"], "SVO", "She がS、opened がV、the window が動作の対象O。したがってSVO。"],
-    ["pattern", "We discussed the plan. の文型は？", ["SV", "SVC", "SVO", "SVOO"], "SVO", "discuss は目的語を直接取る他動詞。the plan がOなのでSVO。discuss about とはしない。"],
+    ["relative", "物を先行詞にし、関係詞節内の欠けた要素を補う関係代名詞の組み合わせは？", ["which / that", "who / whom", "where / when", "what / where"], "which / that", "物を先行詞とする関係代名詞にはwhichまたはthatを用いる。whatは先行詞を意味に含むため、直前に先行詞を置かない。"],
     ["pattern", "My uncle bought me a bicycle. の文型は？", ["SVC", "SVO", "SVOO", "SVOC"], "SVOO", "me が『人』の目的語、a bicycle が『物』の目的語。二つの目的語を取るためSVOO。"],
-    ["pattern", "She showed us her new design. の文型は？", ["SVC", "SVO", "SVOO", "SVOC"], "SVOO", "us と her new design はどちらも目的語。『人に物を見せる』の形なのでSVOO。"],
+    ["preposition", "時を表すat・on・inの使い分けとして正しい組み合わせは？", ["at 7 o'clock / on Monday / in July", "on 7 o'clock / in Monday / at July", "in 7 o'clock / at Monday / on July", "at 7 o'clock / in Monday / on July"], "at 7 o'clock / on Monday / in July", "時刻にはat、曜日・日付にはon、月・年など広がりのある期間にはinを用いる。"],
     ["pattern", "They elected her captain. の文型は？", ["SVC", "SVO", "SVOO", "SVOC"], "SVOC", "her が目的語O、captain が her の役職を説明する補語C。O = C の関係が成り立つためSVOC。"],
     ["pattern", "The news made everyone anxious. の文型は？", ["SVC", "SVO", "SVOO", "SVOC"], "SVOC", "everyone が目的語O、anxious が everyone の状態を説明する補語C。make + O + C のSVOC。"],
     ["foundation", "文の骨組みS・V・O・Cに情報を付け足す修飾語を表す記号は？", ["M", "P", "A", "N"], "M", "修飾語はModifierの頭文字Mで表す。時・場所・方法などを付け足すが、文型の骨組みには含めない。"],

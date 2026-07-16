@@ -13,6 +13,7 @@
     application: "適用"
   };
   const domainById = new Map(DATA.domains.map(domain => [domain.id, domain]));
+  const questionById = new Map(DATA.questions.map(question => [question.id, question]));
   let session = null;
   let pendingChoice = null;
   let pendingReason = null;
@@ -58,7 +59,7 @@
   function startQuiz() {
     session = {
       index: 0,
-      questions: shuffle(DATA.questions).map(question => ({ ...question, choices: shuffle(question.choices) })),
+      questions: DATA.questionOrder.map(id => questionById.get(id)).map(question => ({ ...question, choices: shuffle(question.choices) })),
       responses: []
     };
     pendingChoice = null;
@@ -88,7 +89,7 @@
         </div>
         <div class="primaryAction">
           <button class="primary" id="startButton" type="button">${DATA.questions.length}問のチェックを始める <span>推奨</span></button>
-          <p>問題順と選択肢順は毎回入れ替わります。</p>
+          <p>問題は学習順で固定し、選択肢の順だけ毎回入れ替わります。</p>
         </div>
       </section>
       <section class="panel">
@@ -408,7 +409,11 @@
     home();
   });
 
-  if (!DATA || DATA.questions.length !== 100 || DATA.domains.length !== 17) {
+  const hasValidOrder = Array.isArray(DATA.questionOrder)
+    && DATA.questionOrder.length === DATA.questions.length
+    && new Set(DATA.questionOrder).size === DATA.questions.length
+    && DATA.questionOrder.every(id => questionById.has(id));
+  if (!DATA || DATA.questions.length !== 100 || DATA.domains.length !== 17 || !hasValidOrder) {
     app.innerHTML = "<section class=\"panel\"><h2>データの読み込みに失敗しました</h2><p>問題数または分野数が想定と異なります。</p></section>";
     return;
   }

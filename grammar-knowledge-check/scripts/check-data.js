@@ -58,6 +58,21 @@ for (const [skill, count] of Object.entries(skillCounts)) {
 }
 if (knowledgeSupportCount !== 50) errors.push(`知識・補助の問題数: ${knowledgeSupportCount}（50が必要）`);
 
+if (!Array.isArray(data.learningStages) || data.learningStages.length !== 5) errors.push("学習段階: 5段階が必要");
+const stageOrder = Array.isArray(data.learningStages) ? data.learningStages.flatMap(stage => stage.questionIds || []) : [];
+if (!Array.isArray(data.questionOrder)) errors.push("固定出題順なし");
+else {
+  if (data.questionOrder.length !== data.questions.length) errors.push(`固定出題順の件数: ${data.questionOrder.length}`);
+  if (new Set(data.questionOrder).size !== data.questionOrder.length) errors.push("固定出題順に重複あり");
+  data.questionOrder.forEach(id => {
+    if (!ids.has(id)) errors.push(`固定出題順に未定義ID: ${id}`);
+  });
+  ids.forEach(id => {
+    if (!data.questionOrder.includes(id)) errors.push(`固定出題順から欠落: ${id}`);
+  });
+  if (JSON.stringify(stageOrder) !== JSON.stringify(data.questionOrder)) errors.push("学習段階と固定出題順が不一致");
+}
+
 if (errors.length) {
   console.error("NG");
   errors.forEach(error => console.error(`- ${error}`));
@@ -69,6 +84,7 @@ console.log(`OK: ${data.questions.length}問 / ${data.domains.length}分野`);
 console.log(JSON.stringify(counts));
 console.log(`測定区分: ${JSON.stringify(skillCounts)}`);
 console.log(`知識・補助: ${knowledgeSupportCount}問`);
+console.log(`固定出題順: ${data.learningStages.map(stage => `${stage.label} ${stage.questionIds.length}問`).join(" / ")}`);
 if (warnings.length) {
   console.log(`WARN: ${warnings.length}件`);
   warnings.forEach(warning => console.log(`- ${warning}`));
