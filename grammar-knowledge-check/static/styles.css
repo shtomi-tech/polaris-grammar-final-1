@@ -150,6 +150,12 @@ h3 { font-size: 18px; line-height: 1.45; }
 }
 .choice:hover { background: var(--ink); color: var(--parchment); }
 .choice.selected { border: 3px solid var(--ink); padding: 8px 14px; }
+.choice:disabled, .reasonChoice:disabled { cursor: default; opacity: 1; }
+.choice.correct, .reasonChoice.correct { background: var(--paper); border: 3px solid var(--green); color: var(--ink); padding: 8px 14px; }
+.reasonChoice.correct { padding: 7px 10px; }
+.choice.incorrect, .reasonChoice.incorrect { background: var(--paper); border: 3px solid var(--red); color: var(--ink); padding: 8px 14px; }
+.reasonChoice.incorrect { padding: 7px 10px; }
+.choice.subdued, .reasonChoice.subdued { color: var(--muted); opacity: .62; }
 .choice .key {
   align-items: center;
   border: 1px solid currentColor;
@@ -169,6 +175,18 @@ h3 { font-size: 18px; line-height: 1.45; }
 .reasonChoice:hover { background: var(--ink); color: var(--parchment); }
 .reasonChoice.selected { border: 3px solid var(--ink); padding: 7px 10px; }
 .reasonChoice .key { align-items: center; border: 1px solid currentColor; display: inline-flex; flex: 0 0 24px; font-family: var(--mono); font-size: 11px; height: 24px; justify-content: center; }
+
+.instantFeedback { background: var(--paper); border: 1px solid var(--ink); border-left: 5px solid var(--ink); margin-top: 20px; padding: 16px; }
+.instantFeedback:focus { outline: 3px solid var(--clay); outline-offset: 3px; }
+.instantFeedback .kicker { color: var(--muted); margin-bottom: 8px; }
+.instantFeedback h3 { font-family: var(--serif); font-size: 22px; margin-bottom: 12px; }
+.instantFeedback p { margin-bottom: 8px; }
+.instantFeedback.good { border-left-color: var(--green); }
+.instantFeedback.good h3 { color: var(--green); }
+.instantFeedback.review { border-left-color: var(--amber); }
+.instantFeedback.review h3 { color: var(--amber); }
+.instantFeedback.bad { border-left-color: var(--red); }
+.instantFeedback.bad h3 { color: var(--red); }
 
 .choiceActions { border-top: 1px solid var(--line); margin-top: 24px; padding-top: 16px; }
 .flag { align-items: center; color: var(--muted); display: inline-flex; font-size: 14px; gap: 8px; margin-bottom: 16px; }
