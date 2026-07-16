@@ -1,6 +1,6 @@
 # 英文法 基礎知識チェック
 
-英文法の用語・形・働き・区別を確認する、60問・4択の静的アプリです。
+英文法の用語・形・働き・区別を確認する、100問・4択の静的アプリです。
 
 ## ねらい
 
@@ -28,7 +28,7 @@ py -3 -m http.server 8097
 
 ## 構成
 
-- `data/questions.js`: 17分野・60問、測定区分、誤概念タグ、重要問題の根拠選択、分野別解説
+- `data/questions.js`: 17分野・100問、測定区分、誤概念タグ、重要問題の根拠選択、分野別解説
 - `static/app.js`: 出題、根拠選択、採点、能力別・誤概念別の結果、解説、ローカル保存・生徒別クラウド同期
 - `static/styles.css`: アイボリー地・影なし・キーボード操作前提の画面
 
@@ -38,6 +38,9 @@ py -3 -m http.server 8097
 node --check data/questions.js
 node --check static/app.js
 node scripts/check-data.js
+node scripts/export-question-list.js
 ```
 
 `check-data.js` は問題数・選択肢・正解に加え、測定区分、誤概念タグ、根拠選択肢を検査します。否定表現や選択肢長の偏りは警告として出力します。
+
+`export-question-list.js` は、`問題一覧.md` を問題データから再生成します。

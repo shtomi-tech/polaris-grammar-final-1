@@ -36,7 +36,12 @@ const QUESTION_META = {
   q48: { skill: "distinction" }, q49: { skill: "knowledge" }, q50: { skill: "application" }, q51: { skill: "distinction" },
   q52: { skill: "application" }, q53: { skill: "distinction" }, q54: { skill: "knowledge" },
   q55: { skill: "distinction", priority: "core" }, q56: { skill: "application", priority: "core" },
-  q57: { skill: "application" }, q58: { skill: "distinction", priority: "core" }, q59: { skill: "application" }, q60: { skill: "application" }
+  q57: { skill: "application" }, q58: { skill: "distinction", priority: "core" }, q59: { skill: "application" }, q60: { skill: "application" },
+  q61: { skill: "distinction", priority: "core" }, q62: { skill: "distinction", priority: "core" },
+  q63: { skill: "distinction", priority: "core" }, q64: { skill: "distinction", priority: "core" },
+  q65: { skill: "distinction", priority: "core" }, q66: { skill: "distinction", priority: "core" },
+  q67: { skill: "distinction", priority: "core" }, q68: { skill: "distinction", priority: "core" },
+  q69: { skill: "distinction", priority: "core" }, q70: { skill: "distinction", priority: "core" }
 };
 
 const QUESTION_PATCHES = {
@@ -117,7 +122,8 @@ const QUESTION_PATCHES = {
     choices: ["because + 節 / because of + 名詞句", "because + 名詞句 / because of + 節", "because + 原形 / because of + 原形", "because + 副詞 / because of + 副詞"],
     answer: "because + 節 / because of + 名詞句",
     explanation: "because it rained のように because の後ろには節を置く。because of the rain のように because of の後ろには名詞句を置く。",
-    misconceptions: { "because + 名詞句 / because of + 節": "because と because of の後ろに置く形を逆にしている。", "because + 原形 / because of + 原形": "接続詞・前置詞の後ろを助動詞と同じように扱っている。", "because + 副詞 / because of + 副詞": "節・名詞句・副詞の役割を区別できていない。" }
+    misconceptions: { "because + 名詞句 / because of + 節": "because と because of の後ろに置く形を逆にしている。", "because + 原形 / because of + 原形": "接続詞・前置詞の後ろを助動詞と同じように扱っている。", "because + 副詞 / because of + 副詞": "節・名詞句・副詞の役割を区別できていない。" },
+    reason: { prompt: "組み合わせを分ける直接の根拠は？", choices: ["because の後ろは節、because of の後ろは名詞句だから", "because の方が長い語だから", "because of は過去形だけに使うから", "because は文頭に置けないから"], answer: "because の後ろは節、because of の後ろは名詞句だから" }
   },
   q55: {
     stem: "The report must be finished ___ Friday, but the team will work on it ___ Friday. に最も合う組み合わせは？",
@@ -230,17 +236,58 @@ window.GRAMMAR_CHECK_DATA = {
     ["negation", "Not all students agreed. の意味は？", ["全員が賛成した", "誰も賛成しなかった", "全員が賛成したわけではない", "学生だけが賛成した"], "全員が賛成したわけではない", "not が all にかかる部分否定。『全員が〜ない』とは限らない。"],
     ["negation", "few と a few の違いとして正しいものは？", ["fewはほとんどない、a fewは少しはある", "fewは多い、a fewはゼロ", "両方とも不可算名詞だけに使う", "意味の違いはない"], "fewはほとんどない、a fewは少しはある", "a の有無で話し手の見方が変わる。little / a little も同様。"],
     ["negation", "Do you know where he ___? に入る形は？", ["lives", "does live", "does he live", "live does"], "lives", "間接疑問は where + 主語 + 動詞の平叙文語順。"],
-    ["negation", "Never ___ I seen such a view. に入る語は？", ["have", "has", "did", "am"], "have", "否定語 Never が文頭に出ると倒置。現在完了なので have + 主語 + p.p.。"]
+    ["negation", "Never ___ I seen such a view. に入る語は？", ["have", "has", "did", "am"], "have", "否定語 Never が文頭に出ると倒置。現在完了なので have + 主語 + p.p.。"],
+    ["pattern", "Birds fly. の文型は？", ["SV", "SVC", "SVO", "SVOC"], "SV", "Birds がS、fly がV。fly の後ろに目的語や補語を必要としないためSV。"],
+    ["pattern", "The baby slept peacefully. の文型は？", ["SV", "SVC", "SVO", "SVOO"], "SV", "The baby がS、slept がV。peacefully は動詞を修飾する副詞Mなので、文型には含めずSV。"],
+    ["pattern", "The soup tastes delicious. の文型は？", ["SV", "SVC", "SVO", "SVOC"], "SVC", "delicious は目的語ではなく、主語 The soup の状態を説明する補語C。したがってSVC。"],
+    ["pattern", "My dream is to study abroad. の文型は？", ["SV", "SVC", "SVO", "SVOO"], "SVC", "to study abroad は主語 My dream の内容を説明する補語C。be動詞を挟んでSとCが同じ内容を指すためSVC。"],
+    ["pattern", "She opened the window. の文型は？", ["SV", "SVC", "SVO", "SVOC"], "SVO", "She がS、opened がV、the window が動作の対象O。したがってSVO。"],
+    ["pattern", "We discussed the plan. の文型は？", ["SV", "SVC", "SVO", "SVOO"], "SVO", "discuss は目的語を直接取る他動詞。the plan がOなのでSVO。discuss about とはしない。"],
+    ["pattern", "My uncle bought me a bicycle. の文型は？", ["SVC", "SVO", "SVOO", "SVOC"], "SVOO", "me が『人』の目的語、a bicycle が『物』の目的語。二つの目的語を取るためSVOO。"],
+    ["pattern", "She showed us her new design. の文型は？", ["SVC", "SVO", "SVOO", "SVOC"], "SVOO", "us と her new design はどちらも目的語。『人に物を見せる』の形なのでSVOO。"],
+    ["pattern", "They elected her captain. の文型は？", ["SVC", "SVO", "SVOO", "SVOC"], "SVOC", "her が目的語O、captain が her の役職を説明する補語C。O = C の関係が成り立つためSVOC。"],
+    ["pattern", "The news made everyone anxious. の文型は？", ["SVC", "SVO", "SVOO", "SVOC"], "SVOC", "everyone が目的語O、anxious が everyone の状態を説明する補語C。make + O + C のSVOC。"],
+    ["foundation", "文の骨組みS・V・O・Cに情報を付け足す修飾語を表す記号は？", ["M", "P", "A", "N"], "M", "修飾語はModifierの頭文字Mで表す。時・場所・方法などを付け足すが、文型の骨組みには含めない。"],
+    ["foundation", "補語Cの役割として正しいものは？", ["主語または目的語を説明する", "動詞の時制だけを示す", "名詞を複数形にする", "文と文だけを接続する"], "主語または目的語を説明する", "補語CはSVCでは主語Sを、SVOCでは目的語Oを説明する。S=CまたはO=Cの関係を確認する。"],
+    ["pattern", "他動詞の基本的な特徴は？", ["目的語を直接取る", "必ず前置詞を伴う", "補語だけを取る", "受動態にできない"], "目的語を直接取る", "他動詞は動作の対象となる目的語Oを直接取る。前置詞を介する場合は、その動詞自体は目的語を直接取っていない。"],
+    ["pattern", "OとCの間に「O = C」の関係がある文型は？", ["SV", "SVC", "SVOO", "SVOC"], "SVOC", "SVOCのCは目的語Oの状態・名称を説明する。They called him Tom. ならhim = Tom。"],
+    ["verb_form", "助動詞の直後に置く一般動詞の形は？", ["原形", "過去形", "三単現形", "現在分詞"], "原形", "can, may, must, shouldなどの助動詞の直後には動詞の原形を置く。"],
+    ["verb_form", "三人称単数の主語を用いた現在の肯定文で、一般動詞に付けるものは？", ["-sまたは-es", "必ず-ing", "必ず-ed", "to"], "-sまたは-es", "he, she, itなど三人称単数の主語を現在形で用いると、一般動詞に-sまたは-esを付ける。"],
+    ["tense", "原則として進行形にしない状態動詞はどれか。", ["know", "run", "write", "swim"], "know", "knowは知識・認識の状態を表すため、通常は進行形にしない。run, write, swimは動作動詞。"],
+    ["tense", "現在完了の基本形は？", ["haveまたはhas + 過去分詞", "be + 現在分詞", "did + 原形", "will + 原形"], "haveまたはhas + 過去分詞", "現在完了はhaveまたはhas + 過去分詞で作り、過去の出来事を現在につなげる。"],
+    ["modal", "must notが表す基本的な意味は？", ["〜してはいけない", "〜する必要はない", "〜したかもしれない", "以前は〜した"], "〜してはいけない", "must notは強い禁止を表す。必要がないという意味のdo not have toとは区別する。"],
+    ["modal", "do not have toが表す基本的な意味は？", ["〜する必要はない", "〜してはいけない", "〜したにちがいない", "〜することに慣れている"], "〜する必要はない", "do not have toは義務・必要の否定であり、行為を禁止するmust notとは意味が異なる。"],
+    ["passive", "受動態で時制と主語との一致を表す部分は？", ["be動詞", "過去分詞", "by + 行為者", "目的語"], "be動詞", "受動態ではis used、was used、will be usedのように、be動詞の形で時制と主語との一致を表す。"],
+    ["passive", "助動詞を含む受動態の基本形は？", ["助動詞 + be + 過去分詞", "助動詞 + have + 原形", "助動詞 + being + 原形", "助動詞 + 過去形"], "助動詞 + be + 過去分詞", "can be usedやmust be finishedのように、助動詞の後ろへbe + 過去分詞を置く。"],
+    ["infinitive", "名詞を後ろから説明する不定詞の用法は？", ["形容詞的用法", "名詞的用法", "副詞的用法", "進行形"], "形容詞的用法", "a book to readのto readのように、直前の名詞を説明する不定詞は形容詞的用法。"],
+    ["infinitive", "「〜するために」という目的を表す不定詞の用法は？", ["副詞的用法", "名詞的用法", "形容詞的用法", "受動態"], "副詞的用法", "I went there to study.のto studyは、wentの目的を説明する副詞的用法。"],
+    ["gerund", "前置詞の後ろに動詞の内容を置くときの基本形は？", ["動名詞-ing", "動詞の原形", "過去形", "to不定詞"], "動名詞-ing", "前置詞の後ろには名詞相当の語を置くため、動詞なら-ing形の動名詞にする。"],
+    ["gerund", "enjoyの目的語に動詞を置くときの形は？", ["-ing形", "to + 原形", "過去形", "原形"], "-ing形", "enjoyは目的語に動名詞を取る。enjoy readingの形にし、enjoy to readとはしない。"],
+    ["participle", "名詞が動作をする側であるとき、名詞を修飾する基本の分詞は？", ["現在分詞", "過去分詞", "不定詞", "動名詞"], "現在分詞", "a sleeping babyのように、修飾される名詞が動作をする側なら現在分詞を用いる。"],
+    ["participle", "名詞が動作を受ける側であるとき、名詞を修飾する基本の分詞は？", ["過去分詞", "現在分詞", "動詞の原形", "動名詞"], "過去分詞", "a broken windowのように、修飾される名詞が動作を受ける側なら過去分詞を用いる。"],
+    ["comparison", "not as + 原級 + asが表す意味は？", ["〜ほど…ではない", "〜よりも…だ", "最も…だ", "あまりに…なので"], "〜ほど…ではない", "not as ... asは二者が同程度ではないことを表し、「〜ほど…ではない」と訳す。"],
+    ["comparison", "goodの比較級と最上級の組み合わせは？", ["better / best", "gooder / goodest", "more good / most good", "well / better"], "better / best", "goodは不規則変化し、比較級better、最上級bestとなる。"],
+    ["relative", "関係代名詞whatの特徴は？", ["先行詞を意味に含む", "人だけを先行詞にする", "場所だけを表す", "必ず前置詞を伴う"], "先行詞を意味に含む", "whatはthe thing whichに相当し、「〜すること・もの」という先行詞の意味を内部に含む。"],
+    ["relative", "場所を表す先行詞を説明し、節の中で副詞として働く関係詞は？", ["where", "who", "which", "what"], "where", "whereは場所を表す先行詞を受ける関係副詞。後ろには主語・動詞を備えた節が続く。"],
+    ["conjunction", "becauseの直後に置く基本的な形は？", ["主語 + 動詞を含む節", "名詞句だけ", "動詞の原形だけ", "前置詞だけ"], "主語 + 動詞を含む節", "becauseは接続詞なので、because it rainedのように主語 + 動詞を含む節を導く。"],
+    ["conjunction", "時・条件を表す副詞節で未来のことを述べるとき、基本的に用いる時制は？", ["現在形", "will + 原形", "過去完了", "未来完了"], "現在形", "whenやifが導く時・条件の副詞節では、未来の内容でも現在形で表す。"],
+    ["subjunctive", "現在の事実に反する仮定を表す仮定法過去の条件節の基本形は？", ["If + 過去形", "If + 現在形", "If + had + 過去分詞", "If + will + 原形"], "If + 過去形", "現在の反実仮想では時制を一段過去へずらし、If + 過去形を用いる。"],
+    ["subjunctive", "過去の事実への後悔を表すI wishの後ろの基本形は？", ["had + 過去分詞", "現在形", "will + 原形", "to + 原形"], "had + 過去分詞", "過去に実現しなかったことへの後悔は、I wish + had + 過去分詞で表す。"],
+    ["nouns", "adviceの数え方として正しいものは？", ["a piece of advice", "an advice", "two advices", "many advice"], "a piece of advice", "adviceは通常不可算名詞。数えるときはa piece of adviceなどの単位表現を用いる。"],
+    ["adverb", "lookやseemの後ろで主語の状態を説明するとき、基本的に用いる品詞は？", ["形容詞", "副詞", "接続詞", "前置詞"], "形容詞", "look happyやseem tiredのように、主語を説明する補語には形容詞を置く。"],
+    ["preposition", "完了の期限「〜までに」を表す基本的な前置詞は？", ["by", "until", "during", "from"], "by", "byは期限までのどこかで完了することを表す。untilはその時点までの継続を表す。"],
+    ["negation", "間接疑問文の疑問詞の後ろに続く基本語順は？", ["主語 + 動詞", "助動詞 + 主語", "動詞 + 主語", "疑問詞 + 疑問詞"], "主語 + 動詞", "間接疑問ではwhere he livesのように、疑問詞の後ろを平叙文の語順にする。"]
   ].map(([domain, stem, choices, answer, explanation], index) => {
     const id = `q${index + 1}`;
     const patch = QUESTION_PATCHES[id] || {};
     const question = { id, domain, stem, choices, answer, explanation, ...patch };
     const meta = QUESTION_META[id] || {};
+    const skill = meta.skill || "knowledge";
     return {
       ...question,
-      skill: meta.skill || "knowledge",
+      skill,
       target: meta.target || DOMAIN_TARGETS[domain],
-      priority: meta.priority || (meta.skill === "knowledge" ? "support" : "core"),
+      priority: meta.priority || (skill === "knowledge" ? "support" : "core"),
       misconceptions: { ...defaultMisconceptions(question), ...(meta.misconceptions || {}), ...(patch.misconceptions || {}) }
     };
   })

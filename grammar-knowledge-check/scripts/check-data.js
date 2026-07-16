@@ -6,16 +6,19 @@ require("../data/questions.js");
 const data = global.window.GRAMMAR_CHECK_DATA;
 const errors = [];
 const ids = new Set();
+const stems = new Map();
 const domains = new Set(data.domains.map(domain => domain.id));
 const skillCounts = { knowledge: 0, distinction: 0, application: 0 };
 const warnings = [];
 
 if (data.domains.length !== 17) errors.push(`分野数: ${data.domains.length}（17が必要）`);
-if (data.questions.length !== 60) errors.push(`問題数: ${data.questions.length}（60が必要）`);
+if (data.questions.length !== 100) errors.push(`問題数: ${data.questions.length}（100が必要）`);
 
 for (const question of data.questions) {
   if (ids.has(question.id)) errors.push(`問題ID重複: ${question.id}`);
   ids.add(question.id);
+  if (stems.has(question.stem)) errors.push(`設問文重複: ${stems.get(question.stem)} / ${question.id}`);
+  else stems.set(question.stem, question.id);
   if (!domains.has(question.domain)) errors.push(`未定義分野: ${question.id} / ${question.domain}`);
   if (!Array.isArray(question.choices) || question.choices.length !== 4) errors.push(`選択肢数不正: ${question.id}`);
   if (new Set(question.choices).size !== question.choices.length) errors.push(`選択肢重複: ${question.id}`);

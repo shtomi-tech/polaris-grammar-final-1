@@ -78,16 +78,16 @@
       : "<p class=\"muted\">進捗はこの端末のブラウザにのみ保存します。生徒名や外部サービスは使いません。</p>";
     app.innerHTML = `
       <section class="panel dark">
-        <p class="kicker">START HERE / ABOUT 25 MINUTES</p>
-        <h2>60問で、知識と識別を分けて確かめる。</h2>
+        <p class="kicker">START HERE / ABOUT 40 MINUTES</p>
+        <h2>${DATA.questions.length}問で、知識と識別を分けて確かめる。</h2>
         <p class="lead">用語を知っているかだけでなく、似た形を見分け、文脈から根拠を選べるかを確認します。重要な問題では、答えの根拠も選びます。</p>
         <div class="overview" aria-label="アプリの概要">
-          <div><strong>60</strong><span>4択の基礎確認</span></div>
+          <div><strong>${DATA.questions.length}</strong><span>4択の基礎確認</span></div>
           <div><strong>17</strong><span>英文法の分野</span></div>
           <div><strong>3</strong><span>知識・識別・適用</span></div>
         </div>
         <div class="primaryAction">
-          <button class="primary" id="startButton" type="button">60問のチェックを始める <span>推奨</span></button>
+          <button class="primary" id="startButton" type="button">${DATA.questions.length}問のチェックを始める <span>推奨</span></button>
           <p>問題順と選択肢順は毎回入れ替わります。</p>
         </div>
       </section>
@@ -95,7 +95,7 @@
         <p class="kicker">FLOW</p>
         <h2>解く → 混同を知る → 解説を読む</h2>
         <div class="flowSteps" aria-label="学習の流れ">
-          <div><strong>1</strong><p>4択で60問を解く</p></div>
+          <div><strong>1</strong><p>4択で${DATA.questions.length}問を解く</p></div>
           <div><strong>2</strong><p>重要項目では根拠も選ぶ</p></div>
           <div><strong>3</strong><p>誤った混同だけを復習する</p></div>
         </div>
@@ -335,7 +335,7 @@
         <p class="kicker">REVIEW / WRONG, UNCERTAIN, OR REASON</p>
         <h2>解説を読む</h2>
         <p class="lead">正誤だけを追わず、選んだ誤答がどの混同から出たかを確認します。必要なら、解説の後で問題順を変えて解き直します。</p>
-        <div class="primaryAction"><button class="primary" id="retryButton" type="button">解説を読んだら、もう一度60問を解く</button><p>同じ問題でも、順番を変えると別の弱点が見えます。</p></div>
+        <div class="primaryAction"><button class="primary" id="retryButton" type="button">解説を読んだら、もう一度${DATA.questions.length}問を解く</button><p>同じ問題でも、順番を変えると別の弱点が見えます。</p></div>
         <button class="secondary quietAction" id="backResultButton" type="button">結果へ戻る</button>
       </section>
       <section class="panel">
@@ -408,7 +408,7 @@
     home();
   });
 
-  if (!DATA || DATA.questions.length !== 60 || DATA.domains.length !== 17) {
+  if (!DATA || DATA.questions.length !== 100 || DATA.domains.length !== 17) {
     app.innerHTML = "<section class=\"panel\"><h2>データの読み込みに失敗しました</h2><p>問題数または分野数が想定と異なります。</p></section>";
     return;
   }
