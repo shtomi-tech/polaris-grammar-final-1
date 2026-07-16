@@ -51,6 +51,7 @@ jobs:
           cp robots.txt ../_site/
           cp -r data ../_site/data
           cp -r static ../_site/static
+          cp -r ../grammar-knowledge-check ../_site/grammar-knowledge-check
           touch ../_site/.nojekyll
 
       - name: Upload artifact
