@@ -9,6 +9,7 @@ const ids = new Set();
 const stems = new Map();
 const domains = new Set(data.domains.map(domain => domain.id));
 const skillCounts = { knowledge: 0, distinction: 0, application: 0 };
+let knowledgeSupportCount = 0;
 const warnings = [];
 
 if (data.domains.length !== 17) errors.push(`分野数: ${data.domains.length}（17が必要）`);
@@ -28,6 +29,7 @@ for (const question of data.questions) {
   else skillCounts[question.skill] += 1;
   if (!question.target) errors.push(`測定対象なし: ${question.id}`);
   if (!question.priority || !["core", "support"].includes(question.priority)) errors.push(`重要度不正: ${question.id}`);
+  if (question.skill === "knowledge" && question.priority === "support") knowledgeSupportCount += 1;
   if (!question.misconceptions || typeof question.misconceptions !== "object") {
     errors.push(`誤概念タグなし: ${question.id}`);
   } else {
@@ -54,6 +56,7 @@ for (const domain of data.domains) {
 for (const [skill, count] of Object.entries(skillCounts)) {
   if (!count) errors.push(`測定区分なし: ${skill}`);
 }
+if (knowledgeSupportCount !== 50) errors.push(`知識・補助の問題数: ${knowledgeSupportCount}（50が必要）`);
 
 if (errors.length) {
   console.error("NG");
@@ -65,6 +68,7 @@ const counts = Object.fromEntries(data.domains.map(domain => [domain.label, data
 console.log(`OK: ${data.questions.length}問 / ${data.domains.length}分野`);
 console.log(JSON.stringify(counts));
 console.log(`測定区分: ${JSON.stringify(skillCounts)}`);
+console.log(`知識・補助: ${knowledgeSupportCount}問`);
 if (warnings.length) {
   console.log(`WARN: ${warnings.length}件`);
   warnings.forEach(warning => console.log(`- ${warning}`));

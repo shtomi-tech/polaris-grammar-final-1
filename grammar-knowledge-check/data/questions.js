@@ -23,7 +23,7 @@ const QUESTION_META = {
   q2: { skill: "distinction" }, q3: { skill: "knowledge" }, q4: { skill: "application" },
   q5: { skill: "distinction" }, q6: { skill: "application", priority: "core" }, q7: { skill: "distinction" }, q8: { skill: "application", priority: "core" },
   q9: { skill: "application" }, q10: { skill: "distinction" }, q11: { skill: "knowledge" },
-  q12: { skill: "application" }, q13: { skill: "distinction", priority: "core" }, q14: { skill: "application" }, q15: { skill: "distinction", priority: "core" }, q16: { skill: "distinction" },
+  q12: { skill: "knowledge", priority: "support" }, q13: { skill: "distinction", priority: "core" }, q14: { skill: "application" }, q15: { skill: "distinction", priority: "core" }, q16: { skill: "distinction" },
   q17: { skill: "knowledge" }, q18: { skill: "distinction", priority: "core" }, q19: { skill: "distinction" },
   q20: { skill: "knowledge" }, q21: { skill: "application", priority: "core" }, q22: { skill: "distinction" },
   q23: { skill: "knowledge" }, q24: { skill: "application" }, q25: { skill: "application" }, q26: { skill: "distinction", priority: "core" },
@@ -37,11 +37,11 @@ const QUESTION_META = {
   q52: { skill: "application" }, q53: { skill: "distinction" }, q54: { skill: "knowledge" },
   q55: { skill: "distinction", priority: "core" }, q56: { skill: "application", priority: "core" },
   q57: { skill: "application" }, q58: { skill: "distinction", priority: "core" }, q59: { skill: "application" }, q60: { skill: "application" },
-  q61: { skill: "distinction", priority: "core" }, q62: { skill: "distinction", priority: "core" },
-  q63: { skill: "distinction", priority: "core" }, q64: { skill: "distinction", priority: "core" },
-  q65: { skill: "distinction", priority: "core" }, q66: { skill: "distinction", priority: "core" },
-  q67: { skill: "distinction", priority: "core" }, q68: { skill: "distinction", priority: "core" },
-  q69: { skill: "distinction", priority: "core" }, q70: { skill: "distinction", priority: "core" }
+  q61: { skill: "knowledge", priority: "support" }, q62: { skill: "knowledge", priority: "support" },
+  q63: { skill: "knowledge", priority: "support" }, q64: { skill: "knowledge", priority: "support" },
+  q65: { skill: "knowledge", priority: "support" }, q66: { skill: "knowledge", priority: "support" },
+  q67: { skill: "knowledge", priority: "support" }, q68: { skill: "knowledge", priority: "support" },
+  q69: { skill: "knowledge", priority: "support" }, q70: { skill: "knowledge", priority: "support" }
 };
 
 const QUESTION_PATCHES = {
