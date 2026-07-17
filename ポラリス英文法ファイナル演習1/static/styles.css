@@ -235,6 +235,29 @@ h2 {
   margin-bottom: 16px;
 }
 
+.dashboardGrid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  border-top: 1px solid var(--ink);
+  border-left: 1px solid var(--ink);
+  margin: 16px 0;
+}
+
+.dashboardGrid > div {
+  border-right: 1px solid var(--ink);
+  border-bottom: 1px solid var(--ink);
+  min-height: 118px;
+  padding: 14px;
+}
+
+.dashboardGrid strong {
+  display: block;
+  font-family: var(--serif);
+  font-size: 28px;
+  font-weight: 500;
+  margin-bottom: 8px;
+}
+
 .stepCard {
   border-right: 1px solid var(--ink);
   border-bottom: 1px solid var(--ink);
@@ -945,6 +968,7 @@ h2 {
   .itemList,
   .explainGrid,
   .masterGrid,
+  .dashboardGrid,
   .shareOutput {
     grid-template-columns: 1fr;
   }

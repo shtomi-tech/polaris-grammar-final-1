@@ -689,6 +689,7 @@ function renderHome() {
   }
   renderStudentControls();
   renderSelectors();
+  renderFoundationDashboard();
   renderFocusPractice();
   renderContinueCta();
   renderReviewCta();
@@ -709,6 +710,66 @@ function renderFocusPractice() {
   card.classList.remove("hide");
   $("#focusPracticeSummary").textContent = `${labels.join("・")} / Polaris ${questions.length}問`;
   $("#focusPracticeBtn").textContent = `弱点分野の${questions.length}問を解く`;
+}
+
+function loadFoundationHistory() {
+  try {
+    return JSON.parse(localStorage.getItem("grammar-knowledge-check-v2") || "null");
+  } catch {
+    return null;
+  }
+}
+
+function renderFoundationDashboard() {
+  const body = $("#foundationDashboardBody");
+  const foundationLink = $("#foundationDashboardLink");
+  const weakLink = $("#foundationWeakLink");
+  if (!body || !foundationLink || !weakLink) return;
+  const isLocalNestedApp = location.pathname.includes("/ポラリス英文法ファイナル演習1/");
+  const foundationTarget = isLocalNestedApp ? "../grammar-knowledge-check/index.html" : "grammar-knowledge-check/index.html";
+  const foundationQuery = new URLSearchParams(location.search);
+  foundationLink.href = foundationTarget + (foundationQuery.toString() ? `?${foundationQuery.toString()}` : "");
+
+  const history = loadFoundationHistory();
+  const stageResults = history?.stageResults || {};
+  const completedStages = Object.keys(stageResults).filter(key => /^stage[1-5]$/.test(key)).length;
+  const answers = history?.total === 120 && Array.isArray(history.answers)
+    ? history.answers
+    : Object.values(stageResults).flatMap(result => Array.isArray(result.answers) ? result.answers : []);
+  const weakDomains = [];
+  for (const domain of DOMAIN_LABELS ? Object.keys(DOMAIN_LABELS) : []) {
+    const domainAnswers = answers.filter(answer => answer.domain === domain);
+    if (!domainAnswers.length) continue;
+    const correct = domainAnswers.filter(answer => answer.correct).length;
+    const uncertain = domainAnswers.filter(answer => answer.uncertain).length;
+    if (correct / domainAnswers.length < 0.8 || uncertain > 0) weakDomains.push(domain);
+  }
+  const nextStage = [1, 2, 3, 4, 5].find(index => !stageResults[`stage${index}`]);
+  const step1 = stepStats("step1Cleared");
+  const step2 = stepStats("step2Cleared");
+  const meta = metaState();
+
+  if (!history) {
+    body.innerHTML = `<p class="hint">基礎知識チェックはまだ開始されていません。まず5段階の基礎確認から始めます。</p>`;
+    weakLink.classList.add("hide");
+    return;
+  }
+  body.innerHTML = `
+    <div class="dashboardGrid">
+      <div><p class="label">FOUNDATION</p><strong>${completedStages} / 5段階</strong><p class="hint">${nextStage ? `次は第${nextStage}段階` : "5段階完了"}</p></div>
+      <div><p class="label">POLARIS STEP 1</p><strong>${step1.cleared} / ${step1.total}</strong><p class="hint">UNIT演習</p></div>
+      <div><p class="label">POLARIS STEP 2</p><strong>${step2.cleared} / ${step2.total}</strong><p class="hint">${step2.remaining ? "ランダム制覇へ" : (meta.mastered ? "Step 3 MASTER" : "Step 3 挑戦可能")}</p></div>
+    </div>
+    <p class="hint">${weakDomains.length ? `現在の弱点分野：${weakDomains.slice(0, 4).map(domain => DOMAIN_LABELS[domain]).join("・")}` : "基礎知識の弱点分野はありません。"}</p>
+  `;
+  if (weakDomains.length) {
+    const query = new URLSearchParams(location.search);
+    query.set("focus", weakDomains.join(","));
+    weakLink.href = `${location.pathname}?${query.toString()}`;
+    weakLink.classList.remove("hide");
+  } else {
+    weakLink.classList.add("hide");
+  }
 }
 
 function startStep1Quiz(unitId, setId, variant = "all") {
