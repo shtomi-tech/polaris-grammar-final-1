@@ -23,10 +23,19 @@ const UNIT_SOURCES = {
 };
 
 let questionData = { source: {}, units: [], questions: [] };
+const DOMAIN_LABELS = {
+  foundation: "品詞・句・節・文の要素", pattern: "文型・自他動詞", verb_form: "動詞の形・主語との一致",
+  tense: "時制・完了形・進行形", modal: "助動詞", passive: "受動態", infinitive: "不定詞", gerund: "動名詞",
+  participle: "分詞・分詞構文", comparison: "比較", relative: "関係詞", conjunction: "接続詞・節",
+  subjunctive: "仮定法", nouns: "名詞・冠詞・代名詞", adverb: "形容詞・副詞", preposition: "前置詞",
+  negation: "否定文・疑問文・間接疑問"
+};
 let students = [];
 let activeStudentId = DEFAULT_STUDENT.id;
 let progress = {};
 let selected = { unitId: "", setId: "", mode: "setAll" };
+let focusDomains = [];
+let focusMode = false;
 let quiz = null;
 let runtimeConfig = {};
 let saveQueue = Promise.resolve();
@@ -88,7 +97,8 @@ function parseSharedParams() {
   const params = new URLSearchParams(window.location.search);
   return {
     studentId: params.get("s") || params.get("student") || "",
-    token: params.get("t") || params.get("token") || ""
+    token: params.get("t") || params.get("token") || "",
+    focus: params.get("focus") || ""
   };
 }
 
@@ -324,6 +334,12 @@ function filteredQuestions(unitId, setId) {
   return questionsForSet(unitId, setId);
 }
 
+function focusedQuestions() {
+  const domains = new Set(focusDomains);
+  return questionData.questions.filter(question => Array.isArray(question.domains)
+    && question.domains.some(domain => domains.has(domain)));
+}
+
 function questionsForUnit(unitId) {
   return questionData.questions
     .filter(question => question.unitId === unitId)
@@ -331,6 +347,7 @@ function questionsForUnit(unitId) {
 }
 
 function buildQuestionPool() {
+  if (focusMode) return shuffled(focusedQuestions());
   if (selected.mode === "tenTest") return shuffled(questionData.questions).slice(0, 10);
   return shuffled(filteredQuestions(selected.unitId, selected.setId));
 }
@@ -662,6 +679,7 @@ function renderSetList() {
 }
 
 function renderHome() {
+  focusMode = false;
   const foundationLink = $("#foundationLink");
   if (foundationLink) {
     const isLocalNestedApp = location.pathname.includes("/ポラリス英文法ファイナル演習1/");
@@ -671,11 +689,26 @@ function renderHome() {
   }
   renderStudentControls();
   renderSelectors();
+  renderFocusPractice();
   renderContinueCta();
   renderReviewCta();
   renderMasterPath();
   renderSetList();
   setVisible("homePanel");
+}
+
+function renderFocusPractice() {
+  const card = $("#focusPracticeCard");
+  if (!card) return;
+  const questions = focusedQuestions();
+  const labels = focusDomains.map(domain => DOMAIN_LABELS[domain] || domain);
+  if (!focusDomains.length || !questions.length) {
+    card.classList.add("hide");
+    return;
+  }
+  card.classList.remove("hide");
+  $("#focusPracticeSummary").textContent = `${labels.join("・")} / Polaris ${questions.length}問`;
+  $("#focusPracticeBtn").textContent = `弱点分野の${questions.length}問を解く`;
 }
 
 function startStep1Quiz(unitId, setId, variant = "all") {
@@ -725,14 +758,33 @@ function startStep3Quiz() {
 }
 
 function startQuiz(globalReview) {
+  focusMode = false;
   const pool = globalReview
     ? shuffled(allUnresolvedQuestions())
     : buildQuestionPool();
   quiz = {
     kind: "free",
     globalReview,
+    focused: false,
     mode: globalReview ? "review" : selected.mode,
     pool,
+    index: 0,
+    answered: false,
+    selectedChoice: null
+  };
+  renderQuiz();
+  setVisible("quizPanel");
+}
+
+function startFocusQuiz() {
+  if (!focusedQuestions().length) return;
+  focusMode = true;
+  quiz = {
+    kind: "free",
+    globalReview: false,
+    focused: true,
+    mode: "focus",
+    pool: buildQuestionPool(),
     index: 0,
     answered: false,
     selectedChoice: null
@@ -813,6 +865,7 @@ function quizTitle(question, set) {
   }
   if (quiz.kind === "step2") return quiz.mode === "step2Single" ? "Step 2 1問確認" : "Step 2 ランダム制覇";
   if (quiz.kind === "step3") return "Step 3 30問連続正解";
+  if (quiz.focused) return "基礎チェック弱点分野の演習";
   return quiz.globalReview
     ? MODE_TITLE.review
     : `${MODE_TITLE[quiz.mode] || "4択演習"}${quiz.mode?.startsWith("set") ? ` / ${set?.title || ""}` : ""}`;
@@ -953,6 +1006,7 @@ function bindEvents() {
     renderHome();
   };
   $("#startBtn").onclick = () => startQuiz(false);
+  $("#focusPracticeBtn").onclick = startFocusQuiz;
   $("#reviewBtn").onclick = () => startQuiz(true);
   $("#backBtn").onclick = renderHome;
   $("#resetBtn").onclick = () => {
@@ -971,6 +1025,7 @@ async function init() {
     sharedSession.studentId = sharedParams.studentId;
     sharedSession.token = sharedParams.token;
     sharedSession.requested = Boolean(sharedSession.studentId || sharedSession.token);
+    focusDomains = sharedParams.focus.split(",").map(value => value.trim()).filter(value => DOMAIN_LABELS[value]);
     questionData = await loadJson("data/polaris_questions.json");
     if (sharedSession.requested) {
       await startSharedSession();

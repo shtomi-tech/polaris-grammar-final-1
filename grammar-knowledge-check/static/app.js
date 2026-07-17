@@ -319,11 +319,14 @@
     const misconceptions = misconceptionStats(result);
     const needsReview = visibleStats.filter(stat => stat.status !== "good");
     const priorityNames = needsReview.slice(0, 4).map(stat => stat.domain.label);
+    const focusDomains = needsReview.map(stat => stat.domain.id);
     const history = loadHistory();
     const completedStages = DATA.learningStages.filter((_, index) => history?.stageResults?.[`stage${index + 1}`]).length;
     const trainerTarget = location.pathname.includes("/grammar-knowledge-check/") && location.pathname.includes("/polaris-grammar-final-1/")
       ? "../ポラリス英文法ファイナル演習1/index.html"
       : "../";
+    const focusParams = new URLSearchParams(location.search);
+    focusParams.set("focus", focusDomains.join(","));
     app.innerHTML = `
       <section class="panel dark">
         <p class="kicker">RESULT / ${escapeHtml(result.completedAt)}</p>
@@ -336,6 +339,7 @@
           <button class="primary" id="readGuideButton" type="button">弱点の解説を読む <span>推奨</span></button>
         </div>
         <button class="secondary quietAction" id="retryButton" type="button">${result.stageKey ? "この段階をもう一度解く" : "総合チェックをもう一度解く"}</button>
+        ${focusDomains.length ? `<a class="secondary quietAction" href="${trainerTarget}?${focusParams.toString()}">弱点分野のPolaris問題へ進む</a>` : ""}
         ${completedStages === DATA.learningStages.length ? `<a class="secondary quietAction" href="${trainerTarget}${location.search}">Polaris入試基礎演習へ進む</a>` : ""}
       </section>
       <section class="panel">
