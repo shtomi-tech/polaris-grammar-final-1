@@ -37,9 +37,14 @@
 
   function saveHistory(result) {
     const previous = loadHistory() || {};
+    if (result.kind === "review") {
+      localStorage.setItem(KEY, JSON.stringify({ ...previous, lastReview: result, lastReviewAt: result.completedAt }));
+      if (cloud) cloud.queueSave();
+      return;
+    }
     const stageResults = { ...(previous.stageResults || {}) };
     if (result.stageKey) stageResults[result.stageKey] = result;
-    localStorage.setItem(KEY, JSON.stringify({ ...result, stageResults }));
+    localStorage.setItem(KEY, JSON.stringify({ ...result, stageResults, lastReview: previous.lastReview || null }));
     if (cloud) cloud.queueSave();
   }
 
@@ -57,15 +62,48 @@
     return copy;
   }
 
+  function reviewCandidates(history = loadHistory()) {
+    if (!history) return [];
+    const baseAnswers = history.total === DATA.questions.length && Array.isArray(history.answers)
+      ? history.answers
+      : Object.values(history.stageResults || {}).flatMap(result => Array.isArray(result.answers) ? result.answers : []);
+    const latestReview = new Map((history.lastReview?.answers || []).map(answer => [answer.id, answer]));
+    const byId = new Map(baseAnswers.map(answer => [answer.id, latestReview.get(answer.id) || answer]));
+    return [...byId.values()]
+      .filter(answer => !answer.correct || answer.uncertain)
+      .sort((a, b) => Number(a.correct) - Number(b.correct) || Number(b.uncertain) - Number(a.uncertain))
+      .map(answer => questionById.get(answer.id))
+      .filter(Boolean);
+  }
+
   function startQuiz(stageIndex = null) {
     const stage = stageIndex === null ? null : DATA.learningStages[stageIndex];
     const ids = stage ? stage.questionIds : DATA.questionOrder;
     session = {
       index: 0,
+      kind: "check",
       stageIndex,
       stageKey: stage ? `stage${stageIndex + 1}` : null,
       stageLabel: stage?.label || null,
       questions: ids.map(id => questionById.get(id)).map(question => ({ ...question, choices: shuffle(question.choices) })),
+      responses: []
+    };
+    pendingChoice = null;
+    pendingUncertain = false;
+    answerRevealed = false;
+    renderQuiz();
+  }
+
+  function startReviewQuiz() {
+    const questions = reviewCandidates().map(question => ({ ...question, choices: shuffle(question.choices) }));
+    if (!questions.length) return home();
+    session = {
+      index: 0,
+      kind: "review",
+      stageIndex: null,
+      stageKey: null,
+      stageLabel: null,
+      questions,
       responses: []
     };
     pendingChoice = null;
@@ -83,6 +121,7 @@
     const stageResults = history?.stageResults || {};
     const completedStages = DATA.learningStages.filter((_, index) => stageResults[`stage${index + 1}`]).length;
     const nextStageIndex = DATA.learningStages.findIndex((_, index) => !stageResults[`stage${index + 1}`]);
+    const reviewItems = reviewCandidates(history);
     const historyHtml = history
       ? `<p class="muted">前回: ${escapeHtml(history.completedAt)} ／ ${history.score}/${history.total}問正解。記録はこの端末にのみ保存されます。</p>`
       : "<p class=\"muted\">進捗はこの端末のブラウザにのみ保存します。生徒名や外部サービスは使いません。</p>";
@@ -123,6 +162,12 @@
         <p class="shortcutHint">数字キー 1〜4 で解答を選択、Enter で次へ進めます。</p>
         ${historyHtml}
       </section>
+      <section class="panel">
+        <p class="kicker">REVIEW / ${reviewItems.length} ITEMS</p>
+        <h2>誤答と保留だけを復習する</h2>
+        <p class="lead">誤答を先に、保留をその後に出題します。復習で正解できた問題は、次回の対象から外れます。</p>
+        <button class="primary" id="startReviewButton" type="button" ${reviewItems.length ? "" : "disabled"}>${reviewItems.length ? `弱点${reviewItems.length}問を復習する` : "復習対象はありません"}</button>
+      </section>
     `;
     document.querySelector("#startButton").addEventListener("click", () => {
       if (nextStageIndex >= 0) startQuiz(nextStageIndex);
@@ -131,6 +176,7 @@
     document.querySelectorAll(".stageButton").forEach(button => {
       button.addEventListener("click", () => startQuiz(Number(button.dataset.stageIndex)));
     });
+    document.querySelector("#startReviewButton").addEventListener("click", startReviewQuiz);
   }
 
   function renderQuiz() {
@@ -255,6 +301,7 @@
     });
     return {
       version: 2,
+      kind: session.kind || "check",
       stageIndex: session.stageIndex,
       stageKey: session.stageKey,
       stageLabel: session.stageLabel,
@@ -314,8 +361,9 @@
   function renderResult(result) {
     session = null;
     const stats = domainStats(result);
-    const visibleStats = result.stageKey ? stats.filter(stat => stat.answers.length > 0) : stats;
-    const stages = stageStats(result).filter(stat => !result.stageKey || stat.answers.length > 0);
+    const isReview = result.kind === "review";
+    const visibleStats = result.stageKey || isReview ? stats.filter(stat => stat.answers.length > 0) : stats;
+    const stages = isReview ? [] : stageStats(result).filter(stat => !result.stageKey || stat.answers.length > 0);
     const misconceptions = misconceptionStats(result);
     const needsReview = visibleStats.filter(stat => stat.status !== "good");
     const priorityNames = needsReview.slice(0, 4).map(stat => stat.domain.label);
@@ -330,7 +378,7 @@
     app.innerHTML = `
       <section class="panel dark">
         <p class="kicker">RESULT / ${escapeHtml(result.completedAt)}</p>
-        <h2>${result.stageLabel ? `第${result.stageIndex + 1}段階を完了` : "総合チェック完了"}</h2>
+        <h2>${isReview ? "弱点復習を完了" : (result.stageLabel ? `第${result.stageIndex + 1}段階を完了` : "総合チェック完了")}</h2>
         <div class="score"><strong>${result.score}</strong><span>/ ${result.total} 問正解</span></div>
         <p class="lead">${resultMessage(result)}</p>
         <div class="nextStep">
@@ -338,11 +386,11 @@
           <p>${priorityNames.length ? `まずは「${escapeHtml(priorityNames.join("・"))}」の解説を確認します。` : "迷った分野の解説を短く確認します。"}</p>
           <button class="primary" id="readGuideButton" type="button">弱点の解説を読む <span>推奨</span></button>
         </div>
-        <button class="secondary quietAction" id="retryButton" type="button">${result.stageKey ? "この段階をもう一度解く" : "総合チェックをもう一度解く"}</button>
+        <button class="secondary quietAction" id="retryButton" type="button">${isReview ? "残っている弱点をもう一度復習する" : (result.stageKey ? "この段階をもう一度解く" : "総合チェックをもう一度解く")}</button>
         ${focusDomains.length ? `<a class="secondary quietAction" href="${trainerTarget}?${focusParams.toString()}">弱点分野のPolaris問題へ進む</a>` : ""}
         ${completedStages === DATA.learningStages.length ? `<a class="secondary quietAction" href="${trainerTarget}${location.search}">Polaris入試基礎演習へ進む</a>` : ""}
       </section>
-      <section class="panel">
+      ${stages.length ? `<section class="panel">
         <p class="kicker">COVERAGE</p>
         <h2>学習範囲ごとの到達</h2>
         <div class="measurementGrid">
@@ -354,7 +402,7 @@
             </article>
           `).join("")}
         </div>
-      </section>
+      </section>` : ""}
       <section class="panel">
         <p class="kicker">MISCONCEPTIONS</p>
         <h2>今、ほどく混同</h2>
@@ -375,7 +423,8 @@
     `;
     document.querySelector("#readGuideButton").addEventListener("click", () => renderReview(result));
     document.querySelector("#retryButton").addEventListener("click", () => {
-      if (result.stageIndex !== null && result.stageIndex !== undefined) startQuiz(result.stageIndex);
+      if (isReview) startReviewQuiz();
+      else if (result.stageIndex !== null && result.stageIndex !== undefined) startQuiz(result.stageIndex);
       else startQuiz();
     });
   }
