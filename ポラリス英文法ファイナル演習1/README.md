@@ -14,7 +14,7 @@ QRコードから生徒のスマホ・タブレットで開ける共有版に対
 ## 起動
 
 ```powershell
-cd "C:\Users\shtom\OneDrive\ドキュメント\Obsidian Vault\英語演習サイト\ポラリス英文法ファイナル演習1"
+cd "C:\Users\shtom\dev\polaris-grammar-final-1\ポラリス英文法ファイナル演習1"
 py -3 -m http.server 8096
 ```
 
@@ -63,7 +63,7 @@ http://127.0.0.1:8096/
 
 `static/config.json` は公開サイトから読み込まれます。Supabase側はRPCだけを匿名実行許可し、テーブル本体はRLSで直接読めない構成です。
 
-ローカルの `static/config.json` はGit管理しません。本番のNetlifyでは、環境変数からデプロイ時に自動生成します。
+ローカルの `static/config.json` はGit管理しません。本番のGitHub Pagesでは、環境変数からデプロイ時に自動生成します。
 
 ## 生徒QRの作成
 

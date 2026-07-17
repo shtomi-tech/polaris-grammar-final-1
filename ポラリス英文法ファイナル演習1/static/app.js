@@ -662,6 +662,13 @@ function renderSetList() {
 }
 
 function renderHome() {
+  const foundationLink = $("#foundationLink");
+  if (foundationLink) {
+    const isLocalNestedApp = location.pathname.includes("/ポラリス英文法ファイナル演習1/");
+    const target = isLocalNestedApp ? "../grammar-knowledge-check/index.html" : "grammar-knowledge-check/index.html";
+    const query = new URLSearchParams(location.search);
+    foundationLink.href = target + (query.toString() ? `?${query.toString()}` : "");
+  }
   renderStudentControls();
   renderSelectors();
   renderContinueCta();

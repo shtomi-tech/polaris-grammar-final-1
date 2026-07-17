@@ -36,7 +36,10 @@
   }
 
   function saveHistory(result) {
-    localStorage.setItem(KEY, JSON.stringify(result));
+    const previous = loadHistory() || {};
+    const stageResults = { ...(previous.stageResults || {}) };
+    if (result.stageKey) stageResults[result.stageKey] = result;
+    localStorage.setItem(KEY, JSON.stringify({ ...result, stageResults }));
     if (cloud) cloud.queueSave();
   }
 
@@ -54,10 +57,15 @@
     return copy;
   }
 
-  function startQuiz() {
+  function startQuiz(stageIndex = null) {
+    const stage = stageIndex === null ? null : DATA.learningStages[stageIndex];
+    const ids = stage ? stage.questionIds : DATA.questionOrder;
     session = {
       index: 0,
-      questions: DATA.questionOrder.map(id => questionById.get(id)).map(question => ({ ...question, choices: shuffle(question.choices) })),
+      stageIndex,
+      stageKey: stage ? `stage${stageIndex + 1}` : null,
+      stageLabel: stage?.label || null,
+      questions: ids.map(id => questionById.get(id)).map(question => ({ ...question, choices: shuffle(question.choices) })),
       responses: []
     };
     pendingChoice = null;
@@ -72,6 +80,9 @@
     pendingUncertain = false;
     answerRevealed = false;
     const history = loadHistory();
+    const stageResults = history?.stageResults || {};
+    const completedStages = DATA.learningStages.filter((_, index) => stageResults[`stage${index + 1}`]).length;
+    const nextStageIndex = DATA.learningStages.findIndex((_, index) => !stageResults[`stage${index + 1}`]);
     const historyHtml = history
       ? `<p class="muted">前回: ${escapeHtml(history.completedAt)} ／ ${history.score}/${history.total}問正解。記録はこの端末にのみ保存されます。</p>`
       : "<p class=\"muted\">進捗はこの端末のブラウザにのみ保存します。生徒名や外部サービスは使いません。</p>";
@@ -86,9 +97,20 @@
           <div><strong>5</strong><span>学習段階</span></div>
         </div>
         <div class="primaryAction">
-          <button class="primary" id="startButton" type="button">${DATA.questions.length}問のチェックを始める <span>推奨</span></button>
-          <p>問題は学習順で固定し、選択肢の順だけ毎回入れ替わります。</p>
+          <button class="primary" id="startButton" type="button">${nextStageIndex >= 0 ? `第${nextStageIndex + 1}段階から始める` : "総合チェックをもう一度解く"} <span>${nextStageIndex >= 0 ? "推奨" : "復習"}</span></button>
+          <p>段階ごとに進めても、120問の総合チェックを選んでも構いません。</p>
         </div>
+      </section>
+      <section class="panel">
+        <p class="kicker">LEARNING PATH / ${completedStages} OF ${DATA.learningStages.length}</p>
+        <h2>5段階で基礎を積み上げる</h2>
+        <div class="measurementGrid">
+          ${DATA.learningStages.map((stage, index) => {
+            const saved = stageResults[`stage${index + 1}`];
+            return `<article class="measurementCard"><p class="kicker">STAGE ${index + 1}</p><strong>${saved ? `${saved.score}<span> / ${saved.total}</span>` : `${stage.questionIds.length}<span>問</span>`}</strong><p>${escapeHtml(stage.label)}</p><button class="secondary stageButton" data-stage-index="${index}" type="button">${saved ? "もう一度解く" : "この段階を解く"}</button></article>`;
+          }).join("")}
+        </div>
+        <p class="shortcutHint">途中でやめても、次回は未完了の段階から再開できます。段階を完了すると結果を保存します。</p>
       </section>
       <section class="panel">
         <p class="kicker">FLOW</p>
@@ -102,7 +124,13 @@
         ${historyHtml}
       </section>
     `;
-    document.querySelector("#startButton").addEventListener("click", startQuiz);
+    document.querySelector("#startButton").addEventListener("click", () => {
+      if (nextStageIndex >= 0) startQuiz(nextStageIndex);
+      else startQuiz();
+    });
+    document.querySelectorAll(".stageButton").forEach(button => {
+      button.addEventListener("click", () => startQuiz(Number(button.dataset.stageIndex)));
+    });
   }
 
   function renderQuiz() {
@@ -227,6 +255,9 @@
     });
     return {
       version: 2,
+      stageIndex: session.stageIndex,
+      stageKey: session.stageKey,
+      stageLabel: session.stageLabel,
       completedAt: new Intl.DateTimeFormat("ja-JP", { dateStyle: "medium", timeStyle: "short" }).format(new Date()),
       total: answers.length,
       score: answers.filter(answer => answer.correct).length,
@@ -283,14 +314,20 @@
   function renderResult(result) {
     session = null;
     const stats = domainStats(result);
-    const stages = stageStats(result);
+    const visibleStats = result.stageKey ? stats.filter(stat => stat.answers.length > 0) : stats;
+    const stages = stageStats(result).filter(stat => !result.stageKey || stat.answers.length > 0);
     const misconceptions = misconceptionStats(result);
-    const needsReview = stats.filter(stat => stat.status !== "good");
+    const needsReview = visibleStats.filter(stat => stat.status !== "good");
     const priorityNames = needsReview.slice(0, 4).map(stat => stat.domain.label);
+    const history = loadHistory();
+    const completedStages = DATA.learningStages.filter((_, index) => history?.stageResults?.[`stage${index + 1}`]).length;
+    const trainerTarget = location.pathname.includes("/grammar-knowledge-check/") && location.pathname.includes("/polaris-grammar-final-1/")
+      ? "../ポラリス英文法ファイナル演習1/index.html"
+      : "../";
     app.innerHTML = `
       <section class="panel dark">
         <p class="kicker">RESULT / ${escapeHtml(result.completedAt)}</p>
-        <h2>チェック完了</h2>
+        <h2>${result.stageLabel ? `第${result.stageIndex + 1}段階を完了` : "総合チェック完了"}</h2>
         <div class="score"><strong>${result.score}</strong><span>/ ${result.total} 問正解</span></div>
         <p class="lead">${resultMessage(result)}</p>
         <div class="nextStep">
@@ -298,7 +335,8 @@
           <p>${priorityNames.length ? `まずは「${escapeHtml(priorityNames.join("・"))}」の解説を確認します。` : "迷った分野の解説を短く確認します。"}</p>
           <button class="primary" id="readGuideButton" type="button">弱点の解説を読む <span>推奨</span></button>
         </div>
-        <button class="secondary quietAction" id="retryButton" type="button">最初から、もう一度解く</button>
+        <button class="secondary quietAction" id="retryButton" type="button">${result.stageKey ? "この段階をもう一度解く" : "総合チェックをもう一度解く"}</button>
+        ${completedStages === DATA.learningStages.length ? `<a class="secondary quietAction" href="${trainerTarget}${location.search}">Polaris入試基礎演習へ進む</a>` : ""}
       </section>
       <section class="panel">
         <p class="kicker">COVERAGE</p>
@@ -327,12 +365,15 @@
         </div>
         <details class="allResults">
           <summary>17分野すべての結果を表示する</summary>
-          <div class="domainList">${stats.map(domainRowHtml).join("")}</div>
+          <div class="domainList">${visibleStats.map(domainRowHtml).join("")}</div>
         </details>
       </section>
     `;
     document.querySelector("#readGuideButton").addEventListener("click", () => renderReview(result));
-    document.querySelector("#retryButton").addEventListener("click", startQuiz);
+    document.querySelector("#retryButton").addEventListener("click", () => {
+      if (result.stageIndex !== null && result.stageIndex !== undefined) startQuiz(result.stageIndex);
+      else startQuiz();
+    });
   }
 
   function domainRowHtml(stat) {
@@ -426,6 +467,16 @@
   }
 
   async function init() {
+    const trainerLink = document.querySelector("#trainerLink");
+    if (trainerLink) {
+      const isLocalNestedApp = location.pathname.includes("/grammar-knowledge-check/")
+        && location.pathname.includes("/polaris-grammar-final-1/");
+      const target = isLocalNestedApp
+        ? "../ポラリス英文法ファイナル演習1/index.html"
+        : "../";
+      const query = new URLSearchParams(location.search);
+      trainerLink.href = target + (query.toString() ? `?${query.toString()}` : "");
+    }
     cloud = createCloud({
       appId: APP_ID,
       configPath: "../static/config.json",

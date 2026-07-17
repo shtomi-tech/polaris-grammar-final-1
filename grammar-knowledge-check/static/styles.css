@@ -187,13 +187,14 @@ h3 { font-size: 18px; line-height: 1.45; }
 .score { align-items: baseline; display: flex; flex-wrap: wrap; gap: 10px; }
 .score strong { font-family: var(--serif); font-size: clamp(46px, 10vw, 72px); font-weight: 500; line-height: 1; }
 .score span { color: var(--muted); }
-.measurementGrid { border-left: 1px solid var(--ink); border-top: 1px solid var(--ink); display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); }
+.measurementGrid { border-left: 1px solid var(--ink); border-top: 1px solid var(--ink); display: grid; grid-template-columns: repeat(auto-fit, minmax(168px, 1fr)); }
 .measurementCard { border-bottom: 1px solid var(--ink); border-right: 1px solid var(--ink); min-height: 184px; padding: 16px; }
 .measurementCard .kicker { margin-bottom: 10px; }
 .measurementCard > strong { display: block; font-family: var(--serif); font-size: 40px; font-weight: 500; line-height: 1; margin-bottom: 12px; }
 .measurementCard > strong span { color: var(--muted); font-family: var(--sans); font-size: 14px; }
 .measurementCard p { font-size: 13px; margin-bottom: 0; }
 .measurementCard .measurementMeta { border-top: 1px solid var(--line); color: var(--muted); font-family: var(--mono); font-size: 10px; letter-spacing: .04em; margin-top: 12px; padding-top: 8px; }
+.stageButton { margin-top: 16px; min-height: 38px; padding: 7px 12px; width: 100%; }
 .misconceptionList { border-top: 1px solid var(--ink); }
 .misconceptionList article { border-bottom: 1px solid var(--ink); padding: 14px 0; }
 .misconceptionList strong { display: block; font-size: 16px; }

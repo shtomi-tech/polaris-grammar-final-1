@@ -1,5 +1,7 @@
 # 英文法 基礎知識チェック
 
+初学者向けの入口です。5段階（品詞と文の骨組み／動詞の形と時制／助動詞・受動態と準動詞／分詞と文のつなぎ方／比較・仮定法と仕上げ）に分けて進められます。入試形式の演習は、同じ公開サイトのPolaris入試基礎演習へ進みます。
+
 英文法の用語・形・働きを網羅的に確認する、120問・4択の静的アプリです。
 
 ## ねらい
@@ -21,7 +23,7 @@
 ## 起動
 
 ```powershell
-cd "C:\Users\shtom\dev\polaris-grammar-final-1\grammar-knowledge-check"
+cd "C:\Users\shtom\dev\grammar-knowledge-check"
 py -3 -m http.server 8097
 ```
 

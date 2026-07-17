@@ -7,7 +7,7 @@ global.window = {};
 require("../data/questions.js");
 
 const data = global.window.GRAMMAR_CHECK_DATA;
-const skillLabels = { knowledge: "知識", distinction: "識別", application: "適用" };
+const skillLabels = { knowledge: "知識" };
 const priorityLabels = { core: "中核", support: "補助" };
 const domainById = new Map(data.domains.map(domain => [domain.id, domain]));
 
