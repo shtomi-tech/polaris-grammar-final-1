@@ -154,7 +154,7 @@
     },
     {
       "id": "unit01_003",
-      "domains": ["gerund"],
+      "domains": ["gerund","infinitive"],
       "unitId": "unit01",
       "setId": "unit01_set_01",
       "no": 3,
@@ -208,7 +208,7 @@
     },
     {
       "id": "unit01_006",
-      "domains": ["conjunction"],
+      "domains": ["conjunction","foundation"],
       "unitId": "unit01",
       "setId": "unit01_set_01",
       "no": 6,
@@ -262,7 +262,7 @@
     },
     {
       "id": "unit01_009",
-      "domains": ["tense"],
+      "domains": ["tense","conjunction"],
       "unitId": "unit01",
       "setId": "unit01_set_01",
       "no": 9,
@@ -280,7 +280,7 @@
     },
     {
       "id": "unit01_010",
-      "domains": ["pattern"],
+      "domains": ["pattern","nouns"],
       "unitId": "unit01",
       "setId": "unit01_set_01",
       "no": 10,
@@ -316,7 +316,7 @@
     },
     {
       "id": "unit02_002",
-      "domains": ["relative"],
+      "domains": ["relative","foundation"],
       "unitId": "unit02",
       "setId": "unit02_set_01",
       "no": 2,
@@ -406,7 +406,7 @@
     },
     {
       "id": "unit02_007",
-      "domains": ["pattern"],
+      "domains": ["pattern","passive"],
       "unitId": "unit02",
       "setId": "unit02_set_01",
       "no": 7,
@@ -442,7 +442,7 @@
     },
     {
       "id": "unit02_009",
-      "domains": ["infinitive"],
+      "domains": ["infinitive","foundation"],
       "unitId": "unit02",
       "setId": "unit02_set_01",
       "no": 9,
@@ -460,7 +460,7 @@
     },
     {
       "id": "unit02_010",
-      "domains": ["negation"],
+      "domains": ["negation","foundation"],
       "unitId": "unit02",
       "setId": "unit02_set_01",
       "no": 10,
@@ -478,7 +478,7 @@
     },
     {
       "id": "unit03_001",
-      "domains": ["conjunction"],
+      "domains": ["conjunction","foundation"],
       "unitId": "unit03",
       "setId": "unit03_set_01",
       "no": 1,
@@ -496,7 +496,7 @@
     },
     {
       "id": "unit03_002",
-      "domains": ["participle"],
+      "domains": ["participle","passive"],
       "unitId": "unit03",
       "setId": "unit03_set_01",
       "no": 2,
@@ -550,7 +550,7 @@
     },
     {
       "id": "unit03_005",
-      "domains": ["tense"],
+      "domains": ["tense","conjunction"],
       "unitId": "unit03",
       "setId": "unit03_set_01",
       "no": 5,
@@ -604,7 +604,7 @@
     },
     {
       "id": "unit03_008",
-      "domains": ["subjunctive"],
+      "domains": ["subjunctive","tense"],
       "unitId": "unit03",
       "setId": "unit03_set_01",
       "no": 8,
@@ -694,7 +694,7 @@
     },
     {
       "id": "unit04_003",
-      "domains": ["subjunctive"],
+      "domains": ["subjunctive","tense"],
       "unitId": "unit04",
       "setId": "unit04_set_01",
       "no": 3,
@@ -712,7 +712,7 @@
     },
     {
       "id": "unit04_004",
-      "domains": ["negation"],
+      "domains": ["negation","conjunction"],
       "unitId": "unit04",
       "setId": "unit04_set_01",
       "no": 4,
@@ -730,7 +730,7 @@
     },
     {
       "id": "unit04_005",
-      "domains": ["infinitive"],
+      "domains": ["infinitive","verb_form"],
       "unitId": "unit04",
       "setId": "unit04_set_01",
       "no": 5,
@@ -748,7 +748,7 @@
     },
     {
       "id": "unit04_006",
-      "domains": ["relative"],
+      "domains": ["relative","passive"],
       "unitId": "unit04",
       "setId": "unit04_set_01",
       "no": 6,
@@ -784,7 +784,7 @@
     },
     {
       "id": "unit04_008",
-      "domains": ["preposition"],
+      "domains": ["preposition","tense"],
       "unitId": "unit04",
       "setId": "unit04_set_01",
       "no": 8,
@@ -892,7 +892,7 @@
     },
     {
       "id": "unit05_004",
-      "domains": ["conjunction"],
+      "domains": ["conjunction","negation"],
       "unitId": "unit05",
       "setId": "unit05_set_01",
       "no": 4,
@@ -928,7 +928,7 @@
     },
     {
       "id": "unit05_006",
-      "domains": ["subjunctive"],
+      "domains": ["subjunctive","tense"],
       "unitId": "unit05",
       "setId": "unit05_set_01",
       "no": 6,
@@ -964,7 +964,7 @@
     },
     {
       "id": "unit05_008",
-      "domains": ["pattern"],
+      "domains": ["pattern","participle"],
       "unitId": "unit05",
       "setId": "unit05_set_01",
       "no": 8,
@@ -1000,7 +1000,7 @@
     },
     {
       "id": "unit05_010",
-      "domains": ["modal"],
+      "domains": ["modal","negation"],
       "unitId": "unit05",
       "setId": "unit05_set_01",
       "no": 10,
@@ -1054,7 +1054,7 @@
     },
     {
       "id": "unit06_003",
-      "domains": ["passive"],
+      "domains": ["passive","infinitive"],
       "unitId": "unit06",
       "setId": "unit06_set_01",
       "no": 3,
@@ -1090,7 +1090,7 @@
     },
     {
       "id": "unit06_005",
-      "domains": ["passive"],
+      "domains": ["passive","pattern"],
       "unitId": "unit06",
       "setId": "unit06_set_01",
       "no": 5,
@@ -1108,7 +1108,7 @@
     },
     {
       "id": "unit06_006",
-      "domains": ["tense"],
+      "domains": ["tense","conjunction"],
       "unitId": "unit06",
       "setId": "unit06_set_01",
       "no": 6,
@@ -1144,7 +1144,7 @@
     },
     {
       "id": "unit06_008",
-      "domains": ["infinitive"],
+      "domains": ["infinitive","pattern"],
       "unitId": "unit06",
       "setId": "unit06_set_01",
       "no": 8,
@@ -1180,7 +1180,7 @@
     },
     {
       "id": "unit06_010",
-      "domains": ["relative"],
+      "domains": ["relative","preposition"],
       "unitId": "unit06",
       "setId": "unit06_set_01",
       "no": 10,
@@ -1198,7 +1198,7 @@
     },
     {
       "id": "unit07_001",
-      "domains": ["conjunction"],
+      "domains": ["conjunction","preposition"],
       "unitId": "unit07",
       "setId": "unit07_set_01",
       "no": 1,
@@ -1270,7 +1270,7 @@
     },
     {
       "id": "unit07_005",
-      "domains": ["relative"],
+      "domains": ["relative","foundation"],
       "unitId": "unit07",
       "setId": "unit07_set_01",
       "no": 5,
@@ -1306,7 +1306,7 @@
     },
     {
       "id": "unit07_007",
-      "domains": ["passive"],
+      "domains": ["passive","pattern"],
       "unitId": "unit07",
       "setId": "unit07_set_01",
       "no": 7,
@@ -1342,7 +1342,7 @@
     },
     {
       "id": "unit07_009",
-      "domains": ["passive"],
+      "domains": ["passive","nouns"],
       "unitId": "unit07",
       "setId": "unit07_set_01",
       "no": 9,
@@ -1414,7 +1414,7 @@
     },
     {
       "id": "unit08_003",
-      "domains": ["subjunctive"],
+      "domains": ["subjunctive","conjunction"],
       "unitId": "unit08",
       "setId": "unit08_set_01",
       "no": 3,
@@ -1468,7 +1468,7 @@
     },
     {
       "id": "unit08_006",
-      "domains": ["gerund"],
+      "domains": ["gerund","modal"],
       "unitId": "unit08",
       "setId": "unit08_set_01",
       "no": 6,
@@ -1504,7 +1504,7 @@
     },
     {
       "id": "unit08_008",
-      "domains": ["verb_form"],
+      "domains": ["verb_form","infinitive"],
       "unitId": "unit08",
       "setId": "unit08_set_01",
       "no": 8,
@@ -1522,7 +1522,7 @@
     },
     {
       "id": "unit08_009",
-      "domains": ["infinitive"],
+      "domains": ["infinitive","nouns"],
       "unitId": "unit08",
       "setId": "unit08_set_01",
       "no": 9,
@@ -1540,7 +1540,7 @@
     },
     {
       "id": "unit08_010",
-      "domains": ["negation"],
+      "domains": ["negation","adverb"],
       "unitId": "unit08",
       "setId": "unit08_set_01",
       "no": 10,
@@ -1576,7 +1576,7 @@
     },
     {
       "id": "unit09_002",
-      "domains": ["relative"],
+      "domains": ["relative","nouns"],
       "unitId": "unit09",
       "setId": "unit09_set_01",
       "no": 2,
@@ -1594,7 +1594,7 @@
     },
     {
       "id": "unit09_003",
-      "domains": ["gerund"],
+      "domains": ["gerund","preposition"],
       "unitId": "unit09",
       "setId": "unit09_set_01",
       "no": 3,
@@ -1612,7 +1612,7 @@
     },
     {
       "id": "unit09_004",
-      "domains": ["comparison"],
+      "domains": ["comparison","adverb"],
       "unitId": "unit09",
       "setId": "unit09_set_01",
       "no": 4,
@@ -1630,7 +1630,7 @@
     },
     {
       "id": "unit09_005",
-      "domains": ["gerund"],
+      "domains": ["gerund","foundation"],
       "unitId": "unit09",
       "setId": "unit09_set_01",
       "no": 5,
@@ -1666,7 +1666,7 @@
     },
     {
       "id": "unit09_007",
-      "domains": ["adverb"],
+      "domains": ["adverb","foundation"],
       "unitId": "unit09",
       "setId": "unit09_set_01",
       "no": 7,
@@ -1702,7 +1702,7 @@
     },
     {
       "id": "unit09_009",
-      "domains": ["subjunctive"],
+      "domains": ["subjunctive","tense"],
       "unitId": "unit09",
       "setId": "unit09_set_01",
       "no": 9,
@@ -1720,7 +1720,7 @@
     },
     {
       "id": "unit09_010",
-      "domains": ["negation"],
+      "domains": ["negation","foundation"],
       "unitId": "unit09",
       "setId": "unit09_set_01",
       "no": 10,
@@ -1738,7 +1738,7 @@
     },
     {
       "id": "unit10_001",
-      "domains": ["conjunction"],
+      "domains": ["conjunction","preposition"],
       "unitId": "unit10",
       "setId": "unit10_set_01",
       "no": 1,
@@ -1792,7 +1792,7 @@
     },
     {
       "id": "unit10_004",
-      "domains": ["infinitive"],
+      "domains": ["infinitive","foundation"],
       "unitId": "unit10",
       "setId": "unit10_set_01",
       "no": 4,
@@ -1846,7 +1846,7 @@
     },
     {
       "id": "unit10_007",
-      "domains": ["negation"],
+      "domains": ["negation","conjunction"],
       "unitId": "unit10",
       "setId": "unit10_set_01",
       "no": 7,
@@ -1864,7 +1864,7 @@
     },
     {
       "id": "unit10_008",
-      "domains": ["subjunctive"],
+      "domains": ["subjunctive","conjunction"],
       "unitId": "unit10",
       "setId": "unit10_set_01",
       "no": 8,
@@ -1900,7 +1900,7 @@
     },
     {
       "id": "unit10_010",
-      "domains": ["infinitive"],
+      "domains": ["infinitive","conjunction"],
       "unitId": "unit10",
       "setId": "unit10_set_01",
       "no": 10,
