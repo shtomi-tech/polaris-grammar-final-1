@@ -30,7 +30,15 @@
 
   function loadHistory() {
     try {
-      return JSON.parse(localStorage.getItem(KEY)) || null;
+      const history = JSON.parse(localStorage.getItem(KEY)) || null;
+      if (history && !history.spacedSchedule) {
+        const answers = history.total === DATA.questions.length && Array.isArray(history.answers)
+          ? history.answers
+          : Object.values(history.stageResults || {}).flatMap(result => Array.isArray(result.answers) ? result.answers : []);
+        history.spacedSchedule = scheduleNewAnswers({}, answers);
+        localStorage.setItem(KEY, JSON.stringify(history));
+      }
+      return history;
     } catch {
       return null;
     }
