@@ -9,6 +9,7 @@ const ACTIVE_STUDENT_KEY = "polarisFinalGrammar1.activeStudent";
 const CONFIG_PATH = "static/config.json";
 const DEFAULT_STUDENT = { id: "default", name: "共通" };
 const KEYS = ["ア", "イ", "ウ", "エ"];
+const SPACED_REVIEW_DAYS = [1, 3, 7, 14];
 const UNIT_SOURCES = {
   unit01: "中部大学 工/経営情報/国際関係など",
   unit02: "札幌学院大学 法/経済/経営/社会情報",
@@ -293,7 +294,9 @@ function stateFor(questionId) {
       step1Cleared: false,
       step2Cleared: false,
       step3Correct: 0,
-      step3Wrong: 0
+      step3Wrong: 0,
+      reviewStage: 0,
+      nextReviewAt: null
     };
   }
   const state = progress[questionId];
@@ -301,7 +304,43 @@ function stateFor(questionId) {
   if (typeof state.step2Cleared !== "boolean") state.step2Cleared = false;
   if (typeof state.step3Correct !== "number") state.step3Correct = 0;
   if (typeof state.step3Wrong !== "number") state.step3Wrong = 0;
+  if (typeof state.reviewStage !== "number") state.reviewStage = 0;
+  if (typeof state.nextReviewAt !== "string" && state.nextReviewAt !== null) state.nextReviewAt = null;
+  if (state.step2Cleared && !state.nextReviewAt) scheduleInitialReview(state);
   return progress[questionId];
+}
+
+function localDateKey(date = new Date()) {
+  return new Intl.DateTimeFormat("sv-SE", { timeZone: "Asia/Tokyo" }).format(date);
+}
+
+function reviewDateAfter(days) {
+  const date = new Date();
+  date.setDate(date.getDate() + days);
+  return localDateKey(date);
+}
+
+function spacedDueQuestions() {
+  const today = localDateKey();
+  return questionData.questions.filter(question => {
+    const state = stateFor(question.id);
+    return state.step2Cleared && state.nextReviewAt && state.nextReviewAt <= today;
+  });
+}
+
+function scheduleInitialReview(state) {
+  state.reviewStage = 0;
+  state.nextReviewAt = reviewDateAfter(SPACED_REVIEW_DAYS[0]);
+}
+
+function updateSpacedReviewState(state, correct) {
+  if (!correct) {
+    state.reviewStage = 0;
+    state.nextReviewAt = reviewDateAfter(1);
+    return;
+  }
+  state.reviewStage = Math.min(state.reviewStage + 1, SPACED_REVIEW_DAYS.length - 1);
+  state.nextReviewAt = reviewDateAfter(SPACED_REVIEW_DAYS[state.reviewStage]);
 }
 
 function unitById(unitId) {
@@ -532,6 +571,20 @@ function renderReviewCta() {
   button.textContent = `苦手だけ復習（残り${count}問・全UNIT）`;
 }
 
+function renderSpacedReviewCta() {
+  const card = $("#spacedReviewCard");
+  const summary = $("#spacedReviewSummary");
+  const button = $("#spacedReviewBtn");
+  if (!card || !summary || !button) return;
+  const count = spacedDueQuestions().length;
+  card.classList.toggle("hide", count === 0);
+  if (count > 0) {
+    summary.textContent = `${count}問が復習予定日です。正解が続くほど、次の復習までの間隔が伸びます。`;
+    button.textContent = `今日の${count}問を復習する`;
+    button.onclick = startSpacedReview;
+  }
+}
+
 function renderHeatmap(enabled) {
   const overall = stepStats("step2Cleared");
   const rows = questionData.units.map(unit => {
@@ -693,6 +746,7 @@ function renderHome() {
   renderFocusPractice();
   renderContinueCta();
   renderReviewCta();
+  renderSpacedReviewCta();
   renderMasterPath();
   renderSetList();
   setVisible("homePanel");
@@ -854,6 +908,21 @@ function startFocusQuiz() {
   setVisible("quizPanel");
 }
 
+function startSpacedReview() {
+  const pool = shuffled(spacedDueQuestions());
+  if (!pool.length) return renderHome();
+  quiz = {
+    kind: "spaced",
+    mode: "spaced",
+    pool,
+    index: 0,
+    answered: false,
+    selectedChoice: null
+  };
+  renderQuiz();
+  setVisible("quizPanel");
+}
+
 function currentQuestion() {
   if (quiz?.kind === "step3") return quiz.currentQuestion;
   return quiz?.pool[quiz.index];
@@ -926,6 +995,7 @@ function quizTitle(question, set) {
   }
   if (quiz.kind === "step2") return quiz.mode === "step2Single" ? "Step 2 1問確認" : "Step 2 ランダム制覇";
   if (quiz.kind === "step3") return "Step 3 30問連続正解";
+  if (quiz.kind === "spaced") return "間隔復習";
   if (quiz.focused) return "基礎チェック弱点分野の演習";
   return quiz.globalReview
     ? MODE_TITLE.review
@@ -955,6 +1025,8 @@ function answerQuestion(choiceIndex) {
     if (quiz.kind === "free") state.cleared = true;
     if (quiz.kind === "step1") state.step1Cleared = true;
     if (quiz.kind === "step2") state.step2Cleared = true;
+    if (quiz.kind === "step2") scheduleInitialReview(state);
+    if (quiz.kind === "spaced") updateSpacedReviewState(state, true);
     if (quiz.kind === "step3") {
       state.step3Correct += 1;
       quiz.streak += 1;
@@ -965,6 +1037,7 @@ function answerQuestion(choiceIndex) {
   } else {
     state.wrong += 1;
     if (quiz.kind === "free") state.cleared = false;
+    if (quiz.kind === "spaced") updateSpacedReviewState(state, false);
     if (quiz.kind === "step3") {
       state.step3Wrong += 1;
       quiz.streak = 0;

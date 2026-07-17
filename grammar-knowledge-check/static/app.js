@@ -4,6 +4,7 @@
   const DATA = window.GRAMMAR_CHECK_DATA;
   const KEY = "grammar-knowledge-check-v2";
   const APP_ID = "grammar-knowledge-check";
+  const REVIEW_LADDER_DAYS = [1, 3, 7, 14];
   const app = document.querySelector("#app");
   const resetButton = document.querySelector("#resetButton");
   const keys = ["1", "2", "3", "4"];
@@ -37,6 +38,16 @@
 
   function saveHistory(result) {
     const previous = loadHistory() || {};
+    if (result.kind === "spaced") {
+      localStorage.setItem(KEY, JSON.stringify({
+        ...previous,
+        spacedSchedule: updateSpacedSchedule(previous.spacedSchedule || {}, result.answers),
+        lastSpacedReview: result,
+        lastSpacedReviewAt: result.completedAt
+      }));
+      if (cloud) cloud.queueSave();
+      return;
+    }
     if (result.kind === "review") {
       localStorage.setItem(KEY, JSON.stringify({ ...previous, lastReview: result, lastReviewAt: result.completedAt }));
       if (cloud) cloud.queueSave();
@@ -44,7 +55,12 @@
     }
     const stageResults = { ...(previous.stageResults || {}) };
     if (result.stageKey) stageResults[result.stageKey] = result;
-    localStorage.setItem(KEY, JSON.stringify({ ...result, stageResults, lastReview: previous.lastReview || null }));
+    localStorage.setItem(KEY, JSON.stringify({
+      ...result,
+      stageResults,
+      lastReview: previous.lastReview || null,
+      spacedSchedule: scheduleNewAnswers(previous.spacedSchedule || {}, result.answers)
+    }));
     if (cloud) cloud.queueSave();
   }
 
@@ -73,6 +89,48 @@
       .filter(answer => !answer.correct || answer.uncertain)
       .sort((a, b) => Number(a.correct) - Number(b.correct) || Number(b.uncertain) - Number(a.uncertain))
       .map(answer => questionById.get(answer.id))
+      .filter(Boolean);
+  }
+
+  function dateOnly(date = new Date()) {
+    return new Intl.DateTimeFormat("sv-SE", { timeZone: "Asia/Tokyo" }).format(date);
+  }
+
+  function addDays(days) {
+    const date = new Date();
+    date.setDate(date.getDate() + days);
+    return dateOnly(date);
+  }
+
+  function scheduleNewAnswers(schedule, answers) {
+    const next = { ...schedule };
+    for (const answer of answers || []) {
+      if (answer.correct && !answer.uncertain) next[answer.id] = { stage: 0, nextReviewAt: addDays(REVIEW_LADDER_DAYS[0]) };
+      else delete next[answer.id];
+    }
+    return next;
+  }
+
+  function updateSpacedSchedule(schedule, answers) {
+    const next = { ...schedule };
+    for (const answer of answers || []) {
+      const current = next[answer.id] || { stage: 0 };
+      if (answer.correct && !answer.uncertain) {
+        const stage = Math.min(Number(current.stage || 0) + 1, REVIEW_LADDER_DAYS.length - 1);
+        next[answer.id] = { stage, nextReviewAt: addDays(REVIEW_LADDER_DAYS[stage]) };
+      } else {
+        next[answer.id] = { stage: 0, nextReviewAt: addDays(1) };
+      }
+    }
+    return next;
+  }
+
+  function spacedCandidates(history = loadHistory()) {
+    if (!history?.spacedSchedule) return [];
+    const today = dateOnly();
+    return Object.entries(history.spacedSchedule)
+      .filter(([, item]) => item?.nextReviewAt && item.nextReviewAt <= today)
+      .map(([id]) => questionById.get(id))
       .filter(Boolean);
   }
 
@@ -112,6 +170,24 @@
     renderQuiz();
   }
 
+  function startSpacedQuiz() {
+    const questions = spacedCandidates().map(question => ({ ...question, choices: shuffle(question.choices) }));
+    if (!questions.length) return home();
+    session = {
+      index: 0,
+      kind: "spaced",
+      stageIndex: null,
+      stageKey: null,
+      stageLabel: null,
+      questions,
+      responses: []
+    };
+    pendingChoice = null;
+    pendingUncertain = false;
+    answerRevealed = false;
+    renderQuiz();
+  }
+
   function home() {
     session = null;
     pendingChoice = null;
@@ -122,6 +198,7 @@
     const completedStages = DATA.learningStages.filter((_, index) => stageResults[`stage${index + 1}`]).length;
     const nextStageIndex = DATA.learningStages.findIndex((_, index) => !stageResults[`stage${index + 1}`]);
     const reviewItems = reviewCandidates(history);
+    const spacedItems = spacedCandidates(history);
     const historyHtml = history
       ? `<p class="muted">前回: ${escapeHtml(history.completedAt)} ／ ${history.score}/${history.total}問正解。記録はこの端末にのみ保存されます。</p>`
       : "<p class=\"muted\">進捗はこの端末のブラウザにのみ保存します。生徒名や外部サービスは使いません。</p>";
@@ -168,6 +245,12 @@
         <p class="lead">誤答を先に、保留をその後に出題します。復習で正解できた問題は、次回の対象から外れます。</p>
         <button class="primary" id="startReviewButton" type="button" ${reviewItems.length ? "" : "disabled"}>${reviewItems.length ? `弱点${reviewItems.length}問を復習する` : "復習対象はありません"}</button>
       </section>
+      <section class="panel">
+        <p class="kicker">SPACED REVIEW / ${spacedItems.length} DUE</p>
+        <h2>今日の間隔復習</h2>
+        <p class="lead">正解が続いた問題ほど、1日後・3日後・7日後・14日後へ間隔を延ばします。</p>
+        <button class="primary" id="startSpacedButton" type="button" ${spacedItems.length ? "" : "disabled"}>${spacedItems.length ? `今日の${spacedItems.length}問を復習する` : "今日の復習はありません"}</button>
+      </section>
     `;
     document.querySelector("#startButton").addEventListener("click", () => {
       if (nextStageIndex >= 0) startQuiz(nextStageIndex);
@@ -177,6 +260,7 @@
       button.addEventListener("click", () => startQuiz(Number(button.dataset.stageIndex)));
     });
     document.querySelector("#startReviewButton").addEventListener("click", startReviewQuiz);
+    document.querySelector("#startSpacedButton").addEventListener("click", startSpacedQuiz);
   }
 
   function renderQuiz() {
@@ -362,8 +446,9 @@
     session = null;
     const stats = domainStats(result);
     const isReview = result.kind === "review";
-    const visibleStats = result.stageKey || isReview ? stats.filter(stat => stat.answers.length > 0) : stats;
-    const stages = isReview ? [] : stageStats(result).filter(stat => !result.stageKey || stat.answers.length > 0);
+    const isSpaced = result.kind === "spaced";
+    const visibleStats = result.stageKey || isReview || isSpaced ? stats.filter(stat => stat.answers.length > 0) : stats;
+    const stages = isReview || isSpaced ? [] : stageStats(result).filter(stat => !result.stageKey || stat.answers.length > 0);
     const misconceptions = misconceptionStats(result);
     const needsReview = visibleStats.filter(stat => stat.status !== "good");
     const priorityNames = needsReview.slice(0, 4).map(stat => stat.domain.label);
@@ -378,7 +463,7 @@
     app.innerHTML = `
       <section class="panel dark">
         <p class="kicker">RESULT / ${escapeHtml(result.completedAt)}</p>
-        <h2>${isReview ? "弱点復習を完了" : (result.stageLabel ? `第${result.stageIndex + 1}段階を完了` : "総合チェック完了")}</h2>
+        <h2>${isSpaced ? "間隔復習を完了" : (isReview ? "弱点復習を完了" : (result.stageLabel ? `第${result.stageIndex + 1}段階を完了` : "総合チェック完了"))}</h2>
         <div class="score"><strong>${result.score}</strong><span>/ ${result.total} 問正解</span></div>
         <p class="lead">${resultMessage(result)}</p>
         <div class="nextStep">
@@ -386,7 +471,7 @@
           <p>${priorityNames.length ? `まずは「${escapeHtml(priorityNames.join("・"))}」の解説を確認します。` : "迷った分野の解説を短く確認します。"}</p>
           <button class="primary" id="readGuideButton" type="button">弱点の解説を読む <span>推奨</span></button>
         </div>
-        <button class="secondary quietAction" id="retryButton" type="button">${isReview ? "残っている弱点をもう一度復習する" : (result.stageKey ? "この段階をもう一度解く" : "総合チェックをもう一度解く")}</button>
+        <button class="secondary quietAction" id="retryButton" type="button">${isSpaced ? "次回の間隔復習を確認する" : (isReview ? "残っている弱点をもう一度復習する" : (result.stageKey ? "この段階をもう一度解く" : "総合チェックをもう一度解く"))}</button>
         ${focusDomains.length ? `<a class="secondary quietAction" href="${trainerTarget}?${focusParams.toString()}">弱点分野のPolaris問題へ進む</a>` : ""}
         ${completedStages === DATA.learningStages.length ? `<a class="secondary quietAction" href="${trainerTarget}${location.search}">Polaris入試基礎演習へ進む</a>` : ""}
       </section>
@@ -423,7 +508,8 @@
     `;
     document.querySelector("#readGuideButton").addEventListener("click", () => renderReview(result));
     document.querySelector("#retryButton").addEventListener("click", () => {
-      if (isReview) startReviewQuiz();
+      if (isSpaced) startSpacedQuiz();
+      else if (isReview) startReviewQuiz();
       else if (result.stageIndex !== null && result.stageIndex !== undefined) startQuiz(result.stageIndex);
       else startQuiz();
     });
