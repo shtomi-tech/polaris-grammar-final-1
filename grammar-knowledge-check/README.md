@@ -23,11 +23,11 @@
 ## 起動
 
 ```powershell
-cd "C:\Users\shtom\dev\grammar-knowledge-check"
+cd "C:\Users\shtom\dev\english-grammar-trainer"
 py -3 -m http.server 8097
 ```
 
-`http://127.0.0.1:8097/` を開く。
+`http://127.0.0.1:8097/grammar-knowledge-check/` を開く。
 
 ## 構成
 

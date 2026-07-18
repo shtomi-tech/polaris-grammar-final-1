@@ -264,6 +264,13 @@ h2 {
   min-height: 188px;
   padding: 14px;
   cursor: pointer;
+  color: inherit;
+  display: block;
+  text-decoration: none;
+}
+
+.stepCard:hover {
+  background: var(--paper);
 }
 
 .stepCard h3 {
@@ -332,6 +339,44 @@ h2 {
   max-width: 520px;
 }
 
+.stepSectionDetails {
+  padding: 0;
+}
+
+.stepSectionDetails summary {
+  align-items: center;
+  cursor: pointer;
+  display: flex;
+  gap: 16px;
+  justify-content: space-between;
+  min-height: 72px;
+  padding: 14px;
+}
+
+.stepSectionDetails summary > span:first-child {
+  display: grid;
+  gap: 4px;
+}
+
+.stepSectionDetails summary strong {
+  font-family: var(--serif);
+  font-size: 20px;
+  font-weight: 500;
+}
+
+.lockedReason {
+  color: var(--muted);
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: .04em;
+}
+
+.stepSectionDetails > .hint {
+  border-top: 1px solid var(--line);
+  margin: 0;
+  padding: 14px;
+}
+
 .heatmap.locked,
 .challengeMap.locked {
   opacity: .62;
@@ -381,7 +426,7 @@ h2 {
 .heatCell {
   background: var(--paper);
   color: var(--muted);
-  min-height: 36px;
+  min-height: 44px;
   padding: 0;
   font-family: var(--mono);
   font-size: 10px;
@@ -680,6 +725,44 @@ h2 {
   margin-top: 14px;
 }
 
+.recommendedUnit {
+  grid-column: 1 / -1;
+  border-bottom: 1px solid var(--ink);
+  padding-bottom: 14px;
+}
+
+.recommendedUnit > .label { color: var(--clay); }
+
+.recommendedUnit .itemCard {
+  border: 2px solid var(--ink);
+  min-height: 188px;
+}
+
+.otherUnits {
+  grid-column: 1 / -1;
+  border-top: 1px solid var(--ink);
+  margin-top: 14px;
+  padding-top: 14px;
+}
+
+.otherUnits > summary {
+  cursor: pointer;
+  font-family: var(--mono);
+  font-size: 12px;
+  letter-spacing: .04em;
+  min-height: 44px;
+  padding: 10px 0;
+}
+
+.otherUnitGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 0;
+  border-top: 1px solid var(--ink);
+  border-left: 1px solid var(--ink);
+  margin-top: 8px;
+}
+
 .itemCard {
   min-height: 170px;
   border-right: 1px solid var(--ink);
@@ -758,7 +841,7 @@ h2 {
 }
 
 .cardActions button {
-  min-height: 36px;
+  min-height: 44px;
   padding: 6px 10px;
   font-family: var(--mono);
   font-size: 11px;
@@ -823,6 +906,14 @@ h2 {
 .cta {
   border-radius: 0 0 8px 8px;
   font-weight: 600;
+}
+
+.hero .actions .cta {
+  min-height: 56px;
+}
+
+.recommendedUnit .cardActions button {
+  width: 100%;
 }
 
 #nextBtn {
@@ -943,6 +1034,46 @@ h2 {
 .feedback.ok h3 { color: var(--ok); }
 .feedback.ng h3 { color: var(--ng); }
 
+.completionPanel {
+  border: 1px solid var(--ink);
+  background: var(--paper);
+  padding: 18px;
+}
+
+.completionPanel h3 {
+  font-family: var(--serif);
+  font-size: 26px;
+  font-weight: 500;
+  margin: 0 0 16px;
+}
+
+.completionStats {
+  border-top: 1px solid var(--ink);
+  border-left: 1px solid var(--ink);
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  margin-bottom: 16px;
+}
+
+.completionStats > div {
+  border-right: 1px solid var(--ink);
+  border-bottom: 1px solid var(--ink);
+  padding: 12px;
+}
+
+.completionStats strong {
+  display: block;
+  font-family: var(--serif);
+  font-size: 34px;
+  font-weight: 500;
+  line-height: 1.1;
+}
+
+.completionActions .cta,
+.completionActions .ghost {
+  min-height: 48px;
+}
+
 .explainList {
   margin: 8px 0 0;
   padding-left: 20px;
@@ -963,6 +1094,23 @@ h2 {
   display: none !important;
 }
 
+.heroSubHint {
+  color: var(--muted);
+  font-size: 13px;
+  margin: 10px 0 0;
+}
+
+@media (max-width: 840px) {
+  .selectorGrid,
+  .itemList,
+  .explainGrid,
+  .masterGrid,
+  .dashboardGrid,
+  .shareOutput {
+    grid-template-columns: 1fr;
+  }
+}
+
 @media (max-width: 720px) {
   .selectorGrid,
   .itemList,
@@ -971,6 +1119,19 @@ h2 {
   .dashboardGrid,
   .shareOutput {
     grid-template-columns: 1fr;
+  }
+
+  .hero .actions .cta {
+    width: 100%;
+  }
+
+  .otherUnits {
+    min-width: 0;
+  }
+
+  .otherUnitGrid {
+    grid-template-columns: 1fr;
+    min-width: 0;
   }
 
   .heatRow {
@@ -1054,7 +1215,7 @@ h2 {
     z-index: 20;
     background: var(--parchment);
     border-top: 2px solid var(--ink);
-    padding: 10px 16px;
+    padding: 10px 16px calc(10px + env(safe-area-inset-bottom));
   }
 
   .mobileCtaBar .cta {

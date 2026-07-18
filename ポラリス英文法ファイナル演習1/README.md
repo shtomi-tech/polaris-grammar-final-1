@@ -14,15 +14,17 @@ QRコードから生徒のスマホ・タブレットで開ける共有版に対
 ## 起動
 
 ```powershell
-cd "C:\Users\shtom\dev\polaris-grammar-final-1\ポラリス英文法ファイナル演習1"
+cd "C:\Users\shtom\dev\english-grammar-trainer"
 py -3 -m http.server 8096
 ```
 
 ブラウザで開きます。
 
 ```text
-http://127.0.0.1:8096/
+http://127.0.0.1:8096/ポラリス英文法ファイナル演習1/
 ```
+
+基礎知識チェックへのリンクも確認する場合は、リポジトリ直下から起動してください。
 
 ## 問題データ
 

@@ -10,6 +10,7 @@ const CONFIG_PATH = "static/config.json";
 const DEFAULT_STUDENT = { id: "default", name: "共通" };
 const KEYS = ["ア", "イ", "ウ", "エ"];
 const SPACED_REVIEW_DAYS = [1, 3, 7, 14];
+const QUIZ_SESSION_VERSION = 1;
 const UNIT_SOURCES = {
   unit01: "中部大学 工/経営情報/国際関係など",
   unit02: "札幌学院大学 法/経済/経営/社会情報",
@@ -215,6 +216,18 @@ function progressKey(studentId = activeStudentId) {
   return `${STORAGE_PREFIX}${studentId}`;
 }
 
+function appendQuery(target, query = "") {
+  const value = query instanceof URLSearchParams ? query.toString() : String(query || "").replace(/^\?/, "");
+  return value ? `${target}?${value}` : target;
+}
+
+function foundationHref(query = "") {
+  const path = decodeURI(location.pathname);
+  const isLocalNestedApp = path.includes("/ポラリス英文法ファイナル演習1/");
+  const target = isLocalNestedApp ? "../grammar-knowledge-check/index.html" : "grammar-knowledge-check/index.html";
+  return appendQuery(target, query);
+}
+
 function safeStudentId(name) {
   const normalized = String(name || "").trim().toLowerCase();
   const ascii = normalized
@@ -265,11 +278,112 @@ function loadProgress() {
   } catch {
     progress = {};
   }
+  if (!progress || typeof progress !== "object" || Array.isArray(progress)) progress = {};
 }
 
 function saveProgress() {
   localStorage.setItem(progressKey(), JSON.stringify(progress));
   queueSharedSave();
+}
+
+function storedQuizSession() {
+  const saved = progress?.__session;
+  if (!saved || typeof saved !== "object" || saved.version !== QUIZ_SESSION_VERSION) return null;
+  return saved;
+}
+
+function serializeQuizSession() {
+  if (!quiz) return null;
+  return {
+    version: QUIZ_SESSION_VERSION,
+    kind: quiz.kind,
+    mode: quiz.mode || "",
+    globalReview: Boolean(quiz.globalReview),
+    focused: Boolean(quiz.focused),
+    poolIds: Array.isArray(quiz.pool) ? quiz.pool.map(question => question.id) : [],
+    index: Number.isInteger(quiz.index) ? quiz.index : 0,
+    answered: Boolean(quiz.answered),
+    selectedChoice: Number.isInteger(quiz.selectedChoice) ? quiz.selectedChoice : null,
+    currentQuestionId: quiz.currentQuestion?.id || null,
+    streak: Number(quiz.streak || 0),
+    recentIds: Array.isArray(quiz.recentIds) ? quiz.recentIds.slice(0, RECENT_STEP3_LIMIT) : [],
+    correctCount: Number(quiz.correctCount || 0),
+    wrongCount: Number(quiz.wrongCount || 0),
+    updatedAt: new Date().toISOString()
+  };
+}
+
+function saveQuizSession() {
+  const saved = serializeQuizSession();
+  if (!saved) return;
+  progress.__session = saved;
+  saveProgress();
+}
+
+function clearQuizSession() {
+  if (!progress.__session) return;
+  delete progress.__session;
+  saveProgress();
+}
+
+function quizSessionTitle(saved) {
+  if (saved.kind === "step1") return saved.mode === "step1Wrong" ? "誤答演習" : "UNIT演習";
+  if (saved.kind === "step2") return "Step 2 ランダム制覇";
+  if (saved.kind === "step3") return "Step 3 最終確認";
+  if (saved.kind === "spaced") return "今日の間隔復習";
+  if (saved.focused) return "弱点分野の演習";
+  if (saved.globalReview) return "誤答復習";
+  return "自由演習";
+}
+
+function resumeQuizAction() {
+  const saved = storedQuizSession();
+  if (!saved) return null;
+  const total = saved.kind === "step3" ? MASTER_TARGET : saved.poolIds?.length || 0;
+  const current = saved.kind === "step3" ? `${saved.streak || 0}/${MASTER_TARGET}` : `${Math.min((saved.index || 0) + 1, total)}/${total}`;
+  const stateLabel = saved.answered ? "解説を確認して続ける" : `${current}から再開`;
+  return {
+    kind: "resume",
+    label: `▶ ${stateLabel} — ${quizSessionTitle(saved)}`
+  };
+}
+
+function restoreQuizSession() {
+  const saved = storedQuizSession();
+  if (!saved) return false;
+  const pool = (saved.poolIds || [])
+    .map(id => questionData.questions.find(question => question.id === id))
+    .filter(Boolean);
+  const currentQuestion = saved.currentQuestionId
+    ? questionData.questions.find(question => question.id === saved.currentQuestionId)
+    : null;
+  if (saved.kind !== "step3" && !pool.length) {
+    delete progress.__session;
+    saveProgress();
+    return false;
+  }
+  quiz = {
+    kind: saved.kind,
+    mode: saved.mode,
+    globalReview: Boolean(saved.globalReview),
+    focused: Boolean(saved.focused),
+    pool,
+    index: Math.max(0, Math.min(Number(saved.index || 0), Math.max(pool.length - 1, 0))),
+    answered: Boolean(saved.answered),
+    selectedChoice: Number.isInteger(saved.selectedChoice) ? saved.selectedChoice : null,
+    currentQuestion: currentQuestion || undefined,
+    streak: Number(saved.streak || 0),
+    recentIds: Array.isArray(saved.recentIds) ? saved.recentIds : [],
+    correctCount: Number(saved.correctCount || 0),
+    wrongCount: Number(saved.wrongCount || 0)
+  };
+  if (quiz.kind === "step3" && !quiz.currentQuestion) {
+    clearQuizSession();
+    return false;
+  }
+  renderQuiz();
+  setVisible("quizPanel");
+  return true;
 }
 
 function metaState() {
@@ -422,7 +536,10 @@ function pickStep3Question(recentIds = []) {
 
 function allUnresolvedQuestions() {
   return questionData.questions
-    .filter(question => !stateFor(question.id).cleared)
+    .filter(question => {
+      const state = stateFor(question.id);
+      return state.wrong > 0 && !state.cleared;
+    })
     .sort((a, b) => String(a.unitId).localeCompare(String(b.unitId)) || Number(a.no) - Number(b.no));
 }
 
@@ -494,28 +611,29 @@ function renderMasterPath() {
 
   $("#masterPath").innerHTML = `
     <div class="masterGrid">
-      <div class="stepCard active" data-target="step1Section">
+      <a class="stepCard active" data-target="step1Section" href="#step1Section">
         <p class="label">Step 1</p>
         <h3>UNIT演習</h3>
         <div class="stepCount">${progressRatio(step1)}</div>
         <p class="hint">UNITごとに一度正解した問題を積み上げる。</p>
-      </div>
-      <div class="stepCard ${step2Open ? "active" : "locked"}" data-target="step2Section">
+      </a>
+      <a class="stepCard ${step2Open ? "active" : "locked"}" data-target="step2Section" href="#step2Section">
         <p class="label">Step 2</p>
         <h3>ランダム制覇</h3>
         <div class="stepCount">${progressRatio(step2)}</div>
         <p class="hint">${step2Open ? "未クリア問題だけをランダム出題。下のヒートマップから始められます。" : "Step 1を全問クリアで解放。"}</p>
-      </div>
-      <div class="stepCard ${step3Open ? "active" : "locked"} ${meta.mastered ? "mastered" : ""}" data-target="step3Section">
+      </a>
+      <a class="stepCard ${step3Open ? "active" : "locked"} ${meta.mastered ? "mastered" : ""}" data-target="step3Section" href="#step3Section">
         <p class="label">Step 3</p>
         <h3>30問連続正解</h3>
         <div class="stepCount">${masterLabel}</div>
         <p class="hint">${step3Open ? "間違えたら0から続行。30連続で合格。" : "Step 2を全問クリアで解放。"}</p>
-      </div>
+      </a>
     </div>
   `;
   $$(".stepCard[data-target]").forEach(card => {
-    card.onclick = () => {
+    card.onclick = event => {
+      event.preventDefault();
       const target = document.getElementById(card.dataset.target);
       if (target) target.scrollIntoView({ behavior: "smooth", block: "start" });
     };
@@ -523,6 +641,16 @@ function renderMasterPath() {
 }
 
 function nextAction() {
+  const foundationHistory = loadFoundationHistory();
+  const foundationStages = foundationHistory?.stageResults || {};
+  const foundationCompleted = Object.keys(foundationStages).filter(key => /^stage[1-5]$/.test(key)).length;
+  if (!foundationHistory || foundationCompleted < 5) {
+    const nextFoundationStage = [1, 2, 3, 4, 5].find(index => !foundationStages[`stage${index}`]) || 1;
+    return {
+      kind: "foundation",
+      label: `▶ 基礎から始める — 第${nextFoundationStage}段階`
+    };
+  }
   for (const unit of questionData.units) {
     for (const set of unit.sets) {
       const questions = questionsForSet(unit.id, set.id);
@@ -549,12 +677,40 @@ function nextAction() {
 }
 
 function renderContinueCta() {
-  const action = nextAction();
+  const resume = resumeQuizAction();
+  const progressAction = nextAction();
+  const dueCount = spacedDueQuestions().length;
+  const unresolvedCount = allUnresolvedQuestions().length;
+  let action;
+  if (resume) {
+    action = resume;
+  } else if (progressAction.kind === "foundation") {
+    action = progressAction;
+  } else if (dueCount > 0) {
+    action = { kind: "spaced", label: `▶ 今日の復習を始める — ${dueCount}問` };
+  } else if (unresolvedCount > 0) {
+    action = { kind: "review", label: `▶ 誤答を復習する — ${unresolvedCount}問` };
+  } else {
+    action = progressAction;
+  }
   const onClick = () => {
-    if (action.kind === "step1") startStep1Quiz(action.unitId, action.setId);
+    if (action.kind === "resume") {
+      if (!restoreQuizSession()) renderHome();
+    } else if (action.kind === "foundation") window.location.href = foundationHref();
+    else if (action.kind === "step1") startStep1Quiz(action.unitId, action.setId);
     else if (action.kind === "step2") startStep2Quiz();
+    else if (action.kind === "spaced") startSpacedReview();
+    else if (action.kind === "review") startQuiz(true);
     else startStep3Quiz();
   };
+  const hint = $("#continueHint");
+  if (hint) {
+    hint.textContent = action.kind === "resume"
+      ? "途中保存した問題を続けます。"
+      : action.kind === "foundation"
+        ? "まずは基礎チェックを終えます。"
+        : "迷った問題を優先して進めます。";
+  }
   for (const id of ["continueBtn", "continueBtnMobile"]) {
     const button = $(`#${id}`);
     if (!button) continue;
@@ -565,10 +721,7 @@ function renderContinueCta() {
 
 function renderReviewCta() {
   const button = $("#reviewBtn");
-  if (!button) return;
-  const count = allUnresolvedQuestions().length;
-  button.classList.toggle("hide", count === 0);
-  button.textContent = `苦手だけ復習（残り${count}問・全UNIT）`;
+  if (button) button.classList.add("hide");
 }
 
 function renderSpacedReviewCta() {
@@ -605,8 +758,22 @@ function renderHeatmap(enabled) {
       </div>
     `;
   }).join("");
+  if (!enabled) {
+    return `
+      <details class="stepSection stepSectionDetails lockedDetails" id="step2Section">
+        <summary>
+          <span>
+            <span class="label">Step 2</span>
+            <strong>ランダム制覇マップ</strong>
+          </span>
+          <span class="lockedReason">Step 1全問クリアで解放</span>
+        </summary>
+        <p class="hint">Step 1のUNIT演習をすべて正解すると、未クリア問題だけのランダム演習が使えます。</p>
+      </details>
+    `;
+  }
   return `
-    <div class="stepSection heatmap ${enabled ? "" : "locked"}" id="step2Section">
+    <div class="stepSection heatmap" id="step2Section">
       <div class="stepSectionHead">
         <div>
           <p class="label">Step 2</p>
@@ -614,8 +781,8 @@ function renderHeatmap(enabled) {
         </div>
         <div class="progressSummary">${progressRatio(overall)}</div>
       </div>
-      <p class="hint">${enabled ? "正解した問題が埋まります。未クリアな問題からランダムに出題する場合は下のボタンを押してください。マスを押すとその1問だけ確認できます。" : "Step 1クリア後に解放されます。"}</p>
-      ${enabled ? `<div class="actions"><button class="cta" id="step2StartBtn" type="button">未クリアからランダムに出題</button></div>` : ""}
+      <p class="hint">正解した問題が埋まります。未クリアな問題からランダムに出題する場合は下のボタンを押してください。マスを押すとその1問だけ確認できます。</p>
+      <div class="actions"><button class="cta" id="step2StartBtn" type="button">未クリアからランダムに出題</button></div>
       ${rows}
     </div>
   `;
@@ -623,6 +790,20 @@ function renderHeatmap(enabled) {
 
 function renderStep3Challenge(enabled) {
   const meta = metaState();
+  if (!enabled) {
+    return `
+      <details class="stepSection stepSectionDetails lockedDetails" id="step3Section">
+        <summary>
+          <span>
+            <span class="label">Step 3</span>
+            <strong>30問連続正解チャレンジ</strong>
+          </span>
+          <span class="lockedReason">Step 2全問クリアで解放</span>
+        </summary>
+        <p class="hint">Step 2のランダム制覇を終えると、30問連続正解チャレンジが使えます。</p>
+      </details>
+    `;
+  }
   const filled = Math.min(meta.bestStreak, MASTER_TARGET);
   const rows = [0, 10, 20].map(start => {
     const cells = Array.from({ length: 10 }, (_, offset) => {
@@ -638,7 +819,7 @@ function renderStep3Challenge(enabled) {
   }).join("");
   const remaining = Math.max(MASTER_TARGET - filled, 0);
   return `
-    <div class="stepSection challengeMap ${enabled ? "" : "locked"} ${meta.mastered ? "mastered" : ""}" id="step3Section">
+    <div class="stepSection challengeMap ${meta.mastered ? "mastered" : ""}" id="step3Section">
       <div class="stepSectionHead">
         <div>
           <p class="label">Step 3</p>
@@ -649,9 +830,9 @@ function renderStep3Challenge(enabled) {
       <div class="challengeStatus">
         <div>
           <span class="stepCount">${meta.mastered ? "最高記録 達成済" : `最高 ${filled}/${MASTER_TARGET}`}</span>
-          <p class="hint">${enabled ? "現在の連続正解はセッション内のみ。最高記録は保存されます。" : "Step 2クリア後に解放されます。"}</p>
+          <p class="hint">現在の連続正解はセッション内のみ。最高記録は保存されます。</p>
         </div>
-        <button class="ghost" id="step3PanelBtn" type="button" ${enabled ? "" : "disabled"}>Step 3を始める</button>
+        <button class="ghost" id="step3PanelBtn" type="button">Step 3を始める</button>
       </div>
       <div class="challengeTracks">${rows}</div>
     </div>
@@ -662,8 +843,10 @@ function renderSetList() {
   const step1 = stepStats("step1Cleared");
   $("#progressSummary").textContent = `${activeStudent().name}: Step 1 ${step1.cleared}/${step1.total}`;
   const units = questionData.units;
-  $("#setList").innerHTML = units.map(unit => {
-    const cards = unit.sets.map(set => {
+  const cards = [];
+  let recommendedKey = "";
+  units.forEach(unit => {
+    unit.sets.forEach(set => {
       const questions = questionsForSet(unit.id, set.id);
       const stats = stepStats("step1Cleared", questions);
       const wrongCount = step1WrongQuestions(questions).length;
@@ -685,7 +868,10 @@ function renderSetList() {
         buttonLabel = "UNIT演習をはじめる";
         variant = "all";
       }
-      return `
+      const key = `${unit.id}:${set.id}`;
+      const recommended = !recommendedKey && stats.remaining > 0;
+      if (recommended) recommendedKey = key;
+      cards.push({ key, recommended, html: `
         <div class="itemCard ${cleared ? "done" : ""}">
           <div class="itemMeta">${esc(unit.title)}</div>
           <h3>${esc(set.title)}</h3>
@@ -698,10 +884,15 @@ function renderSetList() {
             <button class="startUnitBtn" type="button" data-unit="${esc(unit.id)}" data-set="${esc(set.id)}" data-variant="${variant || ""}" ${stats.total === 0 ? "disabled" : ""}>${esc(buttonLabel)}</button>
           </div>
         </div>
-      `;
-    }).join("");
-    return cards;
-  }).join("") || `<div class="empty">問題データがまだありません。スクショOCR後に data/polaris_questions.json へ追加します。</div>`;
+      ` });
+    });
+  });
+  const recommendedCard = cards.find(card => card.recommended) || cards[0];
+  const otherCards = cards.filter(card => !recommendedCard || card.key !== recommendedCard.key);
+  $("#setList").innerHTML = recommendedCard
+    ? `<div class="recommendedUnit"><p class="label">まずここから</p>${recommendedCard.html}</div>
+      <details class="otherUnits"><summary>ほかのUNITを選ぶ（${otherCards.length}件）</summary><div class="otherUnitGrid">${otherCards.map(card => card.html).join("")}</div></details>`
+    : `<div class="empty">問題データがまだありません。スクショOCR後に data/polaris_questions.json へ追加します。</div>`;
 
   $$(".startUnitBtn").forEach(button => {
     button.onclick = () => {
@@ -728,17 +919,16 @@ function renderSetList() {
 
   const step3Open = step3Unlocked();
   $("#step3Challenge").innerHTML = renderStep3Challenge(step3Open);
-  $("#step3PanelBtn").onclick = () => startStep3Quiz();
+  const step3PanelBtn = $("#step3PanelBtn");
+  if (step3PanelBtn) step3PanelBtn.onclick = () => startStep3Quiz();
 }
 
 function renderHome() {
   focusMode = false;
-  const foundationLink = $("#foundationLink");
+  const foundationLink = $("#foundationDashboardLink");
   if (foundationLink) {
-    const isLocalNestedApp = location.pathname.includes("/ポラリス英文法ファイナル演習1/");
-    const target = isLocalNestedApp ? "../grammar-knowledge-check/index.html" : "grammar-knowledge-check/index.html";
     const query = new URLSearchParams(location.search);
-    foundationLink.href = target + (query.toString() ? `?${query.toString()}` : "");
+    foundationLink.href = foundationHref(query);
   }
   renderStudentControls();
   renderSelectors();
@@ -779,10 +969,8 @@ function renderFoundationDashboard() {
   const foundationLink = $("#foundationDashboardLink");
   const weakLink = $("#foundationWeakLink");
   if (!body || !foundationLink || !weakLink) return;
-  const isLocalNestedApp = location.pathname.includes("/ポラリス英文法ファイナル演習1/");
-  const foundationTarget = isLocalNestedApp ? "../grammar-knowledge-check/index.html" : "grammar-knowledge-check/index.html";
   const foundationQuery = new URLSearchParams(location.search);
-  foundationLink.href = foundationTarget + (foundationQuery.toString() ? `?${foundationQuery.toString()}` : "");
+  foundationLink.href = foundationHref(foundationQuery);
 
   const history = loadFoundationHistory();
   const stageResults = history?.stageResults || {};
@@ -835,8 +1023,11 @@ function startStep1Quiz(unitId, setId, variant = "all") {
     pool: shuffled(pool),
     index: 0,
     answered: false,
-    selectedChoice: null
+    selectedChoice: null,
+    correctCount: 0,
+    wrongCount: 0
   };
+  saveQuizSession();
   renderQuiz();
   setVisible("quizPanel");
 }
@@ -850,8 +1041,11 @@ function startStep2Quiz(singleQuestion = null) {
     pool: shuffled(pool),
     index: 0,
     answered: false,
-    selectedChoice: null
+    selectedChoice: null,
+    correctCount: 0,
+    wrongCount: 0
   };
+  saveQuizSession();
   renderQuiz();
   setVisible("quizPanel");
 }
@@ -866,8 +1060,11 @@ function startStep3Quiz() {
     selectedChoice: null,
     currentQuestion: pickStep3Question(),
     streak: 0,
-    recentIds: []
+    recentIds: [],
+    correctCount: 0,
+    wrongCount: 0
   };
+  saveQuizSession();
   renderQuiz();
   setVisible("quizPanel");
 }
@@ -885,8 +1082,11 @@ function startQuiz(globalReview) {
     pool,
     index: 0,
     answered: false,
-    selectedChoice: null
+    selectedChoice: null,
+    correctCount: 0,
+    wrongCount: 0
   };
+  saveQuizSession();
   renderQuiz();
   setVisible("quizPanel");
 }
@@ -902,8 +1102,11 @@ function startFocusQuiz() {
     pool: buildQuestionPool(),
     index: 0,
     answered: false,
-    selectedChoice: null
+    selectedChoice: null,
+    correctCount: 0,
+    wrongCount: 0
   };
+  saveQuizSession();
   renderQuiz();
   setVisible("quizPanel");
 }
@@ -917,8 +1120,11 @@ function startSpacedReview() {
     pool,
     index: 0,
     answered: false,
-    selectedChoice: null
+    selectedChoice: null,
+    correctCount: 0,
+    wrongCount: 0
   };
+  saveQuizSession();
   renderQuiz();
   setVisible("quizPanel");
 }
@@ -953,12 +1159,14 @@ function renderQuiz() {
   const stats = quiz.kind === "step3" ? null : statsFor(quiz.pool);
   const stem = String(q.stem || "").replace(/\n/g, "<br>");
   const progressText = quizProgressText(stats);
+  const hasAnswer = Boolean(quiz.answered && Number.isInteger(quiz.selectedChoice));
+  const answeredCorrect = hasAnswer && quiz.selectedChoice === q.answerIndex;
 
   $("#quizBody").innerHTML = `
     <div class="quizBox">
       <div class="quizTop">
         <div>
-          <p class="label">Question ${esc(q.no)}</p>
+          <p class="label">出典問題 ${esc(q.no)}</p>
           <div class="hint">${esc(progressText)}</div>
         </div>
         <div class="streak">${esc(q.sourcePage ? `p.${q.sourcePage}` : questionData.source.book || "英文法トレーナー")}</div>
@@ -966,15 +1174,15 @@ function renderQuiz() {
       <p class="stem">${stem}</p>
       <div class="choices">
         ${q.choices.map((choice, index) => `
-          <button class="choiceBtn" type="button" data-index="${index}">
+          <button class="choiceBtn ${hasAnswer && index === q.answerIndex ? "correct" : ""} ${hasAnswer && index === quiz.selectedChoice && !answeredCorrect ? "wrong" : ""}" type="button" data-index="${index}" ${hasAnswer ? "disabled" : ""}>
             <span class="key">${KEYS[index] || index + 1}</span><span>${esc(choice)}</span>
           </button>
         `).join("")}
       </div>
-      <div id="feedbackSlot"></div>
+      <div id="feedbackSlot">${hasAnswer ? feedbackHtml(q, quiz.selectedChoice, answeredCorrect) : ""}</div>
     </div>
     <div class="actions">
-      <button class="cta hide" id="nextBtn" type="button">次の問題へ</button>
+      <button class="cta ${hasAnswer ? "" : "hide"}" id="nextBtn" type="button">${hasAnswer ? nextButtonText() : "次の問題へ"}</button>
     </div>
   `;
 
@@ -982,8 +1190,8 @@ function renderQuiz() {
     button.onclick = () => answerQuestion(Number(button.dataset.index));
   });
   $("#nextBtn").onclick = () => {
-    moveNext();
-    renderQuiz();
+    const result = moveNext();
+    if (result !== "completed") renderQuiz();
   };
 }
 
@@ -1007,7 +1215,7 @@ function quizProgressText(stats) {
     const meta = metaState();
     return `現在 ${quiz.streak}/${MASTER_TARGET} 連続正解 / 最高 ${meta.bestStreak}/${MASTER_TARGET}`;
   }
-  return `${quiz.index + 1}/${quiz.pool.length} 問目 / この演習内の未正解 ${stats.remaining}`;
+  return `この演習内 ${quiz.index + 1} / ${quiz.pool.length}問目 / 未正解 ${stats.remaining}`;
 }
 
 function answerQuestion(choiceIndex) {
@@ -1036,6 +1244,7 @@ function answerQuestion(choiceIndex) {
     }
   } else {
     state.wrong += 1;
+    quiz.wrongCount += 1;
     if (quiz.kind === "free") state.cleared = false;
     if (quiz.kind === "spaced") updateSpacedReviewState(state, false);
     if (quiz.kind === "step3") {
@@ -1043,8 +1252,9 @@ function answerQuestion(choiceIndex) {
       quiz.streak = 0;
     }
   }
+  if (correct) quiz.correctCount += 1;
   updateStepCompletionDates();
-  saveProgress();
+  saveQuizSession();
 
   $$(".choiceBtn").forEach(button => {
     const index = Number(button.dataset.index);
@@ -1080,6 +1290,66 @@ function feedbackHtml(q, choiceIndex, correct) {
   `;
 }
 
+function renderCompletionResult() {
+  const completed = quiz;
+  const total = completed.kind === "step3" ? MASTER_TARGET : completed.pool.length;
+  const correct = completed.correctCount || 0;
+  const wrong = completed.wrongCount || 0;
+  const next = nextAction();
+  const nextLabel = next.kind === "foundation"
+    ? "基礎チェックへ進む"
+    : next.kind === "step1"
+      ? next.label.replace(/^▶\s*/, "")
+      : next.kind === "step2"
+        ? "Step 2を続ける"
+        : next.kind === "spaced"
+          ? "今日の復習へ進む"
+          : next.kind === "review"
+            ? "誤答を復習する"
+            : "Step 3へ進む";
+  $("#quizBreadcrumb").textContent = "学習結果";
+  $("#quizTitle").textContent = "演習完了";
+  $("#quizBody").innerHTML = `
+    <div class="completionPanel">
+      <p class="label">SESSION COMPLETE</p>
+      <h3>この演習を完了しました</h3>
+      <div class="completionStats" aria-label="演習結果">
+        <div><span class="label">正解</span><strong>${correct}</strong><span> / ${total}</span></div>
+        <div><span class="label">誤答</span><strong>${wrong}</strong></div>
+      </div>
+      <p class="hint">結果は保存されています。次にやることを1つ選んでください。</p>
+      <div class="actions completionActions">
+        <button class="cta" id="completionNextBtn" type="button">${esc(nextLabel)}</button>
+        ${wrong > 0 ? `<button class="ghost" id="completionWrongBtn" type="button">誤答 ${wrong}問を復習</button>` : ""}
+        <button class="ghost" id="completionHomeBtn" type="button">学習一覧へ戻る</button>
+      </div>
+    </div>
+  `;
+  $("#completionNextBtn").onclick = () => {
+    if (next.kind === "foundation") window.location.href = foundationHref();
+    else if (next.kind === "step1") startStep1Quiz(next.unitId, next.setId);
+    else if (next.kind === "step2") startStep2Quiz();
+    else if (next.kind === "spaced") startSpacedReview();
+    else if (next.kind === "review") startQuiz(true);
+    else startStep3Quiz();
+  };
+  const wrongButton = $("#completionWrongBtn");
+  if (wrongButton) {
+    wrongButton.onclick = () => {
+      if (completed.kind === "step1" && completed.pool[0]) {
+        const first = completed.pool[0];
+        startStep1Quiz(first.unitId, first.setId, "wrongOnly");
+      } else if (completed.kind === "step3") {
+        startStep3Quiz();
+      } else {
+        startQuiz(true);
+      }
+    };
+  }
+  $("#completionHomeBtn").onclick = renderHome;
+  setVisible("quizPanel");
+}
+
 function moveNext() {
   if (quiz.kind === "step3") {
     const q = currentQuestion();
@@ -1087,15 +1357,19 @@ function moveNext() {
     quiz.currentQuestion = pickStep3Question(quiz.recentIds);
     quiz.answered = false;
     quiz.selectedChoice = null;
+    saveQuizSession();
     return;
   }
   if (quiz.index < quiz.pool.length - 1) {
     quiz.index += 1;
     quiz.answered = false;
     quiz.selectedChoice = null;
+    saveQuizSession();
     return;
   }
-  renderHome();
+  clearQuizSession();
+  renderCompletionResult();
+  return "completed";
 }
 
 function bindEvents() {
@@ -1141,7 +1415,7 @@ function bindEvents() {
   };
   $("#startBtn").onclick = () => startQuiz(false);
   $("#focusPracticeBtn").onclick = startFocusQuiz;
-  $("#reviewBtn").onclick = () => startQuiz(true);
+  if ($("#reviewBtn")) $("#reviewBtn").onclick = () => startQuiz(true);
   $("#backBtn").onclick = renderHome;
   $("#resetBtn").onclick = () => {
     if (sharedSession.enabled) return;

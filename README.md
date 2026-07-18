@@ -15,12 +15,14 @@
 py C:\Users\shtom\dev\portal\launcher.py
 ```
 
-単体で確認する場合は、次のフォルダで静的サーバーを起動します。
+入口と基礎知識チェックのリンクを含めて確認する場合は、リポジトリ直下で静的サーバーを起動します。
 
 ```powershell
-cd "C:\Users\shtom\dev\polaris-grammar-final-1\ポラリス英文法ファイナル演習1"
+cd "C:\Users\shtom\dev\english-grammar-trainer"
 py -3 -m http.server 8096
 ```
+
+`http://127.0.0.1:8096/ポラリス英文法ファイナル演習1/` を開きます。
 
 ## 公開とデータ
 

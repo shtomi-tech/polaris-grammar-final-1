@@ -35,31 +35,20 @@
     <section class="card hero">
       <p class="label">English Grammar Trainer</p>
       <h2>標準レベルの英文法4択を、正解するまで効率よく周回する</h2>
-      <p class="hint">UNITごとに問題を解き、正答・和訳・解説を確認しながら弱点をつぶしていきます。</p>
+      <p class="hint">基礎チェックから、UNIT演習・復習まで、今日やることを一つずつ進めます。</p>
       <div class="actions">
         <button class="cta" id="continueBtn" type="button">▶ つづきから始める</button>
-        <button class="ghost" id="reviewBtn" type="button">苦手だけ復習（全UNIT）</button>
       </div>
-    </section>
-
-    <section class="card foundationEntry">
-      <div class="sectionHead">
-        <div>
-          <p class="label">Step 0 / Foundation</p>
-          <h2>先に基礎知識を整理する</h2>
-        </div>
-        <a class="cta" id="foundationLink" href="grammar-knowledge-check/index.html">基礎知識チェックへ</a>
-      </div>
-      <p class="hint">品詞・文型・時制などを120問で確認します。Polaris演習で解き方が止まるときは、ここへ戻れます。</p>
+      <p class="heroSubHint" id="continueHint">初回は基礎チェックの第1段階から始めます。</p>
     </section>
 
     <section class="card" id="foundationDashboardCard">
       <div class="sectionHead">
         <div>
-          <p class="label">Unified Progress</p>
-          <h2>基礎知識と入試演習の進捗</h2>
+          <p class="label">Learning Status</p>
+          <h2>基礎から入試演習までの学習状況</h2>
         </div>
-        <a class="ghost" id="foundationDashboardLink" href="grammar-knowledge-check/index.html">基礎知識を開く</a>
+        <a class="ghost" id="foundationDashboardLink" href="grammar-knowledge-check/index.html">基礎学習を続ける</a>
       </div>
       <div id="foundationDashboardBody"></div>
       <a class="secondary quietAction hide" id="foundationWeakLink" href="?focus=">弱点分野のPolaris問題へ</a>
@@ -73,17 +62,6 @@
           <p class="hint" id="focusPracticeSummary"></p>
         </div>
         <button class="cta" id="focusPracticeBtn" type="button">弱点分野を解く</button>
-      </div>
-    </section>
-
-    <section class="card hide" id="spacedReviewCard">
-      <div class="sectionHead">
-        <div>
-          <p class="label">Spaced Review</p>
-          <h2>今日の間隔復習</h2>
-          <p class="hint" id="spacedReviewSummary"></p>
-        </div>
-        <button class="cta" id="spacedReviewBtn" type="button">今日の復習を始める</button>
       </div>
     </section>
 
@@ -158,6 +136,6 @@
   </div>
 </div>
 
-<script src="static/app.js?v=20260706-appschema"></script>
+<script src="static/app.js?v=20260717-ui"></script>
 </body>
 </html>
