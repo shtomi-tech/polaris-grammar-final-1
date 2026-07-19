@@ -228,6 +228,13 @@ function foundationHref(query = "") {
   return appendQuery(target, query);
 }
 
+function readingHref(query = "") {
+  const path = decodeURI(location.pathname);
+  const isLocalNestedApp = path.includes("/ポラリス英文法ファイナル演習1/");
+  const target = isLocalNestedApp ? "../reading/" : "reading/";
+  return appendQuery(target, query);
+}
+
 function safeStudentId(name) {
   const normalized = String(name || "").trim().toLowerCase();
   const ascii = normalized
@@ -1373,6 +1380,8 @@ function moveNext() {
 }
 
 function bindEvents() {
+  const readingLink = $("#readingLink");
+  if (readingLink) readingLink.href = readingHref(new URLSearchParams(location.search));
   $("#studentSel").onchange = event => {
     if (sharedSession.enabled) return;
     activeStudentId = event.target.value;

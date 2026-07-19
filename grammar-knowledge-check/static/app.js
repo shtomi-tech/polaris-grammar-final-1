@@ -547,6 +547,10 @@
     return appendQuery(localNestedApp ? "../ポラリス英文法ファイナル演習1/index.html" : "../", query);
   }
 
+  function readingHref(query = "") {
+    return appendQuery("../reading/", query);
+  }
+
   function renderResult(result) {
     session = null;
     const stats = domainStats(result);
@@ -730,9 +734,11 @@
 
   async function init() {
     const trainerLink = document.querySelector("#trainerLink");
+    const readingLink = document.querySelector("#readingLink");
     if (trainerLink) {
       const query = new URLSearchParams(location.search);
       trainerLink.href = trainerHref(query);
+      if (readingLink) readingLink.href = readingHref(query);
     }
     cloud = createCloud({
       appId: APP_ID,

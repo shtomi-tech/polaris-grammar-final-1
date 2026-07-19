@@ -1,0 +1,626 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>予習英文法 — 不定詞・分詞・関係詞・副詞｜ポラリス1 テーマ9〜12の前提知識</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+/* ============================================================
+   英文解釈トレーナー準拠 — claude デザイン言語
+   アイボリー地・インク罫・影ゼロ・角丸0
+   モノクロ印刷対応（accent クレイは例文左罫のみ）・A4縦向き 4ページ
+   ============================================================ */
+:root {
+  --ivory: #faf9f6;
+  --ink: #141413;
+  --muted: #67645e;
+  --line: #d8d2c4;
+  --paper: #f2eee4;
+  --clay: #b5532e;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+html, body {
+  background: var(--paper);
+  color: var(--ink);
+  font-family: 'Noto Sans JP', 'Yu Gothic', 'Hiragino Sans', system-ui, sans-serif;
+}
+body { padding: 0 0 60px; }
+
+/* ── ページ共通 ── */
+.page {
+  width: 210mm;
+  min-height: 297mm;
+  padding: 16mm 14mm 18mm;
+  margin: 32px auto;
+  position: relative;
+  background:
+    linear-gradient(90deg, rgba(20,20,19,.03) 1px, transparent 1px),
+    linear-gradient(180deg, rgba(20,20,19,.025) 1px, transparent 1px),
+    var(--ivory);
+  background-size: 32px 32px;
+  border: 1px solid var(--ink);
+}
+.page-inner {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+/* ── ページヘッダー ── */
+.ph {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  border-bottom: 2px solid var(--ink);
+  padding-bottom: 12px;
+}
+.ph h1 {
+  font-weight: 700;
+  font-size: 24px;
+  letter-spacing: .01em;
+  line-height: 1.25;
+}
+.ph .sub {
+  font-family: 'JetBrains Mono', 'Cascadia Mono', monospace;
+  font-size: 11px;
+  color: var(--muted);
+  text-transform: uppercase;
+  margin-top: 6px;
+}
+.ph .num {
+  font-family: 'JetBrains Mono', 'Cascadia Mono', monospace;
+  font-size: 12px;
+  font-weight: 700;
+  text-transform: uppercase;
+  flex-shrink: 0;
+  margin-left: 12px;
+}
+
+/* ── セクション見出し ── */
+.sec { display: flex; align-items: center; gap: 10px; margin-top: 4px; }
+.sec-num {
+  width: 28px; height: 28px;
+  display: flex; align-items: center; justify-content: center;
+  background: var(--ink); color: var(--ivory);
+  font-family: 'JetBrains Mono', 'Cascadia Mono', monospace;
+  font-size: 14px; font-weight: 700;
+  flex-shrink: 0;
+}
+.sec-title { font-size: 16px; font-weight: 700; letter-spacing: .01em; }
+
+/* ── カード ── */
+.card { padding: 12px 16px; position: relative; background: var(--ivory); border: 1px solid var(--line); }
+.card.bordered { border: 1px solid var(--ink); }
+.card.important { border: 2px solid var(--ink); }
+.card.gray { background: var(--paper); border: 1px solid var(--line); }
+
+/* カード見出し（角ブロック付き） */
+.card-title {
+  font-weight: 700; font-size: 13.5px;
+  margin-bottom: 8px;
+  display: flex; align-items: center; gap: 8px;
+}
+.card-title::before {
+  content: '';
+  width: 10px; height: 10px;
+  background: var(--ink);
+  flex-shrink: 0;
+}
+
+/* ── テキスト ── */
+.content { font-size: 13px; line-height: 1.9; }
+.hl { font-weight: 700; border-bottom: 2px solid var(--ink); padding-bottom: 1px; }
+.under { border-bottom: 2px solid var(--ink); padding-bottom: 1px; font-weight: 700; }
+
+/* ── 公式ボックス（反転インク帯） ── */
+.formula {
+  background: var(--ink); color: var(--ivory);
+  padding: 10px 14px;
+  font-weight: 700; font-size: 14px;
+  text-align: center; margin: 8px 0;
+  letter-spacing: .03em;
+}
+
+/* ── 例文（クレイ左罫・ペーパー地） ── */
+.example {
+  background: var(--paper);
+  border: 1px solid var(--line);
+  border-left: 4px solid var(--clay);
+  padding: 10px 12px;
+  margin-top: 8px;
+}
+.example .lbl {
+  font-family: 'JetBrains Mono', 'Cascadia Mono', monospace;
+  font-size: 11px; color: var(--muted);
+  font-weight: 700; text-transform: uppercase; letter-spacing: .04em;
+}
+.example .en { font-size: 14.5px; font-weight: 700; margin-top: 4px; line-height: 1.7; }
+.example .ja { font-size: 12px; color: var(--muted); margin-top: 4px; line-height: 1.7; }
+
+/* ── マーク（反転チップ） ── */
+.mark { background: var(--ink); color: var(--ivory); padding: 1px 5px; font-weight: 700; }
+
+/* ── フロー図 ── */
+.flow {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr auto 1fr;
+  gap: 8px; margin-top: 10px;
+  align-items: stretch;
+}
+.flow.two-step { grid-template-columns: 1fr auto 1fr; }
+.flow .step { background: var(--ivory); border: 1px solid var(--ink); padding: 8px 10px; }
+.flow .step.pos { background: var(--ink); color: var(--ivory); }
+.flow .step.pos .mark { background: var(--ivory); color: var(--ink); }
+.flow .step-lbl {
+  font-family: 'JetBrains Mono', 'Cascadia Mono', monospace;
+  font-size: 10px; font-weight: 700; text-transform: uppercase;
+  color: var(--muted);
+}
+.flow .step.pos .step-lbl { color: var(--line); }
+.flow .step-body { font-weight: 700; font-size: 13px; margin-top: 4px; line-height: 1.6; }
+.flow .arrow {
+  display: flex; align-items: center; justify-content: center;
+  font-family: 'JetBrains Mono', 'Cascadia Mono', monospace;
+  font-size: 16px; font-weight: 700;
+}
+.flow .arrow.vert { flex-direction: column; gap: 2px; font-size: 13px; }
+.flow .arrow.vert .back { font-size: 12px; color: var(--muted); }
+
+/* ── フレーズ行 ── */
+.phrase {
+  display: grid;
+  grid-template-columns: auto auto 1fr auto;
+  gap: 10px; align-items: center;
+  padding: 7px 10px;
+  border-bottom: 1px solid var(--line);
+}
+.phrase:last-child { border-bottom: none; }
+.phrase-en { font-weight: 700; font-size: 14px; }
+.phrase-eq {
+  font-family: 'JetBrains Mono', 'Cascadia Mono', monospace;
+  font-size: 14px; font-weight: 700; color: var(--muted);
+}
+.phrase-ja { font-size: 13px; }
+.phrase-tag {
+  font-family: 'JetBrains Mono', 'Cascadia Mono', monospace;
+  font-size: 10px; font-weight: 700;
+  padding: 2px 8px;
+  border: 1px solid var(--ink);
+  text-transform: uppercase;
+}
+
+/* ── 補足メモ（左インク罫のノート） ── */
+.sticky {
+  background: var(--paper);
+  border: 1px solid var(--line);
+  border-left: 4px solid var(--ink);
+  padding: 10px 14px;
+  font-size: 13px; line-height: 1.8;
+}
+
+/* ── 2カラム ── */
+.twocol { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+
+/* ── まとめリスト ── */
+.sum {
+  display: flex; gap: 14px;
+  padding: 12px 0;
+  border-bottom: 1px solid var(--line);
+}
+.sum:last-child { border-bottom: none; padding-bottom: 4px; }
+.sum-n {
+  width: 32px; height: 32px;
+  background: var(--ink); color: var(--ivory);
+  font-family: 'JetBrains Mono', 'Cascadia Mono', monospace;
+  font-weight: 700; font-size: 16px;
+  display: flex; align-items: center; justify-content: center;
+  flex-shrink: 0;
+}
+.sum-h { font-weight: 700; font-size: 14px; margin-bottom: 4px; }
+.sum-t { font-size: 13px; line-height: 1.8; }
+
+/* ── 表 ── */
+table {
+  width: 100%; border-collapse: collapse;
+  font-size: 12px;
+  background: var(--ivory);
+  border: 1px solid var(--ink);
+}
+th {
+  background: var(--ink); color: var(--ivory);
+  padding: 8px 10px; text-align: left;
+  font-weight: 700;
+}
+td {
+  padding: 7px 10px;
+  border-bottom: 1px solid var(--line);
+  vertical-align: top;
+}
+tr:last-child td { border-bottom: none; }
+td:first-child {
+  background: var(--paper);
+  font-family: 'JetBrains Mono', 'Cascadia Mono', monospace;
+  font-weight: 700;
+  white-space: nowrap;
+}
+
+/* ── QRコード ── */
+.qr {
+  display: flex; gap: 14px; align-items: center;
+  padding: 10px 14px;
+  background: var(--ivory);
+  border: 1px solid var(--ink);
+}
+.qr img { width: 64px; height: 64px; flex-shrink: 0; }
+.qr .qr-t { font-weight: 700; font-size: 14px; }
+.qr .qr-d { font-size: 11px; color: var(--muted); margin-top: 2px; line-height: 1.6; }
+
+/* ── 注釈（中央揃えmonoラベル） ── */
+.note-center {
+  text-align: center;
+  font-family: 'JetBrains Mono', 'Cascadia Mono', monospace;
+  font-size: 11px; text-transform: uppercase;
+  color: var(--muted);
+  margin-top: 8px;
+}
+
+/* ── 印刷 ── */
+@page { size: A4 portrait; margin: 0; }
+@media print {
+  html, body { background: #fff !important; }
+  .page {
+    width: 210mm !important;
+    min-height: unset !important;
+    height: 297mm !important;
+    overflow: hidden !important;
+    margin: 0 !important;
+    border: none !important;
+    page-break-after: always;
+    break-after: page;
+    padding: 16mm 14mm 18mm !important;
+  }
+  * { -webkit-print-color-adjust: exact !important;
+      print-color-adjust: exact !important; }
+}
+</style>
+</head>
+<body>
+
+<!-- ============ PAGE 1 ============ -->
+<div class="page">
+  <div class="page-inner">
+
+    <div class="ph">
+      <div>
+        <h1>予習英文法 — 不定詞・分詞・関係詞・副詞</h1>
+        <div class="sub">English ｜ 高校英語・大学受験 — 英文解釈ポラリス1 テーマ9〜12 の前提知識</div>
+      </div>
+      <div class="num">P. 1 / 4</div>
+    </div>
+
+    <div class="sec">
+      <div class="sec-num">1</div>
+      <div class="sec-title">不定詞の基礎（テーマ9の前提）</div>
+    </div>
+
+    <div class="card important">
+      <div class="card-title">不定詞とは:動詞の「変身形」</div>
+      <div class="formula">不定詞 ＝ to + 動詞の原形 —「動詞」が「名詞・形容詞・副詞」に変身する</div>
+      <div class="content">
+        動詞に to がつくと、文の中で<span class="under">動詞以外の品詞</span>として働けるようになる。
+        どの品詞として働くかは、<span class="hl">置かれた場所</span>で決まる。
+      </div>
+    </div>
+
+    <div class="card bordered">
+      <div class="card-title">3つの用法</div>
+      <div class="phrase">
+        <div class="phrase-en">to swim</div>
+        <div class="phrase-eq">=</div>
+        <div class="phrase-ja">泳ぐこと（S・O・C になる）</div>
+        <div class="phrase-tag">名詞的</div>
+      </div>
+      <div class="phrase">
+        <div class="phrase-en">something to drink</div>
+        <div class="phrase-eq">=</div>
+        <div class="phrase-ja">飲むための何か（名詞を後ろから修飾）</div>
+        <div class="phrase-tag">形容詞的</div>
+      </div>
+      <div class="phrase">
+        <div class="phrase-en">to catch the train</div>
+        <div class="phrase-eq">=</div>
+        <div class="phrase-ja">電車に間に合うために（動詞などを修飾）</div>
+        <div class="phrase-tag">副詞的</div>
+      </div>
+      <div class="example">
+        <div class="lbl">名詞的用法「〜すること」</div>
+        <div class="en">I want <span class="mark">to visit Kyoto</span>.</div>
+        <div class="ja">私は京都を訪れることを望んでいる。（want の O になっている）</div>
+      </div>
+      <div class="example">
+        <div class="lbl">形容詞的用法「〜するための・〜すべき」</div>
+        <div class="en">I have a lot of homework <span class="mark">to do</span>.</div>
+        <div class="ja">私にはやるべき宿題がたくさんある。（homework を後ろから修飾）</div>
+      </div>
+      <div class="example">
+        <div class="lbl">副詞的用法「〜するために」</div>
+        <div class="en">She went to the library <span class="mark">to borrow some books</span>.</div>
+        <div class="ja">彼女は本を借りるために図書館へ行った。（went を説明している）</div>
+      </div>
+      <div class="sticky" style="margin-top:10px;">
+        形容詞的用法は日本語と<span class="hl">逆の語順</span>。「〜するための + 名詞」ではなく、
+        <span class="hl">「名詞 + to 〜」</span>と名詞の直後に置いて後ろから修飾する。
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- ============ PAGE 2 ============ -->
+<div class="page">
+  <div class="page-inner">
+
+    <div class="ph">
+      <div></div>
+      <div class="num">P. 2 / 4</div>
+    </div>
+
+    <div class="sec">
+      <div class="sec-num">2</div>
+      <div class="sec-title">分詞の基礎（テーマ10の前提）</div>
+    </div>
+
+    <div class="card important">
+      <div class="card-title">分詞とは:動詞が形容詞に変身した形</div>
+      <div class="formula">現在分詞 -ing「〜している」（する側） ／ 過去分詞 -ed「〜された」（される側）</div>
+      <div class="twocol" style="margin-top:10px;">
+        <div class="card gray">
+          <div class="card-title">現在分詞 -ing（能動）</div>
+          <div class="content">
+            a <span class="hl">sleeping</span> baby<br>
+            眠って<span class="under">いる</span>赤ちゃん（赤ちゃんが「する側」）
+          </div>
+        </div>
+        <div class="card gray">
+          <div class="card-title">過去分詞 -ed（受動）</div>
+          <div class="content">
+            a <span class="hl">broken</span> window<br>
+            割ら<span class="under">れた</span>窓（窓が「される側」）
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="card bordered">
+      <div class="card-title">置く場所:1語なら前から、カタマリなら後ろから</div>
+      <div class="flow two-step">
+        <div class="step">
+          <div class="step-lbl">分詞1語だけ</div>
+          <div class="step-body">名詞の<span class="mark">前</span> … a crying baby</div>
+        </div>
+        <div class="arrow">→</div>
+        <div class="step pos">
+          <div class="step-lbl">分詞 + 語句のカタマリ</div>
+          <div class="step-body">名詞の<span class="mark">後ろ</span> … the baby crying in the next room</div>
+        </div>
+      </div>
+      <div class="example">
+        <div class="lbl">現在分詞のカタマリ / 過去分詞のカタマリ</div>
+        <div class="en">the baby <span class="mark">crying in the next room</span> ／ a car <span class="mark">used by my father</span></div>
+        <div class="ja">隣の部屋で泣いている赤ちゃん ／ 父に使われている車（どちらも名詞を後ろから修飾）</div>
+      </div>
+    </div>
+
+    <div class="card gray">
+      <div class="card-title">動名詞との違い:同じ -ing でも働きが違う</div>
+      <div class="content">
+        -ing が「<span class="hl">〜すること</span>」（名詞の働き）なら<span class="under">動名詞</span>、
+        「<span class="hl">〜している</span>」（形容詞の働き）なら<span class="under">分詞</span>。
+      </div>
+      <div class="example">
+        <div class="lbl">動名詞 / 分詞</div>
+        <div class="en"><span class="mark">Reading books</span> is fun. ／ the boy <span class="mark">reading a book</span></div>
+        <div class="ja">本を読むことは楽しい（動名詞・S になる）／ 本を読んでいる少年（分詞・boy を修飾）</div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- ============ PAGE 3 ============ -->
+<div class="page">
+  <div class="page-inner">
+
+    <div class="ph">
+      <div></div>
+      <div class="num">P. 3 / 4</div>
+    </div>
+
+    <div class="sec">
+      <div class="sec-num">3</div>
+      <div class="sec-title">関係詞の基礎（テーマ11の前提）</div>
+    </div>
+
+    <div class="card important">
+      <div class="card-title">関係代名詞とは:2つの文をつなぎ、名詞を説明する</div>
+      <div class="formula">関係代名詞 ＝ 直前の名詞（先行詞）を、後ろの文で説明する</div>
+      <div class="content">
+        I have a friend. ＋ <span class="hl">He</span> lives in Tokyo.
+        → I have a friend <span class="mark">who</span> lives in Tokyo.（He が who に変わって2文が1文に）
+      </div>
+      <table style="margin-top:8px;">
+        <thead>
+          <tr><th>先行詞</th><th>主格（節の中で S）</th><th>目的格（節の中で O）</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>人</td>
+            <td>who / that</td>
+            <td>who(m) / that</td>
+          </tr>
+          <tr>
+            <td>物</td>
+            <td>which / that</td>
+            <td>which / that</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="card bordered">
+      <div class="card-title">主格と目的格</div>
+      <div class="example">
+        <div class="lbl">主格（who が節の中で S）</div>
+        <div class="en">I have a friend <span class="mark">who lives in Tokyo</span>.</div>
+        <div class="ja">私には東京に住んでいる友だちがいる。</div>
+      </div>
+      <div class="example">
+        <div class="lbl">目的格（which が bought の O）</div>
+        <div class="en">This is the book <span class="mark">which I bought yesterday</span>.</div>
+        <div class="ja">これは私が昨日買った本です。</div>
+      </div>
+      <div class="sticky" style="margin-top:10px;">
+        <span class="hl">目的格の関係代名詞は省略できる</span> → This is the book <span class="under">I bought yesterday</span>.
+        省略すると<span class="hl">“名詞 + SV”</span> の形になる（テーマ11で登場）。
+      </div>
+    </div>
+
+    <div class="card gray">
+      <div class="card-title">関係副詞:where・when・why</div>
+      <div class="content">
+        場所は <span class="hl">where</span>、時は <span class="hl">when</span>、理由は <span class="hl">why</span>。
+        関係副詞の後ろには、欠けのない<span class="under">完全な文</span>がくる。
+      </div>
+      <div class="example">
+        <div class="lbl">where / why</div>
+        <div class="en">This is the town <span class="mark">where I was born</span>. ／ Tell me the reason <span class="mark">why you were late</span>.</div>
+        <div class="ja">ここは私が生まれた町です。／ 遅れた理由を教えて。（I was born・you were late はどちらも完全な文）</div>
+      </div>
+    </div>
+
+  </div>
+</div>
+
+<!-- ============ PAGE 4 ============ -->
+<div class="page">
+  <div class="page-inner">
+
+    <div class="ph">
+      <div></div>
+      <div class="num">P. 4 / 4</div>
+    </div>
+
+    <div class="sec">
+      <div class="sec-num">4</div>
+      <div class="sec-title">副詞のなかま（テーマ12の前提）</div>
+    </div>
+
+    <div class="card bordered">
+      <div class="card-title">副詞・前置詞句・分詞構文・等位接続詞</div>
+      <div class="formula">副詞 ＝ 名詞以外（動詞・形容詞・文）を修飾。文の骨格（SVOC）には入らない</div>
+      <div class="phrase">
+        <div class="phrase-en">in the park / at five</div>
+        <div class="phrase-eq">=</div>
+        <div class="phrase-ja">前置詞 + 名詞。場所・時などを表すカタマリ</div>
+        <div class="phrase-tag">前置詞句</div>
+      </div>
+      <div class="phrase">
+        <div class="phrase-en">-ing 〜, SV</div>
+        <div class="phrase-eq">=</div>
+        <div class="phrase-ja">「〜して・〜しながら」と文を飾る</div>
+        <div class="phrase-tag">分詞構文</div>
+      </div>
+      <div class="phrase">
+        <div class="phrase-en">and / but / or</div>
+        <div class="phrase-eq">=</div>
+        <div class="phrase-ja">対等なものどうしをつなぐ</div>
+        <div class="phrase-tag">接続詞</div>
+      </div>
+      <div class="example">
+        <div class="lbl">分詞構文 / 等位接続詞</div>
+        <div class="en"><span class="mark">Walking along the street</span>, I met an old friend. ／ She <span class="mark">smiled</span> and <span class="mark">waved</span>.</div>
+        <div class="ja">通りを歩いていて、旧友に会った。／ ほほえんで手を振った（and は V と V をつなぐ）。</div>
+      </div>
+    </div>
+
+    <div class="sec">
+      <div class="sec-num" style="font-size:16px;">∑</div>
+      <div class="sec-title">まとめ</div>
+    </div>
+
+    <div class="card important">
+      <div class="sum">
+        <div class="sum-n">1</div>
+        <div>
+          <div class="sum-h">不定詞・分詞は「動詞の変身形」</div>
+          <div class="sum-t"><span class="hl">to 〜</span> は名詞・形容詞・副詞に、<span class="hl">分詞</span>は形容詞に変身する。</div>
+        </div>
+      </div>
+      <div class="sum">
+        <div class="sum-n">2</div>
+        <div>
+          <div class="sum-h">関係詞は先行詞を説明する</div>
+          <div class="sum-t">関係代名詞の<span class="hl">目的格は省略できる</span>（“名詞 + SV” の形）。関係副詞の後ろは<span class="hl">完全な文</span>。</div>
+        </div>
+      </div>
+      <div class="sum">
+        <div class="sum-n">3</div>
+        <div>
+          <div class="sum-h">副詞のカタマリは骨格に入らない</div>
+          <div class="sum-t">前置詞句・分詞構文は飾り。<span class="hl">and</span> は対等なものをつなぐ（何と何かを確認）。</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="card bordered">
+      <div class="card-title">用語チェック（この形を見たら思い出す）</div>
+      <table>
+        <thead>
+          <tr><th>形</th><th>名前</th><th>おさえること</th></tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>to + 原形</td>
+            <td>不定詞</td>
+            <td>名詞・形容詞・副詞の3用法</td>
+          </tr>
+          <tr>
+            <td>-ing</td>
+            <td>現在分詞 or 動名詞</td>
+            <td>「〜している」か「〜すること」か</td>
+          </tr>
+          <tr>
+            <td>-ed</td>
+            <td>過去分詞 or 過去形</td>
+            <td>「〜された」なら分詞</td>
+          </tr>
+          <tr>
+            <td>who・which・that</td>
+            <td>関係代名詞</td>
+            <td>目的格は省略できる</td>
+          </tr>
+          <tr>
+            <td>where・when・why</td>
+            <td>関係副詞</td>
+            <td>後ろは完全な文</td>
+          </tr>
+          <tr>
+            <td>and・but・or</td>
+            <td>等位接続詞（接）</td>
+            <td>対等なものをつなぐ</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+  </div>
+</div>
+
+</body>
+</html>

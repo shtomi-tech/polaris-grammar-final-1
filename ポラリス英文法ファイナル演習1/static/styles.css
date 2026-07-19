@@ -163,6 +163,21 @@ h2 {
   flex-wrap: wrap;
 }
 
+.appNavLink {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  padding: 9px 14px;
+  border: 1px solid var(--ink);
+  color: var(--ink);
+  text-decoration: none;
+}
+
+.appNavLink:hover {
+  background: var(--ink);
+  color: var(--parchment);
+}
+
 .studentControls {
   display: grid;
   grid-template-columns: auto minmax(160px, 1fr) auto;
@@ -1188,6 +1203,7 @@ h2 {
   }
 
   .topActions button,
+  .topActions .appNavLink,
   .studentControls select,
   .itemHead button {
     width: 100%;

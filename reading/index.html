@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>英文解釈トレーナー</title>
+<link rel="icon" href="data:,">
+<link rel="stylesheet" href="static/styles.css?v=20260709-1">
+</head>
+<body>
+<div class="app">
+  <header class="topbar">
+    <div>
+      <p class="eyebrow">Reading Method Trainer</p>
+      <h1>英文解釈トレーナー</h1>
+    </div>
+    <nav class="siteNav" aria-label="英語教材">
+      <a id="grammarLink" href="../">英文法へ</a>
+      <span aria-current="page">英文解釈</span>
+    </nav>
+    <nav class="tabs" aria-label="表示切替">
+      <button id="learnTab" class="tab active" type="button">学習</button>
+      <button id="editorTab" class="tab" type="button">先生（教材編集）</button>
+    </nav>
+  </header>
+
+  <main>
+    <section class="lead">
+      <div>
+        <p class="label">3 Step Loop</p>
+        <h2>授業で型をつかむ。宿題で本編演習へ進む。</h2>
+      </div>
+      <p>教材セットごとにオリジナル例文で解釈の型を確認し、その後の宿題で対応する本編教材へ進みます。</p>
+    </section>
+
+    <section id="learnView"></section>
+    <section id="editorView" class="hide"></section>
+  </main>
+</div>
+
+<script src="static/vendor/harness/cloud.js?v=0.1.0"></script>
+<script src="static/app.js?v=20260709-1"></script>
+</body>
+</html>

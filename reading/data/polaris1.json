@@ -1,0 +1,947 @@
+{
+  "meta": {
+    "id": "polaris1-mvp",
+    "label": "ポラリス1 導入セット",
+    "source": "先生入力用テンプレート",
+    "version": 1,
+    "note": "授業内の導入用教材。ポラリスのテーマ・狙いを参考にしつつ、英文・和訳・解説はオリジナルで作成する。授業後、生徒は宿題としてポラリス本編の同じテーマを学習する。"
+  },
+  "items": [
+    {
+      "id": "polaris1_theme01_point01",
+      "theme": "THEME 1",
+      "themeTitle": "名詞句",
+      "pointNo": 1,
+      "pointTitle": "主語になる to ...",
+      "sentence": "To study a little every day is important.",
+      "pattern": "SVC",
+      "root": {
+        "chunks": [
+          { "text": "To study a little every day", "role": "S", "translation": "毎日少しずつ勉強することは" },
+          { "text": "is", "role": "V", "translation": "である" },
+          { "text": "important", "role": "C", "translation": "重要だ" }
+        ]
+      },
+      "explanation": {
+        "analysis": "文頭の to do が大きな名詞句となり、文全体の主語として働く。",
+        "guidance": "to do を見たら、まず品詞の働きを確認する。ここでは動詞 is の前に置かれているので主語になる。",
+        "translationExample": "毎日少しずつ勉強することは重要だ。",
+        "vocab": [
+          { "term": "a little", "meaning": "少し" },
+          { "term": "every day", "meaning": "毎日" }
+        ],
+        "checkpoints": [
+          "to do が名詞句として主語になることを確認する",
+          "SVC の C は主語の性質を説明すると確認する"
+        ]
+      }
+    },
+    {
+      "id": "polaris1_theme01_point02",
+      "theme": "THEME 1",
+      "themeTitle": "名詞句",
+      "pointNo": 2,
+      "pointTitle": "Cになる名詞的用法の to ...",
+      "sentence": "My first goal is to understand the main idea.",
+      "pattern": "SVC",
+      "root": {
+        "chunks": [
+          { "text": "My first goal", "role": "S", "translation": "私の最初の目標は" },
+          { "text": "is", "role": "V", "translation": "である" },
+          { "text": "to understand the main idea", "role": "C", "translation": "主旨を理解することだ" }
+        ]
+      },
+      "explanation": {
+        "analysis": "be 動詞の後ろに置かれた to do は補語になり、主語の中身を説明する。",
+        "guidance": "S is to do は「Sは〜することだ」と読む。予定を表す用法と混同しないよう、主語の意味を確認する。",
+        "translationExample": "私の最初の目標は主旨を理解することだ。",
+        "vocab": [
+          { "term": "goal", "meaning": "目標" },
+          { "term": "main idea", "meaning": "主旨" }
+        ],
+        "checkpoints": [
+          "be 動詞の後ろの to do が C になることを確認する",
+          "C は主語の内容を言い換える働きだと説明できる"
+        ]
+      }
+    },
+    {
+      "id": "polaris1_theme01_point03",
+      "theme": "THEME 1",
+      "themeTitle": "名詞句",
+      "pointNo": 3,
+      "pointTitle": "形式主語 it と真主語の to ...",
+      "sentence": "It is useful to review your mistakes after class.",
+      "pattern": "SVC",
+      "root": {
+        "chunks": [
+          { "text": "It", "role": "仮S", "translation": "それは" },
+          { "text": "is", "role": "V", "translation": "である" },
+          { "text": "useful", "role": "C", "translation": "役に立つ" },
+          { "text": "to review your mistakes after class", "role": "真S", "translation": "授業後に自分のミスを復習することは" }
+        ]
+      },
+      "explanation": {
+        "analysis": "It は形式主語で、後ろの to do が本当の主語にあたる。まず It is C まで軽く処理し、後ろで中身を回収する。",
+        "guidance": "It is C to do は「〜することはCだ」と訳す。前から読むときは「それはCだ、つまり〜することは」と補う。",
+        "translationExample": "授業後に自分のミスを復習することは役に立つ。",
+        "vocab": [
+          { "term": "useful", "meaning": "役に立つ" },
+          { "term": "review", "meaning": "復習する" }
+        ],
+        "checkpoints": [
+          "It を形式主語として処理できる",
+          "後ろの to do が真主語になることを説明できる"
+        ]
+      }
+    },
+    {
+      "id": "polaris1_theme02_point01",
+      "theme": "THEME 2",
+      "themeTitle": "名詞句（動名詞）",
+      "pointNo": 1,
+      "pointTitle": "Sになる動名詞",
+      "sentence": "Reading short articles every morning improves your vocabulary.",
+      "pattern": "SVO",
+      "root": {
+        "chunks": [
+          { "text": "Reading short articles every morning", "role": "S", "translation": "毎朝短い記事を読むことは" },
+          { "text": "improves", "role": "V", "translation": "向上させる" },
+          { "text": "your vocabulary", "role": "O", "translation": "あなたの語彙力を" }
+        ]
+      },
+      "explanation": {
+        "analysis": "文頭の Reading short articles every morning は、動詞 improves の前にある大きな名詞のかたまりで、文全体の主語になっている。-ing の形でも、名詞として働けば S になる。",
+        "guidance": "文頭の -ing を見たら、すぐに分詞構文と決めない。後ろに動詞が来て、-ing のかたまり全体がその動詞の主語になっていれば、動名詞として読む。",
+        "translationExample": "毎朝短い記事を読むことは、語彙力を向上させる。",
+        "vocab": [
+          { "term": "article", "meaning": "記事" },
+          { "term": "improve", "meaning": "向上させる" },
+          { "term": "vocabulary", "meaning": "語彙、語彙力" }
+        ],
+        "checkpoints": [
+          "文頭の -ing が動名詞として S になることを確認する",
+          "分詞構文ではなく、後ろの動詞の主語になっていると判断する"
+        ]
+      }
+    },
+    {
+      "id": "polaris1_theme02_point02",
+      "theme": "THEME 2",
+      "themeTitle": "名詞句（動名詞）",
+      "pointNo": 2,
+      "pointTitle": "Oになる動名詞",
+      "sentence": "Rina finished organizing the classroom after school.",
+      "pattern": "SVO",
+      "root": {
+        "chunks": [
+          { "text": "Rina", "role": "S", "translation": "リナは" },
+          { "text": "finished", "role": "V", "translation": "終えた" },
+          { "text": "organizing the classroom", "role": "O", "translation": "教室を整理することを" },
+          { "text": "after school", "role": "M", "translation": "放課後に" }
+        ]
+      },
+      "explanation": {
+        "analysis": "finished の後ろに置かれた organizing the classroom は、動詞 finished の目的語になっている。-ing 形でも、名詞のかたまりとして働けば O になる。",
+        "guidance": "動詞の直後に -ing が来たら、まず「動詞の目的語になっていないか」を確認する。finish は後ろに動名詞を取りやすい動詞なので、finished organizing ... を「整理することを終えた」と読む。",
+        "translationExample": "リナは放課後に教室を整理し終えた。",
+        "vocab": [
+          { "term": "finish -ing", "meaning": "〜し終える" },
+          { "term": "organize", "meaning": "整理する" },
+          { "term": "after school", "meaning": "放課後に" }
+        ],
+        "checkpoints": [
+          "-ing の形が動名詞として O になることを確認する",
+          "finish の後ろでは to do ではなく -ing を使うことを確認する"
+        ]
+      }
+    },
+    {
+      "id": "polaris1_theme02_point03",
+      "theme": "THEME 2",
+      "themeTitle": "名詞句（動名詞）",
+      "pointNo": 3,
+      "pointTitle": "Cになる動名詞",
+      "sentence": "Ken's weekly task is checking the club's equipment.",
+      "pattern": "SVC",
+      "root": {
+        "chunks": [
+          { "text": "Ken's weekly task", "role": "S", "translation": "ケンの毎週の仕事は" },
+          { "text": "is", "role": "V", "translation": "である" },
+          { "text": "checking the club's equipment", "role": "C", "translation": "部活の備品を点検することだ" }
+        ]
+      },
+      "explanation": {
+        "analysis": "be 動詞の後ろにある checking the club's equipment は、主語 Ken's weekly task の内容を説明する補語になっている。進行形ではなく、名詞の働きをする動名詞として読む。",
+        "guidance": "is -ing を見たら、すぐに進行形と決めず、主語の意味を確認する。主語が task, job, hobby, goal などなら、後ろの -ing は「〜すること」という C になりやすい。",
+        "translationExample": "ケンの毎週の仕事は、部活の備品を点検することだ。",
+        "vocab": [
+          { "term": "weekly", "meaning": "毎週の" },
+          { "term": "task", "meaning": "仕事、任務" },
+          { "term": "equipment", "meaning": "備品、設備" }
+        ],
+        "checkpoints": [
+          "be -ing が常に進行形とは限らないことを確認する",
+          "動名詞が SVC の C になることを確認する"
+        ]
+      }
+    },
+    {
+      "id": "polaris1_theme03_point01",
+      "theme": "THEME 3",
+      "themeTitle": "名詞句（疑問詞 to 〜）",
+      "pointNo": 1,
+      "pointTitle": "Oになる疑問詞 to 〜",
+      "sentence": "The club members discussed which poster to use for the school festival.",
+      "pattern": "SVO",
+      "root": {
+        "chunks": [
+          { "text": "The club members", "role": "S", "translation": "部員たちは" },
+          { "text": "discussed", "role": "V", "translation": "話し合った" },
+          { "text": "which poster to use for the school festival", "role": "O", "translation": "文化祭にどのポスターを使うべきかを" }
+        ]
+      },
+      "explanation": {
+        "analysis": "which poster to use for the school festival は、疑問詞 which と to use がまとまって名詞句になり、discussed の目的語になっている。",
+        "guidance": "疑問詞 + to do は「何を〜すべきか」「どれを〜すべきか」のように訳す。直前の動詞の O になっていることが多いので、まず動詞との関係を確認する。",
+        "translationExample": "部員たちは、文化祭にどのポスターを使うべきかを話し合った。",
+        "vocab": [
+          { "term": "discuss", "meaning": "話し合う" },
+          { "term": "poster", "meaning": "ポスター" },
+          { "term": "school festival", "meaning": "文化祭" }
+        ],
+        "checkpoints": [
+          "疑問詞 + to do が名詞句になることを確認する",
+          "which poster to use ... が discussed の O になっていると判断する",
+          "疑問詞の後ろに名詞が続く形にも注意する"
+        ]
+      }
+    },
+    {
+      "id": "polaris1_theme04_point01",
+      "theme": "THEME 4",
+      "themeTitle": "名詞節（従属接続詞）",
+      "pointNo": 1,
+      "pointTitle": "Sになる whether",
+      "sentence": "Whether the new library will open this year remains uncertain.",
+      "pattern": "SVC",
+      "root": {
+        "chunks": [
+          { "text": "Whether the new library will open this year", "role": "S", "translation": "新しい図書館が今年開館するかどうかは" },
+          { "text": "remains", "role": "V", "translation": "ままである" },
+          { "text": "uncertain", "role": "C", "translation": "不確かだ" }
+        ]
+      },
+      "explanation": {
+        "analysis": "Whether the new library will open this year は「〜かどうか」という名詞節になり、動詞 remains の主語として働いている。",
+        "guidance": "文頭の Whether SV は「〜かどうか」と読み、かたまり全体で S になることがある。まず remains まで見つけて、どこまでが主語かを大きく取る。",
+        "translationExample": "新しい図書館が今年開館するかどうかは、まだ不確かだ。",
+        "vocab": [
+          { "term": "library", "meaning": "図書館" },
+          { "term": "remain", "meaning": "〜のままである" },
+          { "term": "uncertain", "meaning": "不確かな" }
+        ],
+        "checkpoints": [
+          "whether節が名詞節として S になることを確認する",
+          "Whether SV remains C の形を SVC と判断する",
+          "whether は「〜かどうか」と訳す"
+        ]
+      }
+    },
+    {
+      "id": "polaris1_theme04_point02",
+      "theme": "THEME 4",
+      "themeTitle": "名詞節（従属接続詞）",
+      "pointNo": 2,
+      "pointTitle": "Oになる if",
+      "sentence": "Maya asked me if I could join the online meeting.",
+      "pattern": "SVOO",
+      "root": {
+        "chunks": [
+          { "text": "Maya", "role": "S", "translation": "マヤは" },
+          { "text": "asked", "role": "V", "translation": "尋ねた" },
+          { "text": "me", "role": "O", "translation": "私に" },
+          { "text": "if I could join the online meeting", "role": "O", "translation": "私がオンライン会議に参加できるかどうかを" }
+        ]
+      },
+      "explanation": {
+        "analysis": "if I could join the online meeting は「参加できるかどうか」という名詞節で、asked の目的語になっている。",
+        "guidance": "ask の後ろに if SV が来たら、条件の「もし」ではなく「〜かどうか」と読む。ここでは asked me O の形で、if節全体が聞いた内容を表す O になる。",
+        "translationExample": "マヤは、私がオンライン会議に参加できるかどうかを私に尋ねた。",
+        "vocab": [
+          { "term": "ask", "meaning": "尋ねる" },
+          { "term": "join", "meaning": "参加する" },
+          { "term": "online meeting", "meaning": "オンライン会議" }
+        ],
+        "checkpoints": [
+          "if節が名詞節として O になることを確認する",
+          "名詞節の if は「〜かどうか」と訳す",
+          "ask 人 if SV の形を見抜く"
+        ]
+      }
+    },
+    {
+      "id": "polaris1_theme04_point03",
+      "theme": "THEME 4",
+      "themeTitle": "名詞節（従属接続詞）",
+      "pointNo": 3,
+      "pointTitle": "Cになる that",
+      "sentence": "The problem is that nobody checked the final report.",
+      "pattern": "SVC",
+      "root": {
+        "chunks": [
+          { "text": "The problem", "role": "S", "translation": "問題は" },
+          { "text": "is", "role": "V", "translation": "である" },
+          { "text": "that nobody checked the final report", "role": "C", "translation": "誰も最終報告書を確認していなかったことだ" }
+        ]
+      },
+      "explanation": {
+        "analysis": "that nobody checked the final report は「誰も最終報告書を確認していなかったこと」という名詞節で、主語 The problem の中身を説明する C になっている。",
+        "guidance": "S is that SV は「Sは〜ということだ」と読む。be動詞の後ろに that節が来たときは、主語の内容を言い換える C になっていないか確認する。",
+        "translationExample": "問題は、誰も最終報告書を確認していなかったことだ。",
+        "vocab": [
+          { "term": "problem", "meaning": "問題" },
+          { "term": "nobody", "meaning": "誰も〜ない" },
+          { "term": "final report", "meaning": "最終報告書" }
+        ],
+        "checkpoints": [
+          "that節が名詞節として C になることを確認する",
+          "S is that SV の形を SVC と判断する",
+          "that節は「〜ということ」と訳せる"
+        ]
+      }
+    },
+    {
+      "id": "polaris1_theme05_point01",
+      "theme": "THEME 5",
+      "themeTitle": "名詞節（疑問詞）",
+      "pointNo": 1,
+      "pointTitle": "Sになる疑問詞節",
+      "sentence": "How many students will join the trip is still unclear.",
+      "pattern": "SVC",
+      "root": {
+        "chunks": [
+          { "text": "How many students will join the trip", "role": "S", "translation": "何人の生徒が旅行に参加するかは" },
+          { "text": "is", "role": "V", "translation": "である" },
+          { "text": "still unclear", "role": "C", "translation": "まだはっきりしない" }
+        ]
+      },
+      "explanation": {
+        "analysis": "文頭の How many students will join the trip は疑問詞 how が導く名詞節で、動詞 is の前に置かれているため文全体の主語になっている。",
+        "guidance": "文頭の疑問詞 + SV は、そのまま疑問文と決めつけず、後ろに動詞（ここでは is）が続いていないか確認する。疑問詞節全体が S になっていれば、間接疑問文として「〜か」とまとめて訳す。",
+        "translationExample": "何人の生徒が旅行に参加するかは、まだはっきりしない。",
+        "vocab": [
+          { "term": "join", "meaning": "参加する" },
+          { "term": "trip", "meaning": "旅行" },
+          { "term": "unclear", "meaning": "はっきりしない" }
+        ],
+        "checkpoints": [
+          "疑問詞節が名詞節として S になることを確認する",
+          "How many SV isC の形を SVC と判断する",
+          "間接疑問文は「〜か」とまとめて訳す"
+        ]
+      }
+    },
+    {
+      "id": "polaris1_theme05_point02",
+      "theme": "THEME 5",
+      "themeTitle": "名詞節（疑問詞）",
+      "pointNo": 2,
+      "pointTitle": "Oになる疑問詞節",
+      "sentence": "The coach told the players where the next match would be held.",
+      "pattern": "SVOO",
+      "root": {
+        "chunks": [
+          { "text": "The coach", "role": "S", "translation": "コーチは" },
+          { "text": "told", "role": "V", "translation": "伝えた" },
+          { "text": "the players", "role": "O", "translation": "選手たちに" },
+          { "text": "where the next match would be held", "role": "O", "translation": "次の試合がどこで行われるかを" }
+        ]
+      },
+      "explanation": {
+        "analysis": "where the next match would be held は「次の試合がどこで行われるか」という名詞節で、tell 人 物 の 物 にあたる O になっている。",
+        "guidance": "tell 人 物 の形を見たら、物の位置に疑問詞節が来ていないか確認する。ここでは疑問詞 where が名詞節をつくり、伝えた内容を表す O になっている。",
+        "translationExample": "コーチは選手たちに、次の試合がどこで行われるかを伝えた。",
+        "vocab": [
+          { "term": "coach", "meaning": "コーチ、監督" },
+          { "term": "match", "meaning": "試合" },
+          { "term": "be held", "meaning": "行われる" }
+        ],
+        "checkpoints": [
+          "疑問詞節が名詞節として O になることを確認する",
+          "tell 人 物 の 物 が疑問詞節になっていると判断する",
+          "where は名詞節をつくる場合「どこで〜か」と訳す"
+        ]
+      }
+    },
+    {
+      "id": "polaris1_theme05_point03",
+      "theme": "THEME 5",
+      "themeTitle": "名詞節（疑問詞）",
+      "pointNo": 3,
+      "pointTitle": "前置詞のOになる疑問詞節",
+      "sentence": "Our teacher found my report's explanation of why the results changed unclear.",
+      "pattern": "SVOC",
+      "root": {
+        "chunks": [
+          { "text": "Our teacher", "role": "S", "translation": "先生は" },
+          { "text": "found", "role": "V", "translation": "〜だと感じた" },
+          { "text": "my report's explanation of why the results changed", "role": "O", "translation": "結果がなぜ変わったかについての私のレポートの説明が" },
+          { "text": "unclear", "role": "C", "translation": "わかりにくい" }
+        ]
+      },
+      "explanation": {
+        "analysis": "why the results changed は前置詞 of の目的語になる名詞節で、「結果がなぜ変わったか」という意味のまとまりをつくり、explanation の内容を説明している。全体としては found の O が長くなっている。",
+        "guidance": "find を見たら、まず find O C「OがCだと思う」の形を予想する。O が長い場合は、どこまでが O かを先に見極めてから C を探すと読みやすい。ここでは of why ~ changed までが O の一部になっている。",
+        "translationExample": "先生は、結果がなぜ変わったかについての私のレポートの説明がわかりにくいと感じた。",
+        "vocab": [
+          { "term": "report", "meaning": "レポート、報告書" },
+          { "term": "result", "meaning": "結果" },
+          { "term": "unclear", "meaning": "わかりにくい、はっきりしない" }
+        ],
+        "checkpoints": [
+          "前置詞 of の O が疑問詞節になることを確認する",
+          "find O C の形で O が長い場合の読み方を確認する",
+          "why が名詞節をつくり「なぜ〜か」と訳せることを確認する"
+        ]
+      }
+    },
+    {
+      "id": "polaris1_theme06_point01",
+      "theme": "THEME 6",
+      "themeTitle": "名詞節（関係代名詞のwhat）",
+      "pointNo": 1,
+      "pointTitle": "Sになるwhat節",
+      "sentence": "What she wrote in her diary surprised her classmates.",
+      "pattern": "SVO",
+      "root": {
+        "chunks": [
+          { "text": "What she wrote in her diary", "role": "S", "translation": "彼女が日記に書いたことは" },
+          { "text": "surprised", "role": "V", "translation": "驚かせた" },
+          { "text": "her classmates", "role": "O", "translation": "クラスメートを" }
+        ]
+      },
+      "explanation": {
+        "analysis": "What she wrote in her diary は「彼女が日記に書いたこと」という意味の名詞節で、動詞 surprised の前に置かれて文全体の主語になっている。what節の中では wrote の目的語が欠けている。",
+        "guidance": "文頭の What SV を見たら、まず後ろの動詞（ここでは wrote）の目的語が欠けていないか確認する。what節の中が不完全なら、what は関係代名詞として名詞節をつくり、S になっていないか考える。",
+        "translationExample": "彼女が日記に書いたことは、クラスメートを驚かせた。",
+        "vocab": [
+          { "term": "diary", "meaning": "日記" },
+          { "term": "surprise", "meaning": "驚かせる" },
+          { "term": "classmate", "meaning": "クラスメート" }
+        ],
+        "checkpoints": [
+          "what節が名詞節として S になることを確認する",
+          "what節の中で動詞の目的語が欠けていることを確認する",
+          "what は「〜すること」「〜もの」と訳す"
+        ]
+      }
+    },
+    {
+      "id": "polaris1_theme06_point02",
+      "theme": "THEME 6",
+      "themeTitle": "名詞節（関係代名詞のwhat）",
+      "pointNo": 2,
+      "pointTitle": "Oになるwhat節",
+      "sentence": "I still remember what my teacher told me about facing challenges.",
+      "pattern": "SVO",
+      "root": {
+        "chunks": [
+          { "text": "I", "role": "S", "translation": "私は" },
+          { "text": "still remember", "role": "V", "translation": "今でも覚えている" },
+          { "text": "what my teacher told me about facing challenges", "role": "O", "translation": "困難に立ち向かうことについて先生が私に言ってくれたことを" }
+        ]
+      },
+      "explanation": {
+        "analysis": "what my teacher told me about facing challenges は「先生が私に言ってくれたこと」という名詞節で、remember の目的語になっている。what節の中では tell 人 物 の 物 にあたる部分が欠けている。",
+        "guidance": "remember の後ろに what SV が来たら、what節全体を O として大きくとらえる。what節の中の動詞（ここでは told）が 人 物 の形を取る動詞なら、物の位置が欠けていないか確認する。",
+        "translationExample": "私は、困難に立ち向かうことについて先生が私に言ってくれたことを今でも覚えている。",
+        "vocab": [
+          { "term": "remember", "meaning": "覚えている" },
+          { "term": "face", "meaning": "立ち向かう" },
+          { "term": "challenge", "meaning": "難題、課題" }
+        ],
+        "checkpoints": [
+          "what節が名詞節として O になることを確認する",
+          "tell 人 物 の 物 が欠けていることを確認する",
+          "what節全体を1つのまとまりの O として訳す"
+        ]
+      }
+    },
+    {
+      "id": "polaris1_theme06_point03",
+      "theme": "THEME 6",
+      "themeTitle": "名詞節（関係代名詞のwhat）",
+      "pointNo": 3,
+      "pointTitle": "Cになるwhat節",
+      "sentence": "Kindness is what changes people the most.",
+      "pattern": "SVC",
+      "root": {
+        "chunks": [
+          { "text": "Kindness", "role": "S", "translation": "優しさは" },
+          { "text": "is", "role": "V", "translation": "である" },
+          { "text": "what changes people the most", "role": "C", "translation": "人を最も変えるものだ" }
+        ]
+      },
+      "explanation": {
+        "analysis": "what changes people the most は「人を最も変えるもの」という名詞節で、be動詞 is の後ろに置かれて主語 Kindness の内容を説明する C になっている。what節の中では changes の主語が欠けている。",
+        "guidance": "S is what ... の形を見たら、what節を S の中身を言い換える C として読む。what節の中で主語が欠けていれば、what がその主語の役割を兼ねていると判断する。",
+        "translationExample": "優しさは、人を最も変えるものだ。",
+        "vocab": [
+          { "term": "kindness", "meaning": "優しさ、親切" },
+          { "term": "change", "meaning": "変える" },
+          { "term": "the most", "meaning": "最も" }
+        ],
+        "checkpoints": [
+          "what節が名詞節として C になることを確認する",
+          "S is what SV の形を SVC と判断する",
+          "what節の中で主語が欠けていることを確認する"
+        ]
+      }
+    },
+    {
+      "id": "polaris1_theme07_point01",
+      "theme": "THEME 7",
+      "themeTitle": "名詞節（複合関係詞）",
+      "pointNo": 1,
+      "pointTitle": "Sになる複合関係詞節",
+      "sentence": "Whoever arrives first will get the best seat.",
+      "pattern": "SVO",
+      "root": {
+        "chunks": [
+          { "text": "Whoever arrives first", "role": "S", "translation": "一番早く到着した人は誰でも" },
+          { "text": "will get", "role": "V", "translation": "もらえる" },
+          { "text": "the best seat", "role": "O", "translation": "一番良い席を" }
+        ]
+      },
+      "explanation": {
+        "analysis": "Whoever arrives first は複合関係詞 whoever が導く名詞節で、「到着した人は誰でも」という意味のまとまりをつくり、動詞 will get の前に置かれて文全体の主語になっている。",
+        "guidance": "文頭の Whoever SV を見たら、後ろに動詞（ここでは will get）が続いていないか確認する。whoever節全体が S になっていれば、「〜する人は誰でも」とまとめて訳す。",
+        "translationExample": "一番早く到着した人は誰でも、一番良い席をもらえる。",
+        "vocab": [
+          { "term": "arrive", "meaning": "到着する" },
+          { "term": "first", "meaning": "最初に、一番に" },
+          { "term": "seat", "meaning": "席" }
+        ],
+        "checkpoints": [
+          "複合関係詞節が名詞節として S になることを確認する",
+          "Whoever SV willV O の形を SVO と判断する",
+          "whoever は「〜する人は誰でも」と訳す"
+        ]
+      }
+    },
+    {
+      "id": "polaris1_theme07_point02",
+      "theme": "THEME 7",
+      "themeTitle": "名詞節（複合関係詞）",
+      "pointNo": 2,
+      "pointTitle": "Oになる複合関係詞節",
+      "sentence": "You may choose whichever seat you prefer when you enter the hall.",
+      "pattern": "SVO",
+      "root": {
+        "chunks": [
+          { "text": "You", "role": "S", "translation": "あなたは" },
+          { "text": "may choose", "role": "V", "translation": "選んでよい" },
+          { "text": "whichever seat you prefer", "role": "O", "translation": "好きな席をどれでも" },
+          { "text": "when you enter the hall", "role": "M", "translation": "会場に入るとき" }
+        ]
+      },
+      "explanation": {
+        "analysis": "whichever seat you prefer は複合関係詞 whichever が名詞（seat）とともに「好きな席はどれでも」という意味のまとまりをつくり、choose の目的語になっている。whichever の直後に名詞が来ているので、この whichever は複合関係形容詞である。",
+        "guidance": "choose の後ろに whichever + 名詞 が来たら、まずその名詞のかたまりが choose の O になっていないか確認する。when 以下は choose を修飾する M として区別する。",
+        "translationExample": "会場に入るとき、あなたは好きな席をどれでも選んでよい。",
+        "vocab": [
+          { "term": "prefer", "meaning": "〜のほうを好む" },
+          { "term": "enter", "meaning": "入る" },
+          { "term": "hall", "meaning": "会場、ホール" }
+        ],
+        "checkpoints": [
+          "複合関係詞節が名詞節として O になることを確認する",
+          "whichever + 名詞 の形を複合関係形容詞と判断する",
+          "when節は O ではなく M であることを区別する"
+        ]
+      }
+    },
+    {
+      "id": "polaris1_theme08_point01",
+      "theme": "THEME 8",
+      "themeTitle": "形容詞句（前置詞）",
+      "pointNo": 1,
+      "pointTitle": "名詞を修飾する前置詞句",
+      "sentence": "The man in the blue jacket answered all the questions calmly.",
+      "pattern": "SVO",
+      "root": {
+        "chunks": [
+          { "text": "The man in the blue jacket", "role": "S", "translation": "青いジャケットを着た男性は" },
+          { "text": "answered", "role": "V", "translation": "答えた" },
+          { "text": "all the questions", "role": "O", "translation": "すべての質問に" },
+          { "text": "calmly", "role": "M", "translation": "落ち着いて" }
+        ]
+      },
+      "explanation": {
+        "analysis": "in the blue jacket は直前の名詞 The man を修飾する前置詞句で、形容詞句として働いている。The man in the blue jacket 全体で文の S になっている。",
+        "guidance": "前置詞句は副詞句になることが多いが、名詞の直後に置かれているときは、その名詞を修飾する形容詞句になっていないか確認する。ここでは in the blue jacket が The man を修飾し、S のかたまりを大きくしている。",
+        "translationExample": "青いジャケットを着た男性は、すべての質問に落ち着いて答えた。",
+        "vocab": [
+          { "term": "jacket", "meaning": "ジャケット、上着" },
+          { "term": "answer", "meaning": "答える" },
+          { "term": "calmly", "meaning": "落ち着いて" }
+        ],
+        "checkpoints": [
+          "前置詞句が名詞を修飾する形容詞句になることを確認する",
+          "in the blue jacket が man を修飾していると判断する",
+          "前置詞句は副詞句と形容詞句の両方になり得ることを確認する"
+        ]
+      }
+    },
+    {
+      "id": "polaris1_theme08_point02",
+      "theme": "THEME 8",
+      "themeTitle": "形容詞句（前置詞）",
+      "pointNo": 2,
+      "pointTitle": "Cになる前置詞句",
+      "sentence": "This traditional festival is of great importance to the local community.",
+      "pattern": "SVC",
+      "root": {
+        "chunks": [
+          { "text": "This traditional festival", "role": "S", "translation": "この伝統的な祭りは" },
+          { "text": "is", "role": "V", "translation": "である" },
+          { "text": "of great importance to the local community", "role": "C", "translation": "地域社会にとって非常に重要" }
+        ]
+      },
+      "explanation": {
+        "analysis": "of great importance は「of＋抽象名詞＝形容詞」の形で、great importance という抽象名詞のかたまりが形容詞のように働き、be動詞 is の後ろで主語の内容を説明する C になっている。",
+        "guidance": "is の後ろに of + 抽象名詞 が来たら、「of＋抽象名詞＝形容詞」のルールを思い出す。ここでは of great importance が important と同じような意味になり、C として機能している。",
+        "translationExample": "この伝統的な祭りは、地域社会にとって非常に重要である。",
+        "vocab": [
+          { "term": "traditional", "meaning": "伝統的な" },
+          { "term": "importance", "meaning": "重要性" },
+          { "term": "local community", "meaning": "地域社会" }
+        ],
+        "checkpoints": [
+          "of＋抽象名詞が形容詞として働くことを確認する",
+          "S is of 抽象名詞 の形を SVC と判断する",
+          "importance は important と同じ意味で C になっていると理解する"
+        ]
+      }
+    },
+    {
+      "id": "polaris1_theme09_point01",
+      "theme": "THEME 9",
+      "themeTitle": "形容詞句（不定詞の形容詞的用法）",
+      "pointNo": 1,
+      "pointTitle": "名詞を修飾する不定詞の形容詞的用法",
+      "sentence": "There are plans to build a new sports center near the station.",
+      "pattern": "SV",
+      "root": {
+        "chunks": [
+          { "text": "There", "role": "M", "translation": "（形式的な語）" },
+          { "text": "are", "role": "V", "translation": "ある" },
+          { "text": "plans to build a new sports center near the station", "role": "S", "translation": "駅の近くに新しいスポーツセンターを建てる計画が" }
+        ]
+      },
+      "explanation": {
+        "analysis": "There is 構文なので、are の直後にある plans が S になる。to build 以下はその名詞 plans を後ろから修飾する形容詞句で、plans [to build ...] という大きな名詞のかたまりをつくっている。There is 構文は厳密には第1文型の倒置だが、文型の枠組みにこだわりすぎる必要はない。",
+        "guidance": "名詞の直後の to do を見たら、その名詞を修飾する形容詞的用法を考える。動詞 plan は plan to 原形「〜することを計画する」の形を取るが、名詞 plan になっても plan to 〜「〜する計画」と、to との相性のよさは変わらない。",
+        "translationExample": "駅の近くに新しいスポーツセンターを建てる計画がある。",
+        "vocab": [
+          { "term": "plan", "meaning": "計画" },
+          { "term": "build", "meaning": "建てる" },
+          { "term": "near", "meaning": "〜の近くに" }
+        ],
+        "checkpoints": [
+          "抽象名詞 + to 〜 が形容詞句になることを確認する",
+          "plan to 〜 は動詞「〜することを計画する」と名詞「〜する計画」があると確認する",
+          "There is 構文では be動詞の直後の名詞が S になることを確認する"
+        ]
+      }
+    },
+    {
+      "id": "polaris1_theme10_point01",
+      "theme": "THEME 10",
+      "themeTitle": "形容詞句（名詞修飾の分詞）",
+      "pointNo": 1,
+      "pointTitle": "名詞を修飾する現在分詞",
+      "sentence": "The team developing the new app has announced that the release will be delayed.",
+      "pattern": "SVO",
+      "root": {
+        "chunks": [
+          { "text": "The team developing the new app", "role": "S", "translation": "新しいアプリを開発しているチームは" },
+          { "text": "has announced", "role": "V", "translation": "発表した" },
+          { "text": "that the release will be delayed", "role": "O", "translation": "リリースが遅れると" }
+        ]
+      },
+      "explanation": {
+        "analysis": "developing the new app は直前の The team を修飾する現在分詞のかたまり。動名詞と考えると名詞が連続してしまうので、動詞 develop が分詞として形容詞の働きをしていると判断する。The team developing 〜 の後に V が来ることを予測して、has announced が V だとわかる。",
+        "guidance": "名詞の直後の -ing を見たら、すぐに動名詞と決めず、その名詞を修飾する分詞の可能性を考える。S のかたまりを大きく取り、後ろに V が来るのを待って文全体の構造を確定させる。",
+        "translationExample": "新しいアプリを開発しているチームが、リリースは遅れると発表した。",
+        "vocab": [
+          { "term": "develop", "meaning": "開発する" },
+          { "term": "announce", "meaning": "発表する" },
+          { "term": "delay", "meaning": "遅らせる" }
+        ],
+        "checkpoints": [
+          "名詞を修飾する -ing は分詞だと確認する（動名詞と区別）",
+          "名詞 + -ing 〜 の後に V が来ることを予測して読む",
+          "分詞のかたまりを含めた大きな S を取れることを確認する"
+        ]
+      }
+    },
+    {
+      "id": "polaris1_theme10_point02",
+      "theme": "THEME 10",
+      "themeTitle": "形容詞句（名詞修飾の分詞）",
+      "pointNo": 2,
+      "pointTitle": "名詞を修飾する過去分詞",
+      "sentence": "A student named Kenta helped me find the science room.",
+      "pattern": "SVOC",
+      "root": {
+        "chunks": [
+          { "text": "A student named Kenta", "role": "S", "translation": "ケンタという名前の生徒が" },
+          { "text": "helped", "role": "V", "translation": "手伝ってくれた" },
+          { "text": "me", "role": "O", "translation": "私が" },
+          { "text": "find the science room", "role": "C", "translation": "理科室を見つけるのを" }
+        ]
+      },
+      "explanation": {
+        "analysis": "A student named Kenta の時点では「ある生徒がケンタを名づけた」と過去形で解釈できてしまうが、次の helped を見つけた瞬間に発想を変える。helped が V なので A student named Kenta が S になり、named Kenta は直前の A student を修飾する過去分詞とわかる（name OC「OをCと名づける」が過去分詞になり named C「Cと名づけられた」になった）。",
+        "guidance": "-ed の形は過去形と過去分詞の両方の可能性がある。後ろに本物の V が現れたら、-ed は名詞を修飾する過去分詞だったと読み直す。なお「helped が Kenta を修飾するのでは？」という発想はナシ。固有名詞が修飾語を伴うことは原則ないからである。",
+        "translationExample": "ケンタという名前の生徒が、私が理科室を見つけるのを手伝ってくれた。",
+        "vocab": [
+          { "term": "name", "meaning": "名づける" },
+          { "term": "help O 原形", "meaning": "Oが〜するのを手伝う" },
+          { "term": "science room", "meaning": "理科室" }
+        ],
+        "checkpoints": [
+          "名詞を修飾する -ed は分詞だと確認する（過去形と区別）",
+          "本物の V を見つけた瞬間に -ed を過去分詞と読み直せる",
+          "固有名詞は原則として修飾語を伴わないことを確認する"
+        ]
+      }
+    },
+    {
+      "id": "polaris1_theme11_point01",
+      "theme": "THEME 11",
+      "themeTitle": "形容詞節（関係詞）",
+      "pointNo": 1,
+      "pointTitle": "形容詞節をつくる関係代名詞",
+      "sentence": "The poster that the students designed for the festival won first prize.",
+      "pattern": "SVO",
+      "root": {
+        "chunks": [
+          { "text": "The poster that the students designed for the festival", "role": "S", "translation": "生徒たちが文化祭のためにデザインしたポスターは" },
+          { "text": "won", "role": "V", "translation": "獲得した" },
+          { "text": "first prize", "role": "O", "translation": "最優秀賞を" }
+        ]
+      },
+      "explanation": {
+        "analysis": "that the students designed for the festival は、直前の名詞 The poster を修飾する形容詞節。この that は関係代名詞で、節の中では designed の O が欠けた「不完全」な形になっている。The poster [that ...] 全体が大きな S になり、won が文全体の V である。",
+        "guidance": "名詞の直後の that を見たら、関係代名詞（形容詞節をつくる）ではないかと考え、後ろが「不完全」であることを確認する。ここでは design の O が欠けている。関係代名詞は形容詞節をつくるのが基本。",
+        "translationExample": "生徒たちが文化祭のためにデザインしたポスターは、最優秀賞を獲得した。",
+        "vocab": [
+          { "term": "design", "meaning": "デザインする" },
+          { "term": "festival", "meaning": "文化祭、祭り" },
+          { "term": "first prize", "meaning": "最優秀賞、1等賞" }
+        ],
+        "checkpoints": [
+          "関係代名詞が形容詞節をつくることを確認する",
+          "関係代名詞の後ろは「不完全」な形になることを確認する",
+          "関係詞節を含めた大きな S を取れることを確認する"
+        ]
+      }
+    },
+    {
+      "id": "polaris1_theme11_point02",
+      "theme": "THEME 11",
+      "themeTitle": "形容詞節（関係詞）",
+      "pointNo": 2,
+      "pointTitle": "形容詞節をつくる関係副詞",
+      "sentence": "Mika told us the reason why she joined the volunteer club.",
+      "pattern": "SVOO",
+      "root": {
+        "chunks": [
+          { "text": "Mika", "role": "S", "translation": "ミカは" },
+          { "text": "told", "role": "V", "translation": "話した" },
+          { "text": "us", "role": "O", "translation": "私たちに" },
+          { "text": "the reason why she joined the volunteer club", "role": "O", "translation": "彼女がボランティア部に入った理由を" }
+        ]
+      },
+      "explanation": {
+        "analysis": "why she joined the volunteer club は、関係副詞 why がつくる形容詞節で、直前の the reason を修飾している。tell 人 物 の 物 にあたる O が、the reason [why ...] という大きな名詞のかたまりになっている。",
+        "guidance": "the reason why を見たら、関係副詞 why がつくる形容詞節が直前の the reason を修飾していると考える。関係代名詞と違い、関係副詞の後ろは「完全」な形がくる。関係代名詞も関係副詞も「形容詞節をつくる」のが基本。",
+        "translationExample": "ミカは、彼女がボランティア部に入った理由を私たちに話した。",
+        "vocab": [
+          { "term": "reason", "meaning": "理由" },
+          { "term": "join", "meaning": "入る、参加する" },
+          { "term": "volunteer", "meaning": "ボランティア" }
+        ],
+        "checkpoints": [
+          "関係副詞が形容詞節をつくることを確認する",
+          "関係副詞の後ろは「完全」な形がくることを確認する",
+          "tell 人 物 の 物 が関係詞節を含む大きなかたまりになっていると判断する"
+        ]
+      }
+    },
+    {
+      "id": "polaris1_theme11_point03",
+      "theme": "THEME 11",
+      "themeTitle": "形容詞節（関係詞）",
+      "pointNo": 3,
+      "pointTitle": "形容詞節をつくる前置詞＋関係代名詞",
+      "sentence": "This is the park in which we first met.",
+      "pattern": "SVC",
+      "root": {
+        "chunks": [
+          { "text": "This", "role": "S", "translation": "ここは" },
+          { "text": "is", "role": "V", "translation": "である" },
+          { "text": "the park in which we first met", "role": "C", "translation": "私たちが初めて出会った公園" }
+        ]
+      },
+      "explanation": {
+        "analysis": "in which we first met は前置詞＋関係代名詞のかたまりで、直前の the park を修飾する形容詞節をつくっている。前置詞＋関係代名詞の後ろには「完全」な形がくる。",
+        "guidance": "in which のような前置詞＋関係代名詞を見たら、形容詞節をつくると考える。前置詞を後ろに置いた This is the park which we first met in. の形も可能で、その場合は後ろに「不完全」な形がくる。",
+        "translationExample": "ここは、私たちが初めて出会った公園です。",
+        "vocab": [
+          { "term": "park", "meaning": "公園" },
+          { "term": "first", "meaning": "初めて" },
+          { "term": "meet", "meaning": "出会う" }
+        ],
+        "checkpoints": [
+          "前置詞＋関係代名詞も形容詞節をつくることを確認する",
+          "前置詞＋関係代名詞の後ろは「完全」な形がくることを確認する",
+          "前置詞を後ろに置いた形では後ろが「不完全」になることを確認する"
+        ]
+      }
+    },
+    {
+      "id": "polaris1_theme11_point04",
+      "theme": "THEME 11",
+      "themeTitle": "形容詞節（関係詞）",
+      "pointNo": 4,
+      "pointTitle": "\"名詞＋SV\" は関係詞の省略",
+      "sentence": "Satoshi became a doctor many people in the town rely on.",
+      "pattern": "SVC",
+      "root": {
+        "chunks": [
+          { "text": "Satoshi", "role": "S", "translation": "サトシは" },
+          { "text": "became", "role": "V", "translation": "なった" },
+          { "text": "a doctor many people in the town rely on", "role": "C", "translation": "町の多くの人々が頼りにする医師に" }
+        ]
+      },
+      "explanation": {
+        "analysis": "a doctor many people という名詞の連続に注意する。\"名詞＋SV\" の形なので、SV の直前に関係代名詞 that が省略されている。節の中では rely on の O がない「不完全」な状態で、that many people in the town rely on が直前の a doctor を修飾している。",
+        "guidance": "名詞が連続する部分には注意が必要。\"名詞＋SV\" の形であれば、SV の直前に関係詞が省略されていると考える。省略された関係詞の節の中は「不完全」な形になっている。",
+        "translationExample": "サトシは、町の多くの人々が頼りにする医師になった。",
+        "vocab": [
+          { "term": "rely on 〜", "meaning": "〜を頼りにする" },
+          { "term": "town", "meaning": "町" },
+          { "term": "doctor", "meaning": "医師" }
+        ],
+        "checkpoints": [
+          "\"名詞＋SV\" は関係詞の省略だと確認する",
+          "省略された関係詞の節の中は「不完全」な形になることを確認する",
+          "名詞の連続に注意して読むことを確認する"
+        ]
+      }
+    },
+    {
+      "id": "polaris1_theme12_point01",
+      "theme": "THEME 12",
+      "themeTitle": "副詞句（前置詞・不定詞の副詞的用法・分詞構文）",
+      "pointNo": 1,
+      "pointTitle": "形容詞句や副詞句になる前置詞句",
+      "sentence": "Emi took the bus for the museum and got off at the third stop.",
+      "pattern": "SVO",
+      "root": {
+        "chunks": [
+          { "text": "Emi", "role": "S", "translation": "エミは" },
+          { "text": "took", "role": "V", "translation": "乗った" },
+          { "text": "the bus for the museum", "role": "O", "translation": "博物館行きのバスに" },
+          { "text": "and", "role": "接", "translation": "そして" },
+          { "text": "got off", "role": "V", "translation": "降りた" },
+          { "text": "at the third stop", "role": "M", "translation": "3つ目の停留所で" }
+        ]
+      },
+      "explanation": {
+        "analysis": "前置詞のカタマリは形容詞句か副詞句になる。この文では、for the museum は直前の名詞 the bus を修飾する形容詞句、at the third stop は動詞 got off を修飾する副詞句である。同じ前置詞句でも働きが違うことに注意する。and は等位接続詞で、took と got off という2つの V を対等につないでいる。",
+        "guidance": "前置詞句を見たら、名詞を修飾する形容詞句か、動詞などを修飾する副詞句かを判断する。名詞の直後にあるときは、まず形容詞句の可能性を考える。and を見たら「何と何をつないでいるか」を確認する。ここでは V と V を結んでいるので、S は共通の Emi である。",
+        "translationExample": "エミは博物館行きのバスに乗って、3つ目の停留所で降りた。",
+        "vocab": [
+          { "term": "take", "meaning": "（乗り物に）乗る" },
+          { "term": "get off", "meaning": "（電車・バスなどから）降りる" },
+          { "term": "stop", "meaning": "停留所" }
+        ],
+        "checkpoints": [
+          "前置詞句は形容詞句か副詞句になることを確認する",
+          "for the museum は名詞を修飾する形容詞句と判断する",
+          "at the third stop は動詞を修飾する副詞句と判断する",
+          "等位接続詞 and が何と何をつないでいるか（V と V）を確認する"
+        ]
+      }
+    },
+    {
+      "id": "polaris1_theme12_point02",
+      "theme": "THEME 12",
+      "themeTitle": "副詞句（前置詞・不定詞の副詞的用法・分詞構文）",
+      "pointNo": 2,
+      "pointTitle": "文頭にきて動詞を修飾する to 〜",
+      "sentence": "To catch the first train, Ken got up at five.",
+      "pattern": "SV",
+      "root": {
+        "chunks": [
+          { "text": "To catch the first train", "role": "M", "translation": "始発電車に間に合うように" },
+          { "text": "Ken", "role": "S", "translation": "ケンは" },
+          { "text": "got up", "role": "V", "translation": "起きた" },
+          { "text": "at five", "role": "M", "translation": "5時に" }
+        ]
+      },
+      "explanation": {
+        "analysis": "文頭の To catch the first train の後ろに SV（Ken got up）があるので、この to 〜 は S にならない余分なカタマリ→副詞的用法と判断する。意味の面でも「間に合うために起きた」と動詞を修飾している。",
+        "guidance": "\"To 〜, SV\" の形は副詞的用法。\"To 〜 V\" のように to のカタマリの直後に V が来れば名詞的用法（THEME 1）だった。文頭の to 〜 を見たら、後ろに SV があるかどうかで判断する。",
+        "translationExample": "始発電車に間に合うように、ケンは5時に起きた。",
+        "vocab": [
+          { "term": "catch", "meaning": "間に合う、つかまえる" },
+          { "term": "first train", "meaning": "始発電車" },
+          { "term": "get up", "meaning": "起きる" }
+        ],
+        "checkpoints": [
+          "\"To 〜, SV\" の形は不定詞の副詞的用法と確認する",
+          "文頭の to 〜 が S になっていないことを確認する",
+          "副詞句は文構造上なくてもよい要素だと確認する"
+        ]
+      }
+    },
+    {
+      "id": "polaris1_theme12_point03",
+      "theme": "THEME 12",
+      "themeTitle": "副詞句（前置詞・不定詞の副詞的用法・分詞構文）",
+      "pointNo": 3,
+      "pointTitle": "動詞を修飾する分詞構文",
+      "sentence": "Hearing the announcement, the passengers moved to Platform 3.",
+      "pattern": "SV",
+      "root": {
+        "chunks": [
+          { "text": "Hearing the announcement", "role": "M", "translation": "アナウンスを聞いて" },
+          { "text": "the passengers", "role": "S", "translation": "乗客たちは" },
+          { "text": "moved", "role": "V", "translation": "移動した" },
+          { "text": "to Platform 3", "role": "M", "translation": "3番ホームへ" }
+        ]
+      },
+      "explanation": {
+        "analysis": "文頭の Hearing 〜 の後ろに SV（the passengers moved）があるので、Hearing のカタマリは文構造上不要な要素→副詞のカタマリだと判断できる（-ing 〜, SV の形）。副詞のカタマリをつくる -ing は分詞構文で、動詞 moved を修飾している。",
+        "guidance": "\"-ing 〜, SV\" の形は分詞構文。\"-ing is 〜\" のように -ing が S になっていれば、その -ing は動名詞だった（THEME 2）。訳は「〜して」「〜なので」くらいでよく、今は「分詞構文だと認識できること」自体が大事。",
+        "translationExample": "アナウンスを聞いて、乗客たちは3番ホームへ移動した。",
+        "vocab": [
+          { "term": "announcement", "meaning": "アナウンス、案内放送" },
+          { "term": "passenger", "meaning": "乗客" },
+          { "term": "platform", "meaning": "（駅の）ホーム" }
+        ],
+        "checkpoints": [
+          "\"-ing 〜, SV\" の形は分詞構文と確認する",
+          "-ing が S になる動名詞と区別する",
+          "分詞構文は動詞を修飾する副詞のカタマリだと確認する"
+        ]
+      }
+    }
+  ]
+}

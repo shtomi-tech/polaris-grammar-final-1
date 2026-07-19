@@ -40,6 +40,14 @@ jobs:
           SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
           SUPABASE_ANON_KEY: ${{ secrets.SUPABASE_ANON_KEY }}
 
+      - name: Generate reading runtime config
+        working-directory: reading
+        run: node scripts/write-config.mjs
+        env:
+          APP_BASE_URL: ${{ secrets.APP_BASE_URL }}
+          SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
+          SUPABASE_ANON_KEY: ${{ secrets.SUPABASE_ANON_KEY }}
+
       - name: Configure Pages
         uses: actions/configure-pages@v5
 
@@ -52,6 +60,7 @@ jobs:
           cp -r data ../_site/data
           cp -r static ../_site/static
           cp -r ../grammar-knowledge-check ../_site/grammar-knowledge-check
+          cp -r ../reading ../_site/reading
           touch ../_site/.nojekyll
 
       - name: Upload artifact

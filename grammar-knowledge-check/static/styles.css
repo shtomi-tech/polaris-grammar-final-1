@@ -57,6 +57,11 @@ button:disabled { cursor: default; opacity: .55; }
   padding-bottom: 14px;
 }
 
+.appNav {
+  display: flex;
+  align-items: center;
+}
+
 .backlink,
 .eyebrow,
 .kicker,
