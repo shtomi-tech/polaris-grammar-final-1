@@ -11,6 +11,7 @@ const DEFAULT_STUDENT = { id: "default", name: "共通" };
 const KEYS = ["ア", "イ", "ウ", "エ"];
 const SPACED_REVIEW_DAYS = [1, 3, 7, 14];
 const QUIZ_SESSION_VERSION = 1;
+const FOUNDATION_STAGE_COUNT = 5;
 const UNIT_SOURCES = {
   unit01: "中部大学 工/経営情報/国際関係など",
   unit02: "札幌学院大学 法/経済/経営/社会情報",
@@ -356,6 +357,10 @@ function resumeQuizAction() {
 }
 
 function restoreQuizSession() {
+  if (!foundationUnlocked()) {
+    window.location.href = foundationHref(new URLSearchParams(location.search));
+    return false;
+  }
   const saved = storedQuizSession();
   if (!saved) return false;
   const pool = (saved.poolIds || [])
@@ -526,6 +531,30 @@ function step3Unlocked() {
   return step2Unlocked() && stepStats("step2Cleared").remaining === 0 && questionData.questions.length > 0;
 }
 
+function foundationStatus() {
+  const history = loadFoundationHistory();
+  const stageResults = history?.stageResults || {};
+  const completedStages = Array.from({ length: FOUNDATION_STAGE_COUNT }, (_, index) => index + 1)
+    .filter(index => stageResults[`stage${index}`]).length;
+  return {
+    history,
+    stageResults,
+    completedStages,
+    total: FOUNDATION_STAGE_COUNT,
+    unlocked: completedStages === FOUNDATION_STAGE_COUNT
+  };
+}
+
+function foundationUnlocked() {
+  return foundationStatus().unlocked;
+}
+
+function requireFoundationComplete() {
+  if (foundationUnlocked()) return true;
+  window.location.href = foundationHref(new URLSearchParams(location.search));
+  return false;
+}
+
 function updateStepCompletionDates() {
   const meta = metaState();
   const now = new Date().toISOString();
@@ -567,7 +596,7 @@ function statsFor(questions) {
 }
 
 function setVisible(panel) {
-  for (const id of ["homePanel", "quizPanel"]) {
+  for (const id of ["homePanel", "quizPanel", "grammarLockPanel"]) {
     $(`#${id}`).classList.toggle("hide", id !== panel);
   }
   $("#mobileCtaBar").classList.toggle("hide", panel !== "homePanel");
@@ -648,11 +677,10 @@ function renderMasterPath() {
 }
 
 function nextAction() {
-  const foundationHistory = loadFoundationHistory();
-  const foundationStages = foundationHistory?.stageResults || {};
-  const foundationCompleted = Object.keys(foundationStages).filter(key => /^stage[1-5]$/.test(key)).length;
-  if (!foundationHistory || foundationCompleted < 5) {
-    const nextFoundationStage = [1, 2, 3, 4, 5].find(index => !foundationStages[`stage${index}`]) || 1;
+  const foundation = foundationStatus();
+  if (!foundation.unlocked) {
+    const nextFoundationStage = Array.from({ length: FOUNDATION_STAGE_COUNT }, (_, index) => index + 1)
+      .find(index => !foundation.stageResults[`stage${index}`]) || 1;
     return {
       kind: "foundation",
       label: `▶ 基礎から始める — 第${nextFoundationStage}段階`
@@ -689,10 +717,10 @@ function renderContinueCta() {
   const dueCount = spacedDueQuestions().length;
   const unresolvedCount = allUnresolvedQuestions().length;
   let action;
-  if (resume) {
-    action = resume;
-  } else if (progressAction.kind === "foundation") {
+  if (progressAction.kind === "foundation") {
     action = progressAction;
+  } else if (resume) {
+    action = resume;
   } else if (dueCount > 0) {
     action = { kind: "spaced", label: `▶ 今日の復習を始める — ${dueCount}問` };
   } else if (unresolvedCount > 0) {
@@ -932,6 +960,7 @@ function renderSetList() {
 
 function renderHome() {
   focusMode = false;
+  renderModeSelector();
   const foundationLink = $("#foundationDashboardLink");
   if (foundationLink) {
     const query = new URLSearchParams(location.search);
@@ -940,6 +969,11 @@ function renderHome() {
   renderStudentControls();
   renderSelectors();
   renderFoundationDashboard();
+  renderGrammarGate();
+  if (!foundationUnlocked()) {
+    setVisible("grammarLockPanel");
+    return;
+  }
   renderFocusPractice();
   renderContinueCta();
   renderReviewCta();
@@ -969,6 +1003,54 @@ function loadFoundationHistory() {
   } catch {
     return null;
   }
+}
+
+function renderModeSelector() {
+  const grammarLink = $("#grammarModeLink");
+  const readingLink = $("#readingModeLink");
+  if (!grammarLink || !readingLink) return;
+  const query = new URLSearchParams(location.search);
+  const unlocked = foundationUnlocked();
+  grammarLink.href = unlocked ? "#homePanel" : foundationHref(query);
+  grammarLink.classList.toggle("locked", !unlocked);
+  grammarLink.classList.toggle("active", unlocked);
+  if (unlocked) grammarLink.setAttribute("aria-current", "page");
+  else grammarLink.removeAttribute("aria-current");
+  const description = $("#grammarModeDescription");
+  const cta = $("#grammarModeCta");
+  if (description) description.textContent = unlocked
+    ? "基礎チェックを終えています。入試英文法の演習を続けます。"
+    : "基礎チェックを終えると、入試英文法演習が解放されます。";
+  if (cta) cta.textContent = unlocked ? "英文法演習を続ける →" : "基礎チェックへ進む →";
+  readingLink.href = readingHref(query);
+  const routeGrammarLink = $("#routeGrammarLink");
+  const routeGrammarLabel = $("#routeGrammarLabel");
+  if (routeGrammarLink) {
+    routeGrammarLink.classList.toggle("locked", !unlocked);
+    routeGrammarLink.classList.toggle("active", unlocked);
+  }
+  if (routeGrammarLabel) routeGrammarLabel.textContent = unlocked ? "英文法演習" : "英文法演習（基礎完了後）";
+}
+
+function renderGrammarGate() {
+  const panel = $("#grammarLockPanel");
+  if (!panel) return;
+  const foundation = foundationStatus();
+  if (foundation.unlocked) {
+    panel.classList.add("hide");
+    return;
+  }
+  const nextStage = Array.from({ length: foundation.total }, (_, index) => index + 1)
+    .find(index => !foundation.stageResults[`stage${index}`]) || foundation.total;
+  panel.innerHTML = `
+    <p class="label">Grammar / Locked</p>
+    <h2>英文法演習は、基礎チェック完了後に解放されます。</h2>
+    <p class="hint">現在 ${foundation.completedStages} / ${foundation.total} 段階完了。次は第${nextStage}段階です。</p>
+    <div class="actions">
+      <a class="cta" id="foundationGateLink" href="${esc(foundationHref(new URLSearchParams(location.search)))}">基礎チェックを続ける</a>
+    </div>
+  `;
+  panel.classList.remove("hide");
 }
 
 function renderFoundationDashboard() {
@@ -1022,6 +1104,7 @@ function renderFoundationDashboard() {
 }
 
 function startStep1Quiz(unitId, setId, variant = "all") {
+  if (!requireFoundationComplete()) return;
   const questions = questionsForSet(unitId, setId);
   const pool = variant === "wrongOnly" ? step1WrongQuestions(questions) : questions;
   quiz = {
@@ -1040,6 +1123,7 @@ function startStep1Quiz(unitId, setId, variant = "all") {
 }
 
 function startStep2Quiz(singleQuestion = null) {
+  if (!requireFoundationComplete()) return;
   const remaining = questionData.questions.filter(question => !stateFor(question.id).step2Cleared);
   const pool = singleQuestion ? [singleQuestion] : (remaining.length ? remaining : questionData.questions);
   quiz = {
@@ -1058,6 +1142,7 @@ function startStep2Quiz(singleQuestion = null) {
 }
 
 function startStep3Quiz() {
+  if (!requireFoundationComplete()) return;
   quiz = {
     kind: "step3",
     mode: "step3",
@@ -1077,6 +1162,7 @@ function startStep3Quiz() {
 }
 
 function startQuiz(globalReview) {
+  if (!requireFoundationComplete()) return;
   focusMode = false;
   const pool = globalReview
     ? shuffled(allUnresolvedQuestions())
@@ -1099,6 +1185,7 @@ function startQuiz(globalReview) {
 }
 
 function startFocusQuiz() {
+  if (!requireFoundationComplete()) return;
   if (!focusedQuestions().length) return;
   focusMode = true;
   quiz = {
@@ -1119,6 +1206,7 @@ function startFocusQuiz() {
 }
 
 function startSpacedReview() {
+  if (!requireFoundationComplete()) return;
   const pool = shuffled(spacedDueQuestions());
   if (!pool.length) return renderHome();
   quiz = {

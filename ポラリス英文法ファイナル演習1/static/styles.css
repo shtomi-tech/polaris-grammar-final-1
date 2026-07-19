@@ -198,7 +198,8 @@ h2 {
 }
 
 .modulePath a,
-.modulePath > .active {
+.modulePath > .active,
+.modulePath > .locked {
   display: flex;
   flex: 1 1 180px;
   flex-direction: column;
@@ -217,8 +218,20 @@ h2 {
   color: var(--parchment);
 }
 
-.modulePath a > span,
-.modulePath > .active > span {
+.modulePath > .locked {
+  background: repeating-linear-gradient(
+    135deg,
+    var(--paper),
+    var(--paper) 8px,
+    var(--parchment) 8px,
+    var(--parchment) 16px
+  );
+  color: var(--muted);
+}
+
+.modulePath a > span:first-child,
+.modulePath > .active > span:first-child,
+.modulePath > .locked > span:first-child {
   font-family: var(--mono);
   font-size: 11px;
   letter-spacing: .08em;
@@ -228,6 +241,105 @@ h2 {
   align-self: center;
   color: var(--muted);
   font-family: var(--mono);
+}
+
+.modeGrid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0;
+  border-top: 1px solid var(--ink);
+  border-left: 1px solid var(--ink);
+  margin-top: 16px;
+}
+
+.modeCard {
+  display: flex;
+  min-height: 188px;
+  flex-direction: column;
+  gap: 8px;
+  border-right: 1px solid var(--ink);
+  border-bottom: 1px solid var(--ink);
+  color: var(--ink);
+  padding: 16px;
+  text-decoration: none;
+}
+
+.modeCard:hover,
+.modeCard.active {
+  background: var(--ink);
+  color: var(--parchment);
+}
+
+.modeCard.locked {
+  background: repeating-linear-gradient(
+    135deg,
+    var(--paper),
+    var(--paper) 8px,
+    var(--parchment) 8px,
+    var(--parchment) 16px
+  );
+  color: var(--muted);
+}
+
+.modeCard.locked:hover {
+  background: repeating-linear-gradient(
+    135deg,
+    var(--parchment),
+    var(--parchment) 8px,
+    var(--paper) 8px,
+    var(--paper) 16px
+  );
+  color: var(--ink);
+}
+
+.modeNumber,
+.modeCardCta {
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: .08em;
+}
+
+.modeCard h3 {
+  margin: 0;
+  font-family: var(--serif);
+  font-size: 24px;
+  font-weight: 500;
+}
+
+.modeCard p {
+  color: var(--muted);
+  font-size: 13px;
+  margin: 0;
+}
+
+.modeCard:hover p,
+.modeCard.active p {
+  color: rgba(250, 249, 246, .72);
+}
+
+.modeCardCta {
+  margin-top: auto;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+
+.modeCard.locked .modeCardCta {
+  color: var(--clay);
+}
+
+a.cta {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  border: 1px solid var(--ink);
+  background: var(--ink);
+  color: var(--parchment);
+  padding: 9px 16px;
+  text-decoration: none;
+}
+
+a.cta:hover {
+  background: #000;
 }
 
 .studentControls {
@@ -1173,6 +1285,7 @@ h2 {
   .explainGrid,
   .masterGrid,
   .dashboardGrid,
+  .modeGrid,
   .shareOutput {
     grid-template-columns: 1fr;
   }
@@ -1276,7 +1389,8 @@ h2 {
   }
 
   .modulePath a,
-  .modulePath > .active {
+  .modulePath > .active,
+  .modulePath > .locked {
     flex-basis: 100%;
     min-height: 60px;
   }

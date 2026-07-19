@@ -83,6 +83,19 @@ button:disabled { cursor: default; opacity: .55; }
   color: var(--parchment);
 }
 
+.moduleNav a.locked,
+.moduleNav span.locked {
+  background: repeating-linear-gradient(
+    135deg,
+    var(--paper),
+    var(--paper) 8px,
+    var(--parchment) 8px,
+    var(--parchment) 16px
+  );
+  color: var(--muted);
+  cursor: not-allowed;
+}
+
 .backlink,
 .eyebrow,
 .kicker,

@@ -45,6 +45,38 @@
     }
   }
 
+  function grammarUnlocked(history = loadHistory()) {
+    const stageResults = history?.stageResults || {};
+    return DATA.learningStages.every((_, index) => Boolean(stageResults[`stage${index + 1}`]));
+  }
+
+  function updateGrammarNavigation(history = loadHistory()) {
+    const unlocked = grammarUnlocked(history);
+    const query = new URLSearchParams(location.search);
+    const current = document.querySelector("#grammarLink");
+    if (!current) return;
+    let grammarLink = current;
+    if (unlocked && current.tagName !== "A") {
+      grammarLink = document.createElement("a");
+      grammarLink.id = "grammarLink";
+      current.replaceWith(grammarLink);
+    } else if (!unlocked && current.tagName !== "SPAN") {
+      grammarLink = document.createElement("span");
+      grammarLink.id = "grammarLink";
+      current.replaceWith(grammarLink);
+    }
+    grammarLink.classList.toggle("locked", !unlocked);
+    if (unlocked) {
+      grammarLink.href = trainerHref(query);
+      grammarLink.removeAttribute("aria-disabled");
+      grammarLink.title = "英文法演習を開く";
+    } else {
+      grammarLink.setAttribute("aria-disabled", "true");
+      grammarLink.title = "5段階の基礎チェックを完了すると解放されます";
+    }
+    grammarLink.textContent = unlocked ? "英文法演習" : "英文法演習（基礎完了後）";
+  }
+
   function saveHistory(result) {
     const previous = loadHistory() || {};
     if (result.kind === "spaced") {
@@ -274,6 +306,7 @@
     pendingUncertain = false;
     answerRevealed = false;
     const history = loadHistory();
+    updateGrammarNavigation(history);
     const stageResults = history?.stageResults || {};
     const completedStages = DATA.learningStages.filter((_, index) => stageResults[`stage${index + 1}`]).length;
     const nextStageIndex = DATA.learningStages.findIndex((_, index) => !stageResults[`stage${index + 1}`]);
@@ -563,6 +596,7 @@
     const priorityNames = needsReview.slice(0, 4).map(stat => stat.domain.label);
     const focusDomains = needsReview.map(stat => stat.domain.id);
     const history = loadHistory();
+    updateGrammarNavigation(history);
     const completedStages = DATA.learningStages.filter((_, index) => history?.stageResults?.[`stage${index + 1}`]).length;
     const focusParams = new URLSearchParams(location.search);
     focusParams.set("focus", focusDomains.join(","));

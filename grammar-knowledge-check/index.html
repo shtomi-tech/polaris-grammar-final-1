@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="description" content="英文法の基礎知識を120問で確認する4択アプリ">
   <title>英語学習トレーナー｜基礎チェック</title>
-  <link rel="stylesheet" href="static/styles.css?v=20260719-ui">
+  <link rel="stylesheet" href="static/styles.css?v=20260719-mode-serial">
 </head>
 <body>
   <main class="wrap">
@@ -18,7 +18,7 @@
       <nav class="moduleNav" aria-label="学習モジュール">
         <a id="homeLink" href="../">ホーム</a>
         <span aria-current="page">基礎チェック</span>
-        <a id="grammarLink" href="../ポラリス英文法ファイナル演習1/index.html">英文法演習</a>
+        <span id="grammarLink" class="locked" aria-disabled="true">英文法演習（基礎完了後）</span>
         <a id="readingLink" href="../reading/">英文解釈</a>
       </nav>
     </header>
@@ -32,6 +32,6 @@
 
   <script src="data/questions.js?v=20260716-core-120"></script>
 <script src="static/vendor/harness/cloud.js?v=0.1.0"></script>
-<script src="static/app.js?v=20260719-ui"></script>
+<script src="static/app.js?v=20260719-mode-serial"></script>
 </body>
 </html>
