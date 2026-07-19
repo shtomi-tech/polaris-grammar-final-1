@@ -57,9 +57,30 @@ button:disabled { cursor: default; opacity: .55; }
   padding-bottom: 14px;
 }
 
-.appNav {
+.moduleNav {
   display: flex;
+  flex-wrap: wrap;
   align-items: center;
+  gap: 8px;
+  margin-left: auto;
+}
+
+.moduleNav a,
+.moduleNav span {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  padding: 8px 12px;
+  border: 1px solid var(--ink);
+  color: var(--ink);
+  font-size: 12px;
+  text-decoration: none;
+}
+
+.moduleNav a:hover,
+.moduleNav span[aria-current="page"] {
+  background: var(--ink);
+  color: var(--parchment);
 }
 
 .backlink,
@@ -266,5 +287,7 @@ h3 { font-size: 18px; line-height: 1.45; }
   .quizActionBar p { text-align: center; }
   .choice { min-height: 68px; }
   .top { align-items: flex-start; flex-direction: column; }
+  .moduleNav { margin-left: 0; width: 100%; }
+  .moduleNav a, .moduleNav span { flex: 1 1 140px; justify-content: center; }
   .utility { align-items: flex-start; flex-direction: column; }
 }

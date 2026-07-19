@@ -61,9 +61,18 @@ function grammarHref(query = "") {
   return appendQuery(target, query);
 }
 
+function foundationHref(query = "") {
+  return appendQuery("../grammar-knowledge-check/", query);
+}
+
 function bindSiteNavigation() {
+  const query = new URLSearchParams(location.search);
+  const homeLink = $("#homeLink");
+  const foundationLink = $("#foundationLink");
   const grammarLink = $("#grammarLink");
-  if (grammarLink) grammarLink.href = grammarHref(new URLSearchParams(location.search));
+  if (homeLink) homeLink.href = grammarHref(query);
+  if (foundationLink) foundationLink.href = foundationHref(query);
+  if (grammarLink) grammarLink.href = grammarHref(query);
 }
 
 function el(tag, attrs = {}, ...kids) {

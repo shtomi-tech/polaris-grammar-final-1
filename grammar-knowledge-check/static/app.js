@@ -734,12 +734,14 @@
 
   async function init() {
     const trainerLink = document.querySelector("#trainerLink");
+    const homeLink = document.querySelector("#homeLink");
+    const grammarLink = document.querySelector("#grammarLink");
     const readingLink = document.querySelector("#readingLink");
-    if (trainerLink) {
-      const query = new URLSearchParams(location.search);
-      trainerLink.href = trainerHref(query);
-      if (readingLink) readingLink.href = readingHref(query);
-    }
+    const query = new URLSearchParams(location.search);
+    if (trainerLink) trainerLink.href = trainerHref(query);
+    if (homeLink) homeLink.href = trainerHref(query);
+    if (grammarLink) grammarLink.href = trainerHref(query);
+    if (readingLink) readingLink.href = readingHref(query);
     cloud = createCloud({
       appId: APP_ID,
       configPath: "../static/config.json",

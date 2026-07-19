@@ -1380,8 +1380,17 @@ function moveNext() {
 }
 
 function bindEvents() {
+  const query = new URLSearchParams(location.search);
+  const homeLink = $("#homeLink");
+  const foundationLink = $("#foundationLink");
+  const routeFoundationLink = $("#routeFoundationLink");
   const readingLink = $("#readingLink");
-  if (readingLink) readingLink.href = readingHref(new URLSearchParams(location.search));
+  const routeReadingLink = $("#routeReadingLink");
+  if (homeLink) homeLink.href = appendQuery("./", query);
+  if (foundationLink) foundationLink.href = foundationHref(query);
+  if (routeFoundationLink) routeFoundationLink.href = foundationHref(query);
+  if (readingLink) readingLink.href = readingHref(query);
+  if (routeReadingLink) routeReadingLink.href = readingHref(query);
   $("#studentSel").onchange = event => {
     if (sharedSession.enabled) return;
     activeStudentId = event.target.value;

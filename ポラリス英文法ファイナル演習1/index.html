@@ -3,18 +3,23 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>英文法トレーナー</title>
+<title>英語学習トレーナー｜英文法演習</title>
 <link rel="stylesheet" href="static/styles.css">
 </head>
 <body>
 <div class="wrap">
   <header class="top">
     <div class="brand">
-      <span class="backlink">英文法トレーナー</span>
-      <h1>英文法トレーナー</h1>
+      <span class="backlink">英語学習トレーナー</span>
+      <h1>英文法演習</h1>
     </div>
     <div class="topActions">
-      <a class="ghost appNavLink" id="readingLink" href="reading/">英文解釈へ</a>
+      <nav class="moduleNav" aria-label="学習モジュール">
+        <a id="homeLink" href="./">ホーム</a>
+        <a id="foundationLink" href="grammar-knowledge-check/index.html">基礎チェック</a>
+        <span aria-current="page">英文法演習</span>
+        <a id="readingLink" href="reading/">英文解釈</a>
+      </nav>
       <div class="shareStatus" id="shareStatus" aria-live="polite"></div>
       <details class="settingsMenu">
         <summary class="ghost">⚙ 管理</summary>
@@ -34,13 +39,30 @@
 
   <main>
     <section class="card hero">
-      <p class="label">English Grammar Trainer</p>
+      <p class="label">English Study / Grammar</p>
       <h2>標準レベルの英文法4択を、正解するまで効率よく周回する</h2>
       <p class="hint">基礎チェックから、UNIT演習・復習まで、今日やることを一つずつ進めます。</p>
       <div class="actions">
         <button class="cta" id="continueBtn" type="button">▶ つづきから始める</button>
       </div>
       <p class="heroSubHint" id="continueHint">初回は基礎チェックの第1段階から始めます。</p>
+    </section>
+
+    <section class="card learningRouteCard">
+      <div class="sectionHead">
+        <div>
+          <p class="label">Learning Route</p>
+          <h2>英語学習の流れ</h2>
+        </div>
+        <p class="hint">現在地から、次の学習へ進めます。</p>
+      </div>
+      <div class="modulePath" aria-label="英語学習の流れ">
+        <a id="routeFoundationLink" href="grammar-knowledge-check/index.html"><span>01</span>基礎チェック</a>
+        <span class="modulePathArrow" aria-hidden="true">→</span>
+        <span class="active"><span>02</span>英文法演習</span>
+        <span class="modulePathArrow" aria-hidden="true">→</span>
+        <a id="routeReadingLink" href="reading/"><span>03</span>英文解釈</a>
+      </div>
     </section>
 
     <section class="card" id="foundationDashboardCard">
