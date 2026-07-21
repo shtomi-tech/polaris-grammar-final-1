@@ -12,7 +12,7 @@ const skillCounts = { knowledge: 0 };
 let knowledgeSupportCount = 0;
 const warnings = [];
 
-if (data.domains.length !== 17) errors.push(`分野数: ${data.domains.length}（17が必要）`);
+if (data.domains.length !== 16) errors.push(`分野数: ${data.domains.length}（16が必要）`);
 if (data.questions.length !== 150) errors.push(`問題数: ${data.questions.length}（150が必要）`);
 
 for (const question of data.questions) {

@@ -208,10 +208,10 @@
       <section class="panel dark">
         <p class="kicker">START HERE / 30 QUESTIONS × 5</p>
         <h2>${DATA.questions.length}問で、英文法の基礎知識を一巡する。</h2>
-        <p class="lead">品詞と文の骨組みから仮定法・語法まで、17分野の基礎を学習順に確認します。解答すると、その場で正答と解説を表示します。</p>
+        <p class="lead">品詞と文の骨組みから仮定法・語法まで、16分野の基礎を学習順に確認します。解答すると、その場で正答と解説を表示します。</p>
         <div class="overview" aria-label="アプリの概要">
           <div><strong>${DATA.questions.length}</strong><span>4択の基礎確認</span></div>
-          <div><strong>17</strong><span>英文法の分野</span></div>
+          <div><strong>16</strong><span>英文法の分野</span></div>
           <div><strong>5</strong><span>学習段階</span></div>
         </div>
         <div class="primaryAction">
@@ -524,7 +524,7 @@
           ${(needsReview.length ? needsReview : stats).map(domainRowHtml).join("")}
         </div>
         <details class="allResults">
-          <summary>17分野すべての結果を表示する</summary>
+          <summary>16分野すべての結果を表示する</summary>
           <div class="domainList">${visibleStats.map(domainRowHtml).join("")}</div>
         </details>
       </section>
@@ -621,7 +621,7 @@
     && DATA.questionOrder.length === DATA.questions.length
     && new Set(DATA.questionOrder).size === DATA.questions.length
     && DATA.questionOrder.every(id => questionById.has(id));
-  if (!DATA || DATA.questions.length !== 150 || DATA.domains.length !== 17 || !hasValidOrder) {
+  if (!DATA || DATA.questions.length !== 150 || DATA.domains.length !== 16 || !hasValidOrder) {
     app.innerHTML = "<section class=\"panel\"><h2>データの読み込みに失敗しました</h2><p>問題数または分野数が想定と異なります。</p></section>";
     return;
   }

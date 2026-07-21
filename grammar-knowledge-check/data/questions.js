@@ -14,7 +14,6 @@ const DOMAIN_TARGETS = {
   subjunctive: "現実との距離と時間から仮定法の形を決める力",
   nouns: "名詞の可算性・限定詞・格を文中で判断する力",
   adverb: "修飾先から形容詞・副詞の形と位置を選ぶ力",
-  preposition: "時間・場所・到達の関係を前置詞で区別する力",
   negation: "be動詞・do・助動詞の使い分けと語順で否定文・疑問文を組み立てる力"
 };
 
@@ -34,7 +33,6 @@ const DOMAIN_REVIEW_HINTS = {
   subjunctive: "反実の内容が現在か過去かを確認し、条件節と主節の時制を対応させる。",
   nouns: "名詞が可算か不可算か、特定されているか、文中でどの格が必要かを確認する。",
   adverb: "修飾される語が名詞か動詞か、空所が補語か修飾語かを確認する。",
-  preposition: "時間・場所・移動の関係と、空所の後ろの名詞句が表す範囲を確認する。",
   negation: "述語がbe動詞・一般動詞・助動詞のどれかを確認し、疑問文でも後続動詞を原形にする。"
 };
 
@@ -76,8 +74,7 @@ window.GRAMMAR_CHECK_DATA = {
     { id: "subjunctive", label: "仮定法", order: 13, rule: "仮定法は現実と距離のあることを、時制を一段ずらして表します。", points: ["仮定法過去：If + 過去形, would + 原形。現在の事実に反する仮定。", "仮定法過去完了：If + had + p.p., would have + p.p.。過去の事実に反する仮定。", "I wish の後ろも、現在の願望なら過去形、過去の後悔なら過去完了。"], examples: ["If I were rich, I would travel.", "If I had studied, I would have passed."], traps: ["仮定法過去は『過去について』ではなく、現在の反実仮想を表せる。"] },
     { id: "nouns", label: "名詞・冠詞・代名詞", order: 14, rule: "名詞は数えられるか、特定されるか、文中でどの格かを確認します。", points: ["可算名詞の単数には原則 a / an / the / this などの限定詞が必要。", "初めて話題に出す物には a / an、既に出た特定の物には the。", "不可算名詞は原則複数形にせず、a piece of などで数える。", "主格 I / he、所有格 my / his、目的格 me / him を位置で使い分ける。", "many は可算複数、much は不可算。"], examples: ["I bought a book. The book was interesting.", "I need some information.", "She gave me her notebook."], traps: ["advice, furniture, information は通常不可算。a advice にはしない。"] },
     { id: "adverb", label: "形容詞・副詞", order: 15, rule: "形容詞は名詞・補語を、副詞は動詞・形容詞・副詞・文全体を修飾します。", points: ["be動詞や look / become などの補語には形容詞を置く。", "always / usually などの頻度の副詞は、一般動詞の前・be動詞の後に置く。", "friendly / lively のように -ly でも形容詞の語がある。"], examples: ["She looks happy.", "He always gets up early. / She is always kind."], traps: ["形容詞に機械的に -ly を付ければ副詞、とは限らない。"] },
-    { id: "preposition", label: "前置詞", order: 16, rule: "前置詞は、語と語の時間・場所・方法などの関係を示します。語句ごとに覚えます。", points: ["at は点、on は接触面・曜日、in は内部・月年などの広がり。", "場所も、狭い地点は at、都市・国など広がりは in。", "by は期限・手段・行為者、until は継続の終点。", "to は到達点、into は中へ入る動き。"], examples: ["at 7 o'clock / on Monday / in July / in Tokyo", "Finish it by Friday. / stay until Friday."], traps: ["日本語の『まで』だけでは by と until を選べない。期限か継続かを見る。"] },
-    { id: "negation", label: "否定文・疑問文・間接疑問", order: 17, rule: "否定文・疑問文は、be動詞・助動詞・do の使い分けと語順で組み立てます。", points: ["一般動詞の否定文・疑問文は do / does / did を使い、後ろの動詞は原形にする。", "be動詞・助動詞の文は、be動詞・助動詞を主語の前に出して疑問文にする。", "間接疑問は疑問詞 + 主語 + 動詞の平叙文語順。"], examples: ["He doesn't play tennis. / Does he play tennis?", "Is he a student? / Can you swim?", "Do you know where he lives?"], traps: ["間接疑問で do you know where does he live? とはしない。"] }
+    { id: "negation", label: "否定文・疑問文・間接疑問", order: 16, rule: "否定文・疑問文は、be動詞・助動詞・do の使い分けと語順で組み立てます。", points: ["一般動詞の否定文・疑問文は do / does / did を使い、後ろの動詞は原形にする。", "be動詞・助動詞の文は、be動詞・助動詞を主語の前に出して疑問文にする。", "間接疑問は疑問詞 + 主語 + 動詞の平叙文語順。"], examples: ["He doesn't play tennis. / Does he play tennis?", "Is he a student? / Can you swim?", "Do you know where he lives?"], traps: ["間接疑問で do you know where does he live? とはしない。"] }
   ],
   questions: [
     // ---- STAGE 1 品詞と文の骨組み（q1-q29）----
@@ -136,7 +133,7 @@ window.GRAMMAR_CHECK_DATA = {
     ["tense", "Look! The baby ___ now. に入る形は？", ["cries", "is crying", "cried", "has cried"], "is crying", "Look! と now から、今まさに進行中の動作。現在進行形 be + -ing を使う。", { "cries": "習慣を表す現在形と、今進行中を表す現在進行形を混同している。" }],
     ["tense", "When you called me, I ___ dinner.（電話が来たとき、夕食を作っている最中だった）に入る形は？", ["was making", "am making", "made", "have made"], "was making", "過去のある時点（電話が来たとき）に進行中だった動作は、過去進行形 was / were + -ing で表す。", { "made": "過去の一回の動作と、過去のある時点で進行中だった動作を区別していない。", "am making": "現在進行形と過去進行形の be 動詞の時制を混同している。" }],
     ["tense", "yesterday を伴う文で通常使う時制は？", ["現在完了", "過去形", "未来完了", "現在完了進行形"], "過去形", "yesterday は完結した過去時点を指定するため、通常は過去形。現在完了とは併用しないのが原則。"],
-    ["preposition", "The bus will arrive ___ ten minutes. に入る語は？", ["in", "after", "during", "until"], "in", "in + 時間の長さは、現在を基準に『〜後に』を表す。in ten minutesで『今から10分後に』。afterは通常、基準となる出来事や時点を後ろに置く。", { "after": "今からの経過時間を表すinと、別の出来事・時点を基準にするafterを区別していない。" }],
+    ["tense", "When I arrived at the theater, the movie ___. に入る形は？", ["had already started", "has already started", "already started", "will already start"], "had already started", "the movieが始まったのは、I arrivedという過去の基準時より前。過去の出来事よりさらに前を表すhad + 過去分詞の過去完了を使う。", { "already started": "二つの過去の出来事の前後関係を示さず、単純過去だけで処理している。", "has already started": "現在を基準にする現在完了を、過去の基準時より前の出来事に使っている。" }],
     ["tense", "Don't worry. I ___ you. に最も合う形は？", ["will help", "helped", "helps", "have helped"], "will help", "これからすることをその場で申し出ているので、未来を表す will + 原形。", { "helped": "これからの動作なのに過去形を選んでいる。" }],
     ["tense", "Look at those dark clouds. It ___ rain soon. に最も合う語句は？", ["is going to", "is going", "will going to", "goes to"], "is going to", "目の前の兆候（黒い雲）から予測する未来は be going to + 原形。", { "will going to": "will と be going to を重ねて使っている。どちらか一方でよい。" }],
     ["tense", "現在完了の基本形は？", ["haveまたはhas + 過去分詞", "be + 現在分詞", "did + 原形", "will + 原形"], "haveまたはhas + 過去分詞", "現在完了はhaveまたはhas + 過去分詞で作り、過去の出来事を現在につなげる。"],
@@ -216,12 +213,12 @@ window.GRAMMAR_CHECK_DATA = {
     ["subjunctive", "If I ___ rich, I would travel around the world. に入る形は？", ["am", "were", "had been", "will be"], "were", "現在の事実に反する仮定は If + 過去形。be動詞は were を使うのが基本。", { "had been": "現在の反実仮想（仮定法過去）と過去の反実仮想（仮定法過去完了）を混同している。" }],
     ["subjunctive", "If I had studied harder, I ___ the exam. に入る形は？", ["would pass", "would have pass", "would have passed", "had passed"], "would have passed", "条件節がhad + 過去分詞なので、過去の事実に反する仮定。主節はwould have + 過去分詞で、過去に起こらなかった結果を表す。", { "would pass": "would + 原形を選び、現在の反実仮想と過去の反実仮想を混同している。過去の結果にはwould have + 過去分詞を使う。", "would have pass": "would haveの後ろを原形にしている。完了形のhaveの後ろには過去分詞passedが必要。", "had passed": "条件節と同じ過去完了を主節にも置いている。主節はwould have + 過去分詞で、起こらなかった結果を表す。" }],
     ["subjunctive", "I wish I ___ taller. に最も合う形は？", ["am", "were", "had been", "will be"], "were", "現在の実現しにくい願望は I wish + 過去形。過去への後悔なら I wish + had + 過去分詞。"],
-    // 前置詞
-    ["preposition", "The meeting starts ___ 7 p.m. に入る前置詞は？", ["at", "on", "in", "by"], "at", "具体的な時刻の前にはatを使う。曜日・日付にはon、月・年にはinを使う。"],
-    ["preposition", "曜日や日付の前に置く前置詞は？", ["on", "at", "in", "by"], "on", "on Monday / on May 5 のように曜日・日付には on。時刻は at、月・年・季節は in。"],
-    ["preposition", "I live ___ Tokyo. に入る前置詞は？", ["in", "at", "on", "by"], "in", "都市・国など広がりのある場所には in。狭い一地点なら at（at the station など）。"],
-    ["preposition", "『金曜日までに仕上げる』の期限を表す前置詞は？", ["by", "until", "during", "from"], "by", "by Friday は金曜を期限とする。until Friday は金曜まで動作・状態が継続する。", { "until": "期限の by と、その時まで続く継続の until を混同している。" }],
-    ["preposition", "He was outside the room. He crossed the doorway and walked ___ it. に最も合う語は？", ["to", "into", "at", "by"], "into", "外から戸口という境界を越えて内部へ入る動きなのでinto。toは到達点を示すだけで、内部への移動までは表さない。", { "to": "到達点と内部へ入る移動を区別していない。", "at": "場所を点として示す at を移動の方向に用いている。", "by": "そばを通る意味の by を到達の意味で用いている。" }],
+    // ポラリス頻出の追加確認
+    ["subjunctive", "___ you won a scholarship, how would you use it? に入る語は？", ["Suppose", "Unless", "Because", "Despite"], "Suppose", "Suppose + 主語 + 動詞で『もし〜だとしたら』という仮定を置く。後ろのhow would you use it?が、その仮定に対する結果を尋ねている。", { "Unless": "『〜でない限り』という条件と、単純に仮定を置くSupposeを混同している。", "Despite": "despiteの後ろは名詞句で、節を導いて仮定を表す接続表現ではない。" }],
+    ["nouns", "___ students in this class volunteer every month. に入る語句は？", ["A number of", "The number of", "Much", "Every"], "A number of", "a number of + 複数名詞は『多くの〜』を表し、複数扱いなので後ろのvolunteerと一致する。the number of + 複数名詞は『〜の数』で単数扱いになる。", { "The number of": "『多くの学生』ではなく『学生の数』という単数の主語を作る表現を選んでいる。", "Much": "muchは不可算名詞に使い、studentsのような可算複数名詞には使わない。" }],
+    ["nouns", "We have ___ time left, so let's take a taxi. に入る語は？", ["little", "a few", "many", "few"], "little", "timeは不可算名詞で、little timeは『ほとんど時間がない』。a few / fewは可算名詞の複数に使う。", { "a few": "可算名詞複数に使う表現を、不可算名詞timeに使っている。", "many": "manyは可算名詞複数に使う。timeを量として表すときはmuch / littleを使う。" }],
+    ["adverb", "The old printer is ___ in use. に入る語句は？", ["no longer", "not longer", "any longer", "longer not"], "no longer", "no longerは『もはや〜ない』を表す副詞句。be動詞の後ろで、現在は使われていないことを示す。", { "any longer": "any longerは通常notと組み合わせて文末に置く（isn't in use any longer）。", "not longer": "比較の長さを表す語順で、『もはや〜ない』という副詞句にはならない。" }],
+    ["infinitive", "The coach advised the players ___ early. に入る形は？", ["to arrive", "arriving", "arrive", "arrived"], "to arrive", "advise + 人 + to doで『人に〜するよう助言する』。目的語the playersの後ろにはto + 動詞の原形を置く。", { "arriving": "adviseの後ろを動名詞にせず、advise + 人 + to doの型を確認する。", "arrive": "助動詞の後ろのように原形だけを置いている。advise + 人 + to doではtoが必要。" }],
     // ---- ポラリス入試演習への橋渡し（q121-q150）----
     ["foundation", "The elderly need safe places to rest. の The elderly の説明として正しいものは？", ["形容詞にtheが付き、複数の人々を表す名詞相当", "一人の高齢者を表す可算名詞の単数", "場所を説明する副詞句", "elderlyを最上級にした表現"], "形容詞にtheが付き、複数の人々を表す名詞相当", "the + 形容詞は、その性質をもつ人々全体を表し、複数扱いになる。the elderly は『高齢者の人々』という名詞相当のまとまり。"],
     ["verb_form", "This laptop ___ to my sister. に入る形は？", ["belongs", "is belonging", "belong", "belonged"], "belongs", "belongは所有・所属という状態を表し、通常は進行形にしない。主語This laptopは三人称単数なので現在形belongs。", { "is belonging": "今の状態だから進行形と考えている。belongは動作ではなく状態を表すため、通常は現在形を使う。", "belong": "現在形であることだけを見て、三人称単数の主語に必要な-sを落としている。" }],
@@ -238,14 +235,14 @@ window.GRAMMAR_CHECK_DATA = {
     ["infinitive", "I couldn't decide which train ___. に入る形は？", ["to take", "taking", "take", "took"], "to take", "疑問詞 + to doで『どの〜をすべきか』を表せる。which train to takeで『どの電車に乗るべきか』。"],
     ["infinitive", "It was careless ___ Rina to leave the door unlocked. に入る語は？", ["of", "for", "to", "with"], "of", "carelessは人の性質・行為への評価を表す形容詞なので、It is 形容詞 of 人 to doの形を使う。forはdifficultなど、行為の難易度を述べる形容詞で使う。", { "for": "行為の難易度を表すforと、人の性質を評価するofを区別していない。" }],
     ["infinitive", "The missing files seem ___ before the backup was made. に入る形は？", ["to have been deleted", "to be deleted", "to delete", "having deleted"], "to have been deleted", "削除はseemが示す現在の判断より前に起き、filesは削除される側。完了不定詞to have + 過去分詞と受動態been deletedを組み合わせる。", { "to be deleted": "受動態にはしているが、before the backup was madeが示すseemより前の出来事を完了不定詞で表していない。" }],
-    ["preposition", "___ the meeting, all phones must be switched off. に入る語は？", ["During", "While", "Because", "Although"], "During", "空所の後ろは名詞句the meeting。duringは前置詞なので名詞句を取り、whileは接続詞なので後ろに主語＋動詞が必要。", { "While": "『〜の間』という意味だけで選び、後ろが名詞句か節かを確認していない。" }],
+    ["infinitive", "Many students find it difficult ___ up with all the new terms. に入る形は？", ["to keep", "keeping", "keep", "kept"], "to keep", "find it + 形容詞 + to doで『〜するのは…だと感じる』。ここではto keep up withがitの内容を説明する。", { "keeping": "動名詞を置く型ではなく、find it + 形容詞 + to doの構文であることを見ていない。", "keep": "findの後ろに目的語＋補語だけを置くSVOCと、to不定詞で内容を示す構文を混同している。" }],
     ["conjunction", "Take an umbrella ___ it rains later. に入る語句は？", ["in case", "because of", "during", "despite"], "in case", "in case + 主語＋動詞で『〜するといけないから、〜に備えて』を表す。後ろのit rainsは節なので、名詞句を取る前置詞は置けない。"],
     ["comparison", "Yuki is one of the most reliable ___ on our team. に入る形は？", ["members", "member", "a member", "the member"], "members", "one of the + 最上級 + 複数名詞で『最も〜な…の一人・一つ』。複数いる集合の中の一人なのでmembers。", { "member": "oneに引かれて単数形を選んでいる。ofの後ろは複数の集合を表す。" }],
     ["nouns", "Could you give me ___ about choosing a course? に入る語句は？", ["some advice", "an advice", "some advices", "advises"], "some advice", "adviceは不可算名詞なのでanを付けず、複数形advicesにもしない。量を表すならsome adviceやa piece of advice。"],
     ["nouns", "The number of students in this class ___ increased this year. に入る形は？", ["has", "have", "are", "were"], "has", "the number of + 複数名詞の主語の中心はnumberで単数扱い。a number of + 複数名詞『多くの〜』なら複数扱いになる。", { "have": "直前のstudentsに動詞を一致させ、主語の中心the numberを確認していない。" }],
     ["nouns", "I have two keys. One is for the front door, and ___ is for the back door. に入る語は？", ["the other", "another", "other", "others"], "the other", "二つのうち一方がoneなら、残るもう一方はthe other。anotherは三つ以上ある中の不特定のもう一つに使う。", { "another": "二つに限定された残り一つと、三つ以上の中の不特定の一つを区別していない。" }],
     ["comparison", "This problem is ___ more difficult than the previous one. に入る語は？", ["much", "very", "most", "many"], "much", "比較級more difficultを強調するのはmuch。veryは原級を強調するが、very more difficultとはしない。", { "very": "原級の強調と比較級の強調を混同している。" }],
-    ["preposition", "The library will remain open ___ 9 p.m. に入る語は？", ["until", "by", "during", "for"], "until", "remain openは状態が続くので、その継続の終点を示すuntilを使う。byは『その時までに完了する』という期限を表す。", { "by": "完了の期限と、状態が続く終点を混同している。" }],
+    ["subjunctive", "I wish I ___ the earlier train yesterday. に入る形は？", ["had taken", "took", "would take", "have taken"], "had taken", "yesterdayの過去の事実に反する後悔なので、I wish + had + 過去分詞を使う。『もっと早い電車に乗っていればよかった』という意味。", { "took": "現在の願望に使うI wish + 過去形と、過去の後悔を表すI wish + had + 過去分詞を混同している。", "would take": "wish節の過去の反実仮想に、未来・意志を表すwouldを置いている。" }],
     ["relative", "関係詞を選ぶとき、後ろが『必要な文の要素が欠けていない完全文』なら、基本的に何を選ぶか。", ["関係副詞", "関係代名詞", "疑問代名詞", "再帰代名詞"], "関係副詞", "関係副詞where / when / whyは副詞として場所・時・理由を補うため、後ろは主語・動詞・目的語などがそろった完全文になる。関係代名詞の後ろは一要素が欠ける。"],
     ["relative", "Maya has three cousins, all of ___ live abroad. に入る語は？", ["whom", "who", "them", "which"], "whom", "前置詞ofの後ろなので目的格whomを使う。all of whom全体が先行詞three cousinsを説明する関係詞節を作る。", { "who": "人を表すことだけで主格whoを選び、前置詞ofの目的語になる格を確認していない。", "them": "代名詞themでは二つの節を接続できない。関係代名詞whomが必要。" }],
     ["negation", "Do you know where the nearest station ___? に入る語は？", ["is", "is it", "does", "be"], "is", "間接疑問文は疑問詞 + 主語 + 動詞の平叙文語順。where the nearest station isとなり、where is the nearest stationの疑問語順にはしない。", { "is it": "直接疑問文の語順を間接疑問文の中に残している。" }],
