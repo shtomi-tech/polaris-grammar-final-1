@@ -1253,6 +1253,11 @@ a.cta:hover {
   min-height: 48px;
 }
 
+.completionPanel.polarisComplete .completionActions .cta {
+  min-height: 56px;
+  width: 100%;
+}
+
 .explainList {
   margin: 8px 0 0;
   padding-left: 20px;

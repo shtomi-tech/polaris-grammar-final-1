@@ -705,9 +705,15 @@ function nextAction() {
     return { kind: "step2", label: `▶ つづきから始める — Step 2 残り${step2Stats.remaining}問` };
   }
   const meta = metaState();
+  if (meta.mastered) {
+    return {
+      kind: "reading",
+      label: "▶ 英文解釈へ進む — ポラリス完了"
+    };
+  }
   return {
     kind: "step3",
-    label: meta.mastered ? "▶ Step 3 チャレンジを続ける（MASTER済み）" : "▶ つづきから始める — Step 3 チャレンジ"
+    label: "▶ つづきから始める — Step 3 チャレンジ"
   };
 }
 
@@ -718,6 +724,8 @@ function renderContinueCta() {
   const unresolvedCount = allUnresolvedQuestions().length;
   let action;
   if (progressAction.kind === "foundation") {
+    action = progressAction;
+  } else if (progressAction.kind === "reading") {
     action = progressAction;
   } else if (resume) {
     action = resume;
@@ -736,6 +744,7 @@ function renderContinueCta() {
     else if (action.kind === "step2") startStep2Quiz();
     else if (action.kind === "spaced") startSpacedReview();
     else if (action.kind === "review") startQuiz(true);
+    else if (action.kind === "reading") window.location.href = readingHref(new URLSearchParams(location.search));
     else startStep3Quiz();
   };
   const hint = $("#continueHint");
@@ -744,7 +753,9 @@ function renderContinueCta() {
       ? "途中保存した問題を続けます。"
       : action.kind === "foundation"
         ? "まずは基礎チェックを終えます。"
-        : "迷った問題を優先して進めます。";
+        : action.kind === "reading"
+          ? "ポラリス完了。次は文法知識を使って英文の構造を読みます。"
+          : "迷った問題を優先して進めます。";
   }
   for (const id of ["continueBtn", "continueBtnMobile"]) {
     const button = $(`#${id}`);
@@ -1403,8 +1414,11 @@ function renderCompletionResult() {
   const correct = completed.correctCount || 0;
   const wrong = completed.wrongCount || 0;
   const next = nextAction();
-  const nextLabel = next.kind === "foundation"
-    ? "基礎チェックへ進む"
+  const polarisCompleted = next.kind === "reading";
+  const nextLabel = polarisCompleted
+    ? "英文解釈へ進む"
+    : next.kind === "foundation"
+      ? "基礎チェックへ進む"
     : next.kind === "step1"
       ? next.label.replace(/^▶\s*/, "")
       : next.kind === "step2"
@@ -1417,14 +1431,14 @@ function renderCompletionResult() {
   $("#quizBreadcrumb").textContent = "学習結果";
   $("#quizTitle").textContent = "演習完了";
   $("#quizBody").innerHTML = `
-    <div class="completionPanel">
-      <p class="label">SESSION COMPLETE</p>
-      <h3>この演習を完了しました</h3>
+    <div class="completionPanel${polarisCompleted ? " polarisComplete" : ""}">
+      <p class="label">${polarisCompleted ? "POLARIS COMPLETE" : "SESSION COMPLETE"}</p>
+      <h3>${polarisCompleted ? "ポラリス英文法を完了しました" : "この演習を完了しました"}</h3>
       <div class="completionStats" aria-label="演習結果">
         <div><span class="label">正解</span><strong>${correct}</strong><span> / ${total}</span></div>
         <div><span class="label">誤答</span><strong>${wrong}</strong></div>
       </div>
-      <p class="hint">結果は保存されています。次にやることを1つ選んでください。</p>
+      <p class="hint">${polarisCompleted ? "結果は保存されています。次は文法知識を使い、英文の構造を正確に読む練習へ進みます。" : "結果は保存されています。次にやることを1つ選んでください。"}</p>
       <div class="actions completionActions">
         <button class="cta" id="completionNextBtn" type="button">${esc(nextLabel)}</button>
         ${wrong > 0 ? `<button class="ghost" id="completionWrongBtn" type="button">誤答 ${wrong}問を復習</button>` : ""}
@@ -1438,6 +1452,7 @@ function renderCompletionResult() {
     else if (next.kind === "step2") startStep2Quiz();
     else if (next.kind === "spaced") startSpacedReview();
     else if (next.kind === "review") startQuiz(true);
+    else if (next.kind === "reading") window.location.href = readingHref(new URLSearchParams(location.search));
     else startStep3Quiz();
   };
   const wrongButton = $("#completionWrongBtn");
