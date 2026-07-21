@@ -30,6 +30,7 @@ const STEPS = [
 const STEP_LABELS = Object.fromEntries(STEPS);
 const STORE_PREFIX = "polaris_reading_mvp_v1";
 const DEFAULT_STUDENT = "default";
+const editorEnabled = new URLSearchParams(location.search).get("mode") === "editor";
 
 const state = {
   mode: "learn",
@@ -286,6 +287,7 @@ async function loadApp() {
   await cloud.init();
 
   await loadDataset(state.datasetId);
+  state.mode = editorEnabled ? "editor" : "learn";
   bindShell();
   render();
 }
@@ -306,7 +308,12 @@ function bindShell() {
     state.mode = "learn";
     render();
   });
-  $("#editorTab").addEventListener("click", () => {
+  const editorTab = $("#editorTab");
+  if (!editorEnabled) {
+    editorTab.classList.add("hide");
+    return;
+  }
+  editorTab.addEventListener("click", () => {
     state.mode = "editor";
     state.editorJson = JSON.stringify(state.dataset, null, 2);
     render();
@@ -314,6 +321,7 @@ function bindShell() {
 }
 
 function render() {
+  if (!editorEnabled) state.mode = "learn";
   $("#learnTab").classList.toggle("active", state.mode === "learn");
   $("#editorTab").classList.toggle("active", state.mode === "editor");
   $("#learnView").classList.toggle("hide", state.mode !== "learn");
@@ -331,8 +339,8 @@ function renderLearn() {
   view.appendChild(el("div", { class: "shell" },
     el("aside", {},
       renderSummary(),
-      el("details", { class: "itemPicker", open: window.innerWidth > 900 ? "open" : null },
-        el("summary", {}, "ほかの問題を選ぶ"),
+      el("details", { class: "itemPicker", id: "itemPicker" },
+        el("summary", {}, `ほかの問題を選ぶ（${state.dataset?.items?.length || 0}教材）`),
         renderItemList()
       )
     ),
@@ -370,9 +378,22 @@ function renderStartCta() {
   if (!target) return el("section", { class: "panel ctaPanel" }, el("p", {}, "教材データがありません。"));
   if (target.kind === "done") {
     return el("section", { class: "panel ctaPanel" },
-      el("p", { class: "label" }, "すべて完了"),
-      el("h2", {}, "全問完了しました"),
-      el("p", { class: "hint" }, "復習したい問題を下のリストから選んでください。")
+      el("p", { class: "label" }, "教材完了"),
+      el("h2", {}, "英文解釈を一巡しました"),
+      el("p", { class: "hint" }, "全30教材を完了しました。必要なら一覧から復習し、終える場合は学習ホームへ戻ります。"),
+      el("div", { class: "actions" },
+        el("a", { class: "primary", href: grammarHref(new URLSearchParams(location.search)) }, "学習ホームへ戻る"),
+        el("button", {
+          class: "ghost",
+          type: "button",
+          onclick: () => {
+            const picker = $("#itemPicker");
+            if (!picker) return;
+            picker.open = true;
+            picker.scrollIntoView({ behavior: "smooth", block: "start" });
+          },
+        }, "教材一覧を開く")
+      )
     );
   }
   const eyebrow = target.kind === "resume" ? "前回の続き" : target.kind === "review" ? "復習" : "はじめに";

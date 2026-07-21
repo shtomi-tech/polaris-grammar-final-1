@@ -681,9 +681,16 @@ function nextAction() {
   if (!foundation.unlocked) {
     const nextFoundationStage = Array.from({ length: FOUNDATION_STAGE_COUNT }, (_, index) => index + 1)
       .find(index => foundation.stageResults[`stage${index}`]?.total !== 30) || 1;
+    const foundationHistory = loadFoundationHistory();
+    const savedFoundation = foundationHistory?.inProgress;
+    const savedStage = Number.isInteger(savedFoundation?.stageIndex) ? savedFoundation.stageIndex + 1 : nextFoundationStage;
+    const savedQuestion = Number.isInteger(savedFoundation?.index) ? savedFoundation.index + 1 : 1;
     return {
       kind: "foundation",
-      label: `▶ 基礎から始める — 第${nextFoundationStage}段階`
+      resume: Boolean(savedFoundation),
+      label: savedFoundation
+        ? `▶ 基礎チェックを再開 — 第${savedStage}段階・第${savedQuestion}問`
+        : `▶ 基礎から始める — 第${nextFoundationStage}段階`
     };
   }
   for (const unit of questionData.units) {
@@ -739,7 +746,7 @@ function renderContinueCta() {
   const onClick = () => {
     if (action.kind === "resume") {
       if (!restoreQuizSession()) renderHome();
-    } else if (action.kind === "foundation") window.location.href = foundationHref();
+    } else if (action.kind === "foundation") window.location.href = foundationHref(new URLSearchParams(location.search));
     else if (action.kind === "step1") startStep1Quiz(action.unitId, action.setId);
     else if (action.kind === "step2") startStep2Quiz();
     else if (action.kind === "spaced") startSpacedReview();
@@ -752,7 +759,7 @@ function renderContinueCta() {
     hint.textContent = action.kind === "resume"
       ? "途中保存した問題を続けます。"
       : action.kind === "foundation"
-        ? "まずは基礎チェックを終えます。"
+        ? (action.resume ? "保存した途中地点から再開します。" : "まずは基礎チェックを始めます。")
         : action.kind === "reading"
           ? "ポラリス完了。次は文法知識を使って英文の構造を読みます。"
           : "迷った問題を優先して進めます。";
@@ -982,6 +989,7 @@ function renderHome() {
   renderFoundationDashboard();
   renderGrammarGate();
   if (!foundationUnlocked()) {
+    renderContinueCta();
     setVisible("grammarLockPanel");
     return;
   }
