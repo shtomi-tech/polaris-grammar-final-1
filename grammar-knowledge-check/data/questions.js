@@ -18,6 +18,26 @@ const DOMAIN_TARGETS = {
   negation: "be動詞・do・助動詞の使い分けと語順で否定文・疑問文を組み立てる力"
 };
 
+const DOMAIN_REVIEW_HINTS = {
+  foundation: "語数だけでなく、主語と述語動詞の有無、文中での働きを確認する。",
+  pattern: "動詞の直後に目的語・補語のどちらが必要かを、文の要素で確かめる。",
+  verb_form: "主語・時制・助動詞の有無を順に確認し、動詞の形を一つに絞る。",
+  tense: "時を表す語と、出来事が基準時より前・同時・後のどこにあるかを確認する。",
+  modal: "助動詞の後ろは原形であることと、肯定・否定で生じる意味の違いを確認する。",
+  passive: "主語が動作をする側か受ける側かを見て、be動詞と過去分詞の組を確認する。",
+  infinitive: "to + 原形が文中で名詞・形容詞・副詞のどの働きをしているかを確認する。",
+  gerund: "空所が名詞の位置か、前置詞や動名詞を目的語に取る動詞の後ろかを確認する。",
+  participle: "修飾される名詞が動作をする側か受ける側かを確認し、-ingと過去分詞を分ける。",
+  comparison: "比較する二者と程度を確認し、原級・比較級・最上級の形を対応させる。",
+  relative: "先行詞が人か物か、関係詞節の中で主語・目的語・副詞のどれが欠けているかを確認する。",
+  conjunction: "空所の後ろが節か名詞句か、前後が理由・譲歩・条件のどの関係かを確認する。",
+  subjunctive: "反実の内容が現在か過去かを確認し、条件節と主節の時制を対応させる。",
+  nouns: "名詞が可算か不可算か、特定されているか、文中でどの格が必要かを確認する。",
+  adverb: "修飾される語が名詞か動詞か、空所が補語か修飾語かを確認する。",
+  preposition: "時間・場所・移動の関係と、空所の後ろの名詞句が表す範囲を確認する。",
+  negation: "述語がbe動詞・一般動詞・助動詞のどれかを確認し、疑問文でも後続動詞を原形にする。"
+};
+
 const STAGE_DEFS = [
   ["品詞と文の骨組み", 29],
   ["動詞の形と時制", 26],
@@ -35,7 +55,7 @@ const LEARNING_STAGES = STAGE_DEFS.map(([label, count]) => ({
 function defaultMisconceptions(question) {
   return Object.fromEntries(question.choices
     .filter(choice => choice !== question.answer)
-    .map(choice => [choice, `「${DOMAIN_TARGETS[question.domain]}」の判断根拠を取り違えている。`]));
+    .map(choice => [choice, `「${choice}」と判断している。正答の「${question.answer}」と比べ、${DOMAIN_REVIEW_HINTS[question.domain]}`]));
 }
 
 window.GRAMMAR_CHECK_DATA = {
@@ -170,7 +190,7 @@ window.GRAMMAR_CHECK_DATA = {
     ["conjunction", "接続詞の基本的な働きとして正しいものは？", ["語と語・句と句・節と節を結ぶ", "人・物・事柄の名前を表す", "名詞の前で位置関係だけを示す", "主語の動作だけを表す"], "語と語・句と句・節と節を結ぶ", "接続詞はandのように語や句を結んだり、becauseのように節と節の関係を示したりする。"],
     ["conjunction", "I think that he is right. の that の働きは？", ["『〜ということ』のまとまり（名詞節）を作る接続詞", "直前の名詞を修飾する関係代名詞", "理由を表す接続詞", "場所を表す関係副詞"], "『〜ということ』のまとまり（名詞節）を作る接続詞", "that he is right 全体が『彼が正しいということ』という名詞のかたまりで、think の目的語。この that は省略されることも多い。", { "直前の名詞を修飾する関係代名詞": "接続詞の that と関係代名詞の that を混同している。この that の後ろは欠けのない完全な文。" }],
     ["conjunction", "I know ___ she is kind.（彼女が親切だということを知っている）に入る語は？", ["that", "what", "which", "because"], "that", "『〜ということ』という名詞節を作る接続詞 that。know の目的語になっている。", { "what": "先行詞を含む what の後ろは不完全な文。ここは she is kind という完全な文なので that。", "because": "『〜ということ』の名詞節と『〜だから』の理由の節を混同している。" }],
-    ["conjunction", "because と because of の違いとして正しいものは？", ["becauseの後ろは節、because ofの後ろは名詞句", "becauseの後ろは名詞、because ofの後ろは節", "どちらも動詞の原形を取る", "意味が正反対"], "becauseの後ろは節、because ofの後ろは名詞句", "because it rained / because of the rain の形で区別する。"],
+    ["conjunction", "because と because of の後ろに置く形の組み合わせは？", ["because + 節 / because of + 名詞句", "because + 名詞句 / because of + 節", "because + 原形 / because of + 原形", "because + 名詞句 / because of + 名詞句"], "because + 節 / because of + 名詞句", "because it rained のようにbecauseの後ろには節を、because of the rain のようにbecause ofの後ろには名詞句を置く。", { "because + 名詞句 / because of + 節": "becauseとbecause ofの後ろに置く形を逆にしている。becauseには節、because ofには名詞句を続ける。", "because + 原形 / because of + 原形": "接続詞・群前置詞の後ろに動詞の原形を直接置く形だと考えている。becauseには節、because ofには名詞句が必要。", "because + 名詞句 / because of + 名詞句": "becauseも名詞句を取ると考えている。becauseは主語と述語動詞を含む節を導く。" }],
     ["conjunction", "The game was canceled ___ the heavy rain. に最も合う語句は？", ["because of", "because", "although", "therefore"], "because of", "空所の後ろは名詞句the heavy rainなのでbecause ofを使う。becauseの後ろには主語＋動詞を含む節を置く。", { "because": "becauseとbecause ofの後ろに置く形を混同している。", "although": "原因と譲歩の関係を混同している。", "therefore": "原因を導く表現と結果を示す副詞を混同している。" }],
     ["conjunction", "I don't know ___ he will come. に最も合う語は？", ["whether", "because", "although", "so"], "whether", "『来るかどうか』という名詞節を作る whether。if も使える場面が多い。"],
     ["conjunction", "I will call you when I ___. に入る形は？", ["will arrive", "arrive", "arrived", "have arrived yesterday"], "arrive", "時を表す副詞節では未来のことでも現在形で未来を表す。", { "will arrive": "時・条件の副詞節では未来でも現在形を使う、という原則を見ていない。" }],
@@ -196,7 +216,7 @@ window.GRAMMAR_CHECK_DATA = {
     ["subjunctive", "仮定法の基本的な考え方として正しいものは？", ["事実と異なることを、時制を一段ずらして表す", "過去の事実をそのまま順番に述べる", "未来の確定した予定を表す", "命令を丁寧にするための疑問文"], "事実と異なることを、時制を一段ずらして表す", "仮定法は現実と距離のあることを表すために、現在のことなら過去形、過去のことなら過去完了と、時制を一段ずらす。"],
     ["subjunctive", "現在の事実に反する仮定を表す仮定法過去の条件節の基本形は？", ["If + 過去形", "If + 現在形", "If + had + 過去分詞", "If + will + 原形"], "If + 過去形", "現在の反実仮想では時制を一段過去へずらし、If + 過去形を用いる。"],
     ["subjunctive", "If I ___ rich, I would travel around the world. に入る形は？", ["am", "were", "had been", "will be"], "were", "現在の事実に反する仮定は If + 過去形。be動詞は were を使うのが基本。", { "had been": "現在の反実仮想（仮定法過去）と過去の反実仮想（仮定法過去完了）を混同している。" }],
-    ["subjunctive", "If I had studied harder, I ___ the exam. に入る形は？", ["pass", "would pass", "would have passed", "had passed"], "would have passed", "条件節がhad + 過去分詞なので、過去の事実に反する仮定。主節はwould have + 過去分詞で、過去に起こらなかった結果を表す。", { "would pass": "仮定法過去（現在の仮定）と仮定法過去完了（過去の仮定）の主節の形を混同している。" }],
+    ["subjunctive", "If I had studied harder, I ___ the exam. に入る形は？", ["would pass", "would have pass", "would have passed", "had passed"], "would have passed", "条件節がhad + 過去分詞なので、過去の事実に反する仮定。主節はwould have + 過去分詞で、過去に起こらなかった結果を表す。", { "would pass": "would + 原形を選び、現在の反実仮想と過去の反実仮想を混同している。過去の結果にはwould have + 過去分詞を使う。", "would have pass": "would haveの後ろを原形にしている。完了形のhaveの後ろには過去分詞passedが必要。", "had passed": "条件節と同じ過去完了を主節にも置いている。主節はwould have + 過去分詞で、起こらなかった結果を表す。" }],
     ["subjunctive", "I wish I ___ taller. に最も合う形は？", ["am", "were", "had been", "will be"], "were", "現在の実現しにくい願望は I wish + 過去形。過去への後悔なら I wish + had + 過去分詞。"],
     // 前置詞
     ["preposition", "The meeting starts ___ 7 p.m. に入る前置詞は？", ["at", "on", "in", "by"], "at", "具体的な時刻の前にはatを使う。曜日・日付にはon、月・年にはinを使う。"],

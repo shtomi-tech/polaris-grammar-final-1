@@ -35,6 +35,7 @@ for (const question of data.questions) {
   } else {
     question.choices.filter(choice => choice !== question.answer).forEach(choice => {
       if (!question.misconceptions[choice]) errors.push(`誤概念タグ不足: ${question.id} / ${choice}`);
+      if (question.misconceptions[choice]?.includes("判断根拠を取り違えている")) errors.push(`誤概念タグが抽象的: ${question.id} / ${choice}`);
     });
   }
   if (question.reason) errors.push(`一問一判断に反する根拠選択あり: ${question.id}`);
