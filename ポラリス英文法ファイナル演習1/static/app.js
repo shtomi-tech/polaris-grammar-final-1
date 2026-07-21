@@ -1274,7 +1274,7 @@ function renderQuiz() {
           </button>
         `).join("")}
       </div>
-      <div id="feedbackSlot">${hasAnswer ? feedbackHtml(q, quiz.selectedChoice, answeredCorrect) : ""}</div>
+      <div id="feedbackSlot" tabindex="-1">${hasAnswer ? feedbackHtml(q, quiz.selectedChoice, answeredCorrect) : ""}</div>
     </div>
     <div class="actions">
       <button class="cta ${hasAnswer ? "" : "hide"}" id="nextBtn" type="button">${hasAnswer ? nextButtonText() : "次の問題へ"}</button>
@@ -1360,6 +1360,18 @@ function answerQuestion(choiceIndex) {
   $("#feedbackSlot").innerHTML = feedbackHtml(q, choiceIndex, correct);
   $("#nextBtn").classList.remove("hide");
   $("#nextBtn").textContent = nextButtonText();
+  focusFeedbackAndScrollToNext();
+}
+
+function focusFeedbackAndScrollToNext() {
+  if (quiz.kind !== "step1") return;
+  const feedback = $("#feedbackSlot");
+  const nextButton = $("#nextBtn");
+  if (!feedback || !nextButton) return;
+
+  feedback.focus({ preventScroll: true });
+  const behavior = window.matchMedia("(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth";
+  requestAnimationFrame(() => nextButton.scrollIntoView({ behavior, block: "center" }));
 }
 
 function nextButtonText() {
