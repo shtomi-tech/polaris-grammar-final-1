@@ -407,7 +407,7 @@
           <div class="progress">${session.index + 1} / ${session.questions.length}</div>
         </div>
         <div class="progressBar" aria-label="進捗 ${session.index + 1}/${session.questions.length}"><span style="width:${percent}%"></span></div>
-        <h2 class="stem">${escapeHtml(question.stem)}</h2>
+        <h2 class="stem" tabindex="-1">${escapeHtml(question.stem)}</h2>
         <div class="choiceGrid" id="choiceGrid">
           ${question.choices.map((choice, index) => `
             <button class="choice${answerChoiceClass(question, choice)}" data-choice="${escapeHtml(choice)}" type="button" aria-pressed="${pendingChoice === choice}" ${answerRevealed ? "disabled" : ""}>
@@ -453,6 +453,14 @@
     requestAnimationFrame(() => actionBar.scrollIntoView({ behavior, block: "end" }));
   }
 
+  function focusQuestionAndScrollToTop() {
+    document.querySelector(".stem")?.focus({ preventScroll: true });
+    const questionPanel = app.querySelector(".panel");
+    if (!questionPanel) return;
+    const behavior = window.matchMedia("(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth";
+    requestAnimationFrame(() => questionPanel.scrollIntoView({ behavior, block: "start" }));
+  }
+
   function revealAnswer() {
     if (!pendingChoice) return;
     answerRevealed = true;
@@ -494,6 +502,7 @@
     if (session.index < session.questions.length) {
       saveInProgress();
       renderQuiz();
+      focusQuestionAndScrollToTop();
       return;
     }
     const result = buildResult();
