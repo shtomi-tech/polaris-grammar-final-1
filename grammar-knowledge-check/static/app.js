@@ -5,7 +5,6 @@
   const KEY = "grammar-knowledge-check-v2";
   const APP_ID = "grammar-knowledge-check";
   const SESSION_VERSION = 4;
-  const REVIEW_LADDER_DAYS = [1, 3, 7, 14];
   const app = document.querySelector("#app");
   const resetButton = document.querySelector("#resetButton");
   const keys = ["1", "2", "3", "4"];
@@ -30,15 +29,7 @@
 
   function loadHistory() {
     try {
-      const history = JSON.parse(localStorage.getItem(KEY)) || null;
-      if (history && !history.spacedSchedule) {
-        const answers = history.total === DATA.questions.length && Array.isArray(history.answers)
-          ? history.answers
-          : Object.values(history.stageResults || {}).flatMap(result => Array.isArray(result.answers) ? result.answers : []);
-        history.spacedSchedule = scheduleNewAnswers({}, answers);
-        localStorage.setItem(KEY, JSON.stringify(history));
-      }
-      return history;
+      return JSON.parse(localStorage.getItem(KEY)) || null;
     } catch {
       return null;
     }
@@ -83,32 +74,11 @@
 
   function saveHistory(result) {
     const previous = loadHistory() || {};
-    if (result.kind === "spaced") {
-      const next = {
-        ...previous,
-        spacedSchedule: updateSpacedSchedule(previous.spacedSchedule || {}, result.answers),
-        lastSpacedReview: result,
-        lastSpacedReviewAt: result.completedAt
-      };
-      delete next.inProgress;
-      localStorage.setItem(KEY, JSON.stringify(next));
-      if (cloud) cloud.queueSave();
-      return;
-    }
-    if (result.kind === "review") {
-      const next = { ...previous, lastReview: result, lastReviewAt: result.completedAt };
-      delete next.inProgress;
-      localStorage.setItem(KEY, JSON.stringify(next));
-      if (cloud) cloud.queueSave();
-      return;
-    }
     const stageResults = { ...(previous.stageResults || {}) };
     if (result.stageKey) stageResults[result.stageKey] = result;
     const next = {
       ...result,
-      stageResults,
-      lastReview: previous.lastReview || null,
-      spacedSchedule: scheduleNewAnswers(previous.spacedSchedule || {}, result.answers)
+      stageResults
     };
     delete next.inProgress;
     localStorage.setItem(KEY, JSON.stringify(next));
@@ -120,7 +90,7 @@
     const previous = loadHistory() || {};
     const inProgress = {
       version: SESSION_VERSION,
-      kind: session.kind || "check",
+      kind: "check",
       stageIndex: session.stageIndex,
       stageKey: session.stageKey,
       stageLabel: session.stageLabel,
@@ -135,14 +105,6 @@
     if (cloud) cloud.queueSave();
   }
 
-  function clearInProgress() {
-    const previous = loadHistory();
-    if (!previous?.inProgress) return;
-    delete previous.inProgress;
-    localStorage.setItem(KEY, JSON.stringify(previous));
-    if (cloud) cloud.queueSave();
-  }
-
   function resumeLabel(saved) {
     if (!saved) return "";
     if (saved.answerRevealed) return `${saved.stageLabel || "学習"} — 解説を確認して続ける`;
@@ -151,7 +113,7 @@
 
   function restoreInProgress() {
     const saved = loadHistory()?.inProgress;
-    if (!saved || saved.version !== SESSION_VERSION || !Array.isArray(saved.questions) || !saved.questions.length) return false;
+    if (!saved || saved.version !== SESSION_VERSION || (saved.kind && saved.kind !== "check") || !Array.isArray(saved.questions) || !saved.questions.length) return false;
     const questions = saved.questions
       .map(item => {
         const question = questionById.get(item.id);
@@ -164,7 +126,7 @@
       .filter(Boolean);
     if (!questions.length) return false;
     session = {
-      kind: saved.kind || "check",
+      kind: "check",
       stageIndex: saved.stageIndex ?? null,
       stageKey: saved.stageKey || null,
       stageLabel: saved.stageLabel || null,
@@ -196,107 +158,15 @@
     return copy;
   }
 
-  function reviewCandidates(history = loadHistory()) {
-    if (!history) return [];
-    const baseAnswers = history.total === DATA.questions.length && Array.isArray(history.answers)
-      ? history.answers
-      : Object.values(history.stageResults || {}).flatMap(result => Array.isArray(result.answers) ? result.answers : []);
-    const latestReview = new Map((history.lastReview?.answers || []).map(answer => [answer.id, answer]));
-    const byId = new Map(baseAnswers.map(answer => [answer.id, latestReview.get(answer.id) || answer]));
-    return [...byId.values()]
-      .filter(answer => !answer.correct)
-      .map(answer => questionById.get(answer.id))
-      .filter(Boolean);
-  }
-
-  function dateOnly(date = new Date()) {
-    return new Intl.DateTimeFormat("sv-SE", { timeZone: "Asia/Tokyo" }).format(date);
-  }
-
-  function addDays(days) {
-    const date = new Date();
-    date.setDate(date.getDate() + days);
-    return dateOnly(date);
-  }
-
-  function scheduleNewAnswers(schedule, answers) {
-    const next = { ...schedule };
-    for (const answer of answers || []) {
-      if (answer.correct) next[answer.id] = { stage: 0, nextReviewAt: addDays(REVIEW_LADDER_DAYS[0]) };
-      else delete next[answer.id];
-    }
-    return next;
-  }
-
-  function updateSpacedSchedule(schedule, answers) {
-    const next = { ...schedule };
-    for (const answer of answers || []) {
-      const current = next[answer.id] || { stage: 0 };
-      if (answer.correct) {
-        const stage = Math.min(Number(current.stage || 0) + 1, REVIEW_LADDER_DAYS.length - 1);
-        next[answer.id] = { stage, nextReviewAt: addDays(REVIEW_LADDER_DAYS[stage]) };
-      } else {
-        next[answer.id] = { stage: 0, nextReviewAt: addDays(1) };
-      }
-    }
-    return next;
-  }
-
-  function spacedCandidates(history = loadHistory()) {
-    if (!history?.spacedSchedule) return [];
-    const today = dateOnly();
-    return Object.entries(history.spacedSchedule)
-      .filter(([, item]) => item?.nextReviewAt && item.nextReviewAt <= today)
-      .map(([id]) => questionById.get(id))
-      .filter(Boolean);
-  }
-
   function startQuiz(stageIndex = null) {
     const stage = stageIndex === null ? null : DATA.learningStages[stageIndex];
     const ids = stage ? stage.questionIds : DATA.questionOrder;
     session = {
       index: 0,
-      kind: "check",
       stageIndex,
       stageKey: stage ? `stage${stageIndex + 1}` : null,
       stageLabel: stage?.label || null,
       questions: ids.map(id => questionById.get(id)).map(question => ({ ...question, choices: shuffle(question.choices) })),
-      responses: []
-    };
-    pendingChoice = null;
-    answerRevealed = false;
-    saveInProgress();
-    renderQuiz();
-  }
-
-  function startReviewQuiz() {
-    const questions = reviewCandidates().map(question => ({ ...question, choices: shuffle(question.choices) }));
-    if (!questions.length) return home();
-    session = {
-      index: 0,
-      kind: "review",
-      stageIndex: null,
-      stageKey: null,
-      stageLabel: null,
-      questions,
-      responses: []
-    };
-    pendingChoice = null;
-    answerRevealed = false;
-    saveInProgress();
-    renderQuiz();
-  }
-
-  function startSpacedQuiz() {
-    const questions = spacedCandidates().map(question => ({ ...question, choices: shuffle(question.choices) }));
-    if (!questions.length) return home();
-    session = {
-      index: 0,
-      kind: "spaced",
-      stageIndex: null,
-      stageKey: null,
-      stageLabel: null,
-      questions,
       responses: []
     };
     pendingChoice = null;
@@ -314,9 +184,10 @@
     const stageResults = history?.stageResults || {};
     const completedStages = DATA.learningStages.filter((_, index) => stageCompleted(stageResults, index)).length;
     const nextStageIndex = DATA.learningStages.findIndex((_, index) => !stageCompleted(stageResults, index));
-    const reviewItems = reviewCandidates(history);
-    const spacedItems = spacedCandidates(history);
-    const inProgress = history?.inProgress?.version === SESSION_VERSION ? history.inProgress : null;
+    const inProgress = history?.inProgress?.version === SESSION_VERSION
+      && (!history.inProgress.kind || history.inProgress.kind === "check")
+      ? history.inProgress
+      : null;
     const hasCompletedResult = history && Number.isFinite(history.total) && Number.isFinite(history.score);
     const historyHtml = hasCompletedResult
       ? `<p class="muted">前回: ${escapeHtml(history.completedAt)} ／ ${history.score}/${history.total}問正解。記録はこの端末にのみ保存されます。</p>`
@@ -326,11 +197,13 @@
       : "";
     const stageCards = DATA.learningStages.map((stage, index) => {
       const saved = stageCompleted(stageResults, index) ? stageResults[`stage${index + 1}`] : null;
-      return `<article class="measurementCard"><p class="kicker">STAGE ${index + 1}</p><strong>${saved ? `${saved.score}<span> / ${saved.total}</span>` : `${stage.questionIds.length}<span>問</span>`}</strong><p>${escapeHtml(stage.label)}</p><button class="secondary stageButton" data-stage-index="${index}" type="button">${saved ? "もう一度解く" : "この段階を解く"}</button></article>`;
+      return `<article class="measurementCard"><p class="kicker">STAGE ${index + 1}</p><strong>${saved ? `${saved.score}<span> / ${saved.total}</span>` : `${stage.questionIds.length}<span>問</span>`}</strong><p>${escapeHtml(stage.label)}</p><p class="measurementMeta">${saved ? "完了済み" : (index === nextStageIndex ? "次に学ぶ段階" : "順番に進みます")}</p></article>`;
     });
-    const recommendedStageIndex = nextStageIndex >= 0 ? nextStageIndex : 0;
-    const recommendedStage = stageCards[recommendedStageIndex];
-    const otherStageCards = stageCards.filter((_, index) => index !== recommendedStageIndex).join("");
+    const recommendedStageIndex = nextStageIndex >= 0 ? nextStageIndex : null;
+    const recommendedStage = recommendedStageIndex === null
+      ? `<div class="empty">5段階を完了しました。Polaris入試基礎演習へ進めます。</div>`
+      : stageCards[recommendedStageIndex];
+    const startStageIndex = recommendedStageIndex ?? 0;
     app.innerHTML = `
       <section class="panel dark">
         <p class="kicker">START HERE / 30 QUESTIONS × 5</p>
@@ -349,8 +222,7 @@
       <section class="panel">
         <p class="kicker">LEARNING PATH / ${completedStages} OF ${DATA.learningStages.length}</p>
         <h2>5段階で基礎を積み上げる</h2>
-        <div class="recommendedStage"><p class="kicker">NEXT / 推奨</p>${recommendedStage}</div>
-        <details class="otherStages"><summary>別の段階を選ぶ（${DATA.learningStages.length - 1}件）</summary><div class="measurementGrid">${otherStageCards}</div></details>
+        <div class="recommendedStage"><p class="kicker">${recommendedStageIndex === null ? "NEXT / COMPLETE" : "NEXT / 推奨"}</p>${recommendedStage}</div>
         <p class="shortcutHint">途中でやめても、次回は未完了の段階から再開できます。段階を完了すると結果を保存します。</p>
       </section>
       <section class="panel">
@@ -365,28 +237,11 @@
         ${historyHtml}
         ${progressHtml}
       </section>
-      <section class="panel">
-        <p class="kicker">REVIEW / ${reviewItems.length} ITEMS</p>
-        <h2>誤答だけを復習する</h2>
-        <p class="lead">間違えた問題だけを出題します。復習で正解できた問題は、次回の対象から外れます。</p>
-        <button class="primary" id="startReviewButton" type="button" ${reviewItems.length ? "" : "disabled"}>${reviewItems.length ? `弱点${reviewItems.length}問を復習する` : "復習対象はありません"}</button>
-      </section>
-      <section class="panel">
-        <p class="kicker">SPACED REVIEW / ${spacedItems.length} DUE</p>
-        <h2>今日の間隔復習</h2>
-        <p class="lead">正解が続いた問題ほど、1日後・3日後・7日後・14日後へ間隔を延ばします。</p>
-        <button class="primary" id="startSpacedButton" type="button" ${spacedItems.length ? "" : "disabled"}>${spacedItems.length ? `今日の${spacedItems.length}問を復習する` : "今日の復習はありません"}</button>
-      </section>
     `;
     document.querySelector("#startButton").addEventListener("click", () => {
       if (inProgress && restoreInProgress()) return;
-      startQuiz(recommendedStageIndex);
+      startQuiz(startStageIndex);
     });
-    document.querySelectorAll(".stageButton").forEach(button => {
-      button.addEventListener("click", () => startQuiz(Number(button.dataset.stageIndex)));
-    });
-    document.querySelector("#startReviewButton").addEventListener("click", startReviewQuiz);
-    document.querySelector("#startSpacedButton").addEventListener("click", startSpacedQuiz);
   }
 
   function renderQuiz() {
@@ -524,7 +379,6 @@
     });
     return {
       version: 2,
-      kind: session.kind || "check",
       stageIndex: session.stageIndex,
       stageKey: session.stageKey,
       stageLabel: session.stageLabel,
@@ -599,10 +453,8 @@
   function renderResult(result) {
     session = null;
     const stats = domainStats(result);
-    const isReview = result.kind === "review";
-    const isSpaced = result.kind === "spaced";
-    const visibleStats = result.stageKey || isReview || isSpaced ? stats.filter(stat => stat.answers.length > 0) : stats;
-    const stages = isReview || isSpaced ? [] : stageStats(result).filter(stat => !result.stageKey || stat.answers.length > 0);
+    const visibleStats = result.stageKey ? stats.filter(stat => stat.answers.length > 0) : stats;
+    const stages = stageStats(result).filter(stat => !result.stageKey || stat.answers.length > 0);
     const misconceptions = misconceptionStats(result);
     const needsReview = visibleStats.filter(stat => stat.status !== "good");
     const priorityNames = needsReview.slice(0, 4).map(stat => stat.domain.label);
@@ -633,7 +485,7 @@
     app.innerHTML = `
       <section class="panel dark">
         <p class="kicker">RESULT / ${escapeHtml(result.completedAt)}</p>
-        <h2>${isSpaced ? "間隔復習を完了" : (isReview ? "弱点復習を完了" : (result.stageLabel ? `第${result.stageIndex + 1}段階を完了` : "チェック完了"))}</h2>
+        <h2>${result.stageLabel ? `第${result.stageIndex + 1}段階を完了` : "チェック完了"}</h2>
         <div class="score"><strong>${result.score}</strong><span>/ ${result.total} 問正解</span></div>
         <p class="lead">${resultMessage(result)}</p>
         <div class="nextStep">
@@ -642,7 +494,7 @@
           ${nextStepAction}
         </div>
         ${guideAction}
-        <button class="secondary quietAction" id="retryButton" type="button">${isSpaced ? "次回の間隔復習を確認する" : (isReview ? "残っている弱点をもう一度復習する" : (result.stageKey ? "この段階をもう一度解く" : "もう一度解く"))}</button>
+        <button class="secondary quietAction" id="retryButton" type="button">${result.stageKey ? "この段階をもう一度解く" : "もう一度解く"}</button>
         ${focusDomains.length ? `<a class="secondary quietAction" href="${escapeHtml(trainerHref(focusParams))}">弱点分野のPolaris問題へ進む</a>` : ""}
         <button class="secondary quietAction" id="backHomeButton" type="button">学習一覧へ戻る</button>
       </section>
@@ -680,9 +532,7 @@
     document.querySelector("#readGuideButton")?.addEventListener("click", () => renderReview(result));
     document.querySelector("#nextStepButton")?.addEventListener("click", () => startQuiz(nextStageIndex));
     document.querySelector("#retryButton").addEventListener("click", () => {
-      if (isSpaced) startSpacedQuiz();
-      else if (isReview) startReviewQuiz();
-      else if (result.stageIndex !== null && result.stageIndex !== undefined) startQuiz(result.stageIndex);
+      if (result.stageIndex !== null && result.stageIndex !== undefined) startQuiz(result.stageIndex);
       else startQuiz();
     });
     document.querySelector("#backHomeButton").addEventListener("click", home);

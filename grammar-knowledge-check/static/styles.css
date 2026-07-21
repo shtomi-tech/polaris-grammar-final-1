@@ -212,8 +212,6 @@ h3 { font-size: 18px; line-height: 1.45; }
 .instantFeedback p { margin-bottom: 8px; }
 .instantFeedback.good { border-left-color: var(--green); }
 .instantFeedback.good h3 { color: var(--green); }
-.instantFeedback.review { border-left-color: var(--amber); }
-.instantFeedback.review h3 { color: var(--amber); }
 .instantFeedback.bad { border-left-color: var(--red); }
 .instantFeedback.bad h3 { color: var(--red); }
 
@@ -232,13 +230,9 @@ h3 { font-size: 18px; line-height: 1.45; }
 .measurementCard > strong span { color: var(--muted); font-family: var(--sans); font-size: 14px; }
 .measurementCard p { font-size: 13px; margin-bottom: 0; }
 .measurementCard .measurementMeta { border-top: 1px solid var(--line); color: var(--muted); font-family: var(--mono); font-size: 10px; letter-spacing: .04em; margin-top: 12px; padding-top: 8px; }
-.stageButton { margin-top: 16px; min-height: 44px; padding: 9px 12px; width: 100%; }
 .recommendedStage { border: 2px solid var(--ink); margin-top: 16px; padding: 14px; }
 .recommendedStage > .kicker { color: var(--clay); }
 .recommendedStage .measurementCard { border: 0; min-height: 0; padding: 4px; }
-.otherStages { border-top: 1px solid var(--ink); margin-top: 16px; padding-top: 12px; }
-.otherStages > summary { cursor: pointer; font-family: var(--mono); font-size: 12px; min-height: 44px; padding: 10px 0; }
-.otherStages .measurementGrid { margin-top: 10px; }
 .misconceptionList { border-top: 1px solid var(--ink); }
 .misconceptionList article { border-bottom: 1px solid var(--ink); padding: 14px 0; }
 .misconceptionList strong { display: block; font-size: 16px; }
