@@ -441,12 +441,20 @@
     revealAnswer();
   }
 
+  function focusFeedbackAndScrollToNext() {
+    document.querySelector("#instantFeedback")?.focus({ preventScroll: true });
+    const actionBar = document.querySelector(".quizActionBar");
+    if (!actionBar) return;
+    const behavior = window.matchMedia("(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth";
+    requestAnimationFrame(() => actionBar.scrollIntoView({ behavior, block: "end" }));
+  }
+
   function revealAnswer() {
     if (!pendingChoice) return;
     answerRevealed = true;
     saveInProgress();
     renderQuiz();
-    document.querySelector("#instantFeedback")?.focus();
+    focusFeedbackAndScrollToNext();
   }
 
   function instantFeedbackHtml(question) {
