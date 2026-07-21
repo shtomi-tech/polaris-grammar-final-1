@@ -13,7 +13,7 @@ let knowledgeSupportCount = 0;
 const warnings = [];
 
 if (data.domains.length !== 17) errors.push(`分野数: ${data.domains.length}（17が必要）`);
-if (data.questions.length !== 120) errors.push(`問題数: ${data.questions.length}（120が必要）`);
+if (data.questions.length !== 150) errors.push(`問題数: ${data.questions.length}（150が必要）`);
 
 for (const question of data.questions) {
   if (ids.has(question.id)) errors.push(`問題ID重複: ${question.id}`);
@@ -50,10 +50,13 @@ for (const domain of data.domains) {
   }
 }
 
-if (skillCounts.knowledge !== 120) errors.push(`知識問題数: ${skillCounts.knowledge}（120が必要）`);
-if (knowledgeSupportCount !== 120) errors.push(`知識・補助の問題数: ${knowledgeSupportCount}（120が必要）`);
+if (skillCounts.knowledge !== 150) errors.push(`知識問題数: ${skillCounts.knowledge}（150が必要）`);
+if (knowledgeSupportCount !== 150) errors.push(`知識・補助の問題数: ${knowledgeSupportCount}（150が必要）`);
 
 if (!Array.isArray(data.learningStages) || data.learningStages.length !== 5) errors.push("学習段階: 5段階が必要");
+data.learningStages?.forEach((stage, index) => {
+  if (stage.questionIds?.length !== 30) errors.push(`第${index + 1}段階: ${stage.questionIds?.length || 0}問（30が必要）`);
+});
 const stageOrder = Array.isArray(data.learningStages) ? data.learningStages.flatMap(stage => stage.questionIds || []) : [];
 if (!Array.isArray(data.questionOrder)) errors.push("固定出題順なし");
 else {

@@ -38,19 +38,17 @@ const DOMAIN_REVIEW_HINTS = {
   negation: "述語がbe動詞・一般動詞・助動詞のどれかを確認し、疑問文でも後続動詞を原形にする。"
 };
 
-const STAGE_DEFS = [
-  ["品詞と文の骨組み", 29],
-  ["動詞の形と時制", 26],
-  ["助動詞・受動態と準動詞", 25],
-  ["分詞と文のつなぎ方", 23],
-  ["比較・仮定法と仕上げ", 17]
-];
+function questionIdRange(first, last) {
+  return Array.from({ length: last - first + 1 }, (_, index) => `q${first + index}`);
+}
 
-let stageQuestionNumber = 0;
-const LEARNING_STAGES = STAGE_DEFS.map(([label, count]) => ({
-  label,
-  questionIds: Array.from({ length: count }, () => `q${(stageQuestionNumber += 1)}`)
-}));
+const LEARNING_STAGES = [
+  { label: "品詞と文の骨組み", questionIds: ["q1", ...questionIdRange(3, 8), "q121", ...questionIdRange(9, 29), "q2"] },
+  { label: "動詞の形と時制", questionIds: [...questionIdRange(30, 37), "q122", ...questionIdRange(38, 55), ...questionIdRange(123, 125)] },
+  { label: "助動詞・受動態と準動詞", questionIds: [...questionIdRange(57, 60), "q56", ...questionIdRange(61, 67), "q130", ...questionIdRange(68, 75), "q126", "q77", "q76", ...questionIdRange(78, 80), ...questionIdRange(127, 129)] },
+  { label: "準動詞と文のつなぎ方", questionIds: [...questionIdRange(131, 135), ...questionIdRange(82, 88), "q81", ...questionIdRange(89, 95), "q137", "q136", ...questionIdRange(96, 103)] },
+  { label: "比較・仮定法と仕上げ", questionIds: [...questionIdRange(104, 109), "q138", "q142", ...questionIdRange(112, 115), "q149", "q150", "q111", ...questionIdRange(116, 120), "q143", ...questionIdRange(139, 141), "q144", "q145", "q110", "q146", "q147", "q148"] }
+];
 
 function defaultMisconceptions(question) {
   return Object.fromEntries(question.choices
@@ -85,7 +83,7 @@ window.GRAMMAR_CHECK_DATA = {
     // ---- STAGE 1 品詞と文の骨組み（q1-q29）----
     // 品詞・句・節・文の要素
     ["foundation", "「品詞」の説明として正しいものは？", ["単語を文中での働きによって分類したもの", "単語を文字数によって分類したもの", "単語を発音によって分類したもの", "文を長さによって分類したもの"], "単語を文中での働きによって分類したもの", "名詞・動詞・形容詞・副詞などの品詞は、単語が文の中でどんな働きをするかによる分類。同じ単語でも働きが変われば品詞も変わる。"],
-    ["foundation", "英文法で「単語」と呼ぶ単位の説明として正しいものは？", ["一つの語として品詞上の働きをもつ単位", "二語以上で主語＋述語動詞を含まないまとまり", "主語＋述語動詞を含むまとまり", "必ずピリオドで終わる文全体"], "一つの語として品詞上の働きをもつ単位", "book、quickly、underのように、一つの語として文中で品詞上の働きをもつ単位を単語という。"],
+    ["conjunction", "There is ___ that regular practice improves performance. に入る語句は？", ["no doubt", "not doubt", "no doubting", "any doubts"], "no doubt", "There is no doubt that + 文で『〜ということは疑いない』を表す。thatの後ろには主語＋動詞を備えた節を置く。"],
     ["foundation", "英文法で「句」と呼ぶまとまりの説明として正しいものは？", ["一つの語として品詞上の働きをもつ単位", "二語以上で主語＋述語動詞を含まないまとまり", "主語＋述語動詞を含むまとまり", "必ずピリオドで終わる文全体"], "二語以上で主語＋述語動詞を含まないまとまり", "in the roomやto read a bookのように、二語以上が一つの品詞のように働き、主語＋述語動詞を含まないまとまりを句という。"],
     ["foundation", "英文法で「節」と呼ぶまとまりの説明として正しいものは？", ["一つの語として品詞上の働きをもつ単位", "二語以上で主語＋述語動詞を含まないまとまり", "主語＋述語動詞を含むまとまり", "必ずピリオドで終わる文全体"], "主語＋述語動詞を含むまとまり", "because he was tiredのhe wasのように、主語と述語動詞を含む語のまとまりを節という。節は文の一部としても働く。"],
     ["foundation", "in the room は何か。", ["単語", "句", "節", "文型"], "句", "in the room は二語以上のまとまりだが、主語と述語動詞を含まないため句。文の中で場所を表す修飾語として働く。", { "節": "まとまりの中に主語・述語動詞があるかを確認していない。", "単語": "二語以上のまとまりであることを見ていない。", "文型": "まとまりの種類と文型を混同している。" }],
@@ -102,16 +100,16 @@ window.GRAMMAR_CHECK_DATA = {
     ["nouns", "This notebook is not mine. Is it ___? に入る語は？", ["you", "your", "yours", "yourself"], "yours", "空所の後ろに名詞がなく、『あなたのもの』という意味を単独で表すため所有代名詞yoursを使う。yourは後ろに名詞が必要。", { "you": "主格・目的格のyouを所有の意味で使っている。ここでは『あなたのもの』を表す所有代名詞が必要。", "your": "所有格yourを単独で使っている。yourはyour notebookのように後ろに名詞を置く。", "yourself": "再帰代名詞yourselfと、所有を表すyoursを混同している。" }],
     // 形容詞・副詞
     ["adverb", "形容詞の基本的な働きとして正しいものは？", ["名詞を修飾し、補語として主語や目的語を説明する", "動詞・形容詞・副詞だけを修飾する", "主語の動作や時制を表す", "語と語や節と節を結ぶ"], "名詞を修飾し、補語として主語や目的語を説明する", "形容詞は名詞を修飾するほか、be動詞やlookなどの後ろで補語となり、主語や目的語の性質・状態を説明する。"],
-    ["adverb", "副詞の基本的な働きとして正しいものは？", ["動詞・形容詞・他の副詞・文全体を修飾する", "人・物・事柄の名前を表す", "名詞だけを修飾する", "語と語や節と節を結ぶ"], "動詞・形容詞・他の副詞・文全体を修飾する", "副詞は動詞・形容詞・他の副詞・文全体を修飾し、時・場所・方法・程度などの情報を加える。"],
+    ["adverb", "I haven't seen Yuna ___. に入る語は？", ["lately", "late", "latest", "later"], "lately", "latelyは『最近』という副詞で、現在完了とよく使う。lateは『遅く・遅い』であり、意味が異なる。", { "late": "形が似ているlateとlatelyを同じ意味だと考えている。" }],
     ["adverb", "She looks ___. に最も合う形は？", ["happily", "happy", "happiness", "happierly"], "happy", "look は主語の状態を説明する補語を取るので形容詞 happy。副詞 happily は補語になれない。", { "happily": "look の後ろが補語であることを見ず、動詞の後ろだから副詞と考えている。" }],
     ["adverb", "She sings very ___. に最も合う語は？", ["good", "well", "best", "goodness"], "well", "動詞 sings を修飾するのは副詞 well。good は形容詞なので動詞を修飾できない。"],
     ["adverb", "always などの頻度を表す副詞の基本の位置は？", ["一般動詞の前、be動詞の後", "必ず文頭", "必ず文末", "名詞の直前"], "一般動詞の前、be動詞の後", "He always gets up early. / She is always kind. のように、頻度の副詞は一般動詞の前・be動詞や助動詞の後に置くのが基本。"],
     // 文型・自他動詞
     ["pattern", "自動詞の説明として正しいものは？", ["必ず受動態にできる動詞", "目的語を直接取らない動詞", "必ずbe動詞を伴う動詞", "過去形にならない動詞"], "目的語を直接取らない動詞", "arrive, sleep, listen などは目的語を直接取らない。listen to のように前置詞を伴うことはある。"],
     ["pattern", "他動詞の基本的な特徴は？", ["目的語を直接取る", "必ず前置詞を伴う", "補語だけを取る", "受動態にできない"], "目的語を直接取る", "他動詞は動作の対象となる目的語Oを直接取る。前置詞を介する場合は、その動詞自体は目的語を直接取っていない。"],
-    ["pattern", "Birds fly. の文型は？", ["SV", "SVC", "SVO", "SVOC"], "SV", "Birds がS、fly がV。fly は目的語や補語を必要としない自動詞なのでSV。"],
+    ["foundation", "There is ___ with this printer; it stops every few minutes. に入る語句は？", ["something wrong", "wrong something", "anything wrong", "wrong anything"], "something wrong", "somethingなど-thingで終わる不定代名詞を形容詞で説明するとき、形容詞は後ろに置く。something wrongで『何かおかしいところ』。"],
     ["pattern", "She is kind. の文型は？", ["SV", "SVC", "SVO", "SVOC"], "SVC", "kind は主語 She の性質を説明する補語C。be 動詞の後ろはSVCになりやすい。"],
-    ["pattern", "He became a teacher. の文型は？", ["SV", "SVC", "SVO", "SVOC"], "SVC", "a teacher は主語 He が何になったかを説明する補語C。He = a teacher の関係が成り立つのでSVC。become, look などはSVCを作りやすい。", { "SVO": "動詞の直後の名詞を目的語と見なし、He = a teacher という補語の関係を確認していない。" }],
+    ["adverb", "相手に『何時が都合よいですか』と尋ねる自然な英文は？", ["What time is convenient for you?", "What time are you convenient?", "When do you convenient?", "Which time conveniently you?"], "What time is convenient for you?", "convenientは時・場所・物事を主語にして『人にとって都合がよい』と表す。人を主語にしてYou are convenientとはしない。", { "What time are you convenient?": "日本語の『あなたは都合がよい』に引かれ、人をconvenientの主語にしている。" }],
     ["pattern", "She opened the window. の文型は？", ["SV", "SVC", "SVO", "SVOC"], "SVO", "She がS、opened がV、the window が動作の対象O。したがってSVO。"],
     ["pattern", "I gave my sister a present. の文型は？", ["SVC", "SVO", "SVOO", "SVOC"], "SVOO", "my sister と a present の二つの目的語を取る第4文型。『人に物を与える』型の動詞に多い。"],
     ["pattern", "They made him happy. の文型は？", ["SVC", "SVO", "SVOO", "SVOC"], "SVOC", "him が目的語O、happy が him の状態を説明する補語C。O = C（him = happy）の関係が成り立つためSVOC。"],
@@ -119,7 +117,7 @@ window.GRAMMAR_CHECK_DATA = {
     // ---- STAGE 2 動詞の形と時制（q30-q55）----
     // 動詞の形・主語との一致
     ["verb_form", "Each of the students ___ a notebook. に入る形は？", ["have", "has", "having", "to have"], "has", "主語の中心は複数形studentsではなくEach。eachは単数として扱うため、現在形の動詞はhasになる。", { "have": "空所の直前にあるstudentsに動詞を一致させている。主語の中心Eachは単数なのでhas。", "having": "文を成立させる述語動詞が必要な位置に-ing形を置いている。", "to have": "文を成立させる述語動詞が必要な位置にto不定詞を置いている。" }],
-    ["verb_form", "三人称単数の主語を用いた現在の肯定文で、一般動詞に付けるものは？", ["-sまたは-es", "必ず-ing", "必ず-ed", "to"], "-sまたは-es", "he, she, itなど三人称単数の主語を現在形で用いると、一般動詞に-sまたは-esを付ける。"],
+    ["verb_form", "Two hours ___ enough to finish this task. に入る形は？", ["is", "are", "be", "have"], "is", "時間・距離・金額などを一つのまとまりとして見ると、形が複数でも単数扱いにする。Two hours全体を一つの所要時間と考えるのでis。", { "are": "hoursの複数形だけを見て、時間全体が一つのまとまりであることを確認していない。" }],
     ["verb_form", "He ___ tennis every Sunday. に入る形は？", ["play", "plays", "playing", "to play"], "plays", "He は三人称単数、every Sunday は現在の習慣なので一般動詞にsを付ける。"],
     ["verb_form", "一般動詞（規則変化）の過去形の作り方は？", ["原形に-edを付ける", "原形に-sを付ける", "原形に-ingを付ける", "前にbeを置く"], "原形に-edを付ける", "played, watchedのように規則動詞は原形 + -ed。go → wentのような不規則動詞は個別に覚える。"],
     ["verb_form", "Does she ___ English? に入る形は？", ["speaks", "spoke", "speak", "speaking"], "speak", "does が時制・三単現の情報を持つため、後ろの動詞は原形。does と動詞の s を二重にしない。", { "speaks": "does がすでに三単現の情報を持っていることを見ず、s を二重に付けている。" }],
@@ -138,7 +136,7 @@ window.GRAMMAR_CHECK_DATA = {
     ["tense", "Look! The baby ___ now. に入る形は？", ["cries", "is crying", "cried", "has cried"], "is crying", "Look! と now から、今まさに進行中の動作。現在進行形 be + -ing を使う。", { "cries": "習慣を表す現在形と、今進行中を表す現在進行形を混同している。" }],
     ["tense", "When you called me, I ___ dinner.（電話が来たとき、夕食を作っている最中だった）に入る形は？", ["was making", "am making", "made", "have made"], "was making", "過去のある時点（電話が来たとき）に進行中だった動作は、過去進行形 was / were + -ing で表す。", { "made": "過去の一回の動作と、過去のある時点で進行中だった動作を区別していない。", "am making": "現在進行形と過去進行形の be 動詞の時制を混同している。" }],
     ["tense", "yesterday を伴う文で通常使う時制は？", ["現在完了", "過去形", "未来完了", "現在完了進行形"], "過去形", "yesterday は完結した過去時点を指定するため、通常は過去形。現在完了とは併用しないのが原則。"],
-    ["tense", "未来を表す will を使った文の基本形は？", ["will + 動詞の原形", "will + 動詞の過去形", "will + -ing形", "will + 過去分詞"], "will + 動詞の原形", "will は助動詞なので後ろは原形。主語が三人称単数でも will plays とはしない。"],
+    ["preposition", "The bus will arrive ___ ten minutes. に入る語は？", ["in", "after", "during", "until"], "in", "in + 時間の長さは、現在を基準に『〜後に』を表す。in ten minutesで『今から10分後に』。afterは通常、基準となる出来事や時点を後ろに置く。", { "after": "今からの経過時間を表すinと、別の出来事・時点を基準にするafterを区別していない。" }],
     ["tense", "Don't worry. I ___ you. に最も合う形は？", ["will help", "helped", "helps", "have helped"], "will help", "これからすることをその場で申し出ているので、未来を表す will + 原形。", { "helped": "これからの動作なのに過去形を選んでいる。" }],
     ["tense", "Look at those dark clouds. It ___ rain soon. に最も合う語句は？", ["is going to", "is going", "will going to", "goes to"], "is going to", "目の前の兆候（黒い雲）から予測する未来は be going to + 原形。", { "will going to": "will と be going to を重ねて使っている。どちらか一方でよい。" }],
     ["tense", "現在完了の基本形は？", ["haveまたはhas + 過去分詞", "be + 現在分詞", "did + 原形", "will + 原形"], "haveまたはhas + 過去分詞", "現在完了はhaveまたはhas + 過去分詞で作り、過去の出来事を現在につなげる。"],
@@ -148,7 +146,7 @@ window.GRAMMAR_CHECK_DATA = {
     ["tense", "I have lost my key, so I can't open the door. の現在完了の用法は？", ["継続", "経験", "完了・結果", "過去完了"], "完了・結果", "鍵を失った結果が現在も続き、今ドアを開けられないため、完了・結果の用法。", { "継続": "過去から現在まで続く状態と、現在に残る結果を混同している。", "経験": "回数・ever・neverなどで表す経験と、現在に残る結果を混同している。", "過去完了": "現在完了の用法と、過去の基準時より前を表す過去完了を混同している。" }],
     // ---- STAGE 3 助動詞・受動態と準動詞（q56-q80）----
     // 助動詞
-    ["modal", "助動詞の基本的な働きとして正しいものは？", ["話し手の判断を加え、後ろの動詞を原形にする", "名詞を後ろから修飾する", "動詞を必ず過去形にする", "文と文を対等に結ぶ"], "話し手の判断を加え、後ろの動詞を原形にする", "can / may / must などの助動詞は可能・許可・義務といった話し手の判断を加え、直後の動詞は原形にする。"],
+    ["modal", "I would rather ___ at home tonight. に入る形は？", ["stay", "to stay", "staying", "stayed"], "stay", "would rather + 動詞の原形で『むしろ〜したい』を表す。wouldは助動詞なので、後ろにtoや-ingを置かない。"],
     ["modal", "助動詞shouldが表す基本的な意味は？", ["助言・軽い義務", "過去の習慣", "強い禁止", "完了した経験"], "助言・軽い義務", "shouldは「〜した方がよい」「〜すべきだ」という助言・軽い義務を表す。"],
     ["modal", "must notが表す基本的な意味は？", ["〜してはいけない", "〜する必要はない", "〜したかもしれない", "以前は〜した"], "〜してはいけない", "must notは強い禁止を表す。必要がないという意味のdo not have toとは区別する。", { "〜する必要はない": "禁止の must not と、必要がないことを表す do not have to を混同している。" }],
     ["modal", "do not have toが表す基本的な意味は？", ["〜する必要はない", "〜してはいけない", "〜したにちがいない", "〜することに慣れている"], "〜する必要はない", "do not have toは義務・必要の否定であり、行為を禁止するmust notとは意味が異なる。", { "〜してはいけない": "必要がないことを表す do not have to と、禁止の must not を混同している。" }],
@@ -165,20 +163,20 @@ window.GRAMMAR_CHECK_DATA = {
     ["infinitive", "不定詞の基本形は？", ["to + 動詞の原形", "to + 動詞の過去形", "to + 動詞の-ing形", "to + 過去分詞"], "to + 動詞の原形", "不定詞は to + 動詞の原形。主語が三人称単数でも to plays とはしない。"],
     ["infinitive", "不定詞の3つの基本用法は？", ["主語的・目的語的・補語的", "名詞的・形容詞的・副詞的", "現在・過去・完了", "能動・受動・進行"], "名詞的・形容詞的・副詞的", "3用法は文中での働き。主語・目的語・補語は名詞的用法が置かれる位置。"],
     ["infinitive", "To read books is fun. の不定詞の用法は？", ["名詞的用法", "形容詞的用法", "副詞的用法", "受動態"], "名詞的用法", "To read books 全体が文の主語で『本を読むこと』を表す。名詞の働きなので名詞的用法。"],
-    ["infinitive", "want / decide / hope の目的語に動詞を置くときの形は？", ["to + 原形", "-ing形", "過去形", "原形のみ"], "to + 原形", "want / decide / hope などは目的語に to 不定詞を取る。want to go の形にし、want going とはしない。", { "-ing形": "目的語に動名詞を取る enjoy などと、to 不定詞を取る want などを混同している。" }],
+    ["infinitive", "Aya is the last person ___ a secret. に入る形は？", ["to reveal", "revealing", "reveal", "revealed"], "to reveal", "the last person to doは『最も〜しそうにない人』という意味を表せる。personを後ろから説明する形容詞的用法の不定詞。"],
     ["infinitive", "I want ___ a doctor in the future. に入る形は？", ["to be", "being", "be", "been"], "to be", "want は目的語に to 不定詞を取るので want to be。『〜になりたい』は want to be 〜。"],
     ["infinitive", "I have a book to read. の to read の用法は？", ["名詞的用法", "形容詞的用法", "副詞的用法", "動名詞"], "形容詞的用法", "to read が直前の a book を後ろから説明し『読むべき本』となる。名詞を修飾するので形容詞的用法。"],
     ["infinitive", "「〜するために」という目的を表す不定詞の用法は？", ["副詞的用法", "名詞的用法", "形容詞的用法", "受動態"], "副詞的用法", "I went there to study.のto studyは、wentの目的を説明する副詞的用法。"],
     ["infinitive", "My mother told me ___ my room. に入る形は？", ["to clean", "cleaning", "clean", "cleaned"], "to clean", "tell + 人 + to do で『人に〜するように言う』。ask / want も同じ形を取る。", { "cleaning": "tell + 人 + to do の型を見ず、-ing 形を選んでいる。" }],
     // 動名詞
-    ["gerund", "動名詞の説明として正しいものは？", ["動詞の-ing形を名詞のように使う形", "動詞の過去分詞を形容詞のように使う形", "to + 原形で目的を表す形", "be動詞と組んで受動態を作る形"], "動詞の-ing形を名詞のように使う形", "動名詞は動詞の-ing形を『〜すること』という名詞として使い、主語・目的語・補語になる。"],
+    ["gerund", "I was annoyed by Tom's ___ during the movie. に入る形は？", ["talking", "to talk", "talk", "talked"], "talking", "動名詞の動作主は所有格または目的格で表せる。Tom's talkingで『Tomが話すこと』となり、Tom'sが動名詞talkingの意味上の主語。"],
     ["gerund", "Reading books is useful. の Reading の働きは？", ["動名詞で主語", "現在分詞で補語", "不定詞で目的語", "前置詞"], "動名詞で主語", "-ing形が『本を読むこと』という名詞として文全体の主語になっている。"],
     ["gerund", "Thank you for ___ me. に入る形は？", ["help", "to help", "helping", "helped"], "helping", "for は前置詞。前置詞の後ろに動詞を置くなら動名詞にする。"],
     ["gerund", "enjoyの目的語に動詞を置くときの形は？", ["-ing形", "to + 原形", "過去形", "原形"], "-ing形", "enjoyは目的語に動名詞を取る。enjoy readingの形にし、enjoy to readとはしない。", { "to + 原形": "目的語に to 不定詞を取る want などと、動名詞を取る enjoy などを混同している。" }],
     ["gerund", "She is good at ___ pictures. に入る形は？", ["drawing", "draw", "to draw", "drew"], "drawing", "at は前置詞なので、後ろに動詞を置くなら動名詞 -ing にする。be good at -ing で『〜が得意だ』。"],
-    // ---- STAGE 4 分詞と文のつなぎ方（q81-q103）----
+    // ---- STAGE 4 準動詞と文のつなぎ方（q81-q103）----
     // 分詞・分詞構文
-    ["participle", "分詞の説明として正しいものは？", ["動詞由来で、形容詞のように名詞を修飾できる形", "動詞の-ing形を名詞として使う形", "語と語や節と節を結ぶ語", "主語を強調するための倒置"], "動詞由来で、形容詞のように名詞を修飾できる形", "現在分詞・過去分詞は動詞由来の形容詞。修飾される名詞との能動・受動の関係で使い分ける。"],
+    ["participle", "窓の外を見ると、子どもが通りを走っているところだった。I saw a child ___ across the street. に入る形は？", ["running", "run", "ran", "to run"], "running", "see + 目的語 + -ingで、目的語が動作している途中の場面を見たことを表す。childが走る側なので現在分詞running。"],
     ["participle", "名詞が動作をする側であるとき、名詞を修飾する基本の分詞は？", ["現在分詞", "過去分詞", "不定詞", "動名詞"], "現在分詞", "a sleeping babyのように、修飾される名詞が動作をする側なら現在分詞を用いる。"],
     ["participle", "a ___ window に最も合うものは？", ["breaking", "broken", "break", "to break"], "broken", "窓は『壊す』側でなく『壊される』側なので過去分詞 broken。", { "breaking": "名詞が動作を受ける側なのに、動作をする側の現在分詞を選んでいる。" }],
     ["participle", "The movie was ___. に最も合うものは？", ["excited", "exciting", "excite", "excitement"], "exciting", "映画が人を興奮させる側なので exciting。感じる側なら excited。", { "excited": "感情を引き起こす側（exciting）と感情を感じる側（excited）を混同している。" }],
@@ -187,11 +185,11 @@ window.GRAMMAR_CHECK_DATA = {
     ["participle", "This is a book ___ by a famous writer. に入る形は？", ["written", "writing", "wrote", "writes"], "written", "本は書かれる側なので過去分詞 written。written by 〜 のまとまりが a book を後ろから修飾する。", { "writing": "名詞が動作を受ける側なのに、動作をする側の現在分詞を選んでいる。" }],
     ["participle", "Walking to school, I saw an old friend. で、学校へ歩いていたのは誰か。", ["主節の主語 I", "目的語 an old friend", "場所を表す school", "文中では特定できない"], "主節の主語 I", "分詞構文Walking to schoolの意味上の主語は、原則として主節の主語Iと一致する。"],
     // 接続詞・節
-    ["conjunction", "接続詞の基本的な働きとして正しいものは？", ["語と語・句と句・節と節を結ぶ", "人・物・事柄の名前を表す", "名詞の前で位置関係だけを示す", "主語の動作だけを表す"], "語と語・句と句・節と節を結ぶ", "接続詞はandのように語や句を結んだり、becauseのように節と節の関係を示したりする。"],
+    ["conjunction", "The box was so heavy ___ I could not lift it. に入る語は？", ["that", "because", "to", "as"], "that", "so + 形容詞 + that + 文で『とても〜なので…』を表す。heavyの程度と、その結果I could not lift itをthatでつなぐ。"],
     ["conjunction", "I think that he is right. の that の働きは？", ["『〜ということ』のまとまり（名詞節）を作る接続詞", "直前の名詞を修飾する関係代名詞", "理由を表す接続詞", "場所を表す関係副詞"], "『〜ということ』のまとまり（名詞節）を作る接続詞", "that he is right 全体が『彼が正しいということ』という名詞のかたまりで、think の目的語。この that は省略されることも多い。", { "直前の名詞を修飾する関係代名詞": "接続詞の that と関係代名詞の that を混同している。この that の後ろは欠けのない完全な文。" }],
     ["conjunction", "I know ___ she is kind.（彼女が親切だということを知っている）に入る語は？", ["that", "what", "which", "because"], "that", "『〜ということ』という名詞節を作る接続詞 that。know の目的語になっている。", { "what": "先行詞を含む what の後ろは不完全な文。ここは she is kind という完全な文なので that。", "because": "『〜ということ』の名詞節と『〜だから』の理由の節を混同している。" }],
     ["conjunction", "because と because of の後ろに置く形の組み合わせは？", ["because + 節 / because of + 名詞句", "because + 名詞句 / because of + 節", "because + 原形 / because of + 原形", "because + 名詞句 / because of + 名詞句"], "because + 節 / because of + 名詞句", "because it rained のようにbecauseの後ろには節を、because of the rain のようにbecause ofの後ろには名詞句を置く。", { "because + 名詞句 / because of + 節": "becauseとbecause ofの後ろに置く形を逆にしている。becauseには節、because ofには名詞句を続ける。", "because + 原形 / because of + 原形": "接続詞・群前置詞の後ろに動詞の原形を直接置く形だと考えている。becauseには節、because ofには名詞句が必要。", "because + 名詞句 / because of + 名詞句": "becauseも名詞句を取ると考えている。becauseは主語と述語動詞を含む節を導く。" }],
-    ["conjunction", "The game was canceled ___ the heavy rain. に最も合う語句は？", ["because of", "because", "although", "therefore"], "because of", "空所の後ろは名詞句the heavy rainなのでbecause ofを使う。becauseの後ろには主語＋動詞を含む節を置く。", { "because": "becauseとbecause ofの後ろに置く形を混同している。", "although": "原因と譲歩の関係を混同している。", "therefore": "原因を導く表現と結果を示す副詞を混同している。" }],
+    ["conjunction", "Neither the teacher nor the students ___ ready. に入る形は？", ["were", "was", "is", "be"], "were", "neither A nor Bでは、動詞をBに近い主語に一致させるのが基本。直前のthe studentsが複数なのでwere。全体は『先生も生徒たちも準備ができていなかった』。", { "was": "最初の単数名詞the teacherに一致させ、動詞に近いthe studentsを確認していない。" }],
     ["conjunction", "I don't know ___ he will come. に最も合う語は？", ["whether", "because", "although", "so"], "whether", "『来るかどうか』という名詞節を作る whether。if も使える場面が多い。"],
     ["conjunction", "I will call you when I ___. に入る形は？", ["will arrive", "arrive", "arrived", "have arrived yesterday"], "arrive", "時を表す副詞節では未来のことでも現在形で未来を表す。", { "will arrive": "時・条件の副詞節では未来でも現在形を使う、という原則を見ていない。" }],
     // 関係詞
@@ -208,12 +206,12 @@ window.GRAMMAR_CHECK_DATA = {
     ["comparison", "as + 原級 + as の意味は？", ["〜より…だ", "最も〜だ", "〜と同じくらい…だ", "〜すぎて…できない"], "〜と同じくらい…だ", "同程度を表す原級比較。否定なら not as / so ... as。"],
     ["comparison", "比較級と通常セットで用いる語は？", ["than", "that", "as", "so"], "than", "比較級 + than で比較対象を示す。"],
     ["comparison", "比較級・最上級の基本的な作り方として正しいものは？", ["短い語は-er / -est、長い語はmore / most", "すべての語に-er / -estを付ける", "すべての語にmore / mostを付ける", "動詞の後ろにthanを付けるだけ"], "短い語は-er / -est、長い語はmore / most", "tall → taller / tallest、beautiful → more / most beautiful のように、語の長さで作り方が変わる。"],
-    ["comparison", "goodの比較級と最上級の組み合わせは？", ["better / best", "gooder / goodest", "more good / most good", "well / better"], "better / best", "goodは不規則変化し、比較級better、最上級bestとなる。"],
+    ["comparison", "The weather became ___ as evening approached. に入る形は？", ["colder and colder", "more cold and cold", "coldest and coldest", "as colder as"], "colder and colder", "比較級 and 比較級で『だんだん〜、ますます〜』という変化を表す。coldの比較級colderを繰り返す。"],
     ["comparison", "not as + 原級 + asが表す意味は？", ["〜ほど…ではない", "〜よりも…だ", "最も…だ", "あまりに…なので"], "〜ほど…ではない", "not as ... asは二者が同程度ではないことを表し、「〜ほど…ではない」と訳す。"],
     ["comparison", "The ___ you read, the ___ you learn. に入る組み合わせは？", ["more / more", "most / most", "much / many", "more / most"], "more / more", "the + 比較級 ..., the + 比較級 ... は『〜すればするほど』。"],
-    ["comparison", "Mt. Fuji is the highest mountain ___ Japan. に入る語は？", ["in", "of", "at", "on"], "in", "最上級の範囲は、場所・集団なら in、複数を表す語なら of で示す。in Japan / of the three。"],
+    ["negation", "It was so dark that we could ___ see the road. に入る語は？", ["hardly", "hard", "nearly", "clearly"], "hardly", "hardlyは『ほとんど〜ない』という否定の意味をもつ副詞。hard『一生懸命に・激しく』とは意味が異なる。", { "hard": "形が似ているhardとhardlyを同じ意味だと考えている。" }],
     // 仮定法
-    ["subjunctive", "仮定法の基本的な考え方として正しいものは？", ["事実と異なることを、時制を一段ずらして表す", "過去の事実をそのまま順番に述べる", "未来の確定した予定を表す", "命令を丁寧にするための疑問文"], "事実と異なることを、時制を一段ずらして表す", "仮定法は現実と距離のあることを表すために、現在のことなら過去形、過去のことなら過去完了と、時制を一段ずらす。"],
+    ["subjunctive", "I took a taxi; ___, I would have missed the last train. に入る語は？", ["otherwise", "therefore", "moreover", "for example"], "otherwise", "otherwiseは『そうでなければ』を表し、if I had not taken a taxiという条件を代用する。後ろのwould have missedとともに過去の反実仮想を作る。"],
     ["subjunctive", "現在の事実に反する仮定を表す仮定法過去の条件節の基本形は？", ["If + 過去形", "If + 現在形", "If + had + 過去分詞", "If + will + 原形"], "If + 過去形", "現在の反実仮想では時制を一段過去へずらし、If + 過去形を用いる。"],
     ["subjunctive", "If I ___ rich, I would travel around the world. に入る形は？", ["am", "were", "had been", "will be"], "were", "現在の事実に反する仮定は If + 過去形。be動詞は were を使うのが基本。", { "had been": "現在の反実仮想（仮定法過去）と過去の反実仮想（仮定法過去完了）を混同している。" }],
     ["subjunctive", "If I had studied harder, I ___ the exam. に入る形は？", ["would pass", "would have pass", "would have passed", "had passed"], "would have passed", "条件節がhad + 過去分詞なので、過去の事実に反する仮定。主節はwould have + 過去分詞で、過去に起こらなかった結果を表す。", { "would pass": "would + 原形を選び、現在の反実仮想と過去の反実仮想を混同している。過去の結果にはwould have + 過去分詞を使う。", "would have pass": "would haveの後ろを原形にしている。完了形のhaveの後ろには過去分詞passedが必要。", "had passed": "条件節と同じ過去完了を主節にも置いている。主節はwould have + 過去分詞で、起こらなかった結果を表す。" }],
@@ -223,7 +221,38 @@ window.GRAMMAR_CHECK_DATA = {
     ["preposition", "曜日や日付の前に置く前置詞は？", ["on", "at", "in", "by"], "on", "on Monday / on May 5 のように曜日・日付には on。時刻は at、月・年・季節は in。"],
     ["preposition", "I live ___ Tokyo. に入る前置詞は？", ["in", "at", "on", "by"], "in", "都市・国など広がりのある場所には in。狭い一地点なら at（at the station など）。"],
     ["preposition", "『金曜日までに仕上げる』の期限を表す前置詞は？", ["by", "until", "during", "from"], "by", "by Friday は金曜を期限とする。until Friday は金曜まで動作・状態が継続する。", { "until": "期限の by と、その時まで続く継続の until を混同している。" }],
-    ["preposition", "He was outside the room. He crossed the doorway and walked ___ it. に最も合う語は？", ["to", "into", "at", "by"], "into", "外から戸口という境界を越えて内部へ入る動きなのでinto。toは到達点を示すだけで、内部への移動までは表さない。", { "to": "到達点と内部へ入る移動を区別していない。", "at": "場所を点として示す at を移動の方向に用いている。", "by": "そばを通る意味の by を到達の意味で用いている。" }]
+    ["preposition", "He was outside the room. He crossed the doorway and walked ___ it. に最も合う語は？", ["to", "into", "at", "by"], "into", "外から戸口という境界を越えて内部へ入る動きなのでinto。toは到達点を示すだけで、内部への移動までは表さない。", { "to": "到達点と内部へ入る移動を区別していない。", "at": "場所を点として示す at を移動の方向に用いている。", "by": "そばを通る意味の by を到達の意味で用いている。" }],
+    // ---- ポラリス入試演習への橋渡し（q121-q150）----
+    ["foundation", "The elderly need safe places to rest. の The elderly の説明として正しいものは？", ["形容詞にtheが付き、複数の人々を表す名詞相当", "一人の高齢者を表す可算名詞の単数", "場所を説明する副詞句", "elderlyを最上級にした表現"], "形容詞にtheが付き、複数の人々を表す名詞相当", "the + 形容詞は、その性質をもつ人々全体を表し、複数扱いになる。the elderly は『高齢者の人々』という名詞相当のまとまり。"],
+    ["verb_form", "This laptop ___ to my sister. に入る形は？", ["belongs", "is belonging", "belong", "belonged"], "belongs", "belongは所有・所属という状態を表し、通常は進行形にしない。主語This laptopは三人称単数なので現在形belongs。", { "is belonging": "今の状態だから進行形と考えている。belongは動作ではなく状態を表すため、通常は現在形を使う。", "belong": "現在形であることだけを見て、三人称単数の主語に必要な-sを落としている。" }],
+    ["tense", "By the time we reached the station, the train ___. に入る形は？", ["had left", "has left", "left", "will leave"], "had left", "駅に着いたという過去の基準時より前に、列車はすでに出発していた。過去より前の出来事はhad + 過去分詞の過去完了で表す。", { "left": "二つの過去の出来事の前後関係を示さず、どちらも単純過去で処理している。" }],
+    ["tense", "By next April, she ___ at this school for ten years. に入る形は？", ["will have worked", "has worked", "had worked", "will work"], "will have worked", "by next Aprilという未来の基準時までに10年間の勤務が続くので、will have + 過去分詞の未来完了を使う。", { "will work": "未来であることだけを見て、未来の時点までの継続を表す完了形を落としている。" }],
+    ["tense", "I ___ for the test since breakfast, and I am still studying now. に入る形は？", ["have been studying", "am studying", "studied", "had studied"], "have been studying", "since breakfastとstill studying nowから、過去に始まり今も続く動作。have been + -ingの現在完了進行形を使う。", { "am studying": "今進行中であることだけを見て、since breakfastが示す過去からの継続を表していない。" }],
+    ["infinitive", "Please don't forget ___ the lights before you leave. に入る形は？", ["to turn off", "turning off", "turn off", "turned off"], "to turn off", "forget to doは『これからすることを忘れる』。外出前に消すべきことを忘れないよう頼んでいるのでto turn off。forget doingは『したことを忘れる』。", { "turning off": "これから行う動作と、すでに行った動作の記憶を混同している。" }],
+    ["gerund", "I remember ___ this temple when I was a child. に入る形は？", ["visiting", "to visit", "visit", "visited"], "visiting", "remember doingは『したことを覚えている』。when I was a childが過去の経験を示すためvisiting。remember to doは『忘れずに〜する』。", { "to visit": "過去の経験の記憶と、これからすることを忘れないという意味を混同している。" }],
+    ["gerund", "We are considering ___ to a smaller office. に入る形は？", ["moving", "to move", "move", "moved"], "moving", "considerは『〜することを検討する』の意味では目的語に動名詞を取る。consider movingが正しく、consider to moveとはしない。"],
+    ["gerund", "After five years in Canada, Ken is used to ___ English at work. に入る形は？", ["speaking", "speak", "spoke", "have spoken"], "speaking", "be used toのtoは前置詞で、『〜することに慣れている』を表す。前置詞の後ろなので動詞は-ing形。used to + 原形『以前は〜した』と区別する。", { "speak": "used to + 原形とbe used to + -ingを混同している。ここではbe動詞isがあるため『慣れている』の形。" }],
+    ["passive", "I had my bicycle ___ at the shop. に入る形は？", ["repaired", "repair", "repairing", "to repair"], "repaired", "have + 目的語 + 過去分詞で『目的語を〜してもらう』。自転車は修理される側なので過去分詞repaired。", { "repair": "have + 人 + 原形『人に〜してもらう』と、物を目的語にするhave + 物 + 過去分詞を混同している。" }],
+    ["gerund", "We couldn't help ___ when the puppy fell asleep in a shoe. に入る形は？", ["laughing", "to laugh", "laugh", "laughed"], "laughing", "cannot help doingは『〜せずにはいられない』という慣用表現。helpの後ろに動名詞を置く。"],
+    ["gerund", "It is no use ___ about a decision that cannot be changed. に入る形は？", ["complaining", "to complain", "complain", "complained"], "complaining", "It is no use doingは『〜しても無駄だ』という形。useの後ろには動名詞を置く。"],
+    ["infinitive", "I couldn't decide which train ___. に入る形は？", ["to take", "taking", "take", "took"], "to take", "疑問詞 + to doで『どの〜をすべきか』を表せる。which train to takeで『どの電車に乗るべきか』。"],
+    ["infinitive", "It was careless ___ Rina to leave the door unlocked. に入る語は？", ["of", "for", "to", "with"], "of", "carelessは人の性質・行為への評価を表す形容詞なので、It is 形容詞 of 人 to doの形を使う。forはdifficultなど、行為の難易度を述べる形容詞で使う。", { "for": "行為の難易度を表すforと、人の性質を評価するofを区別していない。" }],
+    ["infinitive", "The missing files seem ___ before the backup was made. に入る形は？", ["to have been deleted", "to be deleted", "to delete", "having deleted"], "to have been deleted", "削除はseemが示す現在の判断より前に起き、filesは削除される側。完了不定詞to have + 過去分詞と受動態been deletedを組み合わせる。", { "to be deleted": "受動態にはしているが、before the backup was madeが示すseemより前の出来事を完了不定詞で表していない。" }],
+    ["preposition", "___ the meeting, all phones must be switched off. に入る語は？", ["During", "While", "Because", "Although"], "During", "空所の後ろは名詞句the meeting。duringは前置詞なので名詞句を取り、whileは接続詞なので後ろに主語＋動詞が必要。", { "While": "『〜の間』という意味だけで選び、後ろが名詞句か節かを確認していない。" }],
+    ["conjunction", "Take an umbrella ___ it rains later. に入る語句は？", ["in case", "because of", "during", "despite"], "in case", "in case + 主語＋動詞で『〜するといけないから、〜に備えて』を表す。後ろのit rainsは節なので、名詞句を取る前置詞は置けない。"],
+    ["comparison", "Yuki is one of the most reliable ___ on our team. に入る形は？", ["members", "member", "a member", "the member"], "members", "one of the + 最上級 + 複数名詞で『最も〜な…の一人・一つ』。複数いる集合の中の一人なのでmembers。", { "member": "oneに引かれて単数形を選んでいる。ofの後ろは複数の集合を表す。" }],
+    ["nouns", "Could you give me ___ about choosing a course? に入る語句は？", ["some advice", "an advice", "some advices", "advises"], "some advice", "adviceは不可算名詞なのでanを付けず、複数形advicesにもしない。量を表すならsome adviceやa piece of advice。"],
+    ["nouns", "The number of students in this class ___ increased this year. に入る形は？", ["has", "have", "are", "were"], "has", "the number of + 複数名詞の主語の中心はnumberで単数扱い。a number of + 複数名詞『多くの〜』なら複数扱いになる。", { "have": "直前のstudentsに動詞を一致させ、主語の中心the numberを確認していない。" }],
+    ["nouns", "I have two keys. One is for the front door, and ___ is for the back door. に入る語は？", ["the other", "another", "other", "others"], "the other", "二つのうち一方がoneなら、残るもう一方はthe other。anotherは三つ以上ある中の不特定のもう一つに使う。", { "another": "二つに限定された残り一つと、三つ以上の中の不特定の一つを区別していない。" }],
+    ["comparison", "This problem is ___ more difficult than the previous one. に入る語は？", ["much", "very", "most", "many"], "much", "比較級more difficultを強調するのはmuch。veryは原級を強調するが、very more difficultとはしない。", { "very": "原級の強調と比較級の強調を混同している。" }],
+    ["preposition", "The library will remain open ___ 9 p.m. に入る語は？", ["until", "by", "during", "for"], "until", "remain openは状態が続くので、その継続の終点を示すuntilを使う。byは『その時までに完了する』という期限を表す。", { "by": "完了の期限と、状態が続く終点を混同している。" }],
+    ["relative", "関係詞を選ぶとき、後ろが『必要な文の要素が欠けていない完全文』なら、基本的に何を選ぶか。", ["関係副詞", "関係代名詞", "疑問代名詞", "再帰代名詞"], "関係副詞", "関係副詞where / when / whyは副詞として場所・時・理由を補うため、後ろは主語・動詞・目的語などがそろった完全文になる。関係代名詞の後ろは一要素が欠ける。"],
+    ["relative", "Maya has three cousins, all of ___ live abroad. に入る語は？", ["whom", "who", "them", "which"], "whom", "前置詞ofの後ろなので目的格whomを使う。all of whom全体が先行詞three cousinsを説明する関係詞節を作る。", { "who": "人を表すことだけで主格whoを選び、前置詞ofの目的語になる格を確認していない。", "them": "代名詞themでは二つの節を接続できない。関係代名詞whomが必要。" }],
+    ["negation", "Do you know where the nearest station ___? に入る語は？", ["is", "is it", "does", "be"], "is", "間接疑問文は疑問詞 + 主語 + 動詞の平叙文語順。where the nearest station isとなり、where is the nearest stationの疑問語順にはしない。", { "is it": "直接疑問文の語順を間接疑問文の中に残している。" }],
+    ["negation", "You finished the report, ___? に入る付加疑問は？", ["didn't you", "did you", "weren't you", "don't you"], "didn't you", "本文が過去形の肯定文finishedなので、付加疑問は否定のdidn't + 主語you。本文と反対の肯定・否定を使う。"],
+    ["modal", "That story ___ be true; I was there and saw what happened. に入る語は？", ["can't", "must", "should", "may"], "can't", "確かな根拠から『本当であるはずがない』と強く否定推量するためcan't beを使う。must beは強い肯定推量。", { "must": "強い推量であることだけを見て、根拠が否定を導いていることを確認していない。" }],
+    ["subjunctive", "It is time you ___. に入る形は？", ["went to bed", "go to bed", "will go to bed", "have gone to bed"], "went to bed", "It is time + 主語 + 過去形で『もう〜する時間だ』を表す。形は過去形だが、意味は現在すべきこと。"],
+    ["subjunctive", "___ I known about the traffic, I would have left earlier. に入る語は？", ["Had", "If", "Were", "Should"], "Had", "If I had knownのifを省略すると、hadを主語の前に出してHad I knownとする。過去の反実仮想を表す仮定法過去完了の倒置。", { "If": "If I knownとはできない。ifを使うならIf I had known、ifを省略するならHad I knownとなる。" }]
   ].map(([domain, stem, choices, answer, explanation, misconceptions], index) => {
     const question = { id: `q${index + 1}`, domain, stem, choices, answer, explanation };
     return {

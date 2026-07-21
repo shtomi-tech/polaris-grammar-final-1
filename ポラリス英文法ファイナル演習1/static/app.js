@@ -535,7 +535,7 @@ function foundationStatus() {
   const history = loadFoundationHistory();
   const stageResults = history?.stageResults || {};
   const completedStages = Array.from({ length: FOUNDATION_STAGE_COUNT }, (_, index) => index + 1)
-    .filter(index => stageResults[`stage${index}`]).length;
+    .filter(index => stageResults[`stage${index}`]?.total === 30).length;
   return {
     history,
     stageResults,
@@ -680,7 +680,7 @@ function nextAction() {
   const foundation = foundationStatus();
   if (!foundation.unlocked) {
     const nextFoundationStage = Array.from({ length: FOUNDATION_STAGE_COUNT }, (_, index) => index + 1)
-      .find(index => !foundation.stageResults[`stage${index}`]) || 1;
+      .find(index => foundation.stageResults[`stage${index}`]?.total !== 30) || 1;
     return {
       kind: "foundation",
       label: `▶ 基礎から始める — 第${nextFoundationStage}段階`
@@ -1041,7 +1041,7 @@ function renderGrammarGate() {
     return;
   }
   const nextStage = Array.from({ length: foundation.total }, (_, index) => index + 1)
-    .find(index => !foundation.stageResults[`stage${index}`]) || foundation.total;
+    .find(index => foundation.stageResults[`stage${index}`]?.total !== 30) || foundation.total;
   panel.innerHTML = `
     <p class="label">Grammar / Locked</p>
     <h2>英文法演習は、基礎チェック完了後に解放されます。</h2>
@@ -1063,8 +1063,8 @@ function renderFoundationDashboard() {
 
   const history = loadFoundationHistory();
   const stageResults = history?.stageResults || {};
-  const completedStages = Object.keys(stageResults).filter(key => /^stage[1-5]$/.test(key)).length;
-  const answers = history?.total === 120 && Array.isArray(history.answers)
+  const completedStages = Object.keys(stageResults).filter(key => /^stage[1-5]$/.test(key) && stageResults[key]?.total === 30).length;
+  const answers = [120, 150].includes(history?.total) && Array.isArray(history.answers)
     ? history.answers
     : Object.values(stageResults).flatMap(result => Array.isArray(result.answers) ? result.answers : []);
   const weakDomains = [];
@@ -1075,7 +1075,7 @@ function renderFoundationDashboard() {
     const uncertain = domainAnswers.filter(answer => answer.uncertain).length;
     if (correct / domainAnswers.length < 0.8 || uncertain > 0) weakDomains.push(domain);
   }
-  const nextStage = [1, 2, 3, 4, 5].find(index => !stageResults[`stage${index}`]);
+  const nextStage = [1, 2, 3, 4, 5].find(index => stageResults[`stage${index}`]?.total !== 30);
   const step1 = stepStats("step1Cleared");
   const step2 = stepStats("step2Cleared");
   const meta = metaState();

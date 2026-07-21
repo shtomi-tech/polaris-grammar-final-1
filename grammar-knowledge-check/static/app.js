@@ -4,7 +4,7 @@
   const DATA = window.GRAMMAR_CHECK_DATA;
   const KEY = "grammar-knowledge-check-v2";
   const APP_ID = "grammar-knowledge-check";
-  const SESSION_VERSION = 2;
+  const SESSION_VERSION = 4;
   const REVIEW_LADDER_DAYS = [1, 3, 7, 14];
   const app = document.querySelector("#app");
   const resetButton = document.querySelector("#resetButton");
@@ -44,9 +44,14 @@
     }
   }
 
+  function stageCompleted(stageResults, stageIndex) {
+    const stage = DATA.learningStages[stageIndex];
+    return stageResults?.[`stage${stageIndex + 1}`]?.total === stage.questionIds.length;
+  }
+
   function grammarUnlocked(history = loadHistory()) {
     const stageResults = history?.stageResults || {};
-    return DATA.learningStages.every((_, index) => Boolean(stageResults[`stage${index + 1}`]));
+    return DATA.learningStages.every((_, index) => stageCompleted(stageResults, index));
   }
 
   function updateGrammarNavigation(history = loadHistory()) {
@@ -307,8 +312,8 @@
     const history = loadHistory();
     updateGrammarNavigation(history);
     const stageResults = history?.stageResults || {};
-    const completedStages = DATA.learningStages.filter((_, index) => stageResults[`stage${index + 1}`]).length;
-    const nextStageIndex = DATA.learningStages.findIndex((_, index) => !stageResults[`stage${index + 1}`]);
+    const completedStages = DATA.learningStages.filter((_, index) => stageCompleted(stageResults, index)).length;
+    const nextStageIndex = DATA.learningStages.findIndex((_, index) => !stageCompleted(stageResults, index));
     const reviewItems = reviewCandidates(history);
     const spacedItems = spacedCandidates(history);
     const inProgress = history?.inProgress?.version === SESSION_VERSION ? history.inProgress : null;
@@ -320,7 +325,7 @@
       ? `<p class="muted">途中保存: ${escapeHtml(resumeLabel(inProgress))}。解答と解説の表示状態も保存しています。</p>`
       : "";
     const stageCards = DATA.learningStages.map((stage, index) => {
-      const saved = stageResults[`stage${index + 1}`];
+      const saved = stageCompleted(stageResults, index) ? stageResults[`stage${index + 1}`] : null;
       return `<article class="measurementCard"><p class="kicker">STAGE ${index + 1}</p><strong>${saved ? `${saved.score}<span> / ${saved.total}</span>` : `${stage.questionIds.length}<span>問</span>`}</strong><p>${escapeHtml(stage.label)}</p><button class="secondary stageButton" data-stage-index="${index}" type="button">${saved ? "もう一度解く" : "この段階を解く"}</button></article>`;
     });
     const recommendedStageIndex = nextStageIndex >= 0 ? nextStageIndex : 0;
@@ -328,7 +333,7 @@
     const otherStageCards = stageCards.filter((_, index) => index !== recommendedStageIndex).join("");
     app.innerHTML = `
       <section class="panel dark">
-        <p class="kicker">START HERE / ABOUT 50 MINUTES</p>
+        <p class="kicker">START HERE / 30 QUESTIONS × 5</p>
         <h2>${DATA.questions.length}問で、英文法の基礎知識を一巡する。</h2>
         <p class="lead">品詞と文の骨組みから仮定法・語法まで、17分野の基礎を学習順に確認します。解答すると、その場で正答と解説を表示します。</p>
         <div class="overview" aria-label="アプリの概要">
@@ -337,8 +342,8 @@
           <div><strong>5</strong><span>学習段階</span></div>
         </div>
         <div class="primaryAction">
-          <button class="primary" id="startButton" type="button">${inProgress ? "途中から再開する" : (nextStageIndex >= 0 ? `第${nextStageIndex + 1}段階から始める` : "総合チェックをもう一度解く")} <span>${inProgress ? "保存済み" : (nextStageIndex >= 0 ? "推奨" : "復習")}</span></button>
-          <p>段階ごとに進めても、120問の総合チェックを選んでも構いません。</p>
+          <button class="primary" id="startButton" type="button">${inProgress ? "途中から再開する" : (nextStageIndex >= 0 ? `第${nextStageIndex + 1}段階から始める` : "第1段階から復習する")} <span>${inProgress ? "保存済み" : (nextStageIndex >= 0 ? "推奨" : "復習")}</span></button>
+          <p>1回30問。5段階を順に終えると、Polaris入試基礎演習へ進めます。</p>
         </div>
       </section>
       <section class="panel">
@@ -352,7 +357,7 @@
         <p class="kicker">FLOW</p>
         <h2>解く → その場で解説 → 弱点を知る</h2>
         <div class="flowSteps" aria-label="学習の流れ">
-          <div><strong>1</strong><p>4択で${DATA.questions.length}問を解く</p></div>
+          <div><strong>1</strong><p>4択を1回30問ずつ解く</p></div>
           <div><strong>2</strong><p>正答と解説を確認する</p></div>
           <div><strong>3</strong><p>誤答の根拠を読み直す</p></div>
         </div>
@@ -375,8 +380,7 @@
     `;
     document.querySelector("#startButton").addEventListener("click", () => {
       if (inProgress && restoreInProgress()) return;
-      if (nextStageIndex >= 0) startQuiz(nextStageIndex);
-      else startQuiz();
+      startQuiz(recommendedStageIndex);
     });
     document.querySelectorAll(".stageButton").forEach(button => {
       button.addEventListener("click", () => startQuiz(Number(button.dataset.stageIndex)));
@@ -596,7 +600,7 @@
     const focusDomains = needsReview.map(stat => stat.domain.id);
     const history = loadHistory();
     updateGrammarNavigation(history);
-    const completedStages = DATA.learningStages.filter((_, index) => history?.stageResults?.[`stage${index + 1}`]).length;
+    const completedStages = DATA.learningStages.filter((_, index) => stageCompleted(history?.stageResults, index)).length;
     const focusParams = new URLSearchParams(location.search);
     focusParams.set("focus", focusDomains.join(","));
     const nextStageIndex = result.stageIndex !== null && result.stageIndex !== undefined
@@ -620,7 +624,7 @@
     app.innerHTML = `
       <section class="panel dark">
         <p class="kicker">RESULT / ${escapeHtml(result.completedAt)}</p>
-        <h2>${isSpaced ? "間隔復習を完了" : (isReview ? "弱点復習を完了" : (result.stageLabel ? `第${result.stageIndex + 1}段階を完了` : "総合チェック完了"))}</h2>
+        <h2>${isSpaced ? "間隔復習を完了" : (isReview ? "弱点復習を完了" : (result.stageLabel ? `第${result.stageIndex + 1}段階を完了` : "チェック完了"))}</h2>
         <div class="score"><strong>${result.score}</strong><span>/ ${result.total} 問正解</span></div>
         <p class="lead">${resultMessage(result)}</p>
         <div class="nextStep">
@@ -629,7 +633,7 @@
           ${nextStepAction}
         </div>
         ${guideAction}
-        <button class="secondary quietAction" id="retryButton" type="button">${isSpaced ? "次回の間隔復習を確認する" : (isReview ? "残っている弱点をもう一度復習する" : (result.stageKey ? "この段階をもう一度解く" : "総合チェックをもう一度解く"))}</button>
+        <button class="secondary quietAction" id="retryButton" type="button">${isSpaced ? "次回の間隔復習を確認する" : (isReview ? "残っている弱点をもう一度復習する" : (result.stageKey ? "この段階をもう一度解く" : "もう一度解く"))}</button>
         ${focusDomains.length ? `<a class="secondary quietAction" href="${escapeHtml(trainerHref(focusParams))}">弱点分野のPolaris問題へ進む</a>` : ""}
         <button class="secondary quietAction" id="backHomeButton" type="button">学習一覧へ戻る</button>
       </section>
@@ -758,7 +762,7 @@
     && DATA.questionOrder.length === DATA.questions.length
     && new Set(DATA.questionOrder).size === DATA.questions.length
     && DATA.questionOrder.every(id => questionById.has(id));
-  if (!DATA || DATA.questions.length !== 120 || DATA.domains.length !== 17 || !hasValidOrder) {
+  if (!DATA || DATA.questions.length !== 150 || DATA.domains.length !== 17 || !hasValidOrder) {
     app.innerHTML = "<section class=\"panel\"><h2>データの読み込みに失敗しました</h2><p>問題数または分野数が想定と異なります。</p></section>";
     return;
   }
