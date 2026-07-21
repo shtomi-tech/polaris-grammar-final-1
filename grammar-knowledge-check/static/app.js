@@ -4,7 +4,7 @@
   const DATA = window.GRAMMAR_CHECK_DATA;
   const KEY = "grammar-knowledge-check-v2";
   const APP_ID = "grammar-knowledge-check";
-  const SESSION_VERSION = 1;
+  const SESSION_VERSION = 2;
   const REVIEW_LADDER_DAYS = [1, 3, 7, 14];
   const app = document.querySelector("#app");
   const resetButton = document.querySelector("#resetButton");
@@ -16,7 +16,6 @@
   const questionById = new Map(DATA.questions.map(question => [question.id, question]));
   let session = null;
   let pendingChoice = null;
-  let pendingUncertain = false;
   let answerRevealed = false;
   let cloud = null;
 
@@ -124,7 +123,6 @@
       questions: session.questions.map(question => ({ id: question.id, choices: question.choices })),
       responses: session.responses.map(response => ({ ...response })),
       pendingChoice,
-      pendingUncertain,
       answerRevealed,
       updatedAt: new Date().toISOString()
     };
@@ -152,7 +150,11 @@
     const questions = saved.questions
       .map(item => {
         const question = questionById.get(item.id);
-        return question ? { ...question, choices: Array.isArray(item.choices) && item.choices.length === 4 ? item.choices : shuffle(question.choices) } : null;
+        if (!question) return null;
+        const savedChoicesAreCurrent = Array.isArray(item.choices)
+          && item.choices.length === question.choices.length
+          && item.choices.every(choice => question.choices.includes(choice));
+        return { ...question, choices: savedChoicesAreCurrent ? item.choices : shuffle(question.choices) };
       })
       .filter(Boolean);
     if (!questions.length) return false;
@@ -165,8 +167,10 @@
       responses: Array.isArray(saved.responses) ? saved.responses : [],
       index: Math.max(0, Math.min(Number(saved.index || 0), questions.length - 1))
     };
-    pendingChoice = typeof saved.pendingChoice === "string" ? saved.pendingChoice : null;
-    pendingUncertain = Boolean(saved.pendingUncertain);
+    const currentQuestion = questions[Math.max(0, Math.min(Number(saved.index || 0), questions.length - 1))];
+    pendingChoice = typeof saved.pendingChoice === "string" && currentQuestion.choices.includes(saved.pendingChoice)
+      ? saved.pendingChoice
+      : null;
     answerRevealed = Boolean(saved.answerRevealed && pendingChoice);
     renderQuiz();
     document.querySelector(answerRevealed ? "#instantFeedback" : "#choiceGrid")?.focus();
@@ -195,8 +199,7 @@
     const latestReview = new Map((history.lastReview?.answers || []).map(answer => [answer.id, answer]));
     const byId = new Map(baseAnswers.map(answer => [answer.id, latestReview.get(answer.id) || answer]));
     return [...byId.values()]
-      .filter(answer => !answer.correct || answer.uncertain)
-      .sort((a, b) => Number(a.correct) - Number(b.correct) || Number(b.uncertain) - Number(a.uncertain))
+      .filter(answer => !answer.correct)
       .map(answer => questionById.get(answer.id))
       .filter(Boolean);
   }
@@ -214,7 +217,7 @@
   function scheduleNewAnswers(schedule, answers) {
     const next = { ...schedule };
     for (const answer of answers || []) {
-      if (answer.correct && !answer.uncertain) next[answer.id] = { stage: 0, nextReviewAt: addDays(REVIEW_LADDER_DAYS[0]) };
+      if (answer.correct) next[answer.id] = { stage: 0, nextReviewAt: addDays(REVIEW_LADDER_DAYS[0]) };
       else delete next[answer.id];
     }
     return next;
@@ -224,7 +227,7 @@
     const next = { ...schedule };
     for (const answer of answers || []) {
       const current = next[answer.id] || { stage: 0 };
-      if (answer.correct && !answer.uncertain) {
+      if (answer.correct) {
         const stage = Math.min(Number(current.stage || 0) + 1, REVIEW_LADDER_DAYS.length - 1);
         next[answer.id] = { stage, nextReviewAt: addDays(REVIEW_LADDER_DAYS[stage]) };
       } else {
@@ -256,7 +259,6 @@
       responses: []
     };
     pendingChoice = null;
-    pendingUncertain = false;
     answerRevealed = false;
     saveInProgress();
     renderQuiz();
@@ -275,7 +277,6 @@
       responses: []
     };
     pendingChoice = null;
-    pendingUncertain = false;
     answerRevealed = false;
     saveInProgress();
     renderQuiz();
@@ -294,7 +295,6 @@
       responses: []
     };
     pendingChoice = null;
-    pendingUncertain = false;
     answerRevealed = false;
     saveInProgress();
     renderQuiz();
@@ -303,7 +303,6 @@
   function home() {
     session = null;
     pendingChoice = null;
-    pendingUncertain = false;
     answerRevealed = false;
     const history = loadHistory();
     updateGrammarNavigation(history);
@@ -312,7 +311,7 @@
     const nextStageIndex = DATA.learningStages.findIndex((_, index) => !stageResults[`stage${index + 1}`]);
     const reviewItems = reviewCandidates(history);
     const spacedItems = spacedCandidates(history);
-    const inProgress = history?.inProgress;
+    const inProgress = history?.inProgress?.version === SESSION_VERSION ? history.inProgress : null;
     const hasCompletedResult = history && Number.isFinite(history.total) && Number.isFinite(history.score);
     const historyHtml = hasCompletedResult
       ? `<p class="muted">前回: ${escapeHtml(history.completedAt)} ／ ${history.score}/${history.total}問正解。記録はこの端末にのみ保存されます。</p>`
@@ -363,8 +362,8 @@
       </section>
       <section class="panel">
         <p class="kicker">REVIEW / ${reviewItems.length} ITEMS</p>
-        <h2>誤答と保留だけを復習する</h2>
-        <p class="lead">誤答を先に、保留をその後に出題します。復習で正解できた問題は、次回の対象から外れます。</p>
+        <h2>誤答だけを復習する</h2>
+        <p class="lead">間違えた問題だけを出題します。復習で正解できた問題は、次回の対象から外れます。</p>
         <button class="primary" id="startReviewButton" type="button" ${reviewItems.length ? "" : "disabled"}>${reviewItems.length ? `弱点${reviewItems.length}問を復習する` : "復習対象はありません"}</button>
       </section>
       <section class="panel">
@@ -414,7 +413,6 @@
         </div>
         ${instantFeedbackHtml(question)}
         <div class="choiceActions">
-          <label class="flag"><input id="uncertain" type="checkbox" ${pendingUncertain ? "checked" : ""}> 正解でも根拠が曖昧なら印を付ける</label>
           <div class="quizActionBar">
             <p>${answerStatus}</p>
             <button class="primary" id="nextButton" type="button" ${canContinue ? "" : "disabled"}>${answerRevealed ? (session.index === session.questions.length - 1 ? "結果を見る" : "次の問題へ") : "解答を選ぶ"}</button>
@@ -426,10 +424,6 @@
       button.addEventListener("click", () => {
         selectAnswer(button.dataset.choice);
       });
-    });
-    document.querySelector("#uncertain").addEventListener("change", event => {
-      pendingUncertain = event.target.checked;
-      saveInProgress();
     });
     document.querySelector("#nextButton").addEventListener("click", commitAnswer);
   }
@@ -480,11 +474,9 @@
     const question = session.questions[session.index];
     session.responses.push({
       id: question.id,
-      chosen: pendingChoice,
-      uncertain: pendingUncertain
+      chosen: pendingChoice
     });
     pendingChoice = null;
-    pendingUncertain = false;
     answerRevealed = false;
     session.index += 1;
     if (session.index < session.questions.length) {
@@ -535,18 +527,17 @@
     return DATA.domains.map(domain => {
       const answers = result.answers.filter(answer => answer.domain === domain.id);
       const correct = answers.filter(answer => answer.correct).length;
-      const uncertain = answers.filter(answer => answer.uncertain).length;
       const rate = correct / answers.length;
       let status = "review";
       let label = answers.length < 3 ? "要追加確認" : "要確認";
       if (rate < .5) {
         status = "weak";
         label = "未定着";
-      } else if (answers.length >= 3 && rate >= .8 && !uncertain) {
+      } else if (answers.length >= 3 && rate >= .8) {
         status = "good";
         label = "定着";
       }
-      return { domain, answers, correct, uncertain, rate, status, label };
+      return { domain, answers, correct, rate, status, label };
     });
   }
 
@@ -563,7 +554,7 @@
 
   function resultMessage(result) {
     const rate = result.score / result.total;
-    if (rate >= .9) return "基礎事項はかなり整理されています。根拠で迷った項目だけを短く確認すれば十分です。";
+    if (rate >= .9) return "基礎事項はかなり整理されています。誤答した項目だけを短く確認すれば十分です。";
     if (rate >= .7) return "骨組みはあります。誤答の数より、どの形を混同したかを見て復習すると戻りやすいです。";
     return "今は知識が散らばっている段階です。点数を急がず、下の混同を一つずつほどいてください。";
   }
@@ -650,7 +641,7 @@
       <section class="panel">
         <p class="kicker">MISCONCEPTIONS</p>
         <h2>今、ほどく混同</h2>
-        ${misconceptions.length ? `<div class="misconceptionList">${misconceptions.map(item => `<article><strong>${escapeHtml(item.text)}</strong><p>${item.count}問 / ${escapeHtml([...item.domains].join("・"))}</p></article>`).join("")}</div>` : "<div class=\"empty\">誤答から特定できる混同はありません。保留を付けた問題を見直してください。</div>"}
+        ${misconceptions.length ? `<div class="misconceptionList">${misconceptions.map(item => `<article><strong>${escapeHtml(item.text)}</strong><p>${item.count}問 / ${escapeHtml([...item.domains].join("・"))}</p></article>`).join("")}</div>` : "<div class=\"empty\">今回の誤答から特定できる混同はありません。</div>"}
       </section>
       <section class="panel">
         <p class="kicker">PRIORITY</p>
@@ -677,15 +668,15 @@
   }
 
   function domainRowHtml(stat) {
-    return `<div class="domainRow"><div><strong>${escapeHtml(stat.domain.label)}</strong><div class="domainMeta">${stat.correct}/${stat.answers.length} 正解${stat.uncertain ? ` / 保留 ${stat.uncertain}` : ""}</div></div><span class="status ${stat.status}">${stat.label}</span></div>`;
+    return `<div class="domainRow"><div><strong>${escapeHtml(stat.domain.label)}</strong><div class="domainMeta">${stat.correct}/${stat.answers.length} 正解</div></div><span class="status ${stat.status}">${stat.label}</span></div>`;
   }
 
   function renderReview(result) {
-    const reviewAnswers = result.answers.filter(answer => !answer.correct || answer.uncertain);
+    const reviewAnswers = result.answers.filter(answer => !answer.correct);
     const reviewDomains = domainStats(result).filter(stat => stat.status !== "good");
     app.innerHTML = `
       <section class="panel dark">
-        <p class="kicker">REVIEW / WRONG OR UNCERTAIN</p>
+        <p class="kicker">REVIEW / WRONG ANSWERS</p>
         <h2>解説を読む</h2>
         <p class="lead">正誤だけを追わず、選んだ誤答がどの混同から出たかを確認します。必要なら、解説の後で問題順を変えて解き直します。</p>
         <div class="primaryAction"><button class="primary" id="retryButton" type="button">解説を読んだら、もう一度${DATA.questions.length}問を解く</button><p>同じ学習順で、根拠まで言えるか確かめます。</p></div>
@@ -693,7 +684,7 @@
       </section>
       <section class="panel">
         <h2>あなたの解答</h2>
-        ${reviewAnswers.length ? reviewAnswers.map(answerHtml).join("") : "<div class=\"empty\">誤答・保留はありません。</div>"}
+        ${reviewAnswers.length ? reviewAnswers.map(answerHtml).join("") : "<div class=\"empty\">誤答はありません。</div>"}
       </section>
       <section class="panel">
         <h2>分野ごとの解説</h2>
@@ -705,14 +696,12 @@
   }
 
   function answerHtml(answer) {
-    const state = !answer.correct ? "bad" : "flagged";
-    const stateLabel = !answer.correct ? "不正解" : "保留";
     const misconception = answer.misconception ? `<p><strong>混同：</strong>${escapeHtml(answer.misconception)}</p>` : "";
     return `
       <article class="reviewItem">
-        <p class="questionCount">${escapeHtml(domainById.get(answer.domain).label)} / ${escapeHtml(skillLabels[answer.skill])} / ${stateLabel}</p>
+        <p class="questionCount">${escapeHtml(domainById.get(answer.domain).label)} / ${escapeHtml(skillLabels[answer.skill])} / 不正解</p>
         <h3>${escapeHtml(answer.stem)}</h3>
-        <div class="answerLine ${state}">
+        <div class="answerLine bad">
           <p><strong>正解：</strong>${escapeHtml(answer.answer)}</p>
           <p><strong>あなたの解答：</strong>${escapeHtml(answer.chosen)}</p>
           ${misconception}

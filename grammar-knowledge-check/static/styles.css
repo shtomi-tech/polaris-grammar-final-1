@@ -218,8 +218,6 @@ h3 { font-size: 18px; line-height: 1.45; }
 .instantFeedback.bad h3 { color: var(--red); }
 
 .choiceActions { border-top: 1px solid var(--line); margin-top: 24px; padding-top: 16px; }
-.flag { align-items: center; color: var(--muted); display: inline-flex; font-size: 14px; gap: 8px; margin-bottom: 16px; }
-.flag input { accent-color: var(--ink); height: 18px; width: 18px; }
 .quizActionBar { align-items: center; background: var(--paper); border: 1px solid var(--ink); display: flex; gap: 16px; justify-content: space-between; padding: 12px; }
 .quizActionBar p { color: var(--muted); font-size: 13px; margin: 0; }
 .quizActionBar .primary { min-width: 224px; }
@@ -272,7 +270,6 @@ h3 { font-size: 18px; line-height: 1.45; }
 .reviewItem h3 { margin-bottom: 8px; }
 .answerLine { border-left: 3px solid var(--ink); padding-left: 12px; }
 .answerLine.bad { border-color: var(--red); }
-.answerLine.flagged { border-color: var(--amber); }
 .answerLine.good { border-color: var(--green); }
 
 .guide { border-top: 2px solid var(--ink); margin-top: 28px; padding-top: 22px; }
