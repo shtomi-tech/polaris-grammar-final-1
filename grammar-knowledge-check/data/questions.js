@@ -36,6 +36,38 @@ const DOMAIN_REVIEW_HINTS = {
   negation: "述語がbe動詞・一般動詞・助動詞のどれかを確認し、疑問文でも後続動詞を原形にする。"
 };
 
+// 空配列は、現行の原則集に直接対応する active カードがまだない問題を表す。
+// 対応カードがない内容を、既存カードから推測して紐付けない。
+const QUESTION_RULE_REFS = {
+  q6: ["egp.sentence-structure.complement"],
+  q7: ["egp.sentence-structure.verb-object"],
+  q16: ["egp.modifiers.adjective"],
+  q18: ["egp.modifiers.adjective", "egp.sentence-structure.complement"],
+  q19: ["egp.modifiers.adverb-functions"],
+  q21: ["egp.verbs.intransitive"],
+  q22: ["egp.verbs.transitive"],
+  q23: ["egp.sentence-structure.there-introductory"],
+  q24: ["egp.sentence-structure.complement"],
+  q25: ["egp.modifiers.adverb-functions"],
+  q26: ["egp.sentence-structure.verb-object"],
+  q27: ["egp.sentence-structure.verb-object"],
+  q28: ["egp.sentence-structure.complement", "egp.sentence-structure.verb-object"],
+  q29: ["egp.verbs.intransitive", "egp.sentence-structure.preposition", "egp.sentence-structure.preposition-object"],
+  q30: ["egp.agreement.third-person-singular-present-s"],
+  q32: ["egp.agreement.third-person-singular-present-s"],
+  q34: ["egp.agreement.third-person-singular-present-s", "egp.negation-questions.yes-no-questions"],
+  q35: ["egp.verbs.auxiliaries"],
+  q36: ["egp.agreement.be-present-past"],
+  q37: ["egp.sentence-structure.there-introductory"],
+  q38: ["egp.negation-questions.yes-no-questions"],
+  q39: ["egp.agreement.third-person-singular-present-s", "egp.negation-questions.yes-no-questions"],
+  q40: ["egp.agreement.third-person-singular-present-s", "egp.negation-questions.not-negation"],
+  q41: ["egp.negation-questions.not-negation"],
+  q42: ["egp.negation-questions.wh-questions"],
+  q56: ["egp.verbs.auxiliaries", "egp.negation-questions.yes-no-questions"],
+  q60: ["egp.verbs.auxiliaries"]
+};
+
 function questionIdRange(first, last) {
   return Array.from({ length: last - first + 1 }, (_, index) => `q${first + index}`);
 }
@@ -84,8 +116,8 @@ window.GRAMMAR_CHECK_DATA = {
     ["foundation", "英文法で「句」と呼ぶまとまりの説明として正しいものは？", ["一つの語として品詞上の働きをもつ単位", "二語以上で主語＋述語動詞を含まないまとまり", "主語＋述語動詞を含むまとまり", "必ずピリオドで終わる文全体"], "二語以上で主語＋述語動詞を含まないまとまり", "in the roomやto read a bookのように、二語以上が一つの品詞のように働き、主語＋述語動詞を含まないまとまりを句という。"],
     ["foundation", "英文法で「節」と呼ぶまとまりの説明として正しいものは？", ["一つの語として品詞上の働きをもつ単位", "二語以上で主語＋述語動詞を含まないまとまり", "主語＋述語動詞を含むまとまり", "必ずピリオドで終わる文全体"], "主語＋述語動詞を含むまとまり", "because he was tiredのhe wasのように、主語と述語動詞を含む語のまとまりを節という。節は文の一部としても働く。"],
     ["foundation", "in the room は何か。", ["単語", "句", "節", "文型"], "句", "in the room は二語以上のまとまりだが、主語と述語動詞を含まないため句。文の中で場所を表す修飾語として働く。", { "節": "まとまりの中に主語・述語動詞があるかを確認していない。", "単語": "二語以上のまとまりであることを見ていない。", "文型": "まとまりの種類と文型を混同している。" }],
-    ["foundation", "She is a doctor. の a doctor の文の要素は？", ["主語（S）", "目的語（O）", "補語（C）", "修飾語（M）"], "補語（C）", "a doctor は主語 She が何者かを説明し、She = a doctor の関係を作るため補語C。be動詞は目的語を取らない。", { "主語（S）": "文の主語は動詞isの前にあるShe。a doctorはSheを説明する側である。", "目的語（O）": "be動詞の後ろの名詞を目的語と考えている。She = a doctor が成り立つため、a doctorは補語C。", "修飾語（M）": "a doctorは取り除ける付加情報ではなく、主語の内容を完成させる補語である。" }],
-    ["foundation", "She gave me a book. の me の文の要素は？", ["主語", "補語", "目的語", "修飾語"], "目的語", "give は『人に物を与える』SVOO型で、me と a book はどちらも目的語。"],
+    ["foundation", "She is a doctor. の a doctor の文の要素は？", ["主語（S）", "目的語（O）", "補語（C）", "修飾語（M）"], "補語（C）", "a doctor は主語 She とイコールになり、主語の内容を説明する名詞補語C。この文では動詞の目的語ではない。", { "主語（S）": "文の主語は動詞isの前にあるShe。a doctorはSheを説明する側である。", "目的語（O）": "a doctor は主語 She とイコールになる説明語で、動作の対象ではない。したがって目的語ではなく補語C。", "修飾語（M）": "a doctor は主語 She の内容を完成させる補語で、単に付け加える修飾語ではない。" }],
+    ["foundation", "She gave me a book. の me の文の要素は？", ["主語", "補語", "目的語", "修飾語"], "目的語", "give は人と物を動詞に直接結び付けるSVOO型。me は与える相手、a book は与える物で、どちらも動詞gaveの目的語。", { "主語": "文の主語は動詞gaveの前にあるShe。meは与える相手を表す目的語。", "補語": "meは別の名詞を説明してSheやa bookとイコールになる語ではなく、gaveに結び付く目的語。", "修飾語": "meは時・場所・様子を付け加える語ではなく、gaveの動作の相手を表す目的語。" }],
     ["foundation", "修飾語（M）の説明として正しいものは？", ["文の骨組みに時・場所・様子などの情報を付け加える", "必ず文の主語になる", "動詞の代わりに述語になる", "どの文にも必ず一つ以上必要である"], "文の骨組みに時・場所・様子などの情報を付け加える", "S・V・O・Cが文の骨組みで、修飾語Mはそこに情報を足す。Mを取り除いても文としては成立する。"],
     // 名詞・冠詞・代名詞
     ["nouns", "How ___ information do you need? に入る語は？", ["many", "much", "few", "a few"], "much", "informationは数えられない名詞なのでmuchを使う。manyと(a) fewは数えられる名詞の複数形に使う。", { "many": "informationを数えられる名詞として扱っている。manyはmany booksのように可算名詞の複数形に使う。", "few": "fewは可算名詞の複数形に使い、『ほとんどない』を表す。informationには使えない。", "a few": "a fewは可算名詞の複数形に使い、『少しはある』を表す。informationには使えない。" }],
@@ -96,21 +128,21 @@ window.GRAMMAR_CHECK_DATA = {
     ["nouns", "I bought a watch, but I lost ___ soon. に入る語は？", ["it", "one", "this", "mine"], "it", "前に出た特定の物（買ったその時計）そのものを受けるのは it。one は同じ種類の別の一つを指す。", { "one": "特定の物そのものを受ける it と、同種の別の一つを指す one を混同している。" }],
     ["nouns", "This notebook is not mine. Is it ___? に入る語は？", ["you", "your", "yours", "yourself"], "yours", "空所の後ろに名詞がなく、『あなたのもの』という意味を単独で表すため所有代名詞yoursを使う。yourは後ろに名詞が必要。", { "you": "主格・目的格のyouを所有の意味で使っている。ここでは『あなたのもの』を表す所有代名詞が必要。", "your": "所有格yourを単独で使っている。yourはyour notebookのように後ろに名詞を置く。", "yourself": "再帰代名詞yourselfと、所有を表すyoursを混同している。" }],
     // 形容詞・副詞
-    ["adverb", "形容詞の基本的な働きとして正しいものは？", ["名詞を修飾し、補語として主語や目的語を説明する", "動詞・形容詞・副詞だけを修飾する", "主語の動作や時制を表す", "語と語や節と節を結ぶ"], "名詞を修飾し、補語として主語や目的語を説明する", "形容詞は名詞を修飾するほか、be動詞やlookなどの後ろで補語となり、主語や目的語の性質・状態を説明する。"],
+    ["adverb", "形容詞の基本的な働きとして正しいものは？", ["名詞の性質・状態・種類を説明する", "動詞の時制を示す", "語句や節をつなぐ", "主語の人称を示す"], "名詞の性質・状態・種類を説明する", "形容詞は、どのような名詞であるかを説明する。a kind teacherではkindがteacherの性質を説明する。主語や目的語を説明する補語の働きは、別に確認する。", { "動詞の時制を示す": "時制を表すのは動詞の形や助動詞であり、形容詞は名詞の性質・状態・種類を説明する。", "語句や節をつなぐ": "語句や節をつなぐのは接続詞。形容詞は名詞を説明する。", "主語の人称を示す": "人称は主語が話し手・聞き手・それ以外のどれかという分類で、形容詞の働きではない。" }],
     ["adverb", "副詞が文中の時間を表すとき、主に何を示すか？", ["動作がいつ・どのくらいの期間に起きるか", "名詞の性別", "主語の単複", "動詞の原形"], "動作がいつ・どのくらいの期間に起きるか", "時間を表す副詞は、動作や状態がいつ起きるか、どのくらい続くかを示す。時制と合わせて出来事の時間関係を読む。"],
     ["adverb", "She looks ___. に最も合う形は？", ["happily", "happy", "happiness", "happierly"], "happy", "look は主語の状態を説明する補語を取るので形容詞 happy。副詞 happily は補語になれない。", { "happily": "look の後ろが補語であることを見ず、動詞の後ろだから副詞と考えている。" }],
-    ["adverb", "副詞が形容詞を修飾するとき、主に何を表すか？", ["程度・強さ", "名詞の数", "主語の格", "動詞の時制"], "程度・強さ", "very usefulのveryのように、副詞は形容詞の程度や強さを加える。名詞の数や動詞の時制を直接決める語ではない。"],
+    ["adverb", "副詞が形容詞を修飾するとき、主に何を表すか？", ["程度・強さ", "名詞の数", "主語の格", "動詞の時制"], "程度・強さ", "very usefulのveryのように、副詞は形容詞がどの程度・どのような状態であるかを説明する。名詞の数や動詞の時制を直接決める語ではない。"],
     ["adverb", "always などの頻度を表す副詞の基本の位置は？", ["一般動詞の前、be動詞の後", "必ず文頭", "必ず文末", "名詞の直前"], "一般動詞の前、be動詞の後", "He always gets up early. / She is always kind. のように、頻度の副詞は一般動詞の前・be動詞や助動詞の後に置くのが基本。"],
     // 文型・自他動詞
     ["pattern", "自動詞の説明として正しいものは？", ["必ず受動態にできる動詞", "目的語を直接取らない動詞", "必ずbe動詞を伴う動詞", "過去形にならない動詞"], "目的語を直接取らない動詞", "arrive, sleep, listen などは目的語を直接取らない。listen to のように前置詞を伴うことはある。"],
     ["pattern", "他動詞の基本的な特徴は？", ["目的語を直接取る", "必ず前置詞を伴う", "補語だけを取る", "受動態にできない"], "目的語を直接取る", "他動詞は動作の対象となる目的語Oを直接取る。前置詞を介する場合は、その動詞自体は目的語を直接取っていない。"],
-    ["foundation", "There is / are 構文で、動詞の単複を決めるときに確認するものは？", ["後ろに置かれる名詞", "文頭のThere", "文末の場所を表す語", "話し手の気持ち"], "後ろに置かれる名詞", "There is a book. / There are books. のように、形式的なThereではなく、後ろに置かれる名詞の単複を見てbe動詞を選ぶ。"],
+    ["foundation", "There is / are 構文で、動詞の単複を決めるときに確認するものは？", ["後ろに置かれる名詞", "文頭のThere", "文末の場所を表す語", "話し手の気持ち"], "後ろに置かれる名詞", "There is a book. / There are books. のように、場所を表すthereではなく誘導副詞thereが使われる構文では、後ろの名詞句との数の一致を見てbe動詞を選ぶ。", { "文頭のThere": "there構文のthere自体は、単数・複数を決める名詞ではない。後ろの名詞句の数を確認する。", "文末の場所を表す語": "場所を表す語は動詞の単複を決めない。there構文では後ろの名詞句との一致を確認する。", "話し手の気持ち": "動詞の単複は話し手の気持ちではなく、後ろに置かれる名詞句の数で決まる。" }],
     ["pattern", "She is kind. の文型は？", ["SV", "SVC", "SVO", "SVOC"], "SVC", "kind は主語 She の性質を説明する補語C。be 動詞の後ろはSVCになりやすい。"],
-    ["adverb", "副詞の形や位置を選ぶとき、最初に確認することは？", ["何を修飾しているか", "名詞の数だけ", "主語の人称だけ", "文の文字数"], "何を修飾しているか", "副詞は動詞・形容詞・副詞・文全体などを修飾する。空所の前後から修飾先を見つけると、形と位置を判断しやすい。"],
+    ["adverb", "副詞の形や位置を選ぶとき、最初に確認することは？", ["何を修飾しているか", "名詞の数だけ", "主語の人称だけ", "文の文字数"], "何を修飾しているか", "副詞は、動詞の行動・動き・変化、形容詞、別の副詞などを説明する。まず何を修飾しているかを確認し、その後に形と位置を判断する。"],
     ["pattern", "She opened the window. の文型は？", ["SV", "SVC", "SVO", "SVOC"], "SVO", "She がS、opened がV、the window が動作の対象O。したがってSVO。"],
     ["pattern", "I gave my sister a present. の文型は？", ["SVC", "SVO", "SVOO", "SVOC"], "SVOO", "my sister と a present の二つの目的語を取る第4文型。『人に物を与える』型の動詞に多い。"],
     ["pattern", "They made him happy. の文型は？", ["SVC", "SVO", "SVOO", "SVOC"], "SVOC", "him が目的語O、happy が him の状態を説明する補語C。O = C（him = happy）の関係が成り立つためSVOC。"],
-    ["pattern", "We listened to the teacher carefully. で、teacher の前に to が必要な理由は？", ["listenは目的語を直接取らない自動詞だから", "listenは必ず受動態になる動詞だから", "teacherが文の主語だから", "carefullyが名詞を修飾する形容詞だから"], "listenは目的語を直接取らない自動詞だから", "listenは目的語を直接取らない自動詞なので、聞く対象はlisten to + 名詞で表す。carefullyはlistenedを修飾する副詞。", { "listenは必ず受動態になる動詞だから": "前置詞toを受動態の印と考えている。この文はWeを主語とする能動態である。", "teacherが文の主語だから": "文の主語は動詞listenedの前にあるWe。the teacherは前置詞toの目的語である。", "carefullyが名詞を修飾する形容詞だから": "carefullyは副詞で、動詞listenedの様子を説明する。toが必要な理由とは関係しない。" }],
+    ["pattern", "We listened to the teacher carefully. で、teacher の前に to が必要な理由は？", ["listenは目的語を直接取らない自動詞だから", "listenは必ず受動態になる動詞だから", "teacherが文の主語だから", "carefullyが名詞を修飾する形容詞だから"], "listenは目的語を直接取らない自動詞だから", "listenは目的語を直接取らない自動詞なので、聞く対象はlisten to + 名詞で表す。to the teacherではteacherが前置詞toの目的語、carefullyは動詞listenedを修飾する副詞である。", { "listenは必ず受動態になる動詞だから": "前置詞toは受動態の印ではない。この文はWeを主語とする能動態で、listenが目的語を直接取らないためtoが必要。", "teacherが文の主語だから": "文の主語は動詞listenedの前にあるWe。the teacherは前置詞toの目的語である。", "carefullyが名詞を修飾する形容詞だから": "carefullyは副詞で、動詞listenedの様子を説明する。toが必要な理由とは関係しない。" }],
     // ---- STAGE 2 動詞の形と時制（q30-q55）----
     // 動詞の形・主語との一致
     ["verb_form", "Each of the students ___ a notebook. に入る形は？", ["have", "has", "having", "to have"], "has", "主語の中心は複数形studentsではなくEach。eachは単数として扱うため、現在形の動詞はhasになる。", { "have": "空所の直前にあるstudentsに動詞を一致させている。主語の中心Eachは単数なのでhas。", "having": "文を成立させる述語動詞が必要な位置に-ing形を置いている。", "to have": "文を成立させる述語動詞が必要な位置にto不定詞を置いている。" }],
@@ -257,6 +289,7 @@ window.GRAMMAR_CHECK_DATA = {
       skill: "knowledge",
       target: DOMAIN_TARGETS[domain],
       priority: "support",
+      ruleRefs: QUESTION_RULE_REFS[question.id] || [],
       misconceptions: { ...defaultMisconceptions(question), ...(misconceptions || {}) }
     };
   })

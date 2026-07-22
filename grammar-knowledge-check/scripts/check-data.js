@@ -8,6 +8,26 @@ const errors = [];
 const ids = new Set();
 const stems = new Map();
 const domains = new Set(data.domains.map(domain => domain.id));
+const activeRuleIds = new Set([
+  "egp.sentence-structure.noun",
+  "egp.verbs.verb",
+  "egp.modifiers.adjective",
+  "egp.modifiers.adverb-functions",
+  "egp.sentence-structure.complement",
+  "egp.sentence-structure.preposition",
+  "egp.sentence-structure.preposition-object",
+  "egp.sentence-structure.verb-object",
+  "egp.verbs.intransitive",
+  "egp.verbs.transitive",
+  "egp.verbs.auxiliaries",
+  "egp.negation-questions.not-negation",
+  "egp.negation-questions.yes-no-questions",
+  "egp.negation-questions.wh-questions",
+  "egp.sentence-structure.there-introductory",
+  "egp.sentence-structure.person",
+  "egp.agreement.third-person-singular-present-s",
+  "egp.agreement.be-present-past"
+]);
 const skillCounts = { knowledge: 0 };
 let knowledgeSupportCount = 0;
 const warnings = [];
@@ -21,6 +41,10 @@ for (const question of data.questions) {
   if (stems.has(question.stem)) errors.push(`設問文重複: ${stems.get(question.stem)} / ${question.id}`);
   else stems.set(question.stem, question.id);
   if (!domains.has(question.domain)) errors.push(`未定義分野: ${question.id} / ${question.domain}`);
+  if (!Array.isArray(question.ruleRefs)) errors.push(`原則参照なし: ${question.id}`);
+  else question.ruleRefs.forEach(ruleId => {
+    if (!activeRuleIds.has(ruleId)) errors.push(`未登録またはactiveでない原則参照: ${question.id} / ${ruleId}`);
+  });
   if (!Array.isArray(question.choices) || question.choices.length !== 4) errors.push(`選択肢数不正: ${question.id}`);
   if (new Set(question.choices).size !== question.choices.length) errors.push(`選択肢重複: ${question.id}`);
   if (!question.choices.includes(question.answer)) errors.push(`正解が選択肢にない: ${question.id}`);

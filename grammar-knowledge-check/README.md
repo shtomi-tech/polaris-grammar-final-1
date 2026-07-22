@@ -33,7 +33,7 @@ py -3 -m http.server 8097
 
 ## 構成
 
-- `data/questions.js`: 16分野・知識｜補助150問、誤概念タグ、分野別解説
+- `data/questions.js`: 16分野・知識｜補助150問、誤概念タグ、分野別解説、active原則への`ruleRefs`
 - `static/app.js`: 出題、採点、学習段階別・分野別・誤概念別の結果、解説、ローカル保存・生徒別クラウド同期
 - `static/styles.css`: アイボリー地・影なし・キーボード操作前提の画面
 
@@ -46,6 +46,6 @@ node scripts/check-data.js
 node scripts/export-question-list.js
 ```
 
-`check-data.js` は問題数・選択肢・正解に加え、全問が知識｜補助であること、誤概念タグ、固定順、「一問＝一判断」を検査します。否定表現や選択肢長の偏りは警告として出力します。
+`check-data.js` は問題数・選択肢・正解に加え、全問が知識｜補助であること、誤概念タグ、active原則への`ruleRefs`、固定順、「一問＝一判断」を検査します。否定表現や選択肢長の偏りは警告として出力します。
 
 `export-question-list.js` は、`問題一覧.md` を問題データから再生成します。
