@@ -17,16 +17,21 @@ const activeRuleIds = new Set([
   "egp.sentence-structure.preposition",
   "egp.sentence-structure.preposition-object",
   "egp.sentence-structure.verb-object",
+  "egp.clauses-relatives.relative-pronouns",
+  "egp.clauses-relatives.relative-clause-uses",
+  "egp.clauses-relatives.relative-pronoun-omission",
   "egp.verbs.intransitive",
   "egp.verbs.transitive",
   "egp.verbs.auxiliaries",
   "egp.negation-questions.not-negation",
   "egp.negation-questions.yes-no-questions",
   "egp.negation-questions.wh-questions",
+  "egp.negation-questions.indirect-question",
   "egp.sentence-structure.there-introductory",
   "egp.sentence-structure.person",
   "egp.agreement.third-person-singular-present-s",
   "egp.agreement.be-present-past",
+  "egp.tense-aspect.sequence-of-tenses",
   "egp.verbs.imperatives",
   "egp.clauses-relatives.coordinating-conjunctions",
   "egp.tense-aspect.progressive-meanings",
@@ -39,11 +44,14 @@ const activeRuleIds = new Set([
   "egp.sentence-structure.structural-subject",
   "egp.nonfinite.nonfinite-verbs",
   "egp.nonfinite.infinitive-form",
+  "egp.nonfinite.gerund-subject",
+  "egp.nonfinite.bare-infinitive",
   "egp.verbs.be-auxiliary-functions",
   "egp.verbs.be-verb-functions"
 ]);
 const skillCounts = { knowledge: 0 };
 let knowledgeSupportCount = 0;
+const ruleUseCounts = new Map();
 const warnings = [];
 
 if (data.domains.length !== 16) errors.push(`分野数: ${data.domains.length}（16が必要）`);
@@ -58,7 +66,9 @@ for (const question of data.questions) {
   if (!Array.isArray(question.ruleRefs)) errors.push(`原則参照なし: ${question.id}`);
   else question.ruleRefs.forEach(ruleId => {
     if (!activeRuleIds.has(ruleId)) errors.push(`未登録またはactiveでない原則参照: ${question.id} / ${ruleId}`);
+    ruleUseCounts.set(ruleId, (ruleUseCounts.get(ruleId) || 0) + 1);
   });
+  if (!question.basis || !["active-principle", "standard-foundation"].includes(question.basis)) errors.push(`出題根拠区分不正: ${question.id}`);
   if (!Array.isArray(question.choices) || question.choices.length !== 4) errors.push(`選択肢数不正: ${question.id}`);
   if (new Set(question.choices).size !== question.choices.length) errors.push(`選択肢重複: ${question.id}`);
   if (!question.choices.includes(question.answer)) errors.push(`正解が選択肢にない: ${question.id}`);
@@ -90,6 +100,14 @@ for (const domain of data.domains) {
 
 if (skillCounts.knowledge !== 150) errors.push(`知識問題数: ${skillCounts.knowledge}（150が必要）`);
 if (knowledgeSupportCount !== 150) errors.push(`知識・補助の問題数: ${knowledgeSupportCount}（150が必要）`);
+
+if (!Array.isArray(data.activeRuleIds)) errors.push("データ内のactive原則一覧なし");
+else if (new Set(data.activeRuleIds).size !== data.activeRuleIds.length || data.activeRuleIds.some(ruleId => !activeRuleIds.has(ruleId)) || data.activeRuleIds.length !== activeRuleIds.size) {
+  errors.push("データ内のactive原則一覧と検査対象一覧が不一致");
+}
+for (const ruleId of activeRuleIds) {
+  if ((ruleUseCounts.get(ruleId) || 0) < 2) errors.push(`active原則の出題不足: ${ruleId}（2問以上が必要）`);
+}
 
 if (!Array.isArray(data.learningStages) || data.learningStages.length !== 5) errors.push("学習段階: 5段階が必要");
 data.learningStages?.forEach((stage, index) => {

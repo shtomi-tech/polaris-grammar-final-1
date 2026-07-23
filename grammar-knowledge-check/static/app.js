@@ -2,9 +2,10 @@
   "use strict";
 
   const DATA = window.GRAMMAR_CHECK_DATA;
-  const KEY = "grammar-knowledge-check-v2";
+  const KEY = "grammar-knowledge-check-v3";
   const APP_ID = "grammar-knowledge-check";
-  const SESSION_VERSION = 4;
+  const SESSION_VERSION = 5;
+  const CONTENT_VERSION = DATA.contentVersion || 1;
   const app = document.querySelector("#app");
   const resetButton = document.querySelector("#resetButton");
   const keys = ["1", "2", "3", "4"];
@@ -78,6 +79,7 @@
     if (result.stageKey) stageResults[result.stageKey] = result;
     const next = {
       ...result,
+      contentVersion: CONTENT_VERSION,
       stageResults
     };
     delete next.inProgress;
@@ -90,6 +92,7 @@
     const previous = loadHistory() || {};
     const inProgress = {
       version: SESSION_VERSION,
+      contentVersion: CONTENT_VERSION,
       kind: "check",
       stageIndex: session.stageIndex,
       stageKey: session.stageKey,
@@ -113,7 +116,7 @@
 
   function restoreInProgress() {
     const saved = loadHistory()?.inProgress;
-    if (!saved || saved.version !== SESSION_VERSION || (saved.kind && saved.kind !== "check") || !Array.isArray(saved.questions) || !saved.questions.length) return false;
+    if (!saved || saved.version !== SESSION_VERSION || saved.contentVersion !== CONTENT_VERSION || (saved.kind && saved.kind !== "check") || !Array.isArray(saved.questions) || !saved.questions.length) return false;
     const questions = saved.questions
       .map(item => {
         const question = questionById.get(item.id);
@@ -146,7 +149,7 @@
 
   function applyCloudProgress(progress) {
     const history = progress && typeof progress === "object" ? progress.history : null;
-    if (history && typeof history === "object") localStorage.setItem(KEY, JSON.stringify(history));
+    if (history && typeof history === "object" && history.contentVersion === CONTENT_VERSION) localStorage.setItem(KEY, JSON.stringify(history));
   }
 
   function shuffle(items) {
@@ -185,6 +188,7 @@
     const completedStages = DATA.learningStages.filter((_, index) => stageCompleted(stageResults, index)).length;
     const nextStageIndex = DATA.learningStages.findIndex((_, index) => !stageCompleted(stageResults, index));
     const inProgress = history?.inProgress?.version === SESSION_VERSION
+      && history.inProgress.contentVersion === CONTENT_VERSION
       && (!history.inProgress.kind || history.inProgress.kind === "check")
       ? history.inProgress
       : null;
@@ -378,7 +382,8 @@
       };
     });
     return {
-      version: 2,
+      version: 3,
+      contentVersion: CONTENT_VERSION,
       stageIndex: session.stageIndex,
       stageKey: session.stageKey,
       stageLabel: session.stageLabel,
@@ -639,7 +644,7 @@
     cloud = createCloud({
       appId: APP_ID,
       configPath: "../static/config.json",
-      getPayload: () => ({ version: 2, history: loadHistory() }),
+      getPayload: () => ({ version: 3, contentVersion: CONTENT_VERSION, history: loadHistory() }),
       applyLoaded: applyCloudProgress
     });
     await cloud.init();
