@@ -26,7 +26,21 @@ const activeRuleIds = new Set([
   "egp.sentence-structure.there-introductory",
   "egp.sentence-structure.person",
   "egp.agreement.third-person-singular-present-s",
-  "egp.agreement.be-present-past"
+  "egp.agreement.be-present-past",
+  "egp.verbs.imperatives",
+  "egp.clauses-relatives.coordinating-conjunctions",
+  "egp.tense-aspect.progressive-meanings",
+  "egp.voice.passive-formation",
+  "egp.tense-aspect.present-perfect-current-state",
+  "egp.sentence-structure.sentence-definition",
+  "egp.sentence-structure.sentence-structure",
+  "egp.clauses-relatives.subordinating-conjunctions",
+  "egp.sentence-structure.predicate-verb",
+  "egp.sentence-structure.structural-subject",
+  "egp.nonfinite.nonfinite-verbs",
+  "egp.nonfinite.infinitive-form",
+  "egp.verbs.be-auxiliary-functions",
+  "egp.verbs.be-verb-functions"
 ]);
 const skillCounts = { knowledge: 0 };
 let knowledgeSupportCount = 0;
