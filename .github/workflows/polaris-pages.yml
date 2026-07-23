@@ -61,6 +61,7 @@ jobs:
           cp -r static ../_site/static
           cp -r ../grammar-knowledge-check ../_site/grammar-knowledge-check
           cp -r ../reading ../_site/reading
+          cp -r ../shared ../_site/shared
           touch ../_site/.nojekyll
 
       - name: Upload artifact

@@ -169,5 +169,16 @@
 </div>
 
 <script src="static/app.js?v=20260721-home-resume"></script>
+<script>
+  // ポラリスはローカルでは入れ子ディレクトリ、公開ではサイトルート。
+  // shared/ への相対パスが異なるため、パスを判定して読み込む。
+  (function () {
+    var nested = decodeURI(location.pathname).indexOf("/ポラリス英文法ファイナル演習1/") >= 0;
+    var s = document.createElement("script");
+    s.src = (nested ? "../shared/" : "shared/") + "flow-nav.js?v=20260723";
+    s.defer = true;
+    document.body.appendChild(s);
+  })();
+</script>
 </body>
 </html>
