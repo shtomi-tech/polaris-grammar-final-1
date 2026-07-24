@@ -30,7 +30,8 @@
 
   function loadHistory() {
     try {
-      return JSON.parse(localStorage.getItem(KEY)) || null;
+      const history = JSON.parse(localStorage.getItem(KEY));
+      return history && history.contentVersion === CONTENT_VERSION ? history : null;
     } catch {
       return null;
     }

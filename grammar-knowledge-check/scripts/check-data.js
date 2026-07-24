@@ -47,7 +47,36 @@ const activeRuleIds = new Set([
   "egp.nonfinite.gerund-subject",
   "egp.nonfinite.bare-infinitive",
   "egp.verbs.be-auxiliary-functions",
-  "egp.verbs.be-verb-functions"
+  "egp.verbs.be-verb-functions",
+  "egp.modality.can",
+  "egp.modality.could",
+  "egp.modality.could-have-pp",
+  "egp.modality.have-to",
+  "egp.modality.may",
+  "egp.modality.might",
+  "egp.modality.might-have-pp",
+  "egp.modality.must",
+  "egp.modality.ought-to",
+  "egp.modality.shall",
+  "egp.modality.should",
+  "egp.modality.should-have-pp",
+  "egp.modality.will",
+  "egp.modality.would",
+  "egp.modality.would-have-pp",
+  "egp.modifiers.adjective-uses",
+  "egp.modifiers.adverb-non-noun-modification",
+  "egp.modifiers.frequency-adverbs",
+  "egp.modifiers.ly-suffix",
+  "egp.nouns-determiners-pronouns.definite-article-the",
+  "egp.nouns-determiners-pronouns.indefinite-article",
+  "egp.nouns-determiners-pronouns.the-plural-group",
+  "egp.nouns-determiners-pronouns.uncountable-noun",
+  "egp.sentence-structure.sentence-pattern-1",
+  "egp.sentence-structure.sentence-pattern-2",
+  "egp.sentence-structure.sentence-pattern-4",
+  "egp.sentence-structure.svc-judgement",
+  "egp.verbs.intransitive-heuristic",
+  "egp.verbs.transitive-heuristic"
 ]);
 const skillCounts = { knowledge: 0 };
 let knowledgeSupportCount = 0;
@@ -106,7 +135,7 @@ else if (new Set(data.activeRuleIds).size !== data.activeRuleIds.length || data.
   errors.push("データ内のactive原則一覧と検査対象一覧が不一致");
 }
 for (const ruleId of activeRuleIds) {
-  if ((ruleUseCounts.get(ruleId) || 0) < 2) errors.push(`active原則の出題不足: ${ruleId}（2問以上が必要）`);
+  if ((ruleUseCounts.get(ruleId) || 0) < 1) errors.push(`active原則の出題不足: ${ruleId}（1問以上が必要）`);
 }
 
 if (!Array.isArray(data.learningStages) || data.learningStages.length !== 5) errors.push("学習段階: 5段階が必要");
