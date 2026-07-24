@@ -698,11 +698,17 @@ function nextAction() {
       const questions = questionsForSet(unit.id, set.id);
       const stats = stepStats("step1Cleared", questions);
       if (stats.remaining > 0) {
+        const wrongCount = step1WrongQuestions(questions).length;
+        const variant = wrongCount > 0 ? "wrongOnly" : "all";
+        const label = wrongCount > 0
+          ? `▶ つづきから始める — ${unit.title} 誤答${wrongCount}問`
+          : `▶ つづきから始める — ${unit.title} 残り${stats.remaining}問`;
         return {
           kind: "step1",
           unitId: unit.id,
           setId: set.id,
-          label: `▶ つづきから始める — ${unit.title} 残り${stats.remaining}問`
+          variant,
+          label
         };
       }
     }
@@ -747,7 +753,7 @@ function renderContinueCta() {
     if (action.kind === "resume") {
       if (!restoreQuizSession()) renderHome();
     } else if (action.kind === "foundation") window.location.href = foundationHref(new URLSearchParams(location.search));
-    else if (action.kind === "step1") startStep1Quiz(action.unitId, action.setId);
+    else if (action.kind === "step1") startStep1Quiz(action.unitId, action.setId, action.variant);
     else if (action.kind === "step2") startStep2Quiz();
     else if (action.kind === "spaced") startSpacedReview();
     else if (action.kind === "review") startQuiz(true);
@@ -1456,7 +1462,7 @@ function renderCompletionResult() {
   `;
   $("#completionNextBtn").onclick = () => {
     if (next.kind === "foundation") window.location.href = foundationHref();
-    else if (next.kind === "step1") startStep1Quiz(next.unitId, next.setId);
+    else if (next.kind === "step1") startStep1Quiz(next.unitId, next.setId, next.variant);
     else if (next.kind === "step2") startStep2Quiz();
     else if (next.kind === "spaced") startSpacedReview();
     else if (next.kind === "review") startQuiz(true);
