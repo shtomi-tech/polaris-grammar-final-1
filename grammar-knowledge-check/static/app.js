@@ -194,40 +194,31 @@
       ? history.inProgress
       : null;
     const hasCompletedResult = history && Number.isFinite(history.total) && Number.isFinite(history.score);
-    const historyHtml = hasCompletedResult
-      ? `<p class="muted">前回: ${escapeHtml(history.completedAt)} ／ ${history.score}/${history.total}問正解。記録はこの端末にのみ保存されます。</p>`
-      : "<p class=\"muted\">進捗はこの端末のブラウザにのみ保存します。生徒名や外部サービスは使いません。</p>";
-    const progressHtml = inProgress
-      ? `<p class="muted">途中保存: ${escapeHtml(resumeLabel(inProgress))}。解答と解説の表示状態も保存しています。</p>`
-      : "";
-    const stageCards = DATA.learningStages.map((stage, index) => {
-      const saved = stageCompleted(stageResults, index) ? stageResults[`stage${index + 1}`] : null;
-      return `<article class="measurementCard"><p class="kicker">STAGE ${index + 1}</p><strong>${saved ? `${saved.score}<span> / ${saved.total}</span>` : `${stage.questionIds.length}<span>問</span>`}</strong><p>${escapeHtml(stage.label)}</p><p class="measurementMeta">${saved ? "完了済み" : (index === nextStageIndex ? "次に学ぶ段階" : "順番に進みます")}</p></article>`;
-    });
+    const stateLine = inProgress
+      ? `途中保存：${escapeHtml(resumeLabel(inProgress))}。${hasCompletedResult ? `前回 ${history.score}/${history.total}問正解。` : ""}`
+      : hasCompletedResult
+        ? `前回：${escapeHtml(history.completedAt)} ／ ${history.score}/${history.total}問正解。`
+        : "進捗はこの端末のブラウザにのみ保存します。生徒名や外部サービスは使いません。";
     const recommendedStageIndex = nextStageIndex >= 0 ? nextStageIndex : null;
-    const recommendedStage = recommendedStageIndex === null
+    const recommendedStageHtml = recommendedStageIndex === null
       ? `<div class="empty">5段階を完了しました。Polaris入試基礎演習へ進めます。</div>`
-      : stageCards[recommendedStageIndex];
+      : `<p class="recommendedStageMeta"><strong>${DATA.learningStages[recommendedStageIndex].questionIds.length}問</strong> ${escapeHtml(DATA.learningStages[recommendedStageIndex].label)}</p>`;
     const startStageIndex = recommendedStageIndex ?? 0;
     app.innerHTML = `
       <section class="panel dark">
-        <p class="kicker">START HERE / 30 QUESTIONS × 5</p>
+        <p class="kicker">START HERE</p>
         <h2>${DATA.questions.length}問で、英文法の基礎知識を一巡する。</h2>
-        <p class="lead">品詞と文の骨組みから仮定法・語法まで、16分野の基礎を学習順に確認します。解答すると、その場で正答と解説を表示します。</p>
-        <div class="overview" aria-label="アプリの概要">
-          <div><strong>${DATA.questions.length}</strong><span>4択の基礎確認</span></div>
-          <div><strong>16</strong><span>英文法の分野</span></div>
-          <div><strong>5</strong><span>学習段階</span></div>
-        </div>
+        <p class="lead">16分野・5段階。解答すると、その場で正答と解説を表示します。</p>
+        <p class="heroMeta">${DATA.questions.length}問 ・ 16分野 ・ 5段階</p>
         <div class="primaryAction">
           <button class="primary" id="startButton" type="button">${inProgress ? "途中から再開する" : (nextStageIndex >= 0 ? `第${nextStageIndex + 1}段階から始める` : "第1段階から復習する")} <span>${inProgress ? "保存済み" : (nextStageIndex >= 0 ? "推奨" : "復習")}</span></button>
-          <p>1回30問。5段階を順に終えると、Polaris入試基礎演習へ進めます。</p>
+          <p>${stateLine}</p>
         </div>
       </section>
       <section class="panel">
         <p class="kicker">LEARNING PATH / ${completedStages} OF ${DATA.learningStages.length}</p>
         <h2>5段階で基礎を積み上げる</h2>
-        <div class="recommendedStage"><p class="kicker">${recommendedStageIndex === null ? "NEXT / COMPLETE" : "NEXT / 推奨"}</p>${recommendedStage}</div>
+        <div class="recommendedStage"><p class="kicker">${recommendedStageIndex === null ? "NEXT / COMPLETE" : "NEXT / 推奨"}</p>${recommendedStageHtml}</div>
         <p class="shortcutHint">途中でやめても、次回は未完了の段階から再開できます。段階を完了すると結果を保存します。</p>
       </section>
       <section class="panel">
@@ -239,8 +230,6 @@
           <div><strong>3</strong><p>誤答の根拠を読み直す</p></div>
         </div>
         <p class="shortcutHint">数字キー 1〜4 で解答を選択、Enter で次へ進めます。</p>
-        ${historyHtml}
-        ${progressHtml}
       </section>
     `;
     document.querySelector("#startButton").addEventListener("click", () => {
