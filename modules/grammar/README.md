@@ -51,8 +51,10 @@ http://127.0.0.1:8096/ポラリス英文法ファイナル演習1/
 
 ## Supabase設定
 
-1. SupabaseのSQL Editorで `supabase_schema.sql` を実行します。
-2. `static/config.example.json` を `static/config.json` にコピーします。
+単一アプリへの統合に伴い、設定はリポジトリ直下の1つに集約されました（このモジュール専用の設定はありません）。
+
+1. SupabaseのSQL Editorで `supabase/schema.sql` を実行します。
+2. リポジトリ直下の `config.example.json` を `config.json` にコピーします。
 3. `supabaseUrl` と `supabaseAnonKey` を自分のSupabaseプロジェクトの値に変更します。
 
 ```json

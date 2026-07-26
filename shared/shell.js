@@ -261,20 +261,29 @@ async function start() {
   // 共有URL（?s=&t=）があるときだけクラウド同期が有効になる。
   // 無ければ完全にローカル動作（harness の設計を踏襲）。
   if (typeof window.createCloud === "function") {
+    /* クラウドから来た進捗は、いったん受け取るだけにして即座には適用しない。
+       cloud.init() は「認証してから進捗を返す」ため、applyLoaded が呼ばれる時点では
+       まだ生徒が確定しておらず、端末の既定生徒（default）の記録に書き込んでしまう。
+       その後 useStudent() で本人へ切り替えると、その記録は読み捨てられて空になり、
+       次の解答でクラウドへ空の進捗が上書き保存される（学習記録の消失）。
+       生徒を確定させた後に適用する。 */
+    let loadedFromCloud = null;
     cloud = window.createCloud({
       appId: APP_ID,
       configPath: CONFIG_PATH,
       getPayload: () => store.snapshot(),
-      applyLoaded: (progress) => store.replace(progress),
+      applyLoaded: (progress) => { loadedFromCloud = progress; },
       onStatus: (message, tone) => setShareStatus(message, tone),
     });
-    store.setPersist(() => cloud.queueSave());
     const session = await cloud.init();
     if (session.enabled && session.student) {
       identity.lockTo(session.student);
       store.useStudent(identity.activeId());
+      if (loadedFromCloud) store.replace(loadedFromCloud);
       renderStudents();
     }
+    // 保存の登録は、正しい生徒の進捗を読み込み終えた後に行う。
+    store.setPersist(() => cloud.queueSave());
   }
 
   renderStorageNote();
