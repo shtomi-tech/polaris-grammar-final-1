@@ -1,7 +1,9 @@
 import { mkdirSync, writeFileSync } from "node:fs";
 import { dirname, resolve } from "node:path";
 
-const configPath = resolve("static/config.json");
+// 単一アプリ化に伴い、config はリポジトリ直下に1つだけ生成する。
+// 統合前は各アプリの static/ に同じものを別々に生成していた。
+const configPath = resolve("config.json");
 const config = {
   appBaseUrl: process.env.APP_BASE_URL || process.env.URL || "",
   supabaseUrl: process.env.SUPABASE_URL || "",

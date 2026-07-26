@@ -1,35 +1,5 @@
-:root {
-  --ink: #141413;
-  --parchment: #faf9f6;
-  --paper: #fffefa;
-  --line: #ddd8cc;
-  --muted: #6f6a5f;
-  --clay: #b5532e;
-  --ok: #16803a;
-  --ng: #b42318;
-  --warn: #a16207;
-  --sans: "Segoe UI", "Hiragino Kaku Gothic ProN", "Meiryo", sans-serif;
-  --serif: Georgia, "Hiragino Mincho ProN", "Yu Mincho", serif;
-  --mono: "JetBrains Mono", "SFMono-Regular", Consolas, monospace;
-}
-
-* { box-sizing: border-box; }
-
-body {
-  margin: 0;
-  background: var(--parchment);
-  color: var(--ink);
-  font-family: var(--sans);
-  line-height: 1.65;
-}
-
-button:focus-visible,
-a:focus-visible,
-select:focus-visible,
-input:focus-visible {
-  outline: 2px solid var(--ink);
-  outline-offset: 2px;
-}
+/* 英文法演習のビューCSS。
+   色・書体・余白のトークンは shared/styles.css が唯一の定義。ここでは再定義しない。 */
 
 button,
 select,
@@ -72,12 +42,6 @@ button.danger:hover {
   color: var(--parchment);
 }
 
-.dangerZone {
-  border-top: 1px solid var(--line);
-  margin-top: 4px;
-  padding-top: 10px;
-}
-
 select,
 input,
 textarea {
@@ -95,63 +59,6 @@ textarea {
   resize: vertical;
 }
 
-.wrap {
-  max-width: 1080px;
-  margin: 0 auto;
-  padding: 24px 16px 64px;
-}
-
-.top {
-  display: flex;
-  align-items: flex-end;
-  justify-content: space-between;
-  gap: 16px;
-  flex-wrap: wrap;
-  border-bottom: 2px solid var(--ink);
-  padding-bottom: 12px;
-  margin-bottom: 16px;
-}
-
-.brand {
-  display: flex;
-  flex-direction: column;
-  gap: 4px;
-  align-items: flex-start;
-}
-
-.backlink {
-  color: var(--muted);
-  font-family: var(--mono);
-  font-size: 11px;
-  letter-spacing: .08em;
-  text-decoration: none;
-  text-transform: uppercase;
-}
-
-.backlink:hover {
-  color: var(--ink);
-  text-decoration: underline;
-  text-underline-offset: 3px;
-}
-
-h1 {
-  margin: 0;
-  background: var(--ink);
-  color: var(--parchment);
-  font-family: var(--serif);
-  font-size: 19px;
-  font-weight: 500;
-  padding: 6px 12px;
-}
-
-h2 {
-  margin: 0 0 6px;
-  font-family: var(--serif);
-  font-size: 22px;
-  font-weight: 500;
-  line-height: 1.45;
-}
-
 .topActions,
 .sectionHead,
 .itemHead,
@@ -161,32 +68,6 @@ h2 {
   align-items: center;
   gap: 10px;
   flex-wrap: wrap;
-}
-
-.moduleNav {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  gap: 8px;
-  margin-left: auto;
-}
-
-.moduleNav a,
-.moduleNav span {
-  display: inline-flex;
-  align-items: center;
-  min-height: 44px;
-  padding: 8px 12px;
-  border: 1px solid var(--ink);
-  color: var(--ink);
-  font-size: 12px;
-  text-decoration: none;
-}
-
-.moduleNav a:hover,
-.moduleNav span[aria-current="page"] {
-  background: var(--ink);
-  color: var(--parchment);
 }
 
 .modulePath {
@@ -243,88 +124,11 @@ h2 {
   font-family: var(--mono);
 }
 
-.modeGrid {
-  display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  gap: 0;
-  border-top: 1px solid var(--ink);
-  border-left: 1px solid var(--ink);
-  margin-top: 16px;
-}
-
-.modeCard {
-  display: flex;
-  min-height: 188px;
-  flex-direction: column;
-  gap: 8px;
-  border-right: 1px solid var(--ink);
-  border-bottom: 1px solid var(--ink);
-  color: var(--ink);
-  padding: 16px;
-  text-decoration: none;
-}
-
-.modeCard:hover,
-.modeCard.active {
-  background: var(--ink);
-  color: var(--parchment);
-}
-
-.modeCard.locked {
-  background: repeating-linear-gradient(
-    135deg,
-    var(--paper),
-    var(--paper) 8px,
-    var(--parchment) 8px,
-    var(--parchment) 16px
-  );
-  color: var(--muted);
-}
-
-.modeCard.locked:hover {
-  background: repeating-linear-gradient(
-    135deg,
-    var(--parchment),
-    var(--parchment) 8px,
-    var(--paper) 8px,
-    var(--paper) 16px
-  );
-  color: var(--ink);
-}
-
 .modeNumber,
 .modeCardCta {
   font-family: var(--mono);
   font-size: 11px;
   letter-spacing: .08em;
-}
-
-.modeCard h3 {
-  margin: 0;
-  font-family: var(--serif);
-  font-size: 24px;
-  font-weight: 500;
-}
-
-.modeCard p {
-  color: var(--muted);
-  font-size: 13px;
-  margin: 0;
-}
-
-.modeCard:hover p,
-.modeCard.active p {
-  color: rgba(250, 249, 246, .72);
-}
-
-.modeCardCta {
-  margin-top: auto;
-  text-decoration: underline;
-  text-underline-offset: 3px;
-}
-
-.modeCard.locked .modeCardCta {
-  color: var(--clay);
 }
 
 a.cta {
@@ -340,17 +144,6 @@ a.cta {
 
 a.cta:hover {
   background: #000;
-}
-
-.studentControls {
-  display: grid;
-  grid-template-columns: auto minmax(160px, 1fr) auto;
-  align-items: end;
-  gap: 8px;
-}
-
-.studentControls select {
-  min-width: 180px;
 }
 
 .fieldLabel.compact {
@@ -710,46 +503,6 @@ a.cta:hover {
   margin-top: 14px;
 }
 
-.settingsMenu {
-  position: relative;
-}
-
-.settingsMenu > summary {
-  cursor: pointer;
-  list-style: none;
-}
-
-.settingsMenu > summary::-webkit-details-marker {
-  display: none;
-}
-
-.settingsBody {
-  position: absolute;
-  right: 0;
-  top: calc(100% + 6px);
-  z-index: 10;
-  background: var(--paper);
-  border: 1px solid var(--ink);
-  padding: 14px;
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-  width: 260px;
-}
-
-.settingsBody .studentControls {
-  grid-template-columns: 1fr;
-  justify-items: stretch;
-}
-
-.settingsBody .fieldLabel.compact {
-  padding-bottom: 0;
-}
-
-.settingsBody button {
-  width: 100%;
-}
-
 .selectorGrid {
   display: grid;
   grid-template-columns: repeat(3, minmax(0, 1fr));
@@ -868,31 +621,6 @@ a.cta:hover {
   font-family: var(--mono);
   font-size: 11px;
   letter-spacing: .06em;
-}
-
-.shareStatus {
-  border-left: 2px solid var(--line);
-  color: var(--muted);
-  font-family: var(--mono);
-  font-size: 10px;
-  letter-spacing: .04em;
-  max-width: 240px;
-  padding-left: 8px;
-}
-
-.shareStatus.ok {
-  border-left-color: var(--ok);
-  color: var(--ok);
-}
-
-.shareStatus.ng {
-  border-left-color: var(--ng);
-  color: var(--ng);
-}
-
-.shareStatus.syncing {
-  border-left-color: var(--clay);
-  color: var(--clay);
 }
 
 .itemList {

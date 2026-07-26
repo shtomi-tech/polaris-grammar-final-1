@@ -1,0 +1,303 @@
+/* ============================================================
+   shared/styles.css — デザイントークンの唯一の定義 ＋ シェルの外装
+
+   統合前は3つのstyles.cssが各自 :root を定義し、状態色の名前が
+   green/ok・red/ng/danger・amber/warn とばらついていた。
+   ここに集約し、モジュール側はトークンを再定義しない。
+
+   余白は「役割で固定」する。整列改修で採用した規則を正本とする:
+     グループ内の最大余白(16) < グループ間の最小余白(32)
+   ============================================================ */
+
+:root {
+  /* 色 */
+  --ink: #141413;
+  --parchment: #faf9f6;
+  --paper: #fffefa;
+  --line: #d8d2c4;
+  --muted: #6d685e;
+  --clay: #b5532e;
+  --ok: #16733a;
+  --ng: #a5271c;
+  --warn: #8a5d00;
+
+  /* 書体 */
+  --sans: "Segoe UI", "Hiragino Kaku Gothic ProN", Meiryo, sans-serif;
+  --serif: Georgia, "Hiragino Mincho ProN", "Yu Mincho", serif;
+  --mono: "JetBrains Mono", Consolas, monospace;
+
+  /* 余白（役割で固定し、全モジュールで再利用する） */
+  --gap-inline: 4px;
+  --gap-tight: 8px;
+  --gap-group: 16px;
+  --gap-section: 32px;
+  --gap-band: 64px;
+
+  /* レイアウト */
+  --content-max: 1040px;
+  --tap-min: 44px;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: var(--parchment);
+  color: var(--ink);
+  font-family: var(--sans);
+  line-height: 1.7;
+}
+
+button { font: inherit; }
+
+button:focus-visible,
+a:focus-visible,
+select:focus-visible {
+  outline: 3px solid var(--clay);
+  outline-offset: 3px;
+}
+
+h1, h2, h3, p { margin-top: 0; }
+h1 { font-family: var(--serif); font-size: 20px; font-weight: 500; line-height: 1.3; margin-bottom: 0; }
+h2 { font-family: var(--serif); font-size: 32px; font-weight: 500; line-height: 1.3; }
+h3 { font-size: 18px; line-height: 1.45; }
+
+.muted { color: var(--muted); }
+.hidden { display: none !important; }
+
+/* ---- シェル外装 ------------------------------------------- */
+
+.appShell {
+  max-width: var(--content-max);
+  margin: 0 auto;
+  padding: var(--gap-section) var(--gap-group) var(--gap-band);
+}
+
+.appHeader {
+  border-bottom: 2px solid var(--ink);
+  padding-bottom: var(--gap-group);
+  margin-bottom: var(--gap-section);
+}
+
+.appHeader__row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  justify-content: space-between;
+  gap: var(--gap-group);
+}
+
+.appHeader__brand .eyebrow {
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  color: var(--muted);
+  margin: 0 0 var(--gap-inline);
+}
+
+/* ---- 生徒切替・設定 --------------------------------------- */
+
+.appHeader__tools {
+  display: flex;
+  align-items: center;
+  gap: var(--gap-tight);
+  flex-wrap: wrap;
+}
+
+.studentPicker {
+  display: flex;
+  align-items: center;
+  gap: var(--gap-tight);
+}
+
+.studentPicker label {
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+  color: var(--muted);
+}
+
+.studentPicker select {
+  min-height: var(--tap-min);
+  border: 1px solid var(--ink);
+  border-radius: 0;
+  background: var(--paper);
+  color: var(--ink);
+  padding: var(--gap-tight) var(--gap-group) var(--gap-tight) var(--gap-tight);
+}
+
+.ghostButton {
+  min-height: var(--tap-min);
+  border: 1px solid var(--ink);
+  border-radius: 0;
+  background: transparent;
+  color: var(--ink);
+  cursor: pointer;
+  padding: var(--gap-tight) var(--gap-group);
+  font-size: 13px;
+}
+.ghostButton:hover { background: var(--ink); color: var(--parchment); }
+
+.shareStatus {
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: .04em;
+  color: var(--muted);
+}
+.shareStatus[data-tone="ok"] { color: var(--ok); }
+.shareStatus[data-tone="ng"] { color: var(--ng); }
+
+/* ---- 学習フロー ステッパー --------------------------------- */
+/* 統合前は shared/flow-nav.js が独自の色を持っていた。トークンへ統合。 */
+
+.flowNav { margin: 0 0 var(--gap-section); }
+.flowNav__list {
+  list-style: none;
+  display: flex;
+  align-items: stretch;
+  gap: var(--gap-tight);
+  margin: 0;
+  padding: 0;
+  flex-wrap: wrap;
+}
+.flowNav__sep { display: flex; align-items: center; color: var(--muted); flex: 0 0 auto; }
+.flowNav__item { flex: 1 1 200px; min-width: 0; display: flex; }
+
+.flowNav__link {
+  display: flex;
+  align-items: center;
+  gap: var(--gap-tight);
+  width: 100%;
+  min-height: 56px;
+  padding: var(--gap-tight) var(--gap-group);
+  border: 1px solid var(--line);
+  background: var(--paper);
+  color: var(--ink);
+  text-decoration: none;
+  cursor: pointer;
+  text-align: left;
+  font: inherit;
+}
+button.flowNav__link:hover,
+a.flowNav__link:hover { border-color: var(--ink); }
+
+.flowNav__badge {
+  flex: 0 0 auto;
+  width: 30px;
+  height: 30px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--mono);
+  font-size: 12px;
+  font-weight: 700;
+  border: 1px solid var(--line);
+  background: var(--parchment);
+}
+
+.flowNav__body { display: flex; flex-direction: column; gap: 2px; min-width: 0; }
+.flowNav__name { display: flex; align-items: center; gap: var(--gap-tight); }
+.flowNav__mod { font-weight: 700; font-size: 15px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+.flowNav__you {
+  flex: 0 0 auto;
+  font-family: var(--mono);
+  font-size: 10px;
+  font-weight: 700;
+  color: var(--parchment);
+  background: var(--ink);
+  padding: 2px 6px;
+  letter-spacing: .04em;
+}
+.flowNav__status { display: flex; align-items: baseline; gap: var(--gap-tight); font-size: 12px; color: var(--muted); flex-wrap: wrap; }
+.flowNav__stateLabel { font-weight: 600; }
+
+/* 状態は色だけでなくバッジ記号と文字ラベルでも示す */
+.flowNav__item--done .flowNav__badge { color: var(--ok); border-color: var(--ok); }
+.flowNav__item--done .flowNav__stateLabel { color: var(--ok); }
+.flowNav__item--current .flowNav__link { border-color: var(--ink); border-width: 2px; padding: 7px 15px; }
+.flowNav__item--current .flowNav__badge { background: var(--ink); color: var(--parchment); border-color: var(--ink); }
+.flowNav__item--locked .flowNav__link { background: var(--parchment); color: var(--muted); cursor: not-allowed; }
+.flowNav__item--locked .flowNav__mod { color: var(--muted); }
+.flowNav__item--viewing .flowNav__link { outline: 2px dashed var(--line); outline-offset: 2px; }
+
+/* ---- 横断の「つづきから」 ---------------------------------- */
+/* 表示中の画面が推奨導線上の現在地と一致するときは shell.js が非表示にする。
+   1画面の主要アクションを1つに保つため、モジュール側のCTAと二重にしない。 */
+
+.nextAction {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--gap-group);
+  background: var(--ink);
+  color: var(--parchment);
+  padding: var(--gap-group) var(--gap-section);
+  margin-bottom: var(--gap-section);
+}
+
+.nextAction__label {
+  font-family: var(--mono);
+  font-size: 11px;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  color: rgba(250, 249, 246, .75);
+  margin: 0;
+}
+
+.nextAction__cta {
+  min-height: 56px;
+  padding: var(--gap-tight) 22px;
+  border: 1px solid var(--parchment);
+  border-radius: 0;
+  background: var(--parchment);
+  color: var(--ink);
+  font-size: 16px;
+  font-weight: 700;
+  cursor: pointer;
+}
+.nextAction__cta:hover { background: #fff; }
+
+@media (max-width: 640px) {
+  .nextAction { flex-direction: column; align-items: stretch; padding: var(--gap-group); }
+  .nextAction__cta { width: 100%; }
+}
+
+/* ---- フッター --------------------------------------------- */
+
+.appFooter {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--gap-group);
+  border-top: 1px solid var(--line);
+  color: var(--muted);
+  font-size: 12px;
+  margin-top: var(--gap-band);
+  padding-top: var(--gap-group);
+}
+.appFooter p { margin: 0; }
+
+.dangerButton {
+  background: transparent;
+  color: var(--ng);
+  border: 0;
+  border-bottom: 1px solid currentColor;
+  min-height: 34px;
+  padding: var(--gap-inline) 0;
+  cursor: pointer;
+}
+.dangerButton:hover { color: #7d160f; }
+
+@media (max-width: 640px) {
+  .appShell { padding: var(--gap-group) var(--gap-group) var(--gap-band); }
+  .flowNav__list { flex-direction: column; align-items: stretch; }
+  .flowNav__sep { display: none; }
+  .flowNav__item { flex: 1 1 auto; }
+  .appHeader__row { align-items: flex-start; flex-direction: column; }
+  .appHeader__tools { width: 100%; }
+  .appFooter { align-items: flex-start; flex-direction: column; }
+}

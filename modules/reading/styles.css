@@ -1,30 +1,13 @@
-:root {
-  --ivory: #faf9f6;
-  --ink: #141413;
-  --muted: #67645e;
-  --line: #d8d2c4;
-  --paper: #f2eee4;
-  --clay: #b5532e;
-  --danger: #9f2d20;
-  --ok: #2f6b45;
-}
+/* 英文解釈のビューCSS。
+   色・書体・余白のトークンは shared/styles.css が唯一の定義。ここでは再定義しない。
+   統合前は --ivory/--danger/--ok という独自名を持っていたため寄せた。 */
 
 * { box-sizing: border-box; }
 
 html {
-  background: var(--ivory);
+  background: var(--parchment);
   color: var(--ink);
   font-family: "Yu Gothic", "Hiragino Sans", "Noto Sans JP", system-ui, sans-serif;
-}
-
-body {
-  margin: 0;
-  min-height: 100vh;
-  background:
-    linear-gradient(90deg, rgba(20,20,19,.035) 1px, transparent 1px),
-    linear-gradient(180deg, rgba(20,20,19,.03) 1px, transparent 1px),
-    var(--ivory);
-  background-size: 32px 32px;
 }
 
 button, input, select, textarea {
@@ -34,7 +17,7 @@ button, input, select, textarea {
 button {
   border: 1px solid var(--ink);
   background: var(--ink);
-  color: var(--ivory);
+  color: var(--parchment);
   min-height: 48px;
   padding: 8px 14px;
   cursor: pointer;
@@ -50,7 +33,7 @@ button:disabled { opacity: .45; cursor: not-allowed; }
 textarea, input, select {
   width: 100%;
   border: 1px solid var(--ink);
-  background: var(--ivory);
+  background: var(--parchment);
   color: var(--ink);
   padding: 10px;
   border-radius: 0;
@@ -72,41 +55,6 @@ input[type="checkbox"] {
   padding: 28px 0 48px;
 }
 
-.topbar {
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-end;
-  gap: 24px;
-  border-bottom: 2px solid var(--ink);
-  padding-bottom: 18px;
-}
-
-.moduleNav {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  gap: 8px;
-  margin-left: auto;
-  font-size: 14px;
-}
-
-.moduleNav a,
-.moduleNav span {
-  min-height: 44px;
-  display: inline-flex;
-  align-items: center;
-  padding: 8px 12px;
-  border: 1px solid var(--ink);
-  color: var(--ink);
-  text-decoration: none;
-}
-
-.moduleNav a:hover,
-.moduleNav span[aria-current="page"] {
-  background: var(--ink);
-  color: var(--ivory);
-}
-
 .eyebrow, .label, .meta, .status, .smallcap {
   margin: 0 0 6px;
   color: var(--muted);
@@ -117,7 +65,6 @@ input[type="checkbox"] {
 }
 
 h1, h2, h3, p { margin-top: 0; }
-h1 { margin-bottom: 0; font-size: clamp(28px, 4vw, 44px); line-height: 1.05; }
 h2 { margin-bottom: 8px; font-size: 24px; line-height: 1.25; }
 h3 { margin-bottom: 8px; font-size: 18px; }
 
@@ -134,7 +81,7 @@ h3 { margin-bottom: 8px; font-size: 18px; }
 
 .tab.active, .primary {
   background: var(--ink);
-  color: var(--ivory);
+  color: var(--parchment);
   border-bottom-left-radius: 10px;
   border-bottom-right-radius: 10px;
 }
@@ -149,7 +96,7 @@ h3 { margin-bottom: 8px; font-size: 18px; }
   margin: 28px 0;
   padding: 24px;
   background: var(--ink);
-  color: var(--ivory);
+  color: var(--parchment);
 }
 
 .lead .label { color: var(--line); }
@@ -200,7 +147,7 @@ h3 { margin-bottom: 8px; font-size: 18px; }
 .ctaPanel {
   margin-bottom: 16px;
   background: var(--ink);
-  color: var(--ivory);
+  color: var(--parchment);
 }
 
 .ctaPanel .label { color: var(--line); }
@@ -243,12 +190,12 @@ h3 { margin-bottom: 8px; font-size: 18px; }
   font-weight: 700;
 }
 
-.itemButton.active .recommendedBadge { color: var(--ivory); }
+.itemButton.active .recommendedBadge { color: var(--parchment); }
 
 .danger {
-  background: var(--ivory);
-  color: var(--danger);
-  border-color: var(--danger);
+  background: var(--parchment);
+  color: var(--ng);
+  border-color: var(--ng);
 }
 
 .destructiveActions {
@@ -304,7 +251,7 @@ h3 { margin-bottom: 8px; font-size: 18px; }
 
 .itemButton.active {
   background: var(--ink);
-  color: var(--ivory);
+  color: var(--parchment);
 }
 
 .itemButton.done { border-left: 6px solid var(--ok); }
@@ -351,7 +298,7 @@ h3 { margin-bottom: 8px; font-size: 18px; }
 .stepNav button.active {
   background: var(--clay);
   border-color: var(--clay);
-  color: var(--ivory);
+  color: var(--parchment);
 }
 
 .answerGrid {
@@ -384,7 +331,7 @@ h3 { margin-bottom: 8px; font-size: 18px; }
   gap: 8px;
   padding: 10px;
   border: 1px solid var(--line);
-  background: var(--ivory);
+  background: var(--parchment);
 }
 
 .role {
@@ -448,8 +395,8 @@ h3 { margin-bottom: 8px; font-size: 18px; }
 }
 
 .warning {
-  border: 1px solid var(--danger);
-  color: var(--danger);
+  border: 1px solid var(--ng);
+  color: var(--ng);
   padding: 10px;
 }
 

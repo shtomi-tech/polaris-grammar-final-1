@@ -1,13 +1,18 @@
-const $ = (selector, root = document) => root.querySelector(selector);
-const $$ = (selector, root = document) => Array.from(root.querySelectorAll(selector));
+"use strict";
+/* 英文法演習（統合アプリのモジュール）。
+   出題・採点・ステップ判定のロジックは統合前から変更していない。
+   変えたのは「生徒識別」「進捗の保存先」「他モジュールへの導線」の3点だけ。
+   生徒名簿とSupabase同期は shared/identity.js と shared/shell.js が持つ。 */
 
-const APP_ID = "english-practice"; // 共通スキーマ app_progress の app 列（全アプリ共用の生徒テーブル app_students を参照）
-const LEGACY_STORAGE_KEY = "polarisFinalGrammar1.progress";
-const STORAGE_PREFIX = "polarisFinalGrammar1.progress.";
-const STUDENTS_KEY = "polarisFinalGrammar1.students";
-const ACTIVE_STUDENT_KEY = "polarisFinalGrammar1.activeStudent";
-const CONFIG_PATH = "static/config.json";
-const DEFAULT_STUDENT = { id: "default", name: "共通" };
+const VIEW_URL = "modules/grammar/view.html";
+const DATA_URL = "modules/grammar/data/polaris_questions.json";
+
+/* 統合前は document 全体を探していた。いまは自分がマウントされた範囲だけを見る。 */
+let viewRoot = document;
+let ctx = null;
+const $ = (selector, scope = viewRoot) => scope.querySelector(selector);
+const $$ = (selector, scope = viewRoot) => Array.from(scope.querySelectorAll(selector));
+
 const KEYS = ["ア", "イ", "ウ", "エ"];
 const SPACED_REVIEW_DAYS = [1, 3, 7, 14];
 const QUIZ_SESSION_VERSION = 1;
@@ -33,22 +38,11 @@ const DOMAIN_LABELS = {
   subjunctive: "仮定法", nouns: "名詞・冠詞・代名詞", adverb: "形容詞・副詞", preposition: "前置詞",
   negation: "否定文・疑問文・間接疑問"
 };
-let students = [];
-let activeStudentId = DEFAULT_STUDENT.id;
 let progress = {};
 let selected = { unitId: "", setId: "", mode: "setAll" };
 let focusDomains = [];
 let focusMode = false;
 let quiz = null;
-let runtimeConfig = {};
-let saveQueue = Promise.resolve();
-let sharedSession = {
-  requested: false,
-  enabled: false,
-  studentId: "",
-  token: "",
-  student: null
-};
 
 const MODE_HELP = {
   setAll: "選択したセットの10問を出題します。",
@@ -79,219 +73,26 @@ async function loadJson(path) {
   return response.json();
 }
 
-async function loadOptionalJson(path) {
-  try {
-    return await loadJson(path);
-  } catch {
-    return {};
-  }
-}
-
-function normalizeConfig(raw = {}) {
-  const supabase = raw.supabase || {};
-  return {
-    appBaseUrl: String(raw.appBaseUrl || "").trim(),
-    supabaseUrl: String(raw.supabaseUrl || supabase.url || "").trim().replace(/\/+$/, ""),
-    supabaseAnonKey: String(raw.supabaseAnonKey || supabase.anonKey || "").trim()
-  };
-}
-
-function parseSharedParams() {
-  const params = new URLSearchParams(window.location.search);
-  return {
-    studentId: params.get("s") || params.get("student") || "",
-    token: params.get("t") || params.get("token") || "",
-    focus: params.get("focus") || ""
-  };
-}
-
-function hasCloudConfig() {
-  return Boolean(runtimeConfig.supabaseUrl && runtimeConfig.supabaseAnonKey);
-}
-
-function supabaseHeaders() {
-  return {
-    apikey: runtimeConfig.supabaseAnonKey,
-    Authorization: `Bearer ${runtimeConfig.supabaseAnonKey}`,
-    "Content-Type": "application/json"
-  };
-}
-
-async function supabaseRpc(name, payload) {
-  if (!hasCloudConfig()) throw new Error("Supabase設定が未完了です。");
-  const response = await fetch(`${runtimeConfig.supabaseUrl}/rest/v1/rpc/${name}`, {
-    method: "POST",
-    headers: supabaseHeaders(),
-    body: JSON.stringify(payload)
-  });
-  if (!response.ok) {
-    const text = await response.text();
-    throw new Error(`${name}: ${response.status} ${text || response.statusText}`);
-  }
-  if (response.status === 204) return null;
-  return response.json();
-}
-
-function setShareStatus(message, tone = "") {
-  const slot = $("#shareStatus");
-  if (!slot) return;
-  slot.textContent = message || "";
-  slot.className = `shareStatus ${tone}`.trim();
-}
-
-async function startSharedSession() {
-  if (!sharedSession.studentId || !sharedSession.token) {
-    throw new Error("共有URLに生徒IDまたはアクセストークンがありません。");
-  }
-  if (!hasCloudConfig()) {
-    throw new Error("共有URLですが、static/config.json のSupabase設定が未完了です。");
-  }
-
-  const authRows = await supabaseRpc("app_auth_student", {
-    p_student_id: sharedSession.studentId,
-    p_access_token: sharedSession.token
-  });
-  const student = Array.isArray(authRows) ? authRows[0] : authRows;
-  if (!student || !student.id) {
-    throw new Error("生徒URLを確認できませんでした。QRコードを作り直してください。");
-  }
-
-  sharedSession.enabled = true;
-  sharedSession.student = {
-    id: String(student.id),
-    name: String(student.display_name || student.name || student.id)
-  };
-  students = [sharedSession.student];
-  activeStudentId = sharedSession.student.id;
-
-  const loaded = await supabaseRpc("app_load_progress", {
-    p_app: APP_ID,
-    p_student_id: sharedSession.studentId,
-    p_access_token: sharedSession.token
-  });
-  const cloudProgress = Array.isArray(loaded) ? loaded[0] : loaded;
-  progress = (cloudProgress && typeof cloudProgress === "object")
-    ? (cloudProgress.progress || cloudProgress)
-    : {};
-  localStorage.setItem(progressKey(), JSON.stringify(progress));
-  setShareStatus(`${activeStudent().name} さんの共有進捗を読み込みました。`, "ok");
-}
-
-async function saveSharedProgress() {
-  await supabaseRpc("app_save_progress", {
-    p_app: APP_ID,
-    p_student_id: sharedSession.studentId,
-    p_access_token: sharedSession.token,
-    p_progress: progress
-  });
-}
-
-function queueSharedSave() {
-  if (!sharedSession.enabled) return;
-  setShareStatus("進捗を保存中...", "syncing");
-  saveQueue = saveQueue
-    .then(() => saveSharedProgress())
-    .then(() => setShareStatus(`${activeStudent().name} さんの進捗を保存しました。`, "ok"))
-    .catch(error => {
-      console.error(error);
-      setShareStatus("進捗のクラウド保存に失敗しました。通信後にもう一度解答してください。", "ng");
-    });
-}
-
-function applySharedUi() {
-  document.body.classList.toggle("sharedMode", sharedSession.enabled);
-  const controls = $(".studentControls");
-  const resetButton = $("#resetBtn");
-  if (controls) controls.classList.toggle("hide", sharedSession.enabled);
-  if (resetButton) resetButton.classList.toggle("hide", sharedSession.enabled);
-  if (!sharedSession.enabled && !sharedSession.requested) {
-    setShareStatus("ローカル保存モード");
-  }
-}
+/* 共有URL認証・クラウド保存・生徒名簿は shared/ が一括で持つようになった。
+   統合前はこのファイルが独自にSupabase RPCを叩いており、
+   基礎チェック・英文解釈とは別の app 値・別の生徒概念で保存していた。 */
 
 function unitSource(unit) {
   return unit?.source || UNIT_SOURCES[unit?.id] || "出題元未登録";
 }
 
-function progressKey(studentId = activeStudentId) {
-  return `${STORAGE_PREFIX}${studentId}`;
-}
-
-function appendQuery(target, query = "") {
-  const value = query instanceof URLSearchParams ? query.toString() : String(query || "").replace(/^\?/, "");
-  return value ? `${target}?${value}` : target;
-}
-
-function foundationHref(query = "") {
-  const path = decodeURI(location.pathname);
-  const isLocalNestedApp = path.includes("/ポラリス英文法ファイナル演習1/");
-  const target = isLocalNestedApp ? "../grammar-knowledge-check/index.html" : "grammar-knowledge-check/index.html";
-  return appendQuery(target, query);
-}
-
-function readingHref(query = "") {
-  const path = decodeURI(location.pathname);
-  const isLocalNestedApp = path.includes("/ポラリス英文法ファイナル演習1/");
-  const target = isLocalNestedApp ? "../reading/" : "reading/";
-  return appendQuery(target, query);
-}
-
-function safeStudentId(name) {
-  const normalized = String(name || "").trim().toLowerCase();
-  const ascii = normalized
-    .replace(/[^a-z0-9]+/g, "-")
-    .replace(/^-+|-+$/g, "");
-  return ascii || `student-${Date.now().toString(36)}`;
-}
-
-function loadStudents() {
-  try {
-    students = JSON.parse(localStorage.getItem(STUDENTS_KEY) || "[]");
-  } catch {
-    students = [];
-  }
-  if (!Array.isArray(students)) students = [];
-  if (!students.some(student => student.id === DEFAULT_STUDENT.id)) {
-    students.unshift(DEFAULT_STUDENT);
-  }
-  students = students
-    .filter(student => student && student.id && student.name)
-    .map(student => ({ id: String(student.id), name: String(student.name) }));
-  saveStudents();
-
-  activeStudentId = localStorage.getItem(ACTIVE_STUDENT_KEY) || DEFAULT_STUDENT.id;
-  if (!students.some(student => student.id === activeStudentId)) {
-    activeStudentId = DEFAULT_STUDENT.id;
-    localStorage.setItem(ACTIVE_STUDENT_KEY, activeStudentId);
-  }
-}
-
-function saveStudents() {
-  localStorage.setItem(STUDENTS_KEY, JSON.stringify(students));
-}
-
 function activeStudent() {
-  return students.find(student => student.id === activeStudentId) || DEFAULT_STUDENT;
+  return ctx.identity.active();
 }
 
-function migrateLegacyProgress() {
-  const defaultKey = progressKey(DEFAULT_STUDENT.id);
-  if (localStorage.getItem(defaultKey) || !localStorage.getItem(LEGACY_STORAGE_KEY)) return;
-  localStorage.setItem(defaultKey, localStorage.getItem(LEGACY_STORAGE_KEY));
-}
-
+/* 進捗は統合ストア経由。生徒の切り替えとクラウド保存はシェルが受け持つ。 */
 function loadProgress() {
-  try {
-    progress = JSON.parse(localStorage.getItem(progressKey()) || "{}");
-  } catch {
-    progress = {};
-  }
-  if (!progress || typeof progress !== "object" || Array.isArray(progress)) progress = {};
+  const saved = ctx.store.get();
+  progress = saved && typeof saved === "object" && !Array.isArray(saved) ? saved : {};
 }
 
 function saveProgress() {
-  localStorage.setItem(progressKey(), JSON.stringify(progress));
-  queueSharedSave();
+  ctx.store.set(progress);
 }
 
 function storedQuizSession() {
@@ -358,7 +159,7 @@ function resumeQuizAction() {
 
 function restoreQuizSession() {
   if (!foundationUnlocked()) {
-    window.location.href = foundationHref(new URLSearchParams(location.search));
+    ctx.navigate("foundation");
     return false;
   }
   const saved = storedQuizSession();
@@ -535,7 +336,7 @@ function foundationStatus() {
   const history = loadFoundationHistory();
   const stageResults = history?.stageResults || {};
   const completedStages = Array.from({ length: FOUNDATION_STAGE_COUNT }, (_, index) => index + 1)
-    .filter(index => stageResults[`stage${index}`]?.total === 30).length;
+    .filter(index => stageResults[`stage${index}`]?.completed === true).length;
   return {
     history,
     stageResults,
@@ -551,7 +352,7 @@ function foundationUnlocked() {
 
 function requireFoundationComplete() {
   if (foundationUnlocked()) return true;
-  window.location.href = foundationHref(new URLSearchParams(location.search));
+  ctx.navigate("foundation");
   return false;
 }
 
@@ -600,18 +401,6 @@ function setVisible(panel) {
     $(`#${id}`).classList.toggle("hide", id !== panel);
   }
   $("#mobileCtaBar").classList.toggle("hide", panel !== "homePanel");
-}
-
-function renderStudentControls() {
-  if (sharedSession.enabled) {
-    $("#studentSel").innerHTML = `<option value="${esc(activeStudentId)}">${esc(activeStudent().name)}</option>`;
-    $("#studentSel").value = activeStudentId;
-    return;
-  }
-  $("#studentSel").innerHTML = students.map(student =>
-    `<option value="${esc(student.id)}">${esc(student.name)}</option>`
-  ).join("");
-  $("#studentSel").value = activeStudentId;
 }
 
 function renderSelectors() {
@@ -752,12 +541,12 @@ function renderContinueCta() {
   const onClick = () => {
     if (action.kind === "resume") {
       if (!restoreQuizSession()) renderHome();
-    } else if (action.kind === "foundation") window.location.href = foundationHref(new URLSearchParams(location.search));
+    } else if (action.kind === "foundation") ctx.navigate("foundation");
     else if (action.kind === "step1") startStep1Quiz(action.unitId, action.setId, action.variant);
     else if (action.kind === "step2") startStep2Quiz();
     else if (action.kind === "spaced") startSpacedReview();
     else if (action.kind === "review") startQuiz(true);
-    else if (action.kind === "reading") window.location.href = readingHref(new URLSearchParams(location.search));
+    else if (action.kind === "reading") ctx.navigate("reading");
     else startStep3Quiz();
   };
   const hint = $("#continueHint");
@@ -984,13 +773,6 @@ function renderSetList() {
 
 function renderHome() {
   focusMode = false;
-  renderModeSelector();
-  const foundationLink = $("#foundationDashboardLink");
-  if (foundationLink) {
-    const query = new URLSearchParams(location.search);
-    foundationLink.href = foundationHref(query);
-  }
-  renderStudentControls();
   renderSelectors();
   renderFoundationDashboard();
   renderGrammarGate();
@@ -1022,40 +804,15 @@ function renderFocusPractice() {
   $("#focusPracticeBtn").textContent = `弱点分野の${questions.length}問を解く`;
 }
 
+/* 統合ストアから基礎チェックの記録を読む。
+   統合前はここが localStorage の "grammar-knowledge-check-v2" を直接読んでいたが、
+   基礎チェック側の保存キーは "-v3" に上がっており、移行処理も無かった。
+   そのため5段階を完走しても解放されず、ダッシュボードも常に空だった。 */
 function loadFoundationHistory() {
-  try {
-    return JSON.parse(localStorage.getItem("grammar-knowledge-check-v2") || "null");
-  } catch {
-    return null;
-  }
+  const history = ctx.peek("foundation");
+  return history && Object.keys(history).length ? history : null;
 }
 
-function renderModeSelector() {
-  const grammarLink = $("#grammarModeLink");
-  const readingLink = $("#readingModeLink");
-  if (!grammarLink || !readingLink) return;
-  const query = new URLSearchParams(location.search);
-  const unlocked = foundationUnlocked();
-  grammarLink.href = unlocked ? "#homePanel" : foundationHref(query);
-  grammarLink.classList.toggle("locked", !unlocked);
-  grammarLink.classList.toggle("active", unlocked);
-  if (unlocked) grammarLink.setAttribute("aria-current", "page");
-  else grammarLink.removeAttribute("aria-current");
-  const description = $("#grammarModeDescription");
-  const cta = $("#grammarModeCta");
-  if (description) description.textContent = unlocked
-    ? "基礎チェックを終えています。入試英文法の演習を続けます。"
-    : "基礎チェックを終えると、入試英文法演習が解放されます。";
-  if (cta) cta.textContent = unlocked ? "英文法演習を続ける →" : "基礎チェックへ進む →";
-  readingLink.href = readingHref(query);
-  const routeGrammarLink = $("#routeGrammarLink");
-  const routeGrammarLabel = $("#routeGrammarLabel");
-  if (routeGrammarLink) {
-    routeGrammarLink.classList.toggle("locked", !unlocked);
-    routeGrammarLink.classList.toggle("active", unlocked);
-  }
-  if (routeGrammarLabel) routeGrammarLabel.textContent = unlocked ? "英文法演習" : "英文法演習（基礎完了後）";
-}
 
 function renderGrammarGate() {
   const panel = $("#grammarLockPanel");
@@ -1066,16 +823,17 @@ function renderGrammarGate() {
     return;
   }
   const nextStage = Array.from({ length: foundation.total }, (_, index) => index + 1)
-    .find(index => foundation.stageResults[`stage${index}`]?.total !== 30) || foundation.total;
+    .find(index => foundation.stageResults[`stage${index}`]?.completed !== true) || foundation.total;
   panel.innerHTML = `
     <p class="label">Grammar / Locked</p>
     <h2>英文法演習は、基礎チェック完了後に解放されます。</h2>
     <p class="hint">現在 ${foundation.completedStages} / ${foundation.total} 段階完了。次は第${nextStage}段階です。</p>
     <div class="actions">
-      <a class="cta" id="foundationGateLink" href="${esc(foundationHref(new URLSearchParams(location.search)))}">基礎チェックを続ける</a>
+      <button class="cta" id="foundationGateLink" type="button">基礎チェックを続ける</button>
     </div>
   `;
   panel.classList.remove("hide");
+  $("#foundationGateLink").onclick = () => ctx.navigate("foundation");
 }
 
 function renderFoundationDashboard() {
@@ -1083,12 +841,11 @@ function renderFoundationDashboard() {
   const foundationLink = $("#foundationDashboardLink");
   const weakLink = $("#foundationWeakLink");
   if (!body || !foundationLink || !weakLink) return;
-  const foundationQuery = new URLSearchParams(location.search);
-  foundationLink.href = foundationHref(foundationQuery);
+  foundationLink.onclick = () => ctx.navigate("foundation");
 
   const history = loadFoundationHistory();
   const stageResults = history?.stageResults || {};
-  const completedStages = Object.keys(stageResults).filter(key => /^stage[1-5]$/.test(key) && stageResults[key]?.total === 30).length;
+  const completedStages = Object.keys(stageResults).filter(key => /^stage[1-5]$/.test(key) && stageResults[key]?.completed === true).length;
   const answers = [120, 150].includes(history?.total) && Array.isArray(history.answers)
     ? history.answers
     : Object.values(stageResults).flatMap(result => Array.isArray(result.answers) ? result.answers : []);
@@ -1100,7 +857,7 @@ function renderFoundationDashboard() {
     const uncertain = domainAnswers.filter(answer => answer.uncertain).length;
     if (correct / domainAnswers.length < 0.8 || uncertain > 0) weakDomains.push(domain);
   }
-  const nextStage = [1, 2, 3, 4, 5].find(index => stageResults[`stage${index}`]?.total !== 30);
+  const nextStage = [1, 2, 3, 4, 5].find(index => stageResults[`stage${index}`]?.completed !== true);
   const step1 = stepStats("step1Cleared");
   const step2 = stepStats("step2Cleared");
   const meta = metaState();
@@ -1119,9 +876,7 @@ function renderFoundationDashboard() {
     <p class="hint">${weakDomains.length ? `現在の弱点分野：${weakDomains.slice(0, 4).map(domain => DOMAIN_LABELS[domain]).join("・")}` : "基礎知識の弱点分野はありません。"}</p>
   `;
   if (weakDomains.length) {
-    const query = new URLSearchParams(location.search);
-    query.set("focus", weakDomains.join(","));
-    weakLink.href = `${location.pathname}?${query.toString()}`;
+    weakLink.onclick = () => ctx.navigate("grammar", { focus: weakDomains.join(",") });
     weakLink.classList.remove("hide");
   } else {
     weakLink.classList.add("hide");
@@ -1461,12 +1216,12 @@ function renderCompletionResult() {
     </div>
   `;
   $("#completionNextBtn").onclick = () => {
-    if (next.kind === "foundation") window.location.href = foundationHref();
+    if (next.kind === "foundation") ctx.navigate("foundation");
     else if (next.kind === "step1") startStep1Quiz(next.unitId, next.setId, next.variant);
     else if (next.kind === "step2") startStep2Quiz();
     else if (next.kind === "spaced") startSpacedReview();
     else if (next.kind === "review") startQuiz(true);
-    else if (next.kind === "reading") window.location.href = readingHref(new URLSearchParams(location.search));
+    else if (next.kind === "reading") ctx.navigate("reading");
     else startStep3Quiz();
   };
   const wrongButton = $("#completionWrongBtn");
@@ -1508,45 +1263,9 @@ function moveNext() {
   return "completed";
 }
 
+/* 生徒切替・生徒追加・記録削除はシェルの持ち物になったため、ここからは外した。
+   （統合前は3モジュールが各自の生徒UIと各自の名簿を持っていた） */
 function bindEvents() {
-  const query = new URLSearchParams(location.search);
-  const homeLink = $("#homeLink");
-  const foundationLink = $("#foundationLink");
-  const routeFoundationLink = $("#routeFoundationLink");
-  const readingLink = $("#readingLink");
-  const routeReadingLink = $("#routeReadingLink");
-  if (homeLink) homeLink.href = appendQuery("./", query);
-  if (foundationLink) foundationLink.href = foundationHref(query);
-  if (routeFoundationLink) routeFoundationLink.href = foundationHref(query);
-  if (readingLink) readingLink.href = readingHref(query);
-  if (routeReadingLink) routeReadingLink.href = readingHref(query);
-  $("#studentSel").onchange = event => {
-    if (sharedSession.enabled) return;
-    activeStudentId = event.target.value;
-    localStorage.setItem(ACTIVE_STUDENT_KEY, activeStudentId);
-    loadProgress();
-    quiz = null;
-    renderHome();
-  };
-  $("#addStudentBtn").onclick = () => {
-    if (sharedSession.enabled) return;
-    const name = prompt("生徒名を入力してください。");
-    if (!name || !name.trim()) return;
-    const trimmedName = name.trim();
-    let id = safeStudentId(trimmedName);
-    let suffix = 2;
-    while (students.some(student => student.id === id)) {
-      id = `${safeStudentId(trimmedName)}-${suffix}`;
-      suffix += 1;
-    }
-    students.push({ id, name: trimmedName });
-    activeStudentId = id;
-    saveStudents();
-    localStorage.setItem(ACTIVE_STUDENT_KEY, activeStudentId);
-    progress = {};
-    saveProgress();
-    renderHome();
-  };
   $("#unitSel").onchange = event => {
     selected.unitId = event.target.value;
     selected.setId = setsFor(selected.unitId)[0]?.id || "";
@@ -1564,38 +1283,41 @@ function bindEvents() {
   $("#focusPracticeBtn").onclick = startFocusQuiz;
   if ($("#reviewBtn")) $("#reviewBtn").onclick = () => startQuiz(true);
   $("#backBtn").onclick = renderHome;
-  $("#resetBtn").onclick = () => {
-    if (sharedSession.enabled) return;
-    if (!confirm(`${activeStudent().name} のステップ進捗・自由演習記録をすべてリセットしますか？`)) return;
-    progress = {};
-    saveProgress();
+}
+
+export async function mount(root, context) {
+  ctx = context;
+  viewRoot = root;
+
+  root.innerHTML = await fetch(VIEW_URL, { cache: "no-store" }).then(response => {
+    if (!response.ok) throw new Error(`${VIEW_URL}: ${response.statusText}`);
+    return response.text();
+  });
+
+  // 基礎チェックから渡された弱点分野（#/grammar?focus=...）
+  focusDomains = String(ctx.params.get("focus") || "")
+    .split(",")
+    .map(value => value.trim())
+    .filter(value => DOMAIN_LABELS[value]);
+  focusMode = false;
+  quiz = null;
+  selected = { unitId: "", setId: "", mode: "setAll" };
+
+  try {
+    questionData = await loadJson(DATA_URL);
+    loadProgress();
+    bindEvents();
     renderHome();
+  } catch (error) {
+    console.error(error);
+    root.innerHTML = `<div class="card"><div class="empty">データの読み込みに失敗しました: ${esc(error.message)}</div></div>`;
+  }
+
+  return {
+    unmount() {
+      quiz = null;
+      viewRoot = document;
+    }
   };
 }
 
-async function init() {
-  try {
-    runtimeConfig = normalizeConfig(await loadOptionalJson(CONFIG_PATH));
-    const sharedParams = parseSharedParams();
-    sharedSession.studentId = sharedParams.studentId;
-    sharedSession.token = sharedParams.token;
-    sharedSession.requested = Boolean(sharedSession.studentId || sharedSession.token);
-    focusDomains = sharedParams.focus.split(",").map(value => value.trim()).filter(value => DOMAIN_LABELS[value]);
-    questionData = await loadJson("data/polaris_questions.json");
-    if (sharedSession.requested) {
-      await startSharedSession();
-    } else {
-      loadStudents();
-      migrateLegacyProgress();
-      loadProgress();
-    }
-    bindEvents();
-    applySharedUi();
-    renderHome();
-  } catch (error) {
-    $("#homePanel").innerHTML = `<div class="empty">データの読み込みに失敗しました: ${esc(error.message)}</div>`;
-    setShareStatus("共有設定または進捗データの読み込みに失敗しました。", "ng");
-  }
-}
-
-init();

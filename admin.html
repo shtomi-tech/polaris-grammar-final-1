@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>生徒QR作成（移動しました）</title>
+<link rel="icon" href="data:,">
+<link rel="stylesheet" href="shared/styles.css">
+<meta name="robots" content="noindex">
+</head>
+<body>
+<div class="appShell">
+  <header class="appHeader">
+    <div class="appHeader__row">
+      <div class="appHeader__brand">
+        <p class="eyebrow">英語学習トレーナー</p>
+        <h1>生徒QR作成</h1>
+      </div>
+      <div class="appHeader__tools">
+        <a class="ghostButton" href="index.html">学習画面へ</a>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <section class="nextAction">
+      <div>
+        <p class="nextAction__label">Moved</p>
+        <p>生徒専用URLとQRコードの作成・印刷は、講師用ポータル（ローカル）の「生徒共有QRの印刷」に移動しました。生徒名簿もポータル側で管理します。</p>
+      </div>
+    </section>
+
+    <section>
+      <h2>操作方法</h2>
+      <p>講師PCで <code>portal/launcher.py</code> を起動し、ブラウザでポータル（<code>http://127.0.0.1:8080/</code>）を開いてください。
+        ページ内の「生徒共有QRの印刷」で、配布先に生徒を選び、アプリを選択して印刷できます。Supabase登録SQLもそこに表示されます。</p>
+      <p class="muted">このページ（旧管理画面）は使用しません。ブックマークがある場合はポータルに置き換えてください。</p>
+    </section>
+  </main>
+</div>
+</body>
+</html>

@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>英文法トレーナー｜学習フロー図</title>
+<style>
+  :root{
+    --ink:#141413; --paper:#FAF9F6; --surface:#FFFFFF;
+    --line:#d9d6cf; --muted:#6b675f; --text:#111827;
+    --ok:#16A34A; --warn:#D97706; --danger:#DC2626;
+    --accent:#141413;
+    --gk:#0f766e; --pol:#1d4ed8; --read:#7c3aed;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--paper);color:var(--text);
+    font-family:"Segoe UI","Hiragino Kaku Gothic ProN",system-ui,sans-serif;
+    line-height:1.6;padding:32px 20px 80px}
+  .wrap{max-width:1040px;margin:0 auto}
+  header h1{font-size:1.7rem;margin:0 0 4px}
+  header p{margin:0;color:var(--muted);font-size:.95rem}
+  .legend{display:flex;gap:16px;flex-wrap:wrap;margin:20px 0 8px;font-size:.8rem}
+  .legend span{display:inline-flex;align-items:center;gap:6px}
+  .dot{width:12px;height:12px;border-radius:3px;display:inline-block}
+
+  .module{background:var(--surface);border:1px solid var(--line);border-radius:14px;
+    padding:20px 22px;margin:18px 0;position:relative}
+  .module::before{content:"";position:absolute;left:0;top:18px;bottom:18px;width:5px;
+    border-radius:0 4px 4px 0}
+  .m-gk::before{background:var(--gk)} .m-pol::before{background:var(--pol)} .m-read::before{background:var(--read)}
+  .m-head{display:flex;align-items:baseline;gap:12px;flex-wrap:wrap;margin-bottom:4px}
+  .m-num{font-family:"JetBrains Mono",monospace;font-size:.75rem;color:var(--muted);
+    border:1px solid var(--line);border-radius:6px;padding:2px 7px}
+  .m-head h2{font-size:1.2rem;margin:0}
+  .m-sub{color:var(--muted);font-size:.85rem;margin:2px 0 14px}
+  .tag{font-size:.7rem;padding:2px 8px;border-radius:999px;font-weight:600}
+  .tag-lock{background:#fef3c7;color:#92400e}
+  .tag-open{background:#dcfce7;color:#166534}
+
+  .steps{display:flex;gap:10px;flex-wrap:wrap}
+  .step{flex:1;min-width:150px;background:var(--paper);border:1px solid var(--line);
+    border-radius:10px;padding:12px 14px}
+  .step .k{font-family:"JetBrains Mono",monospace;font-size:.68rem;color:var(--muted)}
+  .step .t{font-weight:700;margin:3px 0 5px;font-size:.98rem}
+  .step .d{font-size:.8rem;color:var(--muted)}
+  .step .gate{margin-top:8px;font-size:.72rem;color:var(--ok);font-weight:600}
+
+  .flowarrow{text-align:center;color:var(--muted);font-size:1.4rem;line-height:1;margin:6px 0}
+  .gatebar{display:flex;align-items:center;justify-content:center;gap:8px;margin:14px 0;
+    font-size:.82rem;color:#92400e;background:#fffbeb;border:1px dashed #fcd34d;
+    border-radius:10px;padding:8px 14px}
+
+  .note{background:#f5f3ee;border:1px solid var(--line);border-radius:12px;padding:16px 18px;margin-top:22px}
+  .note h3{margin:0 0 8px;font-size:1rem}
+  .note ul{margin:0;padding-left:18px;font-size:.86rem;color:#3f3b34}
+  .note li{margin:4px 0}
+  .pill{display:inline-block;font-family:"JetBrains Mono",monospace;font-size:.72rem;
+    background:#eef2ff;color:#3730a3;border-radius:6px;padding:1px 6px}
+  @media print{body{background:#fff;padding:0}.module{break-inside:avoid}}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <h1>英文法トレーナー｜学習フロー</h1>
+    <p>基礎チェック → ポラリス英文法演習 → 英文解釈。1サイト統合・ゲート解放・分散復習でつながる推奨導線。</p>
+  </header>
+
+  <div class="legend">
+    <span><i class="dot" style="background:var(--gk)"></i>① 基礎チェック</span>
+    <span><i class="dot" style="background:var(--pol)"></i>② ポラリス英文法演習</span>
+    <span><i class="dot" style="background:var(--read)"></i>③ 英文解釈</span>
+    <span><i class="dot" style="background:#fcd34d"></i>解放ゲート</span>
+  </div>
+
+  <!-- Module 1 -->
+  <section class="module m-gk">
+    <div class="m-head">
+      <span class="m-num">MODULE 01</span>
+      <h2>基礎チェック</h2>
+      <span class="tag tag-open">最初の入口</span>
+    </div>
+    <p class="m-sub">grammar-knowledge-check ／ 5段階を順に完了する</p>
+    <div class="steps">
+      <div class="step"><div class="k">STAGE 1</div><div class="t">品詞と文の骨組み</div><div class="d">品詞・句・節・文の要素</div></div>
+      <div class="step"><div class="k">STAGE 2</div><div class="t">動詞の形と時制</div><div class="d">文型・時制・一致</div></div>
+      <div class="step"><div class="k">STAGE 3</div><div class="t">助動詞・受動態と準動詞</div><div class="d">助動詞・受動態・不定詞ほか</div></div>
+      <div class="step"><div class="k">STAGE 4</div><div class="t">準動詞と文のつなぎ方</div><div class="d">分詞・関係詞・接続詞</div></div>
+      <div class="step"><div class="k">STAGE 5</div><div class="t">比較・仮定法と仕上げ</div><div class="d">比較・仮定法・名詞冠詞ほか<div class="gate">全5段階完了 → ②解放</div></div></div>
+    </div>
+  </section>
+
+  <div class="gatebar">🔒 5段階すべて完了すると「ポラリス英文法演習」が解放されます</div>
+
+  <!-- Module 2 -->
+  <section class="module m-pol">
+    <div class="m-head">
+      <span class="m-num">MODULE 02</span>
+      <h2>ポラリス英文法演習（Master Path）</h2>
+      <span class="tag tag-lock">基礎チェック完了で解放</span>
+    </div>
+    <p class="m-sub">ポラリス英文法ファイナル演習1 ／ 4択を正解するまで周回する3ステップ</p>
+    <div class="steps">
+      <div class="step"><div class="k">STEP 1</div><div class="t">UNIT演習</div><div class="d">全100問（10 UNIT×10問）を一度正解。誤答は誤答演習で回収。</div><div class="gate">全問クリア → Step 2</div></div>
+      <div class="step"><div class="k">STEP 2</div><div class="t">ランダム制覇</div><div class="d">ヒートマップで全範囲を制覇。クリアで分散復習を予約。</div><div class="gate">クリア → Step 3 ＆ 復習開始</div></div>
+      <div class="step"><div class="k">STEP 3</div><div class="t">最終確認</div><div class="d">ランダム出題で30問連続正解を目指す。</div><div class="gate">30連続正解 → MASTER 🏆</div></div>
+    </div>
+    <div class="flowarrow">⇅</div>
+    <div class="steps">
+      <div class="step" style="border-style:dashed"><div class="k">SPACED REVIEW</div><div class="t">分散復習（間隔復習）</div><div class="d">Step 2 クリア後、<span class="pill">1 → 3 → 7 → 14 日</span>の間隔で自動出題。正解が続くほど間隔が伸びる。</div></div>
+      <div class="step" style="border-style:dashed"><div class="k">FOCUS</div><div class="t">弱点分野から演習</div><div class="d">基礎チェックの弱点分野に絞って Polaris 問題へ直行。</div></div>
+    </div>
+  </section>
+
+  <div class="gatebar" style="color:#5b21b6;background:#faf5ff;border-color:#d8b4fe">➡ ポラリス完了後の次学習として推奨（※先に利用も可）</div>
+
+  <!-- Module 3 -->
+  <section class="module m-read">
+    <div class="m-head">
+      <span class="m-num">MODULE 03</span>
+      <h2>英文解釈</h2>
+      <span class="tag tag-open">いつでも利用可</span>
+    </div>
+    <p class="m-sub">reading ／ 1英文ごとに3ステップで骨組みを分析する</p>
+    <div class="steps">
+      <div class="step"><div class="k">STEP 1</div><div class="t">英文を分析</div><div class="d">自力で文型（SV〜SVOC）と構造を解釈する。</div></div>
+      <div class="step"><div class="k">STEP 2</div><div class="t">正解と比較</div><div class="d">模範の構造・訳と見比べて差分を確認。</div></div>
+      <div class="step"><div class="k">STEP 3</div><div class="t">解説を確認</div><div class="d">解説を読み込み、訳を仕上げて完了登録。</div></div>
+    </div>
+    <div class="flowarrow">↺</div>
+    <div class="steps">
+      <div class="step" style="border-style:dashed"><div class="k">REVIEW</div><div class="t">復習モード</div><div class="d">完了（completedIds）と復習対象（reviewIds）を分けて、苦手だけ再演習。</div></div>
+    </div>
+  </section>
+
+  <div class="note">
+    <h3>この図の見方・補足</h3>
+    <ul>
+      <li><b>推奨順は ① → ② → ③</b>。②は①の全5段階完了で解放されるゲート方式。③は推奨は②の後だが、先行利用も可能。</li>
+      <li><b>周回設計</b>：②は「正解するまで解き直す」＋<span class="pill">1/3/7/14日</span>の分散復習、③は完了/復習の2状態でチャンク単位に再確認。</li>
+      <li><b>進捗保存</b>：各モジュールで localStorage 領域と Supabase の <span class="pill">appId</span> を分離。生徒別に進捗を管理。</li>
+      <li>ホームの「つづきから始める」は、①未完了なら基礎チェック、②解放後は Master Path の続きへ自動誘導。</li>
+    </ul>
+  </div>
+</div>
+</body>
+</html>

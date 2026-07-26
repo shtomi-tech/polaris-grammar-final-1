@@ -1,7 +1,7 @@
 import fs from "node:fs";
 import { execFileSync } from "node:child_process";
 
-const path = new URL("../ポラリス英文法ファイナル演習1/data/polaris_questions.json", import.meta.url);
+const path = new URL("../modules/grammar/data/polaris_questions.json", import.meta.url);
 const data = JSON.parse(fs.readFileSync(path, "utf8"));
 
 const tags = {
@@ -37,7 +37,7 @@ for (const question of data.questions) {
   question.domains = [domain];
 }
 
-const relativePath = "ポラリス英文法ファイナル演習1/data/polaris_questions.json";
+const relativePath = "modules/grammar/data/polaris_questions.json";
 let text = execFileSync("git", ["show", `HEAD:${relativePath}`], { encoding: "utf8" });
 for (const question of data.questions) {
   const marker = `      "id": "${question.id}",\n`;

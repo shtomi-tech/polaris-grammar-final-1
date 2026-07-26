@@ -5,8 +5,7 @@ __pycache__/
 *.pyo
 
 # 設定（Supabaseキー等・デプロイ時に環境変数から生成する）
-ポラリス英文法ファイナル演習1/static/config.json
-v2/static/config.json
+config.json
 
 # データベース（個人情報・可変データはバージョン管理しない）
 *.db

@@ -1,4 +1,4 @@
-name: Deploy Polaris to GitHub Pages
+name: Deploy to GitHub Pages
 
 on:
   push:
@@ -12,7 +12,7 @@ permissions:
   id-token: write
 
 concurrency:
-  group: polaris-pages
+  group: english-grammar-trainer-pages
   cancel-in-progress: false
 
 jobs:
@@ -21,9 +21,6 @@ jobs:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
     runs-on: ubuntu-latest
-    defaults:
-      run:
-        working-directory: ポラリス英文法ファイナル演習1
     steps:
       - name: Checkout
         uses: actions/checkout@v4
@@ -33,15 +30,8 @@ jobs:
         with:
           node-version: 22
 
+      # 統合前は3アプリ分の config を別々に生成していた。いまは1つ。
       - name: Generate runtime config
-        run: node scripts/write-config.mjs
-        env:
-          APP_BASE_URL: ${{ secrets.APP_BASE_URL }}
-          SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
-          SUPABASE_ANON_KEY: ${{ secrets.SUPABASE_ANON_KEY }}
-
-      - name: Generate reading runtime config
-        working-directory: reading
         run: node scripts/write-config.mjs
         env:
           APP_BASE_URL: ${{ secrets.APP_BASE_URL }}
@@ -51,18 +41,15 @@ jobs:
       - name: Configure Pages
         uses: actions/configure-pages@v5
 
+      # 単一アプリになったため、リポジトリ直下をそのまま配信する。
+      # 統合前は ポラリス配下をルートへ展開し、他2アプリをサブディレクトリへコピーしていた。
       - name: Prepare static files
         run: |
-          mkdir -p ../_site
-          cp index.html ../_site/
-          cp admin.html ../_site/
-          cp robots.txt ../_site/
-          cp -r data ../_site/data
-          cp -r static ../_site/static
-          cp -r ../grammar-knowledge-check ../_site/grammar-knowledge-check
-          cp -r ../reading ../_site/reading
-          cp -r ../shared ../_site/shared
-          touch ../_site/.nojekyll
+          mkdir -p _site
+          cp index.html admin.html robots.txt config.json _site/
+          cp -r shared _site/shared
+          cp -r modules _site/modules
+          touch _site/.nojekyll
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3

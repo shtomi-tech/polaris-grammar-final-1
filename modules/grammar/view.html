@@ -1,0 +1,106 @@
+<!-- 英文法演習のビュー。統合前は ポラリス英文法ファイナル演習1/index.html にあったものを
+     そのまま移した。ヘッダー・モジュールナビ・生徒切替・記録削除はシェルの持ち物になったため除いた。
+     学習モード選択カードも、シェルのステッパーと横断CTAと重複するため除いた。 -->
+
+<section class="card hero">
+  <p class="label">English Study / Grammar</p>
+  <h2>標準レベルの英文法4択を、正解するまで効率よく周回する</h2>
+  <p class="hint">基礎チェックから、UNIT演習・復習まで、今日やることを一つずつ進めます。</p>
+  <div class="actions">
+    <button class="cta" id="continueBtn" type="button">▶ つづきから始める</button>
+  </div>
+  <p class="heroSubHint" id="continueHint">初回は基礎チェックの第1段階から始めます。</p>
+</section>
+
+<section class="card" id="foundationDashboardCard">
+  <div class="sectionHead">
+    <div>
+      <p class="label">Learning Status</p>
+      <h2>基礎から入試演習までの学習状況</h2>
+    </div>
+    <button class="ghost" id="foundationDashboardLink" type="button">基礎学習を続ける</button>
+  </div>
+  <div id="foundationDashboardBody"></div>
+  <button class="secondary quietAction hide" id="foundationWeakLink" type="button">弱点分野のPolaris問題へ</button>
+</section>
+
+<section class="card hide" id="grammarLockPanel"></section>
+
+<section class="card hide" id="focusPracticeCard">
+  <div class="sectionHead">
+    <div>
+      <p class="label">From Foundation Check</p>
+      <h2>基礎チェックの弱点分野から演習する</h2>
+      <p class="hint" id="focusPracticeSummary"></p>
+    </div>
+    <button class="cta" id="focusPracticeBtn" type="button">弱点分野を解く</button>
+  </div>
+</section>
+
+<section class="card hide" id="homePanel">
+  <div class="sectionHead">
+    <div>
+      <p class="label">Master Path</p>
+      <h2>3ステップで英文法を仕上げる</h2>
+    </div>
+    <div class="progressSummary" id="progressSummary"></div>
+  </div>
+  <div id="masterPath"></div>
+  <div class="stepSection" id="step1Section">
+    <div class="stepSectionHead">
+      <div>
+        <p class="label">Step 1</p>
+        <h2>UNIT演習</h2>
+      </div>
+      <p class="hint">各UNITの10問を解き、全100問を一度でも正解したらStep 2へ進めます。</p>
+    </div>
+    <div id="setList" class="itemList"></div>
+  </div>
+  <div id="step2Heatmap"></div>
+  <div id="step3Challenge"></div>
+
+  <details class="freePractice">
+    <summary class="sectionHead">
+      <div>
+        <p class="label">Free Practice</p>
+        <h2>自由演習（範囲を指定して解く）</h2>
+      </div>
+    </summary>
+    <div class="selectorGrid">
+      <div>
+        <label class="fieldLabel" for="unitSel">単元</label>
+        <select id="unitSel"></select>
+      </div>
+      <div>
+        <label class="fieldLabel" for="setSel">セット</label>
+        <select id="setSel"></select>
+      </div>
+      <div>
+        <label class="fieldLabel" for="modeSel">出題モード</label>
+        <select id="modeSel">
+          <option value="setAll">このセットを解く</option>
+          <option value="tenTest">実力チェック（全範囲からランダム10問）</option>
+        </select>
+      </div>
+    </div>
+    <p class="modeHelp" id="modeHelp"></p>
+    <div class="actions">
+      <button class="cta" id="startBtn" type="button">演習を始める</button>
+    </div>
+  </details>
+</section>
+
+<section class="card hide" id="quizPanel">
+  <div class="itemHead">
+    <div>
+      <p class="label" id="quizBreadcrumb">English Grammar Trainer</p>
+      <h2 id="quizTitle"></h2>
+    </div>
+    <button class="ghost" id="backBtn" type="button">一覧へ戻る</button>
+  </div>
+  <div id="quizBody"></div>
+</section>
+
+<div class="mobileCtaBar hide" id="mobileCtaBar">
+  <button class="cta" id="continueBtnMobile" type="button"></button>
+</div>

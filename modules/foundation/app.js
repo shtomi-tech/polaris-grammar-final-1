@@ -1,13 +1,30 @@
-(() => {
-  "use strict";
+"use strict";
+/* 基礎チェック（統合アプリのモジュール）。
+   出題・採点・解説のロジックは統合前から変更していない。
+   変えたのは「進捗の保存先」と「他モジュールへの導線」だけ。 */
 
-  const DATA = window.GRAMMAR_CHECK_DATA;
-  const KEY = "grammar-knowledge-check-v3";
-  const APP_ID = "grammar-knowledge-check";
+const DATA_URL = "modules/foundation/data/questions.js";
+
+/* questions.js は Node のデータ検査スクリプト（scripts/check-data.js）からも
+   require されるため classic script のまま残す。ここでは必要になった時だけ読み込む。 */
+function loadData() {
+  if (window.GRAMMAR_CHECK_DATA) return Promise.resolve(window.GRAMMAR_CHECK_DATA);
+  return new Promise((resolve, reject) => {
+    const script = document.createElement("script");
+    script.src = DATA_URL;
+    script.onload = () => resolve(window.GRAMMAR_CHECK_DATA);
+    script.onerror = () => reject(new Error("基礎チェックの問題データを読み込めませんでした。"));
+    document.head.appendChild(script);
+  });
+}
+
+export async function mount(root, ctx) {
+  const DATA = await loadData();
   const SESSION_VERSION = 5;
   const CONTENT_VERSION = DATA.contentVersion || 1;
-  const app = document.querySelector("#app");
-  const resetButton = document.querySelector("#resetButton");
+  const app = document.createElement("section");
+  app.setAttribute("aria-live", "polite");
+  root.appendChild(app);
   const keys = ["1", "2", "3", "4"];
   const skillLabels = {
     knowledge: "知識"
@@ -17,7 +34,6 @@
   let session = null;
   let pendingChoice = null;
   let answerRevealed = false;
-  let cloud = null;
 
   function escapeHtml(value) {
     return String(value)
@@ -28,64 +44,38 @@
       .replaceAll("'", "&#039;");
   }
 
+  /* 進捗の保存先は統合ストア（生徒1人＝1レコード）。
+     統合前は端末に1件だけの localStorage キーで、生徒の区別が無かった。 */
   function loadHistory() {
-    try {
-      const history = JSON.parse(localStorage.getItem(KEY));
-      return history && history.contentVersion === CONTENT_VERSION ? history : null;
-    } catch {
-      return null;
-    }
+    const history = ctx.store.get();
+    if (!history || typeof history !== "object" || !Object.keys(history).length) return null;
+    return history.contentVersion === CONTENT_VERSION ? history : null;
   }
 
   function stageCompleted(stageResults, stageIndex) {
-    const stage = DATA.learningStages[stageIndex];
-    return stageResults?.[`stage${stageIndex + 1}`]?.total === stage.questionIds.length;
+    return stageResults?.[`stage${stageIndex + 1}`]?.completed === true;
   }
 
-  function grammarUnlocked(history = loadHistory()) {
-    const stageResults = history?.stageResults || {};
-    return DATA.learningStages.every((_, index) => stageCompleted(stageResults, index));
-  }
-
-  function updateGrammarNavigation(history = loadHistory()) {
-    const unlocked = grammarUnlocked(history);
-    const query = new URLSearchParams(location.search);
-    const current = document.querySelector("#grammarLink");
-    if (!current) return;
-    let grammarLink = current;
-    if (unlocked && current.tagName !== "A") {
-      grammarLink = document.createElement("a");
-      grammarLink.id = "grammarLink";
-      current.replaceWith(grammarLink);
-    } else if (!unlocked && current.tagName !== "SPAN") {
-      grammarLink = document.createElement("span");
-      grammarLink.id = "grammarLink";
-      current.replaceWith(grammarLink);
-    }
-    grammarLink.classList.toggle("locked", !unlocked);
-    if (unlocked) {
-      grammarLink.href = trainerHref(query);
-      grammarLink.removeAttribute("aria-disabled");
-      grammarLink.title = "英文法演習を開く";
-    } else {
-      grammarLink.setAttribute("aria-disabled", "true");
-      grammarLink.title = "5段階の基礎チェックを完了すると解放されます";
-    }
-    grammarLink.textContent = unlocked ? "英文法演習" : "英文法演習（基礎完了後）";
-  }
-
+  /* 段階の完了は、保存する側で completed フラグとして確定させる。
+     統合前は「total === 30」というマジックナンバーを外部（flow-nav・ポラリス）が
+     各自で判定しており、保存キーの版ずれと相まって完了が伝わらなくなっていた。 */
   function saveHistory(result) {
     const previous = loadHistory() || {};
     const stageResults = { ...(previous.stageResults || {}) };
-    if (result.stageKey) stageResults[result.stageKey] = result;
+    if (result.stageKey) {
+      const stage = DATA.learningStages[result.stageIndex];
+      stageResults[result.stageKey] = {
+        ...result,
+        completed: Boolean(stage) && result.total === stage.questionIds.length
+      };
+    }
     const next = {
       ...result,
       contentVersion: CONTENT_VERSION,
       stageResults
     };
     delete next.inProgress;
-    localStorage.setItem(KEY, JSON.stringify(next));
-    if (cloud) cloud.queueSave();
+    ctx.store.set(next);
   }
 
   function saveInProgress() {
@@ -105,8 +95,7 @@
       answerRevealed,
       updatedAt: new Date().toISOString()
     };
-    localStorage.setItem(KEY, JSON.stringify({ ...previous, inProgress }));
-    if (cloud) cloud.queueSave();
+    ctx.store.set({ ...previous, contentVersion: CONTENT_VERSION, inProgress });
   }
 
   function resumeLabel(saved) {
@@ -144,13 +133,8 @@
       : null;
     answerRevealed = Boolean(saved.answerRevealed && pendingChoice);
     renderQuiz();
-    document.querySelector(answerRevealed ? "#instantFeedback" : "#choiceGrid")?.focus();
+    app.querySelector(answerRevealed ? "#instantFeedback" : "#choiceGrid")?.focus();
     return true;
-  }
-
-  function applyCloudProgress(progress) {
-    const history = progress && typeof progress === "object" ? progress.history : null;
-    if (history && typeof history === "object" && history.contentVersion === CONTENT_VERSION) localStorage.setItem(KEY, JSON.stringify(history));
   }
 
   function shuffle(items) {
@@ -184,7 +168,6 @@
     pendingChoice = null;
     answerRevealed = false;
     const history = loadHistory();
-    updateGrammarNavigation(history);
     const stageResults = history?.stageResults || {};
     const completedStages = DATA.learningStages.filter((_, index) => stageCompleted(stageResults, index)).length;
     const nextStageIndex = DATA.learningStages.findIndex((_, index) => !stageCompleted(stageResults, index));
@@ -232,7 +215,7 @@
         <p class="shortcutHint">数字キー 1〜4 で解答を選択、Enter で次へ進めます。</p>
       </section>
     `;
-    document.querySelector("#startButton").addEventListener("click", () => {
+    app.querySelector("#startButton").addEventListener("click", () => {
       if (inProgress && restoreInProgress()) return;
       startQuiz(startStageIndex);
     });
@@ -273,12 +256,12 @@
         </div>
       </section>
     `;
-    document.querySelectorAll(".choice").forEach(button => {
+    app.querySelectorAll(".choice").forEach(button => {
       button.addEventListener("click", () => {
         selectAnswer(button.dataset.choice);
       });
     });
-    document.querySelector("#nextButton").addEventListener("click", commitAnswer);
+    app.querySelector("#nextButton").addEventListener("click", commitAnswer);
   }
 
   function answerChoiceClass(question, choice) {
@@ -295,15 +278,15 @@
   }
 
   function focusFeedbackAndScrollToNext() {
-    document.querySelector("#instantFeedback")?.focus({ preventScroll: true });
-    const actionBar = document.querySelector(".quizActionBar");
+    app.querySelector("#instantFeedback")?.focus({ preventScroll: true });
+    const actionBar = app.querySelector(".quizActionBar");
     if (!actionBar) return;
     const behavior = window.matchMedia("(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth";
     requestAnimationFrame(() => actionBar.scrollIntoView({ behavior, block: "end" }));
   }
 
   function focusQuestionAndScrollToTop() {
-    document.querySelector(".stem")?.focus({ preventScroll: true });
+    app.querySelector(".stem")?.focus({ preventScroll: true });
     const questionPanel = app.querySelector(".panel");
     if (!questionPanel) return;
     const behavior = window.matchMedia("(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth";
@@ -429,22 +412,6 @@
     return "今は知識が散らばっている段階です。点数を急がず、下の混同を一つずつほどいてください。";
   }
 
-  function appendQuery(target, query = "") {
-    const value = query instanceof URLSearchParams ? query.toString() : String(query || "").replace(/^\?/, "");
-    return value ? `${target}?${value}` : target;
-  }
-
-  function trainerHref(query = "") {
-    const path = decodeURI(location.pathname);
-    const localHost = ["", "localhost", "127.0.0.1"].includes(location.hostname);
-    const localNestedApp = localHost && path.includes("/grammar-knowledge-check/");
-    return appendQuery(localNestedApp ? "../ポラリス英文法ファイナル演習1/index.html" : "../", query);
-  }
-
-  function readingHref(query = "") {
-    return appendQuery("../reading/", query);
-  }
-
   function renderResult(result) {
     session = null;
     const stats = domainStats(result);
@@ -455,10 +422,7 @@
     const priorityNames = needsReview.slice(0, 4).map(stat => stat.domain.label);
     const focusDomains = needsReview.map(stat => stat.domain.id);
     const history = loadHistory();
-    updateGrammarNavigation(history);
     const completedStages = DATA.learningStages.filter((_, index) => stageCompleted(history?.stageResults, index)).length;
-    const focusParams = new URLSearchParams(location.search);
-    focusParams.set("focus", focusDomains.join(","));
     const nextStageIndex = result.stageIndex !== null && result.stageIndex !== undefined
       && result.stageIndex + 1 < DATA.learningStages.length
       ? result.stageIndex + 1
@@ -472,7 +436,7 @@
     const nextStepAction = nextStageIndex !== null
       ? `<button class="primary" id="nextStepButton" type="button">第${nextStageIndex + 1}段階へ進む</button>`
       : allStagesComplete
-        ? `<a class="primary" href="${escapeHtml(trainerHref(location.search))}">Polaris入試基礎演習へ進む</a>`
+        ? `<button class="primary" id="toGrammarButton" type="button">英文法演習へ進む</button>`
         : `<button class="primary" id="readGuideButton" type="button">弱点の解説を読む <span>推奨</span></button>`;
     const guideAction = nextStageIndex !== null || allStagesComplete
       ? `<button class="secondary quietAction" id="readGuideButton" type="button">弱点の解説を読む</button>`
@@ -490,7 +454,7 @@
         </div>
         ${guideAction}
         <button class="secondary quietAction" id="retryButton" type="button">${result.stageKey ? "この段階をもう一度解く" : "もう一度解く"}</button>
-        ${focusDomains.length ? `<a class="secondary quietAction" href="${escapeHtml(trainerHref(focusParams))}">弱点分野のPolaris問題へ進む</a>` : ""}
+        ${focusDomains.length ? `<button class="secondary quietAction" id="toFocusButton" type="button">弱点分野の英文法演習へ進む</button>` : ""}
         <button class="secondary quietAction" id="backHomeButton" type="button">学習一覧へ戻る</button>
       </section>
       ${stages.length ? `<section class="panel">
@@ -524,13 +488,17 @@
         </details>
       </section>
     `;
-    document.querySelector("#readGuideButton")?.addEventListener("click", () => renderReview(result));
-    document.querySelector("#nextStepButton")?.addEventListener("click", () => startQuiz(nextStageIndex));
-    document.querySelector("#retryButton").addEventListener("click", () => {
+    app.querySelector("#readGuideButton")?.addEventListener("click", () => renderReview(result));
+    app.querySelector("#nextStepButton")?.addEventListener("click", () => startQuiz(nextStageIndex));
+    app.querySelector("#toGrammarButton")?.addEventListener("click", () => ctx.navigate("grammar"));
+    app.querySelector("#toFocusButton")?.addEventListener("click", () => {
+      ctx.navigate("grammar", { focus: focusDomains.join(",") });
+    });
+    app.querySelector("#retryButton").addEventListener("click", () => {
       if (result.stageIndex !== null && result.stageIndex !== undefined) startQuiz(result.stageIndex);
       else startQuiz();
     });
-    document.querySelector("#backHomeButton").addEventListener("click", home);
+    app.querySelector("#backHomeButton").addEventListener("click", home);
   }
 
   function domainRowHtml(stat) {
@@ -557,8 +525,8 @@
         ${reviewDomains.length ? reviewDomains.map(stat => guideHtml(stat.domain)).join("") : DATA.domains.map(guideHtml).join("")}
       </section>
     `;
-    document.querySelector("#backResultButton").addEventListener("click", () => renderResult(result));
-    document.querySelector("#retryButton").addEventListener("click", startQuiz);
+    app.querySelector("#backResultButton").addEventListener("click", () => renderResult(result));
+    app.querySelector("#retryButton").addEventListener("click", startQuiz);
   }
 
   function answerHtml(answer) {
@@ -592,7 +560,9 @@
     `;
   }
 
-  document.addEventListener("keydown", event => {
+  /* キーボード操作は document 全体で拾うため、unmount で必ず外す。
+     外し忘れると、別モジュールへ移った後も解答キーが効いてしまう。 */
+  function onKeydown(event) {
     if (!session || event.ctrlKey || event.metaKey || event.altKey) return;
     if (!answerRevealed && keys.includes(event.key)) {
       const question = session.questions[session.index];
@@ -601,16 +571,9 @@
     }
     if (event.key === "Enter" && answerRevealed) {
       event.preventDefault();
-      document.querySelector("#nextButton")?.click();
+      app.querySelector("#nextButton")?.click();
     }
-  });
-
-  resetButton.addEventListener("click", () => {
-    if (!confirm("この端末に保存した結果を消しますか？")) return;
-    localStorage.removeItem(KEY);
-    if (cloud) cloud.queueSave();
-    home();
-  });
+  }
 
   const hasValidOrder = Array.isArray(DATA.questionOrder)
     && DATA.questionOrder.length === DATA.questions.length
@@ -618,28 +581,16 @@
     && DATA.questionOrder.every(id => questionById.has(id));
   if (!DATA || DATA.questions.length !== 150 || DATA.domains.length !== 16 || !hasValidOrder) {
     app.innerHTML = "<section class=\"panel\"><h2>データの読み込みに失敗しました</h2><p>問題数または分野数が想定と異なります。</p></section>";
-    return;
+    return { unmount() {} };
   }
 
-  async function init() {
-    const trainerLink = document.querySelector("#trainerLink");
-    const homeLink = document.querySelector("#homeLink");
-    const grammarLink = document.querySelector("#grammarLink");
-    const readingLink = document.querySelector("#readingLink");
-    const query = new URLSearchParams(location.search);
-    if (trainerLink) trainerLink.href = trainerHref(query);
-    if (homeLink) homeLink.href = trainerHref(query);
-    if (grammarLink) grammarLink.href = trainerHref(query);
-    if (readingLink) readingLink.href = readingHref(query);
-    cloud = createCloud({
-      appId: APP_ID,
-      configPath: "../static/config.json",
-      getPayload: () => ({ version: 3, contentVersion: CONTENT_VERSION, history: loadHistory() }),
-      applyLoaded: applyCloudProgress
-    });
-    await cloud.init();
-    home();
-  }
+  document.addEventListener("keydown", onKeydown);
+  home();
 
-  init();
-})();
+  return {
+    unmount() {
+      document.removeEventListener("keydown", onKeydown);
+      session = null;
+    }
+  };
+}

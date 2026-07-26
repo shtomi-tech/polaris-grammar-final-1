@@ -1,39 +1,6 @@
-:root {
-  --ink: #141413;
-  --parchment: #faf9f6;
-  --paper: #fffefa;
-  --line: #d8d2c4;
-  --muted: #6d685e;
-  --clay: #b5532e;
-  --green: #16733a;
-  --red: #a5271c;
-  --amber: #8a5d00;
-  --sans: "Segoe UI", "Hiragino Kaku Gothic ProN", Meiryo, sans-serif;
-  --serif: Georgia, "Hiragino Mincho ProN", "Yu Mincho", serif;
-  --mono: "JetBrains Mono", Consolas, monospace;
-  --gap-tight: 8px;
-  --gap-group: 16px;
-  --gap-section: 32px;
-  --gap-band: 64px;
-}
-
-* { box-sizing: border-box; }
-
-body {
-  margin: 0;
-  background: var(--parchment);
-  color: var(--ink);
-  font-family: var(--sans);
-  line-height: 1.7;
-}
-
-button { font: inherit; }
-
-button:focus-visible,
-a:focus-visible {
-  outline: 3px solid var(--clay);
-  outline-offset: 3px;
-}
+/* 基礎チェックのビューCSS。
+   色・書体・余白のトークンは shared/styles.css が唯一の定義。ここでは再定義しない。
+   統合前は --green/--red/--amber という独自名を持っていたため、--ok/--ng/--warn へ寄せた。 */
 
 button {
   min-height: 48px;
@@ -48,60 +15,9 @@ button {
 button:hover { background: #000; }
 button:disabled { cursor: default; opacity: .55; }
 
-.wrap { max-width: 960px; margin: 0 auto; padding: 24px 16px 64px; }
+/* ヘッダー・モジュールナビ・フッターはシェルの持ち物になったため、ここからは削除した
+   （統合前は3アプリが各自で同じものを定義していた）。 */
 
-.top {
-  align-items: end;
-  border-bottom: 2px solid var(--ink);
-  display: flex;
-  flex-wrap: wrap;
-  gap: 16px;
-  justify-content: space-between;
-  margin-bottom: 24px;
-  padding-bottom: 14px;
-}
-
-.moduleNav {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  gap: 8px;
-  margin-left: auto;
-}
-
-.moduleNav a,
-.moduleNav span {
-  display: inline-flex;
-  align-items: center;
-  min-height: 44px;
-  padding: 8px 12px;
-  border: 1px solid var(--ink);
-  color: var(--ink);
-  font-size: 12px;
-  text-decoration: none;
-}
-
-.moduleNav a:hover,
-.moduleNav span[aria-current="page"] {
-  background: var(--ink);
-  color: var(--parchment);
-}
-
-.moduleNav a.locked,
-.moduleNav span.locked {
-  background: repeating-linear-gradient(
-    135deg,
-    var(--paper),
-    var(--paper) 8px,
-    var(--parchment) 8px,
-    var(--parchment) 16px
-  );
-  color: var(--muted);
-  cursor: not-allowed;
-}
-
-.backlink,
-.eyebrow,
 .kicker,
 .meta,
 .questionCount,
@@ -111,20 +27,6 @@ button:disabled { cursor: default; opacity: .55; }
   letter-spacing: .1em;
   text-transform: uppercase;
 }
-
-.backlink { align-items: center; color: var(--muted); display: inline-flex; min-height: 44px; padding: 8px 0; text-decoration: none; }
-.backlink:hover { color: var(--ink); text-decoration: underline; text-underline-offset: 3px; }
-.eyebrow { color: var(--muted); margin: 12px 0 2px; }
-
-h1, h2, h3, p { margin-top: 0; }
-h1 { font-family: var(--serif); font-size: 20px; font-weight: 500; line-height: 1.3; margin-bottom: 0; }
-h2 { font-family: var(--serif); font-size: 32px; font-weight: 500; line-height: 1.3; }
-h3 { font-size: 18px; line-height: 1.45; }
-
-.textButton { background: transparent; color: var(--muted); min-height: 34px; padding: 4px 0; border: 0; border-bottom: 1px solid var(--muted); }
-.textButton:hover { background: transparent; color: var(--ink); border-color: var(--ink); }
-.dangerButton { color: var(--red); border-color: currentColor; }
-.dangerButton:hover { color: #7d160f; border-color: currentColor; }
 
 .panel { background: var(--paper); border: 1px solid var(--ink); margin-bottom: var(--gap-section); padding: var(--gap-section); }
 .panel.dark { background: var(--ink); color: var(--parchment); }
@@ -183,8 +85,8 @@ h3 { font-size: 18px; line-height: 1.45; }
 .choice:hover { background: var(--ink); color: var(--parchment); }
 .choice.selected { border: 3px solid var(--ink); padding: 8px 14px; }
 .choice:disabled { cursor: default; opacity: 1; }
-.choice.correct { background: var(--paper); border: 3px solid var(--green); color: var(--ink); padding: 8px 14px; }
-.choice.incorrect { background: var(--paper); border: 3px solid var(--red); color: var(--ink); padding: 8px 14px; }
+.choice.correct { background: var(--paper); border: 3px solid var(--ok); color: var(--ink); padding: 8px 14px; }
+.choice.incorrect { background: var(--paper); border: 3px solid var(--ng); color: var(--ink); padding: 8px 14px; }
 .choice.subdued { color: var(--muted); opacity: .62; }
 .choice .key {
   align-items: center;
@@ -204,9 +106,9 @@ h3 { font-size: 18px; line-height: 1.45; }
 .instantFeedback h3 { font-family: var(--serif); font-size: 22px; margin-bottom: var(--gap-group); }
 .instantFeedback p { margin-bottom: var(--gap-tight); }
 .instantFeedback.good { background: #f1f6f1; }
-.instantFeedback.good h3 { color: var(--green); }
+.instantFeedback.good h3 { color: var(--ok); }
 .instantFeedback.bad { background: #f7efed; }
-.instantFeedback.bad h3 { color: var(--red); }
+.instantFeedback.bad h3 { color: var(--ng); }
 
 .choiceActions { border-top: 1px solid var(--line); margin-top: 24px; padding-top: 16px; }
 .quizActionBar { align-items: center; background: var(--paper); border: 1px solid var(--ink); display: flex; gap: 16px; justify-content: space-between; padding: 12px; }
@@ -244,9 +146,9 @@ h3 { font-size: 18px; line-height: 1.45; }
 .domainRow strong { display: block; font-size: 15px; }
 .domainMeta { color: var(--muted); margin-top: 2px; }
 .status { border: 1px solid currentColor; font-family: var(--mono); font-size: 10px; letter-spacing: .07em; padding: 2px 6px; white-space: nowrap; }
-.status.good { color: var(--green); }
-.status.review { color: var(--amber); }
-.status.weak { color: var(--red); }
+.status.good { color: var(--ok); }
+.status.review { color: var(--warn); }
+.status.weak { color: var(--ng); }
 .priorityList { margin-top: 16px; }
 .allResults { border-top: 1px solid var(--line); margin-top: 24px; padding-top: 14px; }
 .allResults summary { color: var(--muted); cursor: pointer; font-family: var(--mono); font-size: 12px; letter-spacing: .04em; }
@@ -256,8 +158,8 @@ h3 { font-size: 18px; line-height: 1.45; }
 .reviewItem:first-child { border-top: 1px solid var(--line); }
 .reviewItem h3 { margin-bottom: 8px; }
 .answerLine { border-left: 3px solid var(--ink); padding-left: 12px; }
-.answerLine.bad { border-color: var(--red); }
-.answerLine.good { border-color: var(--green); }
+.answerLine.bad { border-color: var(--ng); }
+.answerLine.good { border-color: var(--ok); }
 
 .guide { border-top: 2px solid var(--ink); margin-top: 28px; padding-top: 22px; }
 .guideHeader { align-items: baseline; border-bottom: 1px solid var(--ink); display: flex; flex-wrap: wrap; gap: 10px; justify-content: space-between; margin-bottom: 16px; }

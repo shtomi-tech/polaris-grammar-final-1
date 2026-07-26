@@ -28,16 +28,22 @@ const STEPS = [
   ["input", "3 解説を確認"],
 ];
 const STEP_LABELS = Object.fromEntries(STEPS);
-const STORE_PREFIX = "polaris_reading_mvp_v1";
-const DEFAULT_STUDENT = "default";
-const editorEnabled = new URLSearchParams(location.search).get("mode") === "editor";
+const VIEW_URL = "modules/reading/view.html";
+const MANIFEST_URL = "modules/reading/data/manifest.json";
+
+/* 統合前は生徒名（自由入力の文字列）をlocalStorageキーに含めていたため、
+   生徒IDで管理する他モジュールと突き合わせられなかった。
+   統合後は shared/identity.js の生徒IDが唯一の識別子で、
+   進捗は統合ストアの reading 名前空間（データセット別）に入る。 */
+let editorEnabled = false;
+let viewRoot = document;
+let ctx = null;
 
 const state = {
   mode: "learn",
   manifest: { datasets: [] },
   datasetId: "",
   dataset: null,
-  studentName: localStorage.getItem("polaris_reading_student") || "",
   selectedId: "",
   step: "first",
   progress: defaultProgress(),
@@ -45,36 +51,7 @@ const state = {
   cloudStatus: { message: "", tone: "" },
 };
 
-let cloud = null; // harness createCloud のインスタンス（config無しなら no-op）
-
-const $ = (sel) => document.querySelector(sel);
-
-function appendQuery(target, query = "") {
-  const value = query instanceof URLSearchParams ? query.toString() : String(query || "").replace(/^\?/, "");
-  return value ? `${target}?${value}` : target;
-}
-
-function grammarHref(query = "") {
-  const path = decodeURI(location.pathname);
-  const localHost = ["", "localhost", "127.0.0.1"].includes(location.hostname);
-  const localNestedApp = localHost && path.includes("/reading/");
-  const target = localNestedApp ? "../ポラリス英文法ファイナル演習1/index.html" : "../";
-  return appendQuery(target, query);
-}
-
-function foundationHref(query = "") {
-  return appendQuery("../grammar-knowledge-check/", query);
-}
-
-function bindSiteNavigation() {
-  const query = new URLSearchParams(location.search);
-  const homeLink = $("#homeLink");
-  const foundationLink = $("#foundationLink");
-  const grammarLink = $("#grammarLink");
-  if (homeLink) homeLink.href = grammarHref(query);
-  if (foundationLink) foundationLink.href = foundationHref(query);
-  if (grammarLink) grammarLink.href = grammarHref(query);
-}
+const $ = (sel) => viewRoot.querySelector(sel);
 
 function el(tag, attrs = {}, ...kids) {
   const node = document.createElement(tag);
@@ -119,74 +96,40 @@ function emptyAttempt() {
   };
 }
 
-function cloudStudentName() {
-  return cloud && cloud.isEnabled() ? cloud.getSession().student.name : "";
-}
-
-function activeStudentName() {
-  return cloudStudentName() || state.studentName.trim() || DEFAULT_STUDENT;
-}
-
-function studentKey(datasetId = state.datasetId) {
-  return `${STORE_PREFIX}::${datasetId}::${activeStudentName()}`;
+function datasetProgress(datasetId = state.datasetId) {
+  const all = ctx.store.get();
+  const parsed = (all && all.datasets && all.datasets[datasetId]) || null;
+  if (!parsed) return defaultProgress();
+  return {
+    ...defaultProgress(),
+    ...parsed,
+    answers: parsed.answers && typeof parsed.answers === "object" ? parsed.answers : {},
+    completedIds: Array.isArray(parsed.completedIds) ? parsed.completedIds : [],
+    reviewIds: Array.isArray(parsed.reviewIds) ? parsed.reviewIds : [],
+  };
 }
 
 function loadProgress() {
-  try {
-    const raw = localStorage.getItem(studentKey());
-    if (!raw) return defaultProgress();
-    const parsed = JSON.parse(raw);
-    return {
-      ...defaultProgress(),
-      ...parsed,
-      answers: parsed.answers && typeof parsed.answers === "object" ? parsed.answers : {},
-      completedIds: Array.isArray(parsed.completedIds) ? parsed.completedIds : [],
-      reviewIds: Array.isArray(parsed.reviewIds) ? parsed.reviewIds : [],
-    };
-  } catch {
-    return defaultProgress();
-  }
+  return datasetProgress();
 }
 
+/* completedIds だけでなく totalItems も残す。
+   統合前は全問数が分からず、ステッパーが「完了」を判定できなかった。 */
 function saveProgress() {
-  localStorage.setItem(studentKey(), JSON.stringify(state.progress));
-  if (cloud) cloud.queueSave();
+  ctx.store.update((current) => {
+    const datasets = { ...(current.datasets || {}) };
+    datasets[state.datasetId] = state.progress;
+    return {
+      ...current,
+      datasets,
+      totalItems: state.dataset?.items?.length || current.totalItems || 0,
+    };
+  });
 }
 
-/* ============================================================
-   cloud sync（生徒別・共有URL ?s=&t=）— harness/cloud.js を利用
-   共通スキーマ app_students / app_progress（app="eibun-kaishaku-polaris1"）。
-   config.json が無ければ no-op で、従来どおり匿名ローカル動作（無回帰）。
-   このアプリはデータセット単位で進捗を分けているため、1回の保存で
-   全データセット分の進捗を { version, datasets: { <datasetId>: progress } } にまとめて送る。
-   ============================================================ */
-function cloudGetPayload() {
-  const datasets = {};
-  for (const info of state.manifest.datasets || []) {
-    try {
-      const raw = localStorage.getItem(studentKey(info.id));
-      if (raw) datasets[info.id] = JSON.parse(raw);
-    } catch {
-      // 破損データは送らない
-    }
-  }
-  return { version: 1, datasets };
-}
-
-function cloudApplyLoaded(payload) {
-  const datasets = payload && typeof payload === "object" ? payload.datasets : null;
-  if (!datasets || typeof datasets !== "object") return;
-  for (const [datasetId, progress] of Object.entries(datasets)) {
-    if (progress && typeof progress === "object") {
-      localStorage.setItem(studentKey(datasetId), JSON.stringify(progress));
-    }
-  }
-}
-
-function cloudOnStatus(message, tone) {
-  state.cloudStatus = { message: message || "", tone: tone || "" };
-  render();
-}
+/* クラウド同期は shared/shell.js が一括で行う。
+   統合前はこのモジュールが独自の app 値（eibun-kaishaku-polaris1）で
+   別レコードに保存しており、1生徒の学習が3行に分散していた。 */
 
 function answerFor(itemId) {
   if (!state.progress.answers[itemId]) state.progress.answers[itemId] = blankAnswer();
@@ -274,18 +217,8 @@ function updateAttempt(itemId, phase, patch) {
 }
 
 async function loadApp() {
-  bindSiteNavigation();
-  state.manifest = await fetch("data/manifest.json", { cache: "no-store" }).then((r) => r.json());
+  state.manifest = await fetch(MANIFEST_URL, { cache: "no-store" }).then((r) => r.json());
   state.datasetId = state.manifest.datasets[0]?.id || "";
-
-  cloud = createCloud({
-    appId: "eibun-kaishaku-polaris1",
-    getPayload: cloudGetPayload,
-    applyLoaded: cloudApplyLoaded,
-    onStatus: cloudOnStatus,
-  });
-  await cloud.init();
-
   await loadDataset(state.datasetId);
   state.mode = editorEnabled ? "editor" : "learn";
   bindShell();
@@ -295,7 +228,8 @@ async function loadApp() {
 async function loadDataset(datasetId) {
   const info = state.manifest.datasets.find((dataset) => dataset.id === datasetId) || state.manifest.datasets[0];
   state.datasetId = info.id;
-  state.dataset = await fetch(info.url, { cache: "no-store" }).then((r) => r.json());
+  // manifest の url は教材フォルダからの相対。統合でアプリのルートが変わったため解決する。
+  state.dataset = await fetch(`modules/reading/${info.url}`, { cache: "no-store" }).then((r) => r.json());
   state.progress = loadProgress();
   state.selectedId = state.progress.lastItemId || state.dataset.items?.[0]?.id || "";
   const selectedAnswer = answerFor(state.selectedId);
@@ -418,20 +352,8 @@ function renderStartCta() {
 }
 
 function renderControls() {
-  const sharedMode = !!(cloud && cloud.isEnabled());
-  const studentInput = el("input", {
-    value: sharedMode ? cloudStudentName() : state.studentName,
-    placeholder: "未入力の場合は「default」で保存",
-    disabled: sharedMode ? "disabled" : null,
-    oninput: (event) => {
-      state.studentName = event.target.value;
-      localStorage.setItem("polaris_reading_student", state.studentName);
-      state.progress = loadProgress();
-    },
-    onchange: () => render(),
-  });
-
-  const fields = [field("生徒名", studentInput)];
+  // 生徒の選択はシェルのヘッダーに集約したため、ここには置かない。
+  const fields = [];
 
   if (state.manifest.datasets.length > 1) {
     const datasetSelect = el("select", {
@@ -818,7 +740,7 @@ function compareBox(title, attempt) {
 function renderEditor() {
   const view = $("#editorView");
   view.innerHTML = "";
-  const studentLabel = state.studentName.trim() || DEFAULT_STUDENT;
+  const studentLabel = ctx.identity.active().name;
   view.appendChild(el("section", { class: "panel editorGrid" },
     el("div", { class: "jsonArea" },
       el("h2", {}, "教材JSON"),
@@ -916,8 +838,29 @@ function renderEmpty() {
   return el("p", { class: "warning" }, "教材データがありません。先生画面でJSONを確認してください。");
 }
 
-window.addEventListener("DOMContentLoaded", () => {
-  loadApp().catch((error) => {
-    document.body.innerHTML = `<main class="app"><section class="panel"><h1>読み込みエラー</h1><p>${error.message}</p></section></main>`;
+export async function mount(root, context) {
+  ctx = context;
+  viewRoot = root;
+  // 教材編集は先生用。統合後もクエリで明示したときだけ出す。
+  editorEnabled = ctx.params.get("mode") === "editor";
+  state.mode = "learn";
+  state.cloudStatus = { message: "", tone: "" };
+
+  root.innerHTML = await fetch(VIEW_URL, { cache: "no-store" }).then((response) => {
+    if (!response.ok) throw new Error(`${VIEW_URL}: ${response.statusText}`);
+    return response.text();
   });
-});
+
+  try {
+    await loadApp();
+  } catch (error) {
+    console.error(error);
+    root.innerHTML = `<section class="panel"><h2>読み込みエラー</h2><p>${error.message}</p></section>`;
+  }
+
+  return {
+    unmount() {
+      viewRoot = document;
+    }
+  };
+}

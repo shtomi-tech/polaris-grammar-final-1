@@ -1,0 +1,18 @@
+<!-- 英文解釈のビュー。統合前は reading/index.html にあったものを移した。
+     ヘッダー・モジュールナビはシェルの持ち物になったため除いた。 -->
+
+<nav class="tabs" aria-label="表示切替">
+  <button id="learnTab" class="tab active" type="button">学習</button>
+  <button id="editorTab" class="tab" type="button">先生（教材編集）</button>
+</nav>
+
+<section class="lead">
+  <div>
+    <p class="label">3 Step Loop</p>
+    <h2>授業で型をつかむ。宿題で本編演習へ進む。</h2>
+  </div>
+  <p>教材セットごとにオリジナル例文で解釈の型を確認し、その後の宿題で対応する本編教材へ進みます。</p>
+</section>
+
+<section id="learnView"></section>
+<section id="editorView" class="hide"></section>
