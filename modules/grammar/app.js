@@ -508,6 +508,7 @@ function nextAction() {
 }
 
 function renderContinueCta() {
+  const isLocked = !foundationUnlocked();
   const resume = resumeQuizAction();
   const progressAction = nextAction();
   const dueCount = spacedDueQuestions().length;
@@ -537,9 +538,13 @@ function renderContinueCta() {
     else if (action.kind === "reading") ctx.navigate("reading");
     else startStep3Quiz();
   };
+  const hero = $(".hero");
+  if (hero) hero.classList.toggle("is-locked", isLocked && action.kind === "foundation");
   const hint = $("#continueHint");
   if (hint) {
-    hint.textContent = action.kind === "resume"
+    hint.textContent = isLocked && action.kind === "foundation"
+      ? "上部の「次にやること」から基礎チェックを始めます。"
+      : action.kind === "resume"
       ? "途中保存した問題を続けます。"
       : action.kind === "foundation"
         ? (action.resume ? "保存した途中地点から再開します。" : "まずは基礎チェックを始めます。")
@@ -550,6 +555,7 @@ function renderContinueCta() {
   for (const id of ["continueBtn", "continueBtnMobile"]) {
     const button = $(`#${id}`);
     if (!button) continue;
+    button.hidden = isLocked && action.kind === "foundation";
     button.textContent = action.label;
     button.onclick = onClick;
   }
@@ -801,7 +807,7 @@ function renderGrammarGate() {
     <h2>英文法演習は、基礎チェック完了後に解放されます。</h2>
     <p class="hint">現在 ${foundation.completedStages} / ${foundation.total} 段階完了。次は第${nextStage}段階です。</p>
     <div class="actions">
-      <button class="cta" id="foundationGateLink" type="button">基礎チェックを続ける</button>
+      <button class="ghost" id="foundationGateLink" type="button">基礎チェックを続ける</button>
     </div>
   `;
   panel.classList.remove("hide");

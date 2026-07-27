@@ -101,3 +101,9 @@ Research-journal aesthetic on warm stone with near-black ink, restrained earthy 
 | `--tap-min` | 44px |
 
 余白に `clamp()` を使いません。画面幅で位置が動く余白は整列線にならないためです。
+
+### アクションの役割
+
+- 1画面の同じ状態では、塗りつぶしの主CTAを1つにする。
+- 横断導線の主CTAは `.nextAction__cta`、モジュール内の主CTAは `.cta` とし、同じ遷移を補助的に示す場合は `.ghost` に下げる。
+- `.card` の兄弟セクション間は `--gap-section`、同じカード内のグループ間は `--gap-group` 以下を使い分ける。

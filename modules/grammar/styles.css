@@ -60,7 +60,6 @@ textarea {
 }
 
 .topActions,
-.sectionHead,
 .itemHead,
 .filterRow,
 .statusLine {
@@ -68,6 +67,15 @@ textarea {
   align-items: center;
   gap: 10px;
   flex-wrap: wrap;
+}
+
+.sectionHead {
+  align-items: start;
+  display: flex;
+  gap: 16px;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  margin-bottom: 14px;
 }
 
 .modulePath {
@@ -151,7 +159,6 @@ a.cta:hover {
   padding-bottom: 11px;
 }
 
-.sectionHead,
 .itemHead {
   justify-content: space-between;
   margin-bottom: 14px;
@@ -160,7 +167,7 @@ a.cta:hover {
 .card {
   background: var(--paper);
   border: 1px solid var(--ink);
-  margin-bottom: 16px;
+  margin-bottom: var(--gap-section);
   padding: 20px;
 }
 
@@ -567,13 +574,6 @@ a.cta:hover {
   text-align: center;
 }
 
-.sectionHead {
-  align-items: start;
-  display: flex;
-  gap: 16px;
-  justify-content: space-between;
-}
-
 .sectionHead h2 {
   margin: 0;
 }
@@ -817,6 +817,10 @@ a.cta:hover {
 
 .hero .actions .cta {
   min-height: 56px;
+}
+
+.hero.is-locked .actions {
+  display: none;
 }
 
 .recommendedUnit .cardActions button {
