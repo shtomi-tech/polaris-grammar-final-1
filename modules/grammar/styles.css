@@ -78,6 +78,10 @@ textarea {
   margin-bottom: 14px;
 }
 
+.sectionHead h2 {
+  margin: 0;
+}
+
 .modulePath {
   display: flex;
   align-items: stretch;
@@ -572,10 +576,6 @@ a.cta:hover {
   font-size: 10px;
   margin: 0;
   text-align: center;
-}
-
-.sectionHead h2 {
-  margin: 0;
 }
 
 .savedList {
