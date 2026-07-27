@@ -16,7 +16,7 @@ export function createRouter({ mountPoint, styleLink, buildContext, onChange = (
   let loadToken = 0;
 
   /* ハッシュは #/<module>?<params> 形式。
-     params はモジュール間の受け渡しに使う（例: 基礎チェックの弱点分野を英文法演習へ渡す）。 */
+     params はモジュール間の受け渡しに使う。 */
   function routeFromHash() {
     const raw = String(location.hash || "").replace(/^#\/?/, "").trim();
     const [id, query = ""] = raw.split("?");

@@ -420,7 +420,6 @@ export async function mount(root, ctx) {
     const misconceptions = misconceptionStats(result);
     const needsReview = visibleStats.filter(stat => stat.status !== "good");
     const priorityNames = needsReview.slice(0, 4).map(stat => stat.domain.label);
-    const focusDomains = needsReview.map(stat => stat.domain.id);
     const history = loadHistory();
     const completedStages = DATA.learningStages.filter((_, index) => stageCompleted(history?.stageResults, index)).length;
     const nextStageIndex = result.stageIndex !== null && result.stageIndex !== undefined
@@ -454,7 +453,6 @@ export async function mount(root, ctx) {
         </div>
         ${guideAction}
         <button class="secondary quietAction" id="retryButton" type="button">${result.stageKey ? "この段階をもう一度解く" : "もう一度解く"}</button>
-        ${focusDomains.length ? `<button class="secondary quietAction" id="toFocusButton" type="button">弱点分野の英文法演習へ進む</button>` : ""}
         <button class="secondary quietAction" id="backHomeButton" type="button">学習一覧へ戻る</button>
       </section>
       ${stages.length ? `<section class="panel">
@@ -491,9 +489,6 @@ export async function mount(root, ctx) {
     app.querySelector("#readGuideButton")?.addEventListener("click", () => renderReview(result));
     app.querySelector("#nextStepButton")?.addEventListener("click", () => startQuiz(nextStageIndex));
     app.querySelector("#toGrammarButton")?.addEventListener("click", () => ctx.navigate("grammar"));
-    app.querySelector("#toFocusButton")?.addEventListener("click", () => {
-      ctx.navigate("grammar", { focus: focusDomains.join(",") });
-    });
     app.querySelector("#retryButton").addEventListener("click", () => {
       if (result.stageIndex !== null && result.stageIndex !== undefined) startQuiz(result.stageIndex);
       else startQuiz();

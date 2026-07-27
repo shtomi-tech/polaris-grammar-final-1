@@ -40,8 +40,6 @@ const DOMAIN_LABELS = {
 };
 let progress = {};
 let selected = { unitId: "", setId: "", mode: "setAll" };
-let focusDomains = [];
-let focusMode = false;
 let quiz = null;
 
 const MODE_HELP = {
@@ -108,7 +106,6 @@ function serializeQuizSession() {
     kind: quiz.kind,
     mode: quiz.mode || "",
     globalReview: Boolean(quiz.globalReview),
-    focused: Boolean(quiz.focused),
     poolIds: Array.isArray(quiz.pool) ? quiz.pool.map(question => question.id) : [],
     index: Number.isInteger(quiz.index) ? quiz.index : 0,
     answered: Boolean(quiz.answered),
@@ -140,7 +137,6 @@ function quizSessionTitle(saved) {
   if (saved.kind === "step2") return "Step 2 ランダム制覇";
   if (saved.kind === "step3") return "Step 3 最終確認";
   if (saved.kind === "spaced") return "今日の間隔復習";
-  if (saved.focused) return "弱点分野の演習";
   if (saved.globalReview) return "誤答復習";
   return "自由演習";
 }
@@ -179,7 +175,6 @@ function restoreQuizSession() {
     kind: saved.kind,
     mode: saved.mode,
     globalReview: Boolean(saved.globalReview),
-    focused: Boolean(saved.focused),
     pool,
     index: Math.max(0, Math.min(Number(saved.index || 0), Math.max(pool.length - 1, 0))),
     answered: Boolean(saved.answered),
@@ -300,12 +295,6 @@ function filteredQuestions(unitId, setId) {
   return questionsForSet(unitId, setId);
 }
 
-function focusedQuestions() {
-  const domains = new Set(focusDomains);
-  return questionData.questions.filter(question => Array.isArray(question.domains)
-    && question.domains.some(domain => domains.has(domain)));
-}
-
 function questionsForUnit(unitId) {
   return questionData.questions
     .filter(question => question.unitId === unitId)
@@ -313,7 +302,6 @@ function questionsForUnit(unitId) {
 }
 
 function buildQuestionPool() {
-  if (focusMode) return shuffled(focusedQuestions());
   if (selected.mode === "tenTest") return shuffled(questionData.questions).slice(0, 10);
   return shuffled(filteredQuestions(selected.unitId, selected.setId));
 }
@@ -772,7 +760,6 @@ function renderSetList() {
 }
 
 function renderHome() {
-  focusMode = false;
   renderSelectors();
   renderFoundationDashboard();
   renderGrammarGate();
@@ -781,27 +768,12 @@ function renderHome() {
     setVisible("grammarLockPanel");
     return;
   }
-  renderFocusPractice();
   renderContinueCta();
   renderReviewCta();
   renderSpacedReviewCta();
   renderMasterPath();
   renderSetList();
   setVisible("homePanel");
-}
-
-function renderFocusPractice() {
-  const card = $("#focusPracticeCard");
-  if (!card) return;
-  const questions = focusedQuestions();
-  const labels = focusDomains.map(domain => DOMAIN_LABELS[domain] || domain);
-  if (!focusDomains.length || !questions.length) {
-    card.classList.add("hide");
-    return;
-  }
-  card.classList.remove("hide");
-  $("#focusPracticeSummary").textContent = `${labels.join("・")} / Polaris ${questions.length}問`;
-  $("#focusPracticeBtn").textContent = `弱点分野の${questions.length}問を解く`;
 }
 
 /* 統合ストアから基礎チェックの記録を読む。
@@ -839,8 +811,7 @@ function renderGrammarGate() {
 function renderFoundationDashboard() {
   const body = $("#foundationDashboardBody");
   const foundationLink = $("#foundationDashboardLink");
-  const weakLink = $("#foundationWeakLink");
-  if (!body || !foundationLink || !weakLink) return;
+  if (!body || !foundationLink) return;
   foundationLink.onclick = () => ctx.navigate("foundation");
 
   const history = loadFoundationHistory();
@@ -864,7 +835,6 @@ function renderFoundationDashboard() {
 
   if (!history) {
     body.innerHTML = `<p class="hint">基礎知識チェックはまだ開始されていません。まず5段階の基礎確認から始めます。</p>`;
-    weakLink.classList.add("hide");
     return;
   }
   body.innerHTML = `
@@ -875,12 +845,6 @@ function renderFoundationDashboard() {
     </div>
     <p class="hint">${weakDomains.length ? `現在の弱点分野：${weakDomains.slice(0, 4).map(domain => DOMAIN_LABELS[domain]).join("・")}` : "基礎知識の弱点分野はありません。"}</p>
   `;
-  if (weakDomains.length) {
-    weakLink.onclick = () => ctx.navigate("grammar", { focus: weakDomains.join(",") });
-    weakLink.classList.remove("hide");
-  } else {
-    weakLink.classList.add("hide");
-  }
 }
 
 function startStep1Quiz(unitId, setId, variant = "all") {
@@ -943,37 +907,14 @@ function startStep3Quiz() {
 
 function startQuiz(globalReview) {
   if (!requireFoundationComplete()) return;
-  focusMode = false;
   const pool = globalReview
     ? shuffled(allUnresolvedQuestions())
     : buildQuestionPool();
   quiz = {
     kind: "free",
     globalReview,
-    focused: false,
     mode: globalReview ? "review" : selected.mode,
     pool,
-    index: 0,
-    answered: false,
-    selectedChoice: null,
-    correctCount: 0,
-    wrongCount: 0
-  };
-  saveQuizSession();
-  renderQuiz();
-  setVisible("quizPanel");
-}
-
-function startFocusQuiz() {
-  if (!requireFoundationComplete()) return;
-  if (!focusedQuestions().length) return;
-  focusMode = true;
-  quiz = {
-    kind: "free",
-    globalReview: false,
-    focused: true,
-    mode: "focus",
-    pool: buildQuestionPool(),
     index: 0,
     answered: false,
     selectedChoice: null,
@@ -1079,7 +1020,6 @@ function quizTitle(question, set) {
   if (quiz.kind === "step2") return quiz.mode === "step2Single" ? "Step 2 1問確認" : "Step 2 ランダム制覇";
   if (quiz.kind === "step3") return "Step 3 30問連続正解";
   if (quiz.kind === "spaced") return "間隔復習";
-  if (quiz.focused) return "基礎チェック弱点分野の演習";
   return quiz.globalReview
     ? MODE_TITLE.review
     : `${MODE_TITLE[quiz.mode] || "4択演習"}${quiz.mode?.startsWith("set") ? ` / ${set?.title || ""}` : ""}`;
@@ -1280,7 +1220,6 @@ function bindEvents() {
     renderHome();
   };
   $("#startBtn").onclick = () => startQuiz(false);
-  $("#focusPracticeBtn").onclick = startFocusQuiz;
   if ($("#reviewBtn")) $("#reviewBtn").onclick = () => startQuiz(true);
   $("#backBtn").onclick = renderHome;
 }
@@ -1294,12 +1233,6 @@ export async function mount(root, context) {
     return response.text();
   });
 
-  // 基礎チェックから渡された弱点分野（#/grammar?focus=...）
-  focusDomains = String(ctx.params.get("focus") || "")
-    .split(",")
-    .map(value => value.trim())
-    .filter(value => DOMAIN_LABELS[value]);
-  focusMode = false;
   quiz = null;
   selected = { unitId: "", setId: "", mode: "setAll" };
 
@@ -1320,4 +1253,3 @@ export async function mount(root, context) {
     }
   };
 }
-
