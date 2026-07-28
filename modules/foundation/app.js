@@ -208,7 +208,7 @@ export async function mount(root, ctx) {
         <p class="kicker">FLOW</p>
         <h2>解く → その場で解説 → 弱点を知る</h2>
         <div class="flowSteps" aria-label="学習の流れ">
-          <div><strong>1</strong><p>4択を1回30問ずつ解く</p></div>
+          <div><strong>1</strong><p>4択を1回40問ずつ解く</p></div>
           <div><strong>2</strong><p>正答と解説を確認する</p></div>
           <div><strong>3</strong><p>誤答の根拠を読み直す</p></div>
         </div>
@@ -574,7 +574,7 @@ export async function mount(root, ctx) {
     && DATA.questionOrder.length === DATA.questions.length
     && new Set(DATA.questionOrder).size === DATA.questions.length
     && DATA.questionOrder.every(id => questionById.has(id));
-  if (!DATA || DATA.questions.length !== 150 || DATA.domains.length !== 16 || !hasValidOrder) {
+  if (!DATA || DATA.questions.length !== 200 || DATA.domains.length !== 16 || !hasValidOrder) {
     app.innerHTML = "<section class=\"panel\"><h2>データの読み込みに失敗しました</h2><p>問題数または分野数が想定と異なります。</p></section>";
     return { unmount() {} };
   }

@@ -17,7 +17,7 @@ shared/               アプリ共通の土台
   styles.css          デザイントークンの唯一の定義
   vendor/harness/     生徒別クラウド同期（他プロジェクトと共有。編集しない）
 modules/
-  foundation/         基礎チェック（150問・5段階）
+  foundation/         基礎チェック（200問・5段階）
   grammar/            英文法演習（ポラリス）
   reading/            英文解釈
 scripts/write-config.mjs  デプロイ時に config.json を生成

@@ -1,3 +1,5 @@
+import { CONTENT_VERSION as FOUNDATION_CONTENT_VERSION } from "../foundation/status.js";
+
 "use strict";
 /* 英文法演習（統合アプリのモジュール）。
    出題・採点・ステップ判定のロジックは統合前から変更していない。
@@ -457,7 +459,7 @@ function nextAction() {
   const foundation = foundationStatus();
   if (!foundation.unlocked) {
     const nextFoundationStage = Array.from({ length: FOUNDATION_STAGE_COUNT }, (_, index) => index + 1)
-      .find(index => foundation.stageResults[`stage${index}`]?.total !== 30) || 1;
+      .find(index => foundation.stageResults[`stage${index}`]?.completed !== true) || 1;
     const foundationHistory = loadFoundationHistory();
     const savedFoundation = foundationHistory?.inProgress;
     const savedStage = Number.isInteger(savedFoundation?.stageIndex) ? savedFoundation.stageIndex + 1 : nextFoundationStage;
@@ -788,7 +790,7 @@ function renderHome() {
    そのため5段階を完走しても解放されず、ダッシュボードも常に空だった。 */
 function loadFoundationHistory() {
   const history = ctx.peek("foundation");
-  return history && Object.keys(history).length ? history : null;
+  return history?.contentVersion === FOUNDATION_CONTENT_VERSION ? history : null;
 }
 
 

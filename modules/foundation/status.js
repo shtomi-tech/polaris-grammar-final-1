@@ -2,18 +2,20 @@
 /* 基礎チェックの進捗要約。
    統合前は段階完了を「total === 30」というマジックナンバーで外部から判定しており、
    保存キーの版ずれ（v3に書いてv2を読む）と併せて完了が伝わらない不具合を生んでいた。
-   ここでは保存側が立てる completed フラグだけを見る。判定の正は保存側1箇所。 */
+   ここでは現行教材版の記録だけを対象に、保存側が立てる completed フラグを見る。 */
 
 export const STAGE_COUNT = 5;
+export const CONTENT_VERSION = 10;
 
 export function summarize(data) {
-  const results = (data && data.stageResults) || {};
+  const currentData = data?.contentVersion === CONTENT_VERSION ? data : null;
+  const results = currentData?.stageResults || {};
   let done = 0;
   for (let i = 1; i <= STAGE_COUNT; i += 1) {
     if (results[`stage${i}`] && results[`stage${i}`].completed === true) done += 1;
   }
   const complete = done === STAGE_COUNT;
-  const resumable = Boolean(data && data.inProgress);
+  const resumable = Boolean(currentData?.inProgress);
   return {
     complete,
     completedStages: done,

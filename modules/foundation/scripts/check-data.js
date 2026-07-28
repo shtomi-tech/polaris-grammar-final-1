@@ -1,5 +1,8 @@
 "use strict";
 
+const fs = require("node:fs");
+const path = require("node:path");
+
 global.window = {};
 require("../data/questions.js");
 
@@ -8,7 +11,32 @@ const errors = [];
 const ids = new Set();
 const stems = new Map();
 const domains = new Set(data.domains.map(domain => domain.id));
+const statusSource = fs.readFileSync(path.join(__dirname, "..", "status.js"), "utf8");
+const statusVersionMatch = statusSource.match(/export const CONTENT_VERSION = (\d+);/);
 const activeRuleIds = new Set([
+  "egp.sentence-structure.dummy-it",
+  "egp.agreement.subject-head",
+  "egp.tense-aspect.simple-present",
+  "egp.tense-aspect.perfect-reference-time",
+  "egp.voice.passive-extended",
+  "egp.nonfinite.infinitive-purpose",
+  "egp.nonfinite.verb-complement-ing-or-infinitive",
+  "egp.nonfinite.suggest-complements",
+  "egp.nonfinite.participles-as-adjectives",
+  "egp.comparison.forms-and-targets",
+  "egp.comparison.extended-patterns",
+  "egp.clauses-relatives.relative-adverbs",
+  "egp.clauses-relatives.what-nominal-clause",
+  "egp.clauses-relatives.so-that-purpose",
+  "egp.conditionals-subjunctive.wish",
+  "egp.conditionals-subjunctive.without-implied-condition",
+  "egp.nouns-determiners-pronouns.quantifiers",
+  "egp.nouns-determiners-pronouns.other-another",
+  "egp.modifiers.confusable-adverbs",
+  "egp.modifiers.enough-position",
+  "egp.modifiers.so-such",
+  "egp.negation-questions.scope",
+  "egp.negation-questions.restrictive-adverb-inversion",
   "egp.sentence-structure.noun",
   "egp.verbs.verb",
   "egp.modifiers.adjective",
@@ -108,7 +136,10 @@ const ruleUseCounts = new Map();
 const warnings = [];
 
 if (data.domains.length !== 16) errors.push(`分野数: ${data.domains.length}（16が必要）`);
-if (data.questions.length !== 150) errors.push(`問題数: ${data.questions.length}（150が必要）`);
+if (data.questions.length !== 200) errors.push(`問題数: ${data.questions.length}（200が必要）`);
+if (!statusVersionMatch || Number(statusVersionMatch[1]) !== data.contentVersion) {
+  errors.push(`教材版: questions.js=${data.contentVersion} / status.js=${statusVersionMatch?.[1] || "不明"}`);
+}
 
 for (const question of data.questions) {
   if (ids.has(question.id)) errors.push(`問題ID重複: ${question.id}`);
@@ -151,8 +182,8 @@ for (const domain of data.domains) {
   }
 }
 
-if (skillCounts.knowledge !== 150) errors.push(`知識問題数: ${skillCounts.knowledge}（150が必要）`);
-if (knowledgeSupportCount !== 150) errors.push(`知識・補助の問題数: ${knowledgeSupportCount}（150が必要）`);
+if (skillCounts.knowledge !== 200) errors.push(`知識問題数: ${skillCounts.knowledge}（200が必要）`);
+if (knowledgeSupportCount !== 200) errors.push(`知識・補助の問題数: ${knowledgeSupportCount}（200が必要）`);
 
 if (!Array.isArray(data.activeRuleIds)) errors.push("データ内のactive原則一覧なし");
 else if (new Set(data.activeRuleIds).size !== data.activeRuleIds.length || data.activeRuleIds.some(ruleId => !activeRuleIds.has(ruleId)) || data.activeRuleIds.length !== activeRuleIds.size) {
@@ -164,7 +195,7 @@ for (const ruleId of activeRuleIds) {
 
 if (!Array.isArray(data.learningStages) || data.learningStages.length !== 5) errors.push("学習段階: 5段階が必要");
 data.learningStages?.forEach((stage, index) => {
-  if (stage.questionIds?.length !== 30) errors.push(`第${index + 1}段階: ${stage.questionIds?.length || 0}問（30が必要）`);
+  if (stage.questionIds?.length !== 40) errors.push(`第${index + 1}段階: ${stage.questionIds?.length || 0}問（40が必要）`);
 });
 const stageOrder = Array.isArray(data.learningStages) ? data.learningStages.flatMap(stage => stage.questionIds || []) : [];
 if (!Array.isArray(data.questionOrder)) errors.push("固定出題順なし");
