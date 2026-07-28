@@ -5,7 +5,7 @@
    ここでは現行教材版の記録だけを対象に、保存側が立てる completed フラグを見る。 */
 
 export const STAGE_COUNT = 5;
-export const CONTENT_VERSION = 10;
+export const CONTENT_VERSION = 11;
 
 export function summarize(data) {
   const currentData = data?.contentVersion === CONTENT_VERSION ? data : null;

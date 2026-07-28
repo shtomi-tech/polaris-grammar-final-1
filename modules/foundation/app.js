@@ -185,7 +185,7 @@ export async function mount(root, ctx) {
     const recommendedStageIndex = nextStageIndex >= 0 ? nextStageIndex : null;
     const recommendedStageHtml = recommendedStageIndex === null
       ? `<div class="empty">5段階を完了しました。Polaris入試基礎演習へ進めます。</div>`
-      : `<p class="recommendedStageMeta"><strong>${DATA.learningStages[recommendedStageIndex].questionIds.length}問</strong> ${escapeHtml(DATA.learningStages[recommendedStageIndex].label)}</p>`;
+      : `<p class="recommendedStageMeta"><strong>${DATA.learningStages[recommendedStageIndex].questionIds.length}問</strong> ${escapeHtml(DATA.learningStages[recommendedStageIndex].label)}</p><p class="shortcutHint">${escapeHtml(DATA.learningStages[recommendedStageIndex].description || "")}</p>`;
     const startStageIndex = recommendedStageIndex ?? 0;
     app.innerHTML = `
       <section class="panel dark">
@@ -225,6 +225,7 @@ export async function mount(root, ctx) {
     const question = session.questions[session.index];
     const percent = Math.round((session.index / session.questions.length) * 100);
     const domain = domainById.get(question.domain);
+    const topicLabel = question.unitLabel || domain.label;
     const canContinue = answerRevealed;
     const answerStatus = answerRevealed
       ? "解説を確認したら、次へ進んでください。"
@@ -234,7 +235,7 @@ export async function mount(root, ctx) {
         <div class="quizHead">
           <div>
             <p class="questionCount">この段階の問題 ${session.index + 1} / ${session.questions.length} · ${escapeHtml(skillLabels[question.skill])}</p>
-            <p class="muted">${escapeHtml(domain.label)}</p>
+            <p class="muted">文法事項：${escapeHtml(topicLabel)}</p>
           </div>
           <div class="progress">${session.index + 1} / ${session.questions.length}</div>
         </div>
@@ -526,9 +527,10 @@ export async function mount(root, ctx) {
 
   function answerHtml(answer) {
     const misconception = answer.misconception ? `<p><strong>混同：</strong>${escapeHtml(answer.misconception)}</p>` : "";
+    const topicLabel = answer.unitLabel || domainById.get(answer.domain).label;
     return `
       <article class="reviewItem">
-        <p class="questionCount">${escapeHtml(domainById.get(answer.domain).label)} / ${escapeHtml(skillLabels[answer.skill])} / 不正解</p>
+        <p class="questionCount">${escapeHtml(topicLabel)} / ${escapeHtml(skillLabels[answer.skill])} / 不正解</p>
         <h3>${escapeHtml(answer.stem)}</h3>
         <div class="answerLine bad">
           <p><strong>正解：</strong>${escapeHtml(answer.answer)}</p>

@@ -574,26 +574,72 @@ const ACTIVE_RULE_IDS = [
 
 const LEARNING_STAGES = [
   {
-    label: "文の骨格と名詞",
-    questionIds: ["q1", "q14", "q18", "q2", "q9", "q8", "q7", "q10", "q13", "q3", "q11", "q4", "q5", "q6", "q16", "q17", "q12", "q22", "q23", "q151", "q24", "q25", "q26", "q27", "q152", "q28", "q29", "q30", "q15", "q19", "q153", "q154", "q190", "q191", "q192", "q193", "q194", "q195", "q20", "q21"]
+    label: "文の骨格・5文型・名詞句",
+    description: "語の役割を確認し、SV・SVC・SVO・SVOO・SVOCの順に文の骨格を見抜きます。",
+    units: [
+      { id: "parts-of-speech", label: "品詞・句・文の要素", questionIds: ["q1", "q14", "q18", "q3", "q4", "q5", "q6", "q7", "q8", "q9", "q10", "q13", "q16", "q17"] },
+      { id: "sentence-patterns-basic", label: "5文型の基本", questionIds: ["q2", "q11", "q12", "q23", "q22", "q24", "q25", "q26", "q27", "q28", "q29", "q30", "q120"] },
+      { id: "sentence-patterns-application", label: "5文型の応用", questionIds: ["q145", "q148", "q151", "q152"] },
+      { id: "sentence-structure-bridge", label: "形式主語と準動詞への入口", questionIds: ["q15", "q19", "q20"] },
+      { id: "noun-phrases-intro", label: "名詞句・冠詞・数量の入口", questionIds: ["q111", "q112", "q113", "q114", "q190", "q191"] }
+    ]
   },
   {
     label: "動詞・時制・助動詞",
-    questionIds: ["q31", "q32", "q33", "q34", "q35", "q155", "q156", "q36", "q37", "q38", "q39", "q40", "q41", "q43", "q44", "q157", "q45", "q50", "q46", "q47", "q48", "q158", "q159", "q160", "q161", "q51", "q53", "q54", "q42", "q49", "q52", "q55", "q56", "q57", "q58", "q59", "q60", "q62", "q63", "q64"]
+    description: "主語と動詞の一致から始め、時制・相を整理し、最後に助動詞の意味へ進みます。",
+    units: [
+      { id: "agreement", label: "主語と動詞の一致", questionIds: ["q31", "q32", "q33", "q34", "q35", "q119", "q153", "q154", "q155", "q156"] },
+      { id: "auxiliary-forms", label: "助動詞の種類と動詞の形", questionIds: ["q36", "q37", "q61", "q64"] },
+      { id: "simple-present", label: "現在形・一般的事実", questionIds: ["q157"] },
+      { id: "progressive", label: "進行形", questionIds: ["q45", "q46", "q47", "q48", "q50"] },
+      { id: "perfect", label: "完了形", questionIds: ["q51", "q158", "q159", "q160", "q161"] },
+      { id: "sequence-of-tenses", label: "時制の一致", questionIds: ["q53", "q54", "q137"] },
+      { id: "modality-basic", label: "助動詞の基本意味", questionIds: ["q42", "q49", "q52", "q55", "q56", "q57", "q58", "q59", "q60", "q62", "q63", "q128"] }
+    ]
   },
   {
-    label: "受動態と準動詞",
-    questionIds: ["q61", "q65", "q66", "q67", "q68", "q69", "q70", "q162", "q163", "q164", "q71", "q72", "q73", "q74", "q75", "q76", "q165", "q166", "q78", "q79", "q167", "q168", "q169", "q139", "q170", "q171", "q80", "q172", "q173", "q81", "q82", "q83", "q174", "q175", "q77", "q84", "q85", "q86", "q87", "q88"]
+    label: "受動態・準動詞",
+    description: "受動態の骨格を固め、不定詞・動名詞・分詞を形と意味の順に整理します。",
+    units: [
+      { id: "passive", label: "受動態", questionIds: ["q38", "q65", "q66", "q67", "q68", "q69", "q70", "q138", "q162", "q163", "q164"] },
+      { id: "infinitive", label: "不定詞", questionIds: ["q71", "q72", "q73", "q74", "q75", "q76", "q80", "q86", "q88", "q143", "q165", "q166"] },
+      { id: "gerund", label: "動名詞", questionIds: ["q21", "q78", "q79", "q167", "q168", "q169", "q170", "q171", "q139"] },
+      { id: "participle", label: "分詞・分詞構文", questionIds: ["q77", "q81", "q82", "q83", "q172", "q173", "q174", "q175"] }
+    ]
   },
   {
-    label: "節・関係詞・修飾",
-    questionIds: ["q89", "q90", "q92", "q91", "q93", "q94", "q95", "q104", "q96", "q117", "q97", "q98", "q99", "q100", "q101", "q102", "q103", "q181", "q182", "q183", "q184", "q105", "q106", "q107", "q108", "q109", "q110", "q111", "q112", "q113", "q114", "q116", "q118", "q119", "q120", "q185", "q186", "q196", "q197", "q198"]
+    label: "節・関係詞・修飾・否定",
+    description: "節の種類を見分け、関係詞で名詞を説明し、修飾語と基本的な否定・疑問を整理します。",
+    units: [
+      { id: "clauses", label: "接続詞・節", questionIds: ["q91", "q92", "q93", "q94", "q95", "q96", "q104", "q117", "q129", "q185", "q186"] },
+      { id: "relatives", label: "関係詞", questionIds: ["q97", "q98", "q99", "q100", "q101", "q102", "q103", "q140", "q141", "q149", "q181", "q182", "q183", "q184"] },
+      { id: "modifiers", label: "形容詞・副詞・修飾", questionIds: ["q116", "q118", "q144", "q147", "q196", "q197", "q198"] },
+      { id: "negation-basic", label: "否定・疑問の基本", questionIds: ["q39", "q40", "q41", "q43", "q44", "q89", "q90", "q108"] }
+    ]
   },
   {
     label: "比較・仮定法・総合",
-    questionIds: ["q121", "q122", "q123", "q124", "q125", "q126", "q127", "q176", "q177", "q178", "q179", "q180", "q128", "q129", "q130", "q131", "q132", "q133", "q134", "q188", "q136", "q187", "q189", "q115", "q135", "q137", "q138", "q140", "q141", "q142", "q143", "q144", "q145", "q146", "q147", "q148", "q149", "q150", "q199", "q200"]
+    description: "比較表現、条件文・仮定法、否定疑問と名詞・程度表現を入試問題へつなげます。",
+    units: [
+      { id: "comparison", label: "比較", questionIds: ["q121", "q122", "q123", "q124", "q125", "q126", "q127", "q176", "q177", "q178", "q179", "q180"] },
+      { id: "conditionals", label: "条件文・仮定法", questionIds: ["q115", "q130", "q131", "q132", "q133", "q134", "q136", "q187", "q188", "q189"] },
+      { id: "modality-advanced", label: "助動詞の発展", questionIds: ["q84", "q85", "q87", "q135"] },
+      { id: "negation-questions-advanced", label: "否定・疑問の発展", questionIds: ["q105", "q106", "q107", "q109", "q110", "q142", "q150", "q200"] },
+      { id: "noun-phrases-application", label: "名詞・数量・代名詞の応用", questionIds: ["q146", "q192", "q193", "q194", "q195"] },
+      { id: "degree-expression", label: "程度表現", questionIds: ["q199"] }
+    ]
   }
 ];
+
+for (const stage of LEARNING_STAGES) {
+  stage.questionIds = stage.units.flatMap(unit => unit.questionIds);
+}
+const UNIT_BY_QUESTION_ID = new Map();
+for (const stage of LEARNING_STAGES) {
+  for (const unit of stage.units) {
+    for (const id of unit.questionIds) UNIT_BY_QUESTION_ID.set(id, unit);
+  }
+}
 
 function defaultMisconceptions(question) {
   return Object.fromEntries(question.choices
@@ -604,11 +650,14 @@ function defaultMisconceptions(question) {
 const questions = QUESTIONS.map((question, index) => {
   const id = `q${index + 1}`;
   const ruleRefs = QUESTION_RULE_REFS[id] || [];
+  const unit = UNIT_BY_QUESTION_ID.get(id);
   return {
     ...question,
     id,
     skill: "knowledge",
     target: DOMAIN_TARGETS[question.domain],
+    unitId: unit?.id || null,
+    unitLabel: unit?.label || null,
     priority: "support",
     basis: ruleRefs.length ? "active-principle" : "standard-foundation",
     ruleRefs,
@@ -618,7 +667,7 @@ const questions = QUESTIONS.map((question, index) => {
 
 window.GRAMMAR_CHECK_DATA = {
   title: "英文法 基礎知識チェック",
-  contentVersion: 10,
+  contentVersion: 11,
   activeRuleIds: ACTIVE_RULE_IDS,
   learningStages: LEARNING_STAGES,
   questionOrder: LEARNING_STAGES.flatMap(stage => stage.questionIds),

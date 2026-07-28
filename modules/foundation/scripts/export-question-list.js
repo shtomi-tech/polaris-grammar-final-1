@@ -9,7 +9,6 @@ require("../data/questions.js");
 const data = global.window.GRAMMAR_CHECK_DATA;
 const skillLabels = { knowledge: "知識" };
 const priorityLabels = { core: "中核", support: "補助" };
-const domainById = new Map(data.domains.map(domain => [domain.id, domain]));
 
 function markdown(value) {
   return String(value).replaceAll("|", "\\|").replaceAll("\n", " ");
@@ -32,17 +31,8 @@ const summary = Object.entries(skillLabels)
   .join("／");
 const questionById = new Map(data.questions.map(question => [question.id, question]));
 const sections = data.learningStages.map((stage, stageIndex) => {
-  const groups = [];
-  stage.questionIds.map(id => questionById.get(id)).forEach(question => {
-    const current = groups.at(-1);
-    if (!current || current.domainId !== question.domain) groups.push({ domainId: question.domain, questions: [] });
-    groups.at(-1).questions.push(question);
-  });
-  const domains = groups.map(group => {
-    const domain = domainById.get(group.domainId);
-    return `### ${String(domain.order).padStart(2, "0")}｜${domain.label}\n\n${group.questions.map(questionMarkdown).join("\n\n")}`;
-  }).join("\n\n");
-  return `## STAGE ${stageIndex + 1}｜${stage.label}\n\n${domains}`;
+  const units = stage.units.map((unit, unitIndex) => `### ${String(unitIndex + 1).padStart(2, "0")}｜${unit.label}\n\n${unit.questionIds.map(id => questionMarkdown(questionById.get(id))).join("\n\n")}`).join("\n\n");
+  return `## STAGE ${stageIndex + 1}｜${stage.label}\n\n> ${stage.description || ""}\n\n${units}`;
 });
 const output = `# 英文法 基礎知識チェック｜問題一覧\n\n> 自動生成元：\`data/questions.js\`\n>\n> 全${data.questions.length}問・${data.domains.length}分野／${summary}\n\n${sections.join("\n\n")}`;
 

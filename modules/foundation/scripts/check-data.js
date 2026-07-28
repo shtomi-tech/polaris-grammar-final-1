@@ -196,6 +196,19 @@ for (const ruleId of activeRuleIds) {
 if (!Array.isArray(data.learningStages) || data.learningStages.length !== 5) errors.push("学習段階: 5段階が必要");
 data.learningStages?.forEach((stage, index) => {
   if (stage.questionIds?.length !== 40) errors.push(`第${index + 1}段階: ${stage.questionIds?.length || 0}問（40が必要）`);
+  if (!Array.isArray(stage.units) || !stage.units.length) {
+    errors.push(`第${index + 1}段階: 文法事項ごとの学習単位がありません`);
+    return;
+  }
+  const unitOrder = stage.units.flatMap(unit => unit.questionIds || []);
+  if (JSON.stringify(unitOrder) !== JSON.stringify(stage.questionIds)) errors.push(`第${index + 1}段階: 文法事項の順序と出題順が不一致`);
+  if (new Set(unitOrder).size !== unitOrder.length) errors.push(`第${index + 1}段階: 文法事項内に問題ID重複あり`);
+  stage.units.forEach(unit => {
+    if (!unit.id || !unit.label || !Array.isArray(unit.questionIds) || !unit.questionIds.length) errors.push(`第${index + 1}段階: 文法事項の定義が不完全`);
+  });
+});
+data.questions.forEach(question => {
+  if (!question.unitId || !question.unitLabel) errors.push(`文法事項未設定: ${question.id}`);
 });
 const stageOrder = Array.isArray(data.learningStages) ? data.learningStages.flatMap(stage => stage.questionIds || []) : [];
 if (!Array.isArray(data.questionOrder)) errors.push("固定出題順なし");
