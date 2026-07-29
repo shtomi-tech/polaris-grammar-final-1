@@ -34,16 +34,19 @@
     <div class="progressSummary" id="progressSummary"></div>
   </div>
   <div id="masterPath"></div>
-  <div class="stepSection" id="step1Section">
-    <div class="stepSectionHead">
-      <div>
-        <p class="label">Step 1</p>
-        <h2>UNIT演習</h2>
-      </div>
+  <details class="stepSection stepSectionDetails" id="step1Section">
+    <summary>
+      <span>
+        <span class="label">Step 1</span>
+        <strong>UNIT演習</strong>
+      </span>
+      <span class="summaryMeta" id="step1SummaryMeta"></span>
+    </summary>
+    <div class="stepSectionBody">
       <p class="hint">各UNITの10問を解き、全100問を一度でも正解したらStep 2へ進めます。</p>
+      <div id="setList" class="itemList"></div>
     </div>
-    <div id="setList" class="itemList"></div>
-  </div>
+  </details>
   <div id="step2Heatmap"></div>
   <div id="step3Challenge"></div>
 

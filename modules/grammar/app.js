@@ -322,6 +322,14 @@ function step3Unlocked() {
   return step2Unlocked() && stepStats("step2Cleared").remaining === 0 && questionData.questions.length > 0;
 }
 
+/* 画面に同時展開するStepを1つに絞るための「今どこをやるべきか」判定。
+   Step1/2/3セクションはこれに応じて自動的に開閉する（他は<details>で畳む）。 */
+function currentFocusStep() {
+  if (stepStats("step1Cleared").remaining > 0) return 1;
+  if (stepStats("step2Cleared").remaining > 0) return 2;
+  return 3;
+}
+
 function foundationStatus() {
   const history = loadFoundationHistory();
   const stageResults = history?.stageResults || {};
@@ -450,7 +458,12 @@ function renderMasterPath() {
     card.onclick = event => {
       event.preventDefault();
       const target = document.getElementById(card.dataset.target);
-      if (target) target.scrollIntoView({ behavior: "smooth", block: "start" });
+      if (!target) return;
+      ["step1Section", "step2Section", "step3Section"].forEach(id => {
+        const section = document.getElementById(id);
+        if (section && "open" in section) section.open = id === card.dataset.target;
+      });
+      target.scrollIntoView({ behavior: "smooth", block: "start" });
     };
   });
 }
@@ -563,25 +576,6 @@ function renderContinueCta() {
   }
 }
 
-function renderReviewCta() {
-  const button = $("#reviewBtn");
-  if (button) button.classList.add("hide");
-}
-
-function renderSpacedReviewCta() {
-  const card = $("#spacedReviewCard");
-  const summary = $("#spacedReviewSummary");
-  const button = $("#spacedReviewBtn");
-  if (!card || !summary || !button) return;
-  const count = spacedDueQuestions().length;
-  card.classList.toggle("hide", count === 0);
-  if (count > 0) {
-    summary.textContent = `${count}問が復習予定日です。正解が続くほど、次の復習までの間隔が伸びます。`;
-    button.textContent = `今日の${count}問を復習する`;
-    button.onclick = startSpacedReview;
-  }
-}
-
 function renderHeatmap(enabled) {
   const overall = stepStats("step2Cleared");
   const rows = questionData.units.map(unit => {
@@ -612,23 +606,28 @@ function renderHeatmap(enabled) {
           </span>
           <span class="lockedReason">Step 1全問クリアで解放</span>
         </summary>
-        <p class="hint">Step 1のUNIT演習をすべて正解すると、未クリア問題だけのランダム演習が使えます。</p>
+        <div class="stepSectionBody">
+          <p class="hint">Step 1のUNIT演習をすべて正解すると、未クリア問題だけのランダム演習が使えます。</p>
+        </div>
       </details>
     `;
   }
+  const openAttr = currentFocusStep() === 2 ? " open" : "";
   return `
-    <div class="stepSection heatmap" id="step2Section">
-      <div class="stepSectionHead">
-        <div>
-          <p class="label">Step 2</p>
-          <h2>ランダム制覇マップ</h2>
-        </div>
-        <div class="progressSummary">${progressRatio(overall)}</div>
+    <details class="stepSection stepSectionDetails heatmap" id="step2Section"${openAttr}>
+      <summary>
+        <span>
+          <span class="label">Step 2</span>
+          <strong>ランダム制覇マップ</strong>
+        </span>
+        <span class="summaryMeta">${progressRatio(overall)}</span>
+      </summary>
+      <div class="stepSectionBody">
+        <p class="hint">正解した問題が埋まります。未クリアな問題からランダムに出題する場合は下のボタンを押してください。マスを押すとその1問だけ確認できます。</p>
+        <div class="actions"><button class="cta" id="step2StartBtn" type="button">未クリアからランダムに出題</button></div>
+        ${rows}
       </div>
-      <p class="hint">正解した問題が埋まります。未クリアな問題からランダムに出題する場合は下のボタンを押してください。マスを押すとその1問だけ確認できます。</p>
-      <div class="actions"><button class="cta" id="step2StartBtn" type="button">未クリアからランダムに出題</button></div>
-      ${rows}
-    </div>
+    </details>
   `;
 }
 
@@ -644,7 +643,9 @@ function renderStep3Challenge(enabled) {
           </span>
           <span class="lockedReason">Step 2全問クリアで解放</span>
         </summary>
-        <p class="hint">Step 2のランダム制覇を終えると、30問連続正解チャレンジが使えます。</p>
+        <div class="stepSectionBody">
+          <p class="hint">Step 2のランダム制覇を終えると、30問連続正解チャレンジが使えます。</p>
+        </div>
       </details>
     `;
   }
@@ -662,30 +663,37 @@ function renderStep3Challenge(enabled) {
     `;
   }).join("");
   const remaining = Math.max(MASTER_TARGET - filled, 0);
+  const openAttr = currentFocusStep() === 3 ? " open" : "";
   return `
-    <div class="stepSection challengeMap ${meta.mastered ? "mastered" : ""}" id="step3Section">
-      <div class="stepSectionHead">
-        <div>
-          <p class="label">Step 3</p>
-          <h2>30問連続正解チャレンジ</h2>
+    <details class="stepSection stepSectionDetails challengeMap ${meta.mastered ? "mastered" : ""}" id="step3Section"${openAttr}>
+      <summary>
+        <span>
+          <span class="label">Step 3</span>
+          <strong>30問連続正解チャレンジ</strong>
+        </span>
+        <span class="summaryMeta">${meta.mastered ? "MASTER" : `あと ${remaining}`}</span>
+      </summary>
+      <div class="stepSectionBody">
+        <div class="challengeStatus">
+          <div>
+            <span class="stepCount">${meta.mastered ? "最高記録 達成済" : `最高 ${filled}/${MASTER_TARGET}`}</span>
+            <p class="hint">現在の連続正解はセッション内のみ。最高記録は保存されます。</p>
+          </div>
+          <button class="ghost" id="step3PanelBtn" type="button">Step 3を始める</button>
         </div>
-        <div class="challengeResult">${meta.mastered ? "MASTER" : `あと ${remaining}`}</div>
+        <div class="challengeTracks">${rows}</div>
       </div>
-      <div class="challengeStatus">
-        <div>
-          <span class="stepCount">${meta.mastered ? "最高記録 達成済" : `最高 ${filled}/${MASTER_TARGET}`}</span>
-          <p class="hint">現在の連続正解はセッション内のみ。最高記録は保存されます。</p>
-        </div>
-        <button class="ghost" id="step3PanelBtn" type="button">Step 3を始める</button>
-      </div>
-      <div class="challengeTracks">${rows}</div>
-    </div>
+    </details>
   `;
 }
 
 function renderSetList() {
   const step1 = stepStats("step1Cleared");
   $("#progressSummary").textContent = `${activeStudent().name}: Step 1 ${step1.cleared}/${step1.total}`;
+  const step1Section = $("#step1Section");
+  if (step1Section) step1Section.open = currentFocusStep() === 1;
+  const step1SummaryMeta = $("#step1SummaryMeta");
+  if (step1SummaryMeta) step1SummaryMeta.textContent = progressRatio(step1);
   const units = questionData.units;
   const cards = [];
   let recommendedKey = "";
@@ -777,8 +785,6 @@ function renderHome() {
     return;
   }
   renderContinueCta();
-  renderReviewCta();
-  renderSpacedReviewCta();
   renderMasterPath();
   renderSetList();
   setVisible("homePanel");
@@ -1228,7 +1234,6 @@ function bindEvents() {
     renderHome();
   };
   $("#startBtn").onclick = () => startQuiz(false);
-  if ($("#reviewBtn")) $("#reviewBtn").onclick = () => startQuiz(true);
   $("#backBtn").onclick = renderHome;
 }
 

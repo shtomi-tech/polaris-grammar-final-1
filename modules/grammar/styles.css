@@ -347,6 +347,7 @@ a.cta:hover {
   font-weight: 500;
 }
 
+.summaryMeta,
 .lockedReason {
   color: var(--muted);
   font-family: var(--mono);
@@ -354,10 +355,13 @@ a.cta:hover {
   letter-spacing: .04em;
 }
 
-.stepSectionDetails > .hint {
+.stepSectionDetails > .stepSectionBody {
   border-top: 1px solid var(--line);
-  margin: 0;
   padding: 14px;
+}
+
+.stepSectionDetails > .stepSectionBody > .hint:first-child {
+  margin-top: 0;
 }
 
 .heatmap.locked,
