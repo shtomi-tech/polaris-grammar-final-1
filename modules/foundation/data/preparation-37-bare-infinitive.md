@@ -69,11 +69,11 @@ help + O + to do
 `help`は、目的語の後ろに原形を置く形と`to`付きの形の両方があります。ほかの動詞の型と混同せず、文の形を確認します。
 
 :::check check-37-bare-infinitive-04
-question: 次の文の空所に入る語は? The receptionist saw the visitor ( ) the office.
-choice: B|leave
-choice: A|to leave
-answer: B
-explanation: see + O + 原形 で「Oが~するのを見る」と表します。saw the visitor leave では、leave が原形不定詞です。
+question: 次の文の空所に入る語は? The teacher helped us ( ) the problem.
+choice: A|solve
+choice: B|solved
+answer: A
+explanation: help + O + 原形 で「Oが〜するのを助ける」と表します。helped us solve では、us が solve の動作主です。help + O + to do も可能ですが、ここでは to なしの形を確認します。
 :::
 
 
@@ -84,7 +84,7 @@ want / ask / allow + O + to do
 make / let / have + O + do
 :::
 
-`want you to come`や`asked me to wait`では`to`が必要です。一方、`make us do`や`let me go`では`to`を置きません。動詞ごとの型を覚えます。
+`want you to come`や`asked me to wait`では`to`が必要です。一方、`make us do`や`let me go`では`to`を置きません。`allow`も「許す」に近い意味ですが、`allow O to do`の型です。意味の近さではなく、前の動詞が作る型と目的語の後ろを確認します。
 
 :::check check-37-bare-infinitive-05
 question: 次の文の空所に入る語は? Please let me ( ) your notes.
@@ -108,11 +108,11 @@ make + O + do
 原形不定詞を含む構文を受動態にすると、`to`が現れることがあります。`was seen to enter`や`was made to leave`は受動態の応用で扱います。
 
 :::check check-37-bare-infinitive-06
-question: 次の文の空所に入る語は? The teacher made us ( ) the exercise again.
-choice: B|do
+question: 次の文の空所に入る語は? The students were made ( ) the exercise again.
 choice: A|to do
-answer: B
-explanation: make + O + 動詞の原形 で「Oに〜させる」と表します。
+choice: B|do
+answer: A
+explanation: make + O + 原形を受動態にすると、O is made to do の形になり、to が現れます。The students were made to do the exercise again. とします。
 :::
 
 
