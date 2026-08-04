@@ -22,7 +22,7 @@
 | --- | --- |
 | `index.html` | 唯一のランタイム入口 |
 | `shared/` | 生徒識別、進捗ストア、モジュール登録・ルーティング、シェル、共通CSS |
-| `modules/foundation/` | `grammar-200q` 統合セットの基礎チェック。`modules/foundation/data/questions.json` と予習Markdownを使う |
+| `modules/foundation/` | 英文法の基礎チェック。`modules/foundation/data/questions.json` と予習Markdownを使う |
 | `modules/grammar/` | ポラリス英文法演習。`data/polaris_questions.json` を使う |
 | `modules/reading/` | 英文解釈。`data/manifest.json` から教材JSONを選ぶ |
 | `docs/` | 作問原則、設計・画面資料の索引 |
@@ -35,8 +35,7 @@
 | 分類 | 場所 | 扱い |
 | --- | --- | --- |
 | 正本 | `shared/flow.js`、`shared/identity.js`、`shared/store.js` | モジュール導線・生徒識別・進捗契約の実装正本 |
-| 外部正本 | `C:\Users\shtom\dev\grammar-200q` | 基礎チェックの問題・予習コーパス。編集時は同リポジトリ固有の作成ルールに従う |
-| ローカルランタイムコピー | `modules/foundation/data/questions.json`、`modules/foundation/data/preparation-*.md` | このアプリが読み込むコピー。上流変更後に外部正本から再取り込みする。`questions.json` は `modules/foundation/app.js` がランタイムで読み込む。`modules/foundation/data/questions.js` は現在のランタイムでは選択されない |
+| 正本 | `modules/foundation/data/questions.json`、`modules/foundation/data/preparation-*.md` | 基礎チェックの問題と予習資料。**ここが正本**。取り込み元だった `C:\Users\shtom\dev\grammar-200q` は削除済みで、再取り込み元は存在しない。カウント類は `scripts/sync-counts.js` が導出して書き戻すので手で編集しない |
 | 正本 | `modules/grammar/data/polaris_questions.json` | ポラリス問題データ |
 | 正本 | `modules/reading/data/manifest.json`、`modules/reading/data/*.json` | 英文解釈の教材選択と教材データ |
 | 仕様 | `DESIGN.md`、`supabase/schema.sql` | UIトークン・レイアウト方針、Supabaseスキーマ |
@@ -65,6 +64,7 @@
 py -3 -m py_compile modules/foundation/scripts/audit_preparation_checks.py modules/foundation/scripts/generate_preparation_checks.py
 py -3 modules/foundation/scripts/audit_preparation_checks.py
 node modules/foundation/scripts/check-data.js
+node --check modules/foundation/scripts/sync-counts.js
 node modules/grammar/scripts/check_polaris_domain_tags.mjs
 node --check modules/grammar/scripts/check_polaris_domain_tags.mjs
 node --check modules/grammar/scripts/refine_polaris_domain_tags.mjs
@@ -73,4 +73,11 @@ node --check scripts/write-config.mjs
 git diff --check
 ```
 
-期待値は、監査が `LESSON_FILES=43`、`INSTRUCTION_HEADINGS=302`、`CHECK_BLOCKS=302`、`ERRORS=0`、基礎データ検査が `566問・43セクション`、ポラリス検査が `100問 / 複数タグ 47問` です。
+期待値は、**問題数を含む数値をここに書かない**（追加のたびに文書を直す作業が発生し、直し忘れが検査より先に嘘をつくため）。次を満たしていれば通ったと判断します。
+
+- 予習資料の監査: `ERRORS=0`（`INSTRUCTION_HEADINGS` と `CHECK_BLOCKS` が一致していれば数値は問わない）
+- 基礎データ検査: `[OK]` で始まる行が出る（問題数・章数・セクション数は実データから導出され、ズレていれば `[ERROR]` になる）
+- ポラリス検査: `OK: 100問 / 複数タグ 47問`
+- `git diff --check` が無出力
+
+問題を追加・削除したときは、`node modules/foundation/scripts/sync-counts.js` を実行してから検査します。カウントを手で書き換える必要はありません。

@@ -7,7 +7,7 @@
 
 ## このリポジトリで特に守ること
 
-- `modules/foundation/data/questions.js` の基礎知識問題は、原則として一問一判断にする。
+- `modules/foundation/data/questions.json` の基礎知識問題は、原則として一問一判断にする。
 - `ruleRefs` は正答判定に使った `status: active` の原則カードだけを参照する。
 - `basis` は `active-principle` と `standard-foundation` を区別する。
 - 誤答ごとに `misconceptions` を付け、何の混同を疑う選択肢かを残す。
@@ -17,7 +17,6 @@
 ## 作成後の確認
 
 ```powershell
-node --check modules/foundation/data/questions.js
 node --check modules/foundation/app.js
 node modules/foundation/scripts/check-data.js
 node modules/foundation/scripts/export-question-list.js
