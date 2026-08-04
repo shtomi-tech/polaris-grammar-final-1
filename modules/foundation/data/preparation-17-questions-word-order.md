@@ -14,11 +14,11 @@ They have finished. → Have they finished?
 be動詞や助動詞がある文では、その語を主語の前へ出します。完了形なら`have/has`を動かし、後ろの過去分詞は残します。
 
 :::check check-17-questions-word-order-01
-question: 次の文の空所に入る語は? ( ) came to the party last night?
-choice: A|Who
-choice: B|Who did
+question: 次の文の空所に入る語は? ( ) she ready?
+choice: A|Is
+choice: B|Does
 answer: A
-explanation: 疑問詞が主語を尋ねている場合は、主語と助動詞を倒置せず、普通の文と同じ語順にする。
+explanation: be動詞の文では、be動詞を主語の前へ出して Is she ready? とする。一般動詞の疑問文ではないので、does は使わない。
 :::
 
 
