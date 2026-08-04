@@ -14,11 +14,11 @@ can go / may go / must go / should go
 助動詞の後ろでは、三単現の `-s` や `to` を足しません。主語が三人称単数でも、助動詞が時制と態度を受け持ちます。
 
 :::check check-mood-modal-basic-01
-question: 次の文の空所に入る語は? ( ) you help me with this box?
-choice: A|Can
-choice: B|Must
+question: 次の文の空所に入る語は? She can ( ) very fast.
+choice: A|run
+choice: B|runs
 answer: A
-explanation: Can you ...? は相手に依頼するときの表現です。
+explanation: 助動詞 can の後ろには動詞の原形を置くため、run が適切です。主語が She でも、can の後ろに三単現の -s は付けません。
 :::
 
 
@@ -70,11 +70,11 @@ have to + 原形
 `must` は話し手の強い判断、`have to` は規則や状況による必要を表しやすい形です。入試では、意味の出どころと否定形を確認します。
 
 :::check check-mood-modal-basic-04
-question: 次の文の空所に入る語は? There are no rules on clothing in our office, so you ( ) wear a tie.
-choice: B|don't have to
-choice: A|cannot
-answer: B
-explanation: 服装の規則がないので、ネクタイを着ける義務はありません。don't have to + 原形 は「~する必要はない」を表します。
+question: 次の文の空所に入る語は? The museum is closed today, so we ( ) come back tomorrow.
+choice: A|have to
+choice: B|may
+answer: A
+explanation: 美術館が今日閉まっているという外部の事情による必要なので、have to + 原形 が適切です。
 :::
 
 
@@ -88,11 +88,11 @@ do not have to → する必要はない
 `must not` は禁止、`do not have to` は不要です。否定が義務にかかるのか、必要性にかかるのかを言い換えて確認します。
 
 :::check check-mood-modal-basic-05
-question: 次の文の空所に入る語は? The museum is closed today, so we ( ) come back tomorrow.
-choice: A|have to
-choice: B|may
+question: 次の文の空所に入る語は? There are no rules on clothing in our office, so you ( ) wear a tie.
+choice: A|don't have to
+choice: B|cannot
 answer: A
-explanation: 外部の事情による必要を表すので have to が適切です。
+explanation: 服装の規則がないので、ネクタイを着ける義務はありません。don't have to + 原形 は「～する必要はない」を表します。
 :::
 
 
