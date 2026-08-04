@@ -73,4 +73,4 @@ node --check scripts/write-config.mjs
 git diff --check
 ```
 
-期待値は、監査が `LESSON_FILES=43`、`INSTRUCTION_HEADINGS=293`、`CHECK_BLOCKS=293`、`ERRORS=0`、基礎データ検査が `540問・43セクション`、ポラリス検査が `100問 / 複数タグ 47問` です。
+期待値は、監査が `LESSON_FILES=43`、`INSTRUCTION_HEADINGS=302`、`CHECK_BLOCKS=302`、`ERRORS=0`、基礎データ検査が `566問・43セクション`、ポラリス検査が `100問 / 複数タグ 47問` です。

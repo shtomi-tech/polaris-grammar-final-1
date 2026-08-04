@@ -17,7 +17,7 @@ shared/               アプリ共通の土台
   styles.css          デザイントークンの唯一の定義
   vendor/harness/     生徒別クラウド同期（他プロジェクトと共有。編集しない）
 modules/
-  foundation/         基礎チェック（grammar-200q統合セット540問・8章43セクション）
+  foundation/         基礎チェック（grammar-200q統合セット566問・8章43セクション）
   grammar/            英文法演習（ポラリス）
   reading/            英文解釈
 docs/                 設計・作問資料（[索引](docs/README.md)）

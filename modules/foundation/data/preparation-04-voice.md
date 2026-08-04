@@ -132,6 +132,25 @@ explanation: 1900年の過去の出来事なので過去形のbe動詞 was と�
 :::
 
 
+## 8. rise（自動詞）とraise（他動詞）を区別する
+
+:::board
+rise: 自動詞「上がる」目的語を取らない → 受動態にならない
+raise: 他動詞「~を上げる」目的語を取る → 受動態になれる
+The sun rises. / The flag is raised.
+:::
+
+受動態にできるのは目的語を取る他動詞だけです。`rise`は「(自ら)上がる」という自動詞で目的語を取らないため受動態になれません。一方`raise`は「~を上げる」という他動詞なので、`is raised`のように受動態にできます。形が似ているので、まず自動詞か他動詞かを確認します。
+
+:::check check-04-voice-08
+question: 次の文の空所に入る語は? Prices have ( ) sharply this year.
+choice: A|risen
+choice: B|raised
+answer: A
+explanation: rise は自動詞「上がる」なので、目的語を取らずに risen という形で使います。raise は他動詞で「~を上げる」という意味なので、ここでは主語 Prices が「上げる」側になってしまい合いません。
+:::
+
+
 ## 教授からの課題
 
 能動文の目的語に印を付け、受動文の主語とbe動詞の時制を説明して、このセクションの問題を解きます。

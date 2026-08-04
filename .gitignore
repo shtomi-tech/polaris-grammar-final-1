@@ -20,3 +20,6 @@ _削除候補/
 .netlify/
 .DS_Store
 Thumbs.db
+
+# advisor ワークフローの作業ファイル
+.claude/advisor/

@@ -4,7 +4,7 @@
 
 | モジュール | ルート | 内容 | README |
 | --- | --- | --- | --- |
-| `foundation` | `#/foundation` | `grammar-200q` 統合セットの基礎チェック（540問・43セクション） | [foundation/README.md](foundation/README.md) |
+| `foundation` | `#/foundation` | `grammar-200q` 統合セットの基礎チェック（566問・43セクション） | [foundation/README.md](foundation/README.md) |
 | `grammar` | `#/grammar` | ポラリス英文法演習 | [grammar/README.md](grammar/README.md) |
 | `reading` | `#/reading` | 英文解釈教材 | [reading/README.md](reading/README.md) |
 

@@ -153,6 +153,42 @@ explanation: I'd like to は I'd like to come のように、前の質問から�
 :::
 
 
+## 9. 結果を表すto不定詞とfind + O + 現在分詞
+
+:::board
+woke up to find ...: 目が覚めてみると〜だと分かった
+find + O + 現在分詞: Oが〜しているのに気づく
+:::
+
+`to find`のように、前の動作の結果として分かったことを不定詞で続ける形があります(結果を表す不定詞)。`only to find`のように`only`を伴うと「(期待に反して)残念ながら〜だと分かった」という意外な結果を強めます。`find`の後ろに目的語と現在分詞を続けると、`find + O + 現在分詞`で「Oが〜している状態に気づく」ことを表します。
+
+:::check check-18-infinitive-advanced-09
+question: 次の文の空所に入る語は? He returned home ( ) that his wallet was gone.
+choice: A|to find
+choice: B|finding
+answer: A
+explanation: 帰宅した結果として分かったことを不定詞 to find で続けます。動作の結果を表す to不定詞の形です。
+:::
+
+
+## 10. It is 形容詞 of 人 to doで人の性質を評価する
+
+:::board
+It is 人の性質を表す形容詞 + of + 人 + to do
+It is important for 人 to do（forとの違い）
+:::
+
+`kind`・`nice`・`careless`のように、人の性質や態度を評価する形容詞では、`It is + 形容詞 + of + 人 + to do`の形で不定詞の意味上の主語を示します。`important`のように人の性質を表さない形容詞では、`for + 人 + to do`を使います。前置詞`of`と`for`は形容詞の種類で使い分けます。
+
+:::check check-18-infinitive-advanced-10
+question: 次の文の空所に入る語は? It was very kind ( ) you to help me with my luggage.
+choice: A|of
+choice: B|for
+answer: A
+explanation: kind は人の性質・態度を評価する形容詞なので、It is + 形容詞 + of + 人 + to do の形を使います。important のように人の性質を表さない形容詞では for を使います。
+:::
+
+
 ## 教授からの課題
 
 ①動作主、②主節との時点、③目的語を取る動詞か、④不定詞の型・用法、の順に確認して問題を解きます。

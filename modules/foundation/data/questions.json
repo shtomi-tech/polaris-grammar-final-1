@@ -20,7 +20,7 @@
       "id": "english-grammar-200-merged",
       "title": "英文法統合セット（重複整理版）",
       "description": "2つのセットを統合し、重複は明確な英文を優先した4択問題です。",
-      "questionCount": 540,
+      "questionCount": 566,
       "excludedCount": 0,
       "unitCount": 19,
       "learningSectionCount": 43
@@ -512,11 +512,11 @@
             "sourceUnits": [
               "02-tense"
             ],
-            "count": 9,
+            "count": 10,
             "countsBySet": {
               "english-grammar-200": 2,
               "english-grammar-200-legacy": 4,
-              "english-grammar-200-merged": 9
+              "english-grammar-200-merged": 10
             },
             "preparationUnit": "tense-progressive-future"
           },
@@ -526,11 +526,11 @@
             "sourceUnits": [
               "02-tense"
             ],
-            "count": 10,
+            "count": 12,
             "countsBySet": {
               "english-grammar-200": 2,
               "english-grammar-200-legacy": 4,
-              "english-grammar-200-merged": 10
+              "english-grammar-200-merged": 12
             },
             "preparationUnit": "tense-present-perfect"
           },
@@ -540,11 +540,11 @@
             "sourceUnits": [
               "02-tense"
             ],
-            "count": 14,
+            "count": 16,
             "countsBySet": {
               "english-grammar-200": 4,
               "english-grammar-200-legacy": 5,
-              "english-grammar-200-merged": 14
+              "english-grammar-200-merged": 16
             },
             "preparationUnit": "tense-perfect-clauses"
           }
@@ -560,11 +560,11 @@
             "sourceUnits": [
               "05-modality"
             ],
-            "count": 14,
+            "count": 15,
             "countsBySet": {
               "english-grammar-200": 7,
               "english-grammar-200-legacy": 7,
-              "english-grammar-200-merged": 14
+              "english-grammar-200-merged": 15
             },
             "preparationUnit": "mood-modal-basic"
           },
@@ -574,11 +574,11 @@
             "sourceUnits": [
               "05-modality"
             ],
-            "count": 17,
+            "count": 19,
             "countsBySet": {
               "english-grammar-200": 5,
               "english-grammar-200-legacy": 5,
-              "english-grammar-200-merged": 17
+              "english-grammar-200-merged": 19
             },
             "preparationUnit": "mood-modal-advanced"
           },
@@ -588,11 +588,11 @@
             "sourceUnits": [
               "06-subjunctive"
             ],
-            "count": 8,
+            "count": 9,
             "countsBySet": {
               "english-grammar-200": 3,
               "english-grammar-200-legacy": 4,
-              "english-grammar-200-merged": 8
+              "english-grammar-200-merged": 9
             },
             "preparationUnit": "mood-subjunctive-basic"
           },
@@ -702,11 +702,11 @@
             "sourceUnits": [
               "04-voice"
             ],
-            "count": 11,
+            "count": 13,
             "countsBySet": {
               "english-grammar-200": 3,
               "english-grammar-200-legacy": 5,
-              "english-grammar-200-merged": 11
+              "english-grammar-200-merged": 13
             },
             "preparationUnit": "04-voice"
           },
@@ -716,11 +716,11 @@
             "sourceUnits": [
               "04-voice"
             ],
-            "count": 16,
+            "count": 18,
             "countsBySet": {
               "english-grammar-200": 5,
               "english-grammar-200-legacy": 5,
-              "english-grammar-200-merged": 16
+              "english-grammar-200-merged": 18
             },
             "preparationUnit": "22-passive-advanced"
           }
@@ -751,11 +751,11 @@
             "sourceUnits": [
               "07-infinitive"
             ],
-            "count": 23,
+            "count": 27,
             "countsBySet": {
               "english-grammar-200": 7,
               "english-grammar-200-legacy": 7,
-              "english-grammar-200-merged": 23
+              "english-grammar-200-merged": 27
             },
             "preparationUnit": "18-infinitive-advanced"
           },
@@ -765,11 +765,11 @@
             "sourceUnits": [
               "07-infinitive"
             ],
-            "count": 7,
+            "count": 8,
             "countsBySet": {
               "english-grammar-200": 3,
               "english-grammar-200-legacy": 0,
-              "english-grammar-200-merged": 7
+              "english-grammar-200-merged": 8
             },
             "preparationUnit": "37-bare-infinitive"
           },
@@ -795,11 +795,11 @@
               "07-infinitive",
               "08-gerund"
             ],
-            "count": 14,
+            "count": 21,
             "countsBySet": {
               "english-grammar-200": 5,
               "english-grammar-200-legacy": 6,
-              "english-grammar-200-merged": 14
+              "english-grammar-200-merged": 21
             },
             "preparationUnit": "38-verb-complements"
           },
@@ -809,11 +809,11 @@
             "sourceUnits": [
               "09-participle"
             ],
-            "count": 15,
+            "count": 16,
             "countsBySet": {
               "english-grammar-200": 5,
               "english-grammar-200-legacy": 4,
-              "english-grammar-200-merged": 15
+              "english-grammar-200-merged": 16
             },
             "preparationUnit": "09-participle"
           },
@@ -26037,6 +26037,734 @@
       "sourceSetId": "english-grammar-200-merged-additions",
       "sourceQuestionId": 150,
       "lessonId": "lesson-08-comparison-basic"
+    },
+    {
+      "id": "add-151",
+      "setId": "english-grammar-200-merged",
+      "sourceUnit": "08-gerund",
+      "unit": "08-gerund",
+      "target": "avoidの目的語",
+      "prompt": "空所に入る最も適切な語句を選びなさい。",
+      "sentence": "You should avoid (    ) the street here if you are not in a hurry.",
+      "choices": [
+        "to cross",
+        "of crossing",
+        "crossing",
+        "that you cross"
+      ],
+      "answerIndex": 2,
+      "stage": "入試型総合",
+      "difficulty": "発展",
+      "ruleRefs": "egp.nonfinite.verb-complement-ing-or-infinitive",
+      "explanation": [
+        "avoid は動名詞だけを目的語に取る動詞です。ここでの street を横切る行為をひとまとまりの動名詞 crossing にして、avoid crossing the street とします。"
+      ],
+      "misconceptions": "to cross=avoidはto不定詞を目的語に取らない、of crossing=avoidはofを介さず動名詞を直接目的語にする、that you cross=avoidはthat節を目的語に取らない。",
+      "mergedOrder": 561,
+      "legacyMergedId": "merged-561",
+      "sourceSetId": "english-grammar-200-merged-additions",
+      "sourceQuestionId": 151,
+      "lessonId": "lesson-38-verb-complements"
+    },
+    {
+      "id": "add-156",
+      "setId": "english-grammar-200-merged",
+      "sourceUnit": "08-gerund",
+      "unit": "08-gerund",
+      "target": "mindの目的語",
+      "prompt": "空所に入る最も適切な語句を選びなさい。",
+      "sentence": "Would you mind (    ) the room for me?",
+      "choices": [
+        "air",
+        "cleaning",
+        "to sweep",
+        "cleaned"
+      ],
+      "answerIndex": 1,
+      "stage": "入試型総合",
+      "difficulty": "発展",
+      "ruleRefs": "egp.nonfinite.verb-complement-ing-or-infinitive",
+      "explanation": [
+        "mind は動名詞だけを目的語に取る動詞です。「部屋を掃除してくれませんか」は Would you mind cleaning the room for me? となります。"
+      ],
+      "misconceptions": "air=名詞で動詞の目的語の形になっていない、to sweep=mindはto不定詞を目的語に取らない、cleaned=過去分詞では目的語になれない。",
+      "mergedOrder": 562,
+      "legacyMergedId": "merged-562",
+      "sourceSetId": "english-grammar-200-merged-additions",
+      "sourceQuestionId": 156,
+      "lessonId": "lesson-38-verb-complements"
+    },
+    {
+      "id": "add-157",
+      "setId": "english-grammar-200-merged",
+      "sourceUnit": "08-gerund",
+      "unit": "08-gerund",
+      "target": "considerの目的語",
+      "prompt": "空所に入る最も適切な語句を選びなさい。",
+      "sentence": "He is considering (    ) in Australia next year.",
+      "choices": [
+        "for studying",
+        "studying",
+        "to study",
+        "to have a study"
+      ],
+      "answerIndex": 1,
+      "stage": "入試型総合",
+      "difficulty": "発展",
+      "ruleRefs": "egp.nonfinite.verb-complement-ing-or-infinitive",
+      "explanation": [
+        "consider は動名詞だけを目的語に取る動詞です。is considering studying で「留学を検討している」という進行中の検討を表します。"
+      ],
+      "misconceptions": "for studying=considerの目的語にforは不要、to study=considerはto不定詞を目的語に取らない、to have a study=不定詞であるうえに studyを名詞として使う不自然な形。",
+      "mergedOrder": 563,
+      "legacyMergedId": "merged-563",
+      "sourceSetId": "english-grammar-200-merged-additions",
+      "sourceQuestionId": 157,
+      "lessonId": "lesson-38-verb-complements"
+    },
+    {
+      "id": "add-158",
+      "setId": "english-grammar-200-merged",
+      "sourceUnit": "07-infinitive",
+      "unit": "07-infinitive",
+      "target": "manage to doの型",
+      "prompt": "空所に入る最も適切な語句を選びなさい。",
+      "sentence": "Harry (    ) to swim across the river.",
+      "choices": [
+        "managed",
+        "finished",
+        "succeeded",
+        "enabled"
+      ],
+      "answerIndex": 0,
+      "stage": "入試型総合",
+      "difficulty": "発展",
+      "ruleRefs": "egp.nonfinite.verb-complement-ing-or-infinitive",
+      "explanation": [
+        "manage to do は「(苦労して)何とか~し遂げる」という意味で、直後に to不定詞を続けられる動詞です。managed to swim で「何とか泳ぎ切った」となります。"
+      ],
+      "misconceptions": "finished=finishは動名詞を目的語に取り、finished to swimとは言わない、succeeded=succeedはsucceed in doingの形を取り、to不定詞に直結しない、enabled=enableはenable + O + to doの形を取り、目的語なしでto不定詞に直結しない。",
+      "mergedOrder": 564,
+      "legacyMergedId": "merged-564",
+      "sourceSetId": "english-grammar-200-merged-additions",
+      "sourceQuestionId": 158,
+      "lessonId": "lesson-38-verb-complements"
+    },
+    {
+      "id": "add-159",
+      "setId": "english-grammar-200-merged",
+      "sourceUnit": "07-infinitive",
+      "unit": "07-infinitive",
+      "target": "decideの目的語",
+      "prompt": "空所に入る最も適切な語句を選びなさい。",
+      "sentence": "I hear that Bill and Jane decided (    ).",
+      "choices": [
+        "getting married",
+        "marriage",
+        "marrying",
+        "to get married"
+      ],
+      "answerIndex": 3,
+      "stage": "入試型総合",
+      "difficulty": "発展",
+      "ruleRefs": "egp.nonfinite.verb-complement-ing-or-infinitive",
+      "explanation": [
+        "decide は to不定詞だけを目的語に取る動詞です。decided to get married で「結婚することに決めた」となります。"
+      ],
+      "misconceptions": "getting married=decideは動名詞を目的語に取らない、marriage=名詞では動詞decidedの目的語として意味が成立しない、marrying=decideは動名詞を目的語に取らない。",
+      "mergedOrder": 565,
+      "legacyMergedId": "merged-565",
+      "sourceSetId": "english-grammar-200-merged-additions",
+      "sourceQuestionId": 159,
+      "lessonId": "lesson-38-verb-complements"
+    },
+    {
+      "id": "add-160",
+      "setId": "english-grammar-200-merged",
+      "sourceUnit": "08-gerund",
+      "unit": "08-gerund",
+      "target": "remember doing",
+      "prompt": "空所に入る最も適切な語句を選びなさい。",
+      "sentence": "I suppose you remember (    ) while you were staying in Chicago.",
+      "choices": [
+        "to see me",
+        "saw me",
+        "seeing me",
+        "to seeing me"
+      ],
+      "answerIndex": 2,
+      "stage": "入試型総合",
+      "difficulty": "発展",
+      "ruleRefs": "egp.nonfinite.verb-complement-ing-or-infinitive",
+      "explanation": [
+        "remember doing は「(過去に)したことを覚えている」という意味です。while you were staying in Chicago という過去の期間中の出来事なので、remember seeing me とします。"
+      ],
+      "misconceptions": "to see me=remember to doは「これからすることを忘れない」という意味になり、過去の出来事を表す文脈と合わない、saw me=sawは定形(過去形)の動詞で、remember の目的語には動名詞かto不定詞など準動詞の形が必要であり、定形の過去形をそのまま置けない、to seeing me=toの後ろに動名詞を続ける形はここでは使わない。",
+      "mergedOrder": 566,
+      "legacyMergedId": "merged-566",
+      "sourceSetId": "english-grammar-200-merged-additions",
+      "sourceQuestionId": 160,
+      "lessonId": "lesson-38-verb-complements"
+    },
+    {
+      "id": "add-161",
+      "setId": "english-grammar-200-merged",
+      "sourceUnit": "07-infinitive",
+      "unit": "07-infinitive",
+      "target": "remember to do",
+      "prompt": "空所に入る最も適切な語句を選びなさい。",
+      "sentence": "Remember (    ) this letter when you go out.",
+      "choices": [
+        "mailing",
+        "having mailed",
+        "to have mailed",
+        "to mail"
+      ],
+      "answerIndex": 3,
+      "stage": "入試型総合",
+      "difficulty": "発展",
+      "ruleRefs": "egp.nonfinite.verb-complement-ing-or-infinitive",
+      "explanation": [
+        "remember to do は「これからすることを忘れない」という意味です。when you go out はこれから外出する場面なので、remember to mail this letter とします。"
+      ],
+      "misconceptions": "mailing=remember doingは過去にしたことを覚えている意味になり、これからの用事を表す文脈と合わない、having mailed=remember の目的語としてこの形は使わない、to have mailed=完了不定詞は主節より前の時点を表し、これからの用事を表す文脈と合わない。",
+      "mergedOrder": 567,
+      "legacyMergedId": "merged-567",
+      "sourceSetId": "english-grammar-200-merged-additions",
+      "sourceQuestionId": 161,
+      "lessonId": "lesson-38-verb-complements"
+    },
+    {
+      "id": "add-162",
+      "setId": "english-grammar-200-merged",
+      "sourceUnit": "07-infinitive",
+      "unit": "07-infinitive",
+      "target": "make+O+原形",
+      "prompt": "空所に入る最も適切な語句を選びなさい。",
+      "sentence": "His parents should (    ) because his grades are poor.",
+      "choices": [
+        "force him study",
+        "let him to study",
+        "make him study",
+        "have him to study"
+      ],
+      "answerIndex": 2,
+      "stage": "入試型総合",
+      "difficulty": "発展",
+      "ruleRefs": "egp.nonfinite.bare-infinitive",
+      "explanation": [
+        "make + O + 原形 で「Oに~させる」を表します。make him study で「彼に勉強させる」となります。"
+      ],
+      "misconceptions": "force him study=forceはforce + O + to doの形を取り、目的語の後ろに原形を直接置かない、let him to study=let + O + 原形が正しい形で、toは不要、have him to study=have + O + 原形が正しい形で、toは不要。",
+      "mergedOrder": 568,
+      "legacyMergedId": "merged-568",
+      "sourceSetId": "english-grammar-200-merged-additions",
+      "sourceQuestionId": 162,
+      "lessonId": "lesson-37-bare-infinitive"
+    },
+    {
+      "id": "add-163",
+      "setId": "english-grammar-200-merged",
+      "sourceUnit": "04-voice",
+      "unit": "04-voice",
+      "target": "知覚動詞の受動態",
+      "prompt": "空所に入る最も適切な語句を選びなさい。",
+      "sentence": "The man was seen (    ) out of the house.",
+      "choices": [
+        "go",
+        "to go",
+        "gone",
+        "went"
+      ],
+      "answerIndex": 1,
+      "stage": "入試型総合",
+      "difficulty": "発展",
+      "ruleRefs": "egp.voice.passive-extended",
+      "explanation": [
+        "能動の see + O + 原形 を受動態にすると、O is seen to + 原形 のように to が現れます。was seen to go out で「外に出るのを見られた」となります。"
+      ],
+      "misconceptions": "go=能動態の原形不定詞をそのまま残しており、受動化で復活するtoが抜けている、gone=過去分詞では知覚動詞の目的格補語の形にならない、went=過去形は不定詞の位置に置けない。",
+      "mergedOrder": 569,
+      "legacyMergedId": "merged-569",
+      "sourceSetId": "english-grammar-200-merged-additions",
+      "sourceQuestionId": 163,
+      "lessonId": "lesson-22-passive-advanced"
+    },
+    {
+      "id": "add-164",
+      "setId": "english-grammar-200-merged",
+      "sourceUnit": "02-tense",
+      "unit": "02-tense",
+      "target": "現在完了進行形",
+      "prompt": "空所に入る最も適切な語句を選びなさい。",
+      "sentence": "How long have you (    ) in bed?",
+      "choices": [
+        "laid",
+        "been lying",
+        "lied",
+        "being laying"
+      ],
+      "answerIndex": 1,
+      "stage": "入試型総合",
+      "difficulty": "発展",
+      "ruleRefs": "egp.tense-aspect.present-perfect-progressive",
+      "explanation": [
+        "How long have you ...? は have/has been + -ing の現在完了進行形で、動作がどれだけ続いているかを尋ねる形です。「横になる」の lie(自動詞)を使い、been lying とします。"
+      ],
+      "misconceptions": "laid=他動詞lay(~を置く)の過去形で、目的語がなく文型が合わないうえhaveの後ろの形にもならない、lied=「嘘をつく」の意味のlieの過去形で、文脈の意味と合わない、being laying=have の後ろに置ける形ではなく、現在完了進行形の型にもならない。",
+      "mergedOrder": 570,
+      "legacyMergedId": "merged-570",
+      "sourceSetId": "english-grammar-200-merged-additions",
+      "sourceQuestionId": 164,
+      "lessonId": "lesson-tense-present-perfect"
+    },
+    {
+      "id": "add-165",
+      "setId": "english-grammar-200-merged",
+      "sourceUnit": "04-voice",
+      "unit": "04-voice",
+      "target": "rise/raiseと受動態",
+      "prompt": "空所に入る最も適切な語句を選びなさい。",
+      "sentence": "The flag is (    ) every morning by one of our students.",
+      "choices": [
+        "rising",
+        "risen",
+        "rose",
+        "raised"
+      ],
+      "answerIndex": 3,
+      "stage": "入試型総合",
+      "difficulty": "発展",
+      "ruleRefs": "egp.voice.passive-formation, egp.verbs.transitive-heuristic",
+      "explanation": [
+        "受動態にできるのは目的語を取る他動詞です。rise は「上がる」という自動詞で目的語を取れず受動態になれませんが、raise は「~を上げる」という他動詞なので、is raised と受動態にできます。by one of our students が動作主を示します。"
+      ],
+      "misconceptions": "rising=riseの現在分詞で、受動態のbe+過去分詞の形にならない、risen=riseの過去分詞だが、riseは自動詞のため目的語を取れず受動態にならない、rose=riseの過去形で、動詞が二つ並ぶ形になり受動態の形にならない。",
+      "mergedOrder": 571,
+      "legacyMergedId": "merged-571",
+      "sourceSetId": "english-grammar-200-merged-additions",
+      "sourceQuestionId": 165,
+      "lessonId": "lesson-16-passive-basic"
+    },
+    {
+      "id": "add-166",
+      "setId": "english-grammar-200-merged",
+      "sourceUnit": "02-tense",
+      "unit": "02-tense",
+      "target": "過去進行形",
+      "prompt": "空所に入る最も適切な語句を選びなさい。",
+      "sentence": "I (    ) dinner when the telephone rang.",
+      "choices": [
+        "have been making",
+        "have made",
+        "was made",
+        "was making"
+      ],
+      "answerIndex": 3,
+      "stage": "入試型総合",
+      "difficulty": "発展",
+      "ruleRefs": "egp.tense-aspect.progressive-meanings",
+      "explanation": [
+        "過去のある時点で進行中だった動作は過去進行形で表します。the telephone rang という過去の一点で夕食を作っている途中だったので、was making とします。"
+      ],
+      "misconceptions": "have been making=現在完了進行形は過去の一点を基準にした話ではなく、rangという過去形と時制がそろわない、have made=現在完了で、過去の一点の途中を表せない、was made=makeは「(自分が)作る」の能動の意味で、was madeだと「私が作られた」という受動の意味になり文脈と合わない。",
+      "mergedOrder": 572,
+      "legacyMergedId": "merged-572",
+      "sourceSetId": "english-grammar-200-merged-additions",
+      "sourceQuestionId": 166,
+      "lessonId": "lesson-tense-progressive-future"
+    },
+    {
+      "id": "add-167",
+      "setId": "english-grammar-200-merged",
+      "sourceUnit": "04-voice",
+      "unit": "04-voice",
+      "target": "過去の受動態",
+      "prompt": "空所に入る最も適切な語句を選びなさい。",
+      "sentence": "The royal wedding which took place last week (    ) by millions simultaneously on TV.",
+      "choices": [
+        "will be seen",
+        "was seen",
+        "might be seen",
+        "is seen"
+      ],
+      "answerIndex": 1,
+      "stage": "入試型総合",
+      "difficulty": "発展",
+      "ruleRefs": "egp.voice.passive-formation",
+      "explanation": [
+        "last week という過去の一回の出来事なので、be動詞を過去形にした was seen を使います。多くの人がテレビで見たという受け身の関係を be + 過去分詞 で表します。"
+      ],
+      "misconceptions": "will be seen=未来の助動詞willは過去の出来事であるlast weekと合わない、might be seen=推量のmightは、実際に起きたと分かっている過去の出来事の記述と合わない、is seen=現在形は過去の一回の出来事を表す文と時制がそろわない。",
+      "mergedOrder": 573,
+      "legacyMergedId": "merged-573",
+      "sourceSetId": "english-grammar-200-merged-additions",
+      "sourceQuestionId": 167,
+      "lessonId": "lesson-16-passive-basic"
+    },
+    {
+      "id": "add-168",
+      "setId": "english-grammar-200-merged",
+      "sourceUnit": "02-tense",
+      "unit": "02-tense",
+      "target": "時を表す副詞節内の現在形",
+      "prompt": "空所に入る最も適切な語句を選びなさい。",
+      "sentence": "I'll call her when I (    ) dinner.",
+      "choices": [
+        "will finish",
+        "am going to finish",
+        "finish",
+        "am finished"
+      ],
+      "answerIndex": 2,
+      "stage": "入試型総合",
+      "difficulty": "発展",
+      "ruleRefs": "egp.tense-aspect.adverb-clause-present-for-future",
+      "explanation": [
+        "when が導く時を表す副詞節の中では、未来のことでも現在形を使います。I'll call her という主節が未来の内容を示すので、when 節の中は現在形 finish にします。"
+      ],
+      "misconceptions": "will finish=時を表す副詞節の中ではwillを使わない、am going to finish=同じく副詞節の中でam going toの形は使わない、am finished=finishは他動詞で「~を終える」の意味であり、amと組み合わせると受動的な意味になり文脈と合わない。",
+      "mergedOrder": 574,
+      "legacyMergedId": "merged-574",
+      "sourceSetId": "english-grammar-200-merged-additions",
+      "sourceQuestionId": 168,
+      "lessonId": "lesson-tense-perfect-clauses"
+    },
+    {
+      "id": "add-169",
+      "setId": "english-grammar-200-merged",
+      "sourceUnit": "02-tense",
+      "unit": "02-tense",
+      "target": "現在完了の継続",
+      "prompt": "空所に入る最も適切な語句を選びなさい。",
+      "sentence": "Mr. Kimura (    ) in this street for three years.",
+      "choices": [
+        "has lived",
+        "is living",
+        "lives",
+        "was living"
+      ],
+      "answerIndex": 0,
+      "stage": "入試型総合",
+      "difficulty": "発展",
+      "ruleRefs": "egp.tense-aspect.perfect-reference-time",
+      "explanation": [
+        "for three years という期間を示す語があるので、過去から現在まで続く状態は現在完了 has lived で表します。"
+      ],
+      "misconceptions": "is living=一時的な現在の進行を表し、for three yearsが示す継続の期間全体をまとめて示す形ではない、lives=単純現在形は習慣・事実を表す形で、継続の期間を示すfor three yearsと結び付きにくい、was living=過去進行形は過去の一時点の話になり、現在までの継続を表せない。",
+      "mergedOrder": 575,
+      "legacyMergedId": "merged-575",
+      "sourceSetId": "english-grammar-200-merged-additions",
+      "sourceQuestionId": 169,
+      "lessonId": "lesson-tense-present-perfect"
+    },
+    {
+      "id": "add-170",
+      "setId": "english-grammar-200-merged",
+      "sourceUnit": "04-voice",
+      "unit": "04-voice",
+      "target": "群動詞の受動態",
+      "prompt": "空所に入る最も適切な語句を選びなさい。",
+      "sentence": "He was laughed (    ) all his classmates.",
+      "choices": [
+        "by at",
+        "at",
+        "at by",
+        "by"
+      ],
+      "answerIndex": 2,
+      "stage": "入試型総合",
+      "difficulty": "発展",
+      "ruleRefs": "egp.voice.passive-extended",
+      "explanation": [
+        "laugh at は「~を笑う」という群動詞です。受動態でも at を落とさず、動作主を示す by を続けて was laughed at by all his classmates とします。"
+      ],
+      "misconceptions": "by at=前置詞を並べる順序が逆で、群動詞の前置詞atを先に残す形にならない、at単独=動作主を示すbyがなく、誰に笑われたのかを示せない、by単独=群動詞の前置詞atが抜けており、laugh atのまとまりが崩れている。",
+      "mergedOrder": 576,
+      "legacyMergedId": "merged-576",
+      "sourceSetId": "english-grammar-200-merged-additions",
+      "sourceQuestionId": 170,
+      "lessonId": "lesson-22-passive-advanced"
+    },
+    {
+      "id": "add-171",
+      "setId": "english-grammar-200-merged",
+      "sourceUnit": "05-modality",
+      "unit": "05-modality",
+      "target": "used to",
+      "prompt": "空所に入る最も適切な語句を選びなさい。",
+      "sentence": "England is quite different from what it (    ) when I visited it thirty years ago.",
+      "choices": [
+        "should be",
+        "ought to be",
+        "used to be",
+        "would be"
+      ],
+      "answerIndex": 2,
+      "stage": "入試型総合",
+      "difficulty": "発展",
+      "ruleRefs": "egp.usage-collocation.gerund-idioms",
+      "explanation": [
+        "used to + 原形 は「以前は~していた(今は違う)」という過去の状態・習慣を表します。thirty years ago という過去の時点のイングランドの状態を、現在との対比で述べているので used to be が適切です。"
+      ],
+      "misconceptions": "should be=義務・当然の意味で、過去の状態と現在の対比を表す文脈と合わない、ought to be=shouldと同じく当然の意味で、過去の状態を回想する文脈と合わない、would be=would beは仮定の結果や過去の不規則な習慣を表す形で、be動詞を伴う過去の状態の回想にはused toを使う。",
+      "mergedOrder": 577,
+      "legacyMergedId": "merged-577",
+      "sourceSetId": "english-grammar-200-merged-additions",
+      "sourceQuestionId": 171,
+      "lessonId": "lesson-mood-modal-basic"
+    },
+    {
+      "id": "add-172",
+      "setId": "english-grammar-200-merged",
+      "sourceUnit": "05-modality",
+      "unit": "05-modality",
+      "target": "現在の推量must",
+      "prompt": "空所に入る最も適切な語句を選びなさい。",
+      "sentence": "She's really sweating and shivering! She (    ) have a high fever.",
+      "choices": [
+        "needs to",
+        "must",
+        "can't",
+        "is to"
+      ],
+      "answerIndex": 1,
+      "stage": "入試型総合",
+      "difficulty": "発展",
+      "ruleRefs": "egp.modality.must",
+      "explanation": [
+        "汗をかき震えているという現在の状況から、話し手が強く確信して推量しているので、must be(have)の must を使います。must は「きっと~だ」という現在の推量を表します。"
+      ],
+      "misconceptions": "needs to=必要の意味であり、症状から導く推量の意味にならない、can't=「~のはずがない」という否定の推量になり、症状と矛盾する、is to=予定・取り決めを表す言い方で、推量の意味にならない。",
+      "mergedOrder": 578,
+      "legacyMergedId": "merged-578",
+      "sourceSetId": "english-grammar-200-merged-additions",
+      "sourceQuestionId": 172,
+      "lessonId": "lesson-mood-modal-advanced"
+    },
+    {
+      "id": "add-173",
+      "setId": "english-grammar-200-merged",
+      "sourceUnit": "05-modality",
+      "unit": "05-modality",
+      "target": "don't have toとmust not",
+      "prompt": "空所に入る最も適切な語句を選びなさい。",
+      "sentence": "We (    ) go to school tomorrow because it is a holiday.",
+      "choices": [
+        "don't have to",
+        "have not",
+        "have to not",
+        "ought not"
+      ],
+      "answerIndex": 0,
+      "stage": "入試型総合",
+      "difficulty": "発展",
+      "ruleRefs": "egp.modality.have-to, egp.modality.must",
+      "explanation": [
+        "don't have to + 原形 は「~する必要はない」という不要を表します。明日は休日なので、学校に行く必要がないという意味で don't have to go とします。must not(禁止)と混同しないよう、不要と禁止を区別します。"
+      ],
+      "misconceptions": "have not=have toの否定として現在完了と混同した誤った形、have to not=notの位置が誤りで、have toの否定はdon't have toの形を取る、ought not=「~すべきでない」という禁止に近い意味になり、休日だから行く必要がないという不要の文脈と合わない。",
+      "mergedOrder": 579,
+      "legacyMergedId": "merged-579",
+      "sourceSetId": "english-grammar-200-merged-additions",
+      "sourceQuestionId": 173,
+      "lessonId": "lesson-mood-modal-advanced"
+    },
+    {
+      "id": "add-174",
+      "setId": "english-grammar-200-merged",
+      "sourceUnit": "06-subjunctive",
+      "unit": "06-subjunctive",
+      "target": "仮定法過去",
+      "prompt": "空所に入る最も適切な語句を選びなさい。",
+      "sentence": "If I lost my key, I (    ) able to lock the door.",
+      "choices": [
+        "will not be",
+        "will not have been",
+        "wouldn't be",
+        "am not"
+      ],
+      "answerIndex": 2,
+      "stage": "入試型総合",
+      "difficulty": "発展",
+      "ruleRefs": "egp.conditionals-subjunctive.past-subjunctive",
+      "explanation": [
+        "If + 主語 + 過去形, 主語 + would + 原形 の仮定法過去です。If I lost my key という現実には起きていない仮定に対して、主節は wouldn't be とします。"
+      ],
+      "misconceptions": "will not be=If節が過去形lostであることと、現実の条件を表すwillが合わない、will not have been=未来完了は仮定法の主節の基本形ではなく、時制もそろわない、am not=単純現在形では、現実に反する仮定を表せない。",
+      "mergedOrder": 580,
+      "legacyMergedId": "merged-580",
+      "sourceSetId": "english-grammar-200-merged-additions",
+      "sourceQuestionId": 174,
+      "lessonId": "lesson-mood-subjunctive-basic"
+    },
+    {
+      "id": "add-175",
+      "setId": "english-grammar-200-merged",
+      "sourceUnit": "07-infinitive",
+      "unit": "07-infinitive",
+      "target": "疑問詞+to不定詞",
+      "prompt": "空所に入る最も適切な語句を選びなさい。",
+      "sentence": "My father is considering which one (    ).",
+      "choices": [
+        "buy",
+        "buying",
+        "to buy",
+        "to buying"
+      ],
+      "answerIndex": 2,
+      "stage": "入試型総合",
+      "difficulty": "発展",
+      "ruleRefs": "egp.sentence-structure.interrogative-to-infinitive",
+      "explanation": [
+        "疑問詞 + to不定詞は、一つのまとまった名詞句として動詞の目的語になります。which one to buy で「どちらを買うべきか」という名詞句を作り、considering の目的語にします。"
+      ],
+      "misconceptions": "buy=疑問詞の直後は原形ではなくto+原形にする、buying=疑問詞+to不定詞の型であり、動名詞は続けない、to buying=toの後ろは動名詞ではなく原形にする。",
+      "mergedOrder": 581,
+      "legacyMergedId": "merged-581",
+      "sourceSetId": "english-grammar-200-merged-additions",
+      "sourceQuestionId": 175,
+      "lessonId": "lesson-18-infinitive-advanced"
+    },
+    {
+      "id": "add-176",
+      "setId": "english-grammar-200-merged",
+      "sourceUnit": "07-infinitive",
+      "unit": "07-infinitive",
+      "target": "結果のto不定詞とfind+O+現在分詞",
+      "prompt": "空所に入る最も適切な語句を選びなさい。",
+      "sentence": "I woke up (    ) on the bench.",
+      "choices": [
+        "and found my lying",
+        "to find myself lying",
+        "and found me to lie",
+        "to find lying"
+      ],
+      "answerIndex": 1,
+      "stage": "入試型総合",
+      "difficulty": "発展",
+      "ruleRefs": "egp.nonfinite.degree-result-infinitive-patterns, egp.nonfinite.participles-as-adjectives",
+      "explanation": [
+        "woke up to find ... は「目が覚めてみると~だと分かった」という、動作の結果を表す to不定詞です。find の目的語 myself の後ろに、寝ている状態を表す現在分詞 lying を続けて find myself lying とします。"
+      ],
+      "misconceptions": "and found my lying=findの目的語には所有格ではなく目的格myselfを置く、and found me to lie=find + O + to不定詞の形は取らず、findはO + 現在分詞/過去分詞の形を取る、to find lying=findの目的語(myself)が抜けており、何が横になっているのかを示せない。",
+      "mergedOrder": 582,
+      "legacyMergedId": "merged-582",
+      "sourceSetId": "english-grammar-200-merged-additions",
+      "sourceQuestionId": 176,
+      "lessonId": "lesson-18-infinitive-advanced"
+    },
+    {
+      "id": "add-177",
+      "setId": "english-grammar-200-merged",
+      "sourceUnit": "07-infinitive",
+      "unit": "07-infinitive",
+      "target": "ask+O+not to do",
+      "prompt": "空所に入る最も適切な語句を選びなさい。",
+      "sentence": "He asked (    ) anyone what had happened.",
+      "choices": [
+        "to me not tell",
+        "me to not tell",
+        "not to tell me",
+        "me not to tell"
+      ],
+      "answerIndex": 3,
+      "stage": "入試型総合",
+      "difficulty": "発展",
+      "ruleRefs": "egp.nonfinite.infinitive-negation, egp.nonfinite.verb-object-to-infinitive",
+      "explanation": [
+        "ask + O + to do は「Oに~するよう頼む」で、目的語の後ろに to不定詞を続けます。不定詞を否定するときは not を to の直前に置くので、ask + O + not to do の形で me not to tell とします。"
+      ],
+      "misconceptions": "to me not tell=askはask + O + to doの形を取り、目的語の前にtoを置かない、me to not tell=notの位置が誤りで、notはto不定詞の直前(not to)に置く、not to tell me=askの目的語(誰に頼むか)が抜けており、askの直後は目的語の人を置く。",
+      "mergedOrder": 583,
+      "legacyMergedId": "merged-583",
+      "sourceSetId": "english-grammar-200-merged-additions",
+      "sourceQuestionId": 177,
+      "lessonId": "lesson-18-infinitive-advanced"
+    },
+    {
+      "id": "add-178",
+      "setId": "english-grammar-200-merged",
+      "sourceUnit": "07-infinitive",
+      "unit": "07-infinitive",
+      "target": "It is 形容詞 of 人 to do",
+      "prompt": "空所に入る最も適切な語句を選びなさい。",
+      "sentence": "It's nice (    ) you to come and see me.",
+      "choices": [
+        "at",
+        "of",
+        "on",
+        "to"
+      ],
+      "answerIndex": 1,
+      "stage": "入試型総合",
+      "difficulty": "発展",
+      "ruleRefs": "egp.nonfinite.infinitive-semantic-subject",
+      "explanation": [
+        "nice のように人の性質・態度を評価する形容詞では、It is + 形容詞 + of + 人 + to do の形で不定詞の意味上の主語を示します。会いに来てくれた you の性質を評価しているので、of you とします。"
+      ],
+      "misconceptions": "at=It is 形容詞 + 前置詞 + 人 + to doの型でatは使わない、on=同じくonはこの型で使わない、to=この構文でIt is 形容詞の後ろに置ける前置詞は of か for であり、toはこの型に現れない。forとの混同もよくあるが、forはimportantなど人の性質を評価しない形容詞で使う前置詞であり、niceのような人の性質を表す形容詞にはofを使う。",
+      "mergedOrder": 584,
+      "legacyMergedId": "merged-584",
+      "sourceSetId": "english-grammar-200-merged-additions",
+      "sourceQuestionId": 178,
+      "lessonId": "lesson-18-infinitive-advanced"
+    },
+    {
+      "id": "add-179",
+      "setId": "english-grammar-200-merged",
+      "sourceUnit": "09-participle",
+      "unit": "09-participle",
+      "target": "現在分詞の後置修飾",
+      "prompt": "空所に入る最も適切な語句を選びなさい。",
+      "sentence": "Is this the road (    ) to the Civic Center?",
+      "choices": [
+        "lead",
+        "led",
+        "to be led",
+        "leading"
+      ],
+      "answerIndex": 3,
+      "stage": "入試型総合",
+      "difficulty": "発展",
+      "ruleRefs": "egp.nonfinite.participles-as-adjectives",
+      "explanation": [
+        "road は「通じる」動作をする側なので、能動関係を表す現在分詞を使います。leading to the Civic Center が road を後ろから修飾し、the road leading to the Civic Center で「市民センターに通じる道」となります。"
+      ],
+      "misconceptions": "lead=原形動詞のままでは名詞the roadを修飾する形にならない、led=roadは通じる側(能動)であり、受け身を表す過去分詞ledは合わない、to be led=roadが「導かれる」側であるかのような受動の不定詞になり、意味が合わない。",
+      "mergedOrder": 585,
+      "legacyMergedId": "merged-585",
+      "sourceSetId": "english-grammar-200-merged-additions",
+      "sourceQuestionId": 179,
+      "lessonId": "lesson-20-participle-adjective"
+    },
+    {
+      "id": "add-180",
+      "setId": "english-grammar-200-merged",
+      "sourceUnit": "02-tense",
+      "unit": "02-tense",
+      "target": "条件節内の現在形",
+      "prompt": "空所に入る最も適切な語句を選びなさい。",
+      "sentence": "If poisons like DDT (    ) to control insects, there will be serious environmental damage.",
+      "choices": [
+        "are used",
+        "is used",
+        "use",
+        "used"
+      ],
+      "answerIndex": 0,
+      "stage": "入試型総合",
+      "difficulty": "発展",
+      "ruleRefs": "egp.tense-aspect.adverb-clause-present-for-future",
+      "explanation": [
+        "if が導く条件を表す副詞節の中では、未来のことでも現在形を使います。主語 poisons は複数形で、DDT のような毒物は「使われる」側なので、現在形の受動態 are used とします。"
+      ],
+      "misconceptions": "is used=受動態の形は正しいが、主語poisonsが複数形であるのに単数のisと結び付けている、use=poisonsは「使う」側ではなく「使われる」側であり、能動態のuseは意味が逆になる、used=過去形であり、if節の中で未来のことを表す現在形の原則と合わない。",
+      "mergedOrder": 586,
+      "legacyMergedId": "merged-586",
+      "sourceSetId": "english-grammar-200-merged-additions",
+      "sourceQuestionId": 180,
+      "lessonId": "lesson-tense-perfect-clauses"
     }
   ]
 }

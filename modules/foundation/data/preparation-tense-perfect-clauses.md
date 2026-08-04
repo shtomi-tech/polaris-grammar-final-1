@@ -132,6 +132,25 @@ explanation: we arrived という過去の基準時より前に始まってい�
 :::
 
 
+## 8. 現在形にしたあとも主語の一致と態を確認する
+
+:::board
+if/whenの節を現在形にするのは最初の一歩
+① 主語は単数か複数か → be動詞の形
+② 主語は動作をする側かされる側か → 能動か受動か
+:::
+
+if/when節の中を「未来のことでも現在形」にしただけでは終わりません。同じ節の中でも、主語が単数か複数かでbe動詞の形が変わり、主語が動作をする側かされる側かで能動と受動のどちらを使うかが変わります。DDTのような薬剤は自分で「使う」側ではなく「使われる」側なので、受動態にしたうえで、主語の数に合わせてis/areを選びます。
+
+:::check check-tense-perfect-clauses-08
+question: 次の文の空所に入る語は? If these chemicals ( ) carelessly, they will harm the environment.
+choice: A|are used
+choice: B|is used
+answer: A
+explanation: chemicals は複数の主語で、「使われる」側なので、受動態の現在形 are used にします。
+:::
+
+
 ## 教授からの課題
 
 文中の出来事を時系列に並べ、各節が「基準時」「それより前」「未来の条件」のどれかを説明してから問題を解きます。

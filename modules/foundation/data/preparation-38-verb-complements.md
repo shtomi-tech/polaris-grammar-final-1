@@ -134,6 +134,44 @@ explanation: regret to inform は「残念ながらお知らせする」とい�
 :::
 
 
+## 8. mindは動名詞だけを目的語にとる
+
+:::board
+mind doing: 〜するのを嫌がる、気にする
+Would you mind doing ...?: 依頼の丁寧な言い方
+:::
+
+`mind`は動名詞だけを目的語に取ります。`Would you mind opening the window?`のように、依頼を遠回しに尋ねる形でもよく使われます。`want`のように置き換えられる動詞ではないので、型を別に覚えます。
+
+:::check check-38-verb-complements-08
+question: 次の文の空所に入る語は? Would you mind ( ) the door?
+choice: A|closing
+choice: B|to close
+answer: A
+explanation: mind は動名詞だけを目的語に取るので closing が適切です。
+:::
+
+
+## 9. manageはto doで「なんとかやり遂げる」を表す
+
+:::board
+manage to do: 困難を乗り越えてなんとか〜する
+finish doing: 〜し終える
+succeed in doing: 〜に成功する
+enable + O + to do: Oが〜できるようにする
+:::
+
+`manage`は、後ろに`to do`を直接続けて「(苦労しながら)何とかやり遂げる」ことを表します。似た意味の`finish`は動名詞を目的語に取り(`finish doing`)、`succeed`は`succeed in doing`の形を取り、`enable`は目的語(人)を挟んでから`to do`を続けます(`enable + O + to do`)。どれも「to doに直接続けられるか」で型が変わります。
+
+:::check check-38-verb-complements-09
+question: 次の文の空所に入る語は? She ( ) to finish the marathon despite the heat.
+choice: A|managed
+choice: B|succeeded
+answer: A
+explanation: 直後に to do を続けられるのは manage to do の形です。succeed は succeed in doing の形を取るため、to do には直結しません。
+:::
+
+
 ## 教授からの課題
 
 動詞と後ろのまとまりを括弧で囲み、`to do`・`doing`・`V + O + to do`のどれかを示してから問題を解きます。

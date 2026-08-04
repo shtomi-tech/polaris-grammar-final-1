@@ -135,6 +135,24 @@ explanation: 過去の出来事を推量するときは 助動詞 + have + 過�
 :::
 
 
+## 8. don't have toとmust notの向きを区別する
+
+:::board
+must not: してはいけない(禁止)
+don't have to: する必要はない(不要)
+:::
+
+`must not`は「してはいけない」という禁止、`don't have to`は「する必要がない」という不要です。日本語では両方「~しなくていい」に近く見えることがありますが、否定が義務そのものにかかるか、必要性にかかるかで意味が正反対になります。
+
+:::check check-mood-modal-advanced-08
+question: 次の文の空所に入る語は? You ( ) worry. It's not your fault.
+choice: A|don't have to
+choice: B|must not
+answer: A
+explanation: don't have to は「~する必要はない」という不要を表します。must not は「~してはいけない」という禁止で、心配する必要がないことを伝える文脈とは意味が逆になります。
+:::
+
+
 ## 教授からの課題
 
 助動詞の意味を一語で訳す前に、時間・根拠・話し手の立場を短くメモしてから問題を解きます。

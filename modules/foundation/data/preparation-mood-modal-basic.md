@@ -133,6 +133,24 @@ explanation: in just one month は現在より先の時点を示します。未�
 :::
 
 
+## 8. used toは過去の状態・習慣を表す
+
+:::board
+used to + 原形: 以前は〜していた(今はしていない)
+I used to live in Osaka.
+:::
+
+`used to + 動詞の原形`は「以前は~していた(今はもう違う)」という、過去の習慣や状態と現在の対比を表します。義務を表す`should`・`ought to`や、単なる過去の予想を表す`would`とは意味が違うので混同しません。
+
+:::check check-mood-modal-basic-08
+question: 次の文の空所に入る語は? This town ( ) a small village, but now it is a big city.
+choice: A|used to be
+choice: B|should be
+answer: A
+explanation: used to be は「以前は~だった(今は違う)」という過去の状態を表します。should be は当然・義務の意味であり、過去と現在の対比を表す文脈と合いません。
+:::
+
+
 ## 教授からの課題
 
 助動詞を見つけたら、後ろを原形に戻し、話し手の態度を「可能・許可・義務・助言・予測」のどれかで説明してから解きます。
