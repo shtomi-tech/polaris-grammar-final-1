@@ -35,11 +35,11 @@ despite + 名詞相当
 `because it rained`は節、`because of the rain`は名詞句です。`Although he is a farmer`と`In spite of his being a farmer`も、後ろの形が違います。意味が近くても形を優先します。
 
 :::check check-12-conjunctions-02
-question: 次の文の空所に入る語は? ( ) a farmer, he never gets up at dawn.
-choice: B|Despite he is
-choice: A|Although he is
-answer: B
-explanation: although と even though の後ろには節、in spite of の後ろには名詞相当の his being が続きます。despite の後ろに節を直接置く Despite he is は不適切です。
+question: 次の文の空所に入る語は? ( ) he is a farmer, he never gets up at dawn.
+choice: A|Although
+choice: B|Despite
+answer: A
+explanation: `Although` の後ろには主語＋動詞の節 `he is a farmer` が続きます。`Despite` の後ろには名詞相当を置くため、この文では `Although he is a farmer` です。
 :::
 
 
@@ -72,6 +72,8 @@ in case: 〜に備えて
 :::
 
 `unless`は否定を含む条件、`even if`は条件を認めても結果が変わらない譲歩、`in case`は備えです。`whether ... or not`は「〜であろうとなかろうと」と読みます。
+
+現在の事実に反する仮定では、`if` 節を過去形にし、`be` 動詞は主語にかかわらず基本的に `were` にします。`If Maya were here, she could help us now.` のように、`now` と `could` が現在の反実仮想を示します。
 
 :::check check-12-conjunctions-04
 question: 次の文の空所に入る語は? ( ) you agree or not, the decision has already been made.
@@ -129,6 +131,8 @@ as is often the case = よくあることだが
 :::
 
 `not only A but also B`は左右を対等につなぎます。`what is more`や`as is often the case`は語句全体で接続の働きをする表現です。単語ごとに分解しすぎません。
+
+`Not only` が文頭に出て強調されると、疑問文と同じ語順に倒置します。過去の一般動詞なら `Not only did she pass the exam, but she also won a scholarship.` のように `did + 主語 + 動詞の原形` とします。
 
 :::check check-12-conjunctions-07
 question: 次の文の空所に入る語は? She is not only intelligent ( ) also hardworking.

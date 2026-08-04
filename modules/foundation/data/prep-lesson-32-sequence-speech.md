@@ -108,11 +108,11 @@ warn + 人 + not to do
 `“Be quiet.” → told us to be quiet`、`“Don’t touch it.” → warned us not to touch it` のように、命令の相手を目的語で示します。否定は `not to do` です。
 
 :::check check-03-sequence-speech-06
-question: 次の文の空所に入る語は? A week later, we reported: He said, "I will call you tomorrow." → He said that he ( ) call me the next day.
-choice: B|would
-choice: A|will
-answer: B
-explanation: 一週間後に過去の発言を伝えているため、主節が過去形(said)のとき、名詞節内の助動詞も時制の一致を受け、will は would に変わる。
+question: 次の文の空所に入る語は? The teacher told us ( ) quiet.
+choice: A|to be
+choice: B|be
+answer: A
+explanation: 命令文を間接話法にすると、`tell + 人 + to + 原形` の形になります。したがって `The teacher told us to be quiet.` です。
 :::
 
 

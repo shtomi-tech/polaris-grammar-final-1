@@ -106,9 +106,10 @@ different from
 pleased with
 blame A for B
 effect on A
+far from
 :::
 
-`different from`、`pleased with`、`blame Bob for the accident`、`have an effect on`のように、前置詞は前の語との結びつきで決まります。意味だけで選ばないようにします。
+`different from`、`pleased with`、`blame Bob for the accident`、`have an effect on`、`far from`のように、前置詞は前の語との結びつきで決まります。`far from being perfect` は「完璧とはほど遠い」というまとまりです。意味だけで選ばないようにします。
 
 :::check check-13-prepositions-06
 question: 次の文の空所に入る語は? The climate here is different ( ) that of my hometown.

@@ -13,6 +13,8 @@ was/were + -ing → 過去の途中
 
 `The baby is sleeping.` は現在の途中、`I was playing the piano when you called.` は過去の一点での途中です。単に起きた事実か、その時点で進行中だったかを分けます。
 
+動詞の形も確認します。`lie`（横になる）は `lie - lay - lain - lying`、`lay`（置く）は `lay - laid - laid - laying`、`lie`（嘘をつく）は `lie - lied - lied - lying` です。「横になっている途中」なら `was lying` を使います。
+
 :::check check-tense-progressive-future-01
 question: 次の文の空所に入る語は? Please be quiet. The baby ( ).
 choice: A|is sleeping
@@ -102,6 +104,8 @@ explanation: around this time tomorrow は明日の同じころという未来�
 2. その時点で途中か、完結した事実か
 3. 未来なら予定・時刻表・予測のどれか
 :::
+
+時刻表や公式日程に基づく確定予定は、未来の内容でも現在形にします。`According to the schedule, the train leaves at 6:45 tomorrow morning.` のように、個人の手配を表す進行形や単なる予測の `will` と分けます。
 
 まず `be` の時制を決め、次に `-ing` の意味を確認します。最後に未来の根拠を読みます。形を先に暗記しても、時計は動きません。
 

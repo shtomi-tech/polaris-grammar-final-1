@@ -63,7 +63,7 @@ explanation: be about to + 原形 は「まさに~しようとしている」と
 ## 4. 目的語 + to不定詞を取る動詞
 
 :::board
-ask/advise + 人 + to do
+ask/advise/tell + 人 + to do
 allow/get + 人 + to do
 suggest + 動名詞/that節
 :::
@@ -71,11 +71,11 @@ suggest + 動名詞/that節
 `asked me to take care`、`advised me to review`、`allow you to use`のように、目的語が不定詞の動作主になります。`suggest`は通常この型を取らず、後ろを分けます。
 
 :::check check-18-infinitive-advanced-04
-question: 次の文の空所に入る語は? When she went away, she ( ) me to take care of her house.
-choice: B|asked
-choice: A|had
+question: 次の文の空所に入る語は? Lisa's father told her ( ) her best.
+choice: B|to do
+choice: A|do
 answer: B
-explanation: ask + 人 + to do は「人に~するよう頼む」です。had・made・let は、基本的に目的語の後ろに原形を置く使役の型になります。
+explanation: tell + 人 + to do は「人に~するよう言う」です。ask・advise と同じく、目的語の後ろに to + 原形を置きます。原形を置くのは make・let・have などの使役の型です。
 :::
 
 
@@ -125,6 +125,8 @@ something to write with
 :::
 
 名詞と不定詞の関係に前置詞が必要なら、文末に残します。`write with`は道具、`do with`は関係を表すため、`with`を落としません。
+
+`look forward to` の `to` は不定詞ではなく前置詞です。したがって、後ろは名詞相当の動名詞にして `look forward to seeing the results` とします。
 
 :::check check-18-infinitive-advanced-07
 question: 次の文の空所に入る語は? I'm sorry I don't know. I have nothing ( ) with this matter.

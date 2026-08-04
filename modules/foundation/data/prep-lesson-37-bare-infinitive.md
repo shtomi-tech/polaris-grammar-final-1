@@ -14,11 +14,11 @@ to不定詞: to + 原形
 `to study`のように`to`が付く形と、`study`だけを置く形を分けます。原形不定詞は、前の動詞が作る構文の中で使われます。
 
 :::check check-37-bare-infinitive-01
-question: 次の文の空所に入る語は? The teacher made us ( ) the exercise again.
-choice: A|do
-choice: B|to do
+question: 次の文の空所に入る語は? The smartphone enables students ( ) English anytime.
+choice: A|to study
+choice: B|study
 answer: A
-explanation: make + O + 動詞の原形 で「Oに〜させる」と表します。
+explanation: enable + O + to do で「Oが〜できるようにする」と表します。enable は目的語の後ろに to + 原形を置く型で、原形だけを置く make・let・have とは分けて覚えます。
 :::
 
 
@@ -33,11 +33,11 @@ have + O + do: Oに～してもらう
 `made us do`、`let me borrow`、`had my brother fix`のように、目的語の後ろに`to`を置かず原形を続けます。まず、誰がその動作をするかを目的語で確認します。
 
 :::check check-37-bare-infinitive-02
-question: 次の文の空所に入る語は? Please let me ( ) your notes.
-choice: B|borrow
-choice: A|to borrow
+question: 次の文の空所に入る語は? We have our housekeeper ( ) our rooms every Friday.
+choice: B|clean
+choice: A|to clean
 answer: B
-explanation: let + O + 動詞の原形 で「Oに〜させる・〜するのを許す」です。
+explanation: have + O + 動詞の原形 で「Oに〜してもらう」と表します。have は make・let と同じく目的語の後ろに to を置きません。
 :::
 
 
@@ -51,11 +51,11 @@ hear + O + do
 `saw the visitor leave`、`heard the musician sing`のように、見たり聞いたりした動作を目的語の後ろの原形で表します。能動態では、この型に`to`を置きません。
 
 :::check check-37-bare-infinitive-03
-question: 次の文の空所に入る語は? From the next room, I heard the musician ( ) the national anthem.
-choice: A|sing
-choice: B|sang
+question: 次の文の空所に入る語は? We saw our teacher ( ) a high five with a foreign woman.
+choice: A|do
+choice: B|to do
 answer: A
-explanation: hear + O + 原形 で「Oが~するのを聞く」と表します。heard the musician sing のように、hear の目的語の後ろに原形を置きます。
+explanation: see + O + 原形 で「Oが〜するのを見る」と表します。saw our teacher do のように、能動態では see の目的語の後ろに to を置きません。
 :::
 
 
@@ -80,18 +80,18 @@ explanation: help + O + 原形 で「Oが〜するのを助ける」と表しま
 ## 5. `to不定詞`を取る動詞と分ける
 
 :::board
-want / ask / allow + O + to do
+want / ask / allow / force + O + to do
 make / let / have + O + do
 :::
 
-`want you to come`や`asked me to wait`では`to`が必要です。一方、`make us do`や`let me go`では`to`を置きません。`allow`も「許す」に近い意味ですが、`allow O to do`の型です。意味の近さではなく、前の動詞が作る型と目的語の後ろを確認します。
+`want you to come`や`asked me to wait`では`to`が必要です。一方、`make us do`や`let me go`では`to`を置きません。`allow`も「許す」に近い意味ですが、`allow O to do`の型です。`force`も「無理やり〜させる」と`make`に近い意味ですが、`force O to do`の型です。意味の近さではなく、前の動詞が作る型と目的語の後ろを確認します。
 
 :::check check-37-bare-infinitive-05
-question: 次の文の空所に入る語は? Please let me ( ) your notes.
-choice: A|borrow
-choice: B|to borrow
+question: 次の文の空所に入る語は? The typhoon forced us ( ) the cleanup activity.
+choice: A|to cancel
+choice: B|cancel
 answer: A
-explanation: let + O + 動詞の原形 で「Oに〜させる・〜するのを許す」です。
+explanation: force + O + to do で「Oに無理やり〜させる」と表します。意味は make + O + 原形 に近くても、force は to + 原形を続ける型です。意味の近さではなく動詞ごとの型で判断します。
 :::
 
 

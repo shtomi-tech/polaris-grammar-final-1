@@ -89,11 +89,11 @@ very + 原級
 `much better` は比較級、`by far the best` は最上級を強めます。`very better` とはしないので、まず空所の形を確認します。
 
 :::check check-11-comparison-05
-question: 次の文の空所に入る語は? My new computer is faster ( ) my old one.
-choice: A|than
-choice: B|as
+question: 次の文の空所に入る語は? This is ( ) the best solution in the book.
+choice: A|by far
+choice: B|very
 answer: A
-explanation: 比較級 faster の比較対象は than で導きます。
+explanation: 最上級 `the best` を強めるのは `by far` です。`very` は原級を強める語なので、`very the best` とはしません。
 :::
 
 

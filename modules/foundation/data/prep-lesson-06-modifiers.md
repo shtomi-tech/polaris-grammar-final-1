@@ -13,6 +13,8 @@ be/linking verb + 形容詞: The room is quiet.
 
 `careful student`では名詞を、`The student is careful.`では主語を説明しています。be動詞や`look`などの後ろで主語の状態を表す形容詞にも注目します。
 
+補語の形が同じでも、文脈に合う語義を確認します。`available` は「利用できる・発送できる状態」という形容詞で、`The product becomes available.` は「商品が利用可能になる」という意味です。
+
 :::check check-16-adjectives-adverbs-01
 question: 次の文の空所に入る語は? We visited a ( ) museum.
 choice: A|historical

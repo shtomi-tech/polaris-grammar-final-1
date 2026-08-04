@@ -33,11 +33,11 @@ They work.
 現在形の一般動詞では、三人称単数の主語に`-s`が付きます。否定文で`does`を使うと、三単現の情報が`does`へ移り、後ろは原形になります。
 
 :::check check-19-agreement-02
-question: 次の文の空所に入る語は? Young people ( ) watch TV these days. They watch YouTube instead.
-choice: B|don't
-choice: A|doesn't
-answer: B
-explanation: young people は複数の主語なので、一般動詞の否定は do not、短縮形は don't です。現在の習慣を述べるため、後ろの watch は原形になります。
+question: 次の文の空所に入る語は? He ( ) to work by train every day.
+choice: A|goes
+choice: B|go
+answer: A
+explanation: 主語 `He` は3人称・単数で、現在の一般動詞には `-s` を付けます。したがって `go` ではなく `goes` です。
 :::
 
 

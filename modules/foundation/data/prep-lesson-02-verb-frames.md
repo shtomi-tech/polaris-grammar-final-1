@@ -74,11 +74,11 @@ be + -ing / 過去分詞 → 助動詞
 `The room is quiet.`の`is`は主語の状態を表します。`She is running.`なら進行形を作る助動詞です。後ろの形を見て、beの働きを決めます。
 
 :::check check-02-verb-frames-04
-question: 次の文の空所に入る語は? Don't ( ) down on the ground even if you are very tired.
-choice: B|lie
-choice: A|lay
-answer: B
-explanation: 「横になる」は目的語を取らない lie です。否定命令 Don't + 原形 なので Don't lie down になります。
+question: 次の文の `is` の働きは? She is running.
+choice: A|進行形を作るbe助動詞
+choice: B|主語の状態を説明するbe動詞
+answer: A
+explanation: `is running` の `is` は `-ing` 形と結び付き、進行形を作るbe助動詞です。`The room is quiet.` の `is` のように状態を表すbe動詞とは働きが違います。
 :::
 
 
@@ -92,11 +92,11 @@ explanation: 「横になる」は目的語を取らない lie です。否定�
 `(    ) the instructions carefully.`では、主語`You`が省略されています。空所には原形の`Read`を置きます。主語が見えなくても、命令文の形を戻して考えます。
 
 :::check check-02-verb-frames-05
-question: 次の文の空所に入る語は? The mother ( ) her baby on the bed and took a rest.
-choice: A|laid
-choice: B|lain
+question: 次の文の空所に入る語は? ( ) the instructions carefully.
+choice: A|Read
+choice: B|Reads
 answer: A
-explanation: 赤ちゃんをベッドに「置く」ので、目的語 her baby を取る他動詞 lay の過去形 laid を使います。
+explanation: 命令文は主語 `You` を省略し、動詞の原形から始めます。したがって `Read the instructions carefully.` です。
 :::
 
 

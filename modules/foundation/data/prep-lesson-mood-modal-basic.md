@@ -122,6 +122,8 @@ I will help you.（意志）
 The train leaves at six.（時刻表）
 :::
 
+未来の能力は `will be able to + 動詞の原形` で表します。`None of the children will be able to reach the top shelf.` は「どの子も一番上の棚に手が届かないだろう」です。
+
 未来の内容でも、予測・意志・確定した予定で形の役割が違います。時制の章で扱った予定表と、話し手の判断を切り分けます。
 
 :::check check-mood-modal-basic-07

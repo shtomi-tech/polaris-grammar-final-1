@@ -102,6 +102,8 @@ have/has been + -ing
 She has been studying for three hours.
 :::
 
+「横になる」の `lie` を使うなら、現在完了進行形は `have/has been lying` です。`How long have you been lying in bed?` のように、`lie - lay - lain - lying` の `lying` を選びます。
+
 動作がどれだけ続いているか、またはその痕跡を強く示すときは現在完了進行形です。状態動詞は通常、現在完了の単純形で表します。
 
 :::check check-tense-present-perfect-06

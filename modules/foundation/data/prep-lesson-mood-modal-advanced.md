@@ -52,11 +52,11 @@ should have + p.p.
 文脈により、過去の当然の推量にも、実際にはしなかったことへの非難・後悔にもなります。過去の事実と話し手の評価を分けます。
 
 :::check check-mood-modal-advanced-03
-question: 次の文の空所に入る語は? He ( ) finished the report by noon — he only started it an hour ago.
-choice: A|couldn't have
-choice: B|mustn't have
+question: 次の文の意味として最も適切なものは? The train should have arrived by now.
+choice: A|その列車はもう到着したはずだ
+choice: B|その列車はもう到着できなかった
 answer: A
-explanation: could have p.p. の否定形は、過去の出来事について「~したはずがない」という強い否定の予想を表す。「1時間前に始めたばかり」という理由がこれを裏付ける。
+explanation: `should have + 過去分詞` は、過去の出来事について「～したはずだ」という予想を表せます。`by now` が、すでに到着しているはずだという判断を示します。
 :::
 
 

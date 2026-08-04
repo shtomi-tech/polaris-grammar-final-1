@@ -32,11 +32,11 @@ There being no bus, we walked.
 分詞構文の動作主が主節の主語と違うなら、`The weather`や`There`を残します。誰が何をしているかを混ぜないよう、分詞の意味上の主語を確認します。
 
 :::check check-21-participial-construction-02
-question: 次の文の空所に入る語は? ( ) tired, I went to bed early.
-choice: B|Being
-choice: A|Been
-answer: B
-explanation: I was tired を分詞構文にして Being tired としています。主節の主語と省略された主語は同じ I です。
+question: 次の文の空所に入る語は? The weather ( ) fine, we went out.
+choice: A|being
+choice: B|been
+answer: A
+explanation: 分詞構文の意味上の主語 `The weather` は、主節の主語 `we` と異なるため残します。`The weather being fine, we went out.` とします。
 :::
 
 
@@ -49,12 +49,14 @@ Feeling tired, I went home.
 
 分詞構文には接続詞が書かれないことがあります。`Feeling tired`は「疲れていたので」と読むのが自然ですが、前後の内容から最も無理のない関係を選びます。
 
+語義も必要なときは確認します。`exhausted` は「疲れ切った」で、近い意味の `tired` と同じ疲労の語群です。これは分詞構文の形とは別の語彙知識です。
+
 :::check check-21-participial-construction-03
-question: 次の文の空所に入る語は? ( ) tired, I went to bed early.
-choice: A|Being
-choice: B|Been
+question: 次の文の意味として最も適切なものは? Feeling tired, I went home.
+choice: A|疲れていたので、私は帰宅した
+choice: B|疲れているのに、私は帰宅しなかった
 answer: A
-explanation: I was tired を分詞構文にして Being tired としています。主節の主語と省略された主語は同じ I です。
+explanation: `Feeling tired` と `I went home` の内容から、ここでは理由「疲れていたので」と読むのが自然です。分詞構文は接続詞を省くため、前後の関係から意味を補います。
 :::
 
 

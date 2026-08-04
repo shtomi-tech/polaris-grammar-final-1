@@ -15,11 +15,11 @@ not both: 両方とは限らない
 `Not every student agreed.` は「全員が賛成したわけではない」です。誰も賛成しなかったという全否定ではなく、数量語の範囲を否定しています。
 
 :::check check-30-negation-ellipsis-01
-question: 次の文の空所に入る語は? ( ) of the students in this class have ever been abroad; it's their first time even hearing about it.
-choice: A|None
-choice: B|Not all
+question: 次の文の空所に入る語は? Most students agreed with the plan, but two disagreed. ( ) student agreed with the plan.
+choice: A|Not every
+choice: B|No
 answer: A
-explanation: none は「誰も~ない」という全否定を表す。「初めて聞いた」ことから、全員が海外に行ったことがないとわかる。
+explanation: `Not every` は「全員が～したわけではない」という部分否定です。多くの生徒が賛成し、二人が反対したので、誰も賛成しなかったという `No student` ではなく `Not every student` が合います。
 :::
 
 

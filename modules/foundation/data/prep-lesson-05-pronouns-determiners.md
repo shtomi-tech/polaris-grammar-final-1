@@ -32,6 +32,8 @@ explanation: 前置詞の目的語になる代名詞は目的格にする。
 
 `my`は後ろの名詞を限定し、`yours`は「あなたのもの」と名詞の代わりをします。空所の後ろに名詞があるかを確認して、形を選びます。
 
+命令文は主語 `you` を表に出さないので、`(You) bring your own card.` のように2人称の所有格 `your` を使います。組織や物は3人称単数の `it` として受け、`the company → its policy` のように `its` を使います。
+
 :::check check-14-pronouns-determiners-02
 question: 次の文の空所に入る語は? This is not my notebook. Is it ( )?
 choice: B|yours
