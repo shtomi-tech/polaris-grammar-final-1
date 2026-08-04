@@ -1,7 +1,7 @@
 import fs from "node:fs";
 import { execFileSync } from "node:child_process";
 
-const path = new URL("../modules/grammar/data/polaris_questions.json", import.meta.url);
+const path = new URL("../data/polaris_questions.json", import.meta.url);
 const data = JSON.parse(fs.readFileSync(path, "utf8"));
 
 const tags = {

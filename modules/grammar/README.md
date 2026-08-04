@@ -14,14 +14,14 @@ QRコードから生徒のスマホ・タブレットで開ける共有版に対
 ## 起動
 
 ```powershell
-cd "C:\Users\shtom\dev\english-grammar-trainer"
+cd "C:\Users\shtom\dev\english-grammar-trainer-v2"
 py -3 -m http.server 8096
 ```
 
 ブラウザで開きます。
 
 ```text
-http://127.0.0.1:8096/ポラリス英文法ファイナル演習1/
+http://127.0.0.1:8096/#/grammar
 ```
 
 基礎知識チェックへのリンクも確認する場合は、リポジトリ直下から起動してください。
@@ -49,6 +49,16 @@ http://127.0.0.1:8096/ポラリス英文法ファイナル演習1/
 - スクショ提供後、OCR結果を確認してこのJSONへ追加します。
 - 進捗はブラウザの `localStorage` に保存されます。
 
+## 検証スクリプト
+
+リポジトリ直下から実行します。
+
+```powershell
+node modules/grammar/scripts/check_polaris_domain_tags.mjs
+```
+
+タグ更新用の `refine_polaris_domain_tags.mjs` と `tag_polaris_domains.mjs` は問題データを書き換えるため、通常の確認では実行しません。詳細は [`scripts/README.md`](../../scripts/README.md) を参照してください。
+
 ## Supabase設定
 
 単一アプリへの統合に伴い、設定はリポジトリ直下の1つに集約されました（このモジュール専用の設定はありません）。
@@ -65,9 +75,9 @@ http://127.0.0.1:8096/ポラリス英文法ファイナル演習1/
 }
 ```
 
-`static/config.json` は公開サイトから読み込まれます。Supabase側はRPCだけを匿名実行許可し、テーブル本体はRLSで直接読めない構成です。
+`config.json` は公開サイトから読み込まれます。Supabase側はRPCだけを匿名実行許可し、テーブル本体はRLSで直接読めない構成です。
 
-ローカルの `static/config.json` はGit管理しません。本番のGitHub Pagesでは、環境変数からデプロイ時に自動生成します。
+ローカルの `config.json` はGit管理しません。本番のGitHub Pagesでは、環境変数からデプロイ時に自動生成します。
 
 ## 生徒QRの作成
 
@@ -89,7 +99,7 @@ https://shtomi-tech.github.io/polaris-grammar-final-1/?s=tomita-shota&t=ラン�
 
 ## GitHub Pages公開
 
-GitHub Actionsで `ポラリス英文法ファイナル演習1` フォルダをGitHub Pagesへ公開します。
+GitHub Actionsでリポジトリ直下をGitHub Pagesへ公開します。
 
 ```text
 公開URL: https://shtomi-tech.github.io/polaris-grammar-final-1/
@@ -103,6 +113,6 @@ SUPABASE_URL=https://YOUR_PROJECT_ID.supabase.co
 SUPABASE_ANON_KEY=YOUR_SUPABASE_ANON_KEY
 ```
 
-デプロイ時に `.github/workflows/polaris-pages.yml` から `scripts/write-config.mjs` が `static/config.json` を生成します。
+デプロイ時に `.github/workflows/polaris-pages.yml` から `scripts/write-config.mjs` が `config.json` を生成します。
 
 `robots.txt` と `X-Robots-Tag` により検索エンジンには出にくくしています。ただしURLを知っている人はアクセスできるため、生徒URLのトークンは推測しにくいものを使ってください。

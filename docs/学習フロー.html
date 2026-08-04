@@ -63,14 +63,14 @@
 <div class="wrap">
   <header>
     <h1>英文法トレーナー｜学習フロー</h1>
-    <p>基礎チェック → ポラリス英文法演習 → 英文解釈。1サイト統合・ゲート解放・分散復習でつながる推奨導線。</p>
+    <p>基礎チェック → ポラリス英文法演習 → 英文解釈。1サイト統合・推奨順・分散復習でつながる学習導線。</p>
   </header>
 
   <div class="legend">
     <span><i class="dot" style="background:var(--gk)"></i>① 基礎チェック</span>
     <span><i class="dot" style="background:var(--pol)"></i>② ポラリス英文法演習</span>
     <span><i class="dot" style="background:var(--read)"></i>③ 英文解釈</span>
-    <span><i class="dot" style="background:#fcd34d"></i>解放ゲート</span>
+    <span><i class="dot" style="background:#fcd34d"></i>ステップ条件</span>
   </div>
 
   <!-- Module 1 -->
@@ -86,22 +86,20 @@
       <div class="step"><div class="k">STAGE 2</div><div class="t">動詞・時制・助動詞</div><div class="d">一致 → 時制・進行形・完了形 → 助動詞</div></div>
       <div class="step"><div class="k">STAGE 3</div><div class="t">受動態・準動詞</div><div class="d">受動態 → 不定詞 → 動名詞 → 分詞</div></div>
       <div class="step"><div class="k">STAGE 4</div><div class="t">節・関係詞・修飾・否定</div><div class="d">接続詞・関係詞 → 修飾 → 否定疑問</div></div>
-      <div class="step"><div class="k">STAGE 5</div><div class="t">比較・仮定法・総合</div><div class="d">比較 → 条件文・仮定法 → 発展・総合確認<div class="gate">全5段階完了 → ②解放</div></div></div>
+      <div class="step"><div class="k">STAGE 5</div><div class="t">比較・仮定法・総合</div><div class="d">比較 → 条件文・仮定法 → 発展・総合確認</div></div>
     </div>
   </section>
-
-  <div class="gatebar">🔒 5段階すべて完了すると「ポラリス英文法演習」が解放されます</div>
 
   <!-- Module 2 -->
   <section class="module m-pol">
     <div class="m-head">
       <span class="m-num">MODULE 02</span>
       <h2>ポラリス英文法演習（Master Path）</h2>
-      <span class="tag tag-lock">基礎チェック完了で解放</span>
+      <span class="tag tag-open">最初から選択可</span>
     </div>
     <p class="m-sub">ポラリス英文法ファイナル演習1 ／ 4択を正解するまで周回する3ステップ</p>
     <div class="steps">
-      <div class="step"><div class="k">STEP 1</div><div class="t">UNIT演習</div><div class="d">全100問（10 UNIT×10問）を一度正解。誤答は誤答演習で回収。</div><div class="gate">全問クリア → Step 2</div></div>
+      <div class="step"><div class="k">STEP 1</div><div class="t">UNIT演習</div><div class="d">最初からUNITを選択可能。全100問（10 UNIT×10問）を一度正解し、誤答は誤答演習で回収。</div><div class="gate">全問クリア → Step 2</div></div>
       <div class="step"><div class="k">STEP 2</div><div class="t">ランダム制覇</div><div class="d">ヒートマップで全範囲を制覇。クリアで分散復習を予約。</div><div class="gate">クリア → Step 3 ＆ 復習開始</div></div>
       <div class="step"><div class="k">STEP 3</div><div class="t">最終確認</div><div class="d">ランダム出題で30問連続正解を目指す。</div><div class="gate">30連続正解 → MASTER 🏆</div></div>
     </div>
@@ -135,10 +133,10 @@
   <div class="note">
     <h3>この図の見方・補足</h3>
     <ul>
-      <li><b>推奨順は ① → ② → ③</b>。②は①の全5段階完了で解放されるゲート方式。③は推奨は②の後だが、先行利用も可能。</li>
+      <li><b>推奨順は ① → ② → ③</b>。②のStep 1 UNIT演習は①の完了前でも選択でき、Step 2・Step 3は②の達成条件で順に開く。③は推奨は②の後だが、先行利用も可能。</li>
       <li><b>周回設計</b>：②は「正解するまで解き直す」＋<span class="pill">1/3/7/14日</span>の分散復習、③は完了/復習の2状態でチャンク単位に再確認。</li>
       <li><b>進捗保存</b>：各モジュールで localStorage 領域と Supabase の <span class="pill">appId</span> を分離。生徒別に進捗を管理。</li>
-      <li>ホームの「つづきから始める」は、①未完了なら基礎チェック、②解放後は Master Path の続きへ自動誘導。</li>
+      <li>ホームの「つづきから始める」は、現在のモジュール内で未完了のUNITや復習へ自動誘導。</li>
     </ul>
   </div>
 </div>

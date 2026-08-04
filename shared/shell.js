@@ -8,8 +8,8 @@
 
 import { createIdentity } from "./identity.js";
 import { createStore } from "./store.js";
-import { createRouter } from "./router.js";
-import { MODULES, computeFlow, findModule } from "./flow.js";
+import { createRouter } from "./router.js?v=20260804-grammar200q-v9";
+import { MODULES, computeFlow, findModule } from "./flow.js?v=20260804-grammar200q-v9";
 
 const APP_ID = "english-grammar-trainer"; // app_progress.app（統合により1生徒＝1行）
 const CONFIG_PATH = "config.json";
@@ -133,7 +133,7 @@ function flowItem(mod, state, flow) {
   const control = el(locked ? "span" : "button", "flowNav__link");
   if (locked) {
     control.setAttribute("aria-disabled", "true");
-    control.title = "5段階の基礎チェックを完了すると解放されます";
+    control.title = "43セクションの基礎チェックを完了すると解放されます";
   } else {
     control.type = "button";
     if (isViewing) control.setAttribute("aria-current", "page");

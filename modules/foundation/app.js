@@ -1,7 +1,7 @@
 import {
   CONTENT_VERSION,
   FOUNDATION_SESSION_VERSION,
-} from "./status.js?v=20260804-grammar200q-v8";
+} from "./status.js?v=20260804-grammar200q-v9";
 
 export async function mount(root, ctx) {
   "use strict";
@@ -17,6 +17,13 @@ export async function mount(root, ctx) {
   const SELECTABLE_SET_ID = "english-grammar-200-merged";
   // Xの通常ポスト相当。Premiumの長文ポストではなく、短い投稿の連結を教材の基準にする。
   const PREPARATION_POST_CHAR_LIMIT = 280;
+  const PREPARATION_PROGRESS_VERSION = 1;
+  const PREPARATION_GUIDANCE = {
+    "lesson-01-sentence-core": {
+      goal: "V→S→M→O/Cの順に骨格を見つけ、5文型を説明できる",
+      minutes: "約5分",
+    },
+  };
   // 一旦、全セクションを自由に選べる状態にする。順路へ戻すときは false に戻す。
   const ALL_LESSONS_UNLOCKED = true;
   // The data shape changed with the 43-section path. The versioned URL keeps
@@ -91,11 +98,9 @@ export async function mount(root, ctx) {
     "lesson-01-sentence-core": [
       "cur-002",
       "cur-003",
-      "cur-005",
       "cur-004",
       "cur-006",
       "cur-007",
-      "cur-008",
       "add-097",
       "add-098",
       "add-330",
@@ -162,7 +167,6 @@ export async function mount(root, ctx) {
     ],
     // 修飾は、修飾先 → 語順 → 紛らわしい形 → 程度・語法へ進める。
     "lesson-06-modifiers": [
-      "cur-001",
       "cur-022",
       "cur-140",
       "cur-147",
@@ -273,13 +277,11 @@ export async function mount(root, ctx) {
     ],
     // there構文は、場所との区別 → 時制 → 数 → 疑問・否定 → 長い名詞句へ進める。
     "lesson-36-there-construction": [
-      "add-151",
       "cur-011",
       "add-152",
       "cur-186",
       "add-153",
       "add-154",
-      "add-156",
       "add-155",
     ],
     // Moodは、助動詞 → 仮定法の基本 → 条件の変形 → 願望・提案・命令へ進める。
@@ -371,7 +373,6 @@ export async function mount(root, ctx) {
     "lesson-16-passive-basic": [
       "add-032",
       "cur-045",
-      "cur-013",
       "add-099",
       "add-100",
       "cur-046",
@@ -385,7 +386,6 @@ export async function mount(root, ctx) {
     // 不定詞の基本は、形 → 三用法 → 否定・前置詞のtoへ進める。
     "lesson-17-infinitive-basic": [
       "cur-051",
-      "cur-052",
       "add-105",
       "add-231",
       "add-234",
@@ -412,7 +412,6 @@ export async function mount(root, ctx) {
       "add-342",
       "leg-074",
       "add-014",
-      "cur-092",
       "add-108",
       "cur-197",
       "add-023",
@@ -500,12 +499,10 @@ export async function mount(root, ctx) {
       "add-258",
       "cur-073",
       "cur-074",
-      "cur-075",
       "cur-076",
       "cur-077",
       "cur-079",
       "cur-082",
-      "cur-090",
       "leg-083",
       "leg-085",
       "add-026",
@@ -530,7 +527,6 @@ export async function mount(root, ctx) {
       "add-088",
       "add-095",
       "add-094",
-      "cur-094",
       "cur-097",
       "cur-098",
       "leg-125",
@@ -556,10 +552,7 @@ export async function mount(root, ctx) {
       "cur-096",
       "add-120",
       "add-305",
-      "cur-102",
-      "cur-120",
       "cur-104",
-      "cur-106",
       "cur-123",
       "add-323",
     ],
@@ -776,6 +769,7 @@ export async function mount(root, ctx) {
   let DATA = null;
   let state = null;
   let lastPreparationOpen = null;
+  let cleanupPreparationTracking = null;
   const SESSION_ID = Date.now().toString(36) + "-" + Math.random().toString(36).slice(2, 10);
 
   /* 基礎チェックの記録は、シェルが管理する生徒別ストアへ保存する。
@@ -784,9 +778,80 @@ export async function mount(root, ctx) {
   function loadProgress() {
     const progress = ctx.store.get();
     if (!progress || progress.contentVersion !== CONTENT_VERSION) {
-      return { version: 1, contentVersion: CONTENT_VERSION, pathVersion: PATH_VERSION, scores: {} };
+      return {
+        version: 1,
+        contentVersion: CONTENT_VERSION,
+        pathVersion: PATH_VERSION,
+        scores: {},
+        preparation: emptyPreparationProgress(),
+      };
     }
     return progress;
+  }
+
+  function emptyPreparationProgress() {
+    return { version: PREPARATION_PROGRESS_VERSION, lessons: {} };
+  }
+
+  function normalizePreparationProgress(raw) {
+    const normalized = emptyPreparationProgress();
+    if (!raw || typeof raw !== "object") return normalized;
+    normalized.lessons = raw.lessons && typeof raw.lessons === "object" ? raw.lessons : {};
+    return normalized;
+  }
+
+  function loadPreparationLessonProgress(lessonId) {
+    const preparation = normalizePreparationProgress(loadProgress().preparation);
+    const saved = preparation.lessons[lessonId];
+    if (!saved || typeof saved !== "object") {
+      return { version: PREPARATION_PROGRESS_VERSION, postIndex: -1, checks: {}, completedAt: null };
+    }
+    return {
+      version: PREPARATION_PROGRESS_VERSION,
+      postIndex: Number.isInteger(saved.postIndex) ? saved.postIndex : -1,
+      checks: saved.checks && typeof saved.checks === "object" ? { ...saved.checks } : {},
+      completedAt: saved.completedAt || null,
+      updatedAt: saved.updatedAt || null,
+    };
+  }
+
+  function foundationProgressPayload(progress, overrides) {
+    const payload = {
+      version: 1,
+      contentVersion: CONTENT_VERSION,
+      pathVersion: PATH_VERSION,
+      scores: progress.scores && typeof progress.scores === "object" ? progress.scores : {},
+      preparation: normalizePreparationProgress(progress.preparation),
+    };
+    if (Object.prototype.hasOwnProperty.call(progress, "session")) {
+      payload.session = progress.session;
+    }
+    return Object.assign(payload, overrides || {});
+  }
+
+  function savePreparationLessonProgress(lessonId, lessonProgress) {
+    const progress = loadProgress();
+    const preparation = normalizePreparationProgress(progress.preparation);
+    preparation.lessons = {
+      ...preparation.lessons,
+      [lessonId]: {
+        version: PREPARATION_PROGRESS_VERSION,
+        postIndex: Number.isInteger(lessonProgress.postIndex) ? lessonProgress.postIndex : -1,
+        checks: lessonProgress.checks && typeof lessonProgress.checks === "object"
+          ? { ...lessonProgress.checks }
+          : {},
+        completedAt: lessonProgress.completedAt || null,
+        updatedAt: lessonProgress.updatedAt || new Date().toISOString(),
+      },
+    };
+    ctx.store.set(foundationProgressPayload(progress, { preparation: preparation }));
+  }
+
+  function stopPreparationTracking() {
+    if (cleanupPreparationTracking) {
+      cleanupPreparationTracking();
+      cleanupPreparationTracking = null;
+    }
   }
 
   function loadScores() {
@@ -815,12 +880,7 @@ export async function mount(root, ctx) {
         [lessonId]: { correct: correct, total: total, completed: true },
       },
     };
-    ctx.store.set({
-      version: 1,
-      contentVersion: CONTENT_VERSION,
-      pathVersion: PATH_VERSION,
-      scores,
-    });
+    ctx.store.set(foundationProgressPayload(progress, { scores: scores, session: null }));
   }
 
   const learningEvents = [];
@@ -967,13 +1027,10 @@ export async function mount(root, ctx) {
       startedAt: state.startedAt || Date.now(),
       updatedAt: new Date().toISOString(),
     };
-    ctx.store.set({
-      version: 1,
-      contentVersion: CONTENT_VERSION,
-      pathVersion: PATH_VERSION,
+    ctx.store.set(foundationProgressPayload(progress, {
       scores: currentScores,
-      session,
-    });
+      session: session,
+    }));
   }
 
   function buildPathNextAction(nextLesson, resumeSession, completedCount, totalLessons) {
@@ -1013,6 +1070,7 @@ export async function mount(root, ctx) {
   }
 
   function renderSetSelect() {
+    stopPreparationTracking();
     state = null;
     app.classList.remove("is-comparison");
     window.scrollTo(0, 0);
@@ -1204,10 +1262,13 @@ export async function mount(root, ctx) {
     let listTag = null;
     let boardLines = null;
     let calloutType = null;
+    let calloutId = null;
     let calloutLines = null;
     let practiceLines = null;
     let currentHeading = null;
     let avatar = null;
+    let title = "";
+    let checkCount = 0;
 
     function closeParagraph() {
       if (paragraph.length) {
@@ -1242,14 +1303,20 @@ export async function mount(root, ctx) {
         mistake: "よくある誤り",
         check: "10秒確認",
       };
-      output.push(
-        '<aside class="prep-callout prep-' + calloutType + '" role="note">' +
-        '<div class="prep-callout-label">' + labels[calloutType] + '</div>' +
-        '<div class="prep-callout-content">' +
-        calloutLines.map(function (line) { return inlineMarkdown(line); }).join("<br>") +
-        "</div></aside>"
-      );
+      if (calloutType === "check") {
+        output.push(renderPreparationCheck(calloutLines, calloutId, checkCount + 1));
+        checkCount += 1;
+      } else {
+        output.push(
+          '<aside class="prep-callout prep-' + calloutType + '" role="note">' +
+          '<div class="prep-callout-label">' + labels[calloutType] + '</div>' +
+          '<div class="prep-callout-content">' +
+          calloutLines.map(function (line) { return inlineMarkdown(line); }).join("<br>") +
+          "</div></aside>"
+        );
+      }
       calloutType = null;
+      calloutId = null;
       calloutLines = null;
     }
 
@@ -1305,11 +1372,12 @@ export async function mount(root, ctx) {
         boardLines = [];
         return;
       }
-      const calloutStart = /^:::(point|mistake|check)$/.exec(trimmed);
+      const calloutStart = /^:::(point|mistake|check)(?:\s+([a-zA-Z0-9_-]+))?$/.exec(trimmed);
       if (calloutStart) {
         closeParagraph();
         closeList();
         calloutType = calloutStart[1];
+        calloutId = calloutStart[2] || null;
         calloutLines = [];
         return;
       }
@@ -1330,7 +1398,13 @@ export async function mount(root, ctx) {
         closeParagraph();
         closeList();
         const level = heading[1].length;
-        if (level <= 2) {
+        if (level === 1) {
+          closePost();
+          currentHeading = heading[2];
+          title = heading[2];
+          return;
+        }
+        if (level === 2) {
           closePost();
           currentHeading = heading[2];
         }
@@ -1395,7 +1469,52 @@ export async function mount(root, ctx) {
     closeCallout();
     closePractice();
     closePost();
-    return { avatar: avatar, posts: posts };
+    return { avatar: avatar, posts: posts, title: title };
+  }
+
+  function renderPreparationCheck(lines, explicitId, fallbackIndex) {
+    const data = { question: "", choices: [], answer: "", explanation: "" };
+    lines.forEach(function (line) {
+      const question = /^question:\s*(.+)$/.exec(line);
+      const choice = /^choice:\s*([^|]+)\|(.+)$/.exec(line);
+      const answer = /^answer:\s*(.+)$/.exec(line);
+      const explanation = /^explanation:\s*(.+)$/.exec(line);
+      if (question) data.question = question[1].trim();
+      else if (choice) data.choices.push({ key: choice[1].trim(), label: choice[2].trim() });
+      else if (answer) data.answer = answer[1].trim();
+      else if (explanation) data.explanation = explanation[1].trim();
+    });
+
+    const safeId = String(explicitId || "check-" + fallbackIndex).replace(/[^a-zA-Z0-9_-]/g, "-");
+    if (!data.question || data.choices.length < 2 || !data.answer || !data.explanation) {
+      return (
+        '<aside class="prep-callout prep-check" role="note">' +
+        '<div class="prep-callout-label">10秒確認</div>' +
+        '<div class="prep-callout-content">' +
+        lines.map(function (line) { return inlineMarkdown(line); }).join("<br>") +
+        "</div></aside>"
+      );
+    }
+
+    const questionId = safeId + "-question";
+    return (
+      '<section class="prep-callout prep-check prep-check-interactive" data-check-id="' + escapeHtml(safeId) +
+      '" data-answer="' + escapeHtml(data.answer) + '" aria-labelledby="' + escapeHtml(questionId) + '">' +
+      '<div class="prep-callout-label">10秒確認</div>' +
+      '<fieldset class="prep-check-fieldset">' +
+      '<legend class="prep-check-question" id="' + escapeHtml(questionId) + '">' + inlineMarkdown(data.question) + '</legend>' +
+      '<div class="prep-check-options">' +
+      data.choices.map(function (choice) {
+        return '<button type="button" class="prep-check-choice" data-choice="' + escapeHtml(choice.key) +
+          '" aria-pressed="false"><span class="prep-check-choice-key">' + escapeHtml(choice.key) +
+          '</span><span>' + inlineMarkdown(choice.label) + '</span></button>';
+      }).join("") +
+      "</div></fieldset>" +
+      '<div class="prep-check-feedback" aria-live="polite"></div>' +
+      '<div class="prep-check-explanation" hidden><strong>判断の理由</strong><p>' +
+      inlineMarkdown(data.explanation) + "</p></div>" +
+      "</section>"
+    );
   }
 
   function preparationPostMeta(heading, numberedIndex, totalNumbered) {
@@ -1405,9 +1524,77 @@ export async function mount(root, ctx) {
     return "予習スレッド";
   }
 
+  function preparationGuidance(lesson, title) {
+    return PREPARATION_GUIDANCE[lesson.id] || {
+      goal: title + "の要点を、例文の判断手順に沿って確認する",
+      minutes: "約5分",
+    };
+  }
+
+  function preparationSegmentLabel(post, index) {
+    if (post.heading === "教授からの課題") return "課題";
+    if (/^\d+\./.test(post.heading)) return post.heading;
+    return index === 0 ? "導入" : "確認";
+  }
+
+  function buildPreparationHeader(lesson, parsed, progress, totalChecks) {
+    const guidance = preparationGuidance(lesson, parsed.title || lesson.title);
+    const header = el("section", {
+      class: "preparation-header card",
+      "aria-labelledby": "preparation-heading",
+    });
+    const heading = el("h1", { id: "preparation-heading" }, parsed.title || lesson.title);
+    const goal = el("p", { class: "preparation-header-goal" }, "今日のゴール：" + guidance.goal);
+    const meta = el("div", { class: "preparation-header-meta" }, [
+      el("span", {}, "目安 " + guidance.minutes),
+      el("span", {}, parsed.posts.length + "投稿"),
+    ]);
+    const progressTitle = el("span", { class: "preparation-progress-title" }, "読み進める");
+    const progressLabel = el("strong", { class: "preparation-progress-label" }, "0 / " + parsed.posts.length);
+    const checkLabel = el("span", { class: "preparation-check-label" }, "確認 0 / " + totalChecks);
+    const progressSummary = el("div", { class: "preparation-progress-summary" }, [
+      progressTitle,
+      progressLabel,
+      checkLabel,
+    ]);
+    const segments = el("div", {
+      class: "preparation-progress-segments",
+      role: "list",
+      "aria-label": "予習資料の投稿進捗",
+    });
+    const segmentButtons = parsed.posts.map(function (post, index) {
+      const segment = el("button", {
+        class: "preparation-progress-segment",
+        type: "button",
+        "aria-label": (index + 1) + " / " + parsed.posts.length + "：" + preparationSegmentLabel(post, index),
+      }, [el("span", { "aria-hidden": "true" })]);
+      segments.appendChild(el("div", { role: "listitem" }, [segment]));
+      return segment;
+    });
+    const progressContainer = el("div", { class: "preparation-progress" }, [progressSummary, segments]);
+    const actions = el("div", { class: "preparation-header-actions" });
+    let resumeButton = null;
+    if (progress.postIndex >= 1) {
+      resumeButton = el("button", {
+        class: "btn btn-secondary preparation-resume-button",
+        type: "button",
+      }, "前回の続き（" + (progress.postIndex + 1) + " / " + parsed.posts.length + "）から読む");
+      actions.appendChild(resumeButton);
+    }
+    header.append(heading, goal, meta, progressContainer, actions);
+    return {
+      header: header,
+      progressLabel: progressLabel,
+      checkLabel: checkLabel,
+      segments: segmentButtons,
+      resumeButton: resumeButton,
+    };
+  }
+
   function renderPreparation(lesson) {
     const path = PREPARATION_PATHS[lesson.preparationUnit];
     if (!path) return;
+    stopPreparationTracking();
     state = null;
     app.classList.remove("is-comparison");
     root.innerHTML = "";
@@ -1424,11 +1611,14 @@ export async function mount(root, ctx) {
       },
       "← 学習ルートに戻る"
     ));
-    const thread = el("div", { class: "thread preparation-card card" }, [
+    const preparationHeader = el("section", { class: "preparation-header card" }, [
       el("p", { class: "preparation-loading" }, "予習資料を読み込んでいます。"),
     ]);
-    root.appendChild(thread);
-    fetch("modules/foundation/" + path)
+    const thread = el("div", { class: "thread preparation-card card", "aria-label": "予習スレッド" }, [
+      el("p", { class: "preparation-loading" }, "予習資料を読み込んでいます。"),
+    ]);
+    root.append(preparationHeader, thread);
+    fetch("modules/foundation/" + path, { cache: "no-store" })
       .then(function (response) {
         if (!response.ok) throw new Error("Preparation material request failed");
         return response.text();
@@ -1439,6 +1629,7 @@ export async function mount(root, ctx) {
         const totalNumbered = parsed.posts.filter(function (post) {
           return /^\d+\./.test(post.heading);
         }).length;
+        if (!root.contains(thread)) return;
         thread.innerHTML = "";
         lastPreparationOpen = {
           lessonId: lesson.id,
@@ -1450,9 +1641,13 @@ export async function mount(root, ctx) {
           preparationUnit: lesson.preparationUnit,
         });
         let numberedIndex = 0;
-        parsed.posts.forEach(function (post) {
+        parsed.posts.forEach(function (post, postIndex) {
           if (/^\d+\./.test(post.heading)) numberedIndex += 1;
-          thread.appendChild(el("article", { class: "thread-post" }, [
+          thread.appendChild(el("article", {
+            class: "thread-post",
+            "data-post-index": String(postIndex),
+            "aria-label": (postIndex + 1) + " / " + parsed.posts.length + "：" + preparationSegmentLabel(post, postIndex),
+          }, [
             el("div", { class: "thread-post-avatar" }, [
               parsed.avatar ? el("img", { src: parsed.avatar.src, alt: parsed.avatar.alt }) : null,
               el("div", { class: "thread-post-line", "aria-hidden": "true" }),
@@ -1467,6 +1662,157 @@ export async function mount(root, ctx) {
             ]),
           ]));
         });
+        const progress = loadPreparationLessonProgress(lesson.id);
+        const totalChecks = thread.querySelectorAll(".prep-check-interactive").length;
+        const headerParts = buildPreparationHeader(lesson, parsed, progress, totalChecks);
+        preparationHeader.replaceWith(headerParts.header);
+        const postElements = Array.from(thread.querySelectorAll(".thread-post"));
+        let currentPostIndex = progress.postIndex >= 0 ? Math.min(progress.postIndex, postElements.length - 1) : 0;
+        let scrollFrame = null;
+
+        function answeredCheckCount() {
+          return Array.from(thread.querySelectorAll(".prep-check-interactive")).filter(function (check) {
+            return Boolean(progress.checks[check.dataset.checkId]);
+          }).length;
+        }
+
+        function updatePreparationHeader() {
+          const reached = progress.postIndex >= 0 ? progress.postIndex + 1 : 0;
+          headerParts.progressLabel.textContent = reached + " / " + postElements.length;
+          headerParts.checkLabel.textContent = "確認 " + answeredCheckCount() + " / " + totalChecks;
+          headerParts.segments.forEach(function (segment, index) {
+            segment.classList.toggle("is-reached", index <= progress.postIndex);
+            segment.classList.toggle("is-current", index === currentPostIndex);
+            if (index === currentPostIndex) segment.setAttribute("aria-current", "step");
+            else segment.removeAttribute("aria-current");
+          });
+        }
+
+        function markPreparationPostRead(index) {
+          const safeIndex = Math.min(Math.max(index, 0), postElements.length - 1);
+          currentPostIndex = safeIndex;
+          if (safeIndex > progress.postIndex) {
+            progress.postIndex = safeIndex;
+            progress.completedAt = safeIndex === postElements.length - 1 ? new Date().toISOString() : null;
+            progress.updatedAt = new Date().toISOString();
+            savePreparationLessonProgress(lesson.id, progress);
+            recordLearningEvent("preparation_progressed", {
+              setId: SELECTABLE_SET_ID,
+              lessonId: lesson.id,
+              postIndex: safeIndex,
+              postCount: postElements.length,
+            });
+          }
+          updatePreparationHeader();
+        }
+
+        function visiblePostIndex() {
+          if (!postElements.length) return 0;
+          if (window.scrollY + window.innerHeight >= document.documentElement.scrollHeight - 4) {
+            return postElements.length - 1;
+          }
+          const marker = Math.max(120, window.innerHeight * 0.3);
+          let visible = 0;
+          postElements.forEach(function (post, index) {
+            if (post.getBoundingClientRect().top <= marker) visible = index;
+          });
+          return visible;
+        }
+
+        function scheduleProgressUpdate() {
+          if (scrollFrame !== null) return;
+          scrollFrame = window.requestAnimationFrame(function () {
+            scrollFrame = null;
+            markPreparationPostRead(visiblePostIndex());
+          });
+        }
+
+        function scrollToPost(index) {
+          const post = postElements[index];
+          if (!post) return;
+          post.scrollIntoView({ behavior: "smooth", block: "start" });
+        }
+
+        headerParts.segments.forEach(function (segment, index) {
+          segment.addEventListener("click", function () { scrollToPost(index); });
+        });
+        if (headerParts.resumeButton) {
+          headerParts.resumeButton.addEventListener("click", function () {
+            scrollToPost(Math.min(progress.postIndex, postElements.length - 1));
+          });
+        }
+
+        thread.querySelectorAll(".prep-check-interactive").forEach(function (check) {
+          const checkId = check.dataset.checkId;
+          const answer = check.dataset.answer;
+          const choices = Array.from(check.querySelectorAll(".prep-check-choice"));
+          const feedback = check.querySelector(".prep-check-feedback");
+          const explanation = check.querySelector(".prep-check-explanation");
+
+          function applyCheck(choice, shouldSave) {
+            const correct = choice === answer;
+            choices.forEach(function (button) {
+              const buttonChoice = button.dataset.choice;
+              button.disabled = true;
+              button.setAttribute("aria-pressed", buttonChoice === choice ? "true" : "false");
+              button.classList.remove("is-correct", "is-incorrect", "is-muted");
+              const oldIcon = button.querySelector(".prep-check-result-icon");
+              if (oldIcon) oldIcon.remove();
+              if (buttonChoice === answer) {
+                button.classList.add("is-correct");
+                button.appendChild(el("span", { class: "prep-check-result-icon", "aria-hidden": "true" }, "○"));
+              } else if (buttonChoice === choice) {
+                button.classList.add("is-incorrect");
+                button.appendChild(el("span", { class: "prep-check-result-icon", "aria-hidden": "true" }, "✕"));
+              } else {
+                button.classList.add("is-muted");
+              }
+            });
+            check.classList.add("is-answered");
+            feedback.textContent = correct
+              ? "○ 正解。判断の理由を確認しましょう。"
+              : "✕ 不正解。正解の選択肢を確認しましょう。";
+            explanation.hidden = false;
+            if (shouldSave) {
+              progress.checks[checkId] = {
+                choice: choice,
+                correct: correct,
+                answeredAt: new Date().toISOString(),
+              };
+              const parentPost = check.closest(".thread-post");
+              if (parentPost) markPreparationPostRead(Number(parentPost.dataset.postIndex));
+              progress.updatedAt = new Date().toISOString();
+              savePreparationLessonProgress(lesson.id, progress);
+              recordLearningEvent("preparation_check_answered", {
+                setId: SELECTABLE_SET_ID,
+                lessonId: lesson.id,
+                checkId: checkId,
+                choice: choice,
+                correct: correct,
+              });
+              updatePreparationHeader();
+            }
+          }
+
+          choices.forEach(function (button) {
+            button.addEventListener("click", function () { applyCheck(button.dataset.choice, true); });
+          });
+          const savedCheck = progress.checks[checkId];
+          if (savedCheck && savedCheck.choice) applyCheck(savedCheck.choice, false);
+        });
+
+        function handleScroll() {
+          scheduleProgressUpdate();
+        }
+        window.addEventListener("scroll", handleScroll, { passive: true });
+        window.addEventListener("pagehide", handleScroll);
+        markPreparationPostRead(currentPostIndex);
+        cleanupPreparationTracking = function () {
+          window.removeEventListener("scroll", handleScroll);
+          window.removeEventListener("pagehide", handleScroll);
+          if (scrollFrame !== null) window.cancelAnimationFrame(scrollFrame);
+          scrollFrame = null;
+        };
         thread.querySelectorAll(".preparation-practice-link").forEach(function (link) {
           link.addEventListener("click", function (event) {
             event.preventDefault();
@@ -1544,9 +1890,12 @@ export async function mount(root, ctx) {
   }
 
   function startLesson(setId, lessonId) {
+    stopPreparationTracking();
     const questions = questionsForLesson(setId, lessonId);
+    const preparationProgress = loadPreparationLessonProgress(lessonId);
     const preparationViewed = Boolean(
-      lastPreparationOpen && lastPreparationOpen.lessonId === lessonId
+      (lastPreparationOpen && lastPreparationOpen.lessonId === lessonId)
+      || preparationProgress.postIndex >= 0
     );
     recordLearningEvent("lesson_started", {
       setId: setId,
@@ -1908,6 +2257,7 @@ export async function mount(root, ctx) {
 
   return {
     unmount() {
+      stopPreparationTracking();
       document.removeEventListener("keydown", onKeydown);
       state = null;
       app.classList.remove("app", "is-comparison");

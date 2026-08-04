@@ -1,6 +1,6 @@
 import fs from "node:fs";
 
-const path = new URL("../modules/grammar/data/polaris_questions.json", import.meta.url);
+const path = new URL("../data/polaris_questions.json", import.meta.url);
 const data = JSON.parse(fs.readFileSync(path, "utf8"));
 const domains = new Set([
   "foundation", "pattern", "verb_form", "tense", "modal", "passive", "infinitive", "gerund", "participle",

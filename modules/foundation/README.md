@@ -2,7 +2,7 @@
 
 `C:\Users\shtom\dev\grammar-200q` の統合セットを組み込んだ、英文法の学習ルートです。
 
-- 統合セット: 557問・4択
+- 統合セット: 540問・4択
 - 学習ルート: 8章・43セクション
 - セクションごとに、予習資料 → 問題 → 結果を表示
 - 問題データ: `data/questions.json`（`english-grammar-200-merged` のみを出題）
@@ -13,8 +13,9 @@
 ## 検証
 
 ```powershell
-node scripts/check-data.js
-node scripts/export-question-list.js
+node modules/foundation/scripts/check-data.js
+node modules/foundation/scripts/export-question-list.js
+py -3 modules/foundation/scripts/audit_preparation_checks.py
 ```
 
 実行時はリポジトリ直下を配信します。
@@ -24,3 +25,5 @@ py -3 -m http.server 5908
 ```
 
 `http://127.0.0.1:5908/#/foundation` を開きます。
+
+スクリプトの役割と、生成系スクリプトを実行する条件は、リポジトリ直下の [`scripts/README.md`](../../scripts/README.md) を参照してください。

@@ -18,10 +18,10 @@ const lessons = (data.learningPath?.chapters || []).flatMap((chapter) => chapter
 const lessonById = new Map(lessons.map((lesson) => [lesson.id, lesson]));
 const ids = new Set();
 
-if (mergedQuestions.length !== 557) errors.push(`統合セットの問題数: ${mergedQuestions.length}（557が必要）`);
+if (mergedQuestions.length !== 540) errors.push(`統合セットの問題数: ${mergedQuestions.length}（540が必要）`);
 if (lessons.length !== 43) errors.push(`学習セクション数: ${lessons.length}（43が必要）`);
-if (data.sets?.find((set) => set.id === mergedSetId)?.questionCount !== 557) {
-  errors.push("統合セットのメタデータ問題数が557ではありません");
+if (data.sets?.find((set) => set.id === mergedSetId)?.questionCount !== 540) {
+  errors.push("統合セットのメタデータ問題数が540ではありません");
 }
 if (!statusSource.includes(`export const CONTENT_VERSION = "${expectedContentVersion}";`)) {
   errors.push("status.jsの教材版がgrammar-200q-merged-v1ではありません");

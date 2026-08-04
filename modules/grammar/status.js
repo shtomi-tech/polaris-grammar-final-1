@@ -1,7 +1,6 @@
 "use strict";
 /* 英文法演習（ポラリス）の進捗要約。
-   解放判定（基礎チェック完了が前提）は横断ルールなので shared/flow.js が担う。
-   ここは自分の進捗だけを見る。 */
+   推奨順とは切り離し、ここは自分の進捗だけを見る。 */
 
 export function summarize(data) {
   const meta = (data && data.__meta) || {};

@@ -1,4 +1,4 @@
-import { CONTENT_VERSION as FOUNDATION_CONTENT_VERSION } from "../foundation/status.js";
+import { CONTENT_VERSION as FOUNDATION_CONTENT_VERSION } from "../foundation/status.js?v=20260804-grammar200q-v9";
 
 "use strict";
 /* 英文法演習（統合アプリのモジュール）。
@@ -156,10 +156,6 @@ function resumeQuizAction() {
 }
 
 function restoreQuizSession() {
-  if (!foundationUnlocked()) {
-    ctx.navigate("foundation");
-    return false;
-  }
   const saved = storedQuizSession();
   if (!saved) return false;
   const pool = (saved.poolIds || [])
@@ -344,16 +340,6 @@ function foundationStatus() {
   };
 }
 
-function foundationUnlocked() {
-  return foundationStatus().unlocked;
-}
-
-function requireFoundationComplete() {
-  if (foundationUnlocked()) return true;
-  ctx.navigate("foundation");
-  return false;
-}
-
 function updateStepCompletionDates() {
   const meta = metaState();
   const now = new Date().toISOString();
@@ -395,7 +381,7 @@ function statsFor(questions) {
 }
 
 function setVisible(panel) {
-  for (const id of ["homePanel", "quizPanel", "grammarLockPanel"]) {
+  for (const id of ["homePanel", "quizPanel"]) {
     $(`#${id}`).classList.toggle("hide", id !== panel);
   }
   $("#mobileCtaBar").classList.toggle("hide", panel !== "homePanel");
@@ -469,22 +455,6 @@ function renderMasterPath() {
 }
 
 function nextAction() {
-  const foundation = foundationStatus();
-  if (!foundation.unlocked) {
-    const nextFoundationStage = Array.from({ length: FOUNDATION_STAGE_COUNT }, (_, index) => index + 1)
-      .find(index => foundation.stageResults[`stage${index}`]?.completed !== true) || 1;
-    const foundationHistory = loadFoundationHistory();
-    const savedFoundation = foundationHistory?.inProgress;
-    const savedStage = Number.isInteger(savedFoundation?.stageIndex) ? savedFoundation.stageIndex + 1 : nextFoundationStage;
-    const savedQuestion = Number.isInteger(savedFoundation?.index) ? savedFoundation.index + 1 : 1;
-    return {
-      kind: "foundation",
-      resume: Boolean(savedFoundation),
-      label: savedFoundation
-        ? `▶ 基礎チェックを再開 — 第${savedStage}段階・第${savedQuestion}問`
-        : `▶ 基礎から始める — 第${nextFoundationStage}段階`
-    };
-  }
   for (const unit of questionData.units) {
     for (const set of unit.sets) {
       const questions = questionsForSet(unit.id, set.id);
@@ -523,15 +493,12 @@ function nextAction() {
 }
 
 function renderContinueCta() {
-  const isLocked = !foundationUnlocked();
   const resume = resumeQuizAction();
   const progressAction = nextAction();
   const dueCount = spacedDueQuestions().length;
   const unresolvedCount = allUnresolvedQuestions().length;
   let action;
-  if (progressAction.kind === "foundation") {
-    action = progressAction;
-  } else if (progressAction.kind === "reading") {
+  if (progressAction.kind === "reading") {
     action = progressAction;
   } else if (resume) {
     action = resume;
@@ -545,32 +512,27 @@ function renderContinueCta() {
   const onClick = () => {
     if (action.kind === "resume") {
       if (!restoreQuizSession()) renderHome();
-    } else if (action.kind === "foundation") ctx.navigate("foundation");
-    else if (action.kind === "step1") startStep1Quiz(action.unitId, action.setId, action.variant);
+    } else if (action.kind === "step1") startStep1Quiz(action.unitId, action.setId, action.variant);
     else if (action.kind === "step2") startStep2Quiz();
     else if (action.kind === "spaced") startSpacedReview();
     else if (action.kind === "review") startQuiz(true);
     else if (action.kind === "reading") ctx.navigate("reading");
     else startStep3Quiz();
   };
-  const hero = $(".hero");
-  if (hero) hero.classList.toggle("is-locked", isLocked && action.kind === "foundation");
   const hint = $("#continueHint");
   if (hint) {
-    hint.textContent = isLocked && action.kind === "foundation"
-      ? "上部の「次にやること」から基礎チェックを始めます。"
-      : action.kind === "resume"
+    hint.textContent = action.kind === "resume"
       ? "途中保存した問題を続けます。"
-      : action.kind === "foundation"
-        ? (action.resume ? "保存した途中地点から再開します。" : "まずは基礎チェックを始めます。")
-        : action.kind === "reading"
-          ? "ポラリス完了。次は文法知識を使って英文の構造を読みます。"
+      : action.kind === "reading"
+        ? "ポラリス完了。次は文法知識を使って英文の構造を読みます。"
+        : action.kind === "step1"
+          ? "未完了のUNITから始めます。"
           : "迷った問題を優先して進めます。";
   }
   for (const id of ["continueBtn", "continueBtnMobile"]) {
     const button = $(`#${id}`);
     if (!button) continue;
-    button.hidden = isLocked && action.kind === "foundation";
+    button.hidden = false;
     button.textContent = action.label;
     button.onclick = onClick;
   }
@@ -778,12 +740,6 @@ function renderSetList() {
 function renderHome() {
   renderSelectors();
   renderFoundationDashboard();
-  renderGrammarGate();
-  if (!foundationUnlocked()) {
-    renderContinueCta();
-    setVisible("grammarLockPanel");
-    return;
-  }
   renderContinueCta();
   renderMasterPath();
   renderSetList();
@@ -799,28 +755,6 @@ function loadFoundationHistory() {
   return history?.contentVersion === FOUNDATION_CONTENT_VERSION ? history : null;
 }
 
-
-function renderGrammarGate() {
-  const panel = $("#grammarLockPanel");
-  if (!panel) return;
-  const foundation = foundationStatus();
-  if (foundation.unlocked) {
-    panel.classList.add("hide");
-    return;
-  }
-  const nextStage = Array.from({ length: foundation.total }, (_, index) => index + 1)
-    .find(index => foundation.stageResults[`stage${index}`]?.completed !== true) || foundation.total;
-  panel.innerHTML = `
-    <p class="label">Grammar / Locked</p>
-    <h2>英文法演習は、基礎チェック完了後に解放されます。</h2>
-    <p class="hint">現在 ${foundation.completedStages} / ${foundation.total} 段階完了。次は第${nextStage}段階です。</p>
-    <div class="actions">
-      <button class="ghost" id="foundationGateLink" type="button">基礎チェックを続ける</button>
-    </div>
-  `;
-  panel.classList.remove("hide");
-  $("#foundationGateLink").onclick = () => ctx.navigate("foundation");
-}
 
 function renderFoundationDashboard() {
   const body = $("#foundationDashboardBody");
@@ -862,7 +796,6 @@ function renderFoundationDashboard() {
 }
 
 function startStep1Quiz(unitId, setId, variant = "all") {
-  if (!requireFoundationComplete()) return;
   const questions = questionsForSet(unitId, setId);
   const pool = variant === "wrongOnly" ? step1WrongQuestions(questions) : questions;
   quiz = {
@@ -881,7 +814,6 @@ function startStep1Quiz(unitId, setId, variant = "all") {
 }
 
 function startStep2Quiz(singleQuestion = null) {
-  if (!requireFoundationComplete()) return;
   const remaining = questionData.questions.filter(question => !stateFor(question.id).step2Cleared);
   const pool = singleQuestion ? [singleQuestion] : (remaining.length ? remaining : questionData.questions);
   quiz = {
@@ -900,7 +832,6 @@ function startStep2Quiz(singleQuestion = null) {
 }
 
 function startStep3Quiz() {
-  if (!requireFoundationComplete()) return;
   quiz = {
     kind: "step3",
     mode: "step3",
@@ -920,7 +851,6 @@ function startStep3Quiz() {
 }
 
 function startQuiz(globalReview) {
-  if (!requireFoundationComplete()) return;
   const pool = globalReview
     ? shuffled(allUnresolvedQuestions())
     : buildQuestionPool();
@@ -941,7 +871,6 @@ function startQuiz(globalReview) {
 }
 
 function startSpacedReview() {
-  if (!requireFoundationComplete()) return;
   const pool = shuffled(spacedDueQuestions());
   if (!pool.length) return renderHome();
   quiz = {

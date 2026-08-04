@@ -17,9 +17,12 @@ shared/               アプリ共通の土台
   styles.css          デザイントークンの唯一の定義
   vendor/harness/     生徒別クラウド同期（他プロジェクトと共有。編集しない）
 modules/
-  foundation/         基礎チェック（grammar-200q統合セット557問・8章43セクション）
+  foundation/         基礎チェック（grammar-200q統合セット540問・8章43セクション）
   grammar/            英文法演習（ポラリス）
   reading/            英文解釈
+docs/                 設計・作問資料（[索引](docs/README.md)）
+modules/README.md     モジュール一覧
+scripts/              補助スクリプト（[索引](scripts/README.md)）
 scripts/write-config.mjs  デプロイ時に config.json を生成
 supabase/schema.sql       共通スキーマ（app_students / app_progress）
 ```
@@ -54,3 +57,5 @@ npx --yes serve -l 5908 .
 ## 問題作成
 
 問題を追加・修正するときは、[英文法トレーナーの問題作成原則](docs/QUESTION_AUTHORING_PRINCIPLES.md) と、対象分野の active 原則カードを参照します。
+
+モジュールと検証スクリプトの入口は、[modules/README.md](modules/README.md) と [scripts/README.md](scripts/README.md) を参照してください。

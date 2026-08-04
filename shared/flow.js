@@ -1,17 +1,15 @@
 "use strict";
 /* ============================================================
-   shared/flow.js — モジュール登録と横断ルール
+   shared/flow.js — モジュール登録と推奨導線
 
-   「基礎チェックを終えると英文法演習が解放される」といった
-   モジュールをまたぐ判断は、どれか1つのモジュールの持ち物ではない。
-   統合前はポラリスの中と flow-nav.js の中に二重に書かれ、
-   しかも読むキーが食い違って解放されない状態になっていた。
+   推奨順やモジュール間の現在地は、どれか1つのモジュールの持ち物ではない。
+   ここでは推奨導線を示すが、各モジュールの入口を不要に閉じない。
    横断ルールはここ1箇所に置く。
    ============================================================ */
 
-import * as foundationStatus from "../modules/foundation/status.js";
-import * as grammarStatus from "../modules/grammar/status.js";
-import * as readingStatus from "../modules/reading/status.js";
+import * as foundationStatus from "../modules/foundation/status.js?v=20260804-grammar200q-v9";
+import * as grammarStatus from "../modules/grammar/status.js?v=20260804-grammar200q-v9";
+import * as readingStatus from "../modules/reading/status.js?v=20260804-grammar200q-v9";
 
 export const MODULES = [
   {
@@ -19,14 +17,14 @@ export const MODULES = [
     num: "01",
     name: "基礎チェック",
     summarize: foundationStatus.summarize,
-    load: () => import("../modules/foundation/app.js"),
+    load: () => import("../modules/foundation/app.js?v=20260804-grammar200q-v9"),
   },
   {
     id: "grammar",
     num: "02",
     name: "英文法演習",
     summarize: grammarStatus.summarize,
-    load: () => import("../modules/grammar/app.js"),
+    load: () => import("../modules/grammar/app.js?v=20260804-grammar200q-v9"),
   },
   {
     id: "reading",
@@ -52,17 +50,6 @@ export function computeFlow(store) {
   MODULES.forEach((mod) => {
     states[mod.id] = mod.summarize(store.scope(mod.id).get());
   });
-
-  // 横断ルール: 英文法演習は基礎チェック完了まで解放しない。
-  // 英文解釈は推奨順では最後だが、先に着手してもよい（既存方針を踏襲）。
-  if (!states.foundation.complete) {
-    states.grammar = {
-      ...states.grammar,
-      status: "locked",
-      detail: "基礎チェック完了で解放",
-      nextLabel: null,
-    };
-  }
 
   // 推奨導線上の現在地
   let pointer = "reading";

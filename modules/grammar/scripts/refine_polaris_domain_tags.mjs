@@ -1,6 +1,6 @@
 import fs from "node:fs";
 
-const path = new URL("../modules/grammar/data/polaris_questions.json", import.meta.url);
+const path = new URL("../data/polaris_questions.json", import.meta.url);
 const data = JSON.parse(fs.readFileSync(path, "utf8"));
 
 // 主分野は維持し、問題文・解説から直接確認できる副分野だけを追加する。

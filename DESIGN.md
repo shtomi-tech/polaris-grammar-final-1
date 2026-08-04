@@ -11,10 +11,10 @@ colors:
   neutral: "#FFFFFF"
 typography:
   h1:
-    fontFamily: "Anthropic Sans"
+    fontFamily: "Georgia"
     fontSize: 2rem
   body-md:
-    fontFamily: "Anthropic Sans"
+    fontFamily: "Segoe UI"
     fontSize: 1rem
   label-caps:
     fontFamily: "JetBrains Mono"
@@ -38,7 +38,7 @@ Research-journal aesthetic on warm stone with near-black ink, restrained earthy 
 
 - **Visual style:** modern, minimal, clean
 - **Typography scale:** 12/14/16/20/24/32
-- **Typography fonts:** primary=Anthropic Sans, display=Anthropic Sans, mono=JetBrains Mono
+- **Typography fonts:** primary=Segoe UI, display=Georgia, mono=JetBrains Mono
 - **Typography weights:** 100, 200, 300, 400, 500, 600, 700, 800, 900
 - **Color palette:** primary, secondary, neutral, success, warning, danger
 - **Spacing scale:** 4/8/12/16/24/32
@@ -74,6 +74,8 @@ Research-journal aesthetic on warm stone with near-black ink, restrained earthy 
 | `--ok` | `#16733a` | 正解・完了 |
 | `--ng` | `#a5271c` | 誤答・破壊的操作 |
 | `--warn` | `#8a5d00` | 要確認 |
+| `--ok-bg` | `#edf6ee` | 正解の背景 |
+| `--ng-bg` | `#f8ecea` | 誤答の背景 |
 
 状態色は汎用名（success / warning / danger）ではなく `--ok` / `--ng` / `--warn` を使います。
 統合前は3アプリが `green`/`ok`、`red`/`ng`/`danger`、`amber`/`warn` と別名で持っていたため一本化しました。
@@ -93,11 +95,20 @@ Research-journal aesthetic on warm stone with near-black ink, restrained earthy 
 
 **原則：グループ内の最大余白（16）＜ グループ間の最小余白（32）。** これを崩すと近接の意味が反転します。
 
+### 形状
+
+| トークン | 値 | 用途 |
+|---|---|---|
+| `--radius-card` | `16px` | カード・大きな面 |
+| `--radius-pill` | `999px` | 丸形ボタン・タグ |
+
 ### レイアウト
 
 | トークン | 値 |
 |---|---|
 | `--content-max` | 1040px |
+| `--module-max` | `var(--content-max)`（1040px） |
+| `--module-inline` | 0px（480px以下は12px） |
 | `--tap-min` | 44px |
 
 余白に `clamp()` を使いません。画面幅で位置が動く余白は整列線にならないためです。
@@ -107,3 +118,11 @@ Research-journal aesthetic on warm stone with near-black ink, restrained earthy 
 - 1画面の同じ状態では、塗りつぶしの主CTAを1つにする。
 - 横断導線の主CTAは `.nextAction__cta`、モジュール内の主CTAは `.cta` とし、同じ遷移を補助的に示す場合は `.ghost` に下げる。
 - `.card` の兄弟セクション間は `--gap-section`、同じカード内のグループ間は `--gap-group` 以下を使い分ける。
+
+### 予習スレッド
+
+- 予習は、学習ヘッダーと本文スレッドを同じ共有幅のカードとして積む。
+- 投稿進捗はセグメントで示し、各セグメントは対応する投稿へ移動できる操作領域を持たせる。狭い画面ではセグメント間の隙間をなくし、24px未満にならないようにする。
+- セグメントが表示幅に収まらない場合は、ページ全体ではなく進捗列だけを横スクロールさせる。
+- 予習本文の確認問題は、選択前・正解・不正解を文字と記号でも示し、色だけで状態を伝えない。
+- 予習の途中状態は、教材本文とは別の進捗ストア内に投稿番号と確認結果を保存する。
