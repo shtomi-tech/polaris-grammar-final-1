@@ -8,7 +8,7 @@
    3つのCSSを書き換えずに1アプリへ載せられる。
    ============================================================ */
 
-import { MODULES, DEFAULT_MODULE, findModule } from "./flow.js?v=20260804-grammar200q-v9";
+import { MODULES, DEFAULT_MODULE, findModule } from "./flow.js?v=20260804-grammar200q-v10";
 
 export function createRouter({ mountPoint, styleLink, buildContext, onChange = () => {} }) {
   let currentId = null;
@@ -38,7 +38,7 @@ export function createRouter({ mountPoint, styleLink, buildContext, onChange = (
     currentInstance = null;
     mountPoint.replaceChildren();
 
-    styleLink.href = `modules/${mod.id}/styles.css?v=20260804-grammar200q-v9`;
+    styleLink.href = `modules/${mod.id}/styles.css?v=20260804-grammar200q-v10`;
 
     let impl;
     try {

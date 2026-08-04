@@ -8,8 +8,8 @@
 
 import { createIdentity } from "./identity.js";
 import { createStore } from "./store.js";
-import { createRouter } from "./router.js?v=20260804-grammar200q-v9";
-import { MODULES, computeFlow, findModule } from "./flow.js?v=20260804-grammar200q-v9";
+import { createRouter } from "./router.js?v=20260804-grammar200q-v10";
+import { MODULES, computeFlow, findModule } from "./flow.js?v=20260804-grammar200q-v10";
 
 const APP_ID = "english-grammar-trainer"; // app_progress.app（統合により1生徒＝1行）
 const CONFIG_PATH = "config.json";

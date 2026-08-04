@@ -1,7 +1,7 @@
 import {
   CONTENT_VERSION,
   FOUNDATION_SESSION_VERSION,
-} from "./status.js?v=20260804-grammar200q-v9";
+} from "./status.js?v=20260804-grammar200q-v10";
 
 export async function mount(root, ctx) {
   "use strict";
@@ -1061,10 +1061,10 @@ export async function mount(root, ctx) {
       type: "button",
       onclick: function () {
         if (resumeSession) restoreLesson(resumeSession);
-        else if (nextLesson) startLesson(SELECTABLE_SET_ID, nextLesson.id);
+        else if (nextLesson) renderPreparation(nextLesson);
         else startLesson(SELECTABLE_SET_ID, learningLessons()[0].id);
       },
-    }, resumeSession ? "途中から再開する" : nextLesson ? "次のセクションを始める" : "復習を始める");
+    }, resumeSession ? "途中から再開する" : nextLesson ? "次の予習資料を読む" : "復習を始める");
     action.append(copy, button);
     return action;
   }
@@ -2217,9 +2217,9 @@ export async function mount(root, ctx) {
         "button",
         {
           class: "btn cta",
-          onclick: function () { startLesson(state.setId, nextLesson.id); },
+          onclick: function () { renderPreparation(nextLesson); },
         },
-        "次のセクションへ: " + nextLesson.title
+        "次の予習資料へ: " + nextLesson.title
       ));
     } else {
       resultActions.push(el("button", { class: "btn cta", onclick: renderSetSelect }, "学習ルートへ"));

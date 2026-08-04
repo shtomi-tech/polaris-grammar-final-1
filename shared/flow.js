@@ -7,9 +7,9 @@
    横断ルールはここ1箇所に置く。
    ============================================================ */
 
-import * as foundationStatus from "../modules/foundation/status.js?v=20260804-grammar200q-v9";
-import * as grammarStatus from "../modules/grammar/status.js?v=20260804-grammar200q-v9";
-import * as readingStatus from "../modules/reading/status.js?v=20260804-grammar200q-v9";
+import * as foundationStatus from "../modules/foundation/status.js?v=20260804-grammar200q-v10";
+import * as grammarStatus from "../modules/grammar/status.js?v=20260804-grammar200q-v10";
+import * as readingStatus from "../modules/reading/status.js?v=20260804-grammar200q-v10";
 
 export const MODULES = [
   {
@@ -17,14 +17,14 @@ export const MODULES = [
     num: "01",
     name: "基礎チェック",
     summarize: foundationStatus.summarize,
-    load: () => import("../modules/foundation/app.js?v=20260804-grammar200q-v9"),
+    load: () => import("../modules/foundation/app.js?v=20260804-grammar200q-v10"),
   },
   {
     id: "grammar",
     num: "02",
     name: "英文法演習",
     summarize: grammarStatus.summarize,
-    load: () => import("../modules/grammar/app.js?v=20260804-grammar200q-v9"),
+    load: () => import("../modules/grammar/app.js?v=20260804-grammar200q-v10"),
   },
   {
     id: "reading",

@@ -1,4 +1,4 @@
-import { CONTENT_VERSION as FOUNDATION_CONTENT_VERSION } from "../foundation/status.js?v=20260804-grammar200q-v9";
+import { CONTENT_VERSION as FOUNDATION_CONTENT_VERSION } from "../foundation/status.js?v=20260804-grammar200q-v10";
 
 "use strict";
 /* 英文法演習（統合アプリのモジュール）。
