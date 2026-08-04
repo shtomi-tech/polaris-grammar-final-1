@@ -1,4 +1,4 @@
-# 動名詞と前置詞後の -ing
+# 動名詞の基本
 
 ![博士帽をかぶったハリネズミ教授](static/hedgehog-professor-original.png)
 
@@ -34,34 +34,15 @@ when it comes to buying houses
 前置詞の後ろは名詞相当なので、`-ing`を置きます。`look forward to`や`when it comes to`の`to`は前置詞です。不定詞の`to do`と、前の語の型で分けます。
 
 :::check check-08-gerund-02
-question: 次の文の空所に入る語は? When it comes ( ), people are careful.
-choice: B|to buying houses
-choice: A|in buying houses
+question: 次の文の空所に入る語は? He left without ( ) goodbye.
+choice: A|say
+choice: B|saying
 answer: B
-explanation: when it comes to ... の to は前置詞なので、後ろは動名詞です。when it comes to buying houses で「家を買うことになると」となります。
+explanation: without は前置詞なので、後ろには名詞相当の動名詞 saying を置きます。「彼はさよならを言わずに立ち去りました。」
 :::
 
 
-## 3. suggestの後ろは動名詞かthat節
-
-:::board
-suggest doing
-suggest that S + V
-× suggest 人 to do
-:::
-
-`She suggested postponing the meeting.`のように、提案する内容を動名詞で置けます。`suggest`の後ろに人を置いて`to do`とする型とは区別します。
-
-:::check check-08-gerund-03
-question: 次の文の空所に入る語は? She suggested ( ) the meeting until Friday.
-choice: A|postponing
-choice: B|postpone
-answer: A
-explanation: suggest の後ろには動名詞、またはthat節を置きます。ここでは postponing が適切です。
-:::
-
-
-## 4. 動名詞の意味上の主語と受動
+## 3. 動名詞の意味上の主語と受動
 
 :::board
 his changing the plan
@@ -77,6 +58,25 @@ choice: B|him changing
 choice: A|he changing
 answer: B
 explanation: 前置詞 to の後ろなので動名詞 changing を置き、その意味上の主語は目的格 him です。
+:::
+
+
+## 4. suggestの後ろは動名詞かthat節
+
+:::board
+suggest doing
+suggest that S + V
+× suggest 人 to do
+:::
+
+`She suggested postponing the meeting.`のように、提案する内容を動名詞で置けます。`suggest`の後ろに人を置いて`to do`とする型とは区別します。
+
+:::check check-08-gerund-03
+question: 次の文の空所に入る語は? She suggested ( ) the meeting until Friday.
+choice: A|postponing
+choice: B|postpone
+answer: A
+explanation: suggest の後ろには動名詞、またはthat節を置きます。ここでは postponing が適切です。
 :::
 
 
@@ -120,9 +120,27 @@ explanation: need + -ing は「〜される必要がある」という受動的�
 :::
 
 
+## 7. 動名詞の否定
+
+:::board
+not + 動名詞
+not studying / not making mistakes
+:::
+
+動名詞を否定するときは`not + -ing`にします。`not doing your homework`は「宿題をしないこと」です。`not`は動名詞の前に置きます。
+
+:::check check-08-gerund-07
+question: 次の文の空所に入る語は? ( ) your homework is a bad habit.
+choice: A|Not doing
+choice: B|Not do
+answer: A
+explanation: 動名詞を否定するときは not を -ing の前に置くため、Not doing your homework が適切です。「宿題をしないこと」を表します。
+:::
+
+
 ## 教授からの課題
 
-各`-ing`のまとまりについて、①名詞の席か、②前置詞の後ろか、③suggestの型か、④能動・受動か、を順に説明して問題を解きます。動詞ごとの目的語の選択と意味差は、独立した「目的語に来る不定詞・動名詞」で確認します。
+各`-ing`のまとまりについて、①名詞の席か、②前置詞の後ろか、③意味上の主語・能動／受動か、④suggestの型か、⑤否定か、を順に説明して問題を解きます。動詞ごとの目的語の選択と意味差は、独立した「目的語に来る不定詞・動名詞」で確認します。
 
 :::practice
 このセクションの問題を解く
