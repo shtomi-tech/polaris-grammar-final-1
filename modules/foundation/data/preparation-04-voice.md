@@ -106,29 +106,11 @@ Who was this picture painted by?
 疑問文ではbe動詞を主語の前へ出しますが、受動態の`be + 過去分詞`は崩しません。行為者を尋ねるときは文末の`by`も残ります。
 
 :::check check-04-voice-06
-question: 次の文の空所に入る語は? Who was this picture ( ) by?
-choice: B|painted
-choice: A|be painted
-answer: B
-explanation: 受動態の疑問文は be + 過去分詞 を保つので、was painted になります。行為者を表す by は文末に残ります。
-:::
-
-
-## 7. 受動態を解く手順
-
-:::board
-目的語 → 受動文の主語
-beの時制・数 → 過去分詞 → byの要否
-:::
-
-能動文なら何が動作を受けるかを探し、その語を主語にします。次にbeの時制と数、過去分詞、最後に動作主の必要性を確認して問題を解きます。
-
-:::check check-04-voice-07
-question: 次の文の空所に入る語は? This building ( ) in 1900.
-choice: A|was built
-choice: B|built
+question: 次の文の空所に入る語は? ( ) this room cleaned every day?
+choice: A|Is
+choice: B|Does
 answer: A
-explanation: 1900年の過去の出来事なので過去形のbe動詞 was と過去分詞 built を使います。
+explanation: 受動態の疑問文では、be動詞を主語の前に置き、過去分詞を続けます。Is this room cleaned every day? は「この部屋は毎日掃除されますか」という一般的な受動態の疑問文です。
 :::
 
 
@@ -137,6 +119,9 @@ explanation: 1900年の過去の出来事なので過去形のbe動詞 was と�
 :::board
 rise: 自動詞「上がる」目的語を取らない → 受動態にならない
 raise: 他動詞「~を上げる」目的語を取る → 受動態になれる
+（原形 - 三単現 - 過去形 - 過去分詞 - 現在分詞）
+rise: rise - rises - rose - risen - rising
+raise: raise - raises - raised - raised - raising
 The sun rises. / The flag is raised.
 :::
 
