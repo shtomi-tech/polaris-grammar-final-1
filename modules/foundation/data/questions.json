@@ -23647,7 +23647,7 @@
       "answerIndex": 3,
       "stage": "識別・使い分け",
       "difficulty": "標準",
-      "ruleRefs": "egp.nonfinite.infinitive-purpose, egp.nonfinite.degree-result-infinitive-patterns",
+      "ruleRefs": "egp.nonfinite.infinitive-purpose, egp.nonfinite.result-infinitive",
       "explanation": [
         "only to find は、前の行動の結果として予想外の事実が分かったことを表します。会いに行った目的の to see と、結果の only to find を区別します。"
       ],
