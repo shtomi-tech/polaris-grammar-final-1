@@ -1,5 +1,20 @@
 "use strict";
 
+import {
+  attemptFromSlash,
+  checkpointsReady,
+  completeItem,
+  defaultProgress,
+  isAttemptReady,
+  markForReview,
+  materializeAnswer,
+  normalizeProgress,
+  normalizeStep,
+  recommendedTarget as recommendedProgressTarget,
+  seedSlashText,
+  updateAttempt as updateProgressAttempt,
+} from "./domain.js";
+
 const ROLES = ["S", "V", "O", "C", "M", "接", "仮S", "真S", "仮O", "真O"];
 const ROLE_LABELS = {
   S: "S（主語）",
@@ -69,44 +84,10 @@ function el(tag, attrs = {}, ...kids) {
   return node;
 }
 
-function defaultProgress() {
-  return {
-    answers: {},
-    completedIds: [],
-    reviewIds: [],
-    lastItemId: "",
-  };
-}
-
-function blankAnswer() {
-  return {
-    first: emptyAttempt(),
-    checkpoints: {},
-    lastStep: "first",
-    updatedAt: "",
-  };
-}
-
-function emptyAttempt() {
-  return {
-    slashText: "",
-    pattern: "",
-    chunks: [],
-    note: "",
-  };
-}
-
 function datasetProgress(datasetId = state.datasetId) {
   const all = ctx.store.get();
   const parsed = (all && all.datasets && all.datasets[datasetId]) || null;
-  if (!parsed) return defaultProgress();
-  return {
-    ...defaultProgress(),
-    ...parsed,
-    answers: parsed.answers && typeof parsed.answers === "object" ? parsed.answers : {},
-    completedIds: Array.isArray(parsed.completedIds) ? parsed.completedIds : [],
-    reviewIds: Array.isArray(parsed.reviewIds) ? parsed.reviewIds : [],
-  };
+  return normalizeProgress(parsed);
 }
 
 function loadProgress() {
@@ -132,16 +113,9 @@ function saveProgress() {
    別レコードに保存しており、1生徒の学習が3行に分散していた。 */
 
 function answerFor(itemId) {
-  if (!state.progress.answers[itemId]) state.progress.answers[itemId] = blankAnswer();
-  const answer = state.progress.answers[itemId];
-  answer.first = { ...emptyAttempt(), ...(answer.first || {}) };
-  answer.checkpoints = answer.checkpoints || {};
-  answer.lastStep = normalizeStep(answer.lastStep);
-  return answer;
-}
-
-function normalizeStep(step) {
-  return ["first", "compare", "input"].includes(step) ? step : "first";
+  const materialized = materializeAnswer(state.progress, itemId);
+  state.progress = materialized.progress;
+  return materialized.answer;
 }
 
 function patternLabel(pattern) {
@@ -167,52 +141,27 @@ function nextItemAfter(itemId) {
 }
 
 function setCompleted(itemId) {
-  if (!state.progress.completedIds.includes(itemId)) state.progress.completedIds.push(itemId);
-  state.progress.reviewIds = state.progress.reviewIds.filter((id) => id !== itemId);
+  state.progress = completeItem(state.progress, itemId);
 }
 
 function setReview(itemId) {
-  if (!state.progress.reviewIds.includes(itemId)) state.progress.reviewIds.push(itemId);
-}
-
-function checkpointsReady(item, answer) {
-  const checkpoints = item.explanation?.checkpoints || [];
-  if (!checkpoints.length) return true;
-  return checkpoints.every((_, index) => answer.checkpoints?.[index]);
+  state.progress = markForReview(state.progress, itemId);
 }
 
 function teacherChunks(item) {
   return item?.root?.chunks || [];
 }
 
-function splitSlash(value) {
-  return String(value || "")
-    .split("/")
-    .map((part) => part.trim())
-    .filter(Boolean);
-}
-
-function seedSlashText(item, attempt) {
-  if (attempt.slashText || attempt.chunks?.length || attempt.note) return;
-  attempt.slashText = item?.sentence || "";
-}
-
-function attemptFromSlash(attempt) {
-  const parts = splitSlash(attempt.slashText);
-  const old = attempt.chunks || [];
-  attempt.chunks = parts.map((text, index) => ({
-    text,
-    role: old[index]?.role || "",
-    translation: old[index]?.translation || "",
-  }));
-}
-
 function updateAttempt(itemId, phase, patch) {
-  const answer = answerFor(itemId);
-  Object.assign(answer[phase], patch);
-  answer.lastStep = state.step;
-  answer.updatedAt = new Date().toISOString();
-  state.progress.lastItemId = itemId;
+  const updated = updateProgressAttempt(
+    state.progress,
+    itemId,
+    phase,
+    patch,
+    state.step,
+    new Date().toISOString(),
+  );
+  state.progress = updated.progress;
   saveProgress();
 }
 
@@ -293,18 +242,10 @@ function focusWorkspace() {
 
 function recommendedTarget() {
   const items = state.dataset?.items || [];
-  if (!items.length) return null;
-  const lastId = state.progress.lastItemId;
-  if (lastId && !state.progress.completedIds.includes(lastId)) {
-    const lastItem = items.find((i) => i.id === lastId);
-    if (lastItem) return { item: lastItem, step: normalizeStep(answerFor(lastId).lastStep), kind: "resume" };
-  }
-  const next = items.find((i) => !state.progress.completedIds.includes(i.id));
-  if (next) return { item: next, step: normalizeStep(answerFor(next.id).lastStep), kind: "next" };
-  const reviewId = state.progress.reviewIds[0];
-  const reviewItem = reviewId ? items.find((i) => i.id === reviewId) : null;
-  if (reviewItem) return { item: reviewItem, step: "first", kind: "review" };
-  return { item: items[0], step: "first", kind: "done" };
+  const target = recommendedProgressTarget(items, state.progress);
+  if (!target) return null;
+  if (target.kind === "resume" || target.kind === "next") answerFor(target.item.id);
+  return target;
 }
 
 function renderStartCta() {
@@ -480,8 +421,12 @@ function renderStepBody(item) {
 
 function renderAttempt(item, phase, title) {
   const answer = answerFor(item.id);
-  const attempt = answer[phase];
-  seedSlashText(item, attempt);
+  let attempt = answer[phase];
+  const seededAttempt = seedSlashText(item, attempt);
+  if (seededAttempt.slashText !== attempt.slashText) {
+    answer[phase] = seededAttempt;
+    attempt = seededAttempt;
+  }
   return el("section", {},
     el("div", {},
       field(`${title}: 英文に / を入れて区切る`, el("textarea", {
@@ -498,27 +443,18 @@ function renderAttempt(item, phase, title) {
         type: "button",
         onclick: () => {
           const latest = answerFor(item.id)[phase];
-          attemptFromSlash(latest);
-          updateAttempt(item.id, phase, latest);
+          updateAttempt(item.id, phase, attemptFromSlash(latest));
           render();
         },
       }, "区切った部分を分析する")
     ),
     renderStudentChunks(item, attempt, phase),
     renderPatternField(item, attempt, phase),
-    renderNextAction(item, answer, attempt, phase)
+    renderNextAction(item, attempt, phase)
   );
 }
 
-function isAttemptReady(attempt) {
-  return Boolean(
-    attempt.pattern &&
-    attempt.chunks?.length &&
-    attempt.chunks.every((chunk) => chunk.text?.trim() && chunk.role)
-  );
-}
-
-function renderNextAction(item, answer, attempt, phase) {
+function renderNextAction(item, attempt, phase) {
   const ready = isAttemptReady(attempt);
   return el("div", { class: "actions", style: "margin-top:14px" },
     el("button", {
@@ -527,7 +463,7 @@ function renderNextAction(item, answer, attempt, phase) {
       disabled: ready ? null : "disabled",
       onclick: () => {
         if (!ready) return;
-        answer.lastStep = "compare";
+        answerFor(item.id).lastStep = "compare";
         state.step = "compare";
         saveProgress();
         render();
@@ -643,7 +579,7 @@ function renderExplanation(item) {
         onclick: () => {
           if (!checkpointsReady(item, answer)) return;
           setCompleted(item.id);
-          answer.lastStep = "input";
+          answerFor(item.id).lastStep = "input";
           if (nextItem) {
             state.selectedId = nextItem.id;
             state.step = "first";
