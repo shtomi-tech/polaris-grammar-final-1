@@ -14,11 +14,11 @@ was/were + -ing → 過去の途中
 `The baby is sleeping.` は現在の途中、`I was playing the piano when you called.` は過去の一点での途中です。単に起きた事実か、その時点で進行中だったかを分けます。
 
 :::check check-tense-progressive-future-01
-question: 次の文の空所に入る語は? I ( ) the piano when you called me last night.
-choice: A|was playing
-choice: B|am playing
+question: 次の文の空所に入る語は? Please be quiet. The baby ( ).
+choice: A|is sleeping
+choice: B|sleeps
 answer: A
-explanation: when you called は過去の基準時です。その時点で動作の途中だったので、過去進行形 was playing を使います。
+explanation: Please be quiet は、赤ちゃんが今まさに眠っている状況を示します。現在の動作の途中なので、現在進行形 is sleeping を使います。
 :::
 
 
@@ -69,33 +69,15 @@ She is coming next Sunday.
 主語の予定や手配がすでに決まっている場合、`be + -ing` で近い未来を表せます。単なる予測の `will` とは、予定の出どころが異なります。
 
 :::check check-tense-progressive-future-04
-question: 次の文の空所に入る語は? Please be quiet. The baby ( ).
-choice: B|is sleeping
-choice: A|sleeps
+question: 次の文の空所に入る語は? I have already arranged a visit, so I ( ) my grandmother this weekend.
+choice: A|will visit
+choice: B|am visiting
 answer: B
-explanation: 今まさに進行中の動作なので is sleeping が適切です。
+explanation: this weekend が未来を示し、すでに手配済みの個人的な予定を述べているため、現在進行形 am visiting を使います。will visit は未来を表せますが、ここでは予定が決まっていることを表す形が適切です。
 :::
 
 
-## 5. 現在形でも確定した未来を表す
-
-:::board
-The train leaves at 6:45 tomorrow.
-時刻表・運行表による確定予定
-:::
-
-時刻表や公式の日程のように、個人の意志では変わりにくい予定は現在形で表します。未来の内容でも、基準となる予定表は現在の事実です。
-
-:::check check-tense-progressive-future-05
-question: 次の文の空所に入る語は? According to the schedule, the train ( ) Tokyo Station at 6:45 tomorrow morning.
-choice: A|leaves
-choice: B|is leaving
-answer: A
-explanation: 個人の予定(進行形)や単なる予測(will)とは異なり、時刻表など確定したダイヤに基づく未来の出来事は現在形で表す。
-:::
-
-
-## 6. 未来進行形は未来の途中を映す
+## 5. 未来進行形は未来の途中を映す
 
 :::board
 will be + -ing
@@ -104,7 +86,7 @@ At eight tomorrow, I will be studying.
 
 未来のある時点で進行中だと見込む動作は、`will be + -ing` です。未来の単なる予定・意志と、未来の途中の描写を区別します。
 
-:::check check-tense-progressive-future-06
+:::check check-tense-progressive-future-05
 question: 次の文の空所に入る語は? Becky will ( ) on the stage around this time tomorrow.
 choice: B|be dancing
 choice: A|be danced
@@ -113,7 +95,7 @@ explanation: around this time tomorrow は明日の同じころという未来�
 :::
 
 
-## 7. 進行形の問題は三つの時計で解く
+## 6. 進行形の問題は三つの時計で解く
 
 :::board
 1. 基準時は現在・過去・未来か
@@ -123,7 +105,7 @@ explanation: around this time tomorrow は明日の同じころという未来�
 
 まず `be` の時制を決め、次に `-ing` の意味を確認します。最後に未来の根拠を読みます。形を先に暗記しても、時計は動きません。
 
-:::check check-tense-progressive-future-07
+:::check check-tense-progressive-future-06
 question: 次の文の空所に入る語は? I ( ) the answer.
 choice: A|know
 choice: B|am knowing

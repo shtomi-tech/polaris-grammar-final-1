@@ -96,7 +96,25 @@ explanation: every Saturday が繰り返す習慣を示すため、一般現在�
 :::
 
 
-## 6. 単純形の問題は五段階で解く
+## 6. 現在形でも確定した未来を表す
+
+:::board
+The train leaves at 6:45 tomorrow.
+時刻表・運行表による確定予定
+:::
+
+時刻表や公式の日程のように、個人の意志では変わりにくい予定は現在形で表します。未来の内容でも、基準となる予定表は現在の事実です。
+
+:::check check-tense-reference-06
+question: 次の文の空所に入る語は? According to the schedule, the train ( ) Tokyo Station at 6:45 tomorrow morning.
+choice: A|leaves
+choice: B|is leaving
+answer: A
+explanation: 個人の予定(進行形)や単なる予測(will)とは異なり、時刻表など確定したダイヤに基づく未来の出来事は現在形で表します。
+:::
+
+
+## 7. 単純形の問題は五段階で解く
 
 :::board
 1. 基準時を探す
@@ -108,7 +126,7 @@ explanation: every Saturday が繰り返す習慣を示すため、一般現在�
 
 時制を先に、語尾を後に確認します。いきなり `-s` だけを探すと、時間の判断を置き忘れます。文法問題は時々、順番を見ています。
 
-:::check check-tense-reference-06
+:::check check-tense-reference-07
 question: 次の文の空所に入る語は? My father ( ) on a business trip three days ago.
 choice: B|went
 choice: A|goes
