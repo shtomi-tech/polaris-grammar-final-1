@@ -29,57 +29,7 @@ export async function mount(root, ctx) {
   // The data shape changed with the 43-section path. The versioned URL keeps
   // a browser from reusing the older 19-unit JSON from its HTTP cache.
   const DATA_URL = "modules/foundation/data/questions.json?v=grammar-200q-v1";
-  const PREPARATION_PATHS = {
-    "01-sentence-structure": "data/preparation-01-sentence-structure.md",
-    "02-tense": "data/preparation-02-tense.md",
-    "03-sequence-speech": "data/preparation-03-sequence-speech.md",
-    "04-voice": "data/preparation-04-voice.md",
-    "05-modality": "data/preparation-05-modality.md",
-    "06-subjunctive": "data/preparation-06-subjunctive.md",
-    "07-infinitive": "data/preparation-07-infinitive.md",
-    "08-gerund": "data/preparation-08-gerund.md",
-    "09-participle": "data/preparation-09-participle.md",
-    "10-relatives": "data/preparation-10-relatives.md",
-    "11-comparison": "data/preparation-11-comparison.md",
-    "12-conjunctions-basic": "data/preparation-12-conjunctions-basic.md",
-    "12-conjunctions": "data/preparation-12-conjunctions.md",
-    "13-prepositions": "data/preparation-13-prepositions.md",
-    "14-pronouns-determiners": "data/preparation-14-pronouns-determiners.md",
-    "15-nouns-articles": "data/preparation-15-nouns-articles.md",
-    "16-adjectives-adverbs": "data/preparation-16-adjectives-adverbs.md",
-    "17-questions-word-order": "data/preparation-17-questions-word-order.md",
-    "18-negation-emphasis-inversion": "data/preparation-18-negation-emphasis-inversion.md",
-    "19-agreement": "data/preparation-19-agreement.md",
-    "02-verb-frames": "data/preparation-02-verb-frames.md",
-    "04-articles-quantity": "data/preparation-04-articles-quantity.md",
-    "10-tense-aspect": "data/preparation-10-tense-aspect.md",
-    "13-modals-advanced": "data/preparation-13-modals-advanced.md",
-    "18-infinitive-advanced": "data/preparation-18-infinitive-advanced.md",
-    "37-bare-infinitive": "data/preparation-37-bare-infinitive.md",
-    "38-verb-complements": "data/preparation-38-verb-complements.md",
-    "21-participial-construction": "data/preparation-21-participial-construction.md",
-    "22-passive-advanced": "data/preparation-22-passive-advanced.md",
-    "24-conjunctions-noun": "data/preparation-24-conjunctions-noun.md",
-    "25-indirect-questions-tags": "data/preparation-25-indirect-questions-tags.md",
-    "27-relatives-advanced": "data/preparation-27-relatives-advanced.md",
-    "39-relative-adverbs": "data/preparation-39-relative-adverbs.md",
-    "28-comparison-advanced": "data/preparation-28-comparison-advanced.md",
-    "29-agreement-advanced": "data/preparation-29-agreement-advanced.md",
-    "36-there-construction": "data/preparation-36-there-construction.md",
-    "30-negation-ellipsis": "data/preparation-30-negation-ellipsis.md",
-    "31-emphasis-inversion": "data/preparation-31-emphasis-inversion.md",
-    "34-subjunctive-advanced": "data/preparation-34-subjunctive-advanced.md",
-    "35-special-structures-usage": "data/preparation-35-special-structures-usage.md",
-    "tense-reference": "data/preparation-tense-reference.md",
-    "tense-progressive-future": "data/preparation-tense-progressive-future.md",
-    "tense-present-perfect": "data/preparation-tense-present-perfect.md",
-    "tense-perfect-clauses": "data/preparation-tense-perfect-clauses.md",
-    "mood-modal-basic": "data/preparation-mood-modal-basic.md",
-    "mood-modal-advanced": "data/preparation-mood-modal-advanced.md",
-    "mood-subjunctive-basic": "data/preparation-mood-subjunctive-basic.md",
-    "mood-subjunctive-conditions": "data/preparation-mood-subjunctive-conditions.md",
-    "mood-wish-proposal": "data/preparation-mood-wish-proposal.md",
-  };
+  const prepPath = (lesson) => `data/prep-${lesson.id}.md`;
   const STAGE_ORDER = {
     "基礎確認": 0,
     "識別・使い分け": 1,
@@ -1144,7 +1094,7 @@ export async function mount(root, ctx) {
             "前のセクションを終えると開きます"
           ));
         } else {
-          if (lesson.preparationUnit) {
+          {
             actionList.appendChild(el(
               "button",
               {
@@ -1598,8 +1548,7 @@ export async function mount(root, ctx) {
   }
 
   function renderPreparation(lesson) {
-    const path = PREPARATION_PATHS[lesson.preparationUnit];
-    if (!path) return;
+    const path = prepPath(lesson);
     stopPreparationTracking();
     state = null;
     app.classList.remove("is-comparison");
@@ -1644,7 +1593,6 @@ export async function mount(root, ctx) {
         recordLearningEvent("preparation_viewed", {
           setId: SELECTABLE_SET_ID,
           lessonId: lesson.id,
-          preparationUnit: lesson.preparationUnit,
         });
         let numberedIndex = 0;
         parsed.posts.forEach(function (post, postIndex) {

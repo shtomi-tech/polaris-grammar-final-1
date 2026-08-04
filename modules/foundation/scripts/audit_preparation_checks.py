@@ -44,8 +44,8 @@ def main() -> int:
     total_headings = 0
 
     for lesson in mapped_lessons(data):
-        unit = lesson["preparationUnit"]
-        path = PREP_DIR / f"preparation-{unit}.md"
+        unit = lesson["id"]
+        path = PREP_DIR / f"prep-{unit}.md"
         if not path.exists():
             errors.append(f"MISSING {path}")
             continue

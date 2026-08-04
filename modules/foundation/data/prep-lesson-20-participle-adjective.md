@@ -32,11 +32,11 @@ a broken window
 分詞が名詞を説明していれば、時制を作るのではなく形容詞の働きです。`living`は現役・生きている状態、`broken`は壊された状態を表します。
 
 :::check check-09-participle-02
-question: 次の文の空所に入る語は? I was deeply ( ) by her speech.
-choice: B|moved
+question: 次の文の空所に入る語は? The ( ) movie made everyone cry.
 choice: A|moving
-answer: B
-explanation: 私は「感動させられた」側なので、受動関係を表す過去分詞 moved を使います。
+choice: B|moved
+answer: A
+explanation: moving は movie の前に置かれ、名詞を直接説明する限定用法です。映画が人を泣かせる側なので能動関係となり、現在分詞 moving を使います。moved は「感動させられた・動かされた」という受動関係で、人などがその感情を受ける場合に使います。文全体は「その感動的な映画は皆を泣かせた」という意味です。
 :::
 
 
@@ -70,11 +70,11 @@ the language spoken here
 `letter`は書く側ではなく書かれる側、`language`は話す側ではなく話される側です。過去分詞を見たら、名詞が動作を受ける関係かを確認します。
 
 :::check check-09-participle-04
-question: 次の文の空所に入る語は? At that time I didn't hear my name ( ).
-choice: B|called
-choice: A|call
-answer: B
-explanation: 名前は「呼ぶ」側ではなく「呼ばれる」側なので、過去分詞を置きます。hear + O + p.p. の hear my name called は「自分の名前が呼ばれるのを聞く」です。
+question: 次の文の空所に入る語は? The letter ( ) by Mary was sent yesterday.
+choice: A|written
+choice: B|writing
+answer: A
+explanation: written by Mary は名詞 the letter の後ろに置かれ、その名詞を説明する過去分詞句です。手紙は「書く」側ではなく「書かれる」側なので written を使います。これは hear + O + p.p. のように動詞の後ろで目的語を説明する補語ではなく、the letter を限定する名詞修飾です。文全体は「メアリーによって書かれた手紙は昨日送られた」という意味です。
 :::
 
 
@@ -113,7 +113,7 @@ question: 次の文の空所に入る語は? I often saw John ( ) along the stre
 choice: B|walking
 choice: A|to walk
 answer: B
-explanation: see + O + -ing は「Oが~しているところを見る」です。saw John walking で、ジョンが歩いている場面を見たことを表します。
+explanation: 正答は walking です。John は walking の意味上の主語で、see + O + -ing は「Oが〜しているところを見る」という形です。saw John walking は「私はジョンが通りを歩いているところをよく見かけた」という意味で、動作の一場面を捉えています。to walk はこの能動の see + O の形には置けません。なお、動作全体を見たことを表すなら see + O + 原形（I saw John walk across the street）と区別します。
 :::
 
 

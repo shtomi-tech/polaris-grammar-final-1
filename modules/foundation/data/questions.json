@@ -98,50 +98,42 @@
           {
             "id": "lesson-01-sentence-core",
             "title": "文の骨格・5文型",
-            "count": 9,
-            "preparationUnit": "01-sentence-structure"
+            "count": 9
           },
           {
             "id": "lesson-02-verb-frames",
             "title": "動詞の型・基本語法",
-            "count": 9,
-            "preparationUnit": "02-verb-frames"
+            "count": 9
           },
           {
             "id": "lesson-03-nouns-count",
             "title": "名詞・可算／不可算・複数",
-            "count": 7,
-            "preparationUnit": "15-nouns-articles"
+            "count": 7
           },
           {
             "id": "lesson-04-articles-quantity",
             "title": "冠詞・数量詞",
-            "count": 11,
-            "preparationUnit": "04-articles-quantity"
+            "count": 11
           },
           {
             "id": "lesson-05-pronouns-determiners",
             "title": "代名詞・限定詞",
-            "count": 17,
-            "preparationUnit": "14-pronouns-determiners"
+            "count": 17
           },
           {
             "id": "lesson-06-modifiers",
             "title": "形容詞・副詞・修飾",
-            "count": 19,
-            "preparationUnit": "16-adjectives-adverbs"
+            "count": 19
           },
           {
             "id": "lesson-07-prepositions",
             "title": "前置詞",
-            "count": 24,
-            "preparationUnit": "13-prepositions"
+            "count": 24
           },
           {
             "id": "lesson-08-conjunctions-basic",
             "title": "接続詞の基本",
-            "count": 6,
-            "preparationUnit": "12-conjunctions-basic"
+            "count": 6
           }
         ]
       },
@@ -152,26 +144,22 @@
           {
             "id": "lesson-tense-reference",
             "title": "基準時と単純形",
-            "count": 7,
-            "preparationUnit": "tense-reference"
+            "count": 7
           },
           {
             "id": "lesson-tense-progressive-future",
             "title": "進行形と未来の予定",
-            "count": 10,
-            "preparationUnit": "tense-progressive-future"
+            "count": 10
           },
           {
             "id": "lesson-tense-present-perfect",
             "title": "現在完了の用法",
-            "count": 12,
-            "preparationUnit": "tense-present-perfect"
+            "count": 12
           },
           {
             "id": "lesson-tense-perfect-clauses",
             "title": "完了形と節の時間関係",
-            "count": 16,
-            "preparationUnit": "tense-perfect-clauses"
+            "count": 16
           }
         ]
       },
@@ -182,32 +170,27 @@
           {
             "id": "lesson-mood-modal-basic",
             "title": "助動詞と基本的な態度",
-            "count": 15,
-            "preparationUnit": "mood-modal-basic"
+            "count": 15
           },
           {
             "id": "lesson-mood-modal-advanced",
             "title": "推量・意志・義務の使い分け",
-            "count": 19,
-            "preparationUnit": "mood-modal-advanced"
+            "count": 19
           },
           {
             "id": "lesson-mood-subjunctive-basic",
             "title": "仮定法の基本",
-            "count": 9,
-            "preparationUnit": "mood-subjunctive-basic"
+            "count": 9
           },
           {
             "id": "lesson-mood-subjunctive-conditions",
             "title": "仮定法の条件・倒置",
-            "count": 16,
-            "preparationUnit": "mood-subjunctive-conditions"
+            "count": 16
           },
           {
             "id": "lesson-mood-wish-proposal",
             "title": "願望・類似・提案・命令",
-            "count": 13,
-            "preparationUnit": "mood-wish-proposal"
+            "count": 13
           }
         ]
       },
@@ -218,26 +201,22 @@
           {
             "id": "lesson-11-agreement-basic",
             "title": "主語と動詞の一致・基本",
-            "count": 9,
-            "preparationUnit": "19-agreement"
+            "count": 9
           },
           {
             "id": "lesson-36-there-construction",
             "title": "There構文（存在・一致）",
-            "count": 6,
-            "preparationUnit": "36-there-construction"
+            "count": 6
           },
           {
             "id": "lesson-14-direct-questions",
             "title": "疑問文・語順",
-            "count": 11,
-            "preparationUnit": "17-questions-word-order"
+            "count": 11
           },
           {
             "id": "lesson-15-negation-basic",
             "title": "否定文",
-            "count": 8,
-            "preparationUnit": "18-negation-emphasis-inversion"
+            "count": 8
           }
         ]
       },
@@ -248,14 +227,12 @@
           {
             "id": "lesson-16-passive-basic",
             "title": "受動態の基本",
-            "count": 13,
-            "preparationUnit": "04-voice"
+            "count": 13
           },
           {
             "id": "lesson-22-passive-advanced",
             "title": "受動態の応用",
-            "count": 18,
-            "preparationUnit": "22-passive-advanced"
+            "count": 18
           }
         ]
       },
@@ -266,44 +243,37 @@
           {
             "id": "lesson-17-infinitive-basic",
             "title": "不定詞の基本3用法",
-            "count": 11,
-            "preparationUnit": "07-infinitive"
+            "count": 11
           },
           {
             "id": "lesson-18-infinitive-advanced",
             "title": "不定詞の応用",
-            "count": 27,
-            "preparationUnit": "18-infinitive-advanced"
+            "count": 27
           },
           {
             "id": "lesson-37-bare-infinitive",
             "title": "原形不定詞",
-            "count": 8,
-            "preparationUnit": "37-bare-infinitive"
+            "count": 8
           },
           {
             "id": "lesson-19-gerund",
             "title": "動名詞の基本",
-            "count": 18,
-            "preparationUnit": "08-gerund"
+            "count": 18
           },
           {
             "id": "lesson-38-verb-complements",
             "title": "目的語に来る不定詞・動名詞",
-            "count": 21,
-            "preparationUnit": "38-verb-complements"
+            "count": 21
           },
           {
             "id": "lesson-20-participle-adjective",
             "title": "分詞の形容詞用法",
-            "count": 16,
-            "preparationUnit": "09-participle"
+            "count": 16
           },
           {
             "id": "lesson-21-participial-construction",
             "title": "分詞構文",
-            "count": 22,
-            "preparationUnit": "21-participial-construction"
+            "count": 22
           }
         ]
       },
@@ -314,38 +284,32 @@
           {
             "id": "lesson-23-conjunctions-adverb",
             "title": "従属接続詞・副詞節",
-            "count": 25,
-            "preparationUnit": "12-conjunctions"
+            "count": 25
           },
           {
             "id": "lesson-24-conjunctions-noun",
             "title": "名詞節・that／what／whether",
-            "count": 11,
-            "preparationUnit": "24-conjunctions-noun"
+            "count": 11
           },
           {
             "id": "lesson-25-indirect-questions-tags",
             "title": "間接疑問・付加疑問",
-            "count": 9,
-            "preparationUnit": "25-indirect-questions-tags"
+            "count": 9
           },
           {
             "id": "lesson-26-relatives-basic",
             "title": "関係代名詞の基本",
-            "count": 14,
-            "preparationUnit": "10-relatives"
+            "count": 14
           },
           {
             "id": "lesson-39-relative-adverbs",
             "title": "関係副詞の基本",
-            "count": 8,
-            "preparationUnit": "39-relative-adverbs"
+            "count": 8
           },
           {
             "id": "lesson-27-relatives-advanced",
             "title": "関係詞の応用",
-            "count": 10,
-            "preparationUnit": "27-relatives-advanced"
+            "count": 10
           }
         ]
       },
@@ -356,44 +320,37 @@
           {
             "id": "lesson-08-comparison-basic",
             "title": "比較の基本",
-            "count": 18,
-            "preparationUnit": "11-comparison"
+            "count": 18
           },
           {
             "id": "lesson-28-comparison-advanced",
             "title": "比較構文・数量比較",
-            "count": 18,
-            "preparationUnit": "28-comparison-advanced"
+            "count": 18
           },
           {
             "id": "lesson-29-agreement-advanced",
             "title": "複合主語・数量・相関接続の一致",
-            "count": 12,
-            "preparationUnit": "29-agreement-advanced"
+            "count": 12
           },
           {
             "id": "lesson-30-negation-ellipsis",
             "title": "部分否定・省略",
-            "count": 8,
-            "preparationUnit": "30-negation-ellipsis"
+            "count": 8
           },
           {
             "id": "lesson-31-emphasis-inversion",
             "title": "強調・倒置・否定の慣用",
-            "count": 12,
-            "preparationUnit": "31-emphasis-inversion"
+            "count": 12
           },
           {
             "id": "lesson-35-special-structures-usage",
             "title": "特殊な文の形・語法",
-            "count": 7,
-            "preparationUnit": "35-special-structures-usage"
+            "count": 7
           },
           {
             "id": "lesson-32-sequence-speech",
             "title": "時制の一致と話法",
-            "count": 7,
-            "preparationUnit": "03-sequence-speech"
+            "count": 7
           }
         ]
       }

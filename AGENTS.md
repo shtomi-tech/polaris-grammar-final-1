@@ -35,7 +35,7 @@
 | 分類 | 場所 | 扱い |
 | --- | --- | --- |
 | 正本 | `shared/flow.js`、`shared/identity.js`、`shared/store.js` | モジュール導線・生徒識別・進捗契約の実装正本 |
-| 正本 | `modules/foundation/data/questions.json`、`modules/foundation/data/preparation-*.md` | 基礎チェックの問題と予習資料。**ここが正本**。取り込み元だった `C:\Users\shtom\dev\grammar-200q` は削除済みで、再取り込み元は存在しない。カウント類は `scripts/sync-counts.js` が導出して書き戻すので手で編集しない |
+| 正本 | `modules/foundation/data/questions.json`、`modules/foundation/data/prep-lesson-*.md` | 基礎チェックの問題と予習資料。**ここが正本**。取り込み元だった `C:\Users\shtom\dev\grammar-200q` は削除済みで、再取り込み元は存在しない。カウント類は `scripts/sync-counts.js` が導出して書き戻すので手で編集しない |
 | 正本 | `modules/grammar/data/polaris_questions.json` | ポラリス問題データ |
 | 正本 | `modules/reading/data/manifest.json`、`modules/reading/data/*.json` | 英文解釈の教材選択と教材データ |
 | 仕様 | `DESIGN.md`、`supabase/schema.sql` | UIトークン・レイアウト方針、Supabaseスキーマ |

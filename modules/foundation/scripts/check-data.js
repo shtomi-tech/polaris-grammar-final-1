@@ -68,21 +68,10 @@ if (fatal.length) {
     }
   }
 
-  // 予習資料は preparationUnit から解決される。監査はファイル名規約、app.js はハードコードマップと
-  // 別々の方法で解決するため、片方だけ通ると監査が緑のまま画面が空になる。両方を見る。
-  const appSource = fs.readFileSync(path.join(root, "app.js"), "utf8");
-  const preparationMap = appSource.split("const PREPARATION_PATHS = {")[1]?.split("};")[0] ?? "";
+  // 予習資料のパスは lessonId から決まる（app.js の prepPath と同じ規則）
   for (const lesson of lessons) {
-    const unit = lesson.preparationUnit;
-    if (!unit) {
-      errors.push(`preparationUnitがありません: ${lesson.id}`);
-      continue;
-    }
-    if (!fs.existsSync(path.join(root, "data", `preparation-${unit}.md`))) {
-      errors.push(`予習資料のファイルがありません: ${lesson.id} / preparation-${unit}.md`);
-    }
-    if (!preparationMap.includes(`"${unit}":`)) {
-      errors.push(`app.jsのPREPARATION_PATHSに未登録: ${lesson.id} / ${unit}（予習資料が表示されません）`);
+    if (!fs.existsSync(path.join(root, "data", `prep-${lesson.id}.md`))) {
+      errors.push(`予習資料のファイルがありません: data/prep-${lesson.id}.md`);
     }
   }
 
