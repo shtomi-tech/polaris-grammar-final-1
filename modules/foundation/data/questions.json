@@ -253,19 +253,19 @@
       "id": "16-adjectives-adverbs",
       "setId": "english-grammar-200-merged",
       "title": "形容詞・副詞・修飾",
-      "count": 20
+      "count": 19
     },
     {
       "id": "01-sentence-structure",
       "setId": "english-grammar-200-merged",
       "title": "文の骨格・5文型",
-      "count": 39
+      "count": 32
     },
     {
       "id": "02-tense",
       "setId": "english-grammar-200-merged",
       "title": "時制・進行形・完了形",
-      "count": 40
+      "count": 45
     },
     {
       "id": "03-sequence-speech",
@@ -277,37 +277,37 @@
       "id": "04-voice",
       "setId": "english-grammar-200-merged",
       "title": "受動態",
-      "count": 28
+      "count": 31
     },
     {
       "id": "05-modality",
       "setId": "english-grammar-200-merged",
       "title": "助動詞",
-      "count": 31
+      "count": 34
     },
     {
       "id": "06-subjunctive",
       "setId": "english-grammar-200-merged",
       "title": "仮定法",
-      "count": 33
+      "count": 34
     },
     {
       "id": "07-infinitive",
       "setId": "english-grammar-200-merged",
       "title": "不定詞",
-      "count": 45
+      "count": 51
     },
     {
       "id": "08-gerund",
       "setId": "english-grammar-200-merged",
       "title": "動名詞",
-      "count": 28
+      "count": 32
     },
     {
       "id": "09-participle",
       "setId": "english-grammar-200-merged",
       "title": "分詞・分詞構文",
-      "count": 39
+      "count": 38
     },
     {
       "id": "10-relatives",
@@ -325,7 +325,7 @@
       "id": "12-conjunctions",
       "setId": "english-grammar-200-merged",
       "title": "接続詞・節",
-      "count": 45
+      "count": 41
     },
     {
       "id": "13-prepositions",
@@ -26503,7 +26503,7 @@
       "answerIndex": 2,
       "stage": "入試型総合",
       "difficulty": "発展",
-      "ruleRefs": "egp.usage-collocation.gerund-idioms",
+      "ruleRefs": "egp.modality.used-to",
       "explanation": [
         "used to + 原形 は「以前は~していた(今は違う)」という過去の状態・習慣を表します。thirty years ago という過去の時点のイングランドの状態を、現在との対比で述べているので used to be が適切です。"
       ],
@@ -26643,7 +26643,7 @@
       "answerIndex": 1,
       "stage": "入試型総合",
       "difficulty": "発展",
-      "ruleRefs": "egp.nonfinite.degree-result-infinitive-patterns, egp.nonfinite.participles-as-adjectives",
+      "ruleRefs": "egp.nonfinite.result-infinitive, egp.nonfinite.participles-as-adjectives",
       "explanation": [
         "woke up to find ... は「目が覚めてみると~だと分かった」という、動作の結果を表す to不定詞です。find の目的語 myself の後ろに、寝ている状態を表す現在分詞 lying を続けて find myself lying とします。"
       ],
@@ -26699,7 +26699,7 @@
       "answerIndex": 1,
       "stage": "入試型総合",
       "difficulty": "発展",
-      "ruleRefs": "egp.nonfinite.infinitive-semantic-subject",
+      "ruleRefs": "egp.nonfinite.infinitive-semantic-subject-of",
       "explanation": [
         "nice のように人の性質・態度を評価する形容詞では、It is + 形容詞 + of + 人 + to do の形で不定詞の意味上の主語を示します。会いに来てくれた you の性質を評価しているので、of you とします。"
       ],
