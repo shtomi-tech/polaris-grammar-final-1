@@ -1216,14 +1216,12 @@ export async function mount(root, ctx) {
     const container = document.createElement("div");
     container.innerHTML = fragments.join("");
     return Array.from(container.children).map(function (element) {
-      return element.outerHTML;
+      return {
+        html: element.outerHTML,
+        isCheck: element.classList.contains("prep-check-interactive"),
+        visibleLength: Array.from(element.textContent || "").length,
+      };
     });
-  }
-
-  function preparationVisibleLength(html) {
-    const container = document.createElement("div");
-    container.innerHTML = html;
-    return Array.from(container.textContent || "").length;
   }
 
   function splitPreparationPost(posts, heading, fragments, charLimit) {
@@ -1237,19 +1235,25 @@ export async function mount(root, ctx) {
     let currentBlocks = [];
     let currentLength = 0;
 
-    function closeChunk() {
+    function closeChunk(kind) {
       if (!currentBlocks.length) return;
-      posts.push({ heading: heading, html: currentBlocks.join("") });
+      posts.push({ heading: heading, html: currentBlocks.join(""), kind: kind || "content" });
       currentBlocks = [];
       currentLength = 0;
     }
 
     blocks.forEach(function (block) {
-      const blockLength = preparationVisibleLength(block);
+      if (block.isCheck) {
+        closeChunk();
+        currentBlocks.push(block.html);
+        closeChunk("check");
+        return;
+      }
+      const blockLength = block.visibleLength;
       if (currentBlocks.length && currentLength + blockLength > charLimit) {
         closeChunk();
       }
-      currentBlocks.push(block);
+      currentBlocks.push(block.html);
       currentLength += blockLength;
     });
     closeChunk();
@@ -1517,10 +1521,11 @@ export async function mount(root, ctx) {
     );
   }
 
-  function preparationPostMeta(heading, numberedIndex, totalNumbered) {
-    const numbered = /^(\d+)\./.exec(heading);
+  function preparationPostMeta(post, numberedIndex, totalNumbered) {
+    if (post.kind === "check") return "10秒確認";
+    const numbered = /^(\d+)\./.exec(post.heading);
     if (numbered) return numberedIndex + " / " + totalNumbered;
-    if (heading === "教授からの課題") return "課題";
+    if (post.heading === "教授からの課題") return "課題";
     return "予習スレッド";
   }
 
@@ -1532,6 +1537,7 @@ export async function mount(root, ctx) {
   }
 
   function preparationSegmentLabel(post, index) {
+    if (post.kind === "check") return "10秒確認：" + post.heading;
     if (post.heading === "教授からの課題") return "課題";
     if (/^\d+\./.test(post.heading)) return post.heading;
     return index === 0 ? "導入" : "確認";
@@ -1627,7 +1633,7 @@ export async function mount(root, ctx) {
         const charLimit = PREPARATION_POST_CHAR_LIMIT;
         const parsed = parsePreparationMarkdown(markdown, charLimit);
         const totalNumbered = parsed.posts.filter(function (post) {
-          return /^\d+\./.test(post.heading);
+          return post.kind !== "check" && /^\d+\./.test(post.heading);
         }).length;
         if (!root.contains(thread)) return;
         thread.innerHTML = "";
@@ -1642,7 +1648,7 @@ export async function mount(root, ctx) {
         });
         let numberedIndex = 0;
         parsed.posts.forEach(function (post, postIndex) {
-          if (/^\d+\./.test(post.heading)) numberedIndex += 1;
+          if (post.kind !== "check" && /^\d+\./.test(post.heading)) numberedIndex += 1;
           thread.appendChild(el("article", {
             class: "thread-post",
             "data-post-index": String(postIndex),
@@ -1656,7 +1662,7 @@ export async function mount(root, ctx) {
               el("div", { class: "thread-post-header" }, [
                 el("span", { class: "thread-post-name" }, "ハリネズミ教授"),
                 el("span", { class: "thread-post-dot", "aria-hidden": "true" }, "・"),
-                el("span", { class: "thread-post-meta" }, preparationPostMeta(post.heading, numberedIndex, totalNumbered)),
+                el("span", { class: "thread-post-meta" }, preparationPostMeta(post, numberedIndex, totalNumbered)),
               ]),
               el("div", { class: "thread-post-content", html: post.html }),
             ]),
