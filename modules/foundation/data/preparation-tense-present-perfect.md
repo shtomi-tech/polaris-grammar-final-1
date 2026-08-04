@@ -1,4 +1,4 @@
-# 現在完了と継続
+# 現在完了の用法
 
 ![博士帽をかぶったハリネズミ教授](static/hedgehog-professor-original.png)
 
@@ -128,25 +128,6 @@ choice: A|saw
 choice: B|have seen
 answer: A
 explanation: 過去の特定時点を示す語(yesterday)を伴う出来事は、現在完了ではなく過去形で表す。
-:::
-
-
-## 8. lie（横になる）・lay（置く）・lie（嘘をつく）を区別する
-
-:::board
-lie - lay - lain - lying: 横になる（自動詞、目的語なし）
-lay - laid - laid - laying: ～を置く（他動詞、目的語が必要）
-lie - lied - lied - lying: 嘘をつく（自動詞、目的語なし）
-:::
-
-同じ`lie`でも、意味によって活用形が違います。「横になる」の`lie`は自動詞で`lie - lay - lain - lying`、「～を置く」の`lay`は他動詞で`lay - laid - laid - laying`、「嘘をつく」の`lie`は自動詞で`lie - lied - lied - lying`と活用します。`-ing`形はどれも語尾が`-ying`ですが、過去形・過去分詞（`lay`/`lain`/`lied`）で見分けます。目的語があるかどうかと、文の意味（体を横たえる／置く／嘘をつく）を確認します。
-
-:::check check-tense-present-perfect-08
-question: 次の文の空所に入る語は? I've been feeling sick, so I've been ( ) in bed all day.
-choice: A|lying
-choice: B|lied
-answer: A
-explanation: 「(体調が悪くて)横になっている」という意味の lie(自動詞)の -ing 形は lying です。lied は「嘘をつく」の lie の過去形・過去分詞で、ここでは意味が合いません。
 :::
 
 

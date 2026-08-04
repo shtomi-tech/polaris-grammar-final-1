@@ -119,7 +119,26 @@ explanation: discuss は他動詞で、話し合う内容を前置詞なしで�
 :::
 
 
-## 7. 目的語の並び方をまとまりで見る
+## 7. lie（横になる）・lay（置く）・lie（嘘をつく）を区別する
+
+:::board
+lie - lay - lain - lying: 横になる（自動詞、目的語なし）
+lay - laid - laid - laying: ～を置く（他動詞、目的語が必要）
+lie - lied - lied - lying: 嘘をつく（自動詞、目的語なし）
+:::
+
+同じ`lie`でも、意味によって活用形が違います。「横になる」の`lie`は自動詞で`lie - lay - lain - lying`、「～を置く」の`lay`は他動詞で`lay - laid - laid - laying`、「嘘をつく」の`lie`は自動詞で`lie - lied - lied - lying`と活用します。`-ing`形はどれも語尾が`-ying`ですが、過去形・過去分詞（`lay`/`lain`/`lied`）で見分けます。目的語があるかどうかと、文の意味（体を横たえる／置く／嘘をつく）を確認します。
+
+:::check check-tense-present-perfect-08
+question: 次の文の空所に入る語は? I've been feeling sick, so I've been ( ) in bed all day.
+choice: A|lying
+choice: B|lied
+answer: A
+explanation: 「(体調が悪くて)横になっている」という意味の lie(自動詞)の -ing 形は lying です。lied は「嘘をつく」の lie の過去形・過去分詞で、ここでは意味が合いません。
+:::
+
+
+## 8. 目的語の並び方をまとまりで見る
 
 :::board
 take + 人 + 時間
@@ -139,7 +158,7 @@ explanation: It takes + 人 + 時間 + to do で「人が~するのに時間が�
 :::
 
 
-## 8. 受動態になっても型を残す
+## 9. 受動態になっても型を残す
 
 :::board
 raise + 人・動物
@@ -157,7 +176,7 @@ explanation: born and raised は「生まれ育った」という定型的な組
 :::
 
 
-## 9. 入試型は決まった骨格を崩さない
+## 10. 入試型は決まった骨格を崩さない
 
 :::board
 not so much A as B
