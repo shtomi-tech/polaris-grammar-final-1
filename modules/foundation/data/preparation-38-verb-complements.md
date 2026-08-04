@@ -106,11 +106,11 @@ regret to do: 残念ながら〜する
 `regret`も形で意味が変わる代表例です。動詞ごとの型を確認し、訳だけでなく文全体の時点と発話の目的を見ます。
 
 :::check check-38-verb-complements-06
-question: 次の文の空所に入る語は? The bus stopped ( ) passengers at the corner.
-choice: B|to pick up
-choice: A|pick up
-answer: B
-explanation: stop to do は「〜するために立ち止まる」の意味です。
+question: 次の文の空所に入る語は? I regret ( ) so much time on that project.
+choice: A|wasting
+choice: B|to waste
+answer: A
+explanation: regret doing は「〜したことを後悔する」なので、すでに時間を使ったことを表す wasting が適切です。regret to do は「残念ながら〜する」の意味です。
 :::
 
 
