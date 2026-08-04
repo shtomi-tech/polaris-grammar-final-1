@@ -11,13 +11,13 @@ index.html            唯一の入口
 shared/               アプリ共通の土台
   identity.js         生徒識別（唯一の正）
   store.js            学習進捗（生徒1人＝1レコード）
-  flow.js             モジュール登録と横断ルール（解放条件・次にやること）
+  flow.js             モジュール登録と横断導線（現在地・次にやること）
   shell.js            ヘッダー・ステッパー・生徒切替・フッター
   router.js           #/foundation, #/grammar, #/reading の切り替え
   styles.css          デザイントークンの唯一の定義
   vendor/harness/     生徒別クラウド同期（他プロジェクトと共有。編集しない）
 modules/
-  foundation/         基礎チェック（200問・5段階）
+  foundation/         基礎チェック（grammar-200q統合セット557問・8章43セクション）
   grammar/            英文法演習（ポラリス）
   reading/            英文解釈
 scripts/write-config.mjs  デプロイ時に config.json を生成
@@ -29,9 +29,9 @@ supabase/schema.sql       共通スキーマ（app_students / app_progress）
 ## 学習の流れ
 
 推奨順は **基礎チェック → 英文法演習 → 英文解釈** です。
-英文法演習は基礎チェックの5段階完了で解放されます。英文解釈は先に着手してもかまいません。
+推奨順は保ちますが、英文法演習のStep 1 UNITセクションは基礎チェック完了前でも選択・開始できます。Step 2・Step 3は英文法演習内の達成条件で順に開きます。英文解釈も先に着手してかまいません。
 
-この解放条件と「次にやること」の判断は `shared/flow.js` の1箇所にあります。
+推奨導線と「次にやること」の判断は `shared/flow.js` の1箇所にあります。
 
 ## 起動・確認
 
@@ -50,3 +50,7 @@ npx --yes serve -l 5908 .
   Supabaseの共通スキーマ `app_progress` に `app = "english-grammar-trainer"` の1行として保存します。
 
 生徒の登録とQR発行は講師用ポータル（ローカル）で行います。
+
+## 問題作成
+
+問題を追加・修正するときは、[英文法トレーナーの問題作成原則](docs/QUESTION_AUTHORING_PRINCIPLES.md) と、対象分野の active 原則カードを参照します。
