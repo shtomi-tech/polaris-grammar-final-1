@@ -126,7 +126,7 @@ something to write with
 
 名詞と不定詞の関係に前置詞が必要なら、文末に残します。`write with`は道具、`do with`は関係を表すため、`with`を落としません。
 
-`look forward to` の `to` は不定詞ではなく前置詞です。したがって、後ろは名詞相当の動名詞にして `look forward to seeing the results` とします。
+`look forward to` の `to` は不定詞ではなく前置詞です。したがって、後ろは名詞相当の動名詞にして `look forward to seeing the results` とします。`with a view to doing`(〜する目的で)の `to` も同じ前置詞で、`with a view to getting information` のように後ろは動名詞にします。
 
 :::check check-18-infinitive-advanced-07
 question: 次の文の空所に入る語は? Fortunately, Lisa has many grown-ups ( ).
