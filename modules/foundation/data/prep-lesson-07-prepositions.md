@@ -107,9 +107,11 @@ pleased with
 blame A for B
 effect on A
 far from
+capable of
+responsible for
 :::
 
-`different from`、`pleased with`、`blame Bob for the accident`、`have an effect on`、`far from`のように、前置詞は前の語との結びつきで決まります。`far from being perfect` は「完璧とはほど遠い」というまとまりです。意味だけで選ばないようにします。
+`different from`、`pleased with`、`blame Bob for the accident`、`have an effect on`、`far from`、`capable of doing`、`responsible for the damage`のように、前置詞は前の語との結びつきで決まります。`far from being perfect` は「完璧とはほど遠い」というまとまりです。意味だけで選ばないようにします。
 
 :::check check-13-prepositions-06
 question: 次の文の空所に入る語は? The climate here is different ( ) that of my hometown.
@@ -157,6 +159,29 @@ choice: B|between
 choice: A|among
 answer: B
 explanation: between は二者、または明確に区別されたものの間に使います。the two governments と数が二つに限定されています。
+:::
+
+
+## 9. 前置詞を使った熟語はまとまりで覚える
+
+:::board
+on purpose: わざと
+by all means: ぜひとも
+in the long run: 長い目で見れば
+out of reach: 手の届かない所に
+on good/bad terms: 仲が良い/悪い
+make room for: 〜のために場所を空ける
+on sale: 販売されて
+:::
+
+これらは前置詞の意味を積み上げても出てこない、まとまりとして覚える熟語です。`on purpose`は「意図的に」、`by all means`は「ぜひとも・どんな手段を使ってでも」、`in the long run`は「長い目で見れば・結局は」、`out of reach`は「(手や力の及ぶ範囲の)外に」、`on good/bad terms`は「(人と)仲が良い/悪い」、`make room for`は「〜のために場所を空ける」、`on sale`は「(安売りとは限らず)販売されて」を表します。
+
+:::check check-13-prepositions-09
+question: 次の文の空所に入る語は? The boys didn't break the window on ( ).
+choice: A|purpose
+choice: B|accident
+answer: A
+explanation: on purpose で「わざと・故意に」という定型の熟語になります。accident は by accident(偶然に)の形で使い、on accident とはしません。
 :::
 
 
