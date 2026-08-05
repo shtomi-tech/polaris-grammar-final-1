@@ -33,11 +33,11 @@ hesitate + to do
 `decide to`、`plan to`、`hope to`、`hesitate to`のように、動詞ごとに後ろの形が決まります。`to`の後ろは原形です。
 
 :::check check-38-verb-complements-02
-question: 次の文の空所に入る語は? I am planning ( ) Kyoto next spring.
-choice: B|to visit
-choice: A|to visiting
+question: 次の文の空所に入る語は? Yuta decided ( ) of his old toys.
+choice: B|to dispose
+choice: A|disposing
 answer: B
-explanation: plan は不定詞を目的語に取る動詞であり、to の後ろは原形動詞になる。
+explanation: decide は不定詞を目的語に取る動詞であり、to の後ろは原形動詞になる。
 :::
 
 
@@ -51,11 +51,11 @@ give up / put off + doing
 `enjoy reading`や`avoid talking`では、動名詞全体が動詞の目的語です。句動詞でも、`give up drinking`や`put off making`のように`-ing`を続けます。
 
 :::check check-38-verb-complements-03
-question: 次の文の空所に入る語は? They've put ( ) making their decision for another week.
-choice: A|off
-choice: B|away
+question: 次の文の空所に入る語は? Adam is considering ( ) his family to Hawaii this summer.
+choice: A|taking
+choice: B|to take
 answer: A
-explanation: put off は「延期する」という句動詞です。後ろに making を置き、put off making their decision とします。
+explanation: consider は動名詞を目的語に取る動詞であり、taking が適切です。
 :::
 
 
@@ -70,11 +70,11 @@ forget doing / forget to do
 両方の形を取れる動詞では、形だけでなく行為の時点を確認します。過去の経験か、これから行うことかを文脈から判断します。
 
 :::check check-38-verb-complements-04
-question: 次の文の空所に入る語は? I'll never forget ( ) Kofu when I was young.
-choice: B|visiting
-choice: A|to visit
+question: 次の文の空所に入る語は? I'll never forget ( ) across Kate at Heathrow Airport.
+choice: B|coming
+choice: A|to come
 answer: B
-explanation: when I was young は過去に甲府を訪れた経験を示します。forget doing は「したことを忘れる」なので、forget visiting が適切です。
+explanation: ヒースロー空港でケイトに偶然会ったという過去の経験を表すので、forget doing の forget coming が適切です。
 :::
 
 
@@ -144,11 +144,11 @@ Would you mind doing ...?: 依頼の丁寧な言い方
 `mind`は動名詞だけを目的語に取ります。`Would you mind opening the window?`のように、依頼を遠回しに尋ねる形でもよく使われます。`want`のように置き換えられる動詞ではないので、型を別に覚えます。
 
 :::check check-38-verb-complements-08
-question: 次の文の空所に入る語は? Would you mind ( ) the door?
-choice: A|closing
-choice: B|to close
+question: 次の文の空所に入る語は? A: Would you mind ( ) me? B: Of course not.
+choice: A|helping
+choice: B|to help
 answer: A
-explanation: mind は動名詞だけを目的語に取るので closing が適切です。
+explanation: mind は動名詞だけを目的語に取るので helping が適切です。
 :::
 
 

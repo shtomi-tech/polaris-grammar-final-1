@@ -26,18 +26,18 @@ explanation: for young people to get で、「若者が十分な睡眠を取る�
 
 :::board
 to have + 過去分詞
-seems to have read
+is believed to have saved
 not to have taken
 :::
 
 `She seems to have read the message.`では、読む動作が「そう見える」時点より前です。否定なら`not to have taken`のように、`not`を不定詞の前に置きます。
 
 :::check check-18-infinitive-advanced-02
-question: 次の文の空所に入る語は? She seems ( ) the message already.
-choice: B|to have read
-choice: A|read
+question: 次の文の空所に入る語は? The surgeon is believed ( ) hundreds of patients.
+choice: B|to have saved
+choice: A|to save
 answer: B
-explanation: seems の時点より前に読んだことを表すため、完了不定詞 to have read を使います。
+explanation: is believed という現在の判断より前に救った患者たちがいることを表すため、完了不定詞 to have saved を使います。
 :::
 
 
@@ -90,11 +90,11 @@ too + 形容詞 + to do
 `decided not to share`は不定詞の否定です。`too heavy to lift`は重すぎてできない、`light enough to carry`はするのに十分軽い、という程度と結果を表します。
 
 :::check check-18-infinitive-advanced-05
-question: 次の文の空所に入る語は? He decided ( ) the information with anyone.
-choice: A|not to share
-choice: B|to not shared
-answer: A
-explanation: 不定詞を否定する基本形は not to + 動詞の原形 です。
+question: 次の文の空所に入る語は? Lisa thinks it important ( ) up halfway.
+choice: B|not to give
+choice: A|not give
+answer: B
+explanation: 不定詞を否定する基本形は not to + 動詞の原形 です。thinks it important の it は形式目的語で、not to give up halfway が本当の目的語(真目的語)です。
 :::
 
 
@@ -120,7 +120,7 @@ explanation: only to find は、前の行動の結果として予想外の事実
 ## 7. 名詞の後ろの前置詞を残す
 
 :::board
-nothing to do with this matter
+grown-ups to rely on
 something to write with
 :::
 
@@ -129,11 +129,11 @@ something to write with
 `look forward to` の `to` は不定詞ではなく前置詞です。したがって、後ろは名詞相当の動名詞にして `look forward to seeing the results` とします。
 
 :::check check-18-infinitive-advanced-07
-question: 次の文の空所に入る語は? I'm sorry I don't know. I have nothing ( ) with this matter.
-choice: A|to do
-choice: B|to have done
+question: 次の文の空所に入る語は? Fortunately, Lisa has many grown-ups ( ).
+choice: A|to rely on
+choice: B|rely on
 answer: A
-explanation: nothing to do with ... は「...と関係がない」という定型表現です。to の後ろは原形 do で、with まで含めてまとまりを作ります。
+explanation: grown-ups to rely on は「頼れる大人たち」という形容詞的用法です。名詞 grown-ups の後ろに前置詞 on を残した不定詞を続けます。
 :::
 
 
@@ -183,11 +183,11 @@ It is important for 人 to do（forとの違い）
 `kind`・`nice`・`careless`のように、人の性質や態度を評価する形容詞では、`It is + 形容詞 + of + 人 + to do`の形で不定詞の意味上の主語を示します。`important`のように人の性質を表さない形容詞では、`for + 人 + to do`を使います。前置詞`of`と`for`は形容詞の種類で使い分けます。
 
 :::check check-18-infinitive-advanced-10
-question: 次の文の空所に入る語は? It was very kind ( ) you to help me with my luggage.
-choice: A|of
+question: 次の文の空所に入る語は? It is important ( ) us to always get new information.
 choice: B|for
-answer: A
-explanation: kind は人の性質・態度を評価する形容詞なので、It is + 形容詞 + of + 人 + to do の形を使います。important のように人の性質を表さない形容詞では for を使います。
+choice: A|of
+answer: B
+explanation: important は人の性質・態度を表さない形容詞なので、for + 人 + to do の形を使います。kind のように人の性質・態度を評価する形容詞では of を使います。
 :::
 
 

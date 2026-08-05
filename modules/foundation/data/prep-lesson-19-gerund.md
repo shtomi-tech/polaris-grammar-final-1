@@ -46,18 +46,18 @@ explanation: without は前置詞なので、後ろには名詞相当の動名�
 
 :::board
 his changing the plan
-being scolded
+being treated fairly
 him changing the plan
 :::
 
-動名詞の動作主を明確にするなら所有格、会話的な文脈では目的格も使われます。動作を受ける側なら`being + 過去分詞`。`him changing`と`being scolded`を関係で分けます。
+動名詞の動作主を明確にするなら所有格、会話的な文脈では目的格も使われます。動作を受ける側なら`being + 過去分詞`。`him changing`と`being treated`を関係で分けます。
 
 :::check check-08-gerund-04
-question: 次の文の空所に入る語は? I object to ( ) the plan without discussion.
-choice: B|him changing
-choice: A|he changing
+question: 次の文の空所に入る語は? Jennifer insisted on her son ( ) fairly.
+choice: B|being treated
+choice: A|treating
 answer: B
-explanation: 前置詞 to の後ろなので動名詞 changing を置き、その意味上の主語は目的格 him です。
+explanation: her son は treat(扱う)の動作を受ける側なので、動名詞も受動形の being treated にします。動名詞の意味上の主語 her son が「扱われる」側であることを確認します。
 :::
 
 
@@ -94,11 +94,11 @@ It is no use doing
 `cannot help laughing`は「笑わずにはいられない」、`worth visiting`は「訪れる価値がある」です。`have difficulty finding`や`It is no use arguing`も定型表現として確認します。`used to do`（以前は〜した）と`be used to doing`（〜に慣れている）は形と意味を分けます。
 
 :::check check-08-gerund-05
-question: 次の文の空所に入る語は? It took me a month, but I finally ( ) up early every morning.
-choice: A|got used to getting
-choice: B|got used to get
+question: 次の文の空所に入る語は? I can't get used to ( ) talking with his mouth full.
+choice: A|his
+choice: B|he
 answer: A
-explanation: get used to は「〜に慣れる」で、この to は前置詞なので後ろは動名詞です。used to + 原形(以前は〜していた)とは別の表現です。
+explanation: get used to の to は前置詞なので後ろは動名詞 talking です。その動名詞の意味上の主語は所有格 his で示します。used to + 原形(以前は〜していた)とは別の表現です。
 :::
 
 
@@ -130,11 +130,11 @@ not studying / not making mistakes
 動名詞を否定するときは`not + -ing`にします。`not doing your homework`は「宿題をしないこと」です。`not`は動名詞の前に置きます。
 
 :::check check-08-gerund-07
-question: 次の文の空所に入る語は? ( ) your homework is a bad habit.
-choice: A|Not doing
-choice: B|Not do
+question: 次の文の空所に入る語は? I can't stand ( ) Kate for a month.
+choice: A|not seeing
+choice: B|seeing not
 answer: A
-explanation: 動名詞を否定するときは not を -ing の前に置くため、Not doing your homework が適切です。「宿題をしないこと」を表します。
+explanation: 動名詞を否定するときは not を -ing の前に置くため、not seeing Kate が適切です。「ケイトに1か月会えないこと」を表します。
 :::
 
 

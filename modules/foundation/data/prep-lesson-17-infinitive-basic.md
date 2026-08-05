@@ -14,11 +14,11 @@ to + 名詞・動名詞 → 前置詞
 `I want to study.`の`to study`は不定詞、`I am looking forward to seeing you.`の`to`は前置詞です。`to`の後ろが原形か、名詞相当かを先に確認します。
 
 :::check check-07-infinitive-01
-question: 次の文の空所に入る語は? I am looking forward to ( ) you again.
-choice: A|seeing
-choice: B|see
+question: 次の文の空所に入る語は? Many people objected to ( ) higher taxes.
+choice: A|paying
+choice: B|pay
 answer: A
-explanation: look forward to の to は前置詞なので、後ろには動名詞 seeing を置きます。
+explanation: object to の to は前置詞なので、後ろには動名詞 paying を置きます。
 :::
 
 
@@ -27,36 +27,36 @@ explanation: look forward to の to は前置詞なので、後ろには動名�
 :::board
 主語: To read is useful.
 目的語: I want to know.
-補語: My dream is to help people.
+補語: All you need to do is to eat well.
 :::
 
 不定詞のまとまりが主語・目的語・補語になると、名詞的用法です。`want`、`decide`、`hesitate`の後ろに置かれる場合も、まとまり全体を一つの名詞として扱います。
 
 :::check check-07-infinitive-02
-question: 次の文の空所に入る語は? My dream is ( ) a lot of sick people in the hospital.
-choice: B|to look after
-choice: A|helped with
+question: 次の文の空所に入る語は? All you need to do is ( ) a balanced diet.
+choice: B|to eat
+choice: A|to eating
 answer: B
-explanation: My dream is ... の後ろで、夢の内容を to look after ... が説明しています。to + 動詞の原形 の不定詞が補語となり、「病院で多くの病人の世話をすること」という意味です。
+explanation: All you need to do is ... の後ろで、すべきことの内容を to eat ... が説明しています。to + 動詞の原形 の不定詞が補語となり、「バランスの良い食事をとることだけだ」という意味です。
 :::
 
 
 ## 3. 形容詞的用法は名詞を後ろから説明する
 
 :::board
-a way to get information
+the ability to talk
 a lot of work to finish
 issues to discuss
 :::
 
-`to get`は前の`way`を、`to finish`は`work`を説明します。名詞の後ろにある不定詞が「どんな名詞か」を補っているなら、形容詞的用法です。
+`to talk`は前の`ability`を、`to finish`は`work`を説明します。名詞の後ろにある不定詞が「どんな名詞か」を補っているなら、形容詞的用法です。
 
 :::check check-07-infinitive-03
-question: 次の文の空所に入る語は? Library books are probably a better way ( ) reliable information for your graduation thesis.
-choice: A|to get
-choice: B|to got
+question: 次の文の空所に入る語は? Evolution gave human beings the ability ( ).
+choice: A|to talk
+choice: B|talking
 answer: A
-explanation: a way to get ... は「~を得る方法」という名詞 way を後ろから説明する形です。toの後ろは動詞の原形なので to get になります。
+explanation: the ability to talk は「話す能力」という名詞 ability を後ろから説明する形容詞的用法です。abilityの後ろには不定詞 to talk を置きます。
 :::
 
 
@@ -64,17 +64,17 @@ explanation: a way to get ... は「~を得る方法」という名詞 way を�
 
 :::board
 I study hard to be an English teacher.
-She went to the library to study.
+Jennifer takes medicine to get rid of her headaches.
 :::
 
 主節の動作を「何のために」と説明するなら副詞的用法です。名詞を直接説明しているのか、動作の目的を説明しているのかを分けます。
 
 :::check check-07-infinitive-04
-question: 次の文の空所に入る語は? She went to the library ( ) for the exam.
-choice: B|to study
-choice: A|study
+question: 次の文の空所に入る語は? Jennifer takes medicine ( ) rid of her headaches.
+choice: B|to get
+choice: A|get
 answer: B
-explanation: to study for the exam は「試験のために勉強する」という目的を表します。
+explanation: to get rid of ... は「~を取り除くために」という目的を表します。
 :::
 
 
@@ -109,11 +109,11 @@ explanation: 文頭の To solve the problem は「その問題を解くために
 空所の訳から入らず、まずまとまりの役割を決めます。`look forward to seeing`のような前置詞の型を、不定詞と混同しないようにします。
 
 :::check check-07-infinitive-06
-question: 次の文の空所に入る語は? I am looking forward to ( ) you again.
-choice: B|seeing
-choice: A|see
+question: 次の文の空所に入る語は? What do you say to ( ) out tonight?
+choice: B|eating
+choice: A|eat
 answer: B
-explanation: look forward to の to は前置詞なので、後ろには動名詞 seeing を置きます。
+explanation: What do you say to ...? の to は前置詞なので、後ろには動名詞 eating を置きます。
 :::
 
 
