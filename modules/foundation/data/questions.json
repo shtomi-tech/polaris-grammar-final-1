@@ -4,7 +4,7 @@
       "id": "english-grammar-200-merged",
       "title": "英文法統合セット（重複整理版）",
       "description": "2つのセットを統合し、重複は明確な英文を優先した4択問題です。",
-      "questionCount": 566
+      "questionCount": 591
     }
   ],
   "units": [
@@ -108,27 +108,27 @@
           {
             "id": "lesson-03-nouns-count",
             "title": "名詞・可算／不可算・複数",
-            "count": 7
+            "count": 8
           },
           {
             "id": "lesson-04-articles-quantity",
             "title": "冠詞・数量詞",
-            "count": 11
+            "count": 15
           },
           {
             "id": "lesson-05-pronouns-determiners",
             "title": "代名詞・限定詞",
-            "count": 17
+            "count": 19
           },
           {
             "id": "lesson-06-modifiers",
             "title": "形容詞・副詞・修飾",
-            "count": 19
+            "count": 21
           },
           {
             "id": "lesson-07-prepositions",
             "title": "前置詞",
-            "count": 24
+            "count": 33
           },
           {
             "id": "lesson-08-conjunctions-basic",
@@ -320,12 +320,12 @@
           {
             "id": "lesson-08-comparison-basic",
             "title": "比較の基本",
-            "count": 18
+            "count": 19
           },
           {
             "id": "lesson-28-comparison-advanced",
             "title": "比較構文・数量比較",
-            "count": 18
+            "count": 19
           },
           {
             "id": "lesson-29-agreement-advanced",
@@ -340,12 +340,12 @@
           {
             "id": "lesson-31-emphasis-inversion",
             "title": "強調・倒置・否定の慣用",
-            "count": 12
+            "count": 13
           },
           {
             "id": "lesson-35-special-structures-usage",
             "title": "特殊な文の形・語法",
-            "count": 7
+            "count": 11
           },
           {
             "id": "lesson-32-sequence-speech",
@@ -13398,6 +13398,583 @@
         "if が導く条件を表す副詞節の中では、未来のことでも現在形を使います。主語 poisons は複数形で、DDT のような毒物は「使われる」側なので、現在形の受動態 are used とします。"
       ],
       "misconceptions": "is used=受動態の形は正しいが、主語poisonsが複数形であるのに単数のisと結び付けている、use=poisonsは「使う」側ではなく「使われる」側であり、能動態のuseは意味が逆になる、used=過去形であり、if節の中で未来のことを表す現在形の原則と合わない。"
+    },
+    {
+      "id": "add-347",
+      "setId": "english-grammar-200-merged",
+      "lessonId": "lesson-04-articles-quantity",
+      "unit": "15-nouns-articles",
+      "target": "newsに対するmuch",
+      "prompt": "空所に入る最も適切な語を選びなさい。",
+      "sentence": "I've heard so (    ) news about the scandal that I'm sick of it.",
+      "choices": [
+        "few",
+        "little",
+        "many",
+        "much"
+      ],
+      "answerIndex": 3,
+      "stage": "識別・使い分け",
+      "difficulty": "標準",
+      "ruleRefs": "egp.nouns-determiners-pronouns.quantifiers",
+      "explanation": [
+        "news は不可算名詞なので、量を表す much を使います。so much news that ... で「あまりに多くのニュースを聞いたので…」となります。"
+      ],
+      "misconceptions": "few/many=newsを複数の可算名詞と誤解した混同。little=不可算とは正しく判断できているが、量の大小(少ない)を逆に取った混同。"
+    },
+    {
+      "id": "add-348",
+      "setId": "english-grammar-200-merged",
+      "lessonId": "lesson-04-articles-quantity",
+      "unit": "15-nouns-articles",
+      "target": "quite a few",
+      "prompt": "空所に入る最も適切な語を選びなさい。",
+      "sentence": "Although he had quite (    ) ribs broken, there didn't seem to be any internal damage.",
+      "choices": [
+        "direct",
+        "a few",
+        "very",
+        "indeed"
+      ],
+      "answerIndex": 1,
+      "stage": "識別・使い分け",
+      "difficulty": "標準",
+      "ruleRefs": "egp.nouns-determiners-pronouns.quantifiers",
+      "explanation": [
+        "quite a few + 複数名詞 で「かなり多くの〜」を表す定型表現です。quite a few ribs broken で「かなりの数の肋骨が折れていた」となります。",
+        "a few 単独の「少しはある」という印象とは逆に、quite が付くと数の多さを強調します。"
+      ],
+      "misconceptions": "direct/very/indeed=quite a few という数量表現の定型を知らず、quiteを強調副詞として単独で使おうとした混同。"
+    },
+    {
+      "id": "add-349",
+      "setId": "english-grammar-200-merged",
+      "lessonId": "lesson-04-articles-quantity",
+      "unit": "15-nouns-articles",
+      "target": "a large number of",
+      "prompt": "空所に入る最も適切な語を選びなさい。",
+      "sentence": "We found a (    ) number of mistakes in his paper.",
+      "choices": [
+        "large",
+        "much",
+        "many",
+        "lot"
+      ],
+      "answerIndex": 0,
+      "stage": "識別・使い分け",
+      "difficulty": "標準",
+      "ruleRefs": "egp.nouns-determiners-pronouns.quantifiers",
+      "explanation": [
+        "a large number of + 複数名詞 で「多数の〜」を表します。number を修飾するのは形容詞 large で、much や many を number の前に直接置くことはできません。"
+      ],
+      "misconceptions": "much/many=数量そのものを表す語をnumberの前に重ねた混同。lot=a lot ofの形と混同し、numberを挟む形にしてしまった誤り。"
+    },
+    {
+      "id": "add-350",
+      "setId": "english-grammar-200-merged",
+      "lessonId": "lesson-35-special-structures-usage",
+      "unit": "01-sentence-structure",
+      "target": "able(人が主語)",
+      "prompt": "空所に入る最も適切な語を選びなさい。",
+      "sentence": "After a lot of practice he was (    ) to understand spoken English.",
+      "choices": [
+        "able",
+        "easy",
+        "good",
+        "possible"
+      ],
+      "answerIndex": 0,
+      "stage": "識別・使い分け",
+      "difficulty": "標準",
+      "ruleRefs": "egp.sentence-structure.dummy-it",
+      "explanation": [
+        "he を主語にして「〜できる」と言うのは able です。possible や easy は人を直接主語にできず、It is possible/easy for him to ... の形式主語構文が必要です。"
+      ],
+      "misconceptions": "possible=人を主語にできない形容詞を人主語にあてはめた混同。easy=同じく人を主語にできない形容詞。good=be good to doという型自体が「理解できる」の意味にならない誤り。"
+    },
+    {
+      "id": "add-351",
+      "setId": "english-grammar-200-merged",
+      "lessonId": "lesson-35-special-structures-usage",
+      "unit": "01-sentence-structure",
+      "target": "impossible(形式主語it)",
+      "prompt": "空所に入る最も適切な語を選びなさい。",
+      "sentence": "It is not (    ) to get over the difficulties of learning a new language if you have the right attitude.",
+      "choices": [
+        "incapable",
+        "impossible",
+        "unable",
+        "enable"
+      ],
+      "answerIndex": 1,
+      "stage": "識別・使い分け",
+      "difficulty": "標準",
+      "ruleRefs": "egp.sentence-structure.dummy-it",
+      "explanation": [
+        "形式主語 It is ... to do の形に人を直接主語にする語(incapable、unable)は入りません。to do の内容自体の可能・不可能を表す impossible が適切です。",
+        "enable は動詞なので、be動詞のあとに置く形容詞の位置には入りません。"
+      ],
+      "misconceptions": "incapable/unable=It is ... to doの形式主語構文には使えない、人を主語にする側の形容詞。enable=形容詞ではなく動詞なので、この位置には入らない。"
+    },
+    {
+      "id": "add-352",
+      "setId": "english-grammar-200-merged",
+      "lessonId": "lesson-07-prepositions",
+      "unit": "13-prepositions",
+      "target": "capable of",
+      "prompt": "空所に入る最も適切な語を選びなさい。",
+      "sentence": "I never expected cruelty from him. I never thought he was (    ) of doing something so cruel and perverse.",
+      "choices": [
+        "capable",
+        "regrettable",
+        "passable",
+        "brave"
+      ],
+      "answerIndex": 0,
+      "stage": "識別・使い分け",
+      "difficulty": "標準",
+      "ruleRefs": "egp.sentence-structure.preposition",
+      "explanation": [
+        "capable of doing で「〜する能力・性質がある」という定型の結びつきです。人の性質としての「〜しかねない」という意味にも使います。"
+      ],
+      "misconceptions": "regrettable/passable=ofと結びつく定型表現ではなく、意味も文に合わない。brave=brave of 人 to doの形はあるが、brave of doingとはならず、この文の構造に合わない。"
+    },
+    {
+      "id": "add-353",
+      "setId": "english-grammar-200-merged",
+      "lessonId": "lesson-06-modifiers",
+      "unit": "16-adjectives-adverbs",
+      "target": "否定文のyet",
+      "prompt": "空所に入る最も適切な語を選びなさい。",
+      "sentence": "I'm hungry, but it isn't lunchtime (    ).",
+      "choices": [
+        "already",
+        "either",
+        "still",
+        "yet"
+      ],
+      "answerIndex": 3,
+      "stage": "識別・使い分け",
+      "difficulty": "標準",
+      "ruleRefs": "egp.modifiers.adverb-functions",
+      "explanation": [
+        "否定文で「まだ〜ない」を表すのは yet です。already は肯定文で使う「もう」なので isn't とは合いません。"
+      ],
+      "misconceptions": "already=肯定文で使う「もう」なので否定文には合わない。still=状態の継続を強調する語で、この文脈では不自然。either=前の否定文と同じ内容を並べるときに使うが、ここには対応する前の否定文がない。"
+    },
+    {
+      "id": "add-354",
+      "setId": "english-grammar-200-merged",
+      "lessonId": "lesson-06-modifiers",
+      "unit": "16-adjectives-adverbs",
+      "target": "the first ... ever",
+      "prompt": "空所に入る最も適切な語を選びなさい。",
+      "sentence": "That was the first Japanese food I had (    ) tasted.",
+      "choices": [
+        "already",
+        "ever",
+        "never",
+        "still"
+      ],
+      "answerIndex": 1,
+      "stage": "識別・使い分け",
+      "difficulty": "標準",
+      "ruleRefs": "egp.modifiers.adverb-functions",
+      "explanation": [
+        "the first ... (that) S had ever done は「今までに〜した中で最初の…」という経験を表す定型です。ever は「今までに」を表し、first の範囲を強調します。"
+      ],
+      "misconceptions": "never=「一度も〜ない」という否定の意味になり、「食べたことがあった」というthe first ... I had testedの文意と矛盾する。already/still=経験のfirstを強調する働きがなく、この定型に合わない。"
+    },
+    {
+      "id": "add-355",
+      "setId": "english-grammar-200-merged",
+      "lessonId": "lesson-28-comparison-advanced",
+      "unit": "11-comparison",
+      "target": "倍数のas...as語順",
+      "prompt": "空所に入る最も適切な語を選びなさい。",
+      "sentence": "The population of China is about (    ) that of Japan.",
+      "choices": [
+        "ten times as large as",
+        "as large ten times as",
+        "as ten times large as",
+        "as ten times as large"
+      ],
+      "answerIndex": 0,
+      "stage": "識別・使い分け",
+      "difficulty": "標準",
+      "ruleRefs": "egp.comparison.extended-patterns",
+      "explanation": [
+        "倍数表現は 倍数 + as + 原級 + as の語順で表します。ten times as large as で「10倍の大きさ」となります。倍数を比較級の間や後ろに割り込ませません。"
+      ],
+      "misconceptions": "②③④=いずれも倍数 + as + 原級 + as の語順を崩し、asや原級の位置を入れ替えた誤り。"
+    },
+    {
+      "id": "add-356",
+      "setId": "english-grammar-200-merged",
+      "lessonId": "lesson-08-comparison-basic",
+      "unit": "11-comparison",
+      "target": "同一人物の性質比較",
+      "prompt": "空所に入る最も適切な語を選びなさい。",
+      "sentence": "I was (    ) than frightened.",
+      "choices": [
+        "angry",
+        "angrier",
+        "more angry",
+        "rather angrier"
+      ],
+      "answerIndex": 2,
+      "stage": "識別・使い分け",
+      "difficulty": "標準",
+      "ruleRefs": "egp.comparison.forms-and-targets",
+      "explanation": [
+        "angry と frightened という、同じ自分についての異なる二つの性質を比べているので、-er ではなく more + 原級 を使います。more angry than frightened で「怖かったというより怒っていた」となります。"
+      ],
+      "misconceptions": "angry=than の前に置くには比較の形になっていない。angrier=-erは、二つの異なる人やものについて同じ性質の度合いを比べる形なので、この文には合わない。rather angrier=rather+比較級は程度を強める用法で、この文脈には合わない。"
+    },
+    {
+      "id": "add-357",
+      "setId": "english-grammar-200-merged",
+      "lessonId": "lesson-31-emphasis-inversion",
+      "unit": "18-negation-emphasis-inversion",
+      "target": "still less",
+      "prompt": "空所に入る最も適切な語を選びなさい。",
+      "sentence": "I don't want my mother to find out about my boyfriend, (    ) my father.",
+      "choices": [
+        "either",
+        "neither",
+        "not",
+        "still less"
+      ],
+      "answerIndex": 3,
+      "stage": "識別・使い分け",
+      "difficulty": "標準",
+      "ruleRefs": "egp.negation-questions.cannot-too",
+      "explanation": [
+        "否定文のあとで「まして〜ない」と、さらに程度の強いことを打ち消すのは still less です。「母に知られたくない、まして父になど知られたくない」という意味になります。"
+      ],
+      "misconceptions": "either=前の否定と同じ内容を単純に並べる語で、「まして」という程度の強調は表せない。neither=否定文をもう一つ導く語で、この位置には入らない。not=単独では「まして」の意味を作れない。"
+    },
+    {
+      "id": "add-358",
+      "setId": "english-grammar-200-merged",
+      "lessonId": "lesson-35-special-structures-usage",
+      "unit": "01-sentence-structure",
+      "target": "know better than to do",
+      "prompt": "空所に入る最も適切な語を選びなさい。",
+      "sentence": "You ought to (    ) than to go to such a dangerous place.",
+      "choices": [
+        "have better",
+        "know better",
+        "make better",
+        "turn better"
+      ],
+      "answerIndex": 1,
+      "stage": "識別・使い分け",
+      "difficulty": "標準",
+      "ruleRefs": "egp.sentence-structure.verb-object",
+      "explanation": [
+        "know better than to do で「〜しないだけの分別がある」という定型表現になります。「そんな危険な場所に行かないくらいの分別を持つべきだ」という意味です。"
+      ],
+      "misconceptions": "have better/make better/turn better=いずれもbetterと結びつく定型表現ではない。"
+    },
+    {
+      "id": "add-359",
+      "setId": "english-grammar-200-merged",
+      "lessonId": "lesson-07-prepositions",
+      "unit": "13-prepositions",
+      "target": "responsible for",
+      "prompt": "空所に入る最も適切な語を選びなさい。",
+      "sentence": "He is (    ) for the damage, so he must pay for the repairs.",
+      "choices": [
+        "responsible",
+        "the origin",
+        "the source",
+        "guilty"
+      ],
+      "answerIndex": 0,
+      "stage": "識別・使い分け",
+      "difficulty": "標準",
+      "ruleRefs": "egp.sentence-structure.preposition",
+      "explanation": [
+        "be responsible for で「〜に対して責任がある」という定型の結びつきです。responsible は for と組みで覚えます。"
+      ],
+      "misconceptions": "the origin/the source=名詞なのでbe動詞のあとに置いても「彼が損害の原因だ」という別の文になり、forとの結びつきも不自然。guilty=guilty ofの形を取り、forとは結びつかない。"
+    },
+    {
+      "id": "add-360",
+      "setId": "english-grammar-200-merged",
+      "lessonId": "lesson-35-special-structures-usage",
+      "unit": "01-sentence-structure",
+      "target": "every now and then",
+      "prompt": "空所に入る最も適切な語を選びなさい。",
+      "sentence": "They are good friends although, of course, they argue (    ).",
+      "choices": [
+        "every now and then",
+        "for the occasion",
+        "from day to day",
+        "to the occasion"
+      ],
+      "answerIndex": 0,
+      "stage": "識別・使い分け",
+      "difficulty": "標準",
+      "ruleRefs": "egp.modifiers.frequency-adverbs",
+      "explanation": [
+        "「ときどき言い争う」という頻度を表すのは every now and then です。sometimes に近い意味の定型句として、まとまりで覚えます。"
+      ],
+      "misconceptions": "from day to day=「日ごとに、日を追って」という別の意味の定型句。for the occasion/to the occasion=occasionと結びつく定型表現ではなく、この文脈に合わない。"
+    },
+    {
+      "id": "add-361",
+      "setId": "english-grammar-200-merged",
+      "lessonId": "lesson-07-prepositions",
+      "unit": "13-prepositions",
+      "target": "make room for",
+      "prompt": "空所に入る最も適切な語を選びなさい。",
+      "sentence": "He kindly made (    ) for a man with an injured leg.",
+      "choices": [
+        "room",
+        "place",
+        "seat",
+        "position"
+      ],
+      "answerIndex": 0,
+      "stage": "識別・使い分け",
+      "difficulty": "標準",
+      "ruleRefs": "egp.sentence-structure.preposition",
+      "explanation": [
+        "make room for で「〜のために場所を空ける」という定型の熟語になります。room はここでは「部屋」ではなく「空間・余地」の意味の不可算名詞です。"
+      ],
+      "misconceptions": "place/seat/position=いずれも「場所」に関わる語だが、make ... forの定型としてroomの代わりには使わない。"
+    },
+    {
+      "id": "add-362",
+      "setId": "english-grammar-200-merged",
+      "lessonId": "lesson-03-nouns-count",
+      "unit": "15-nouns-articles",
+      "target": "toastの単位",
+      "prompt": "空所に入る最も適切な語を選びなさい。",
+      "sentence": "I'll have a cup of coffee and (    ).",
+      "choices": [
+        "three toasts",
+        "three piece of toasts",
+        "three pieces of toast",
+        "three pieces of toasts"
+      ],
+      "answerIndex": 2,
+      "stage": "識別・使い分け",
+      "difficulty": "標準",
+      "ruleRefs": "egp.nouns-determiners-pronouns.uncountable-noun",
+      "explanation": [
+        "toast(トースト)は不可算名詞なので、数えるときは a piece of toast のように単位を借ります。3枚なら three pieces of toast で、toast自体を複数形にはしません。"
+      ],
+      "misconceptions": "three toasts=toastを直接複数形にした誤り。three piece of toasts=pieceを複数形にせず、逆にtoastを複数形にした誤り。three pieces of toasts=piecesは正しく複数形にしているが、そのあとのtoastも複数形にした誤り。"
+    },
+    {
+      "id": "add-363",
+      "setId": "english-grammar-200-merged",
+      "lessonId": "lesson-04-articles-quantity",
+      "unit": "15-nouns-articles",
+      "target": "mostとalmost",
+      "prompt": "空所に入る最も適切な語を選びなさい。",
+      "sentence": "I guess (    ) of them went home.",
+      "choices": [
+        "almost",
+        "most",
+        "mostly",
+        "the most"
+      ],
+      "answerIndex": 1,
+      "stage": "識別・使い分け",
+      "difficulty": "標準",
+      "ruleRefs": "egp.nouns-determiners-pronouns.quantifiers",
+      "explanation": [
+        "most は代名詞として most of them のように of へ直接つながります。almost は副詞なので of them を直接修飾できず、almost all of them の形が必要です。"
+      ],
+      "misconceptions": "almost=副詞なのでof themを直接修飾できず、almost all/everyの形が必要になる混同。mostly=「主として」という文全体を修飾する副詞で、of them とは結びつかない。the most=最上級の名詞用法で、「彼らのうちのほとんど」という総称的な代名詞用法には the を付けない。"
+    },
+    {
+      "id": "add-364",
+      "setId": "english-grammar-200-merged",
+      "lessonId": "lesson-05-pronouns-determiners",
+      "unit": "14-pronouns-determiners",
+      "target": "oneとitの対比",
+      "prompt": "空所に入る最も適切な語を選びなさい。",
+      "sentence": "\"Have you ever seen a panda?\" \"Yes, I saw (    ) in China last year.\"",
+      "choices": [
+        "that",
+        "it",
+        "one",
+        "them"
+      ],
+      "answerIndex": 2,
+      "stage": "識別・使い分け",
+      "difficulty": "標準",
+      "ruleRefs": "egp.nouns-determiners-pronouns.indefinite-article",
+      "explanation": [
+        "a panda(不特定の1頭)を受け直すので one を使います。it だと「(質問に出た)まさにその同一のパンダ」を指すことになり、文意に合いません。"
+      ],
+      "misconceptions": "it=同じ特定の1つを指し直す語で、不特定の「(同じ種類の)どれか1つ」を表すoneとは受け方が違う。that=単数名詞の反復を避ける代用にも使うが、「もの・こと」を漠然と指す語で、a pandaを受ける形として不自然。them=a pandaは単数なので複数形themは数が合わない。"
+    },
+    {
+      "id": "add-365",
+      "setId": "english-grammar-200-merged",
+      "lessonId": "lesson-05-pronouns-determiners",
+      "unit": "14-pronouns-determiners",
+      "target": "the other + 複数名詞",
+      "prompt": "空所に入る最も適切な語を選びなさい。",
+      "sentence": "We looked at four cars today. The first two were too expensive, but (    ) ones were reasonably priced.",
+      "choices": [
+        "another",
+        "other",
+        "the other",
+        "those"
+      ],
+      "answerIndex": 2,
+      "stage": "識別・使い分け",
+      "difficulty": "標準",
+      "ruleRefs": "egp.nouns-determiners-pronouns.other-another",
+      "explanation": [
+        "4台のうち最初の2台以外の「残り」は特定できるので、the other + 複数名詞(ones)の形を使います。特定されていない「ほかの」を表す other や、不特定の追加を表す another とは区別します。"
+      ],
+      "misconceptions": "another=単数・不特定の追加を表す語で、複数のonesとは結びつかず数も合わない。other=特定されていない「ほかの」を表すが、ここでは残り2台という範囲が特定されているのでtheが必要。those=遠くのものを指す指示代名詞で、「残り」を特定する働きはない。"
+    },
+    {
+      "id": "add-366",
+      "setId": "english-grammar-200-merged",
+      "lessonId": "lesson-07-prepositions",
+      "unit": "13-prepositions",
+      "target": "on bad terms",
+      "prompt": "空所に入る最も適切な語を選びなさい。",
+      "sentence": "They have been on bad (    ) ever since the holidays.",
+      "choices": [
+        "terms",
+        "relation",
+        "friends",
+        "relatives"
+      ],
+      "answerIndex": 0,
+      "stage": "識別・使い分け",
+      "difficulty": "標準",
+      "ruleRefs": "egp.sentence-structure.preposition",
+      "explanation": [
+        "on good/bad terms with ... で「(人と)仲が良い/悪い」を表す定型の熟語になります。terms は常に複数形で使います。"
+      ],
+      "misconceptions": "relation=単数形で使うと「関係」という意味の名詞になるが、on bad relationという定型はない。friends/relatives=「友人・親戚」という人を表す名詞で、on ... という前置詞句の形に合わない。"
+    },
+    {
+      "id": "add-367",
+      "setId": "english-grammar-200-merged",
+      "lessonId": "lesson-07-prepositions",
+      "unit": "13-prepositions",
+      "target": "in the long run",
+      "prompt": "空所に入る最も適切な語を選びなさい。",
+      "sentence": "It pays in the long (    ) to buy goods of high quality.",
+      "choices": [
+        "time",
+        "way",
+        "run",
+        "future"
+      ],
+      "answerIndex": 2,
+      "stage": "識別・使い分け",
+      "difficulty": "標準",
+      "ruleRefs": "egp.sentence-structure.preposition",
+      "explanation": [
+        "in the long run で「長い目で見れば、結局は」を表す定型の熟語になります。in the long time や in the long future とはしません。"
+      ],
+      "misconceptions": "time/way/future=in the longのあとに続く定型の名詞はrunで、他の語には置き換えない。"
+    },
+    {
+      "id": "add-368",
+      "setId": "english-grammar-200-merged",
+      "lessonId": "lesson-07-prepositions",
+      "unit": "13-prepositions",
+      "target": "by all means",
+      "prompt": "空所に入る最も適切な語を選びなさい。",
+      "sentence": "This information is very important. You have to give it to him by all (    ).",
+      "choices": [
+        "means",
+        "terms",
+        "ways",
+        "manners"
+      ],
+      "answerIndex": 0,
+      "stage": "識別・使い分け",
+      "difficulty": "標準",
+      "ruleRefs": "egp.sentence-structure.preposition",
+      "explanation": [
+        "by all means で「ぜひとも、どんな手段を使ってでも」を表す定型の熟語になります。means はここでは「手段」を表す名詞です。"
+      ],
+      "misconceptions": "terms/ways/manners=byのあとに続く定型の名詞はmeansで、意味が近い他の語には置き換えない。"
+    },
+    {
+      "id": "add-369",
+      "setId": "english-grammar-200-merged",
+      "lessonId": "lesson-07-prepositions",
+      "unit": "13-prepositions",
+      "target": "out of reach",
+      "prompt": "空所に入る最も適切な語を選びなさい。",
+      "sentence": "You should put the medicine bottle out of children's (    ).",
+      "choices": [
+        "distance",
+        "reach",
+        "span",
+        "extent"
+      ],
+      "answerIndex": 1,
+      "stage": "識別・使い分け",
+      "difficulty": "標準",
+      "ruleRefs": "egp.sentence-structure.preposition",
+      "explanation": [
+        "out of ... 's reach で「(人)の手の届かない所に」を表す定型の熟語になります。reach はここでは「(手や力の)及ぶ範囲」を表す名詞です。"
+      ],
+      "misconceptions": "distance/span/extent=いずれも「範囲・距離」に関わる名詞だが、out of ... 's ...の定型としてreachの代わりには使わない。"
+    },
+    {
+      "id": "add-370",
+      "setId": "english-grammar-200-merged",
+      "lessonId": "lesson-07-prepositions",
+      "unit": "13-prepositions",
+      "target": "on purpose",
+      "prompt": "空所に入る最も適切な語を選びなさい。",
+      "sentence": "It was an accident; the boys didn't break the window on (    ).",
+      "choices": [
+        "will",
+        "purpose",
+        "intention",
+        "design"
+      ],
+      "answerIndex": 1,
+      "stage": "識別・使い分け",
+      "difficulty": "標準",
+      "ruleRefs": "egp.sentence-structure.preposition",
+      "explanation": [
+        "on purpose で「わざと、故意に」を表す定型の熟語になります。文前半の an accident(偶然の事故)と対になる内容です。"
+      ],
+      "misconceptions": "will/intention/design=いずれも「意図」に近い意味を持つ語だが、onと結びつく定型表現ではない。"
+    },
+    {
+      "id": "add-371",
+      "setId": "english-grammar-200-merged",
+      "lessonId": "lesson-07-prepositions",
+      "unit": "13-prepositions",
+      "target": "goods on sale",
+      "prompt": "空所に入る最も適切な語を選びなさい。",
+      "sentence": "When you go into a Japanese supermarket or drugstore, you will see lots of foreign goods (    ) sale.",
+      "choices": [
+        "at",
+        "by",
+        "in",
+        "on"
+      ],
+      "answerIndex": 3,
+      "stage": "識別・使い分け",
+      "difficulty": "標準",
+      "ruleRefs": "egp.sentence-structure.preposition",
+      "explanation": [
+        "goods on sale で「販売されている商品」を表す定型の結びつきです。sale の前に置く前置詞は on と覚えます。"
+      ],
+      "misconceptions": "at/by/in=saleと結びつく定型の前置詞ではない。"
     }
   ]
 }
