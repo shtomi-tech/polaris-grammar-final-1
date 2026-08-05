@@ -61,6 +61,14 @@ def main() -> int:
             errors.append(f"{unit}: duplicate check id")
         for match in matches:
             check_id = match.group(1)
+            stray = [
+                line
+                for line in match.group(2).splitlines()
+                if not line.startswith(("question:", "choice:", "answer:", "explanation:"))
+            ]
+            if stray:
+                sample = next((line for line in stray if line.strip()), stray[0])
+                errors.append(f"{unit}/{check_id}: unexpected line {sample!r} (closing ::: missing?)")
             data_fields = fields(match.group(2))
             choices = data_fields["choices"]
             if not data_fields.get("question"):
