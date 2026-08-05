@@ -84,13 +84,13 @@ explanation: 再利用可能なボトル全般という一般論を表す指定�
 ## 5. 不可算名詞は単位を借りる
 
 :::board
-advice / information / homework
+advice / information / homework / toast
 some advice
 a piece of information
-an assignment
+a piece of toast
 :::
 
-`advice`、`information`、`homework`は通常不可算です。`many information`や`homeworks`とはせず、量なら`some advice`、個数を分けるなら`a piece of information`や`an assignment`のように表します。
+`advice`、`information`、`homework`は通常不可算です。`many information`や`homeworks`とはせず、量なら`some advice`、個数を分けるなら`a piece of information`や`an assignment`のように表します。`toast`(トースト)や`bread`(パン)のような食べ物も、切り分ける前の総称は不可算なので、`three toasts`ではなく`three pieces of toast`のように単位を借ります。
 
 :::check check-15-nouns-articles-05
 question: 次の文の空所に入る語は? Monica got ( ) from her coach about how to hit the ball.

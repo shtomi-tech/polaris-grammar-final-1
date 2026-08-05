@@ -136,6 +136,44 @@ explanation: snow は不可算名詞なので little を使い、程度から結
 :::
 
 
+## 8. quite a few・a large number ofは数量を強める慣用表現
+
+:::board
+quite a few + 複数可算名詞: かなり多くの
+a large number of + 複数可算名詞: 多数の
+a great deal of + 不可算名詞: 多量の
+:::
+
+`quite a few`は`a few`(少しはある)とは逆に、「かなり多くの」という意味になります。`a large number of mistakes`のように、数の多さを表す形容詞は`large`で、`number`の前に`much`や`many`は置きません。
+
+:::check check-04-articles-quantity-08
+question: 次の文の空所に入る語は? We found a ( ) number of mistakes in his paper.
+choice: A|large
+choice: B|much
+answer: A
+explanation: a large number of + 複数名詞 で「多数の」を表します。number を修飾するのは形容詞 large で、much や many を number の前に直接置くことはできません。
+:::
+
+
+## 9. mostとalmostは品詞が違う
+
+:::board
+most + of + 名詞: ほとんどの(代名詞・形容詞)
+almost all/every + 名詞: ほとんどの(副詞)
+almost + of は不可
+:::
+
+`most`は代名詞・形容詞として`most of them`のように`of`へ直接つながります。`almost`は副詞なので名詞や`of`を直接修飾できず、`almost all of them`のように`all`や`every`を挟みます。
+
+:::check check-04-articles-quantity-09
+question: 次の文の空所に入る語は? I guess ( ) of them went home.
+choice: A|most
+choice: B|almost
+answer: A
+explanation: most は代名詞として of them に直接つながります。almost は副詞なので of them を直接修飾できず、almost all of them のように all を挟む必要があります。
+:::
+
+
 ## 教授からの課題
 
 ①名詞の可算性、②単数・複数、③特定性、④数量の意味の順に確認します。`a/an/the`と`many/much/few/little`を同じ基準で選ぼうとしないのがコツです。
