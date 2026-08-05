@@ -27,9 +27,10 @@ explanation: 真主語 to learn a new language を後ろに置き、文頭に形
 :::board
 It is/was + 強調語句 + who/that ...
 It was Tom who broke the window.
+It was during the ice age that ...(人以外はthat)
 :::
 
-`It was Tom who broke the window.` は `Tom` を強調します。`to do` の内容を後ろに置く形式主語とは、`who/that` 節の有無で区別します。
+`It was Tom who broke the window.` は `Tom` を強調します。`to do` の内容を後ろに置く形式主語とは、`who/that` 節の有無で区別します。強調する語句が`during the ice age`のような副詞句など人以外のときは、`who`ではなく`that`を使います(`It was during the ice age that the saber-toothed tiger became extinct.`)。
 
 :::check check-35-special-structures-usage-02
 question: 次の文の空所に入る語は? It was Tom ( ) broke the window.
