@@ -48,9 +48,10 @@ explanation: 主語の核はoneなので、動詞は単数形にする。of the 
 Susan likes chocolate, and so does Hiroshi.
 My sister didn't play, and neither did I.
 so/neither + 助動詞 + 主語
+I don't understand him, either.(倒置なし)
 :::
 
-肯定内容なら `so`、否定内容なら `neither` を使います。前半が現在の一般動詞なら `do/does`、過去なら `did`。後ろの主語の人称・数も確認し、前の動詞をそのまま繰り返しません。
+肯定内容なら `so`、否定内容なら `neither` を使います。前半が現在の一般動詞なら `do/does`、過去なら `did`。後ろの主語の人称・数も確認し、前の動詞をそのまま繰り返しません。否定内容に同意するとき、`neither did I` のように主語と助動詞を入れ替える形のほかに、`I don't understand him, either.` のように語順を変えずに文末へ `either` を置く形もあります。`I don't ... neither` のように否定語を重ねてはいけません。
 
 :::check check-29-agreement-advanced-03
 question: 次の文の空所に入る語は? Susan likes chocolate and so ( ) Hiroshi.

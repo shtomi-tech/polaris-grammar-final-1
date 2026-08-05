@@ -82,9 +82,10 @@ explanation: 肯定文の付加疑問は否定形にする。一般動詞の現�
 :::board
 命令文, will you?
 Let's ..., shall we?
+勧誘・申し出の命令文, won't you?
 :::
 
-`Let's take a break, shall we?`は提案への同意を求める形です。通常の平叙文と同じ規則を無理に当てはめず、命令文かLet's文かを先に確認します。
+`Let's take a break, shall we?`は提案への同意を求める形です。通常の平叙文と同じ規則を無理に当てはめず、命令文かLet's文かを先に確認します。命令文の付加疑問は基本`will you?`ですが、`Have a cup of tea, won't you?`のように相手を勧誘・招待する命令文では`won't you?`を使うのが自然です。
 
 :::check check-25-indirect-questions-tags-05
 question: 次の文の空所に入る語は? Let's take a short break, ( )?
