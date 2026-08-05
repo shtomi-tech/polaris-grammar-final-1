@@ -115,6 +115,24 @@ explanation: only + 副詞句 を強調して文頭に置くと、後ろは疑�
 :::
 
 
+## 7. still less/much lessは限度を表す否定の慣用
+
+:::board
+否定文, still less/much less + (S+V省略)
+「まして〜ない」
+:::
+
+`cannot ... too`と同じく、否定の程度を表す慣用表現です。`I don't want my mother to find out, still less my father.`は「母に知られたくない、まして父になど知られたくない」という意味で、前の否定をさらに強く打ち消す対象をあとから追加します。
+
+:::check check-31-emphasis-inversion-07
+question: 次の文の空所に入る語は? I don't want my mother to find out about my boyfriend, ( ) my father.
+choice: A|still less
+choice: B|even more
+answer: A
+explanation: 否定文のあとで「まして〜ない」と、さらに程度の強いことを打ち消すのは still less です。
+:::
+
+
 ## 教授からの課題
 
 倒置文を普通の語順へ書き換え、強調語・助動詞・接続語を確認して問題を解いてみましょう。

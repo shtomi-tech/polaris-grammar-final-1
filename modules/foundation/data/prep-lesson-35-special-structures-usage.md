@@ -132,6 +132,60 @@ explanation: 「うそをつく」は定着した結びつき tell lies で表�
 :::
 
 
+## 8. ableとimpossibleは主語の種類が違う
+
+:::board
+人が主語: able / unable / willing / eager + to do
+形式主語it: It is possible/impossible/easy/difficult + to do
+:::
+
+`able`(できる)、`willing`(いとわない)などは人を主語にして`He is able to swim.`のように使います。`possible`、`impossible`、`easy`、`difficult`は人を直接主語にせず、`It is possible for him to swim.`のように形式主語`it`と組み合わせます。`unable`・`incapable`も人を主語にする側の語で、`It is unable to ...`とはしません。
+
+:::check check-35-special-structures-usage-08
+question: 次の文の空所に入る語は? After a lot of practice he was ( ) to understand spoken English.
+choice: A|able
+choice: B|possible
+answer: A
+explanation: he を主語にして「〜できる」と言うのは able です。possible は人を直接主語にできず、It is possible for him to ... の形が必要です。
+:::
+
+
+## 9. know better than to doは「〜しない分別がある」
+
+:::board
+know better than to do
+「〜するほど愚かではない、〜しない分別がある」
+:::
+
+`He ought to know better than to go there.`は「そこへ行かないだけの分別を持つべきだ」という意味です。`than`のあとには`to do`(不定詞)が続き、「〜するくらいなら、もっとよく分かっている」という比較のイメージから、「〜しない」という含みが生まれます。
+
+:::check check-35-special-structures-usage-09
+question: 次の文の空所に入る語は? You ought to ( ) than to go to such a dangerous place.
+choice: A|know better
+choice: B|know well
+answer: A
+explanation: know better than to do で「〜しないだけの分別がある」という定型表現になります。
+:::
+
+
+## 10. every now and thenなど頻度を表す熟語
+
+:::board
+every now and then: ときどき
+from day to day: 日ごとに
+:::
+
+`every now and then`は`sometimes`に近い「ときどき」を表す定型句です。`for the occasion`(その場に合わせて)や`from day to day`(日ごとに)のような似た形の句と混同せず、まとまりごと意味を覚えます。
+
+:::check check-35-special-structures-usage-10
+question: 次の文の空所に入る語は? They are good friends although, of course, they argue ( ).
+choice: A|every now and then
+choice: B|from day to day
+answer: A
+explanation: 「ときどき言い争う」という頻度を表すのは every now and then です。from day to day は「日ごとに、日を追って」という別の意味の定型句です。
+:::
+
+
 ## 教授からの課題
 
 構文なら形と働きを、語法なら動詞と相手の関係を一言で説明してから、このセクションの問題を解いてみましょう。

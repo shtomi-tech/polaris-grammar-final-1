@@ -170,6 +170,24 @@ explanation: 比較級 faster の比較対象は than で導きます。
 :::
 
 
+## 10. 同じ人・ものの二つの性質を比べるときはmoreを使う
+
+:::board
+同一の主語の異なる性質を比べる → more + 原級 + than
+He was more shy than unfriendly.
+:::
+
+`taller than Ken`のように-erで比べるのは、二つの異なる人・ものについて同じ性質を比べるときです。同じ一人・一つについて異なる二つの性質を比べるときは、短い形容詞でも-erにはせず、`more + 原級 + than`を使います。`I was more angry than frightened.`は「怖かったというより怒っていた」という意味です。
+
+:::check check-11-comparison-10
+question: 次の文の空所に入る語は? I was ( ) than frightened.
+choice: A|more angry
+choice: B|angrier
+answer: A
+explanation: angry と frightened という、同じ自分についての異なる二つの性質を比べているので、-er ではなく more + 原級 を使います。angrier は、二つの異なる人やものの「怒りの度合い」を比べる形なので、この文には合いません。
+:::
+
+
 ## 教授からの課題
 
 比較される対象と範囲に線を引き、形を決めてからこのセクションの問題を解いてみましょう。
