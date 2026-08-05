@@ -3147,46 +3147,46 @@
       "setId": "english-grammar-200-merged",
       "lessonId": "lesson-05-pronouns-determiners",
       "unit": "14-pronouns-determiners",
-      "target": "others",
+      "target": "others(some...others)",
       "prompt": "空所に入る最も適切な語を選びなさい。",
-      "sentence": "Some students agreed, but (    ) disagreed.",
+      "sentence": "Some doctors insist that vitamin C prevents cancer and helps to heal injuries, and (    ) believe that it helps to avoid colds.",
       "choices": [
-        "another",
-        "other",
+        "the all doctors",
         "others",
-        "the other student"
+        "some doctor",
+        "another doctor"
       ],
-      "answerIndex": 2,
+      "answerIndex": 1,
       "stage": "識別・使い分け",
       "difficulty": "標準",
       "ruleRefs": "egp.nouns-determiners-pronouns.other-another",
       "explanation": [
-        "others は「他の人々」という複数代名詞で、後ろに名詞を置きません。"
+        "some ... , others ... で「〜する人もいれば、ほかに〜する人もいる」という対比を表します。"
       ],
-      "misconceptions": "another=単数、other=後ろに名詞が必要、the other student=単数で意味が限定される。"
+      "misconceptions": "the all doctors=all the doctorsの語順違いで、かつ医師全員を指すため文意に合わない。some doctor=単数でthis文脈に合わない。another doctor=不特定の「もう一人」を表す語で、対比を表すothersとは働きが違う。"
     },
     {
       "id": "cur-138",
       "setId": "english-grammar-200-merged",
       "lessonId": "lesson-05-pronouns-determiners",
       "unit": "14-pronouns-determiners",
-      "target": "the other",
+      "target": "the other(二つのうち)",
       "prompt": "空所に入る最も適切な語を選びなさい。",
-      "sentence": "I have two bags. One is black, and (    ) is blue.",
+      "sentence": "I have two watches: one was made in Japan and (    ) in Switzerland.",
       "choices": [
         "another",
-        "other",
         "others",
-        "the other"
+        "the other",
+        "the others"
       ],
-      "answerIndex": 3,
+      "answerIndex": 2,
       "stage": "識別・使い分け",
       "difficulty": "標準",
       "ruleRefs": "egp.nouns-determiners-pronouns.other-another",
       "explanation": [
         "二つのうち「もう一方」を指すので the other が適切です。"
       ],
-      "misconceptions": "another=不特定のもう一つ、other=名詞を伴わない、others=複数。"
+      "misconceptions": "another=不特定のもう一つ(3つ以上を想定)。others=複数形で、単数の残り一つには使わない。the others=特定された残り「全部」を指す形で、二つのうち一つには使わない。"
     },
     {
       "id": "cur-139",
@@ -6803,23 +6803,23 @@
       "setId": "english-grammar-200-merged",
       "lessonId": "lesson-03-nouns-count",
       "unit": "15-nouns-articles",
-      "target": "不可算名詞",
-      "prompt": "空所に入る最も適切なものを選択肢から1つ選びなさい。",
-      "sentence": "Monica got (    ) from her coach about how to hit the ball.",
+      "target": "adviceに対するsome",
+      "prompt": "空所に入る最も適切な語を選びなさい。",
+      "sentence": "The teacher gave each child (    ) advice.",
       "choices": [
-        "advices",
-        "an advice",
-        "some advice",
-        "some advices"
+        "an",
+        "many",
+        "one",
+        "some"
       ],
-      "answerIndex": 2,
+      "answerIndex": 3,
       "stage": "基礎確認",
       "difficulty": "基礎",
-      "ruleRefs": "egp.nouns-determiners-pronouns.uncountable-noun, egp.nouns-determiners-pronouns.quantifiers",
+      "ruleRefs": "egp.nouns-determiners-pronouns.uncountable-noun",
       "explanation": [
-        "advice は通常不可算名詞なので、some advice とします。個数を示すなら a piece of advice の形にします。"
+        "advice は不可算名詞なので、単数の可算名詞に使う an や one、複数可算名詞に使う many は使えません。量を表す some が適切です。"
       ],
-      "misconceptions": "advices と some advices は通常の複数形でなく、an advice も不可算名詞に不定冠詞を付けています。"
+      "misconceptions": "an/one=不可算名詞に単数の限定詞を付けた誤り。many=不可算名詞にmanyを使った誤り(不可算にはmuch/someなどを使う)。"
     },
     {
       "id": "add-309",
