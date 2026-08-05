@@ -11,16 +11,16 @@ am/is/are + -ing → 現在の途中
 was/were + -ing → 過去の途中
 :::
 
-`The baby is sleeping.` は現在の途中、`I was playing the piano when you called.` は過去の一点での途中です。単に起きた事実か、その時点で進行中だったかを分けます。
+`The police are looking into the case.` は現在の途中、`I was playing the piano when you called.` は過去の一点での途中です。単に起きた事実か、その時点で進行中だったかを分けます。
 
 動詞の形も確認します。`lie`（横になる）は `lie - lay - lain - lying`、`lay`（置く）は `lay - laid - laid - laying`、`lie`（嘘をつく）は `lie - lied - lied - lying` です。「横になっている途中」なら `was lying` を使います。
 
 :::check check-tense-progressive-future-01
-question: 次の文の空所に入る語は? Please be quiet. The baby ( ).
-choice: A|is sleeping
-choice: B|sleeps
+question: 次の文の空所に入る語は? The police ( ) into the cause of the accident.
+choice: A|are looking
+choice: B|looked
 answer: A
-explanation: Please be quiet は、赤ちゃんが今まさに眠っている状況を示します。現在の動作の途中なので、現在進行形 is sleeping を使います。
+explanation: 事故の原因をちょうど調べている最中だとわかるので、現在進行形 are looking を使います。look into は「調査する」という意味の熟語です。
 :::
 
 
@@ -110,11 +110,11 @@ explanation: around this time tomorrow は明日の同じころという未来�
 まず `be` の時制を決め、次に `-ing` の意味を確認します。最後に未来の根拠を読みます。形を先に暗記しても、時計は動きません。
 
 :::check check-tense-progressive-future-06
-question: 次の文の空所に入る語は? I ( ) the answer.
-choice: A|know
-choice: B|am knowing
+question: 次の文の空所に入る語は? Ken ( ) of Lisa these days.
+choice: A|is thinking
+choice: B|thought
 answer: A
-explanation: know はここで状態を表すため、単純現在形 know が適切です。
+explanation: these days は「最近」という一定期間の継続を示します。think of「〜のことを考える」は動作の意味では進行形にでき、is thinking を使います。2節の know のような純粋な状態動詞とは異なります。
 :::
 
 
