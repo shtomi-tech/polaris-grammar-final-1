@@ -114,6 +114,25 @@ explanation: 主語が3人称・単数(my brother)で、現在の一般動詞の
 :::
 
 
+## 7. -ics・newsなど、形が複数でも単数扱いの名詞
+
+:::board
+Mathematics is: 数学(学問名)
+Physics is: 物理学(学問名)
+the news is: ニュース・知らせ
+:::
+
+Mathematics や Physics のような学問名、news のような語は語尾が s で終わりますが、1つのまとまりを表す単数名詞として扱います。be動詞は is です。複数形に見える語形だけで判断しないようにします。
+
+:::check check-19-agreement-07
+question: 次の文の空所に入る語は? Mathematics ( ) very difficult for me.
+choice: B|is
+choice: A|are
+answer: B
+explanation: Mathematics は語尾がsで終わるが、学問名を表す単数名詞なのでbe動詞はisを使う。
+:::
+
+
 ## 教授からの課題
 
 主語の中心語を丸で囲み、動詞との一致を「中心語が単数だから」のように説明して問題を解きます。
