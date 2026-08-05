@@ -25,18 +25,18 @@ explanation: if he will come は know の目的語となる名詞節で、「彼
 ## 2. that節は後ろが完全な文
 
 :::board
-the fact that he was honest
+the news that he passed away
 that + S + V + 必要な要素
 :::
 
-同格の`that`は、前の名詞の内容を説明します。`the fact that he left`では、`he left`が完全な文です。関係代名詞のthatと違い、that自身が節内の主語・目的語にはなりません。
+同格の`that`は、前の名詞の内容を説明します。`the news that he passed away`では、`he passed away`が完全な文です。関係代名詞のthatと違い、that自身が節内の主語・目的語にはなりません。
 
 :::check check-24-conjunctions-noun-02
-question: 次の文で、that he was honest の働きとして最も適切なものを選びなさい。 The fact that he was honest was obvious.
-choice: B|fact の内容を示す同格節
-choice: A|fact を限定する関係代名詞節
-answer: B
-explanation: that he was honest は the fact の内容を説明する同格の名詞節です。
+question: 次の文の空所に入る語は? The news ( ) he passed away is a shock to my family.
+choice: A|that
+choice: B|which
+answer: A
+explanation: he passed away は目的語などの欠けがない完全な文なので、the news の内容を説明する同格の that です。which は後ろに主語や目的語が欠けた不完全な文が続く関係代名詞なので、ここでは使えません。
 :::
 
 
@@ -51,11 +51,11 @@ whether ... or not
 「〜かどうか」の名詞節では`if/whether`が使えることがあります。`whether or not`、主語になる形、前置詞の後ろなどでは`whether`を選ぶことがあります。
 
 :::check check-24-conjunctions-noun-03
-question: 次の文の空所に入る語は? I don't know ( ) he will come.
-choice: A|if
-choice: B|because
+question: 次の文の空所に入る語は? The problem is ( ) my dad will allow me to study abroad or not.
+choice: A|whether
+choice: B|if
 answer: A
-explanation: if he will come は know の目的語となる名詞節で、「彼が来るかどうか」を表します。
+explanation: 後ろに or not が続くとき、be動詞の補語になる名詞節では whether を使います。if は or not を直接伴う形や、補語の位置では避けます。
 :::
 
 

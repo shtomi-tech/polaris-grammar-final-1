@@ -76,11 +76,11 @@ in case: 〜に備えて
 現在の事実に反する仮定では、`if` 節を過去形にし、`be` 動詞は主語にかかわらず基本的に `were` にします。`If Maya were here, she could help us now.` のように、`now` と `could` が現在の反実仮想を示します。
 
 :::check check-12-conjunctions-04
-question: 次の文の空所に入る語は? ( ) you agree or not, the decision has already been made.
-choice: B|Whether
-choice: A|If
+question: 次の文の空所に入る語は? ( ) everyone is against it, what is right is right.
+choice: B|Even if
+choice: A|Since
 answer: B
-explanation: whether ... or not は「~であろうとなかろうと」という譲歩の副詞節を表す。
+explanation: Even if は「たとえ〜でも」という、条件を認めても結果が変わらない譲歩を表します。Since(〜なので)を使うと、反対されていることが正しさの理由になってしまい、意味が通りません。
 :::
 
 
@@ -96,11 +96,11 @@ as far as I know: 私の知る限り
 条件や理由の表現は、後ろが節でも意味の焦点が違います。`provided that`は条件、`now that`は理由、`as long as`は継続条件として文脈に合わせます。
 
 :::check check-12-conjunctions-05
-question: 次の文の空所に入る語は? As ( ) as I know, the shop is closed today.
-choice: A|far
-choice: B|long
+question: 次の文の空所に入る語は? ( ) you mention it, I'm getting hungry, too.
+choice: A|Now that
+choice: B|So that
 answer: A
-explanation: 「私の知る範囲では」なので範囲を表す as far as です。
+explanation: Now that は「今や〜なので」という理由を表します。So that は目的を表すため、「あなたが言ったことが目的で空腹になる」という意味にはならず、ここでは使えません。
 :::
 
 
@@ -114,11 +114,11 @@ so + 形容詞 + that ...: 結果
 `Speak loudly so that everyone can hear.`は目的、`The box was so heavy that ...`は程度から生じた結果です。`so that`を一つの訳に固定せず、前後の関係を確認します。
 
 :::check check-12-conjunctions-06
-question: 次の文の空所に入る語は? Speak loudly so that everyone ( ) hear you.
-choice: B|can
-choice: A|must have
+question: 次の文の空所に入る語は? We must be quiet ( ) Ken can focus on studying.
+choice: B|so that
+choice: A|for fear
 answer: B
-explanation: so that は目的を表し、「みんなが聞けるように」という意味なので can hear が適切です。
+explanation: so that + S + can は「〜できるように」という目的を表します。for fear は「〜するといけないので」と悪い事態を避ける意味になり、Kenが集中できるという望ましい内容とは合いません。
 :::
 
 

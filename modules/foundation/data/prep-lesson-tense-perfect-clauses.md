@@ -87,11 +87,11 @@ If it rains, we will stay home.
 `when` や `if` が未来の条件・時を表す副詞節では、節の中に通常 `will` を置きません。未来の結果を表す主節と、条件を置く節の役割を分けます。
 
 :::check check-tense-perfect-clauses-05
-question: 次の文の空所に入る語は? When he ( ) home, I will call you.
-choice: A|arrives
-choice: B|will arrive
+question: 次の文の空所に入る語は? Ken will study in Canada after he ( ) from high school.
+choice: A|graduates
+choice: B|will graduate
 answer: A
-explanation: 未来のことでも、時を表す副詞節 when の中では一般に現在形を使います。
+explanation: 未来のことでも、時を表す副詞節 after の中では一般に現在形を使います。
 :::
 
 
