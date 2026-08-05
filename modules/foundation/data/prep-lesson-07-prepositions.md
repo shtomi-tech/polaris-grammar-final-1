@@ -29,9 +29,11 @@ explanation: pleased with ... は「~を喜んでいる」という形容詞と�
 at 9 a.m.: 時刻
 on Sunday: 曜日・日付
 in August: 月・年・長い期間
+in a week: 期間の経過後(未来)
+on Friday evening: 曜日+時間帯でもon
 :::
 
-日本語の「〜に」だけでは決まりません。`at`は一点の時刻、`on`は日、`in`は月や年のような広い期間、と時間の範囲を見ます。
+日本語の「〜に」だけでは決まりません。`at`は一点の時刻、`on`は日、`in`は月や年のような広い期間、と時間の範囲を見ます。`in a week`のように「〜後に」という未来の一時点を表すときも`in`を使います。`evening`単独なら`in the evening`ですが、`Friday evening`のように曜日と組み合わさると`on Friday evening`のように`on`に変わります。
 
 :::check check-13-prepositions-02
 question: 次の文の空所に入る語は? The meeting will start ( ) 9 a.m. sharp.
@@ -49,9 +51,10 @@ at the bus stop: 地点
 in the room: 内部
 on the wall: 面との接触
 in the red dress: 身につけた状態
+in ink: 使う道具・素材
 :::
 
-`at`は地点、`in`は内部や身につけた状態、`on`は面との接触が基本です。単語の訳だけでなく、場所をどう捉えているかを見ます。
+`at`は地点、`in`は内部や身につけた状態、`on`は面との接触が基本です。単語の訳だけでなく、場所をどう捉えているかを見ます。`write in ink`(インクで書く)のように、書く際に使う道具・素材を表すときも`in`を使います。
 
 :::check check-13-prepositions-03
 question: 次の文の空所に入る語は? She was waiting for me ( ) the bus stop.
@@ -67,9 +70,10 @@ explanation: バス停のような特定の地点には at を使う。
 :::board
 by Friday: 金曜までに完了
 until 9 p.m.: 9時まで継続
+paid by the month: 単位ごと(月極め)
 :::
 
-`finish by Friday`は期限までに完了、`study until 9 p.m.`はその時点まで継続です。終わる期限か、動作が続く終点かを確認します。
+`finish by Friday`は期限までに完了、`study until 9 p.m.`はその時点まで継続です。終わる期限か、動作が続く終点かを確認します。`by`にはこのほかに`by the month`(月ごとに)のように、支払いなどの単位を表す使い方もあります。`by the day`(日ごとに)・`by the hour`(時間ごとに)も同じ形です。
 
 :::check check-13-prepositions-04
 question: 次の文の空所に入る語は? I will be studying in the library ( ) 9 p.m. tonight.
@@ -86,9 +90,10 @@ explanation: until は「~までずっと」という継続の終点を表す。
 because + S + V
 because of + 名詞
 despite + 名詞
+in spite of + 名詞(= despiteと同義)
 :::
 
-`because it rained`は節、`because of the rain`は名詞句です。`despite the rain`は「〜にもかかわらず」で、`despite of`とはしません。後ろの形と関係を分けます。
+`because it rained`は節、`because of the rain`は名詞句です。`despite the rain`は「〜にもかかわらず」で、`despite of`とはしません。`in spite of`は`despite`と同じ意味の前置詞で、`in spite of the rain`のように使います。後ろの形と関係を分けます。
 
 :::check check-13-prepositions-05
 question: 次の文の空所に入る語は? The game was canceled ( ) it was raining heavily.
@@ -172,9 +177,10 @@ out of reach: 手の届かない所に
 on good/bad terms: 仲が良い/悪い
 make room for: 〜のために場所を空ける
 on sale: 販売されて
+thanks to: 〜のおかげで
 :::
 
-これらは前置詞の意味を積み上げても出てこない、まとまりとして覚える熟語です。`on purpose`は「意図的に」、`by all means`は「ぜひとも・どんな手段を使ってでも」、`in the long run`は「長い目で見れば・結局は」、`out of reach`は「(手や力の及ぶ範囲の)外に」、`on good/bad terms`は「(人と)仲が良い/悪い」、`make room for`は「〜のために場所を空ける」、`on sale`は「(安売りとは限らず)販売されて」を表します。
+これらは前置詞の意味を積み上げても出てこない、まとまりとして覚える熟語です。`on purpose`は「意図的に」、`by all means`は「ぜひとも・どんな手段を使ってでも」、`in the long run`は「長い目で見れば・結局は」、`out of reach`は「(手や力の及ぶ範囲の)外に」、`on good/bad terms`は「(人と)仲が良い/悪い」、`make room for`は「〜のために場所を空ける」、`on sale`は「(安売りとは限らず)販売されて」、`thanks to`は「〜のおかげで」を表します。
 
 :::check check-13-prepositions-09
 question: 次の文の空所に入る語は? The boys didn't break the window on ( ).
