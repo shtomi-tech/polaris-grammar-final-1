@@ -84,11 +84,12 @@ explanation: 全体(5本)から一部(1本)を除いた残り全部(4本、複�
 ## 5. oneとnoneは名詞の受け方が違う
 
 :::board
-one = 1つ・1人
+one = 不特定の1つ・1人(a/an + 名詞の代わり)
+it = 同じその1つ(the + 名詞の代わり)
 none of + 複数名詞 = どれも・誰も〜ない
 :::
 
-`Do you have one?`の`one`は単数名詞の代わりです。`none of them`はまとまりの中に一つもないことを表します。指す範囲と数を確認します。
+`Do you have one?`の`one`は単数名詞の代わりです。ただし`one`が受けるのは種類が同じ不特定の1つで、`I saw a panda. I saw one in China.`の`one`は「パンダという種類の(どれでもよい)1つ」です。同じ特定の1つを指し直すときは`it`を使います(`I bought a pen and lost it.`)。`none of them`はまとまりの中に一つもないことを表します。指す範囲と数を確認します。
 
 :::check check-14-pronouns-determiners-05
 question: 次の文の空所に入る語は? You can borrow a pen if you need ( ).

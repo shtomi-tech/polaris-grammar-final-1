@@ -157,6 +157,26 @@ explanation: friendly は -ly で終わりますが形容詞です。語尾だ�
 :::
 
 
+## 9. already/yet/still/everは文の種類で使い分ける
+
+:::board
+already: 肯定文「もう」
+yet: 否定文・疑問文「まだ/もう」
+still: 継続を強調「まだ(続いている)」
+ever: 疑問文・first などで範囲を限定する表現の中で「今までに」
+:::
+
+`already`は肯定文で完了を表します。`yet`は否定文で「まだ〜ない」、疑問文で「もう〜したか」を表します。`still`は同じ状態が続いていることを強調します。`ever`は疑問文や`the first ... (that) S have/had ever done`のように範囲を限定する表現の中で「今までに」を表します。
+
+:::check check-16-adjectives-adverbs-09
+question: 次の文の空所に入る語は? I'm hungry, but it isn't lunchtime ( ).
+choice: A|yet
+choice: B|already
+answer: A
+explanation: 否定文で「まだ〜ない」を表すのは yet です。already は肯定文で使う「もう」なので、isn't と一緒には使いません。
+:::
+
+
 ## 教授からの課題
 
 空所から修飾先へ矢印を引き、①名詞かそれ以外か、②品詞、③位置、④意味の順に確認します。頻度副詞は動詞の種類まで見てから選びます。
