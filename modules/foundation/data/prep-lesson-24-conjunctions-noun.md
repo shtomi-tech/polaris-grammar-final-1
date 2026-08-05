@@ -26,10 +26,11 @@ explanation: if he will come は know の目的語となる名詞節で、「彼
 
 :::board
 the news that he passed away
+The trouble is that ...
 that + S + V + 必要な要素
 :::
 
-同格の`that`は、前の名詞の内容を説明します。`the news that he passed away`では、`he passed away`が完全な文です。関係代名詞のthatと違い、that自身が節内の主語・目的語にはなりません。
+同格の`that`は、前の名詞の内容を説明します。`the news that he passed away`では、`he passed away`が完全な文です。関係代名詞のthatと違い、that自身が節内の主語・目的語にはなりません。`The trouble is that I have no money with me.`のように、be動詞の補語になるthat節も同じルールです。後ろが完全な文なら that を使います。
 
 :::check check-24-conjunctions-noun-02
 question: 次の文の空所に入る語は? The news ( ) he passed away is a shock to my family.

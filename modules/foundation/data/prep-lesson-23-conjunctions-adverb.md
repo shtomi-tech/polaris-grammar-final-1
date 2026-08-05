@@ -90,10 +90,12 @@ explanation: Even if は「たとえ〜でも」という、条件を認めて�
 now that: 今や〜なので
 provided that: 〜という条件で
 as long as: 〜する限り
+as far as: 及ぶ範囲・程度では
 as far as I know: 私の知る限り
+as far as the eye could reach: 見渡す限り
 :::
 
-条件や理由の表現は、後ろが節でも意味の焦点が違います。`provided that`は条件、`now that`は理由、`as long as`は継続条件として文脈に合わせます。
+条件や理由の表現は、後ろが節でも意味の焦点が違います。`provided that`は条件、`now that`は理由、`as long as`は継続条件として文脈に合わせます。`as far as`は「〜が及ぶ範囲では」という一般的なパターンで、`as far as I know`(私の知る限り)だけでなく、`as far as the eye could reach`(見渡す限り)のように視覚が届く範囲にも使います。
 
 :::check check-12-conjunctions-05
 question: 次の文の空所に入る語は? ( ) you mention it, I'm getting hungry, too.
