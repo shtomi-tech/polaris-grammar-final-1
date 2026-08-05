@@ -33,11 +33,11 @@ When I arrived, the train had left.
 過去のある時点よりさらに前に完了していたことは過去完了です。二つの出来事が同じ順で起きたとは限らないため、時間関係を図にします。
 
 :::check check-tense-perfect-clauses-02
-question: 次の文の空所に入る語は? When I arrived at the station, the train ( ).
-choice: B|had left
-choice: A|has left
+question: 次の文の空所に入る語は? The suspect ( ) away when the police arrived.
+choice: B|had already run
+choice: A|already ran
 answer: B
-explanation: arrived という過去の基準時より前に、列車が出発しています。過去を基準にそれより前を表す had left を使います。
+explanation: arrived という過去の基準時より前に、容疑者はすでに逃げていました。過去を基準にそれより前を表す had already run を使います。
 :::
 
 
@@ -51,11 +51,11 @@ She had left before I arrived.
 `before` があれば前後関係はすでに示されています。過去完了を使うかは、過去の基準時より前であることを強調する必要があるか、文脈と選択肢全体で判断します。
 
 :::check check-tense-perfect-clauses-03
-question: 次の文の空所に入る語は? When I arrived at the airport, Chris ( ) for Florida.
-choice: A|had left
-choice: B|has left
+question: 次の文の空所に入る語は? ( ) ever played the clarinet before you entered high school?
+choice: A|Had you
+choice: B|Have you
 answer: A
-explanation: 空港に到着した過去の時点より前に、Chrisは出発していました。過去の基準時より前を表すので had left です。
+explanation: before you entered high school という過去の基準時より前の経験を尋ねているので、疑問文でも過去完了 Had you を使います。
 :::
 
 
@@ -69,11 +69,11 @@ By next June, I will have finished the course.
 `by` などで未来の基準時を置き、その時までに完了していることを表すのが未来完了です。`will` の後ろは原形、`have` の後ろは過去分詞です。
 
 :::check check-tense-perfect-clauses-04
-question: 次の文の空所に入る語は? By next April, I ( ) in this company for ten years.
-choice: B|will have worked
-choice: A|will work
+question: 次の文の空所に入る語は? We're late! The train ( ) by the time we arrive.
+choice: B|will have left
+choice: A|has left
 answer: B
-explanation: By + 未来の時点 を基準に、その時点までの継続・完了を表す場合は未来完了を使う。
+explanation: by the time we arrive という未来の基準時までに完了していることを表すので、未来完了 will have left を使います。
 :::
 
 

@@ -14,11 +14,11 @@ have/has + 過去分詞
 現在完了は、経験・結果・継続など、過去と現在の関係を表します。過去の出来事を単に並べる過去形とは、基準時が違います。
 
 :::check check-tense-present-perfect-01
-question: 次の文の空所に入る語は? I ( ) my key, so I can't get into the house now.
-choice: A|have lost
-choice: B|lose
+question: 次の文の空所に入る語は? Mr. Tanaka ( ) a long-distance relationship with Kate for five years.
+choice: A|has had
+choice: B|had
 answer: A
-explanation: 現在完了は、過去の動作が生み出した「現在の状態」を伝える。ここでは鍵をなくした結果、今も家に入れない状態が続いている。
+explanation: for five years は現在まで続く期間を示すため、現在完了 has had を使います。今も続いている関係なので、過去形 had(すでに終わった関係)は使えません。
 :::
 
 
@@ -32,11 +32,11 @@ I have visited Kyoto twice.
 `ever`、`never`、`before`、回数などが、現在までの経験を示します。特定の過去の時点を強く示す `yesterday` などとは一緒に使いません。
 
 :::check check-tense-present-perfect-02
-question: 次の文の空所に入る語は? I ( ) Kyoto three times.
-choice: B|have visited
-choice: A|visited
+question: 次の文の空所に入る語は? A: I ( ) Shohei Ohtani before! B: No way!
+choice: B|have seen
+choice: A|see
 answer: B
-explanation: 現在までの経験を表すので現在完了 have visited が適切です。
+explanation: before が現在までの経験を示すので現在完了 have seen が適切です。
 :::
 
 
@@ -50,11 +50,11 @@ I have lost my key.
 出来事自体は過去でも、その結果が現在に残っているなら現在完了です。訳だけでなく、今どうなっているかを補って考えます。
 
 :::check check-tense-present-perfect-03
-question: 次の文の空所に入る語は? I ( ) my key, so I can't get into the house now.
-choice: A|have lost
-choice: B|lose
+question: 次の文の空所に入る語は? The train ( ), so I have to wait for the next one.
+choice: A|has already left
+choice: B|already leaves
 answer: A
-explanation: 現在完了は、過去の動作が生み出した「現在の状態」を伝える。ここでは鍵をなくした結果、今も家に入れない状態が続いている。
+explanation: 電車が出た結果、次を待つしかないという現在の状態につながっているので、現在完了 has already left を使います。
 :::
 
 
@@ -107,11 +107,11 @@ She has been studying for three hours.
 動作がどれだけ続いているか、またはその痕跡を強く示すときは現在完了進行形です。状態動詞は通常、現在完了の単純形で表します。
 
 :::check check-tense-present-perfect-06
-question: 次の文の空所に入る語は? My mother ( ) at the museum since she was thirty.
-choice: B|has been working
-choice: A|had worked
+question: 次の文の空所に入る語は? The police ( ) into the cause since last month.
+choice: B|have been looking
+choice: A|looked
 answer: B
-explanation: since she was thirty は30歳の時点を起点に、現在までのつながりを示します。仕事という動作の継続中であることに焦点を置く選択肢は、現在完了進行形 has been working です。なお、since があるだけで常に進行形になるわけではなく、単純現在完了で継続の事実を表せる場合もあります。
+explanation: since last month は先月を起点に、現在までのつながりを示します。調査という動作の継続中であることに焦点を置くため、現在完了進行形 have been looking を使います。
 :::
 
 
