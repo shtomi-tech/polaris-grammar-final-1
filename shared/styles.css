@@ -167,6 +167,7 @@ h3 { font-size: 18px; line-height: 1.45; }
   margin: 0 auto var(--gap-section);
   padding: 0 var(--module-inline);
 }
+.flowNav__details > summary { display: none; }
 .flowNav__list {
   list-style: none;
   display: flex;
@@ -236,49 +237,6 @@ a.flowNav__link:hover { border-color: var(--ink); }
 .flowNav__item--locked .flowNav__mod { color: var(--muted); }
 .flowNav__item--viewing .flowNav__link { outline: 2px dashed var(--line); outline-offset: 2px; }
 
-/* ---- 横断の「つづきから」 ---------------------------------- */
-/* 表示中の画面が推奨導線上の現在地と一致するときは shell.js が非表示にする。
-   1画面の主要アクションを1つに保つため、モジュール側のCTAと二重にしない。 */
-
-.nextAction {
-  display: flex;
-  flex-wrap: wrap;
-  align-items: center;
-  justify-content: space-between;
-  gap: var(--gap-group);
-  background: var(--ink);
-  color: var(--parchment);
-  padding: var(--gap-group) var(--gap-section);
-  margin-bottom: var(--gap-section);
-}
-
-.nextAction__label {
-  font-family: var(--mono);
-  font-size: 11px;
-  letter-spacing: .1em;
-  text-transform: uppercase;
-  color: rgba(250, 249, 246, .75);
-  margin: 0;
-}
-
-.nextAction__cta {
-  min-height: 56px;
-  padding: var(--gap-tight) 22px;
-  border: 1px solid var(--parchment);
-  border-radius: 0;
-  background: var(--parchment);
-  color: var(--ink);
-  font-size: 16px;
-  font-weight: 700;
-  cursor: pointer;
-}
-.nextAction__cta:hover { background: #fff; }
-
-@media (max-width: 640px) {
-  .nextAction { flex-direction: column; align-items: stretch; padding: var(--gap-group); }
-  .nextAction__cta { width: 100%; }
-}
-
 @media (max-width: 480px) {
   :root { --module-inline: 12px; }
 }
@@ -312,7 +270,20 @@ a.flowNav__link:hover { border-color: var(--ink); }
 
 @media (max-width: 640px) {
   .appShell { padding: var(--gap-group) var(--gap-group) var(--gap-band); }
-  .flowNav__list { flex-direction: column; align-items: stretch; }
+  .flowNav__details { border: 1px solid var(--line); background: var(--paper); }
+  .flowNav__details > summary {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    min-height: var(--tap-min);
+    padding: var(--gap-tight) var(--gap-group);
+    cursor: pointer;
+    font-size: 13px;
+    font-weight: 700;
+  }
+  .flowNav__details[open] > summary { border-bottom: 1px solid var(--line); }
+  .flowNav__details > summary::after { content: "一覧"; color: var(--muted); font-weight: 400; }
+  .flowNav__list { flex-direction: column; align-items: stretch; gap: var(--gap-tight); padding: var(--gap-tight); }
   .flowNav__sep { display: none; }
   .flowNav__item { flex: 1 1 auto; }
   .appHeader__row { align-items: flex-start; flex-direction: column; }

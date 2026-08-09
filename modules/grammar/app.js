@@ -1,4 +1,8 @@
-import { CONTENT_VERSION as FOUNDATION_CONTENT_VERSION } from "../foundation/status.js?v=20260804-grammar200q-v10";
+import {
+  CONTENT_VERSION as FOUNDATION_CONTENT_VERSION,
+  SECTION_COUNT as FOUNDATION_SECTION_COUNT,
+  summarize as summarizeFoundation,
+} from "../foundation/status.js?v=20260809-ux-flow-v1";
 
 "use strict";
 /* 英文法演習（統合アプリのモジュール）。
@@ -18,7 +22,6 @@ const $$ = (selector, scope = viewRoot) => Array.from(scope.querySelectorAll(sel
 const KEYS = ["ア", "イ", "ウ", "エ"];
 const SPACED_REVIEW_DAYS = [1, 3, 7, 14];
 const QUIZ_SESSION_VERSION = 1;
-const FOUNDATION_STAGE_COUNT = 5;
 const UNIT_SOURCES = {
   unit01: "中部大学 工/経営情報/国際関係など",
   unit02: "札幌学院大学 法/経済/経営/社会情報",
@@ -33,13 +36,6 @@ const UNIT_SOURCES = {
 };
 
 let questionData = { source: {}, units: [], questions: [] };
-const DOMAIN_LABELS = {
-  foundation: "品詞・句・節・文の要素", pattern: "文型・自他動詞", verb_form: "動詞の形・主語との一致",
-  tense: "時制・完了形・進行形", modal: "助動詞", passive: "受動態", infinitive: "不定詞", gerund: "動名詞",
-  participle: "分詞・分詞構文", comparison: "比較", relative: "関係詞", conjunction: "接続詞・節",
-  subjunctive: "仮定法", nouns: "名詞・冠詞・代名詞", adverb: "形容詞・副詞", preposition: "前置詞",
-  negation: "否定文・疑問文・間接疑問"
-};
 let progress = {};
 let selected = { unitId: "", setId: "", mode: "setAll" };
 let quiz = null;
@@ -324,20 +320,6 @@ function currentFocusStep() {
   if (stepStats("step1Cleared").remaining > 0) return 1;
   if (stepStats("step2Cleared").remaining > 0) return 2;
   return 3;
-}
-
-function foundationStatus() {
-  const history = loadFoundationHistory();
-  const stageResults = history?.stageResults || {};
-  const completedStages = Array.from({ length: FOUNDATION_STAGE_COUNT }, (_, index) => index + 1)
-    .filter(index => stageResults[`stage${index}`]?.completed === true).length;
-  return {
-    history,
-    stageResults,
-    completedStages,
-    total: FOUNDATION_STAGE_COUNT,
-    unlocked: completedStages === FOUNDATION_STAGE_COUNT
-  };
 }
 
 function updateStepCompletionDates() {
@@ -749,7 +731,7 @@ function renderHome() {
 /* 統合ストアから基礎チェックの記録を読む。
    統合前はここが localStorage の "grammar-knowledge-check-v2" を直接読んでいたが、
    基礎チェック側の保存キーは "-v3" に上がっており、移行処理も無かった。
-   そのため5段階を完走しても解放されず、ダッシュボードも常に空だった。 */
+   そのため完了しても解放されず、ダッシュボードも常に空だった。 */
 function loadFoundationHistory() {
   const history = ctx.peek("foundation");
   return history?.contentVersion === FOUNDATION_CONTENT_VERSION ? history : null;
@@ -763,35 +745,22 @@ function renderFoundationDashboard() {
   foundationLink.onclick = () => ctx.navigate("foundation");
 
   const history = loadFoundationHistory();
-  const stageResults = history?.stageResults || {};
-  const completedStages = Object.keys(stageResults).filter(key => /^stage[1-5]$/.test(key) && stageResults[key]?.completed === true).length;
-  const answers = [120, 150].includes(history?.total) && Array.isArray(history.answers)
-    ? history.answers
-    : Object.values(stageResults).flatMap(result => Array.isArray(result.answers) ? result.answers : []);
-  const weakDomains = [];
-  for (const domain of DOMAIN_LABELS ? Object.keys(DOMAIN_LABELS) : []) {
-    const domainAnswers = answers.filter(answer => answer.domain === domain);
-    if (!domainAnswers.length) continue;
-    const correct = domainAnswers.filter(answer => answer.correct).length;
-    const uncertain = domainAnswers.filter(answer => answer.uncertain).length;
-    if (correct / domainAnswers.length < 0.8 || uncertain > 0) weakDomains.push(domain);
-  }
-  const nextStage = [1, 2, 3, 4, 5].find(index => stageResults[`stage${index}`]?.completed !== true);
+  const foundation = summarizeFoundation(history);
   const step1 = stepStats("step1Cleared");
   const step2 = stepStats("step2Cleared");
   const meta = metaState();
 
   if (!history) {
-    body.innerHTML = `<p class="hint">基礎知識チェックはまだ開始されていません。まず5段階の基礎確認から始めます。</p>`;
+    body.innerHTML = `<p class="hint">基礎チェックはまだ開始されていません。まず学習ルートから最初のセクションを選びます。</p>`;
     return;
   }
   body.innerHTML = `
     <div class="dashboardGrid">
-      <div><p class="label">FOUNDATION</p><strong>${completedStages} / 5段階</strong><p class="hint">${nextStage ? `次は第${nextStage}段階` : "5段階完了"}</p></div>
+      <div><p class="label">FOUNDATION</p><strong>${foundation.completedSections} / ${FOUNDATION_SECTION_COUNT}セクション</strong><p class="hint">${foundation.complete ? "基礎チェック完了" : foundation.detail}</p></div>
       <div><p class="label">POLARIS STEP 1</p><strong>${step1.cleared} / ${step1.total}</strong><p class="hint">UNIT演習</p></div>
       <div><p class="label">POLARIS STEP 2</p><strong>${step2.cleared} / ${step2.total}</strong><p class="hint">${step2.remaining ? "ランダム制覇へ" : (meta.mastered ? "Step 3 MASTER" : "Step 3 挑戦可能")}</p></div>
     </div>
-    <p class="hint">${weakDomains.length ? `現在の弱点分野：${weakDomains.slice(0, 4).map(domain => DOMAIN_LABELS[domain]).join("・")}` : "基礎知識の弱点分野はありません。"}</p>
+    <p class="hint">基礎チェックのセクション別結果は、学習ルートで確認できます。</p>
   `;
 }
 

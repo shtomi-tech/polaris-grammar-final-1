@@ -1,7 +1,7 @@
 import {
   CONTENT_VERSION,
   FOUNDATION_SESSION_VERSION,
-} from "./status.js?v=20260804-grammar200q-v10";
+} from "./status.js?v=20260809-ux-flow-v1";
 
 export async function mount(root, ctx) {
   "use strict";

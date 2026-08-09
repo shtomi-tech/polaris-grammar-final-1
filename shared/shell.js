@@ -8,8 +8,8 @@
 
 import { createIdentity } from "./identity.js";
 import { createStore } from "./store.js";
-import { createRouter } from "./router.js?v=20260804-grammar200q-v10";
-import { MODULES, computeFlow, findModule } from "./flow.js?v=20260804-grammar200q-v10";
+import { createRouter } from "./router.js?v=20260809-ux-flow-v1";
+import { MODULES, computeFlow, findModule } from "./flow.js?v=20260809-ux-flow-v1";
 
 const APP_ID = "english-grammar-trainer"; // app_progress.app（統合により1生徒＝1行）
 const CONFIG_PATH = "config.json";
@@ -116,9 +116,14 @@ const STATE_LABELS = {
 
 function buildFlowNav() {
   const nav = el("nav", "flowNav");
-  nav.setAttribute("aria-label", "学習フローの現在地");
+  nav.setAttribute("aria-label", "学習フロー");
+  dom.flowDetails = el("details", "flowNav__details");
+  dom.flowDetails.open = window.matchMedia("(min-width: 641px)").matches;
+  dom.flowSummary = el("summary", "flowNav__summary");
+  dom.flowDetails.appendChild(dom.flowSummary);
   dom.flowList = el("ol", "flowNav__list");
-  nav.appendChild(dom.flowList);
+  dom.flowDetails.appendChild(dom.flowList);
+  nav.appendChild(dom.flowDetails);
   return nav;
 }
 
@@ -139,7 +144,7 @@ function flowItem(mod, state, flow) {
     if (isViewing) control.setAttribute("aria-current", "page");
     control.setAttribute(
       "aria-label",
-      `${mod.name}：${STATE_LABELS[state.status]}、${state.detail}${isPointer ? "（現在地）" : ""}`
+      `${mod.name}：${STATE_LABELS[state.status]}、${state.detail}${isPointer ? "（おすすめ）" : ""}`
     );
     control.addEventListener("click", () => router.navigate(mod.id));
   }
@@ -150,7 +155,7 @@ function flowItem(mod, state, flow) {
   const body = el("span", "flowNav__body");
   const name = el("span", "flowNav__name");
   name.appendChild(el("span", "flowNav__mod", mod.name));
-  if (isPointer) name.appendChild(el("span", "flowNav__you", "現在地"));
+  if (isPointer) name.appendChild(el("span", "flowNav__you", "おすすめ"));
   const status = el("span", "flowNav__status");
   status.appendChild(el("span", "flowNav__stateLabel", STATE_LABELS[state.status]));
   status.appendChild(el("span", "flowNav__detail", state.detail));
@@ -163,6 +168,10 @@ function flowItem(mod, state, flow) {
 
 function renderFlow() {
   const flow = computeFlow(store);
+  const pointer = findModule(flow.pointer);
+  if (pointer) {
+    dom.flowSummary.textContent = `おすすめ：${pointer.name}・${flow.states[flow.pointer].detail}`;
+  }
   dom.flowList.replaceChildren();
   MODULES.forEach((mod, index) => {
     if (index > 0) {
@@ -172,26 +181,8 @@ function renderFlow() {
     }
     dom.flowList.appendChild(flowItem(mod, flow.states[mod.id], flow));
   });
-  renderNextAction(flow);
   const current = findModule(router.currentId());
   if (current) dom.title.textContent = current.name;
-}
-
-/* 横断の「つづきから」。
-   いま見ている画面が推奨導線上の現在地と一致するときは出さない。
-   1画面の主要アクションを1つに保つため（モジュール側のCTAと二重にしない）。 */
-function renderNextAction(flow) {
-  dom.nextAction.replaceChildren();
-  if (!flow.next.label || router.currentId() === flow.next.moduleId) {
-    dom.nextAction.classList.add("hidden");
-    return;
-  }
-  dom.nextAction.classList.remove("hidden");
-  dom.nextAction.appendChild(el("p", "nextAction__label", "次にやること"));
-  const button = el("button", "nextAction__cta", flow.next.label);
-  button.type = "button";
-  button.addEventListener("click", () => router.navigate(flow.next.moduleId));
-  dom.nextAction.appendChild(button);
 }
 
 /* ---- フッター ---------------------------------------------- */
@@ -239,8 +230,6 @@ async function start() {
 
   const shell = el("div", "appShell");
   shell.append(buildHeader(), buildFlowNav());
-  dom.nextAction = el("section", "nextAction hidden");
-  shell.appendChild(dom.nextAction);
   dom.main = el("main");
   dom.main.id = "moduleRoot";
   shell.appendChild(dom.main);

@@ -7,9 +7,9 @@
    横断ルールはここ1箇所に置く。
    ============================================================ */
 
-import * as foundationStatus from "../modules/foundation/status.js?v=20260804-grammar200q-v10";
-import * as grammarStatus from "../modules/grammar/status.js?v=20260804-grammar200q-v10";
-import * as readingStatus from "../modules/reading/status.js?v=20260804-grammar200q-v10";
+import * as foundationStatus from "../modules/foundation/status.js?v=20260809-ux-flow-v1";
+import * as grammarStatus from "../modules/grammar/status.js?v=20260809-ux-flow-v1";
+import * as readingStatus from "../modules/reading/status.js?v=20260809-ux-flow-v1";
 
 export const MODULES = [
   {
@@ -17,14 +17,14 @@ export const MODULES = [
     num: "01",
     name: "基礎チェック",
     summarize: foundationStatus.summarize,
-    load: () => import("../modules/foundation/app.js?v=20260804-grammar200q-v10"),
+    load: () => import("../modules/foundation/app.js?v=20260809-ux-flow-v1"),
   },
   {
     id: "grammar",
     num: "02",
     name: "英文法演習",
     summarize: grammarStatus.summarize,
-    load: () => import("../modules/grammar/app.js?v=20260804-grammar200q-v10"),
+    load: () => import("../modules/grammar/app.js?v=20260809-ux-flow-v1"),
   },
   {
     id: "reading",
@@ -51,7 +51,7 @@ export function computeFlow(store) {
     states[mod.id] = mod.summarize(store.scope(mod.id).get());
   });
 
-  // 推奨導線上の現在地
+  // 推奨導線上のおすすめ
   let pointer = "reading";
   if (!states.foundation.complete) pointer = "foundation";
   else if (!states.grammar.complete) pointer = "grammar";
