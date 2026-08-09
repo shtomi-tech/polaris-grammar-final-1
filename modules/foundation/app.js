@@ -24,6 +24,20 @@ export async function mount(root, ctx) {
       minutes: "約5分",
     },
   };
+  const BRIDGE_PROGRESS_VERSION = 1;
+  // 既存問題だけを短く再利用する。橋渡しは本編の点数・問題数に含めない。
+  const BRIDGE_CONFIG = {
+    "lesson-tense-perfect-clauses": {
+      title: "完了形の入口をつなぐ",
+      description: "現在完了と過去形を確認してから、過去の基準時へ進みます。",
+      questionIds: ["cur-033", "leg-003", "add-129"],
+    },
+    "lesson-mood-subjunctive-conditions": {
+      title: "仮定法の基本形をつなぐ",
+      description: "仮定法過去と仮定法過去完了を確認してから、条件の変形へ進みます。",
+      questionIds: ["cur-162", "cur-163", "cur-174"],
+    },
+  };
   // 一旦、全セクションを自由に選べる状態にする。順路へ戻すときは false に戻す。
   const ALL_LESSONS_UNLOCKED = true;
   // The data shape changed with the 43-section path. The versioned URL keeps
@@ -198,19 +212,21 @@ export async function mount(root, ctx) {
       "add-210",
     ],
     "lesson-tense-perfect-clauses": [
+      "add-131",
+      "add-132",
+      "add-207",
+      "add-060",
       "cur-035",
       "cur-198",
       "leg-007",
-      "add-060",
-      "add-131",
-      "add-207",
-      "add-132",
       "add-133",
-      "add-134",
       "add-208",
+      "add-134",
       "add-204",
       "cur-032",
       "cur-122",
+      "add-168",
+      "add-180",
       "leg-009",
     ],
     // 一致の基本は、単純な主語 → be動詞 → each/everyへ進める。
@@ -262,22 +278,22 @@ export async function mount(root, ctx) {
       "add-087",
     ],
     "lesson-mood-subjunctive-conditions": [
-      "cur-164",
+      "add-139",
+      "add-137",
       "cur-165",
       "cur-166",
-      "cur-167",
-      "leg-047",
-      "cur-171",
-      "cur-173",
-      "cur-175",
-      "cur-200",
-      "add-137",
-      "add-139",
-      "add-140",
-      "add-141",
-      "add-219",
       "add-220",
+      "add-140",
+      "cur-175",
+      "add-141",
+      "cur-167",
+      "cur-173",
+      "cur-171",
       "add-221",
+      "leg-047",
+      "cur-200",
+      "cur-164",
+      "add-219",
     ],
     "lesson-mood-wish-proposal": [
       "cur-017",
@@ -734,6 +750,7 @@ export async function mount(root, ctx) {
         pathVersion: PATH_VERSION,
         scores: {},
         preparation: emptyPreparationProgress(),
+        bridgeProgress: {},
       };
     }
     return progress;
@@ -772,6 +789,9 @@ export async function mount(root, ctx) {
       pathVersion: PATH_VERSION,
       scores: progress.scores && typeof progress.scores === "object" ? progress.scores : {},
       preparation: normalizePreparationProgress(progress.preparation),
+      bridgeProgress: progress.bridgeProgress && typeof progress.bridgeProgress === "object"
+        ? { ...progress.bridgeProgress }
+        : {},
     };
     if (Object.prototype.hasOwnProperty.call(progress, "session")) {
       payload.session = progress.session;
@@ -795,6 +815,45 @@ export async function mount(root, ctx) {
       },
     };
     ctx.store.set(foundationProgressPayload(progress, { preparation: preparation }));
+  }
+
+  function bridgeConfigForLesson(lessonId) {
+    return BRIDGE_CONFIG[lessonId] || null;
+  }
+
+  function bridgeQuestionsForLesson(setId, lessonId) {
+    const config = bridgeConfigForLesson(lessonId);
+    if (!config || !DATA || !Array.isArray(DATA.questions)) return [];
+    const questionById = new Map(DATA.questions
+      .filter(function (question) { return question.setId === setId; })
+      .map(function (question) { return [String(question.id), question]; }));
+    return config.questionIds.map(function (id) {
+      return questionById.get(String(id));
+    }).filter(Boolean);
+  }
+
+  function isBridgeCompleted(lessonId) {
+    const progress = loadProgress();
+    const bridge = progress.bridgeProgress && progress.bridgeProgress[lessonId];
+    return Boolean(
+      bridge
+      && bridge.version === BRIDGE_PROGRESS_VERSION
+      && bridge.completedAt
+    );
+  }
+
+  function saveBridgeProgress(lessonId, correct, total) {
+    const progress = loadProgress();
+    const bridgeProgress = progress.bridgeProgress && typeof progress.bridgeProgress === "object"
+      ? { ...progress.bridgeProgress }
+      : {};
+    bridgeProgress[lessonId] = {
+      version: BRIDGE_PROGRESS_VERSION,
+      correct: correct,
+      total: total,
+      completedAt: new Date().toISOString(),
+    };
+    ctx.store.set(foundationProgressPayload(progress, { bridgeProgress: bridgeProgress }));
   }
 
   function stopPreparationTracking() {
@@ -1779,6 +1838,206 @@ export async function mount(root, ctx) {
       });
   }
 
+  function renderBridge(setId, lessonId) {
+    const config = bridgeConfigForLesson(lessonId);
+    const questions = bridgeQuestionsForLesson(setId, lessonId);
+    if (!config || !questions.length) {
+      startLesson(setId, lessonId, { skipBridge: true });
+      return;
+    }
+    stopPreparationTracking();
+    state = {
+      kind: "bridge",
+      setId: setId,
+      lessonId: lessonId,
+      lesson: lessonForId(lessonId),
+      questions: questions,
+      index: 0,
+      correctCount: 0,
+      answered: false,
+      selectedIndex: null,
+      choiceListEl: null,
+      questionShownAt: null,
+    };
+    app.classList.remove("is-comparison");
+    recordLearningEvent("bridge_started", {
+      setId: setId,
+      lessonId: lessonId,
+      questionCount: questions.length,
+    });
+    renderBridgeQuestion();
+  }
+
+  function renderBridgeQuestion() {
+    if (!state || state.kind !== "bridge") return;
+    const config = bridgeConfigForLesson(state.lessonId);
+    const q = state.questions[state.index];
+    state.answered = false;
+    state.selectedIndex = null;
+    state.questionShownAt = Date.now();
+    root.innerHTML = "";
+    window.scrollTo(0, 0);
+    root.appendChild(el(
+      "a",
+      {
+        class: "back-link",
+        href: "#",
+        onclick: function (event) {
+          event.preventDefault();
+          renderSetSelect();
+        },
+      },
+      "← 学習ルートに戻る"
+    ));
+    root.appendChild(el("section", { class: "preparation-header card" }, [
+      el("h1", {}, config.title),
+      el("p", { class: "preparation-header-goal" }, config.description),
+      el("div", { class: "preparation-header-meta" }, [
+        el("span", {}, "橋渡し " + (state.index + 1) + " / " + state.questions.length),
+        el("span", {}, "本編の点数には含みません"),
+      ]),
+    ]));
+    root.appendChild(el("p", { class: "keyboard-hint" }, "1〜4で選択・Enterで次へ"));
+
+    recordLearningEvent("bridge_question_presented", {
+      setId: state.setId,
+      lessonId: state.lessonId,
+      questionId: q.id,
+      questionNumber: state.index + 1,
+      sourceLessonId: q.lessonId,
+      target: q.target,
+    });
+
+    const card = el("div", { class: "question-card card" });
+    card.appendChild(el("div", { class: "question-tags" }, [
+      el("span", { class: "tag" }, "橋渡し"),
+      el("span", { class: "tag" }, q.target || "前提の確認"),
+    ]));
+    if (q.prompt) card.appendChild(el("p", { class: "question-prompt" }, q.prompt));
+    if (q.sentence) {
+      const sentenceHtml = escapeHtml(q.sentence).replace(
+        /_{3,}/,
+        '<span class="blank">____</span>'
+      );
+      card.appendChild(el("p", { class: "question-sentence", html: sentenceHtml }));
+    }
+    root.appendChild(card);
+
+    const choiceList = el("div", { class: "choice-list" });
+    q.choices.forEach(function (choice, i) {
+      choiceList.appendChild(el(
+        "button",
+        {
+          class: "choice-btn",
+          type: "button",
+          onclick: function () { selectBridgeChoice(i); },
+        },
+        [el("span", { class: "choice-letter" }, LETTERS[i]), el("span", {}, choice)]
+      ));
+    });
+    root.appendChild(choiceList);
+    state.choiceListEl = choiceList;
+    if (choiceList.firstChild) choiceList.firstChild.focus();
+  }
+
+  function selectBridgeChoice(i) {
+    if (!state || state.kind !== "bridge" || state.answered) return;
+    const q = state.questions[state.index];
+    const buttons = Array.prototype.slice.call(state.choiceListEl.children);
+    if (!buttons[i]) return;
+    const correct = i === q.answerIndex;
+    state.answered = true;
+    state.selectedIndex = i;
+    if (correct) state.correctCount += 1;
+    recordLearningEvent("bridge_question_answered", {
+      setId: state.setId,
+      lessonId: state.lessonId,
+      questionId: q.id,
+      questionNumber: state.index + 1,
+      sourceLessonId: q.lessonId,
+      selectedIndex: i,
+      answerIndex: q.answerIndex,
+      correct: correct,
+      responseMs: state.questionShownAt ? Date.now() - state.questionShownAt : null,
+    });
+    buttons.forEach(function (button, index) {
+      button.disabled = true;
+      if (index === q.answerIndex) {
+        button.classList.add("is-correct");
+        button.appendChild(el("span", { class: "choice-result-icon" }, "○"));
+      } else if (index === i) {
+        button.classList.add("is-incorrect");
+        button.appendChild(el("span", { class: "choice-result-icon" }, "✕"));
+      } else {
+        button.classList.add("is-muted");
+      }
+    });
+    renderBridgeFeedback(q, correct);
+  }
+
+  function renderBridgeFeedback(q, correct) {
+    const panel = el("div", {
+      class: "feedback-panel " + (correct ? "correct" : "incorrect"),
+    });
+    panel.appendChild(el(
+      "p",
+      { class: "feedback-heading" },
+      correct ? "○ 正解" : "✕ 不正解(正答: " + LETTERS[q.answerIndex] + ")"
+    ));
+    panel.appendChild(el(
+      "p",
+      { class: "feedback-target" },
+      "橋渡しの確認: " + (q.target || "前提の判断")
+    ));
+    const list = el("ul", { class: "explanation-list" });
+    (Array.isArray(q.explanation) ? q.explanation : [String(q.explanation || "")]).forEach(function (line) {
+      list.appendChild(el("li", {}, line));
+    });
+    panel.appendChild(list);
+    if (q.misconceptions) {
+      panel.appendChild(el("p", { class: "misconceptions" }, "誤答の焦点: " + q.misconceptions));
+    }
+    root.appendChild(panel);
+    root.appendChild(el("div", { class: "btn-row" }, [el(
+      "button",
+      {
+        class: "btn btn-primary",
+        type: "button",
+        onclick: nextBridgeQuestion,
+      },
+      state.index === state.questions.length - 1 ? "本編へ進む" : "次の橋渡し問題へ"
+    )]));
+    const nextButton = root.querySelector(".btn-row .btn-primary");
+    if (nextButton) nextButton.focus();
+  }
+
+  function nextBridgeQuestion() {
+    if (!state || state.kind !== "bridge" || !state.answered) return;
+    if (state.index === state.questions.length - 1) {
+      finishBridge();
+      return;
+    }
+    state.index += 1;
+    renderBridgeQuestion();
+  }
+
+  function finishBridge() {
+    if (!state || state.kind !== "bridge") return;
+    const setId = state.setId;
+    const lessonId = state.lessonId;
+    const correct = state.correctCount;
+    const total = state.questions.length;
+    saveBridgeProgress(lessonId, correct, total);
+    recordLearningEvent("bridge_finished", {
+      setId: setId,
+      lessonId: lessonId,
+      correct: correct,
+      total: total,
+      rate: Math.round((correct / total) * 100),
+    });
+    startLesson(setId, lessonId, { skipBridge: true });
+  }
+
   function questionsForLesson(setId, lessonId) {
     return DATA.questions.filter(function (q) {
       return q.setId === setId && q.lessonId === lessonId;
@@ -1843,8 +2102,13 @@ export async function mount(root, ctx) {
     renderQuestion({ restoreAnswered: state.answered });
   }
 
-  function startLesson(setId, lessonId) {
+  function startLesson(setId, lessonId, options) {
     stopPreparationTracking();
+    const bridge = bridgeConfigForLesson(lessonId);
+    if (!(options && options.skipBridge) && bridge && !isBridgeCompleted(lessonId)) {
+      renderBridge(setId, lessonId);
+      return;
+    }
     const questions = questionsForLesson(setId, lessonId);
     const preparationProgress = loadPreparationLessonProgress(lessonId);
     const preparationViewed = Boolean(
@@ -2185,6 +2449,19 @@ export async function mount(root, ctx) {
 
   function onKeydown(e) {
     if (!state || !state.choiceListEl) return;
+    if (state.kind === "bridge") {
+      if (!state.answered) {
+        const num = parseInt(e.key, 10);
+        if (num >= 1 && num <= 4) {
+          const idx = num - 1;
+          if (state.choiceListEl.children[idx]) selectBridgeChoice(idx);
+        }
+      } else if (e.key === "Enter") {
+        const nextBtn = root.querySelector(".btn-row .btn-primary");
+        if (nextBtn) nextBtn.click();
+      }
+      return;
+    }
     if (!state.answered) {
       const num = parseInt(e.key, 10);
       if (num >= 1 && num <= 4) {
